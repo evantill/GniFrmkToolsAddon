@@ -1,0 +1,626 @@
+<configuration name="testReportCurrentConfiguration" creation="2010-10-06 18:47:13.562 CEST">
+   <adapterConnectionList class="java.util.ArrayList">
+      <adapterConnection type="JDBCAdapter" packageName="Essai1">
+         <alias>Essai1.adapter:cnx1</alias>
+         <state>ENABLED</state>
+      </adapterConnection>
+      <adapterConnection type="JDBCAdapter" packageName="Essai1">
+         <alias>Essai1.adapter:cnx2</alias>
+         <state>DISABLED</state>
+      </adapterConnection>
+      <adapterConnection type="JDBCAdapter" packageName="GniFrmk">
+         <alias>GniFrmk.availability.cnx:cnxAvailibility</alias>
+         <state>ENABLED</state>
+      </adapterConnection>
+      <adapterConnection type="JDBCAdapter" packageName="GniFrmk">
+         <alias>GniFrmk.transco.cnx:cnxTransco</alias>
+         <state>DISABLED</state>
+      </adapterConnection>
+      <adapterConnection type="JDBCAdapter" packageName="GniFrmkBAMV2">
+         <alias>GniFrmkBAMV2.connection:conFrmkBAM</alias>
+         <state>ENABLED</state>
+      </adapterConnection>
+      <adapterConnection type="JDBCAdapter" packageName="GniTools">
+         <alias>GniTools.Performance.adapter_jdbc:Cnx_JDBC_PERF_WME70</alias>
+         <state>ENABLED</state>
+      </adapterConnection>
+      <adapterConnection type="JDBCAdapter" packageName="GniFrmkErrorTemplates">
+         <alias>pub.gni.templates.generate.technicalError:sampleCnx</alias>
+         <state>ENABLED</state>
+      </adapterConnection>
+   </adapterConnectionList>
+   <adapterNotificationList class="java.util.ArrayList"/>
+   <adapterListenerList class="java.util.ArrayList">
+      <adapterListener packageName="Essai1">
+         <name>Essai1.adapter:essaiNotif</name>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </adapterListener>
+      <adapterListener packageName="Essai1">
+         <name>Essai1.adapter:xxxxx</name>
+         <status>ENABLED</status>
+         <state>SUSPENDED</state>
+      </adapterListener>
+      <adapterListener packageName="GniFrmkBAMV2">
+         <name>GniFrmkBAMV2.notifications:notifyOptimizeEvent</name>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </adapterListener>
+   </adapterListenerList>
+   <portList class="java.util.ArrayList">
+      <port pkg="GniFrmk">
+         <key>HTTPListener@6525</key>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniSinistre_Get_Out">
+         <key>HTTPListener@6539</key>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniSupervisionTresorerie_PE022">
+         <key>HTTPListener@6527</key>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniSupervisionTresorerie_PE022">
+         <key>FilePollingListener:/APP/DATA/TRE/TIG/SAS/IN@*.DATA.ok</key>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniSupervisionTresorerie_PE022">
+         <key>FilePollingListener:/tmp@coucou</key>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniSupervisionTresorerie_PE022">
+         <key>FilePollingListener:/APP/DATA/TRE/IB/SAS/IN@*.DATA.ok</key>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="WmRoot">
+         <key>HTTPListener@7516</key>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="WmRoot">
+         <key>HTTPSListener@6528</key>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="WmRoot">
+         <key>HTTPSListener@7513</key>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="WmRoot">
+         <key>HTTPListener@7519</key>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </port>
+   </portList>
+   <schedulerList class="java.util.ArrayList">
+      <scheduler>
+         <type>repeat</type>
+         <name>GniFrmkToolsStats.jdbc:schedulingStatistics</name>
+         <oid>3e75d780-ca57-11df-ac89-8ee26cc7631d</oid>
+         <description>GniFrmkToolsStats.jdbc:schedulingStatistics</description>
+         <service>GniFrmkToolsStats.jdbc:schedulingStatistics</service>
+         <executionState>READY</executionState>
+         <schedulerState>UNEXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>repeat</type>
+         <name>wm.monitor.admin:imageCleanup</name>
+         <oid>9ca7a9c0-0a62-11de-8941-889d219d55f5</oid>
+         <service>wm.monitor.admin:imageCleanup</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>UNEXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>repeat</type>
+         <name>GniReferentiel_Client_BCC_In.traitement.Interface:getQueueMessages</name>
+         <oid>7251d570-838c-11df-9b32-f6fd857602fb</oid>
+         <service>GniReferentiel_Client_BCC_In.traitement.Interface:getQueueMessages</service>
+         <executionState>READY</executionState>
+         <schedulerState>UNEXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>repeat</type>
+         <name>GniReferentiel_Client_FDP_In.traitement.Interface:getQueueMessages</name>
+         <oid>72404940-838c-11df-9b2e-e96714f0c3b6</oid>
+         <service>GniReferentiel_Client_FDP_In.traitement.Interface:getQueueMessages</service>
+         <executionState>READY</executionState>
+         <schedulerState>UNEXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>repeat</type>
+         <name>cla:service</name>
+         <oid>66273750-a078-11df-a6d8-9a1cc4e5a370</oid>
+         <description>test</description>
+         <service>cla:service</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>UNEXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>wm.monitor.admin:brokerPush</name>
+         <oid>ffa22a80-d2cd-11de-8642-af36a8bca449</oid>
+         <service>wm.monitor.admin:brokerPush</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+   </schedulerList>
+   <jmsTriggerList class="java.util.ArrayList">
+      <jmsTrigger>
+         <name>GniContratInternet_InjectionFUE_JMS.trigger:publishPropositionTrigger</name>
+         <status>ENABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>wm.prt.status:JMSControlTrigger</name>
+         <status>ENABLED</status>
+         <executionState>SUSPENDED</executionState>
+      </jmsTrigger>
+   </jmsTriggerList>
+   <nativeTriggerList class="java.util.ArrayList">
+      <nativeTrigger>
+         <name>ABCDE.ABCDE.ABCDE_1.BenchProcessSerial:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">SUSPENDED</retrievalState>
+         <processingState temporalState="PERMANENT">SUSPENDED</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>ABCDE.ABCDE.BenchProcessSerial:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="TEMPORARY">SUSPENDED</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>ABCDE.EDCBA.BenchProcessSerial:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="TEMPORARY">SUSPENDED</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>ABCDE.EDCBA.EDCBA_1.BenchProcessSerial:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="TEMPORARY">ACTIVE</retrievalState>
+         <processingState temporalState="TEMPORARY">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>BenchProcess.trigger:asyncTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>BenchProcessTest.BenchProcessTest1.BenchProcessAsyncIn:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>BenchProcessTest.BenchProcessTest1.BenchProcessDefault:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>BenchProcessTest.BenchProcessTest1.BenchProcessTest1_1.BenchProcessAsyncIn:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>BenchProcessTest.BenchProcessTest1.BenchProcessTest1_1.BenchProcessAsyncOut:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>BenchProcessTest.BenchProcessTest1.BenchProcessTest1_1.BenchProcessDefault:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>BenchProcessTest.BenchProcessTest1.BenchProcessTest1_1.BenchProcessParallel1:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>BenchProcessTest.BenchProcessTest1.BenchProcessTest1_1.BenchProcessParallel2:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>BenchProcessTest.BenchProcessTest1.BenchProcessTest1_1.BenchProcessParallel3:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>BenchProcessTest.BenchProcessTest1.BenchProcessTest1_1.BenchProcessSync:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>Essai1.GniConstDomEntrepriseBPM021.GniConstDomEntrepriseBPM021_1.LogicalConst1:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>Essai1.GniConstDomEntrepriseBPM021.LogicalConst1:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>Essai712avecFix5LeDernier.Essai712avecFix5LeDernier.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>Essai712avecFix5LeDernier.Essai712avecFix5LeDernier.Essai712avecFix5LeDernier_1.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>EssaiAvecFix.EssaiAvecFix.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>EssaiAvecFix.EssaiAvecFix.EssaiAvecFix_1.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>EssaiCLA.EssaiCLA.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>EssaiCLA.EssaiCLA.EssaiCLA_1.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>EssaiCLA.testProcess.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>EssaiCLA.testProcess.testProcess_1.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>EssaiSansFix.EssaiSansFix.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>EssaiSansFix.EssaiSansFix.EssaiSansFix_1.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GEDIEV.GEDIEV.GEDIEV_1.IS_BAC:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GEDIEV.GEDIEV.IS_BAC:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.GniContratInternetBPM_PE003_6.LS1_Sante:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.GniContratInternetBPM_PE003_6.LS2_Sante:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.GniContratInternetBPM_PE003_6.LS3_Sante:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.GniContratInternetBPM_PE003_6.LS4_Sante:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.GniContratInternetBPM_PE003_6.LS5_Sante:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.GniContratInternetBPM_PE003_6.LS6_Sante:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.LS1_Sante:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.LS2_Sante:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.LS3_Sante:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.LS4_Sante:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.LS5_Sante:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.LS6_Sante:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternet_InjectionFUE_Commun.trigger:determinerActionErreurTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniFrmk.availability.component.trigger:triggPurgeComponent</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniFrmk.availability.component.trigger:triggWakeUpComponent</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniFrmk.availability.dueDate.trigger:triggWakeUpDueDate</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniFrmkBAMV2.triggers:eventTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniFrmkBAMV2.triggers:optimizeEventTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniFrmkErrorTemplates.GniFrmkErrorTemplateBPMSimple.GniFrmkError:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniFrmkErrorTemplates.GniFrmkErrorTemplateBPMSimple.GniFrmkErrorTemplateBPMSimple_1.GniFrmkError:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniFrmkTestUnit.ihm.trigger:LaunchTestTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniSupervisionTresorerie_PE022.interfaces.trigger:traiterCompteRenduAlerteTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniSupervisionTresorerie_PE022.interfaces.trigger:traiterCompteRenduLotTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniSupervisionTresorerie_PE022.interfaces.trigger:traiterCompteRenduSousLotTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniTools.pattern.synchro:receptionDocFinTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniTools.pattern.synchro:receptionDocLigneTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>ReprocaseTriggerActivation:triggerDoc</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>aa.test2.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>aa.test2.test2_1.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>aaa:testTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.error.changestatus:traiterChangementStatutTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.error.retry:processResubmitRequestTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.templates.analyse:analyseAppnameTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.templates.bpm.analyse:analyseTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.templates.bpm.simulateur:traiterDemandeTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.templates.bpm.simulateur:traiterFinTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>wm.monitor.pmControl:EnableResponseTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>wm.prt.status:controlTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>wm.prt.status:trigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+   </nativeTriggerList>
+   <jmsAliasList class="java.util.ArrayList">
+      <jmsAlias>
+         <name>GniContratInternet_FUE_ConnectionAlias_Out</name>
+         <description>connection Alias factory</description>
+         <status>ENABLED</status>
+         <state>CONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>GniEspaceClient_IAM_In</name>
+         <description>GniEspaceClient_IAM_In</description>
+         <status>ENABLED</status>
+         <state>CONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>Gni_ConstDom_FILIP_TO</name>
+         <description>Gni_ConstDom_FILIP_TO</description>
+         <status>DISABLED</status>
+         <state>DISCONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>PE_NONTRANSACTIONAL_ALIAS</name>
+         <description>PE_NONTRANSACTIONAL_ALIAS</description>
+         <status>ENABLED</status>
+         <state>CONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>ReprocasCSQAlias</name>
+         <description>ReprocasCSQAlias on broker ar1tn232.groupe.generali.fr:7809 B_IS7512_01</description>
+         <status>ENABLED</status>
+         <state>CONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>TestSMEGEDI6446</name>
+         <description>Test gedi</description>
+         <status>ENABLED</status>
+         <state>CONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>test_ALIAS_2</name>
+         <description>test_ALIAS_2</description>
+         <status>DISABLED</status>
+         <state>DISCONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>test_Alias_JBOSS</name>
+         <description>EspaceClient_JMS_JBoss_JNDI</description>
+         <status>ENABLED</status>
+         <state>CONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>test_sibus</name>
+         <description>test_sibus</description>
+         <status>ENABLED</status>
+         <state>CONNECTED</state>
+      </jmsAlias>
+   </jmsAliasList>
+</configuration>

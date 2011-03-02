@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="wmroot">
+    <CLASSES>
+      <root url="file://C:/dev/temp/WmRoot/code/classes" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../decompile" />
+    </SOURCES>
+  </library>
+</component>

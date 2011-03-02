@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.data.ISMemDataImpl">
+    <array name="aliasDataList" type="record" depth="1">
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">GniContratInternet_FUE_ConnectionAlias_Out</value>
+        <value name="description">connection Alias factory</value>
+        <value name="clientID">GniContratInternet_FUE_ConnectionAlias_Out</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">true</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">0</value>
+        <value name="connected">true</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">true</jboolean>
+        <value name="associationType">0</value>
+        <value name="jndi_jndiAliasName">ContratInternet_Injection_FUE</value>
+        <value name="jndi_connectionFactoryLookupName">ContratInternet_QCF_Receiver</value>
+        <value name="jndi_connectionFactoryUpdateType">NONE</value>
+        <number name="jndi_connectionFactoryPollingInterval" type="java.lang.Integer">0</number>
+        <value name="providerName">webMethods JMS Provider</value>
+        <value name="providerVersion">7.1.2.0.79</value>
+        <number name="providerMajorVersion" type="java.lang.Integer">7</number>
+        <number name="providerMinorVersion" type="java.lang.Integer">1</number>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">GniEspaceClient_IAM_In</value>
+        <value name="description">GniEspaceClient_IAM_In</value>
+        <value name="clientID">GniEspaceClient_IAM_In</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">true</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">1</value>
+        <value name="connected">true</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">false</jboolean>
+        <value name="associationType">1</value>
+        <value name="nwm_brokerHost">ar1tn232.groupe.generali.fr:7809</value>
+        <value name="nwm_brokerName">B_IS7512_01</value>
+        <value name="nwm_brokerList"></value>
+        <value name="nwm_clientGroup">GestionIdentites_IdQCF01_Group</value>
+        <value name="nwm_keystore"></value>
+        <value name="nwm_keystoreType"></value>
+        <value name="nwm_truststore"></value>
+        <value name="nwm_truststoreType"></value>
+        <jboolean name="nwm_encrypted">false</jboolean>
+        <value name="providerName">webMethods JMS Provider</value>
+        <value name="providerVersion">7.1.2.0.79</value>
+        <number name="providerMajorVersion" type="java.lang.Integer">7</number>
+        <number name="providerMinorVersion" type="java.lang.Integer">1</number>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">Gni_ConstDom_FILIP_TO</value>
+        <value name="description">Gni_ConstDom_FILIP_TO</value>
+        <value name="clientID">Gni_ConstDom_FILIP_TO_CLIENT</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">false</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">1</value>
+        <value name="connected">false</value>
+        <value name="lastError">com.wm.app.b2b.server.jms.JMSSubsystemException: [ISS.0134.9016] Error creating connection factory: Could not obtain connection to any of these urls: 10.220.143.44:1098 and discovery failed with error: javax.naming.CommunicationException: Receive timed out [Root exception is java.net.SocketTimeoutException: Receive timed out]</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">false</jboolean>
+        <value name="associationType">0</value>
+        <value name="jndi_jndiAliasName">GniConst_FILIP_JMS_JBoss_4</value>
+        <value name="jndi_connectionFactoryLookupName">ConnectionFactory</value>
+        <value name="jndi_connectionFactoryUpdateType">NONE</value>
+        <number name="jndi_connectionFactoryPollingInterval" type="java.lang.Integer">0</number>
+        <value name="providerName">(Not Connected)</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">PE_NONTRANSACTIONAL_ALIAS</value>
+        <value name="description">PE_NONTRANSACTIONAL_ALIAS</value>
+        <value name="clientID">PE_NONTRANSACTIONAL_ALIAS_CLIENT</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">true</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">0</value>
+        <value name="connected">true</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">true</jboolean>
+        <value name="associationType">1</value>
+        <value name="nwm_brokerHost">ar1tn232.groupe.generali.fr:7809</value>
+        <value name="nwm_brokerName">B_IS7512_01</value>
+        <value name="nwm_brokerList"></value>
+        <value name="nwm_clientGroup">IS-JMS</value>
+        <value name="nwm_keystore"></value>
+        <value name="nwm_keystoreType"></value>
+        <value name="nwm_truststore"></value>
+        <value name="nwm_truststoreType"></value>
+        <jboolean name="nwm_encrypted">false</jboolean>
+        <value name="providerName">webMethods JMS Provider</value>
+        <value name="providerVersion">7.1.2.0.79</value>
+        <number name="providerMajorVersion" type="java.lang.Integer">7</number>
+        <number name="providerMinorVersion" type="java.lang.Integer">1</number>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">ReprocasCSQAlias</value>
+        <value name="description">ReprocasCSQAlias on broker ar1tn232.groupe.generali.fr:7809 B_IS7512_01</value>
+        <value name="clientID">ReprocasCSQAlias</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">true</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">false</value>
+        <value name="transactionType">0</value>
+        <value name="connected">true</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">false</jboolean>
+        <value name="associationType">1</value>
+        <value name="nwm_brokerHost">ar1tn232.groupe.generali.fr:7809</value>
+        <value name="nwm_brokerName">B_IS7512_01</value>
+        <value name="nwm_brokerList"></value>
+        <value name="nwm_clientGroup">IntegrationServer</value>
+        <value name="nwm_keystore"></value>
+        <value name="nwm_keystoreType"></value>
+        <value name="nwm_truststore"></value>
+        <value name="nwm_truststoreType"></value>
+        <jboolean name="nwm_encrypted">false</jboolean>
+        <value name="providerName">webMethods JMS Provider</value>
+        <value name="providerVersion">7.1.2.0.79</value>
+        <number name="providerMajorVersion" type="java.lang.Integer">7</number>
+        <number name="providerMinorVersion" type="java.lang.Integer">1</number>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">TestSMEGEDI6446</value>
+        <value name="description">Test gedi</value>
+        <value name="clientID">TestGEDI6446</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">true</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">1</value>
+        <value name="connected">true</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">false</jboolean>
+        <value name="associationType">1</value>
+        <value name="nwm_brokerHost">ar1tn232.groupe.generali.fr:7809</value>
+        <value name="nwm_brokerName">B_IS7512_01</value>
+        <value name="nwm_brokerList"></value>
+        <value name="nwm_clientGroup">IS-JMS</value>
+        <value name="nwm_keystore"></value>
+        <value name="nwm_keystoreType"></value>
+        <value name="nwm_truststore"></value>
+        <value name="nwm_truststoreType"></value>
+        <jboolean name="nwm_encrypted">false</jboolean>
+        <value name="providerName">webMethods JMS Provider</value>
+        <value name="providerVersion">7.1.2.0.79</value>
+        <number name="providerMajorVersion" type="java.lang.Integer">7</number>
+        <number name="providerMinorVersion" type="java.lang.Integer">1</number>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">test_ALIAS_2</value>
+        <value name="description">test_ALIAS_2</value>
+        <value name="clientID">GniEspaceClient_GFR_Out</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">false</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">0</value>
+        <value name="connected">false</value>
+        <value name="lastError">com.wm.app.b2b.server.jms.JMSSubsystemException: [ISS.0134.9064] Error creating connection: [BRM.10.4007] JMS: Unknown Broker "B_IS6540_01".</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">false</jboolean>
+        <value name="associationType">1</value>
+        <value name="nwm_brokerHost">ar2dv102.groupe.generali.fr:6840</value>
+        <value name="nwm_brokerName">B_IS6540_01</value>
+        <value name="nwm_brokerList"></value>
+        <value name="nwm_clientGroup">EspaceClient_QCF01_Group</value>
+        <value name="nwm_keystore"></value>
+        <value name="nwm_keystoreType"></value>
+        <value name="nwm_truststore"></value>
+        <value name="nwm_truststoreType"></value>
+        <jboolean name="nwm_encrypted">false</jboolean>
+        <value name="providerName">webMethods JMS Provider</value>
+        <value name="providerVersion">(Not Connected)</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">test_Alias_JBOSS</value>
+        <value name="description">EspaceClient_JMS_JBoss_JNDI</value>
+        <value name="clientID">EspaceClient_JMS_JBoss_Connector</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">true</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">1</value>
+        <value name="connected">true</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">false</jboolean>
+        <value name="associationType">0</value>
+        <value name="jndi_jndiAliasName">EspaceClient_JMS_JBoss_JNDI</value>
+        <value name="jndi_connectionFactoryLookupName">ConnectionFactory</value>
+        <value name="jndi_connectionFactoryUpdateType">NONE</value>
+        <number name="jndi_connectionFactoryPollingInterval" type="java.lang.Integer">0</number>
+        <value name="providerName">JBoss Messaging</value>
+        <value name="providerVersion">1.4.0.SP3-CP07</value>
+        <number name="providerMajorVersion" type="java.lang.Integer">1</number>
+        <number name="providerMinorVersion" type="java.lang.Integer">4</number>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">test_sibus</value>
+        <value name="description">test_sibus</value>
+        <value name="clientID">ContratVie_Souscription_GAEL_ApogeeAffilie_CLIENT</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">true</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">0</value>
+        <value name="connected">true</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">false</jboolean>
+        <value name="associationType">0</value>
+        <value name="jndi_jndiAliasName">test_sibus</value>
+        <value name="jndi_connectionFactoryLookupName">jms/GaelNeoRetQCF</value>
+        <value name="jndi_connectionFactoryUpdateType">NONE</value>
+        <number name="jndi_connectionFactoryPollingInterval" type="java.lang.Integer">0</number>
+        <value name="providerName">IBM</value>
+        <value name="providerVersion">???</value>
+        <number name="providerMajorVersion" type="java.lang.Integer">0</number>
+        <number name="providerMinorVersion" type="java.lang.Integer">0</number>
+      </record>
+    </array>
+  </record>
+</IDataXMLCoder>

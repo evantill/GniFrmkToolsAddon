@@ -1,0 +1,198 @@
+<configuration name="testSaveConfiguration" creation="2010-11-24T20:08:14Z" modification="2010-11-24T20:08:15Z">
+   <adapterConnectionList>
+      <adapterConnection>
+         <id key="aliasName1"/>
+         <type>ADAPTER_CONNECTION</type>
+         <state>
+            <enableStatus>ENABLED</enableStatus>
+         </state>
+         <infos class="com.gni.frmk.tools.addon.data.adapter.AdapterConnectionInfo">
+            <info key="packageName">pckgEssai1</info>
+            <info key="adapterType">JDBCAdapter</info>
+            <info key="alias">aliasName1</info>
+         </infos>
+      </adapterConnection>
+      <adapterConnection>
+         <id key="aliasName2"/>
+         <type>ADAPTER_CONNECTION</type>
+         <state>
+            <enableStatus>ENABLED</enableStatus>
+         </state>
+         <infos class="com.gni.frmk.tools.addon.data.adapter.AdapterConnectionInfo">
+            <info key="packageName">pckgEssai2</info>
+            <info key="adapterType">JDBCAdapter</info>
+            <info key="alias">aliasName2</info>
+         </infos>
+      </adapterConnection>
+   </adapterConnectionList>
+   <adapterNotificationList class="java.util.TreeSet">
+      <adapterNotification>
+         <id key="notif5"/>
+         <type>ADAPTER_NOTIFICATION</type>
+         <state class="com.gni.frmk.tools.addon.data.component.ActivableComponentState">
+            <enableStatus>ENABLED</enableStatus>
+         </state>
+         <infos class="com.gni.frmk.tools.addon.data.adapter.AdapterNotificationInfo">
+            <info key="packageName">pckgEssai5</info>
+            <info key="adapterType">JDBCAdapter</info>
+            <info key="name">notif5</info>
+         </infos>
+      </adapterNotification>
+      <adapterNotification>
+         <id key="notif6"/>
+         <type>ADAPTER_NOTIFICATION</type>
+         <state class="com.gni.frmk.tools.addon.data.component.ActivableComponentState">
+            <enableStatus>ENABLED</enableStatus>
+         </state>
+         <infos class="com.gni.frmk.tools.addon.data.adapter.AdapterNotificationInfo">
+            <info key="packageName">pckgEssai6</info>
+            <info key="adapterType">JDBCAdapter</info>
+            <info key="name">notif6</info>
+         </infos>
+      </adapterNotification>
+   </adapterNotificationList>
+   <adapterListenerList class="java.util.TreeSet">
+      <adapterListener>
+         <id key="listener3"/>
+         <type>ADAPTER_LISTENER</type>
+         <state class="com.gni.frmk.tools.addon.data.component.ActivableComponentState">
+            <enableStatus>ENABLED</enableStatus>
+         </state>
+         <infos class="com.gni.frmk.tools.addon.data.adapter.AdapterListenerInfo">
+            <info key="packageName">pckgEssai3</info>
+            <info key="adapterType">JDBCAdapter</info>
+            <info key="name">listener3</info>
+         </infos>
+      </adapterListener>
+      <adapterListener>
+         <id key="listener4"/>
+         <type>ADAPTER_LISTENER</type>
+         <state class="com.gni.frmk.tools.addon.data.component.ActivableComponentState">
+            <enableStatus>ENABLED</enableStatus>
+         </state>
+         <infos class="com.gni.frmk.tools.addon.data.adapter.AdapterListenerInfo">
+            <info key="packageName">pckgEssai4</info>
+            <info key="adapterType">JDBCAdapter</info>
+            <info key="name">listener4</info>
+         </infos>
+      </adapterListener>
+   </adapterListenerList>
+   <portList class="java.util.TreeSet">
+      <port>
+         <id key="port7"/>
+         <type>PORT</type>
+         <state class="com.gni.frmk.tools.addon.data.component.ActivableComponentState">
+            <enableStatus>ENABLED</enableStatus>
+         </state>
+         <infos class="com.gni.frmk.tools.addon.data.component.ComponentPackageInfo">
+            <info key="packageName">WmRoot</info>
+         </infos>
+      </port>
+      <port>
+         <id key="port8"/>
+         <type>PORT</type>
+         <state class="com.gni.frmk.tools.addon.data.component.ActivableComponentState">
+            <enableStatus>ENABLED</enableStatus>
+         </state>
+         <infos class="com.gni.frmk.tools.addon.data.component.ComponentPackageInfo">
+            <info key="packageName">WmRoot</info>
+         </infos>
+      </port>
+      <port>
+         <id key="port9"/>
+         <type>PORT</type>
+         <state class="com.gni.frmk.tools.addon.data.component.ActivableComponentState">
+            <enableStatus>ENABLED</enableStatus>
+         </state>
+         <infos class="com.gni.frmk.tools.addon.data.component.ComponentPackageInfo">
+            <info key="packageName">WmRoot</info>
+         </infos>
+      </port>
+   </portList>
+   <schedulerList class="java.util.TreeSet">
+      <scheduler>
+         <type>typeScheduler</type>
+         <name>nameScheduler10</name>
+         <oid>oidScheduler10</oid>
+         <service>srv10</service>
+         <executionState>READY</executionState>
+         <schedulerState>UNEXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>typeScheduler</type>
+         <name>nameScheduler11</name>
+         <oid>oidScheduler11</oid>
+         <service>srv11</service>
+         <executionState>READY</executionState>
+         <schedulerState>UNEXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>typeScheduler</type>
+         <name>nameScheduler12</name>
+         <oid>oidScheduler12</oid>
+         <service>srv12</service>
+         <executionState>READY</executionState>
+         <schedulerState>UNEXPIRED</schedulerState>
+      </scheduler>
+   </schedulerList>
+   <jmsTriggerList class="java.util.TreeSet">
+      <jmsTrigger>
+         <name>triggerJms13</name>
+         <status>ENABLED</status>
+         <executionState>SUSPENDED</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>triggerJms14</name>
+         <status>ENABLED</status>
+         <executionState>SUSPENDED</executionState>
+      </jmsTrigger>
+   </jmsTriggerList>
+   <nativeTriggerList class="java.util.TreeSet">
+      <nativeTrigger>
+         <name>triggerNatif15</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="TEMPORARY">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">SUSPENDED</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>triggerNatif16</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="TEMPORARY">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">SUSPENDED</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>triggerNatif17</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="TEMPORARY">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">SUSPENDED</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>triggerNatif18</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="TEMPORARY">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">SUSPENDED</processingState>
+      </nativeTrigger>
+   </nativeTriggerList>
+   <jmsAliasList class="java.util.TreeSet">
+      <jmsAlias>
+         <id key="alias essai 19"/>
+         <type>JMS_ALIAS</type>
+         <state class="com.gni.frmk.tools.addon.data.component.ActivableComponentState">
+            <enableStatus>ENABLED</enableStatus>
+         </state>
+         <infos class="com.gni.frmk.tools.addon.data.trigger.JmsAliasInfo">
+            <info key="description"/>
+         </infos>
+      </jmsAlias>
+      <jmsAlias>
+         <id key="alias essai 20"/>
+         <type>JMS_ALIAS</type>
+         <state class="com.gni.frmk.tools.addon.data.component.ActivableComponentState">
+            <enableStatus>ENABLED</enableStatus>
+         </state>
+         <infos class="com.gni.frmk.tools.addon.data.trigger.JmsAliasInfo">
+            <info key="description"/>
+         </infos>
+      </jmsAlias>
+   </jmsAliasList>
+</configuration>

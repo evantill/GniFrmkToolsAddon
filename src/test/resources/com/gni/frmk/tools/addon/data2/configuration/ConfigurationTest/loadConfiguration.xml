@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration creation="2011-03-02T17:07:37.125+01:00" name="testSaveConfiguration">
+    <adapterConnectionList>
+        <adapterConnection>
+            <type>ADAPTER_CONNECTION</type>
+            <id>aliasName1</id>
+            <details>
+                <details key="adapterType">JDBCAdapter</details>
+                <details key="alias">aliasName1</details>
+                <details key="packageName">pckgEssai</details>
+            </details>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </adapterConnection>
+        <adapterConnection>
+            <type>ADAPTER_CONNECTION</type>
+            <id>aliasName2</id>
+            <details>
+                <details key="adapterType">JDBCAdapter</details>
+                <details key="alias">aliasName2</details>
+                <details key="packageName">pckgEssai</details>
+            </details>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </adapterConnection>
+    </adapterConnectionList>
+    <adapterNotificationList>
+        <adapterNotificationList>
+            <type>ADAPTER_NOTIFICATION</type>
+            <id>notificationName5</id>
+            <details>
+                <details key="adapterType">JDBCAdapter</details>
+                <details key="notificationName">notificationName5</details>
+                <details key="packageName">pckgEssai</details>
+            </details>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </adapterNotificationList>
+        <adapterNotificationList>
+            <type>ADAPTER_NOTIFICATION</type>
+            <id>notificationName6</id>
+            <details>
+                <details key="adapterType">JDBCAdapter</details>
+                <details key="notificationName">notificationName6</details>
+                <details key="packageName">pckgEssai</details>
+            </details>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </adapterNotificationList>
+    </adapterNotificationList>
+    <adapterListenerList>
+        <adapterListenerList>
+            <type>ADAPTER_LISTENER</type>
+            <id>listenerName3</id>
+            <details>
+                <details key="adapterType">JDBCAdapter</details>
+                <details key="listenerName">listenerName3</details>
+                <details key="packageName">pckgEssai</details>
+            </details>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </adapterListenerList>
+        <adapterListenerList>
+            <type>ADAPTER_LISTENER</type>
+            <id>listenerName4</id>
+            <details>
+                <details key="adapterType">JDBCAdapter</details>
+                <details key="listenerName">listenerName4</details>
+                <details key="packageName">pckgEssai</details>
+            </details>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </adapterListenerList>
+    </adapterListenerList>
+    <portList>
+        <portList>
+            <type>PORT</type>
+            <id>Port7</id>
+            <details>
+                <details key="packageName">pkgEssai</details>
+            </details>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </portList>
+        <portList>
+            <type>PORT</type>
+            <id>Port8</id>
+            <details>
+                <details key="packageName">pkgEssai</details>
+            </details>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </portList>
+        <portList>
+            <type>PORT</type>
+            <id>Port9</id>
+            <details>
+                <details key="packageName">pkgEssai</details>
+            </details>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </portList>
+    </portList>
+    <schedulerList>
+        <schedulerList>
+            <type>SCHEDULER</type>
+            <id>SchedulerId10</id>
+            <details>
+                <details key="schedulerName">SchedulerName10</details>
+                <details key="schedulerType">SchedulerType10</details>
+                <details key="service">SchedulerService10</details>
+            </details>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </schedulerList>
+        <schedulerList>
+            <type>SCHEDULER</type>
+            <id>SchedulerId11</id>
+            <details>
+                <details key="schedulerName">SchedulerName11</details>
+                <details key="schedulerType">SchedulerType11</details>
+                <details key="service">SchedulerService11</details>
+            </details>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </schedulerList>
+        <schedulerList>
+            <type>SCHEDULER</type>
+            <id>SchedulerId12</id>
+            <details>
+                <details key="schedulerName">SchedulerName12</details>
+                <details key="schedulerType">SchedulerType12</details>
+                <details key="service">SchedulerService12</details>
+            </details>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </schedulerList>
+    </schedulerList>
+    <jmsTriggerList>
+        <jmsTriggerList>
+            <type>JMS_TRIGGER</type>
+            <id>JmsTrigger13</id>
+            <details/>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </jmsTriggerList>
+        <jmsTriggerList>
+            <type>JMS_TRIGGER</type>
+            <id>JmsTrigger14</id>
+            <details/>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </jmsTriggerList>
+    </jmsTriggerList>
+    <nativeTriggerList>
+        <nativeTriggerList>
+            <type>NATIVE_TRIGGER</type>
+            <id>NativeTrigger15</id>
+            <details/>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </nativeTriggerList>
+        <nativeTriggerList>
+            <type>NATIVE_TRIGGER</type>
+            <id>NativeTrigger16</id>
+            <details/>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </nativeTriggerList>
+        <nativeTriggerList>
+            <type>NATIVE_TRIGGER</type>
+            <id>NativeTrigger17</id>
+            <details/>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </nativeTriggerList>
+        <nativeTriggerList>
+            <type>NATIVE_TRIGGER</type>
+            <id>NativeTrigger18</id>
+            <details/>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </nativeTriggerList>
+    </nativeTriggerList>
+    <jmsAliasList>
+        <jmsAliasList>
+            <type>JMS_ALIAS</type>
+            <id>JmsAlias19</id>
+            <details>
+                <details key="description">description</details>
+            </details>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </jmsAliasList>
+        <jmsAliasList>
+            <type>JMS_ALIAS</type>
+            <id>JmsAlias20</id>
+            <details>
+                <details key="description">description</details>
+            </details>
+            <state>
+                <enabled>ENABLED</enabled>
+            </state>
+        </jmsAliasList>
+    </jmsAliasList>
+</configuration>
