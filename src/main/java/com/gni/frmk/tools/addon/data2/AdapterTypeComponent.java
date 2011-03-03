@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.data2;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -12,11 +12,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Time: 18:31
  * To change this template use File | Settings | File Templates.
  */
-public abstract class AdapterTypeComponent<S extends ComponentState> extends PackageComponent<S> {
+public abstract class AdapterTypeComponent extends PackageComponent {
 
     private static final String ADAPTER_TYPE_KEY = "adapterType";
 
-    public AdapterTypeComponent(Builder<S,?> builder) {
+    public AdapterTypeComponent(Builder<?,?> builder) {
         super(builder);
     }
 
@@ -26,6 +26,7 @@ public abstract class AdapterTypeComponent<S extends ComponentState> extends Pac
     protected AdapterTypeComponent() {
     }
 
+    @XmlTransient
     public String getAdapterType() {
         return findRequiredDetail(ADAPTER_TYPE_KEY).getValue();
     }

@@ -1,8 +1,7 @@
 package com.gni.frmk.tools.addon.data2;
 
 
-import com.gni.frmk.tools.addon.data2.AdapterTypeComponent.Builder;
-
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -16,13 +15,16 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * To change this template use File | Settings | File Templates.
  */
 @XmlRootElement
-public class AdapterConnection extends AdapterTypeComponent<EnableComponentState> {
+public class AdapterConnection extends AdapterTypeComponent {
 
     public static final ComponentType TYPE = ComponentType.ADAPTER_CONNECTION;
     protected static final String ALIAS_KEY = "alias";
 
-    private AdapterConnection(Builder<? extends EnableComponentState,?> builder) {
+    private final EnableComponentState state;
+
+    private AdapterConnection(Builder<?, ?> builder) {
         super(builder);
+        state = builder.getState();
     }
 
     /**
@@ -30,7 +32,13 @@ public class AdapterConnection extends AdapterTypeComponent<EnableComponentState
      */
     @SuppressWarnings({"UnusedDeclaration"})
     private AdapterConnection() {
-        super();
+        state = null;
+    }
+
+    @Override
+    @XmlElement
+    public EnableComponentState getState() {
+        return state;
     }
 
     @XmlTransient
@@ -50,11 +58,8 @@ public class AdapterConnection extends AdapterTypeComponent<EnableComponentState
         return new AdapterConnectionBuilder();
     }
 
-    public static abstract class Builder<S extends EnableComponentState,T extends Builder<S,T>>
-            extends AdapterTypeComponent.Builder<EnableComponentState, T> {
-
+    public static abstract class Builder<S extends EnableComponentState, T extends Builder<S, T>> extends AdapterTypeComponent.Builder<S, T> {
         private String aliasName;
-
 
         public Builder() {
             type(TYPE);
@@ -82,9 +87,10 @@ public class AdapterConnection extends AdapterTypeComponent<EnableComponentState
         public AdapterConnection build() {
             return new AdapterConnection(this);
         }
+
     }
 
-    public static class AdapterConnectionBuilder extends Builder<EnableComponentState,AdapterConnectionBuilder> {
+    public static class AdapterConnectionBuilder extends Builder<EnableComponentState, AdapterConnectionBuilder> {
         @Override
         protected AdapterConnectionBuilder self() {
             return this;

@@ -55,6 +55,10 @@ public class ConstructorInjectionTest {
             this.two = two;
         }
 
+         public SimpleElementOne(String value) {
+            this.two = new SimpleElementTwo(value);
+        }
+
         /**
          * Removing this constructor will make the test successful
          */
@@ -79,7 +83,7 @@ public class ConstructorInjectionTest {
     }
 
     @Test
-    @Ignore("en attente fix")
+    //@Ignore("en attente fix")
     /**
      * The stack trace is :
      *  org.simpleframework.xml.core.ConstructorException: No match found for field 'two' private final thirdparty.simplexml.ConstructorInjectionTest$SimpleElementTwo thirdparty.simplexml.ConstructorInjectionTest$SimpleElementOne.two in class thirdparty.simplexml.ConstructorInjectionTest$SimpleElementOne

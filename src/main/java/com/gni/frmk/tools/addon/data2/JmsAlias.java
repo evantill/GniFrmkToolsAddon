@@ -11,28 +11,35 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Time: 15:11
  * To change this template use File | Settings | File Templates.
  */
-public class JmsAlias extends Component<EnableComponentState> {
+public class JmsAlias extends AbstractComponent {
 
     public static final ComponentType TYPE = ComponentType.JMS_ALIAS;
     private static final String DESCRIPTION_KEY = "description";
 
-    private JmsAlias(Builder<? extends EnableComponentState,?> builder) {
+    private final EnableComponentState state;
+
+    private JmsAlias(Builder<?, ?> builder) {
         super(builder);
-    }
-
-    @XmlTransient
-    public String getDescription() {
-        return findRequiredDetail(DESCRIPTION_KEY).getValue();
-    }
-
-    public void setDescription(String description) {
-        addDetail(new ComponentDetail(DESCRIPTION_KEY, description));
+        state = builder.getState();
     }
 
     /**
      * empty constructor for jaxb.
      */
     private JmsAlias() {
+        state = null;
+    }
+
+    public EnableComponentState getState() {
+        return state;
+    }
+
+    public String getDescription() {
+        return findRequiredDetail(DESCRIPTION_KEY).getValue();
+    }
+
+    public void setDescription(String description) {
+        addDetail(new ComponentDetail(DESCRIPTION_KEY, description));
     }
 
     public void accept(ComponentVisitor visitor) {
@@ -43,7 +50,7 @@ public class JmsAlias extends Component<EnableComponentState> {
         return new JmsAliasBuilder();
     }
 
-    public static abstract class Builder<S extends EnableComponentState, T extends Builder<S, T>> extends Component.Builder<EnableComponentState,T> {
+    public static abstract class Builder<S extends EnableComponentState, T extends Builder<S, T>> extends AbstractComponent.Builder<EnableComponentState, T> {
 
         private String description;
 
@@ -63,7 +70,7 @@ public class JmsAlias extends Component<EnableComponentState> {
         }
     }
 
-    public static class JmsAliasBuilder extends Builder<EnableComponentState,JmsAliasBuilder> {
+    public static class JmsAliasBuilder extends Builder<EnableComponentState, JmsAliasBuilder> {
         @Override
         protected JmsAliasBuilder self() {
             return this;

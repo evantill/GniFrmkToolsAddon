@@ -1,9 +1,6 @@
 package com.gni.frmk.tools.addon.data2;
 
-import com.gni.frmk.tools.addon.data2.Component;
-import com.gni.frmk.tools.addon.data2.ComponentDetail;
-
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -15,10 +12,10 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Time: 17:29
  * To change this template use File | Settings | File Templates.
  */
-public abstract class PackageComponent<S extends ComponentState> extends Component<S> {
+public abstract class PackageComponent extends AbstractComponent {
     protected static final String PACKAGE_NAME_KEY = "packageName";
 
-    public PackageComponent(Builder<S,?> builder) {
+    public PackageComponent(Builder<?,?> builder) {
         super(builder);
     }
 
@@ -28,6 +25,7 @@ public abstract class PackageComponent<S extends ComponentState> extends Compone
     protected PackageComponent() {
     }
 
+    @XmlTransient
     public String getPackageName() {
         return findRequiredDetail(PACKAGE_NAME_KEY).getValue();
     }
@@ -36,7 +34,7 @@ public abstract class PackageComponent<S extends ComponentState> extends Compone
         addDetail(new ComponentDetail(PACKAGE_NAME_KEY, packageName));
     }
 
-    public static abstract class Builder<S extends ComponentState,T extends Builder<S,T>> extends Component.Builder<S,T> {
+    public static abstract class Builder<S extends ComponentState,T extends Builder<S,T>> extends AbstractComponent.Builder<S,T> {
 
         private String packageName;
 

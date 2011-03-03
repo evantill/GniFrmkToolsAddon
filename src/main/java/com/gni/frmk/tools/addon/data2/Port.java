@@ -7,18 +7,26 @@ package com.gni.frmk.tools.addon.data2;
  * Time: 14:36
  * To change this template use File | Settings | File Templates.
  */
-public class Port extends PackageComponent<EnableComponentState> {
+public class Port extends PackageComponent {
 
     public static final ComponentType TYPE = ComponentType.PORT;
 
-    private Port(Builder<? extends EnableComponentState,?> builder) {
+    private final  EnableComponentState state;
+
+    private Port(Builder<?,?> builder) {
         super(builder);
+        state = builder.getState();
     }
 
     /**
      * empty constructor for jaxb.
      */
     private Port() {
+        state = null;
+    }
+
+    public EnableComponentState getState() {
+        return state;
     }
 
     public void accept(ComponentVisitor visitor) {
@@ -29,7 +37,7 @@ public class Port extends PackageComponent<EnableComponentState> {
         return new PortBuilder();
     }
 
-    public static abstract class Builder<S extends EnableComponentState, T extends Builder<S, T>> extends PackageComponent.Builder<EnableComponentState,T> {
+    public static abstract class Builder<S extends EnableComponentState, T extends Builder<S, T>> extends PackageComponent.Builder<S,T> {
 
         public Builder() {
             type(TYPE);

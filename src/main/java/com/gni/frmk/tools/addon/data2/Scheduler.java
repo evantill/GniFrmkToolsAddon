@@ -11,7 +11,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Time: 14:54
  * To change this template use File | Settings | File Templates.
  */
-public class Scheduler extends Component<EnableComponentState> {
+public class Scheduler extends AbstractComponent {
 
     public static final ComponentType TYPE = ComponentType.SCHEDULER;
 
@@ -20,17 +20,24 @@ public class Scheduler extends Component<EnableComponentState> {
     private static final String SCHEDULER_NAME_KEY = "schedulerName";
     private static final String SCHEDULER_TYPE_KEY = "schedulerType";
 
-    private Scheduler(Builder<? extends EnableComponentState,?> builder) {
+    private final EnableComponentState state;
+
+    private Scheduler(Builder<?, ?> builder) {
         super(builder);
+        state = builder.getState();
     }
 
     /**
      * empty constructor for jaxb.
      */
     private Scheduler() {
+        state = null;
     }
 
-    @XmlTransient
+    public EnableComponentState getState() {
+        return state;
+    }
+
     public String getDescription() {
         return findRequiredDetail(DESCRIPTION_KEY).getValue();
     }
@@ -66,7 +73,6 @@ public class Scheduler extends Component<EnableComponentState> {
         addDetail(new ComponentDetail(SCHEDULER_TYPE_KEY, type));
     }
 
-
     public void accept(ComponentVisitor visitor) {
         visitor.visit(this);
     }
@@ -75,7 +81,7 @@ public class Scheduler extends Component<EnableComponentState> {
         return new SchedulerBuilder();
     }
 
-    public static abstract class Builder<S extends EnableComponentState, T extends Builder<S, T>> extends Component.Builder<EnableComponentState,T> {
+    public static abstract class Builder<S extends EnableComponentState, T extends Builder<S, T>> extends AbstractComponent.Builder<S, T> {
 
         private String description;
         private String service;
@@ -130,7 +136,7 @@ public class Scheduler extends Component<EnableComponentState> {
 
     }
 
-    public static class SchedulerBuilder extends Builder<EnableComponentState,SchedulerBuilder> {
+    public static class SchedulerBuilder extends Builder<EnableComponentState, SchedulerBuilder> {
         @Override
         protected SchedulerBuilder self() {
             return this;

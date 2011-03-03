@@ -11,19 +11,27 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Time: 14:32
  * To change this template use File | Settings | File Templates.
  */
-public class AdapterNotification extends PackageComponent<EnableComponentState> {
+public class AdapterNotification extends AdapterTypeComponent {
 
     public static final ComponentType TYPE = ComponentType.ADAPTER_NOTIFICATION;
     private static final String NOTIFICATION_NAME_KEY = "notificationName";
 
-    private AdapterNotification(Builder<? extends EnableComponentState, ?> builder) {
+    private final EnableComponentState state;
+
+    private AdapterNotification(Builder<?, ?> builder) {
         super(builder);
+        state=builder.getState();
     }
 
     /**
      * empty constructor for jaxb.
      */
     private AdapterNotification() {
+        state = null;
+    }
+
+    public EnableComponentState getState() {
+        return state;
     }
 
     @XmlTransient

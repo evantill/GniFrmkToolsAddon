@@ -11,7 +11,6 @@ import javax.xml.bind.annotation.XmlValue;
  * Time: 09:32
  * To change this template use File | Settings | File Templates.
  */
-@XmlRootElement
 public class ComponentDetail<D extends ComponentDetail> implements Comparable<D> {
 
     @XmlAttribute

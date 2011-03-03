@@ -1,12 +1,12 @@
-package thirdparty.jaxb.registry;
+package com.gni.frmk.tools.addon.data3.components;
 
 /**
  * Created by IntelliJ IDEA.
  * User: e03229
  * Date: 03/03/11
- * Time: 11:33
+ * Time: 17:22
  * To change this template use File | Settings | File Templates.
  */
-public enum ElementType {
-    ONE,TWO,TREE
+public enum ComponentType {
+    ADAPTER_CONNECTION
 }

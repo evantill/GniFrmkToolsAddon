@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.data2;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -11,8 +12,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * To change this template use File | Settings | File Templates.
  */
 @XmlRootElement
-public class EnableComponentState extends ComponentState {
+public class EnableComponentState implements ComponentState {
 
+    @XmlEnum
     public static enum EnableStatus {
         ENABLED, DISABLED
     }

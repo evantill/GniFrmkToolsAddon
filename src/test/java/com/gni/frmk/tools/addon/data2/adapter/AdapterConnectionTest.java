@@ -97,19 +97,22 @@ public class AdapterConnectionTest {
 
         Marshaller marshaller = ctx.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FRAGMENT, false);
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
         StringWriter out = new StringWriter();
         marshaller.marshal(root, out);
+        System.out.println("out = " + out);
         assertEquals("invalid marshalling", xmlContent, out.toString());
     }
 
     @Test
     public void testAdapterConnectionXmlUnmarshalling() throws JAXBException {
+        String tmp="<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n" + "<adapterConnectionXmlRoot>\n" + "    <connection>\n" + "        <type>ADAPTER_CONNECTION</type>\n" + "        <id>compId</id>\n" + "        <details>\n" + "            <detail key=\"adapterType\">JDBCAdapter</detail>\n" + "            <detail key=\"alias\">aliasValue</detail>\n" + "            <detail key=\"key1\">value1</detail>\n" + "            <detail key=\"key2\">value2</detail>\n" + "            <detail key=\"packageName\">WmEssai</detail>\n" + "        </details>\n" + "        <state>\n" + "            <enabled>ENABLED</enabled>\n" + "        </state>\n" + "    </connection>\n" + "</adapterConnectionXmlRoot>";
         JAXBContext ctx = JAXBContext.newInstance(AdapterConnectionXmlRoot.class);
         Unmarshaller unmarshaller = ctx.createUnmarshaller();
 
-        StringReader in = new StringReader(xmlContent);
+//        StringReader in = new StringReader(xmlContent);
+        StringReader in = new StringReader(tmp);
         AdapterConnectionXmlRoot root = (AdapterConnectionXmlRoot) unmarshaller.unmarshal(in);
         assertSampleAsExpected(root.getConnection());
     }

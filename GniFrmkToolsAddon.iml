@@ -22,7 +22,7 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.wm:wmisclient:7.1.2.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.wm:wmismonitor:7.1.2.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.wm:wmisprt:7.1.2.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.simpleframework:simple-xml:2.3.6" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.simpleframework:simple-xml:2.4.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: stax:stax-api:1.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: stax:stax:1.2.0" level="project" />
     <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.1" level="project" />

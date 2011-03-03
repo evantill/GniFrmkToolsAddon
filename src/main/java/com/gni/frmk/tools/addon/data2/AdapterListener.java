@@ -11,19 +11,27 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Time: 18:29
  * To change this template use File | Settings | File Templates.
  */
-public class AdapterListener extends PackageComponent<EnableComponentState> {
+public class AdapterListener extends AdapterTypeComponent {
 
     public static final ComponentType TYPE = ComponentType.ADAPTER_LISTENER;
     private static final String LISTENER_NAME_KEY = "listenerName";
 
-    private AdapterListener(Builder<? extends EnableComponentState,?> builder) {
+    private final EnableComponentState state;
+
+    private AdapterListener(Builder<?, ?> builder) {
         super(builder);
+        state = builder.getState();
     }
 
     /**
      * empty constructor for jaxb.
      */
     private AdapterListener() {
+        state = null;
+    }
+
+    public EnableComponentState getState() {
+        return state;
     }
 
     @XmlTransient
@@ -43,8 +51,7 @@ public class AdapterListener extends PackageComponent<EnableComponentState> {
         return new AdapterListenerBuilder();
     }
 
-    public static abstract  class Builder<S extends EnableComponentState,T extends Builder<S,T>>
-            extends AdapterTypeComponent.Builder<EnableComponentState, T>  {
+    public static abstract class Builder<S extends EnableComponentState, T extends Builder<S, T>> extends AdapterTypeComponent.Builder<EnableComponentState, T> {
 
         private String listenerName;
 
@@ -67,7 +74,7 @@ public class AdapterListener extends PackageComponent<EnableComponentState> {
             } catch (NullPointerException npex) {
                 throw new CheckException(npex);
             }
-           return self();
+            return self();
         }
 
         @Override
@@ -77,7 +84,7 @@ public class AdapterListener extends PackageComponent<EnableComponentState> {
 
     }
 
-    public static class AdapterListenerBuilder extends Builder<EnableComponentState,AdapterListenerBuilder> {
+    public static class AdapterListenerBuilder extends Builder<EnableComponentState, AdapterListenerBuilder> {
         @Override
         protected AdapterListenerBuilder self() {
             return this;

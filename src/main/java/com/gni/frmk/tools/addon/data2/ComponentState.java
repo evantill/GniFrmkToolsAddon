@@ -9,6 +9,5 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Time: 09:32
  * To change this template use File | Settings | File Templates.
  */
-@XmlRootElement
-public abstract class ComponentState {
+public interface ComponentState {
 }
