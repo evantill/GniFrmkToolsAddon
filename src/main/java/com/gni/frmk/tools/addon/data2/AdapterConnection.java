@@ -1,6 +1,8 @@
 package com.gni.frmk.tools.addon.data2;
 
 
+import com.gni.frmk.tools.addon.data2.AdapterTypeComponent.Builder;
+
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -14,12 +16,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * To change this template use File | Settings | File Templates.
  */
 @XmlRootElement
-public class AdapterConnection extends AdapterTypeComponent {
+public class AdapterConnection extends AdapterTypeComponent<EnableComponentState> {
 
     public static final ComponentType TYPE = ComponentType.ADAPTER_CONNECTION;
     protected static final String ALIAS_KEY = "alias";
 
-    private AdapterConnection(Builder<?> builder) {
+    private AdapterConnection(Builder<? extends EnableComponentState,?> builder) {
         super(builder);
     }
 
@@ -28,6 +30,7 @@ public class AdapterConnection extends AdapterTypeComponent {
      */
     @SuppressWarnings({"UnusedDeclaration"})
     private AdapterConnection() {
+        super();
     }
 
     @XmlTransient
@@ -43,11 +46,12 @@ public class AdapterConnection extends AdapterTypeComponent {
         visitor.visit(this);
     }
 
-    public static Builder<AdapterConnectionBuilder> builder() {
+    public static AdapterConnectionBuilder builder() {
         return new AdapterConnectionBuilder();
     }
 
-    public static abstract class Builder<T extends Builder<T>> extends AdapterTypeComponent.Builder<T> {
+    public static abstract class Builder<S extends EnableComponentState,T extends Builder<S,T>>
+            extends AdapterTypeComponent.Builder<EnableComponentState, T> {
 
         private String aliasName;
 
@@ -80,7 +84,7 @@ public class AdapterConnection extends AdapterTypeComponent {
         }
     }
 
-    public static class AdapterConnectionBuilder extends Builder<AdapterConnectionBuilder> {
+    public static class AdapterConnectionBuilder extends Builder<EnableComponentState,AdapterConnectionBuilder> {
         @Override
         protected AdapterConnectionBuilder self() {
             return this;

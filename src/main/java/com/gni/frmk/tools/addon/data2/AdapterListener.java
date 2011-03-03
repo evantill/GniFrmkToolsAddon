@@ -11,12 +11,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Time: 18:29
  * To change this template use File | Settings | File Templates.
  */
-public class AdapterListener extends PackageComponent {
+public class AdapterListener extends PackageComponent<EnableComponentState> {
 
     public static final ComponentType TYPE = ComponentType.ADAPTER_LISTENER;
     private static final String LISTENER_NAME_KEY = "listenerName";
 
-    private AdapterListener(Builder<?> builder) {
+    private AdapterListener(Builder<? extends EnableComponentState,?> builder) {
         super(builder);
     }
 
@@ -39,11 +39,12 @@ public class AdapterListener extends PackageComponent {
         visitor.visit(this);
     }
 
-    public static Builder<AdapterListenerBuilder> builder() {
+    public static AdapterListenerBuilder builder() {
         return new AdapterListenerBuilder();
     }
 
-    public static abstract class Builder<T extends Builder<T>> extends AdapterTypeComponent.Builder<T> {
+    public static abstract  class Builder<S extends EnableComponentState,T extends Builder<S,T>>
+            extends AdapterTypeComponent.Builder<EnableComponentState, T>  {
 
         private String listenerName;
 
@@ -76,7 +77,7 @@ public class AdapterListener extends PackageComponent {
 
     }
 
-    public static class AdapterListenerBuilder extends Builder<AdapterListenerBuilder> {
+    public static class AdapterListenerBuilder extends Builder<EnableComponentState,AdapterListenerBuilder> {
         @Override
         protected AdapterListenerBuilder self() {
             return this;

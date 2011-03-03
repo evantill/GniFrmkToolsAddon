@@ -39,6 +39,8 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/ComponentType.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/ComponentVisitor.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/Configuration.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/EnableActiveComponentState.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/EnableComponentState.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/JmsAlias.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/JmsTrigger.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/NativeTrigger.java" />
@@ -371,7 +373,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/data2/adapter/AdapterListenerTest.java" line="99" class="com.gni.frmk.tools.addon.data2.adapter.AdapterListenerTest" package="com.gni.frmk.tools.addon.data2.adapter">
+      <breakpoint url="file://$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/data2/adapter/AdapterListenerTest.java" line="104" class="com.gni.frmk.tools.addon.data2.adapter.AdapterListenerTest" package="com.gni.frmk.tools.addon.data2.adapter">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -384,7 +386,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/data2/adapter/AdapterListenerTest.java" line="87" class="com.gni.frmk.tools.addon.data2.adapter.AdapterListenerTest" package="com.gni.frmk.tools.addon.data2.adapter">
+      <breakpoint url="file://$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/data2/adapter/AdapterListenerTest.java" line="91" class="com.gni.frmk.tools.addon.data2.adapter.AdapterListenerTest" package="com.gni.frmk.tools.addon.data2.adapter">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -462,7 +464,193 @@
     <favorites_list name="GniFrmkToolsAddon" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <splitter split-orientation="vertical" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="EnableActiveComponentState.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/EnableActiveComponentState.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="13" column="13" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ConfigurationTest.java" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/data2/configuration/ConfigurationTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="3" column="0" selection-start="96" selection-end="96" vertical-scroll-proportion="0.16612378">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ActivableComponentState.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data/component/ActivableComponentState.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="14" column="10" selection-start="342" selection-end="408" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="EnableActiveComponentState.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/EnableActiveComponentState.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="13" column="59" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ConfigurationTest.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/data2/configuration/ConfigurationTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Configuration.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/Configuration.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="18" column="13" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="AdapterConnectionTest.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/data2/adapter/AdapterConnectionTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="90" column="18" selection-start="4046" selection-end="4046" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="AdapterConnection.java" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/AdapterConnection.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="17" column="27" selection-start="440" selection-end="440" vertical-scroll-proportion="0.105960265">
+                  <folding>
+                    <element signature="docComment;class#AdapterConnection#0" expanded="false" />
+                    <element signature="method#AdapterConnection#0;class#AdapterConnection#0" expanded="false" />
+                    <element signature="docComment;method#AdapterConnection#1;class#AdapterConnection#0" expanded="false" />
+                    <element signature="method#AdapterConnection#1;class#AdapterConnection#0" expanded="false" />
+                    <element signature="method#getAlias#0;class#AdapterConnection#0" expanded="false" />
+                    <element signature="method#setAlias#0;class#AdapterConnection#0" expanded="false" />
+                    <element signature="method#accept#0;class#AdapterConnection#0" expanded="false" />
+                    <element signature="method#builder#0;class#AdapterConnection#0" expanded="false" />
+                    <element signature="class#Builder#0;class#AdapterConnection#0" expanded="false" />
+                    <element signature="method#Builder#0;class#Builder#0;class#AdapterConnection#0" expanded="false" />
+                    <element signature="method#alias#0;class#Builder#0;class#AdapterConnection#0" expanded="false" />
+                    <element signature="method#check#0;class#Builder#0;class#AdapterConnection#0" expanded="false" />
+                    <element signature="method#build#0;class#Builder#0;class#AdapterConnection#0" expanded="false" />
+                    <element signature="class#AdapterConnectionBuilder#0;class#AdapterConnection#0" expanded="false" />
+                    <element signature="method#self#0;class#AdapterConnectionBuilder#0;class#AdapterConnection#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="AdapterTypeComponent.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/AdapterTypeComponent.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="14" column="83" selection-start="438" selection-end="438" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <element signature="docComment;class#AdapterTypeComponent#0" expanded="false" />
+                    <element signature="method#AdapterTypeComponent#0;class#AdapterTypeComponent#0" expanded="false" />
+                    <element signature="docComment;method#AdapterTypeComponent#1;class#AdapterTypeComponent#0" expanded="false" />
+                    <element signature="method#AdapterTypeComponent#1;class#AdapterTypeComponent#0" expanded="false" />
+                    <element signature="method#getAdapterType#0;class#AdapterTypeComponent#0" expanded="false" />
+                    <element signature="method#setAdapterType#0;class#AdapterTypeComponent#0" expanded="false" />
+                    <element signature="class#Builder#0;class#AdapterTypeComponent#0" expanded="false" />
+                    <element signature="method#adapterType#0;class#Builder#0;class#AdapterTypeComponent#0" expanded="false" />
+                    <element signature="method#check#0;class#Builder#0;class#AdapterTypeComponent#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="PackageComponent.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/PackageComponent.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="17" column="78" selection-start="538" selection-end="538" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <element signature="docComment;class#PackageComponent#0" expanded="false" />
+                    <element signature="method#PackageComponent#0;class#PackageComponent#0" expanded="false" />
+                    <element signature="docComment;method#PackageComponent#1;class#PackageComponent#0" expanded="false" />
+                    <element signature="method#PackageComponent#1;class#PackageComponent#0" expanded="false" />
+                    <element signature="method#getPackageName#0;class#PackageComponent#0" expanded="false" />
+                    <element signature="method#setPackageName#0;class#PackageComponent#0" expanded="false" />
+                    <element signature="class#Builder#0;class#PackageComponent#0" expanded="false" />
+                    <element signature="method#packageName#0;class#Builder#0;class#PackageComponent#0" expanded="false" />
+                    <element signature="method#check#0;class#Builder#0;class#PackageComponent#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Component.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/Component.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="40" column="13" selection-start="1118" selection-end="1118" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <element signature="docComment;class#Component#0" expanded="false" />
+                    <element signature="method#Component#1;class#Component#0" expanded="false" />
+                    <element signature="method#getType#0;class#Component#0" expanded="false" />
+                    <element signature="method#getId#0;class#Component#0" expanded="false" />
+                    <element signature="method#getDetails#0;class#Component#0" expanded="false" />
+                    <element signature="method#addDetail#0;class#Component#0" expanded="false" />
+                    <element signature="method#findDetail#0;class#Component#0" expanded="false" />
+                    <element signature="class#2135:2304" expanded="false" />
+                    <element signature="method#apply#0;class#2135:2304" expanded="false" />
+                    <element signature="method#findRequiredDetail#0;class#Component#0" expanded="false" />
+                    <element signature="method#getState#0;class#Component#0" expanded="false" />
+                    <element signature="class#Builder#0;class#Component#0" expanded="false" />
+                    <element signature="method#type#0;class#Builder#0;class#Component#0" expanded="false" />
+                    <element signature="method#id#0;class#Builder#0;class#Component#0" expanded="false" />
+                    <element signature="method#id#1;class#Builder#0;class#Component#0" expanded="false" />
+                    <element signature="method#addDetail#0;class#Builder#0;class#Component#0" expanded="false" />
+                    <element signature="method#addDetail#1;class#Builder#0;class#Component#0" expanded="false" />
+                    <element signature="method#state#0;class#Builder#0;class#Component#0" expanded="false" />
+                    <element signature="method#check#0;class#Builder#0;class#Component#0" expanded="false" />
+                    <element signature="class#BuildException#0;class#Component#0" expanded="false" />
+                    <element signature="method#BuildException#0;class#BuildException#0;class#Component#0" expanded="false" />
+                    <element signature="class#CheckException#0;class#Component#0" expanded="false" />
+                    <element signature="method#CheckException#0;class#CheckException#0;class#Component#0" expanded="false" />
+                    <element signature="method#compareTo#0;class#Component#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ComponentState.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/ComponentState.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="12" column="0" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -487,22 +675,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/adapter/AdapterListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/ComponentId.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/adapter/AdapterNotification.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/port/Port.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/trigger/JmsTrigger.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/trigger/NativeTrigger.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/scheduler/Scheduler.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/data2/configuration/ConfigurationTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/trigger/JmsAlias.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/AdapterTypeComponent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/Configuration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/AdapterListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/JmsAlias.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/ComponentState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/EnableState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/AdapterConnection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/AdapterNotification.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/Port.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/Scheduler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/NativeTrigger.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/PackageComponent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/JmsTrigger.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/EnableResumeComponentState.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/Component.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/ComponentVisitor.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/data2/adapter/AdapterListenerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/EnableComponentState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/PackageComponent.java" />
       </list>
     </option>
   </component>
@@ -778,6 +966,156 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="configuration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adapter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="essai" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -883,6 +1221,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -937,7 +1309,7 @@
       <recent name="com.gni.frmk.tools.addon" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ConfigurationTest">
+  <component name="RunManager" selected="JUnit.AdapterConnectionTest">
     <configuration default="false" name="ConfigurationTest" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false">
         <pattern>
@@ -964,6 +1336,40 @@
       <patterns />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="9642" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="AdapterConnectionTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false">
+        <pattern>
+          <option name="PATTERN" value="com.gni.frmk.tools.addon.data2.adapter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="GniFrmkToolsAddon" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.gni.frmk.tools.addon.data2.adapter" />
+      <option name="MAIN_CLASS_NAME" value="com.gni.frmk.tools.addon.data2.adapter.AdapterConnectionTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="2343" />
         <option name="TRANSPORT" value="0" />
         <option name="LOCAL" value="true" />
       </RunnerSettings>
@@ -1663,8 +2069,9 @@
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="JUnit.ConfigurationTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.AdapterConnectionTest" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -1742,7 +2149,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1608" height="1180" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38801843" sideWeight="0.0" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1755,11 +2162,11 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24239631" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299539" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2841424" sideWeight="0.44382545" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1674179" sideWeight="0.64608294" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1674179" sideWeight="0.64608294" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39987123" sideWeight="0.759447" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2826787" sideWeight="0.64608294" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3097231" sideWeight="0.64608294" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35391706" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35391706" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="96" y="96" width="1408" height="980" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1817,67 +2224,16 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data/trigger/JmsTrigger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="13" selection-start="1150" selection-end="1150" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data/trigger/Trigger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="40" selection-start="299" selection-end="299" vertical-scroll-proportion="0.19521531">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/AdapterNotification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="24" selection-start="1036" selection-end="1036" vertical-scroll-proportion="0.5988258">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/Component.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="63" selection-start="4199" selection-end="4199" vertical-scroll-proportion="0.6798811">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/AdapterListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="24" selection-start="1004" selection-end="1004" vertical-scroll-proportion="0.5884615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/AdapterTypeComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="22" selection-start="328" selection-end="328" vertical-scroll-proportion="0.1798077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="406" selection-end="406" vertical-scroll-proportion="0.29795521">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/Port.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="21" selection-start="525" selection-end="525" vertical-scroll-proportion="0.3923077">
+        <state line="44" column="72" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/Scheduler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="21" selection-start="1904" selection-end="1904" vertical-scroll-proportion="0.3327032">
+        <state line="132" column="77" selection-start="3908" selection-end="3908" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getDescription#0;class#Scheduler#0" expanded="false" />
@@ -1886,46 +2242,155 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/JmsAlias.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/NativeTrigger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="21" selection-start="969" selection-end="969" vertical-scroll-proportion="0.34120983">
+        <state line="27" column="18" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/JmsTrigger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="78" selection-start="1108" selection-end="1108" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data/component/ActivableComponentState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="10" selection-start="342" selection-end="408" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/data2/adapter/AdapterListenerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="8" selection-start="2882" selection-end="2882" vertical-scroll-proportion="0.39739415">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/JmsTrigger.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/EnableActiveComponentState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="21" selection-start="543" selection-end="543" vertical-scroll-proportion="0.38563326">
+        <state line="13" column="59" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/ComponentVisitor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/EnableComponentState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="38" selection-start="537" selection-end="537" vertical-scroll-proportion="0.38563326">
+        <state line="13" column="49" selection-start="352" selection-end="352" vertical-scroll-proportion="0.33125">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/ComponentState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/NativeTrigger.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/Configuration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="21" selection-start="555" selection-end="555" vertical-scroll-proportion="0.38563326">
-          <folding />
+        <state line="18" column="13" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/data2/adapter/AdapterConnectionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="18" selection-start="4046" selection-end="4046" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/AdapterTypeComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="83" selection-start="438" selection-end="438" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="docComment;class#AdapterTypeComponent#0" expanded="false" />
+            <element signature="method#AdapterTypeComponent#0;class#AdapterTypeComponent#0" expanded="false" />
+            <element signature="docComment;method#AdapterTypeComponent#1;class#AdapterTypeComponent#0" expanded="false" />
+            <element signature="method#AdapterTypeComponent#1;class#AdapterTypeComponent#0" expanded="false" />
+            <element signature="method#getAdapterType#0;class#AdapterTypeComponent#0" expanded="false" />
+            <element signature="method#setAdapterType#0;class#AdapterTypeComponent#0" expanded="false" />
+            <element signature="class#Builder#0;class#AdapterTypeComponent#0" expanded="false" />
+            <element signature="method#adapterType#0;class#Builder#0;class#AdapterTypeComponent#0" expanded="false" />
+            <element signature="method#check#0;class#Builder#0;class#AdapterTypeComponent#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/PackageComponent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="22" selection-start="433" selection-end="433" vertical-scroll-proportion="0.17674859">
-          <folding />
+        <state line="17" column="78" selection-start="538" selection-end="538" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="docComment;class#PackageComponent#0" expanded="false" />
+            <element signature="method#PackageComponent#0;class#PackageComponent#0" expanded="false" />
+            <element signature="docComment;method#PackageComponent#1;class#PackageComponent#0" expanded="false" />
+            <element signature="method#PackageComponent#1;class#PackageComponent#0" expanded="false" />
+            <element signature="method#getPackageName#0;class#PackageComponent#0" expanded="false" />
+            <element signature="method#setPackageName#0;class#PackageComponent#0" expanded="false" />
+            <element signature="class#Builder#0;class#PackageComponent#0" expanded="false" />
+            <element signature="method#packageName#0;class#Builder#0;class#PackageComponent#0" expanded="false" />
+            <element signature="method#check#0;class#Builder#0;class#PackageComponent#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="13" selection-start="1118" selection-end="1118" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="docComment;class#Component#0" expanded="false" />
+            <element signature="method#Component#1;class#Component#0" expanded="false" />
+            <element signature="method#getType#0;class#Component#0" expanded="false" />
+            <element signature="method#getId#0;class#Component#0" expanded="false" />
+            <element signature="method#getDetails#0;class#Component#0" expanded="false" />
+            <element signature="method#addDetail#0;class#Component#0" expanded="false" />
+            <element signature="method#findDetail#0;class#Component#0" expanded="false" />
+            <element signature="class#2135:2304" expanded="false" />
+            <element signature="method#apply#0;class#2135:2304" expanded="false" />
+            <element signature="method#findRequiredDetail#0;class#Component#0" expanded="false" />
+            <element signature="method#getState#0;class#Component#0" expanded="false" />
+            <element signature="class#Builder#0;class#Component#0" expanded="false" />
+            <element signature="method#type#0;class#Builder#0;class#Component#0" expanded="false" />
+            <element signature="method#id#0;class#Builder#0;class#Component#0" expanded="false" />
+            <element signature="method#id#1;class#Builder#0;class#Component#0" expanded="false" />
+            <element signature="method#addDetail#0;class#Builder#0;class#Component#0" expanded="false" />
+            <element signature="method#addDetail#1;class#Builder#0;class#Component#0" expanded="false" />
+            <element signature="method#state#0;class#Builder#0;class#Component#0" expanded="false" />
+            <element signature="method#check#0;class#Builder#0;class#Component#0" expanded="false" />
+            <element signature="class#BuildException#0;class#Component#0" expanded="false" />
+            <element signature="method#BuildException#0;class#BuildException#0;class#Component#0" expanded="false" />
+            <element signature="class#CheckException#0;class#Component#0" expanded="false" />
+            <element signature="method#CheckException#0;class#CheckException#0;class#Component#0" expanded="false" />
+            <element signature="method#compareTo#0;class#Component#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/data2/configuration/ConfigurationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data2/AdapterConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="13" selection-start="385" selection-end="385" vertical-scroll-proportion="0.11247637">
+        <state line="17" column="27" selection-start="440" selection-end="440" vertical-scroll-proportion="0.105960265">
           <folding>
             <element signature="docComment;class#AdapterConnection#0" expanded="false" />
             <element signature="method#AdapterConnection#0;class#AdapterConnection#0" expanded="false" />
@@ -1934,7 +2399,10 @@
             <element signature="method#getAlias#0;class#AdapterConnection#0" expanded="false" />
             <element signature="method#setAlias#0;class#AdapterConnection#0" expanded="false" />
             <element signature="method#accept#0;class#AdapterConnection#0" expanded="false" />
+            <element signature="method#builder#0;class#AdapterConnection#0" expanded="false" />
+            <element signature="class#Builder#0;class#AdapterConnection#0" expanded="false" />
             <element signature="method#Builder#0;class#Builder#0;class#AdapterConnection#0" expanded="false" />
+            <element signature="method#alias#0;class#Builder#0;class#AdapterConnection#0" expanded="false" />
             <element signature="method#check#0;class#Builder#0;class#AdapterConnection#0" expanded="false" />
             <element signature="method#build#0;class#Builder#0;class#AdapterConnection#0" expanded="false" />
             <element signature="class#AdapterConnectionBuilder#0;class#AdapterConnection#0" expanded="false" />

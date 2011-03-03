@@ -11,12 +11,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Time: 14:32
  * To change this template use File | Settings | File Templates.
  */
-public class AdapterNotification extends PackageComponent {
+public class AdapterNotification extends PackageComponent<EnableComponentState> {
 
     public static final ComponentType TYPE = ComponentType.ADAPTER_NOTIFICATION;
     private static final String NOTIFICATION_NAME_KEY = "notificationName";
 
-    private AdapterNotification(Builder<?> builder) {
+    private AdapterNotification(Builder<? extends EnableComponentState, ?> builder) {
         super(builder);
     }
 
@@ -39,11 +39,11 @@ public class AdapterNotification extends PackageComponent {
         visitor.visit(this);
     }
 
-    public static Builder<AdapterNotificationBuilder> builder() {
+    public static AdapterNotificationBuilder builder() {
         return new AdapterNotificationBuilder();
     }
 
-    public static abstract class Builder<T extends Builder<T>> extends AdapterTypeComponent.Builder<T> {
+    public static abstract class Builder<S extends EnableComponentState, T extends Builder<S, T>> extends AdapterTypeComponent.Builder<EnableComponentState, T> {
 
         private String notificationName;
 
@@ -76,7 +76,7 @@ public class AdapterNotification extends PackageComponent {
 
     }
 
-    public static class AdapterNotificationBuilder extends Builder<AdapterNotificationBuilder> {
+    public static class AdapterNotificationBuilder extends Builder<EnableComponentState, AdapterNotificationBuilder> {
         @Override
         protected AdapterNotificationBuilder self() {
             return this;

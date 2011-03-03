@@ -11,12 +11,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Time: 15:11
  * To change this template use File | Settings | File Templates.
  */
-public class JmsAlias extends Component {
+public class JmsAlias extends Component<EnableComponentState> {
 
     public static final ComponentType TYPE = ComponentType.JMS_ALIAS;
     private static final String DESCRIPTION_KEY = "description";
 
-    private JmsAlias(Builder<?> builder) {
+    private JmsAlias(Builder<? extends EnableComponentState,?> builder) {
         super(builder);
     }
 
@@ -39,11 +39,11 @@ public class JmsAlias extends Component {
         visitor.visit(this);
     }
 
-    public static Builder<JmsAliasBuilder> builder() {
+    public static JmsAliasBuilder builder() {
         return new JmsAliasBuilder();
     }
 
-    public static abstract class Builder<T extends Builder<T>> extends Component.Builder<T> {
+    public static abstract class Builder<S extends EnableComponentState, T extends Builder<S, T>> extends Component.Builder<EnableComponentState,T> {
 
         private String description;
 
@@ -63,7 +63,7 @@ public class JmsAlias extends Component {
         }
     }
 
-    public static class JmsAliasBuilder extends Builder<JmsAliasBuilder> {
+    public static class JmsAliasBuilder extends Builder<EnableComponentState,JmsAliasBuilder> {
         @Override
         protected JmsAliasBuilder self() {
             return this;

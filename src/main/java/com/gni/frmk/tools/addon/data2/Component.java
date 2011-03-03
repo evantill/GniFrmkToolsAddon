@@ -1,6 +1,5 @@
 package com.gni.frmk.tools.addon.data2;
 
-import com.gni.frmk.tools.addon.data2.ComponentState.EnableStatus;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
@@ -10,6 +9,7 @@ import com.google.common.collect.Sets;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.sql.CallableStatement;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.Set;
@@ -26,7 +26,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * To change this template use File | Settings | File Templates.
  */
 @XmlRootElement
-public abstract class Component implements Comparable<Component>{
+public abstract class Component<S extends ComponentState> implements Comparable<Component>{
 
     @XmlElement
     private final ComponentType type;
@@ -39,9 +39,9 @@ public abstract class Component implements Comparable<Component>{
     private final SortedSet<ComponentDetail> details;
 
     @XmlElement
-    private final ComponentState state;
+    private final S state;
 
-    protected Component(Builder<?> builder) {
+    protected Component(Builder<S,?> builder) {
         type = builder.type;
         id = builder.id;
         details = builder.details;
@@ -90,15 +90,15 @@ public abstract class Component implements Comparable<Component>{
         return Preconditions.checkNotNull(findDetail(key), "missing required detail %s", key);
     }
 
-    public ComponentState getState() {
+    public S getState() {
         return state;
     }
 
-    public static abstract class Builder<T extends Builder<T>> {
+    public static abstract class Builder<S extends ComponentState,T extends Builder<S,T>> {
         private ComponentType type;
         private ComponentId id;
         private TreeSet<ComponentDetail> details = Sets.newTreeSet();
-        private ComponentState state;
+        private S state;
 
         protected abstract T self();
 
@@ -127,13 +127,8 @@ public abstract class Component implements Comparable<Component>{
             return self();
         }
 
-        public T state(ComponentState value) {
+        public T state(S value) {
             state = value;
-            return self();
-        }
-
-        public T enabled(EnableStatus value) {
-            state = new ComponentState(value);
             return self();
         }
 

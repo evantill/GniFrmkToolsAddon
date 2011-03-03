@@ -11,7 +11,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Time: 14:54
  * To change this template use File | Settings | File Templates.
  */
-public class Scheduler extends Component {
+public class Scheduler extends Component<EnableComponentState> {
 
     public static final ComponentType TYPE = ComponentType.SCHEDULER;
 
@@ -20,7 +20,7 @@ public class Scheduler extends Component {
     private static final String SCHEDULER_NAME_KEY = "schedulerName";
     private static final String SCHEDULER_TYPE_KEY = "schedulerType";
 
-    private Scheduler(Builder<?> builder) {
+    private Scheduler(Builder<? extends EnableComponentState,?> builder) {
         super(builder);
     }
 
@@ -71,11 +71,11 @@ public class Scheduler extends Component {
         visitor.visit(this);
     }
 
-    public static Builder<SchedulerBuilder> builder() {
+    public static SchedulerBuilder builder() {
         return new SchedulerBuilder();
     }
 
-    public static abstract class Builder<T extends Builder<T>> extends Component.Builder<T> {
+    public static abstract class Builder<S extends EnableComponentState, T extends Builder<S, T>> extends Component.Builder<EnableComponentState,T> {
 
         private String description;
         private String service;
@@ -130,7 +130,7 @@ public class Scheduler extends Component {
 
     }
 
-    public static class SchedulerBuilder extends Builder<SchedulerBuilder> {
+    public static class SchedulerBuilder extends Builder<EnableComponentState,SchedulerBuilder> {
         @Override
         protected SchedulerBuilder self() {
             return this;

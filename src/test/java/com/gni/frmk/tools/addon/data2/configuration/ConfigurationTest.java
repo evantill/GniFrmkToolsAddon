@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.data2.configuration;
 
 import com.gni.frmk.tools.addon.data2.*;
-import com.gni.frmk.tools.addon.data2.ComponentState.EnableStatus;
+import com.gni.frmk.tools.addon.data2.EnableComponentState.EnableStatus;
 import com.gni.frmk.tools.addon.data2.Port;
 import com.gni.frmk.tools.addon.data2.Scheduler;
 import com.gni.frmk.tools.addon.data2.JmsAlias;
@@ -138,22 +138,22 @@ public class ConfigurationTest {
     }
 
     private JmsAlias createJmsAlias(int indx) {
-        return JmsAlias.builder().id("JmsAlias" + indx).description("description").state(new ComponentState(EnableStatus.ENABLED)).check().build();
+        return JmsAlias.builder().id("JmsAlias" + indx).description("description").state(new EnableComponentState(EnableStatus.ENABLED)).check().build();
     }
 
     private JmsTrigger createJmsTrigger(int indx) {
-        return JmsTrigger.builder().id("JmsTrigger" + indx).state(new ComponentState(EnableStatus.ENABLED)).check().build();
+        return JmsTrigger.builder().id("JmsTrigger" + indx).state(new EnableComponentState(EnableStatus.ENABLED)).check().build();
     }
 
     private NativeTrigger createNativeTrigger(int indx) {
-        return NativeTrigger.builder().id("NativeTrigger" + indx).state(new ComponentState(EnableStatus.ENABLED)).check().build();
+        return NativeTrigger.builder().id("NativeTrigger" + indx).state(new EnableComponentState(EnableStatus.ENABLED)).check().build();
     }
 
     private Port createPort(int indx) {
         return Port.builder()
                    .id("Port" + indx)
                    .packageName("pkgEssai")
-                   .state(new ComponentState(EnableStatus.ENABLED))
+                   .state(new EnableComponentState(EnableStatus.ENABLED))
                    .check()
                    .build();
     }
@@ -181,7 +181,7 @@ public class ConfigurationTest {
                         .schedulerType("SchedulerType" + indx)
                         .id("SchedulerId" + indx)
                         .service("SchedulerService" + indx)
-                        .state(new ComponentState(EnableStatus.ENABLED))
+                        .state(new EnableComponentState(EnableStatus.ENABLED))
                         .check()
                         .build();
     }
@@ -191,7 +191,7 @@ public class ConfigurationTest {
                                 .adapterType("JDBCAdapter")
                                 .packageName("pckgEssai")
                                 .alias("aliasName" + indx)
-                                .state(new ComponentState(EnableStatus.ENABLED))
+                                .state(new EnableComponentState(EnableStatus.ENABLED))
                                 .check()
                                 .build();
     }
@@ -201,7 +201,7 @@ public class ConfigurationTest {
                               .adapterType("JDBCAdapter")
                               .packageName("pckgEssai")
                               .listenerName("listenerName" + indx)
-                              .state(new ComponentState(EnableStatus.ENABLED))
+                              .state(new EnableComponentState(EnableStatus.ENABLED))
                               .check()
                               .build();
     }
@@ -211,7 +211,7 @@ public class ConfigurationTest {
                                   .adapterType("JDBCAdapter")
                                   .notificationName("notificationName" + indx)
                                   .packageName("pckgEssai")
-                                  .state(new ComponentState(EnableStatus.ENABLED))
+                                  .state(new EnableComponentState(EnableStatus.ENABLED))
                                   .check()
                                   .build();
     }

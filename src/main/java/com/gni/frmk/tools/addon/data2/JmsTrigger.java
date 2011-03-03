@@ -7,11 +7,11 @@ package com.gni.frmk.tools.addon.data2;
  * Time: 15:11
  * To change this template use File | Settings | File Templates.
  */
-public class JmsTrigger extends Component {
+public class JmsTrigger extends Component<EnableComponentState> {
 
     public static final ComponentType TYPE = ComponentType.JMS_TRIGGER;
 
-    private JmsTrigger(Builder<?> builder) {
+    private JmsTrigger(Builder<? extends EnableComponentState,?> builder) {
         super(builder);
     }
 
@@ -25,11 +25,11 @@ public class JmsTrigger extends Component {
         visitor.visit(this);
     }
 
-    public static Builder<JmsTriggerBuilder> builder() {
+    public static JmsTriggerBuilder builder() {
         return new JmsTriggerBuilder();
     }
 
-    public static abstract class Builder<T extends Builder<T>> extends Component.Builder<T> {
+    public static abstract class Builder<S extends EnableComponentState, T extends Builder<S, T>> extends Component.Builder<EnableComponentState,T> {
         public Builder() {
             type(TYPE);
         }
@@ -40,7 +40,7 @@ public class JmsTrigger extends Component {
         }
     }
 
-    public static class JmsTriggerBuilder extends Builder<JmsTriggerBuilder> {
+    public static class JmsTriggerBuilder extends Builder<EnableComponentState,JmsTriggerBuilder> {
         @Override
         protected JmsTriggerBuilder self() {
             return this;

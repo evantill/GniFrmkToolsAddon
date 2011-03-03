@@ -1,7 +1,10 @@
 package com.gni.frmk.tools.addon.data2.adapter;
 
 import com.gni.frmk.tools.addon.data2.AdapterListener;
+import com.gni.frmk.tools.addon.data2.AdapterListener.AdapterListenerBuilder;
 import com.gni.frmk.tools.addon.data2.AdapterListener.Builder;
+import com.gni.frmk.tools.addon.data2.EnableComponentState;
+import com.gni.frmk.tools.addon.data2.EnableComponentState.EnableStatus;
 import org.junit.Test;
 
 import javax.xml.bind.JAXBContext;
@@ -15,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.StringReader;
 import java.io.StringWriter;
 
-import static com.gni.frmk.tools.addon.data2.ComponentState.EnableStatus.ENABLED;
+import static com.gni.frmk.tools.addon.data2.EnableComponentState.EnableStatus.ENABLED;
 import static org.junit.Assert.*;
 
 /**
@@ -46,14 +49,14 @@ public class AdapterListenerTest {
 
 
     private AdapterListener createSample(boolean checked) {
-        Builder<?> builder = AdapterListener.builder()
-                                            .id("listener1")
-                                            .adapterType("JDBCAdapter")
-                                            .packageName("WmEssai")
-                                            .listenerName("listenerEssai")
-                                            .addDetail("key1", "value1")
-                                            .addDetail("key2", "value2")
-                                            .enabled(ENABLED);
+        AdapterListenerBuilder builder = AdapterListener.builder()
+                                                        .id("listener1")
+                                                        .adapterType("JDBCAdapter")
+                                                        .packageName("WmEssai")
+                                                        .listenerName("listenerEssai")
+                                                        .addDetail("key1", "value1")
+                                                        .addDetail("key2", "value2")
+                                                        .state(new EnableComponentState(ENABLED));
         if (checked) {
             builder.check();
         }

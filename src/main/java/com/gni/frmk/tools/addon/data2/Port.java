@@ -7,11 +7,11 @@ package com.gni.frmk.tools.addon.data2;
  * Time: 14:36
  * To change this template use File | Settings | File Templates.
  */
-public class Port extends PackageComponent {
+public class Port extends PackageComponent<EnableComponentState> {
 
     public static final ComponentType TYPE = ComponentType.PORT;
 
-    private Port(Builder<?> builder) {
+    private Port(Builder<? extends EnableComponentState,?> builder) {
         super(builder);
     }
 
@@ -25,11 +25,11 @@ public class Port extends PackageComponent {
         visitor.visit(this);
     }
 
-    public static Builder<PortBuilder> builder() {
+    public static PortBuilder builder() {
         return new PortBuilder();
     }
 
-    public static abstract class Builder<T extends Builder<T>> extends PackageComponent.Builder<T> {
+    public static abstract class Builder<S extends EnableComponentState, T extends Builder<S, T>> extends PackageComponent.Builder<EnableComponentState,T> {
 
         public Builder() {
             type(TYPE);
@@ -42,7 +42,7 @@ public class Port extends PackageComponent {
 
     }
 
-    public static class PortBuilder extends Builder<PortBuilder> {
+    public static class PortBuilder extends Builder<EnableComponentState,PortBuilder> {
         @Override
         protected PortBuilder self() {
             return this;
