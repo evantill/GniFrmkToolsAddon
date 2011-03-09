@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.data3.configuration;
+package com.gni.frmk.tools.addon.configuration.description;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlValue;

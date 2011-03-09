@@ -1,7 +1,6 @@
-package com.gni.frmk.tools.addon.data3.visitors;
+package com.gni.frmk.tools.addon.configuration.visitors;
 
-import com.gni.frmk.tools.addon.data3.components.Component;
-import com.gni.frmk.tools.addon.data3.components.integrationServer.AdapterConnection;
+import com.gni.frmk.tools.addon.configuration.components.AdapterConnection;
 
 /**
  * Created by IntelliJ IDEA.

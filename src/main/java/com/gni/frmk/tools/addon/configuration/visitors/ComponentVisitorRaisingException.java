@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.data3.visitors;
+package com.gni.frmk.tools.addon.configuration.visitors;
 
 /**
  * Created by IntelliJ IDEA.
@@ -8,4 +8,7 @@ package com.gni.frmk.tools.addon.data3.visitors;
  * To change this template use File | Settings | File Templates.
  */
 public interface ComponentVisitorRaisingException {
+
+    class ComponentVisitorException {
+    }
 }

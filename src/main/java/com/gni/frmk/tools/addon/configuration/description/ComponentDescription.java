@@ -1,13 +1,13 @@
-package com.gni.frmk.tools.addon.data3.configuration;
+package com.gni.frmk.tools.addon.configuration.description;
 
-import com.gni.frmk.tools.addon.data3.builder.BuilderWithValidation;
-import com.gni.frmk.tools.addon.data3.components.Component;
-import com.gni.frmk.tools.addon.data3.components.ComponentId;
-import com.gni.frmk.tools.addon.data3.components.ComponentInformation;
-import com.gni.frmk.tools.addon.data3.components.ComponentType;
-import com.gni.frmk.tools.addon.data3.configuration.ComponentDescriptionAdapters.InformationsAdapter;
-import com.gni.frmk.tools.addon.data3.visitors.ComponentVisitor;
-import com.gni.frmk.tools.addon.data3.visitors.GenericComponentVisitor;
+import com.gni.frmk.tools.addon.configuration.BuilderWithValidation;
+import com.gni.frmk.tools.addon.configuration.components.Component;
+import com.gni.frmk.tools.addon.configuration.components.Component.ComponentDetail;
+import com.gni.frmk.tools.addon.configuration.components.Component.ComponentId;
+import com.gni.frmk.tools.addon.configuration.components.ComponentType;
+import com.gni.frmk.tools.addon.configuration.description.ComponentDescriptionAdapters.InformationsAdapter;
+import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
+import com.gni.frmk.tools.addon.configuration.visitors.GenericComponentVisitor;
 import com.google.common.base.Objects;
 import com.google.common.collect.Maps;
 
@@ -31,7 +31,7 @@ import static com.google.common.collect.Maps.newHashMap;
  * Time: 17:18
  * To change this template use File | Settings | File Templates.
  */
-@XmlRootElement
+@XmlRootElement(name = "component")
 @XmlAccessorType(XmlAccessType.NONE)
 public class ComponentDescription {
 
@@ -102,13 +102,13 @@ public class ComponentDescription {
             return self();
         }
 
-        Builder addInformation(ComponentInformation value) {
-            informations.put(value.getKey(), value.getValue());
+        Builder addInformation(ComponentDetail value) {
+            informations.put(value.getKey(), value.getValue().asString());
             return this;
         }
 
-        Builder addAllInformations(List<? extends ComponentInformation> informations) {
-            for (ComponentInformation info : informations) {
+        Builder addAllInformations(List<? extends ComponentDetail> informations) {
+            for (ComponentDetail info : informations) {
                 addInformation(info);
             }
             return this;
@@ -135,10 +135,18 @@ public class ComponentDescription {
         }
 
         @Override
+        public ComponentDescription buildAndValidate() throws BuildException, ValidationException {
+            ComponentDescription desc = build();
+            //TODO validate
+            validate();
+            return desc;
+        }
+
+        @Override
         public void visitAny(Component visited) {
             componentType(visited.getType());
             componentId(visited.getId());
-            addAllInformations(visited.getInformations());
+            addAllInformations(visited.getDetails());
         }
 
         private Builder self() {

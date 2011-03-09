@@ -1,7 +1,7 @@
-package com.gni.frmk.tools.addon.data3.configuration;
+package com.gni.frmk.tools.addon.configuration.description;
 
-import com.gni.frmk.tools.addon.data3.builder.BuilderWithValidation;
-import com.gni.frmk.tools.addon.data3.components.Component;
+import com.gni.frmk.tools.addon.configuration.components.Component;
+import com.gni.frmk.tools.addon.configuration.BuilderWithValidation;
 import com.google.common.base.Objects;
 
 import javax.xml.bind.annotation.*;
@@ -19,9 +19,9 @@ import static com.google.common.collect.Lists.newArrayList;
  * Time: 17:18
  * To change this template use File | Settings | File Templates.
  */
-@XmlRootElement
+@XmlRootElement(name = "configuration")
 @XmlAccessorType(XmlAccessType.NONE)
-public class Configuration {
+public class ConfigurationDescription {
 
     @XmlAttribute(required = true)
     private final String name;
@@ -36,14 +36,14 @@ public class Configuration {
     @XmlElementWrapper
     private final List<ComponentDescription> components;
 
-    private Configuration() {
+    private ConfigurationDescription() {
         name = null;
         creation = null;
         modification = null;
         components = null;
     }
 
-    public Configuration(Builder builder) {
+    public ConfigurationDescription(Builder builder) {
         name = builder.configurationName;
         creation = builder.creationDate;
         modification = builder.modificationDate;
@@ -76,11 +76,11 @@ public class Configuration {
      * @param source the configuration to clone
      * @return the same object as this class is immutable
      */
-    public static Configuration from(Configuration source) {
+    public static ConfigurationDescription from(ConfigurationDescription source) {
         return source;
     }
 
-    public static class Builder implements BuilderWithValidation<Configuration> {
+    public static class Builder implements BuilderWithValidation<ConfigurationDescription> {
 
         private static final String CONFIGURATION_NAME_REQUIRED = "configuration name required";
         private static final String CREATION_DATE_REQUIRED = "creation date required";
@@ -90,7 +90,7 @@ public class Configuration {
         private Date modificationDate;
         private List<ComponentDescription> components = newArrayList();
 
-        Builder from(Configuration source) {
+        Builder from(ConfigurationDescription source) {
             configurationName = source.getName();
             creationDate = source.getCreation();
             modificationDate = source.getModification();
@@ -125,10 +125,12 @@ public class Configuration {
             return this;
         }
 
-        public Configuration build() throws BuildException {
-            return new Configuration(this);
+        @Override
+        public ConfigurationDescription build() throws BuildException {
+            return new ConfigurationDescription(this);
         }
 
+        @Override
         public void validate() throws ValidationException {
             try {
                 checkNotNull(configurationName, CONFIGURATION_NAME_REQUIRED);
@@ -138,6 +140,14 @@ public class Configuration {
                 throw new ValidationException(npex);
             }
         }
+
+        @Override
+        public ConfigurationDescription buildAndValidate() throws BuildException, ValidationException {
+            ConfigurationDescription desc = build();
+            //TODO validate
+            validate();
+            return desc;
+        }
     }
 
     @Override
@@ -145,8 +155,8 @@ public class Configuration {
         if (o == null) {
             return false;
         }
-        if (o instanceof Configuration) {
-            Configuration other = (Configuration) o;
+        if (o instanceof ConfigurationDescription) {
+            ConfigurationDescription other = (ConfigurationDescription) o;
             return Objects.equal(getName(), other.getName()) &&
                    Objects.equal(getCreation(), other.getCreation()) &&
                    Objects.equal(getModification(), other.getModification());
