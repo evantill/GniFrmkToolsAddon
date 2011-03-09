@@ -3,10 +3,15 @@ package com.gni.frmk.tools.addon.data3.configuration;
 import com.gni.frmk.tools.addon.data3.components.Component;
 import com.gni.frmk.tools.addon.data3.components.ComponentId;
 import com.gni.frmk.tools.addon.data3.components.ComponentInformation;
+import com.gni.frmk.tools.addon.data3.visitors.ComponentVisitor;
+import com.gni.frmk.tools.addon.data3.visitors.GenericComponentVisitor;
 import com.google.common.collect.Lists;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.mockito.Mockito;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -24,6 +29,7 @@ import java.util.TimeZone;
 import static com.gni.frmk.tools.addon.data3.components.ComponentType.ADAPTER_CONNECTION;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -79,6 +85,14 @@ public class ConfigurationTest {
         }
         List<ComponentInformation> informations = newInformations(rawInfos);
         when(mock.getInformations()).thenReturn(informations);
+        Mockito.doAnswer(new Answer<Object>() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                GenericComponentVisitor visitor = (GenericComponentVisitor) invocation.getArguments()[0];
+                visitor.visitAny((Component) invocation.getMock());
+                return null;
+            }
+        }).when(mock).accept(any(GenericComponentVisitor.class));
         return mock;
     }
 
@@ -87,8 +101,8 @@ public class ConfigurationTest {
                             .name("essai")
                             .addComponent(newComponent("comp1", 3))
                             .addComponent(newComponent("comp2", 5))
-                            .create(newDate())
-                            .modify(newDate())
+                            .createAt(newDate())
+                            .modifyAt(newDate())
                             .build();
 
     }

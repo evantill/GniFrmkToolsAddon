@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.data3.components;
 
-import java.util.Collection;
+import com.gni.frmk.tools.addon.data3.visitors.ComponentVisitor;
+
 import java.util.List;
 
 /**
@@ -15,5 +16,10 @@ public interface Component {
 
     ComponentId getId();
 
-    List<ComponentInformation> getInformations();
+    ComponentState getState();
+
+    List<? extends ComponentInformation> getInformations();
+
+    void accept(ComponentVisitor visitor);
+
 }
