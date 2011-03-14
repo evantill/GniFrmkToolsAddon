@@ -2,6 +2,8 @@ package com.gni.frmk.tools.addon.configuration;
 
 import com.gni.frmk.tools.addon.configuration.components.AdapterConnection;
 import com.gni.frmk.tools.addon.configuration.components.AdapterConnection.AdapterConnectionBuilder;
+import com.gni.frmk.tools.addon.configuration.components.EnableState;
+import com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus;
 import org.junit.Test;
 
 /**
@@ -15,7 +17,12 @@ public class ConfigurationTest {
 
     @Test
     public void testValidation(){
-        AdapterConnection cnx=AdapterConnection.builder().alias("alias").packageName("packageName").build();
+        AdapterConnection cnx=AdapterConnection.builder()
+                                               .alias("alias")
+                                               .adapterType("adapterType")
+                                               .packageName("packageName")
+                                               .defineState(new EnableState(EnableStatus.ENABLED))
+                                               .build();
         Configuration cnf = Configuration.builder().addAdapterConnection(cnx).buildAndValidate();
     }
 }

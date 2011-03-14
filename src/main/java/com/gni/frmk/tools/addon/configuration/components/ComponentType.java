@@ -8,5 +8,13 @@ package com.gni.frmk.tools.addon.configuration.components;
  * @author: e03229
  */
 public enum ComponentType {
-    ADAPTER_CONNECTION
+    ADAPTER_CONNECTION,
+    ADAPTER_LISTENER,
+    ADAPTER_NOTIFICATION,
+    SCHEDULER,
+    PORT,
+    NATIVE_TRIGGER,
+    JMS_TRIGGER,
+    JMS_ALIAS,
+    IS_PACKAGE
 }

@@ -1,6 +1,5 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
-import com.gni.frmk.tools.addon.configuration.components.BaseComponent.Builder;
 import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
 
 import javax.validation.constraints.NotNull;
@@ -12,12 +11,12 @@ import javax.validation.constraints.NotNull;
  * Time: 11:30
  * To change this template use File | Settings | File Templates.
  */
-public class AdapterConnection extends PackageAwareComponent<StringComponentId, EnableState> {
+public class AdapterConnection extends AdapterTypeAware<StringId, EnableState> {
 
     @NotNull
     private final String alias;
 
-    public AdapterConnection(Builder<?, ?, StringComponentId, EnableState> builder) {
+    public AdapterConnection(Builder<?, ?, StringId, EnableState> builder) {
         super(builder);
         alias = builder.alias;
     }
@@ -35,22 +34,22 @@ public class AdapterConnection extends PackageAwareComponent<StringComponentId, 
         return new AdapterConnectionBuilder();
     }
 
-    public static class AdapterConnectionBuilder extends Builder<AdapterConnectionBuilder, AdapterConnection, StringComponentId, EnableState> {
+    public static class AdapterConnectionBuilder extends Builder<AdapterConnectionBuilder, AdapterConnection, StringId, EnableState> {
 
         public AdapterConnectionBuilder() {
             defineType(ComponentType.ADAPTER_CONNECTION);
         }
 
         @Override
-        protected AdapterConnectionBuilder self() {
+        public AdapterConnectionBuilder self() {
             return this;
         }
 
         @Override
-        public Builder<AdapterConnectionBuilder, AdapterConnection, StringComponentId, EnableState> alias(String value) {
+        public Builder<AdapterConnectionBuilder, AdapterConnection, StringId, EnableState> alias(String value) {
             super.alias(value);
-            defineId(new StringComponentId(alias));
-            return this;
+            defineId(new StringId(alias));
+            return self();
         }
 
         @Override
@@ -59,8 +58,8 @@ public class AdapterConnection extends PackageAwareComponent<StringComponentId, 
         }
     }
 
-    public static abstract class Builder<T extends Builder<T, B, I, S>, B extends BaseComponent<I, S>, I extends ComponentId, S extends ComponentState>
-            extends PackageAwareComponent.Builder<T, B, I, S> {
+    public static abstract class Builder<T extends Builder<T, B, I, S>, B extends AdapterTypeAware<I, S>, I extends StringId, S extends EnableState>
+            extends AdapterTypeAware.Builder<T, B, I, S> {
 
         protected String alias;
 

@@ -1,8 +1,7 @@
 package com.gni.frmk.tools.addon.configuration.visitors;
 
 
-import com.gni.frmk.tools.addon.configuration.components.Component;
-import com.gni.frmk.tools.addon.configuration.components.AdapterConnection;
+import com.gni.frmk.tools.addon.configuration.components.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -17,6 +16,26 @@ public abstract class GenericComponentVisitor implements ComponentVisitor {
 
     @Override
     public void visit(AdapterConnection visited) {
+        visitAny(visited);
+    }
+
+    @Override
+    public void visit(AdapterListener visited) {
+        visitAny(visited);
+    }
+
+    @Override
+    public void visit(AdapterNotification visited) {
+        visitAny(visited);
+    }
+
+    @Override
+    public void visit(Port visited) {
+        visitAny(visited);
+    }
+
+    @Override
+    public void visit(Scheduler visited) {
         visitAny(visited);
     }
 }

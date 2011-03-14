@@ -2,6 +2,10 @@ package com.gni.frmk.tools.addon.configuration.components;
 
 import com.gni.frmk.tools.addon.configuration.components.Component.ComponentState;
 
+import static com.gni.frmk.tools.addon.configuration.components.Component.ComponentState.ComponentStateStatus.OFF;
+import static com.gni.frmk.tools.addon.configuration.components.Component.ComponentState.ComponentStateStatus.ON;
+import static com.gni.frmk.tools.addon.configuration.components.Component.ComponentState.ComponentStateStatus.UNKNOWN;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 09/03/11
@@ -20,4 +24,19 @@ public class EnableState implements ComponentState {
         this.enabled = enabled;
     }
 
+    public EnableStatus getEnabled() {
+        return enabled;
+    }
+
+    @Override
+    public ComponentStateStatus getComponentStatus() {
+        switch (enabled) {
+            case ENABLED:
+                return ON;
+            case DISABLED:
+                return OFF;
+            default:
+                return UNKNOWN;
+        }
+    }
 }

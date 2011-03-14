@@ -12,12 +12,12 @@ import javax.validation.constraints.NotNull;
  *
  * @author: e03229
  */
-public abstract class PackageAwareComponent<I extends ComponentId, S extends ComponentState> extends BaseComponent<I, S> {
+public abstract class PackageAware<I extends ComponentId, S extends ComponentState> extends AbstractComponent<I, S> {
 
     @NotNull
     private final String packageName;
 
-    protected PackageAwareComponent(Builder<?, ?, I, S> builder) {
+    protected PackageAware(Builder<?, ?, I, S> builder) {
         super(builder);
         packageName = builder.packageName;
     }
@@ -26,8 +26,8 @@ public abstract class PackageAwareComponent<I extends ComponentId, S extends Com
         return packageName;
     }
 
-    public static abstract class Builder<T extends Builder<T, B, I, S>, B extends BaseComponent<I, S>, I extends ComponentId, S extends ComponentState>
-            extends BaseComponent.Builder<T, B, I, S> {
+    public static abstract class Builder<T extends Builder<T, B, I, S>, B extends AbstractComponent<I, S>, I extends ComponentId, S extends ComponentState>
+            extends AbstractComponent.Builder<T, B, I, S> {
 
         protected String packageName;
 

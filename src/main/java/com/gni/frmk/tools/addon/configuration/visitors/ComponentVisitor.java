@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.configuration.visitors;
 
-import com.gni.frmk.tools.addon.configuration.components.AdapterConnection;
+import com.gni.frmk.tools.addon.configuration.components.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,4 +11,21 @@ import com.gni.frmk.tools.addon.configuration.components.AdapterConnection;
  */
 public interface ComponentVisitor extends ComponentVisitorRaisingException {
     void visit(AdapterConnection visited);
+
+    void visit(AdapterListener visited);
+
+    void visit(AdapterNotification visited);
+
+    void visit(Port visited);
+
+    void visit(Scheduler visited);
+
+    void visit(NativeTrigger visited);
+
+    void visit(JmsTrigger visited);
+
+    void visit(JmsAlias visited);
+
+    void visit(IntegrationServerPackage visited);
+
 }

@@ -38,7 +38,26 @@ public interface Component {
         String asString();
     }
 
-
     interface ComponentState {
+        enum ComponentStateStatus {
+            UNKNOWN, ON, OFF, CHANGING;
+
+            public ComponentStateStatus composeWith(final ComponentStateStatus other) {
+                if (this == other) {
+                    return this;
+                }
+                if (this == UNKNOWN || other == UNKNOWN) {
+                    return UNKNOWN;
+                }
+                if (this == CHANGING || other == CHANGING) {
+                    return CHANGING;
+                }
+                return OFF;
+            }
+        }
+
+        ComponentStateStatus getComponentStatus();
     }
+
+
 }

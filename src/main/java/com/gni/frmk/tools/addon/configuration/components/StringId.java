@@ -9,10 +9,10 @@ import com.gni.frmk.tools.addon.configuration.components.Component.ComponentId;
  *
  * @author: e03229
  */
-public class StringComponentId implements ComponentId {
+public class StringId implements ComponentId {
     private final String value;
 
-    public StringComponentId(String value) {
+    public StringId(String value) {
         this.value = value;
     }
 

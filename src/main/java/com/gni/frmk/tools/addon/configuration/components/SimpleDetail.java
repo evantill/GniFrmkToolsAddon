@@ -10,11 +10,11 @@ import com.gni.frmk.tools.addon.configuration.components.Component.ComponentDeta
  *
  * @author: e03229
  */
-public class SimpleComponentDetail implements ComponentDetail<Value> {
+public class SimpleDetail implements ComponentDetail<Value> {
     private final String key;
     private final Value value;
 
-    public SimpleComponentDetail(String key, String value) {
+    public SimpleDetail(String key, String value) {
         this.key = key;
         this.value = new Value(value);
     }
