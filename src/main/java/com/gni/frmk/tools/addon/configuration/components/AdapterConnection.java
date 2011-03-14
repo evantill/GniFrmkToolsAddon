@@ -16,7 +16,7 @@ public class AdapterConnection extends AdapterTypeAware<StringId, EnableState> {
     @NotNull
     private final String alias;
 
-    public AdapterConnection(Builder<?, ?, StringId, EnableState> builder) {
+    public AdapterConnection(AdapterConnectionBuilder builder) {
         super(builder);
         alias = builder.alias;
     }
@@ -34,10 +34,18 @@ public class AdapterConnection extends AdapterTypeAware<StringId, EnableState> {
         return new AdapterConnectionBuilder();
     }
 
-    public static class AdapterConnectionBuilder extends Builder<AdapterConnectionBuilder, AdapterConnection, StringId, EnableState> {
+    public static class AdapterConnectionBuilder extends  AdapterTypeAware.Builder<AdapterConnectionBuilder,AdapterConnection,StringId,EnableState>  {
+
+        protected String alias;
 
         public AdapterConnectionBuilder() {
             defineType(ComponentType.ADAPTER_CONNECTION);
+        }
+
+           public AdapterConnectionBuilder alias(String value) {
+            alias = value;
+           defineId(new StringId(alias));
+            return self();
         }
 
         @Override
@@ -46,26 +54,15 @@ public class AdapterConnection extends AdapterTypeAware<StringId, EnableState> {
         }
 
         @Override
-        public Builder<AdapterConnectionBuilder, AdapterConnection, StringId, EnableState> alias(String value) {
-            super.alias(value);
-            defineId(new StringId(alias));
+        public AdapterConnectionBuilder from(AdapterConnection source) {
+            super.from(source);
+            alias = source.getAlias();
             return self();
         }
 
         @Override
         public AdapterConnection build() {
             return new AdapterConnection(this);
-        }
-    }
-
-    public static abstract class Builder<T extends Builder<T, B, I, S>, B extends AdapterTypeAware<I, S>, I extends StringId, S extends EnableState>
-            extends AdapterTypeAware.Builder<T, B, I, S> {
-
-        protected String alias;
-
-        public Builder<T, B, I, S> alias(String value) {
-            alias = value;
-            return self();
         }
     }
 

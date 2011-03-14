@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
+import com.gni.frmk.tools.addon.configuration.components.ActivableState.ActivableStatus;
 import com.gni.frmk.tools.addon.configuration.components.Component.ComponentState;
 
 /**
@@ -12,11 +13,11 @@ import com.gni.frmk.tools.addon.configuration.components.Component.ComponentStat
 public class TemporaryActivableState implements ComponentState {
 
     public enum TemporaryStatus {
-        TEMPORARY, PERMANENT
-    }
+        TEMPORARY, PERMANENT;
 
-    public enum ActivableStatus {
-        ACTIVE, INACTIVE
+        public boolean isPermanent() {
+            return this == PERMANENT;
+        }
     }
 
     private final TemporaryStatus temporary;

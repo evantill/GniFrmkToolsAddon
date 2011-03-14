@@ -1,13 +1,13 @@
 package com.gni.frmk.tools.addon.operation.visitor;
 
-import com.gni.frmk.tools.addon.data.adapter.AdapterConnection;
-import com.gni.frmk.tools.addon.data.adapter.AdapterListener;
-import com.gni.frmk.tools.addon.data.adapter.AdapterNotification;
-import com.gni.frmk.tools.addon.data.port.Port;
-import com.gni.frmk.tools.addon.data.scheduler.Scheduler;
-import com.gni.frmk.tools.addon.data.trigger.JmsAlias;
-import com.gni.frmk.tools.addon.data.trigger.JmsTrigger;
-import com.gni.frmk.tools.addon.data.trigger.NativeTrigger;
+import com.gni.frmk.tools.addon.configuration.components.AdapterConnection;
+import com.gni.frmk.tools.addon.configuration.components.AdapterListener;
+import com.gni.frmk.tools.addon.configuration.components.AdapterNotification;
+import com.gni.frmk.tools.addon.configuration.components.JmsAlias;
+import com.gni.frmk.tools.addon.configuration.components.JmsTrigger;
+import com.gni.frmk.tools.addon.configuration.components.NativeTrigger;
+import com.gni.frmk.tools.addon.configuration.components.Port;
+import com.gni.frmk.tools.addon.configuration.components.Scheduler;
 import com.gni.frmk.tools.addon.invoke.ServiceException;
 import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
@@ -33,7 +33,7 @@ public class OpenServerVisitor implements ConfigurationVisitorRaisingException {
 
     public void visit(AdapterConnection visited) throws ConfigurationVisitorException {
         try {
-            artInvoker.enableConnection(visited.getInfos().getAlias());
+            artInvoker.enableConnection(visited.getAlias());
         } catch (ServiceException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
@@ -41,7 +41,7 @@ public class OpenServerVisitor implements ConfigurationVisitorRaisingException {
 
     public void visit(AdapterListener visited) throws ConfigurationVisitorException {
         try {
-            artInvoker.enableListener(visited.getInfos().getName());
+            artInvoker.enableListener(visited.getName());
         } catch (ServiceException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
@@ -49,7 +49,7 @@ public class OpenServerVisitor implements ConfigurationVisitorRaisingException {
 
     public void visit(AdapterNotification visited) throws ConfigurationVisitorException {
         try {
-            artInvoker.enableNotification(visited.getInfos().getName());
+            artInvoker.enableNotification(visited.getName());
         } catch (ServiceException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
@@ -57,24 +57,23 @@ public class OpenServerVisitor implements ConfigurationVisitorRaisingException {
 
     public void visit(Port visited) throws ConfigurationVisitorException {
         try {
-            rootInvoker.enablePortListener(visited.getId().getKey(), visited.getInfos().getPackageName());
+            rootInvoker.enablePortListener(visited.getKey(), visited.getPackageName());
         } catch (ServiceException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
     }
 
     public void visit(Scheduler visited) throws ConfigurationVisitorException {
-//        try {
-            //TODO  a corriger
-            // rootInvoker.wakeupUserTask(visited.getOid());
-//        } catch (ServiceException e) {
-//            throw new ConfigurationVisitorException(visited, e);
-//        }
+        try {
+            rootInvoker.wakeupUserTask(visited.getOid());
+        } catch (ServiceException e) {
+            throw new ConfigurationVisitorException(visited, e);
+        }
     }
 
     public void visit(JmsAlias visited) throws ConfigurationVisitorException {
         try {
-            jmsInvoker.enableConnectionAlias(visited.getId().getKey());
+            jmsInvoker.enableConnectionAlias(visited.getName());
         } catch (ServiceException e) {
             throw new ConfigurationVisitorException(visited, e);
         }

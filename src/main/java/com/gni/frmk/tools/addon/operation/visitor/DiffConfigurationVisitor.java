@@ -22,7 +22,8 @@ import java.util.Set;
  * Time: 19:22
  * To change this template use File | Settings | File Templates.
  */
-public class DiffConfigurationVisitor implements ConfigurationVisitor {
+//TODO implementer les interfaces
+public class DiffConfigurationVisitor /*implements ConfigurationVisitor*/ {
     private final Configuration reference;
     private final Configuration difference;
 

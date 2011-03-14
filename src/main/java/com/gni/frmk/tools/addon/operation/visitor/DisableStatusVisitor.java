@@ -1,16 +1,27 @@
 package com.gni.frmk.tools.addon.operation.visitor;
 
-import com.gni.frmk.tools.addon.data.adapter.AdapterConnection;
-import com.gni.frmk.tools.addon.data.adapter.AdapterListener;
-import com.gni.frmk.tools.addon.data.adapter.AdapterNotification;
-import com.gni.frmk.tools.addon.data.component.ActivableComponentState;
-import com.gni.frmk.tools.addon.data.component.ComponentState;
-import com.gni.frmk.tools.addon.data.port.Port;
-import com.gni.frmk.tools.addon.data.scheduler.Scheduler;
-import com.gni.frmk.tools.addon.data.trigger.JmsAlias;
-import com.gni.frmk.tools.addon.data.trigger.JmsTrigger;
-import com.gni.frmk.tools.addon.data.trigger.NativeTrigger;
-import com.gni.frmk.tools.addon.data.trigger.Trigger;
+import com.gni.frmk.tools.addon.configuration.Configuration;
+import com.gni.frmk.tools.addon.configuration.Configuration.Builder;
+import com.gni.frmk.tools.addon.configuration.components.ActivableState;
+import com.gni.frmk.tools.addon.configuration.components.AdapterConnection;
+import com.gni.frmk.tools.addon.configuration.components.AdapterListener;
+import com.gni.frmk.tools.addon.configuration.components.AdapterNotification;
+import com.gni.frmk.tools.addon.configuration.components.ConnectableState;
+import com.gni.frmk.tools.addon.configuration.components.EnableState;
+import com.gni.frmk.tools.addon.configuration.components.JmsAlias;
+import com.gni.frmk.tools.addon.configuration.components.JmsTrigger;
+import com.gni.frmk.tools.addon.configuration.components.NativeTrigger;
+import com.gni.frmk.tools.addon.configuration.components.NativeTrigger.NativeTriggerState;
+import com.gni.frmk.tools.addon.configuration.components.Port;
+import com.gni.frmk.tools.addon.configuration.components.Scheduler;
+import com.gni.frmk.tools.addon.configuration.components.Scheduler.SchedulerState;
+
+import static com.gni.frmk.tools.addon.configuration.components.ActivableState.ActivableStatus.INACTIVE;
+import static com.gni.frmk.tools.addon.configuration.components.ConnectableState.ConnectableStatus.DISCONNECTED;
+import static com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus.DISABLED;
+import static com.gni.frmk.tools.addon.configuration.components.Scheduler.SchedulerState.SchedulerStatus.EXPIRED;
+import static com.gni.frmk.tools.addon.configuration.components.TemporaryActivableState.TemporaryStatus.PERMANENT;
+
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,51 +30,84 @@ import com.gni.frmk.tools.addon.data.trigger.Trigger;
  * Time: 11:55
  * To change this template use File | Settings | File Templates.
  */
-public class DisableStatusVisitor implements ConfigurationVisitor {
+public class DisableStatusVisitor implements UpdateConfigurationVisitor {
+
+    Builder builder = Configuration.builder();
 
     public void visit(AdapterConnection visited) {
-        visited.getState().setEnableStatus(ComponentState.EnableStatus.DISABLED);
+        AdapterConnection changed = AdapterConnection.builder()
+                                                     .from(visited)
+                                                     .defineState(new EnableState(DISABLED))
+                                                     .build();
+        builder.addAdapterConnection(changed);
     }
 
     public void visit(AdapterListener visited) {
-        visited.getState().setEnableStatus(ComponentState.EnableStatus.DISABLED);
-        visited.getState().setActiveStatus(ActivableComponentState.ActiveStatus.SUSPENDED);
+        AdapterListener changed = AdapterListener.builder()
+                                                 .from(visited)
+                                                 .defineState(new ActivableState(DISABLED, INACTIVE))
+                                                 .build();
+        builder.addAdapterListener(changed);
     }
 
     public void visit(AdapterNotification visited) {
-        visited.getState().setEnableStatus(ComponentState.EnableStatus.DISABLED);
-        visited.getState().setActiveStatus(ActivableComponentState.ActiveStatus.SUSPENDED);
+        AdapterNotification changed = AdapterNotification.builder()
+                                                         .from(visited)
+                                                         .defineState(new ActivableState(DISABLED, INACTIVE))
+                                                         .build();
+        builder.addAdapterNotification(changed);
     }
 
     public void visit(Port visited) {
-        visited.getState().setEnableStatus(ComponentState.EnableStatus.DISABLED);
-        visited.getState().setActiveStatus(ActivableComponentState.ActiveStatus.SUSPENDED);
+        Port changed = Port.builder()
+                           .from(visited)
+                           .defineState(new ActivableState(DISABLED, INACTIVE))
+                           .build();
+        builder.addPort(changed);
     }
 
     public void visit(Scheduler visited) {
-        //TODO  a corriger
-        // visited.setExecutionState(Scheduler.ExecutionState.SUSPENDED);
-//        visited.setSchedulerState(Scheduler.SchedulerState.UNEXPIRED);
+        Scheduler changed = Scheduler.builder()
+                                     .from(visited)
+                                     .defineState(new SchedulerState(DISABLED, EXPIRED))
+                                     .build();
+        builder.addScheduler(changed);
     }
 
     public void visit(JmsAlias visited) {
-        visited.getState().setEnableStatus(ComponentState.EnableStatus.DISABLED);
-        visited.getState().setActiveStatus(ActivableComponentState.ActiveStatus.SUSPENDED);
+        JmsAlias changed = JmsAlias.builder()
+                                   .from(visited)
+                                   .defineState(new ConnectableState(DISABLED, DISCONNECTED))
+                                   .build();
+        builder.addJmsAliasConnection(changed);
     }
 
     public void visit(JmsTrigger visited) {
-        visited.setStatus(Trigger.Status.DISABLED);
-        visited.setExecutionState(Trigger.State.SUSPENDED);
+        JmsTrigger changed = JmsTrigger.builder()
+                                       .from(visited)
+                                       .defineState(new ActivableState(DISABLED, INACTIVE))
+                                       .build();
+        builder.addJmsTrigger(changed);
     }
 
     public void visit(NativeTrigger visited) {
-        visited.setStatus(Trigger.Status.DISABLED);
-        visited.setProcessingState(new NativeTrigger.NativeState(Trigger.State.SUSPENDED,
-                Trigger.TemporalStatus.PERMANENT));
-        visited.setRetrievalState(new NativeTrigger.NativeState(Trigger.State.SUSPENDED,
-                Trigger.TemporalStatus.PERMANENT));
+        NativeTriggerState changedState = NativeTriggerState.builder()
+                                                            .defineEnable(DISABLED)
+                                                            .defineProcessing(PERMANENT, INACTIVE)
+                                                            .defineRetrieval(PERMANENT, INACTIVE)
+                                                            .build();
+        NativeTrigger changed = NativeTrigger.builder()
+                                             .from(visited)
+                                             .defineState(changedState)
+                                             .build();
+        builder.addNativeTrigger(changed);
     }
 
     public void clear() {
+        builder.clear();
+    }
+
+    public Configuration getUpdatedConfiguration() {
+        return builder.buildAndValidate();
     }
 }

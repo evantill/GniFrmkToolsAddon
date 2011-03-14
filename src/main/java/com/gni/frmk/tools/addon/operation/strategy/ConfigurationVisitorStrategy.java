@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.operation.strategy;
 
-import com.gni.frmk.tools.addon.data.Configuration;
+import com.gni.frmk.tools.addon.configuration.Configuration;
 
 /**
  * Created by IntelliJ IDEA.

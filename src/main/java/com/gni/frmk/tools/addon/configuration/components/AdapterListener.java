@@ -16,7 +16,7 @@ public class AdapterListener extends AdapterTypeAware<StringId, ActivableState> 
     @NotNull
     private final String name;
 
-    public AdapterListener(Builder<?, ?, StringId, ActivableState> builder) {
+    public AdapterListener(AdapterListenerBuilder builder) {
         super(builder);
         name = builder.name;
     }
@@ -34,7 +34,8 @@ public class AdapterListener extends AdapterTypeAware<StringId, ActivableState> 
         return new AdapterListenerBuilder();
     }
 
-    public static class AdapterListenerBuilder extends Builder<AdapterListenerBuilder, AdapterListener, StringId, ActivableState> {
+    public static class AdapterListenerBuilder extends AdapterTypeAware.Builder<AdapterListenerBuilder, AdapterListener, StringId, ActivableState> {
+        protected String name;
 
         public AdapterListenerBuilder() {
             defineType(ComponentType.ADAPTER_LISTENER);
@@ -45,9 +46,8 @@ public class AdapterListener extends AdapterTypeAware<StringId, ActivableState> 
             return this;
         }
 
-        @Override
-        public Builder<AdapterListenerBuilder, AdapterListener, StringId, ActivableState> name(String value) {
-            super.name(value);
+        public AdapterListenerBuilder name(String value) {
+            name = value;
             defineId(new StringId(name));
             return self();
         }
@@ -56,16 +56,13 @@ public class AdapterListener extends AdapterTypeAware<StringId, ActivableState> 
         public AdapterListener build() {
             return new AdapterListener(this);
         }
-    }
 
-    public static abstract class Builder<T extends Builder<T, B, I, S>, B extends AdapterTypeAware<I, S>, I extends StringId, S extends ActivableState>
-            extends AdapterTypeAware.Builder<T, B, I, S> {
-
-        protected String name;
-
-        public Builder<T, B, I, S> name(String value) {
-            name = value;
+        @Override
+        public AdapterListenerBuilder from(AdapterListener source) {
+            super.from(source);
+            name = source.getName();
             return self();
         }
     }
+
 }

@@ -35,5 +35,12 @@ public abstract class AdapterTypeAware<I extends ComponentId, S extends Componen
             adapterType = value;
             return self();
         }
+
+        @Override
+        public T from(B source) {
+            super.from(source);
+            adapterType=source.getAdapterType();
+            return self();
+        }
     }
 }

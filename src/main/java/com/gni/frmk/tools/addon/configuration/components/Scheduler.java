@@ -25,7 +25,7 @@ public class Scheduler extends PackageAware<StringId, SchedulerState> {
     @NotNull
     private final String service;
 
-    public Scheduler(Builder<?, ?, StringId, SchedulerState> builder) {
+    public Scheduler(SchedulerBuilder builder) {
         super(builder);
         oid = builder.oid;
         schedulerType = builder.schedulerType;
@@ -90,10 +90,36 @@ public class Scheduler extends PackageAware<StringId, SchedulerState> {
         return new SchedulerBuilder();
     }
 
-    public static class SchedulerBuilder extends Builder<SchedulerBuilder, Scheduler, StringId, SchedulerState> {
+    public static class SchedulerBuilder extends PackageAware.Builder<SchedulerBuilder, Scheduler, StringId, SchedulerState> {
+
+        private String oid;
+        private String schedulerType;
+        private String name;
+        private String service;
 
         public SchedulerBuilder() {
             defineType(ComponentType.SCHEDULER);
+        }
+
+        public SchedulerBuilder schedulerType(String value) {
+            schedulerType = value;
+            return self();
+        }
+
+        public SchedulerBuilder name(String value) {
+            name = value;
+            return self();
+        }
+
+        public SchedulerBuilder oid(String value) {
+            oid = value;
+            defineId(new StringId(oid));
+            return self();
+        }
+
+        public SchedulerBuilder service(String value) {
+            service = value;
+            return self();
         }
 
         @Override
@@ -102,44 +128,8 @@ public class Scheduler extends PackageAware<StringId, SchedulerState> {
         }
 
         @Override
-        public Builder<SchedulerBuilder, Scheduler, StringId, SchedulerState> oid(String value) {
-            super.oid(value);
-            defineId(new StringId(oid));
-            return self();
-        }
-
-        @Override
         public Scheduler build() {
             return new Scheduler(this);
-        }
-    }
-
-    public static abstract class Builder<T extends Builder<T, B, I, S>, B extends PackageAware<I, S>, I extends StringId, S extends SchedulerState>
-            extends PackageAware.Builder<T, B, I, S> {
-
-        protected String oid;
-        protected String schedulerType;
-        protected String name;
-        protected String service;
-
-        public Builder<T, B, I, S> oid(String value) {
-            oid = value;
-            return self();
-        }
-
-        public Builder<T, B, I, S> schedulerType(String value) {
-            schedulerType = value;
-            return self();
-        }
-
-        public Builder<T, B, I, S> name(String value) {
-            name = value;
-            return self();
-        }
-
-        public Builder<T, B, I, S> service(String value) {
-            service = value;
-            return self();
         }
     }
 }

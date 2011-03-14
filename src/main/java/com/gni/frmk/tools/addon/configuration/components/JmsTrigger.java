@@ -16,7 +16,7 @@ public class JmsTrigger extends PackageAware<StringId, ActivableState> {
     @NotNull
     private final String name;
 
-    public JmsTrigger(Builder<?, ?, StringId, ActivableState> builder) {
+    public JmsTrigger(JmsTriggerBuilder builder) {
         super(builder);
         name = builder.name;
     }
@@ -34,7 +34,8 @@ public class JmsTrigger extends PackageAware<StringId, ActivableState> {
         return new JmsTriggerBuilder();
     }
 
-    public static class JmsTriggerBuilder extends Builder<JmsTriggerBuilder, JmsTrigger, StringId, ActivableState> {
+    public static class JmsTriggerBuilder extends PackageAware.Builder<JmsTriggerBuilder, JmsTrigger, StringId, ActivableState> {
+        private String name;
 
         public JmsTriggerBuilder() {
             defineType(ComponentType.JMS_TRIGGER);
@@ -45,9 +46,8 @@ public class JmsTrigger extends PackageAware<StringId, ActivableState> {
             return this;
         }
 
-        @Override
-        public Builder<JmsTriggerBuilder, JmsTrigger, StringId, ActivableState> name(String value) {
-            super.name(value);
+        public JmsTriggerBuilder name(String value) {
+            name = value;
             defineId(new StringId(name));
             return self();
         }
@@ -58,14 +58,4 @@ public class JmsTrigger extends PackageAware<StringId, ActivableState> {
         }
     }
 
-    public static abstract class Builder<T extends Builder<T, B, I, S>, B extends PackageAware<I, S>, I extends StringId, S extends ActivableState>
-            extends PackageAware.Builder<T, B, I, S> {
-
-        protected String name;
-
-        public Builder<T, B, I, S> name(String value) {
-            name = value;
-            return self();
-        }
-    }
 }

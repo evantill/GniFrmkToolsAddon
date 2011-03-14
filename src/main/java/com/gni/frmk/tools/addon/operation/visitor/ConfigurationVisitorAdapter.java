@@ -1,15 +1,14 @@
 package com.gni.frmk.tools.addon.operation.visitor;
 
-import com.gni.frmk.tools.addon.data.ConfigurationElement;
-import com.gni.frmk.tools.addon.data.adapter.AdapterConnection;
-import com.gni.frmk.tools.addon.data.adapter.AdapterListener;
-import com.gni.frmk.tools.addon.data.adapter.AdapterNotification;
-import com.gni.frmk.tools.addon.data.component.Component;
-import com.gni.frmk.tools.addon.data.port.Port;
-import com.gni.frmk.tools.addon.data.scheduler.Scheduler;
-import com.gni.frmk.tools.addon.data.trigger.JmsAlias;
-import com.gni.frmk.tools.addon.data.trigger.JmsTrigger;
-import com.gni.frmk.tools.addon.data.trigger.NativeTrigger;
+import com.gni.frmk.tools.addon.configuration.components.AdapterConnection;
+import com.gni.frmk.tools.addon.configuration.components.AdapterListener;
+import com.gni.frmk.tools.addon.configuration.components.AdapterNotification;
+import com.gni.frmk.tools.addon.configuration.components.Component;
+import com.gni.frmk.tools.addon.configuration.components.JmsAlias;
+import com.gni.frmk.tools.addon.configuration.components.JmsTrigger;
+import com.gni.frmk.tools.addon.configuration.components.NativeTrigger;
+import com.gni.frmk.tools.addon.configuration.components.Port;
+import com.gni.frmk.tools.addon.configuration.components.Scheduler;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;

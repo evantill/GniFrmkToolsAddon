@@ -94,7 +94,7 @@ public class NativeTrigger extends Trigger implements Comparable<NativeTrigger>,
     }
 
     public void accept(ConfigurationVisitor visitor) {
-        visitor.visit(this);
+        //visitor.visit(this);
     }
 
     public NativeState getRetrievalState() {

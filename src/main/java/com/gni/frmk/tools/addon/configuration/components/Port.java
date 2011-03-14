@@ -16,7 +16,7 @@ public class Port extends PackageAware<StringId, ActivableState> {
     @NotNull
     private final String key;
 
-    public Port(Builder<?, ?, StringId, ActivableState> builder) {
+    public Port(PortBuilder builder) {
         super(builder);
         key = builder.key;
     }
@@ -34,7 +34,9 @@ public class Port extends PackageAware<StringId, ActivableState> {
         return new PortBuilder();
     }
 
-    public static class PortBuilder extends Builder<PortBuilder, Port, StringId, ActivableState> {
+    public static class PortBuilder extends PackageAware.Builder<PortBuilder, Port, StringId, ActivableState> {
+
+        protected String key;
 
         public PortBuilder() {
             defineType(ComponentType.PORT);
@@ -45,9 +47,8 @@ public class Port extends PackageAware<StringId, ActivableState> {
             return this;
         }
 
-        @Override
-        public Builder<PortBuilder, Port, StringId, ActivableState> key(String value) {
-            super.key(value);
+        public PortBuilder key(String value) {
+            key = value;
             defineId(new StringId(key));
             return self();
         }
@@ -56,16 +57,6 @@ public class Port extends PackageAware<StringId, ActivableState> {
         public Port build() {
             return new Port(this);
         }
-    }
 
-    public static abstract class Builder<T extends Builder<T, B, I, S>, B extends PackageAware<I, S>, I extends StringId, S extends ActivableState>
-            extends PackageAware.Builder<T, B, I, S> {
-
-        protected String key;
-
-        public Builder<T, B, I, S> key(String value) {
-            key = value;
-            return self();
-        }
     }
 }

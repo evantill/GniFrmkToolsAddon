@@ -1,8 +1,8 @@
 package com.gni.frmk.tools.addon.operation.strategy;
 
-import com.gni.frmk.tools.addon.data.Configuration;
-import com.gni.frmk.tools.addon.data.adapter.AdapterConnection;
-import com.gni.frmk.tools.addon.data.trigger.JmsAlias;
+import com.gni.frmk.tools.addon.configuration.Configuration;
+import com.gni.frmk.tools.addon.configuration.components.AdapterConnection;
+import com.gni.frmk.tools.addon.configuration.components.JmsAlias;
 import com.gni.frmk.tools.addon.operation.visitor.ConfigurationVisitor;
 
 /**
@@ -21,10 +21,10 @@ public class CloseOutputStrategy implements ConfigurationVisitorStrategy {
     }
 
     public void execute(Configuration cnf) {
-        for (JmsAlias element : cnf.getJmsAliasList()) {
+        for (JmsAlias element : cnf.getJmsAliases()) {
             element.accept(visitor);
         }
-        for (AdapterConnection element : cnf.getAdapterConnectionList()) {
+        for (AdapterConnection element : cnf.getAdapterConnections()) {
             element.accept(visitor);
         }
     }

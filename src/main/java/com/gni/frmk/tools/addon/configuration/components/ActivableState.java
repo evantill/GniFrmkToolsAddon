@@ -13,7 +13,11 @@ import static com.gni.frmk.tools.addon.configuration.components.Component.Compon
  */
 public class ActivableState extends EnableState implements ComponentState {
     public enum ActivableStatus {
-        ACTIVE, INACTIVE
+        ACTIVE, INACTIVE;
+
+        public boolean isActive() {
+            return this==ACTIVE;
+        }
     }
 
     private final ActivableStatus activable;

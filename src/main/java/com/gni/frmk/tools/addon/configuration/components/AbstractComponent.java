@@ -56,7 +56,7 @@ public abstract class AbstractComponent<I extends ComponentId, S extends Compone
     }
 
     public static abstract class Builder<T extends Builder<T, B, I, S>, B extends AbstractComponent<I, S>, I extends ComponentId, S extends ComponentState>
-    implements ComponentBuilder<T,B>{
+            implements ComponentBuilder<T, B> {
         protected I id;
         protected S state;
         protected ComponentType type;
@@ -91,5 +91,15 @@ public abstract class AbstractComponent<I extends ComponentId, S extends Compone
 
         public abstract B build();
 
+        @Override
+        public T from(B source) {
+            id = source.getId();
+            state = source.getState();
+            type = source.getType();
+            for (ComponentDetail detail : source.getDetails()) {
+                details.add(detail);
+            }
+            return self();
+        }
     }
 }

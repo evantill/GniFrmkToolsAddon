@@ -26,6 +26,6 @@ public interface ComponentVisitor extends ComponentVisitorRaisingException {
 
     void visit(JmsAlias visited);
 
-    void visit(IntegrationServerPackage visited);
+//    void visit(IntegrationServerPackage visited);
 
 }

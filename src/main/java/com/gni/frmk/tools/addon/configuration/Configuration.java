@@ -211,6 +211,18 @@ public class Configuration {
         public void validate() throws ValidationException {
             //TODO validate
         }
+
+        public void clear() {
+            adapterConnections.clear();
+            adapterListeners.clear();
+            adapterNotifications.clear();
+            integrationServerPackages.clear();
+            jmsAliases.clear();
+            jmsTriggers.clear();
+            nativeTriggers.clear();
+            ports.clear();
+            schedulers.clear();
+        }
     }
 
 }

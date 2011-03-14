@@ -7,9 +7,11 @@ package com.gni.frmk.tools.addon.configuration.components;
  *
  * @author: e03229
  */
-public interface ComponentBuilder<B extends ComponentBuilder<B,T>, T> {
+public interface ComponentBuilder<B extends ComponentBuilder<B,T>, T extends Component> {
 
     T build();
 
     B self();
+
+    B from(T source);
 }

@@ -1,5 +1,9 @@
 package com.gni.frmk.tools.addon.configuration.visitors;
 
+import com.gni.frmk.tools.addon.configuration.components.*;
+import com.gni.frmk.tools.addon.configuration.components.Component;
+import com.gni.frmk.tools.addon.data.component.*;
+
 /**
  * Created by IntelliJ IDEA.
  * User: e03229
@@ -9,6 +13,34 @@ package com.gni.frmk.tools.addon.configuration.visitors;
  */
 public interface ComponentVisitorRaisingException {
 
-    class ComponentVisitorException {
+    void visit(AdapterConnection visited)throws ComponentVisitorException;
+
+    void visit(AdapterListener visited)throws ComponentVisitorException;
+
+    void visit(AdapterNotification visited)throws ComponentVisitorException;
+
+    void visit(Port visited)throws ComponentVisitorException;
+
+    void visit(Scheduler visited)throws ComponentVisitorException;
+
+    void visit(NativeTrigger visited)throws ComponentVisitorException;
+
+    void visit(JmsTrigger visited) throws ComponentVisitorException;
+
+    void visit(JmsAlias visited) throws ComponentVisitorException;
+
+//    void visit(IntegrationServerPackage visited) throws ComponentVisitorException;
+
+    class ComponentVisitorException extends Exception {
+        private final Component component;
+
+        public ComponentVisitorException(Component component,Throwable cause) {
+            super(cause);
+            this.component = component;
+        }
+
+        public Component getComponent() {
+            return component;
+        }
     }
 }

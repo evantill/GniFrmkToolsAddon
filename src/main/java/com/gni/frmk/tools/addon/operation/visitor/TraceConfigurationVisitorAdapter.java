@@ -1,7 +1,6 @@
 package com.gni.frmk.tools.addon.operation.visitor;
 
-import com.gni.frmk.tools.addon.data.ConfigurationElement;
-import com.gni.frmk.tools.addon.data.component.Component;
+import com.gni.frmk.tools.addon.configuration.components.Component;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 

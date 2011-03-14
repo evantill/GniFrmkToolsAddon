@@ -26,13 +26,20 @@ public abstract class PackageAware<I extends ComponentId, S extends ComponentSta
         return packageName;
     }
 
-    public static abstract class Builder<T extends Builder<T, B, I, S>, B extends AbstractComponent<I, S>, I extends ComponentId, S extends ComponentState>
+    public static abstract class Builder<T extends Builder<T, B, I, S>, B extends PackageAware<I, S>, I extends ComponentId, S extends ComponentState>
             extends AbstractComponent.Builder<T, B, I, S> {
 
         protected String packageName;
 
         public Builder<T, B, I, S> packageName(String value) {
             packageName = value;
+            return self();
+        }
+
+        @Override
+        public T from(B source) {
+            super.from(source);
+            packageName = source.getPackageName();
             return self();
         }
     }

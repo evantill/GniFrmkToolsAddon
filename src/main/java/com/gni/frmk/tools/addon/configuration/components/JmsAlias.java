@@ -19,7 +19,7 @@ public class JmsAlias extends PackageAware<StringId, ConnectableState> {
     @NotNull
     private final String description;
 
-    public JmsAlias(Builder<?, ?, StringId, ConnectableState> builder) {
+    public JmsAlias(JmsAliasBuilder builder) {
         super(builder);
         name = builder.name;
         description = builder.description;
@@ -34,11 +34,18 @@ public class JmsAlias extends PackageAware<StringId, ConnectableState> {
         return name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public static JmsAliasBuilder builder() {
         return new JmsAliasBuilder();
     }
 
-    public static class JmsAliasBuilder extends Builder<JmsAliasBuilder, JmsAlias, StringId, ConnectableState> {
+    public static class JmsAliasBuilder extends PackageAware.Builder<JmsAliasBuilder, JmsAlias, StringId, ConnectableState> {
+
+        private String name;
+        private String description;
 
         public JmsAliasBuilder() {
             defineType(ComponentType.JMS_ALIAS);
@@ -49,33 +56,20 @@ public class JmsAlias extends PackageAware<StringId, ConnectableState> {
             return this;
         }
 
-        @Override
-        public Builder<JmsAliasBuilder, JmsAlias, StringId, ConnectableState> name(String value) {
-            super.name(value);
+        public JmsAliasBuilder name(String value) {
+            name = value;
             defineId(new StringId(name));
+            return self();
+        }
+
+        public JmsAliasBuilder description(String value) {
+            description = value;
             return self();
         }
 
         @Override
         public JmsAlias build() {
             return new JmsAlias(this);
-        }
-    }
-
-    public static abstract class Builder<T extends Builder<T, B, I, S>, B extends PackageAware<I, S>, I extends StringId, S extends ConnectableState>
-            extends PackageAware.Builder<T, B, I, S> {
-
-        protected String name;
-        protected String description;
-
-        public Builder<T, B, I, S> name(String value) {
-            name = value;
-            return self();
-        }
-
-        public Builder<T, B, I, S> description(String value) {
-            description = value;
-            return self();
         }
     }
 }

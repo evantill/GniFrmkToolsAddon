@@ -16,7 +16,7 @@ public class AdapterNotification extends AdapterTypeAware<StringId, ActivableSta
     @NotNull
     private final String name;
 
-    public AdapterNotification(Builder<?, ?, StringId, ActivableState> builder) {
+    public AdapterNotification(AdapterNotificationBuilder builder) {
         super(builder);
         name = builder.name;
     }
@@ -34,10 +34,17 @@ public class AdapterNotification extends AdapterTypeAware<StringId, ActivableSta
         return new AdapterNotificationBuilder();
     }
 
-    public static class AdapterNotificationBuilder extends Builder<AdapterNotificationBuilder, AdapterNotification, StringId, ActivableState> {
+    public static class AdapterNotificationBuilder extends AdapterTypeAware.Builder<AdapterNotificationBuilder, AdapterNotification, StringId, ActivableState> {
+        protected String name;
 
         public AdapterNotificationBuilder() {
             defineType(ComponentType.ADAPTER_NOTIFICATION);
+        }
+
+        public AdapterNotificationBuilder name(String value) {
+            name = value;
+            defineId(new StringId(name));
+            return self();
         }
 
         @Override
@@ -46,26 +53,16 @@ public class AdapterNotification extends AdapterTypeAware<StringId, ActivableSta
         }
 
         @Override
-        public Builder<AdapterNotificationBuilder, AdapterNotification, StringId, ActivableState> name(String value) {
-            super.name(value);
-            defineId(new StringId(name));
-            return self();
-        }
-
-        @Override
         public AdapterNotification build() {
             return new AdapterNotification(this);
         }
-    }
 
-    public static abstract class Builder<T extends Builder<T, B, I, S>, B extends AdapterTypeAware<I, S>, I extends StringId, S extends ActivableState>
-            extends AdapterTypeAware.Builder<T, B, I, S> {
-
-        protected String name;
-
-        public Builder<T, B, I, S> name(String value) {
-            name = value;
+        @Override
+        public AdapterNotificationBuilder from(AdapterNotification source) {
+            super.from(source);
+            name = source.getName();
             return self();
         }
     }
+
 }

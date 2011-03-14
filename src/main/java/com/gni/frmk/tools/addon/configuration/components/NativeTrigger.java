@@ -1,6 +1,8 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
+import com.gni.frmk.tools.addon.configuration.components.ActivableState.ActivableStatus;
 import com.gni.frmk.tools.addon.configuration.components.NativeTrigger.NativeTriggerState;
+import com.gni.frmk.tools.addon.configuration.components.TemporaryActivableState.TemporaryStatus;
 import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
 
 import javax.validation.constraints.NotNull;
@@ -17,7 +19,7 @@ public class NativeTrigger extends PackageAware<StringId, NativeTriggerState> {
     @NotNull
     private final String name;
 
-    public NativeTrigger(Builder<?, ?, StringId, NativeTriggerState> builder) {
+    public NativeTrigger(NativeTriggerBuilder builder) {
         super(builder);
         name = builder.name;
     }
@@ -35,7 +37,9 @@ public class NativeTrigger extends PackageAware<StringId, NativeTriggerState> {
         return new NativeTriggerBuilder();
     }
 
-    public static class NativeTriggerBuilder extends Builder<NativeTriggerBuilder, NativeTrigger, StringId, NativeTriggerState> {
+    public static class NativeTriggerBuilder extends PackageAware.Builder<NativeTriggerBuilder, NativeTrigger, StringId, NativeTriggerState> {
+
+        private String name;
 
         public NativeTriggerBuilder() {
             defineType(ComponentType.NATIVE_TRIGGER);
@@ -46,9 +50,8 @@ public class NativeTrigger extends PackageAware<StringId, NativeTriggerState> {
             return this;
         }
 
-        @Override
-        public Builder<NativeTriggerBuilder, NativeTrigger, StringId, NativeTriggerState> name(String value) {
-            super.name(value);
+        public NativeTriggerBuilder name(String value) {
+            name = value;
             defineId(new StringId(name));
             return self();
         }
@@ -59,27 +62,16 @@ public class NativeTrigger extends PackageAware<StringId, NativeTriggerState> {
         }
     }
 
-    public static abstract class Builder<T extends Builder<T, B, I, S>, B extends PackageAware<I, S>, I extends StringId, S extends NativeTriggerState>
-            extends PackageAware.Builder<T, B, I, S> {
-
-        protected String name;
-
-        public Builder<T, B, I, S> name(String value) {
-            name = value;
-            return self();
-        }
-    }
-
     public static class NativeTriggerState implements ComponentState {
 
-        final EnableState enabled;
-        final TemporaryActivableState retrievalState;
-        final TemporaryActivableState processingState;
+        private final EnableState enabled;
+        private final TemporaryActivableState retrievalState;
+        private final TemporaryActivableState processingState;
 
-        public NativeTriggerState(EnableState enabled, TemporaryActivableState retrievalState, TemporaryActivableState processingState) {
-            this.enabled = enabled;
-            this.retrievalState = retrievalState;
-            this.processingState = processingState;
+        public NativeTriggerState(Builder builder) {
+            this.enabled = builder.enabled;
+            this.retrievalState = builder.retrievalState;
+            this.processingState = builder.processingState;
         }
 
         public EnableState getEnabled() {
@@ -99,6 +91,35 @@ public class NativeTrigger extends PackageAware<StringId, NativeTriggerState> {
             return enabled.getComponentStatus()
                           .composeWith(retrievalState.getComponentStatus())
                           .composeWith(processingState.getComponentStatus());
+        }
+
+        public static Builder builder() {
+            return new Builder();
+        }
+
+        public static class Builder {
+            private EnableState enabled;
+            private TemporaryActivableState retrievalState;
+            private TemporaryActivableState processingState;
+
+            public Builder defineEnable(com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus status) {
+                enabled = new EnableState(status);
+                return this;
+            }
+
+            public Builder defineRetrieval(TemporaryStatus temporary, ActivableStatus status) {
+                retrievalState = new TemporaryActivableState(temporary, status);
+                return this;
+            }
+
+            public Builder defineProcessing(TemporaryStatus temporary, ActivableStatus status) {
+                processingState = new TemporaryActivableState(temporary, status);
+                return this;
+            }
+
+            public NativeTriggerState build() {
+                return new NativeTriggerState(this);
+            }
         }
     }
 }
