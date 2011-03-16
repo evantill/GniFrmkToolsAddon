@@ -33,6 +33,10 @@ public class WmRootNativeInvoker {
     private final ServiceInvoker suspendUserTask;
     private final ServiceInvoker getUserTaskList;
 
+    private final ServiceInvoker packageList;
+    private final ServiceInvoker enablePackage;
+    private final ServiceInvoker disablePackage;
+
     private final IntegrationServerUtil isUtil;
 
     public WmRootNativeInvoker(IntegrationServerUtil util, ServiceInvokerFactory factory) {
@@ -58,6 +62,12 @@ public class WmRootNativeInvoker {
                 .defineInput("oid").defineOutput("message").build();
         getUserTaskList = factory.createServiceInvokerBuilder("wm.server.schedule:getUserTaskList")
                 .defineOutput("tasks").build();
+        packageList = factory.createServiceInvokerBuilder("wm.server.packages:packageList")
+                .defineOutput("packages").build();
+        disablePackage = factory.createServiceInvokerBuilder("pub.packages:disablePackage")
+                .defineInput("package").defineOutput("message").build();
+        enablePackage = factory.createServiceInvokerBuilder("pub.packages:enablePackage")
+                .defineInput("package").defineOutput("message").build();
     }
 
     public void suspendTriggers(boolean retrievalSuspend,
@@ -134,6 +144,18 @@ public class WmRootNativeInvoker {
 //            }
         }
         return result;
+    }
+
+    //TODO implementer le return des packages
+    public void getPackageList(){
+        Map<String, ?> out = packageList.invoke(ServiceInvoker.EMPTY_DATA);
+        if(out.containsKey("packages")){
+                 IData[] packageList = (IData[]) out.get("tasks");
+                        //TODO  a corriger
+            for (IData doc : packageList) {
+//                result.add(new SchedulerBuilder().defineScheduler(doc).build());
+            }
+        }
     }
 
     public boolean isEnabled() {

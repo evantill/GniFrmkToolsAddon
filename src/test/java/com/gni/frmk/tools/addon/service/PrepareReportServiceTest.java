@@ -11,6 +11,7 @@ import com.gni.frmk.tools.addon.data.trigger.JmsAlias;
 import com.gni.frmk.tools.addon.data.trigger.JmsTrigger;
 import com.gni.frmk.tools.addon.data.trigger.NativeTrigger;
 import com.gni.frmk.tools.addon.invoke.*;
+import com.gni.frmk.tools.addon.invoke.utils.PipelineTestUtils;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Ignore;

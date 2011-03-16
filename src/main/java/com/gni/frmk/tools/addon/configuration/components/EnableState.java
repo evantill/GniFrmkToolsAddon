@@ -15,7 +15,15 @@ import static com.gni.frmk.tools.addon.configuration.components.Component.Compon
  */
 public class EnableState implements ComponentState {
     public enum EnableStatus {
-        ENABLED, DISABLED
+        ENABLED, DISABLED;
+
+        public static EnableStatus fromBooleanString(String enabled) {
+            return Boolean.parseBoolean(enabled)?ENABLED:DISABLED;
+        }
+
+        public static EnableStatus fromValueString(String enabled) {
+            return valueOf(enabled.toUpperCase());
+        }
     }
 
     private final EnableStatus enabled;
