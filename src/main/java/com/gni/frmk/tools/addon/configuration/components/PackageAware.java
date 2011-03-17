@@ -1,9 +1,5 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
-import com.gni.frmk.tools.addon.configuration.components.Component.ComponentId;
-import com.gni.frmk.tools.addon.configuration.components.Component.ComponentState;
-import com.google.common.base.Preconditions;
-
 import javax.validation.constraints.NotNull;
 
 import static com.google.common.base.Preconditions.checkNotNull;

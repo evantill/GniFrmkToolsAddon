@@ -5,7 +5,7 @@ import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
 
 import javax.validation.constraints.NotNull;
 
-import static com.gni.frmk.tools.addon.configuration.components.Component.ComponentState.ComponentStateStatus.*;
+import static com.gni.frmk.tools.addon.configuration.components.ComponentState.ComponentStateStatus.*;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**

@@ -1,14 +1,6 @@
 package com.gni.frmk.tools.addon.operation.visitor;
 
 
-import com.gni.frmk.tools.addon.configuration.Configuration;
-import com.gni.frmk.tools.addon.configuration.components.AdapterConnection;
-import com.gni.frmk.tools.addon.configuration.components.Component.ComponentState;
-import com.google.common.base.Predicate;
-import com.google.common.collect.Iterables;
-
-import java.util.Set;
-
 /**
  * Created by IntelliJ IDEA.
  * User: e03229

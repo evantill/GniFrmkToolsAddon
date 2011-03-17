@@ -6,7 +6,8 @@ import com.gni.frmk.tools.addon.invoke.exceptions.ActionException;
 import com.gni.frmk.tools.addon.invoke.ActionHandler;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.PackageList;
-import com.gni.frmk.tools.addon.invoke.handlers.wmroot.GetPackageListHandler;
+import com.gni.frmk.tools.addon.invoke.exceptions.InvokeException;
+import com.gni.frmk.tools.addon.invoke.handlers.wmroot.PackageListHandler;
 import com.gni.frmk.tools.addon.invoke.results.SetResult;
 import junit.framework.Assert;
 
@@ -19,14 +20,14 @@ import junit.framework.Assert;
  */
 public class GetPackageListInvokerTest extends AbstractInvokerTest<PackageList, SetResult<IntegrationServerPackage>> {
 
-    public void testGetPackageList() throws ActionException {
+    public void testGetPackageList() throws ActionException, InvokeException {
         SetResult<IntegrationServerPackage> r = execute();
         Assert.assertEquals(5, r.getCollection().size());
     }
 
     @Override
     protected ActionHandler<PackageList, SetResult<IntegrationServerPackage>, InvokeContext> getActionHandler() {
-        return new GetPackageListHandler();
+        return new PackageListHandler();
     }
 
     @Override

@@ -1,8 +1,6 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
-import com.gni.frmk.tools.addon.configuration.components.Component.ComponentState;
-
-import static com.gni.frmk.tools.addon.configuration.components.Component.ComponentState.ComponentStateStatus.*;
+import static com.gni.frmk.tools.addon.configuration.components.ComponentState.ComponentStateStatus.*;
 
 /**
  * Created by IntelliJ IDEA.

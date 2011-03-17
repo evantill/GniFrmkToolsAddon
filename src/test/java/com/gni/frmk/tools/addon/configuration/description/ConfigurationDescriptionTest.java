@@ -1,8 +1,8 @@
 package com.gni.frmk.tools.addon.configuration.description;
 
 import com.gni.frmk.tools.addon.configuration.components.Component;
-import com.gni.frmk.tools.addon.configuration.components.Component.ComponentDetail;
-import com.gni.frmk.tools.addon.configuration.components.Component.ComponentId;
+import com.gni.frmk.tools.addon.configuration.components.ComponentDetail;
+import com.gni.frmk.tools.addon.configuration.components.ComponentId;
 import com.gni.frmk.tools.addon.configuration.visitors.GenericComponentVisitor;
 import com.google.common.collect.Lists;
 import org.junit.AfterClass;

@@ -38,4 +38,24 @@ public abstract class GenericComponentVisitor implements ComponentVisitor {
     public void visit(Scheduler visited) {
         visitAny(visited);
     }
+
+    @Override
+    public void visit(NativeTrigger visited) {
+        visitAny(visited);
+    }
+
+    @Override
+    public void visit(JmsTrigger visited) {
+        visitAny(visited);
+    }
+
+    @Override
+    public void visit(JmsAlias visited) {
+        visitAny(visited);
+    }
+
+    @Override
+    public void visit(IntegrationServerPackage visited) {
+        visitAny(visited);
+    }
 }

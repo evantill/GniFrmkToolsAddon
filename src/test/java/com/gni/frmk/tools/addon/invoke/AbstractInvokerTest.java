@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.invoke;
 
 import com.gni.frmk.tools.addon.invoke.exceptions.ActionException;
+import com.gni.frmk.tools.addon.invoke.exceptions.InvokeException;
 import com.gni.frmk.tools.addon.invoke.utils.PipelineTestUtils;
 
 /**
@@ -20,11 +21,11 @@ public abstract class AbstractInvokerTest<A extends Action<R>, R extends Result>
         replay = new InvokeContextReplay(utils);
     }
 
-    protected R execute() throws ActionException {
+    protected R execute() throws ActionException, InvokeException {
         return getActionHandler().execute(getAction(), replay);
     }
 
-    public void record(RemoteInvokeContext ctx) throws ActionException {
+    public void record(RemoteInvokeContext ctx) throws ActionException, InvokeException {
         PipelineTestUtils utils = new PipelineTestUtils(getClass());
         InvokeContextRecord recorder = new InvokeContextRecord(ctx, utils);
 

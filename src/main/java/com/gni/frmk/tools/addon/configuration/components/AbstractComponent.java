@@ -1,7 +1,5 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
-import com.gni.frmk.tools.addon.configuration.components.Component.ComponentId;
-import com.gni.frmk.tools.addon.configuration.components.Component.ComponentState;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 

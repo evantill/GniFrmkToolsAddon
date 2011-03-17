@@ -69,7 +69,7 @@ public class ReportService {
         return rootInvoker.getUserTaskList();
     }
 
-    public List<JmsTrigger> reportJmsTriggerList() {
+    public List<JmsTrigger> reportJmsTriggerList() throws InvokeException, ActionException {
         return rootJmsInvoker.getJmsTriggerReport();
     }
 

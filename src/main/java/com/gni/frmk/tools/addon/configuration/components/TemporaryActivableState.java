@@ -1,7 +1,6 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
 import com.gni.frmk.tools.addon.configuration.components.ActivableState.ActivableStatus;
-import com.gni.frmk.tools.addon.configuration.components.Component.ComponentState;
 
 /**
  * Created by IntelliJ IDEA.

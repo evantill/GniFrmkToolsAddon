@@ -1,7 +1,5 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
-import com.gni.frmk.tools.addon.configuration.components.Component.ComponentId;
-
 /**
  * Created by IntelliJ IDEA.
  * Date: 09/03/11
