@@ -1,9 +1,9 @@
 package com.gni.frmk.tools.addon;
 
 import com.gni.frmk.tools.addon.data.Configuration;
-import com.gni.frmk.tools.addon.invoke.divers.WmArtInvoker;
-import com.gni.frmk.tools.addon.invoke.divers.WmRootInvoker;
-import com.gni.frmk.tools.addon.invoke.divers.WmRootJmsInvoker;
+import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
+import com.gni.frmk.tools.addon.invoke.WmRootInvoker;
+import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
 import com.gni.frmk.tools.addon.invoke.divers.WmRootNativeInvoker;
 import com.gni.frmk.tools.addon.service.AdminService;
 import com.gni.frmk.tools.addon.service.ConfigurationService;
@@ -34,7 +34,7 @@ public class CallServiceWrapper {
                 return new LocalServiceInvokerBuilder(utils, serviceName);
             }
         };
-        WmRootInvoker rootInvoker = new WmRootInvoker(utils, factory);
+        WmRootInvoker rootInvoker = new WmRootInvoker(utils, factory, toolsPackageName);
         WmRootNativeInvoker rootNativeInvoker = new WmRootNativeInvoker(utils, factory);
         WmRootJmsInvoker rootJmsInvoker = new WmRootJmsInvoker(utils, factory);
         WmArtInvoker artInvoker = new WmArtInvoker(utils, factory);

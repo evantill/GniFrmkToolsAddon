@@ -1,9 +1,9 @@
 package com.gni.frmk.tools.addon.service;
 
 import com.gni.frmk.tools.addon.data.Configuration;
-import com.gni.frmk.tools.addon.invoke.divers.WmArtInvoker;
-import com.gni.frmk.tools.addon.invoke.divers.WmRootInvoker;
-import com.gni.frmk.tools.addon.invoke.divers.WmRootJmsInvoker;
+import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
+import com.gni.frmk.tools.addon.invoke.WmRootInvoker;
+import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
 import com.gni.frmk.tools.addon.invoke.divers.WmRootNativeInvoker;
 import com.gni.frmk.tools.addon.operation.strategy.CloseInputStrategy;
 import com.gni.frmk.tools.addon.operation.strategy.CloseOutputStrategy;

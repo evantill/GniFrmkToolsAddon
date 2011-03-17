@@ -14,88 +14,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0351ebf0-d8f5-4a3c-a009-2885c7c92c58" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/Dispatch.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/ExecutionContext.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/InvokeDispatcher.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/Result.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmroot/WaitServicesEnd.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/exceptions/ActionException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/exceptions/ActionNotFoundException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/exceptions/DispatchException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/exceptions/InvokeException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/AbstractInvokeHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/WaitServicesEndHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/results/IntegerResult.java" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\ActionException.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\ActionNotFoundException.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\ActionPattern.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\ActionRuntimeException.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\DispatchException.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\InvokeException.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\ServiceNotAvaibleException.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\handlers\AbstractHandler.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/WmRootJmsInvoker.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmjms/DisableJmsAlias.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmjms/DisableJmsTriggers.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmjms/EnableJmsAlias.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmjms/EnableJmsTriggers.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmjms/GetJmsAliasReport.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmjms/GetJmsTriggerReport.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmjms/SuspendJmsTriggers.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmjms/DisableJmsAliasHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmjms/DisableJmsTriggersHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmjms/EnableJmsAliasHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmjms/EnableJmsTriggersHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmjms/GetJmsAliasReportHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmjms/GetJmsTriggerReportHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmjms/SuspendJmsTriggersHandler.java" />
+      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\divers\WmRootJmsInvoker.java" afterPath="" />
+      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\divers\WmRootNativeInvoker.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/CallServiceWrapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/CallServiceWrapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/Action.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/Action.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/ActionHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/ActionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/ActionHandlerRegistry.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/ActionHandlerRegistry.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/InvokeContext.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/InvokeContext.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/RemoteInvokeContext.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/RemoteInvokeContext.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/SimpleServiceRegistry.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/SimpleServiceRegistry.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/PackageAwareAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/PackageAwareAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/StringAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/StringAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/StringPackageAwareAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/StringPackageAwareAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmroot/GetAllServiceStats.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmroot/GetAllServiceStats.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/AbstractWmHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/AbstractWmHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/AdapterTypeAwareHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/AdapterTypeAwareHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/DisableConnectionHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/DisableConnectionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/DisableListenerHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/DisableListenerHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/DisableNotificationHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/DisableNotificationHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/EnableConnectionHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/EnableConnectionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/EnableListenerHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/EnableListenerHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/EnableNotificationHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/EnableNotificationHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/ListAdapterConnectionsHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/ListAdapterConnectionsHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/ListListenersHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/ListListenersHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/ListNotificationsHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/ListNotificationsHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/ResumeListenerHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/ResumeListenerHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/ResumeNotificationHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/ResumeNotificationHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/RetrieveAdapterTypesListHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/RetrieveAdapterTypesListHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/SuspendListenerHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/SuspendListenerHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/SuspendNotificationHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/SuspendNotificationHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/DisablePackageHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/DisablePackageHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/DisablePortListenerHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/DisablePortListenerHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/EnablePackageHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/EnablePackageHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/EnablePortListenerHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/EnablePortListenerHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/configuration/components/ConnectableState.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/configuration/components/ConnectableState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/configuration/components/JmsAlias.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/configuration/components/JmsAlias.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/GetAllServiceStatsHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/GetAllServiceStatsHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/GetTriggerReportHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/GetTriggerReportHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/GetUserTaskListHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/GetUserTaskListHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/ListPortListenersHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/ListPortListenersHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/PackageListHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/PackageListHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/SuspendTriggersHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/SuspendTriggersHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/SuspendUserTaskHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/SuspendUserTaskHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/WakeUpUserTaskHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/WakeUpUserTaskHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/results/CollectionResult.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/results/CollectionResult.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/results/MessageResult.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/results/MessageResult.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/results/NoResult.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/results/NoResult.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/operation/visitor/ApplyConfigurationVisitor.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/operation/visitor/ApplyConfigurationVisitor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/operation/visitor/CloseServerVisitor.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/operation/visitor/CloseServerVisitor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/operation/visitor/OpenServerVisitor.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/operation/visitor/OpenServerVisitor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/service/AdminService.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/service/AdminService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/service/ReportService.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/service/ReportService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/invoke/AbstractInvokerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/invoke/AbstractInvokerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/invoke/InvokeContextRecord.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/invoke/InvokeContextRecord.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/invoke/InvokeContextReplay.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/invoke/InvokeContextReplay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/invoke/Recorder.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/invoke/Recorder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/invoke/utils/PipelineTestUtils.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/invoke/utils/PipelineTestUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/invoke/wmroot/GetPackageListInvokerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/invoke/wmroot/GetPackageListInvokerTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/service/PrepareReportServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/service/PrepareReportServiceTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/service/ReportServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/service/ReportServiceTest.java" />
-      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\ServiceInvokeException.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/exceptions/ServiceInvokeException.java" />
-      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\WmArtInvoker.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/divers/WmArtInvoker.java" />
-      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\WmRootInvoker.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/divers/WmRootInvoker.java" />
-      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\WmRootJmsInvoker.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/divers/WmRootJmsInvoker.java" />
-      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\WmRootNativeInvoker.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/divers/WmRootNativeInvoker.java" />
+      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\actions\wmroot\GetTriggerReport.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmroot/GetNativeTriggerReport.java" />
+      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\divers\WmArtInvoker.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/WmArtInvoker.java" />
+      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\divers\WmRootInvoker.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/WmRootInvoker.java" />
+      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\handlers\AbstractWmHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/AbstractWmHandler.java" />
+      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\invoke\handlers\wmroot\GetTriggerReportHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/GetNativeTriggerReportHandler.java" />
     </list>
     <list id="8235ac6d-d30b-4386-a229-cdc47fc4573f" name="brouillon" comment="" />
     <ignored path="$USER_HOME$/.grails/" />
@@ -550,22 +502,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/SuspendUserTaskHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/SuspendTriggersHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/PackageListHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/GetUserTaskListHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/GetTriggerReportHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/DisablePortListenerHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/ResumeListenerHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/ListNotificationsHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/ListListenersHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/ListAdapterConnectionsHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/EnableNotificationHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/EnableListenerHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/EnableConnectionHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/DisableNotificationHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/DisableListenerHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/DisableConnectionHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmjms/GetJmsConnectionAliasReport.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmjms/GetJmsAliasReport.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmjms/DisableJmsAlias.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmjms/EnableJmsAlias.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmjms/DisableJmsAliasHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmjms/EnableJmsAliasHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmjms/GetJmsTriggerReport2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmjms/GetJmsTriggerReportHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/data/trigger/TriggerBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/configuration/components/JmsAlias.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmjms/GetJmsAliasReportHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/AbstractWmHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/AbstractWmHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/WmArtInvoker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/WmRootInvoker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/WmRootJmsInvoker.java" />
       </list>
     </option>
   </component>
@@ -701,76 +653,6 @@
               <option name="myItemId" value="GniFrmkToolsAddon" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Maven: com.google.guava:guava:r08" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="guava-r08.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Maven: com.google.guava:guava:r08" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="guava-r08.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Maven: com.google.guava:guava:r08" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="guava-r08.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="collect" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -837,448 +719,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="addon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="visitor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="strategy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invoke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invoke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="results" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invoke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="handlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invoke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="handlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wmroot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invoke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="handlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wmart" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invoke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exceptions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invoke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="divers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invoke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="actions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="invoke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="actions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wmroot" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1667,10 +1107,11 @@
       <recent name="com.gni.frmk.tools.addon.data2.adapter" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.gni.frmk.tools.addon.invoke.handlers.wmjms" />
+      <recent name="com.gni.frmk.tools.addon.invoke.actions.wmjms" />
       <recent name="com.gni.frmk.tools.addon.invoke.handlers.wmroot" />
       <recent name="com.gni.frmk.tools.addon.invoke.actions.wmroot" />
       <recent name="com.gni.frmk.tools.addon.invoke.handlers.wmart" />
-      <recent name="" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="com.gni.frmk.tools.addon.invoke" />
@@ -2698,129 +2139,78 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/EnableNotificationHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmjms/SuspendJmsTriggersHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="62" selection-start="972" selection-end="972" vertical-scroll-proportion="0.6214575">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/EnableListenerHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="58" selection-start="925" selection-end="925" vertical-scroll-proportion="0.6214575">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/EnableConnectionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="60" selection-start="945" selection-end="945" vertical-scroll-proportion="0.6214575">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/DisableNotificationHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="63" selection-start="981" selection-end="981" vertical-scroll-proportion="0.6347656">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/DisableListenerHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="59" selection-start="934" selection-end="934" vertical-scroll-proportion="0.6347656">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/DisableConnectionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="61" selection-start="954" selection-end="954" vertical-scroll-proportion="0.7285156">
+        <state line="22" column="39" selection-start="831" selection-end="831" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="method#DisableConnectionHandler#0;class#DisableConnectionHandler#0" expanded="true" />
-            <element signature="method#getActionType#0;class#DisableConnectionHandler#0" expanded="true" />
-            <element signature="method#parseOutput#0;class#DisableConnectionHandler#0" expanded="true" />
-            <element signature="method#prepareInput#0;class#DisableConnectionHandler#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#SuspendJmsTriggersHandler#0;class#SuspendJmsTriggersHandler#0" expanded="true" />
+            <element signature="method#prepareInput#0;class#SuspendJmsTriggersHandler#0" expanded="true" />
+            <element signature="method#parseOutput#0;class#SuspendJmsTriggersHandler#0" expanded="true" />
+            <element signature="method#getActionType#0;class#SuspendJmsTriggersHandler#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmart/AdapterTypeAwareHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmjms/GetJmsTriggerReport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="15" selection-start="366" selection-end="366" vertical-scroll-proportion="0.36523438">
+        <state line="14" column="13" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="method#prepareInput#0;class#AdapterTypeAwareHandler#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/DisablePackageHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmjms/GetJmsAliasReport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="5" selection-start="1182" selection-end="1182" vertical-scroll-proportion="0.6308594">
+        <state line="14" column="13" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/actions/wmroot/GetNativeTriggerReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="29" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="docComment;class#DisablePackageHandler#0" expanded="false" />
-            <element signature="method#parseOutput#0;class#DisablePackageHandler#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/operation/visitor/CloseServerVisitor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmroot/GetNativeTriggerReportHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="13" selection-start="1033" selection-end="1033" vertical-scroll-proportion="0.17674859">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/operation/strategy/CloseOutputStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="606" selection-end="607" vertical-scroll-proportion="0.2410208">
+        <state line="28" column="13" selection-start="1312" selection-end="1312" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="method#CloseOutputStrategy#0;class#CloseOutputStrategy#0" expanded="true" />
-            <element signature="method#execute#0;class#CloseOutputStrategy#0" expanded="true" />
+            <element signature="docComment;class#GetNativeTriggerReportHandler#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/CallServiceWrapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmjms/GetJmsTriggerReportHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="31" selection-start="3698" selection-end="3698" vertical-scroll-proportion="0.44990548">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/service/AdminService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="34" selection-start="2693" selection-end="2693" vertical-scroll-proportion="0.59451795">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/IntegrationServerUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="464" selection-end="464" vertical-scroll-proportion="0.17674859">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/divers/WmRootNativeInvoker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="276" selection-end="276" vertical-scroll-proportion="0.17674859">
+        <state line="28" column="13" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="method#WmRootNativeInvoker#0;class#WmRootNativeInvoker#0" expanded="true" />
-            <element signature="method#isEnabled#0;class#WmRootNativeInvoker#0" expanded="true" />
-            <element signature="class#ServiceInvoker#0;class#WmRootNativeInvoker#0" expanded="true" />
-            <element signature="class#ServiceInvokerFactory#0;class#WmRootNativeInvoker#0" expanded="true" />
-            <element signature="method#createServiceInvokerBuilder#0;class#ServiceInvokerFactory#0;class#WmRootNativeInvoker#0" expanded="true" />
-            <element signature="method#defineOutput#0;class#ServiceInvokerFactory#0;class#WmRootNativeInvoker#0" expanded="true" />
-            <element signature="method#build#0;class#ServiceInvokerFactory#0;class#WmRootNativeInvoker#0" expanded="true" />
-            <element signature="class#ServiceException#0;class#WmRootNativeInvoker#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#GetJmsTriggerReportHandler#0;class#GetJmsTriggerReportHandler#0" expanded="true" />
+            <element signature="method#parseOutput#0;class#GetJmsTriggerReportHandler#0" expanded="true" />
+            <element signature="method#prepareInput#0;class#GetJmsTriggerReportHandler#0" expanded="true" />
+            <element signature="method#getActionType#0;class#GetJmsTriggerReportHandler#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/AbstractWmHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/handlers/wmjms/GetJmsAliasReportHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="22" selection-start="377" selection-end="377" vertical-scroll-proportion="0.1798077">
+        <state line="30" column="62" selection-start="1231" selection-end="1231" vertical-scroll-proportion="0.16068053">
+          <folding>
+            <element signature="docComment;class#GetJmsAliasReportHandler#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/AbstractWmHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="22" selection-start="610" selection-end="610" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="method#AbstractWmHandler#0;class#AbstractWmHandler#0" expanded="true" />
             <element signature="method#addHandler#0;class#AbstractWmHandler#0" expanded="true" />
@@ -2830,16 +2220,109 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/divers/WmRootInvoker.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/InvokeContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="45" selection-start="918" selection-end="918" vertical-scroll-proportion="0.21538462">
+        <state line="16" column="13" selection-start="422" selection-end="422" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#canInvoke#0;class#InvokeContext#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/InvokeDispatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="22" selection-start="297" selection-end="297" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#execute#0;class#InvokeDispatcher#0" expanded="true" />
+            <element signature="method#registerHandler#0;class#InvokeDispatcher#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/RemoteInvokeContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="13" selection-start="352" selection-end="352" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="method#RemoteInvokeContext#0;class#RemoteInvokeContext#0" expanded="true" />
+            <element signature="method#connect#0;class#RemoteInvokeContext#0" expanded="true" />
+            <element signature="method#invoke#0;class#RemoteInvokeContext#0" expanded="true" />
+            <element signature="method#canInvoke#0;class#RemoteInvokeContext#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/Result.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="17" selection-start="145" selection-end="145" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/SimpleServiceRegistry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="13" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#addHandler#0;class#SimpleServiceRegistry#0" expanded="true" />
+            <element signature="method#findHandler#0;class#SimpleServiceRegistry#0" expanded="true" />
+            <element signature="method#clearHandlers#0;class#SimpleServiceRegistry#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/WmArtInvoker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#disableConnection#0;class#WmArtInvoker#0" expanded="true" />
+            <element signature="method#disableListener#0;class#WmArtInvoker#0" expanded="true" />
+            <element signature="method#disableNotification#0;class#WmArtInvoker#0" expanded="true" />
+            <element signature="method#enableConnection#0;class#WmArtInvoker#0" expanded="true" />
+            <element signature="method#enableListener#0;class#WmArtInvoker#0" expanded="true" />
+            <element signature="method#enableNotification#0;class#WmArtInvoker#0" expanded="true" />
+            <element signature="method#listAdaptersConnections#0;class#WmArtInvoker#0" expanded="true" />
+            <element signature="method#listListeners#0;class#WmArtInvoker#0" expanded="true" />
+            <element signature="method#listNotifications#0;class#WmArtInvoker#0" expanded="true" />
+            <element signature="method#resumeListener#0;class#WmArtInvoker#0" expanded="true" />
+            <element signature="method#resumeNotification#0;class#WmArtInvoker#0" expanded="true" />
+            <element signature="method#retrieveAdapterTypesList#0;class#WmArtInvoker#0" expanded="true" />
+            <element signature="method#suspendListener#0;class#WmArtInvoker#0" expanded="true" />
+            <element signature="method#suspendNotification#0;class#WmArtInvoker#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/WmRootInvoker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="8" selection-start="2167" selection-end="2167" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#WmRootInvoker#0;class#WmRootInvoker#0" expanded="true" />
             <element signature="method#getPackageList#0;class#WmRootInvoker#0" expanded="true" />
             <element signature="method#getAllServiceStats#0;class#WmRootInvoker#0" expanded="true" />
             <element signature="method#getNbrRunningServices#0;class#WmRootInvoker#0" expanded="true" />
             <element signature="method#getRunningServices#0;class#WmRootInvoker#0" expanded="true" />
-            <element signature="method#waitServicesEnd#0;class#WmRootInvoker#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/invoke/WmRootJmsInvoker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="5" selection-start="2574" selection-end="2574" vertical-scroll-proportion="0.8071834">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#WmRootJmsInvoker#0;class#WmRootJmsInvoker#0" expanded="true" />
+            <element signature="method#suspendJmsTrigger#0;class#WmRootJmsInvoker#0" expanded="true" />
+            <element signature="method#disableJmsAlias#0;class#WmRootJmsInvoker#0" expanded="true" />
+            <element signature="method#disableJmsTriggers#0;class#WmRootJmsInvoker#0" expanded="true" />
+            <element signature="method#enableJmsAlias#0;class#WmRootJmsInvoker#0" expanded="true" />
+            <element signature="method#enableJmsTriggers#0;class#WmRootJmsInvoker#0" expanded="true" />
+            <element signature="method#getJmsTriggerReport#0;class#WmRootJmsInvoker#0" expanded="true" />
+            <element signature="method#getJmsAliasReport#0;class#WmRootJmsInvoker#0" expanded="true" />
+            <element signature="method#isEnabled#0;class#WmRootJmsInvoker#0" expanded="true" />
           </folding>
         </state>
       </provider>

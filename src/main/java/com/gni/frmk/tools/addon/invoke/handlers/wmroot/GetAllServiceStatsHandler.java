@@ -11,7 +11,6 @@ import com.wm.data.*;
 
 import java.util.Set;
 
-import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.Sets.filter;
 
 /**
@@ -24,11 +23,8 @@ import static com.google.common.collect.Sets.filter;
 public class GetAllServiceStatsHandler extends AbstractInvokeHandler<GetAllServiceStats, Result>
         implements ActionHandler<GetAllServiceStats, Result, InvokeContext> {
 
-    private final String toolsPackageName;
-
-    GetAllServiceStatsHandler(String toolsPackageName) {
+    public GetAllServiceStatsHandler() {
         super("wm.server.query:getAllServiceStats");
-        this.toolsPackageName = checkNotNull(toolsPackageName);
     }
 
     @Override
@@ -56,9 +52,6 @@ public class GetAllServiceStatsHandler extends AbstractInvokeHandler<GetAllServi
                         String svc = IDataUtil.getString(curLoop, "svc");
                         String name = String.format("%s:%s", ifc, svc);
                         if (!IntegrationServerUtil.EMPTY_VALUE_NBSP.equals(sRunning)) {
-                            if (name.startsWith(toolsPackageName)) {
-                                continue;
-                            }
                             values.add(name);
                         }
                     } finally {

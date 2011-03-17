@@ -10,8 +10,8 @@ import com.gni.frmk.tools.addon.data.trigger.JmsAlias;
 import com.gni.frmk.tools.addon.data.trigger.JmsTrigger;
 import com.gni.frmk.tools.addon.data.trigger.NativeTrigger;
 import com.gni.frmk.tools.addon.invoke.ServiceException;
-import com.gni.frmk.tools.addon.invoke.divers.WmArtInvoker;
-import com.gni.frmk.tools.addon.invoke.divers.WmRootJmsInvoker;
+import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
+import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
 import com.gni.frmk.tools.addon.invoke.divers.WmRootNativeInvoker;
 
 import java.util.Set;

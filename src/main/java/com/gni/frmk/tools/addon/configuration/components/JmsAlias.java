@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
  *
  * @author: e03229
  */
-public class JmsAlias extends PackageAware<StringId, ConnectableState> {
+public class JmsAlias extends AbstractComponent<StringId, ConnectableState> {
 
     @NotNull
     private final String name;
@@ -42,7 +42,7 @@ public class JmsAlias extends PackageAware<StringId, ConnectableState> {
         return new JmsAliasBuilder();
     }
 
-    public static class JmsAliasBuilder extends PackageAware.Builder<JmsAliasBuilder, JmsAlias, StringId, ConnectableState> {
+    public static class JmsAliasBuilder extends AbstractComponent.Builder<JmsAliasBuilder, JmsAlias, StringId, ConnectableState> {
 
         private String name;
         private String description;

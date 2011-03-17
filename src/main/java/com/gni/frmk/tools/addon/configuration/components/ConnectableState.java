@@ -13,7 +13,11 @@ import static com.gni.frmk.tools.addon.configuration.components.Component.Compon
  */
 public class ConnectableState extends EnableState implements ComponentState {
     public enum ConnectableStatus {
-        CONNECTED, DISCONNECTED
+        CONNECTED, DISCONNECTED;
+
+        public static ConnectableStatus fromBoolean(boolean connected) {
+            return connected?CONNECTED:DISCONNECTED;
+        }
     }
 
     private final ConnectableStatus connected;

@@ -8,7 +8,7 @@ import com.gni.frmk.tools.addon.configuration.components.TemporaryActivableState
 import com.gni.frmk.tools.addon.configuration.components.TemporaryActivableState.TemporaryStatus;
 import com.gni.frmk.tools.addon.invoke.ActionHandler;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
-import com.gni.frmk.tools.addon.invoke.actions.wmroot.GetTriggerReport;
+import com.gni.frmk.tools.addon.invoke.actions.wmroot.GetNativeTriggerReport;
 import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.invoke.results.ListResult;
 import com.google.common.collect.Lists;
@@ -26,10 +26,10 @@ import static com.gni.frmk.tools.addon.configuration.components.TemporaryActivab
  *
  * @author: e03229
  */
-public class GetTriggerReportHandler extends AbstractInvokeHandler<GetTriggerReport, ListResult<NativeTrigger>>
-        implements ActionHandler<GetTriggerReport, ListResult<NativeTrigger>, InvokeContext> {
+public class GetNativeTriggerReportHandler extends AbstractInvokeHandler<GetNativeTriggerReport, ListResult<NativeTrigger>>
+        implements ActionHandler<GetNativeTriggerReport, ListResult<NativeTrigger>, InvokeContext> {
 
-    public GetTriggerReportHandler() {
+    public GetNativeTriggerReportHandler() {
         super("wm.server.triggers:getTriggerReport");
     }
 
@@ -74,7 +74,7 @@ public class GetTriggerReportHandler extends AbstractInvokeHandler<GetTriggerRep
     }
 
     @Override
-    protected ListResult<NativeTrigger> parseOutput(GetTriggerReport action, IData output) {
+    protected ListResult<NativeTrigger> parseOutput(GetNativeTriggerReport action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
             List<NativeTrigger> values = Lists.newArrayList();
@@ -101,12 +101,12 @@ public class GetTriggerReportHandler extends AbstractInvokeHandler<GetTriggerRep
     }
 
     @Override
-    protected IData prepareInput(GetTriggerReport in) {
+    protected IData prepareInput(GetNativeTriggerReport in) {
         return EMPTY_INPUT;
     }
 
     @Override
-    public Class<GetTriggerReport> getActionType() {
-        return GetTriggerReport.class;
+    public Class<GetNativeTriggerReport> getActionType() {
+        return GetNativeTriggerReport.class;
     }
 }
