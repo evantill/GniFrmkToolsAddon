@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.invoke.results;
 
-import com.gni.frmk.tools.addon.invoke.ActionPattern.Result;
+import com.gni.frmk.tools.addon.invoke.Result;
 
 /**
  * Created by IntelliJ IDEA.

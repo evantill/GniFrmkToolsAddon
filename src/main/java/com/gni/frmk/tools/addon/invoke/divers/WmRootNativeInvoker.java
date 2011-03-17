@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.invoke;
+package com.gni.frmk.tools.addon.invoke.divers;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
 

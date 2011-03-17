@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.invoke;
 
+import com.gni.frmk.tools.addon.invoke.exceptions.InvokeException;
 import com.wm.app.b2b.client.Context;
 import com.wm.app.b2b.client.ServiceException;
 import com.wm.data.*;
@@ -54,8 +55,6 @@ public class RemoteInvokeContext extends InvokeContext {
         }
         try {
             return super.invoke(service, input);
-        } catch (InvokeException e) {
-            throw new ServiceInvokeException(this, service, input, e.getCause());
         } finally {
             if (autoConnected) {
                 disconnect();
@@ -64,7 +63,7 @@ public class RemoteInvokeContext extends InvokeContext {
     }
 
     @Override
-    public boolean canInvoke(NSName service) throws ServiceNotAvaibleException {
+    public boolean canInvoke(NSName service) {
         return context.getNamespace().nodeExists(service);
     }
 }

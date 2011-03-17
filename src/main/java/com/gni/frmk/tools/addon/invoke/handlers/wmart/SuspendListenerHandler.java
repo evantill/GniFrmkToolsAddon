@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.invoke.handlers.wmart;
 
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractHandler;
+import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.invoke.ActionHandler;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.results.NoResult;
@@ -14,7 +14,7 @@ import com.wm.data.*;
  *
  * @author: e03229
  */
-public class SuspendListenerHandler extends AbstractHandler<SuspendListener, NoResult>
+public class SuspendListenerHandler extends AbstractInvokeHandler<SuspendListener, NoResult>
         implements ActionHandler<SuspendListener, NoResult, InvokeContext> {
 
     public SuspendListenerHandler() {
@@ -27,7 +27,7 @@ public class SuspendListenerHandler extends AbstractHandler<SuspendListener, NoR
     }
 
     @Override
-    protected NoResult parseOutput(IData output) {
+    protected NoResult parseOutput(SuspendListener action, IData output) {
         return NoResult.newInstance();
     }
 

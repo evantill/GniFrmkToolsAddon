@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.invoke.handlers.wmroot;
 import com.gni.frmk.tools.addon.invoke.ActionHandler;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.DisablePortListener;
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractHandler;
+import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.invoke.results.NoResult;
 import com.wm.data.*;
 
@@ -14,7 +14,7 @@ import com.wm.data.*;
  *
  * @author: e03229
  */
-public class DisablePortListenerHandler extends AbstractHandler<DisablePortListener, NoResult>
+public class DisablePortListenerHandler extends AbstractInvokeHandler<DisablePortListener, NoResult>
         implements ActionHandler<DisablePortListener, NoResult, InvokeContext> {
     public DisablePortListenerHandler() {
         super("wm.server.net.listeners:disableListener");
@@ -31,7 +31,7 @@ public class DisablePortListenerHandler extends AbstractHandler<DisablePortListe
     }
 
     @Override
-    protected NoResult parseOutput(IData output) {
+    protected NoResult parseOutput(DisablePortListener action, IData output) {
         return NoResult.newInstance();
     }
 

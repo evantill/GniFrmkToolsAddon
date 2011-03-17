@@ -7,7 +7,7 @@ import com.gni.frmk.tools.addon.configuration.components.Scheduler.SchedulerStat
 import com.gni.frmk.tools.addon.invoke.ActionHandler;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.GetUserTaskList;
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractHandler;
+import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.invoke.results.ListResult;
 import com.google.common.collect.Lists;
 import com.wm.data.*;
@@ -21,7 +21,7 @@ import java.util.List;
  *
  * @author: e03229
  */
-public class GetUserTaskListHandler extends AbstractHandler<GetUserTaskList, ListResult<Scheduler>>
+public class GetUserTaskListHandler extends AbstractInvokeHandler<GetUserTaskList, ListResult<Scheduler>>
         implements ActionHandler<GetUserTaskList, ListResult<Scheduler>, InvokeContext> {
 
     public GetUserTaskListHandler() {
@@ -29,7 +29,7 @@ public class GetUserTaskListHandler extends AbstractHandler<GetUserTaskList, Lis
     }
 
     @Override
-    protected ListResult<Scheduler> parseOutput(IData output) {
+    protected ListResult<Scheduler> parseOutput(GetUserTaskList action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
             List<Scheduler> values = Lists.newArrayList();

@@ -2,7 +2,7 @@ package com.gni.frmk.tools.addon.invoke.wmroot;
 
 import com.gni.frmk.tools.addon.configuration.components.IntegrationServerPackage;
 import com.gni.frmk.tools.addon.invoke.AbstractInvokerTest;
-import com.gni.frmk.tools.addon.invoke.ActionException;
+import com.gni.frmk.tools.addon.invoke.exceptions.ActionException;
 import com.gni.frmk.tools.addon.invoke.ActionHandler;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.PackageList;

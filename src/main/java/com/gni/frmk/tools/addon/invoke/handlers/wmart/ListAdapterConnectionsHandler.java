@@ -5,8 +5,8 @@ import com.gni.frmk.tools.addon.configuration.components.EnableState;
 import com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.invoke.ActionHandler;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
-import com.gni.frmk.tools.addon.invoke.results.ListResult;
 import com.gni.frmk.tools.addon.invoke.actions.wmart.ListAdaptersConnections;
+import com.gni.frmk.tools.addon.invoke.results.ListResult;
 import com.google.common.collect.Lists;
 import com.wm.data.*;
 
@@ -32,7 +32,7 @@ public class ListAdapterConnectionsHandler extends AdapterTypeAwareHandler<ListA
     }
 
     @Override
-    protected ListResult<AdapterConnection> parseOutput(IData output) {
+    protected ListResult<AdapterConnection> parseOutput(ListAdaptersConnections action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
             List<AdapterConnection> values = Lists.newArrayList();
@@ -41,7 +41,8 @@ public class ListAdapterConnectionsHandler extends AdapterTypeAwareHandler<ListA
                 for (IData single : dataList) {
                     IDataCursor curLoop = single.getCursor();
                     try {
-                        EnableStatus enabled = EnableStatus.fromValueString(IDataUtil.getString(curLoop, "connectionState"));
+                        EnableStatus enabled = EnableStatus.valueOf(IDataUtil.getString(curLoop, "connectionState")
+                                                                             .toUpperCase());
                         values.add(AdapterConnection.builder()
                                                     .alias(IDataUtil.getString(curLoop, "connectionAlias"))
                                                     .adapterType(IDataUtil.getString(curLoop, "name"))

@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.invoke.handlers.wmart;
 
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractHandler;
-import com.gni.frmk.tools.addon.invoke.ActionPattern.Result;
+import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.invoke.Result;
 import com.gni.frmk.tools.addon.invoke.actions.StringAction;
 import com.wm.data.*;
 
@@ -13,7 +13,7 @@ import com.wm.data.*;
  * @author: e03229
  */
 abstract class AdapterTypeAwareHandler<A extends StringAction<R>, R extends Result>
-        extends AbstractHandler<A, R> {
+        extends AbstractInvokeHandler<A, R> {
 
     protected AdapterTypeAwareHandler(String serviceName) {
         super(serviceName);

@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.invoke.handlers.wmart;
 
 import com.gni.frmk.tools.addon.invoke.ActionHandler;
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractHandler;
+import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.results.NoResult;
 import com.gni.frmk.tools.addon.invoke.actions.wmart.EnableNotification;
@@ -14,7 +14,7 @@ import com.wm.data.*;
  *
  * @author: e03229
  */
-public class EnableNotificationHandler extends AbstractHandler<EnableNotification, NoResult>
+public class EnableNotificationHandler extends AbstractInvokeHandler<EnableNotification, NoResult>
         implements ActionHandler<EnableNotification, NoResult, InvokeContext> {
 
     public EnableNotificationHandler() {
@@ -27,7 +27,7 @@ public class EnableNotificationHandler extends AbstractHandler<EnableNotificatio
     }
 
     @Override
-    protected NoResult parseOutput(IData output) {
+    protected NoResult parseOutput(EnableNotification action, IData output) {
         return NoResult.newInstance();
     }
 

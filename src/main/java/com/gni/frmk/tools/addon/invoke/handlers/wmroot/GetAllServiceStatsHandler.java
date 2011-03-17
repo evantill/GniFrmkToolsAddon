@@ -2,16 +2,17 @@ package com.gni.frmk.tools.addon.invoke.handlers.wmroot;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
 import com.gni.frmk.tools.addon.invoke.ActionHandler;
-import com.gni.frmk.tools.addon.invoke.actions.wmroot.GetAllServiceStats;
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractHandler;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
+import com.gni.frmk.tools.addon.invoke.actions.wmroot.GetAllServiceStats;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.GetAllServiceStats.Result;
+import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
 import com.google.common.collect.Sets;
 import com.wm.data.*;
 
 import java.util.Set;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+import static com.google.common.collect.Sets.filter;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,7 +21,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author: e03229
  */
-public class GetAllServiceStatsHandler extends AbstractHandler<GetAllServiceStats, Result>
+public class GetAllServiceStatsHandler extends AbstractInvokeHandler<GetAllServiceStats, Result>
         implements ActionHandler<GetAllServiceStats, Result, InvokeContext> {
 
     private final String toolsPackageName;
@@ -41,7 +42,7 @@ public class GetAllServiceStatsHandler extends AbstractHandler<GetAllServiceStat
     }
 
     @Override
-    protected Result parseOutput(IData output) {
+    protected Result parseOutput(GetAllServiceStats action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
             Set<String> values = Sets.newTreeSet();
@@ -65,7 +66,7 @@ public class GetAllServiceStatsHandler extends AbstractHandler<GetAllServiceStat
                     }
                 }
             }
-            return new Result(values);
+            return new Result(filter(values, action.getFilter()));
         } finally {
             cur.destroy();
         }

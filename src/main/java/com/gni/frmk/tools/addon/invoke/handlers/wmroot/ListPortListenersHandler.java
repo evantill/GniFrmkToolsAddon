@@ -7,7 +7,7 @@ import com.gni.frmk.tools.addon.configuration.components.Port;
 import com.gni.frmk.tools.addon.invoke.ActionHandler;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.ListPortListeners;
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractHandler;
+import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.invoke.results.ListResult;
 import com.google.common.collect.Lists;
 import com.wm.data.*;
@@ -21,7 +21,7 @@ import java.util.List;
  *
  * @author: e03229
  */
-public class ListPortListenersHandler extends AbstractHandler<ListPortListeners, ListResult<Port>>
+public class ListPortListenersHandler extends AbstractInvokeHandler<ListPortListeners, ListResult<Port>>
         implements ActionHandler<ListPortListeners, ListResult<Port>, InvokeContext> {
 
     public ListPortListenersHandler() {
@@ -29,7 +29,7 @@ public class ListPortListenersHandler extends AbstractHandler<ListPortListeners,
     }
 
     @Override
-    protected ListResult<Port> parseOutput(IData output) {
+    protected ListResult<Port> parseOutput(ListPortListeners action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
             List<Port> values = Lists.newArrayList();

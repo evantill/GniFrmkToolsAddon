@@ -1,7 +1,6 @@
 package com.gni.frmk.tools.addon.invoke.utils;
 
-import com.gni.frmk.tools.addon.invoke.utils.PipelineUtils;
-import com.wm.data.IData;
+import com.wm.data.*;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -103,5 +102,20 @@ public class PipelineTestUtils {
 
     private String secureServiceName(String serviceName) {
         return serviceName.replace(':', '_');
+    }
+
+    public boolean existServiceOutput(String serviceName) {
+        serviceName = secureServiceName(serviceName);
+        String resName = String.format(SRV_OUT_PATTERN_LOAD,
+                classToTest.getSimpleName(),
+                serviceName);
+        InputStream in = classToTest.getResourceAsStream(resName);
+        boolean exist = (in != null);
+        if (exist) {
+            try {
+                in.close();
+            } catch (IOException ignore) {}
+        }
+        return exist;
     }
 }

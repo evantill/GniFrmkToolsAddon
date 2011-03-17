@@ -1,5 +1,7 @@
 package com.gni.frmk.tools.addon.invoke;
 
+import com.gni.frmk.tools.addon.invoke.exceptions.ActionException;
+import com.gni.frmk.tools.addon.invoke.exceptions.InvokeException;
 import com.gni.frmk.tools.addon.invoke.wmroot.GetPackageListInvokerTest;
 
 /**
@@ -11,7 +13,7 @@ import com.gni.frmk.tools.addon.invoke.wmroot.GetPackageListInvokerTest;
  */
 public class Recorder {
 
-    public static void main(String[] args) throws ActionException {
+    public static void main(String[] args) throws InvokeException, ActionException {
         RemoteInvokeContext ctx = new RemoteInvokeContext("ar1tn232.groupe.generali.fr:7502", "evantill", "evantill", true);
         ctx.connect();
         try {

@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.invoke.handlers.wmroot;
 import com.gni.frmk.tools.addon.invoke.ActionHandler;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.SuspendTriggers;
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractHandler;
+import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.invoke.results.NoResult;
 import com.wm.data.*;
 
@@ -14,7 +14,7 @@ import com.wm.data.*;
  *
  * @author: e03229
  */
-public class SuspendTriggersHandler extends AbstractHandler<SuspendTriggers, NoResult>
+public class SuspendTriggersHandler extends AbstractInvokeHandler<SuspendTriggers, NoResult>
         implements ActionHandler<SuspendTriggers, NoResult, InvokeContext> {
 
     public SuspendTriggersHandler() {
@@ -43,7 +43,7 @@ public class SuspendTriggersHandler extends AbstractHandler<SuspendTriggers, NoR
     }
 
     @Override
-    protected NoResult parseOutput(IData output) {
+    protected NoResult parseOutput(SuspendTriggers action, IData output) {
         return NoResult.newInstance();
     }
 }

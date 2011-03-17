@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.invoke.handlers.wmart;
 
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractHandler;
+import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.invoke.ActionHandler;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.results.SetResult;
@@ -17,7 +17,7 @@ import java.util.Set;
  *
  * @author: e03229
  */
-public class RetrieveAdapterTypesListHandler extends AbstractHandler<RetrieveAdapterTypesList, SetResult<String>>
+public class RetrieveAdapterTypesListHandler extends AbstractInvokeHandler<RetrieveAdapterTypesList, SetResult<String>>
         implements ActionHandler<RetrieveAdapterTypesList, SetResult<String>, InvokeContext> {
 
     public RetrieveAdapterTypesListHandler() {
@@ -35,7 +35,7 @@ public class RetrieveAdapterTypesListHandler extends AbstractHandler<RetrieveAda
     }
 
     @Override
-    protected SetResult<String> parseOutput(IData output) {
+    protected SetResult<String> parseOutput(RetrieveAdapterTypesList action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
             Set<String> values = Sets.newHashSet();

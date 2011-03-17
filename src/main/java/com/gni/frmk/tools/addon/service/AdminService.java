@@ -1,7 +1,10 @@
 package com.gni.frmk.tools.addon.service;
 
 import com.gni.frmk.tools.addon.data.Configuration;
-import com.gni.frmk.tools.addon.invoke.*;
+import com.gni.frmk.tools.addon.invoke.divers.WmArtInvoker;
+import com.gni.frmk.tools.addon.invoke.divers.WmRootInvoker;
+import com.gni.frmk.tools.addon.invoke.divers.WmRootJmsInvoker;
+import com.gni.frmk.tools.addon.invoke.divers.WmRootNativeInvoker;
 import com.gni.frmk.tools.addon.operation.strategy.CloseInputStrategy;
 import com.gni.frmk.tools.addon.operation.strategy.CloseOutputStrategy;
 import com.gni.frmk.tools.addon.operation.visitor.ApplyConfigurationVisitor;

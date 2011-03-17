@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.invoke.handlers.wmart;
 
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractHandler;
+import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.invoke.ActionHandler;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.results.NoResult;
@@ -14,7 +14,7 @@ import com.wm.data.*;
  *
  * @author: e03229
  */
-public class ResumeNotificationHandler extends AbstractHandler<ResumeNotification, NoResult>
+public class ResumeNotificationHandler extends AbstractInvokeHandler<ResumeNotification, NoResult>
         implements ActionHandler<ResumeNotification, NoResult, InvokeContext> {
 
     public ResumeNotificationHandler() {
@@ -35,7 +35,7 @@ public class ResumeNotificationHandler extends AbstractHandler<ResumeNotificatio
     }
 
     @Override
-    protected NoResult parseOutput(IData output) {
+    protected NoResult parseOutput(ResumeNotification action, IData output) {
         return NoResult.newInstance();
     }
 }

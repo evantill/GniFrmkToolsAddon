@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.invoke.handlers.wmroot;
 import com.gni.frmk.tools.addon.invoke.ActionHandler;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.EnablePackage;
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractHandler;
+import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.invoke.results.NoResult;
 import com.wm.data.*;
 
@@ -14,7 +14,7 @@ import com.wm.data.*;
  *
  * @author: e03229
  */
-public class EnablePackageHandler extends AbstractHandler<EnablePackage, NoResult>
+public class EnablePackageHandler extends AbstractInvokeHandler<EnablePackage, NoResult>
         implements ActionHandler<EnablePackage, NoResult, InvokeContext> {
 
     public EnablePackageHandler() {
@@ -35,7 +35,7 @@ public class EnablePackageHandler extends AbstractHandler<EnablePackage, NoResul
     }
 
     @Override
-    protected NoResult parseOutput(IData output) {
+    protected NoResult parseOutput(EnablePackage action, IData output) {
         return NoResult.newInstance();
     }
 }

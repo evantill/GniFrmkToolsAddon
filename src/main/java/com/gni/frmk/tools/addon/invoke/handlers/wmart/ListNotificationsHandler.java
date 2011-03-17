@@ -33,7 +33,7 @@ public class ListNotificationsHandler extends AdapterTypeAwareHandler<ListNotifi
     }
 
     @Override
-    protected ListResult<AdapterNotification> parseOutput(IData output) {
+    protected ListResult<AdapterNotification> parseOutput(ListNotifications action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
             List<AdapterNotification> values = Lists.newArrayList();

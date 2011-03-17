@@ -9,7 +9,7 @@ import com.gni.frmk.tools.addon.configuration.components.TemporaryActivableState
 import com.gni.frmk.tools.addon.invoke.ActionHandler;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.GetTriggerReport;
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractHandler;
+import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.invoke.results.ListResult;
 import com.google.common.collect.Lists;
 import com.wm.data.*;
@@ -26,7 +26,7 @@ import static com.gni.frmk.tools.addon.configuration.components.TemporaryActivab
  *
  * @author: e03229
  */
-public class GetTriggerReportHandler extends AbstractHandler<GetTriggerReport, ListResult<NativeTrigger>>
+public class GetTriggerReportHandler extends AbstractInvokeHandler<GetTriggerReport, ListResult<NativeTrigger>>
         implements ActionHandler<GetTriggerReport, ListResult<NativeTrigger>, InvokeContext> {
 
     public GetTriggerReportHandler() {
@@ -74,7 +74,7 @@ public class GetTriggerReportHandler extends AbstractHandler<GetTriggerReport, L
     }
 
     @Override
-    protected ListResult<NativeTrigger> parseOutput(IData output) {
+    protected ListResult<NativeTrigger> parseOutput(GetTriggerReport action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
             List<NativeTrigger> values = Lists.newArrayList();
@@ -97,6 +97,7 @@ public class GetTriggerReportHandler extends AbstractHandler<GetTriggerReport, L
         } finally {
             cur.destroy();
         }
+
     }
 
     @Override

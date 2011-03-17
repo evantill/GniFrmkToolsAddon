@@ -33,7 +33,7 @@ public class ListListenersHandler extends AdapterTypeAwareHandler<ListListeners,
     }
 
     @Override
-    protected ListResult<AdapterListener> parseOutput(IData output) {
+    protected ListResult<AdapterListener> parseOutput(ListListeners action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
             List<AdapterListener> values = Lists.newArrayList();

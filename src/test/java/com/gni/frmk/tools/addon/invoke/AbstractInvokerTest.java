@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.invoke;
 
+import com.gni.frmk.tools.addon.invoke.exceptions.ActionException;
 import com.gni.frmk.tools.addon.invoke.utils.PipelineTestUtils;
-import com.gni.frmk.tools.addon.invoke.ActionPattern.Result;
 
 /**
  * Created by IntelliJ IDEA.

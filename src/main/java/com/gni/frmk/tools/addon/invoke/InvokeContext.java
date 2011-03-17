@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.invoke;
 
-import com.gni.frmk.tools.addon.invoke.ActionPattern.ExecutionContext;
+import com.gni.frmk.tools.addon.invoke.exceptions.InvokeException;
+import com.gni.frmk.tools.addon.invoke.exceptions.ServiceInvokeException;
 import com.wm.app.b2b.server.Service;
 import com.wm.app.b2b.server.ns.Namespace;
 import com.wm.data.*;
@@ -22,7 +23,7 @@ public class InvokeContext implements ExecutionContext {
         }
     }
 
-    public boolean canInvoke(NSName service) throws ServiceNotAvaibleException {
+    public boolean canInvoke(NSName service) {
         return Namespace.current().nodeExists(service);
     }
 

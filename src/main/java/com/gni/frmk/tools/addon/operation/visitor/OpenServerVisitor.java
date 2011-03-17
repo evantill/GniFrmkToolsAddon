@@ -9,9 +9,9 @@ import com.gni.frmk.tools.addon.configuration.components.NativeTrigger;
 import com.gni.frmk.tools.addon.configuration.components.Port;
 import com.gni.frmk.tools.addon.configuration.components.Scheduler;
 import com.gni.frmk.tools.addon.invoke.ServiceException;
-import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
-import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
-import com.gni.frmk.tools.addon.invoke.WmRootNativeInvoker;
+import com.gni.frmk.tools.addon.invoke.divers.WmArtInvoker;
+import com.gni.frmk.tools.addon.invoke.divers.WmRootJmsInvoker;
+import com.gni.frmk.tools.addon.invoke.divers.WmRootNativeInvoker;
 
 /**
  * Created by IntelliJ IDEA.

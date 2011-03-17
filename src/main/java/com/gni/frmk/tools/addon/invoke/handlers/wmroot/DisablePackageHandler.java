@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.invoke.handlers.wmroot;
 import com.gni.frmk.tools.addon.invoke.ActionHandler;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.DisablePackage;
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractHandler;
+import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.invoke.results.NoResult;
 import com.wm.data.*;
 
@@ -14,7 +14,7 @@ import com.wm.data.*;
  *
  * @author: e03229
  */
-public class DisablePackageHandler extends AbstractHandler<DisablePackage, NoResult>
+public class DisablePackageHandler extends AbstractInvokeHandler<DisablePackage, NoResult>
         implements ActionHandler<DisablePackage, NoResult, InvokeContext> {
 
     public DisablePackageHandler() {
@@ -29,12 +29,13 @@ public class DisablePackageHandler extends AbstractHandler<DisablePackage, NoRes
     @Override
     protected IData prepareInput(DisablePackage in) {
         return IDataFactory.create(new Object[][]{
-                {"package",in.getPackageName()}
+                {"package",
+                 in.getPackageName()}
         });
     }
 
     @Override
-    protected NoResult parseOutput(IData output) {
+    protected NoResult parseOutput(DisablePackage action, IData output) {
         return NoResult.newInstance();
     }
 }

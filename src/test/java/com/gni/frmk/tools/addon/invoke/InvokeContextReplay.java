@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.invoke;
 
+import com.gni.frmk.tools.addon.invoke.exceptions.ServiceInvokeException;
 import com.gni.frmk.tools.addon.invoke.utils.PipelineTestUtils;
 import com.wm.data.*;
 import com.wm.lang.ns.NSName;
@@ -21,11 +22,16 @@ public class InvokeContextReplay extends InvokeContext {
     }
 
     @Override
-    public IData invoke(NSName service, IData input) throws InvokeException {
+    public IData invoke(NSName service, IData input) throws ServiceInvokeException {
         try {
             return utils.loadServiceOutput(service.getFullName());
         } catch (IOException e) {
             throw new ServiceInvokeException(this, service, input, e);
         }
+    }
+
+    @Override
+    public boolean canInvoke(NSName service) {
+        return utils.existServiceOutput(service.getFullName());
     }
 }

@@ -3,11 +3,11 @@ package com.gni.frmk.tools.addon.invoke.handlers.wmroot;
 import com.gni.frmk.tools.addon.configuration.components.EnableState;
 import com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.configuration.components.IntegrationServerPackage;
-import com.gni.frmk.tools.addon.invoke.actions.wmroot.PackageList;
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractHandler;
-import com.gni.frmk.tools.addon.invoke.InvokeContext;
-import com.gni.frmk.tools.addon.invoke.results.SetResult;
 import com.gni.frmk.tools.addon.invoke.ActionHandler;
+import com.gni.frmk.tools.addon.invoke.InvokeContext;
+import com.gni.frmk.tools.addon.invoke.actions.wmroot.PackageList;
+import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.invoke.results.SetResult;
 import com.google.common.collect.Sets;
 import com.wm.data.*;
 
@@ -20,7 +20,7 @@ import java.util.Set;
  *
  * @author: e03229
  */
-public class PackageListHandler extends AbstractHandler<PackageList, SetResult<IntegrationServerPackage>>
+public class PackageListHandler extends AbstractInvokeHandler<PackageList, SetResult<IntegrationServerPackage>>
         implements ActionHandler<PackageList, SetResult<IntegrationServerPackage>, InvokeContext> {
 
     public PackageListHandler() {
@@ -33,7 +33,7 @@ public class PackageListHandler extends AbstractHandler<PackageList, SetResult<I
     }
 
     @Override
-    protected SetResult<IntegrationServerPackage> parseOutput(IData output) {
+    protected SetResult<IntegrationServerPackage> parseOutput(PackageList action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
             Set<IntegrationServerPackage> values = Sets.newHashSet();

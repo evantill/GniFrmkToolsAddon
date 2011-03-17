@@ -1,15 +1,16 @@
-package com.gni.frmk.tools.addon.invoke;
+package com.gni.frmk.tools.addon.invoke.exceptions;
 
+import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.wm.data.*;
 import com.wm.lang.ns.NSName;
 
 /**
-* Created by IntelliJ IDEA.
-* Date: 17/03/11
-* Time: 13:55
-*
-* @author: e03229
-*/
+ * Created by IntelliJ IDEA.
+ * Date: 17/03/11
+ * Time: 13:55
+ *
+ * @author: e03229
+ */
 public class ServiceInvokeException extends InvokeException {
     private final NSName service;
     private final IData input;

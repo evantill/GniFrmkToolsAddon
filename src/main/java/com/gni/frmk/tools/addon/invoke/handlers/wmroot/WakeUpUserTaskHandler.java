@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.invoke.handlers.wmroot;
 import com.gni.frmk.tools.addon.invoke.ActionHandler;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.WakeUpUserTask;
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractHandler;
+import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.invoke.results.NoResult;
 import com.wm.data.*;
 
@@ -14,7 +14,7 @@ import com.wm.data.*;
  *
  * @author: e03229
  */
-public class WakeUpUserTaskHandler extends AbstractHandler<WakeUpUserTask, NoResult>
+public class WakeUpUserTaskHandler extends AbstractInvokeHandler<WakeUpUserTask, NoResult>
         implements ActionHandler<WakeUpUserTask, NoResult, InvokeContext> {
 
     public WakeUpUserTaskHandler() {
@@ -27,7 +27,7 @@ public class WakeUpUserTaskHandler extends AbstractHandler<WakeUpUserTask, NoRes
     }
 
     @Override
-    protected NoResult parseOutput(IData output) {
+    protected NoResult parseOutput(WakeUpUserTask action, IData output) {
         return NoResult.newInstance();
     }
 
