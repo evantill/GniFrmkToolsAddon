@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.operation.visitor;
 
+import com.gni.frmk.tools.addon.configuration.Configuration;
 import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
 
 /**

@@ -1,16 +1,9 @@
 package com.gni.frmk.tools.addon.service;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
-import com.gni.frmk.tools.addon.data.Configuration;
-import com.gni.frmk.tools.addon.data.adapter.*;
-import com.gni.frmk.tools.addon.data.component.ActivableComponentState;
-import com.gni.frmk.tools.addon.data.component.ComponentState;
-import com.gni.frmk.tools.addon.data.port.Port;
-import com.gni.frmk.tools.addon.data.port.PortBuilder;
-import com.gni.frmk.tools.addon.data.scheduler.Scheduler;
-import com.gni.frmk.tools.addon.data.scheduler.SchedulerState;
-import com.gni.frmk.tools.addon.data.trigger.*;
-import com.gni.frmk.tools.addon.invoke.ServiceException;
+import com.gni.frmk.tools.addon.configuration.Configuration;
+import com.gni.frmk.tools.addon.configuration.components.*;
+import com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus;
 import com.google.common.io.ByteStreams;
 import com.google.common.io.Closeables;
 import org.junit.AfterClass;
@@ -21,6 +14,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -78,20 +72,22 @@ public class ConfigurationServiceTest {
     }
 
     @Test
-    public void testLoadConfiguration() throws ServiceException {
+    public void testLoadConfiguration()  {
         ConfigurationService srv = new ConfigurationService(utils);
         Configuration cnf = srv.loadConfiguration(LOAD_CONFIGURATION_NAME);
         assertNotNull(cnf);
-        assertEquals(4, cnf.getNativeTriggerList().size());
+        assertEquals(4, cnf.getNativeTriggers().size());
     }
 
     @Test
-    public void testSaveConfiguration() throws ServiceException {
+    public void testSaveConfiguration()  {
         int indx = 0;
         ConfigurationService srv = new ConfigurationService(utils);
-        Configuration cnf = new Configuration("testSaveConfiguration");
-        cnf.getAdapterConnectionList().add(createAdapterConnection(++indx));
-        cnf.getAdapterConnectionList().add(createAdapterConnection(++indx));
+        Configuration cnf = Configuration.builder()
+                                         .create("testSaveConfiguration", new Date())
+                                         .addAdapterConnection(createAdapterConnection(++indx))
+                                         .addAdapterConnection(createAdapterConnection(++indx))
+                                         .build();
 //        cnf.getAdapterListenerList().add(createListenerConnection(++indx));
 //        cnf.getAdapterListenerList().add(createListenerConnection(++indx));
 //        cnf.getAdapterNotificationList().add(createNotificationConnection(++indx));
@@ -113,21 +109,21 @@ public class ConfigurationServiceTest {
         srv.saveConfiguration(cnf);
     }
 
-    private JmsAlias createJmsAlias(int indx) {
-        return new JmsAliasBuilder().define(String.format("alias essai %d", indx), null, ComponentState.EnableStatus.ENABLED, ActivableComponentState.ActiveStatus.SUSPENDED).build();
-    }
+//    private JmsAlias createJmsAlias(int indx) {
+//        return JmsAlias.builder().define(String.format("alias essai %d", indx), null, ComponentState.EnableStatus.ENABLED, ActivableComponentState.ActiveStatus.SUSPENDED).build();
+//    }
 
-    private NativeTrigger createNativeTrigger(int indx) {
-        NativeTrigger.NativeState s1 = new NativeTrigger.NativeState(Trigger.State.ACTIVE,
-                Trigger.TemporalStatus.TEMPORARY);
-        NativeTrigger.NativeState s2 = new NativeTrigger.NativeState(Trigger.State.SUSPENDED,
-                Trigger.TemporalStatus.PERMANENT);
-        return new NativeTrigger("triggerNatif" + indx, Trigger.Status.ENABLED, s1, s2);
-    }
+//    private NativeTrigger createNativeTrigger(int indx) {
+//        NativeTrigger.NativeState s1 = new NativeTrigger.NativeState(Trigger.State.ACTIVE,
+//                Trigger.TemporalStatus.TEMPORARY);
+//        NativeTrigger.NativeState s2 = new NativeTrigger.NativeState(Trigger.State.SUSPENDED,
+//                Trigger.TemporalStatus.PERMANENT);
+//        return new NativeTrigger("triggerNatif" + indx, Trigger.Status.ENABLED, s1, s2);
+//    }
 
-    private JmsTrigger createJmsTrigger(int indx) {
-        return new JmsTrigger("triggerJms" + indx, Trigger.Status.ENABLED, Trigger.State.SUSPENDED);
-    }
+//    private JmsTrigger createJmsTrigger(int indx) {
+//        return new JmsTrigger("triggerJms" + indx, Trigger.Status.ENABLED, Trigger.State.SUSPENDED);
+//    }
 
     private Scheduler createScheduler(int indx) {
         //TODO a corriger
@@ -140,19 +136,24 @@ public class ConfigurationServiceTest {
 //                Scheduler.SchedulerState.UNEXPIRED);
     }
 
-    private Port createPort(int indx) {
-        return new PortBuilder().define("port" + indx, "WmRoot", ComponentState.EnableStatus.ENABLED, ActivableComponentState.ActiveStatus.SUSPENDED).build();
-    }
+//    private Port createPort(int indx) {
+//        return new PortBuilder().define("port" + indx, "WmRoot", ComponentState.EnableStatus.ENABLED, ActivableComponentState.ActiveStatus.SUSPENDED).build();
+//    }
 
-    private AdapterNotification createNotificationConnection(int indx) {
-        return new AdapterNotificationBuilder("JDBCAdapter").define("notif" + indx, "pckgEssai" + indx, ComponentState.EnableStatus.ENABLED, ActivableComponentState.ActiveStatus.SUSPENDED).build();
-    }
+//    private AdapterNotification createNotificationConnection(int indx) {
+//        return new AdapterNotificationBuilder("JDBCAdapter").define("notif" + indx, "pckgEssai" + indx, ComponentState.EnableStatus.ENABLED, ActivableComponentState.ActiveStatus.SUSPENDED).build();
+//    }
 
     private AdapterConnection createAdapterConnection(int indx) {
-        return new AdapterConnectionBuilder("JDBCAdapter").define("aliasName" + indx, "pckgEssai" + indx, ComponentState.EnableStatus.ENABLED).build();
+        return  AdapterConnection.builder()
+                                 .alias("aliasName" + indx)
+                                 .adapterType("JDBCAdapter")
+                                 .packageName("pckgEssai" + indx)
+                                 .defineState(new EnableState(EnableStatus.ENABLED))
+                                 .build();
     }
 
-    private AdapterListener createListenerConnection(int indx) {
-        return new AdapterListenerBuilder("JDBCAdapter").define("listener" + indx, "pckgEssai" + indx, ComponentState.EnableStatus.ENABLED, ActivableComponentState.ActiveStatus.SUSPENDED).build();
-    }
+//    private AdapterListener createListenerConnection(int indx) {
+//        return new AdapterListenerBuilder("JDBCAdapter").define("listener" + indx, "pckgEssai" + indx, ComponentState.EnableStatus.ENABLED, ActivableComponentState.ActiveStatus.SUSPENDED).build();
+//    }
 }

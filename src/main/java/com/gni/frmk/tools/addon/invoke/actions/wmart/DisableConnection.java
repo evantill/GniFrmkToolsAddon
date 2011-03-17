@@ -11,7 +11,7 @@ import com.gni.frmk.tools.addon.invoke.actions.StringAction;
  * @author: e03229
  */
 public class DisableConnection extends StringAction<NoResult> {
-    public DisableConnection(String parameter) {
-        super(parameter);
+    public DisableConnection(String aliasName) {
+        super(aliasName);
     }
 }

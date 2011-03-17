@@ -1,17 +1,20 @@
 package com.gni.frmk.tools.addon.operation.visitor;
 
-import com.gni.frmk.tools.addon.configuration.components.AdapterConnection;
-import com.gni.frmk.tools.addon.configuration.components.AdapterListener;
-import com.gni.frmk.tools.addon.configuration.components.AdapterNotification;
-import com.gni.frmk.tools.addon.configuration.components.JmsAlias;
-import com.gni.frmk.tools.addon.configuration.components.JmsTrigger;
-import com.gni.frmk.tools.addon.configuration.components.NativeTrigger;
-import com.gni.frmk.tools.addon.configuration.components.Port;
-import com.gni.frmk.tools.addon.configuration.components.Scheduler;
-import com.gni.frmk.tools.addon.invoke.ServiceException;
+import com.gni.frmk.tools.addon.configuration.components.*;
+import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitorException;
 import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
+import com.gni.frmk.tools.addon.invoke.WmRootInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
-import com.gni.frmk.tools.addon.invoke.divers.WmRootNativeInvoker;
+import com.gni.frmk.tools.addon.invoke.actions.wmart.EnableConnection;
+import com.gni.frmk.tools.addon.invoke.actions.wmart.EnableListener;
+import com.gni.frmk.tools.addon.invoke.actions.wmart.EnableNotification;
+import com.gni.frmk.tools.addon.invoke.actions.wmjms.EnableJmsAlias;
+import com.gni.frmk.tools.addon.invoke.actions.wmjms.EnableJmsTriggers;
+import com.gni.frmk.tools.addon.invoke.actions.wmroot.EnablePackage;
+import com.gni.frmk.tools.addon.invoke.actions.wmroot.EnablePortListener;
+import com.gni.frmk.tools.addon.invoke.actions.wmroot.SuspendTriggers;
+import com.gni.frmk.tools.addon.invoke.actions.wmroot.WakeUpUserTask;
+import com.gni.frmk.tools.addon.invoke.exceptions.DispatchException;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,78 +24,100 @@ import com.gni.frmk.tools.addon.invoke.divers.WmRootNativeInvoker;
  * To change this template use File | Settings | File Templates.
  */
 public class OpenServerVisitor implements ConfigurationVisitorRaisingException {
-    private final WmRootNativeInvoker rootInvoker;
+
+    private final WmRootInvoker rootInvoker;
     private final WmRootJmsInvoker jmsInvoker;
     private final WmArtInvoker artInvoker;
 
-    public OpenServerVisitor(WmArtInvoker artInvoker, WmRootJmsInvoker jmsInvoker, WmRootNativeInvoker rootInvoker) {
+    public OpenServerVisitor(WmArtInvoker artInvoker, WmRootJmsInvoker jmsInvoker, WmRootInvoker rootInvoker) {
         this.artInvoker = artInvoker;
         this.jmsInvoker = jmsInvoker;
         this.rootInvoker = rootInvoker;
     }
 
+    @Override
     public void visit(AdapterConnection visited) throws ConfigurationVisitorException {
         try {
-            artInvoker.enableConnection(visited.getAlias());
-        } catch (ServiceException e) {
+            artInvoker.enableConnection(new EnableConnection(visited.getAlias()));
+        } catch (DispatchException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
     }
 
+    @Override
     public void visit(AdapterListener visited) throws ConfigurationVisitorException {
         try {
-            artInvoker.enableListener(visited.getName());
-        } catch (ServiceException e) {
+            artInvoker.enableListener(new EnableListener(visited.getName()));
+        } catch (DispatchException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
     }
 
+    @Override
     public void visit(AdapterNotification visited) throws ConfigurationVisitorException {
         try {
-            artInvoker.enableNotification(visited.getName());
-        } catch (ServiceException e) {
+            artInvoker.enableNotification(new EnableNotification(visited.getName()));
+        } catch (DispatchException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
     }
 
+    @Override
     public void visit(Port visited) throws ConfigurationVisitorException {
         try {
-            rootInvoker.enablePortListener(visited.getKey(), visited.getPackageName());
-        } catch (ServiceException e) {
+            rootInvoker.enablePortListener(new EnablePortListener(visited.getPackageName(), visited.getKey()));
+        } catch (DispatchException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
     }
 
+    @Override
     public void visit(Scheduler visited) throws ConfigurationVisitorException {
         try {
-            rootInvoker.wakeupUserTask(visited.getOid());
-        } catch (ServiceException e) {
+            rootInvoker.wakeUpUserTask(new WakeUpUserTask(visited.getOid()));
+        } catch (DispatchException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
     }
 
+    @Override
     public void visit(JmsAlias visited) throws ConfigurationVisitorException {
         try {
-            jmsInvoker.enableConnectionAlias(visited.getName());
-        } catch (ServiceException e) {
+            jmsInvoker.enableJmsAlias(new EnableJmsAlias(visited.getName()));
+        } catch (DispatchException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
     }
 
+    @Override
     public void visit(JmsTrigger visited) throws ConfigurationVisitorException {
         try {
-            jmsInvoker.enableJMSTriggers(visited.getName());
-        } catch (ServiceException e) {
+            jmsInvoker.enableJmsTriggers(new EnableJmsTriggers(visited.getName()));
+        } catch (DispatchException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
     }
 
+    @Override
     public void visit(NativeTrigger visited) throws ConfigurationVisitorException {
         try {
-            rootInvoker.suspendTriggers(false, false, true, visited.getName());
-        } catch (ServiceException e) {
+            rootInvoker.suspendTriggers(SuspendTriggers.builder()
+                                                       .addTriggerName(visited.getName())
+                                                       .persistChange(true)
+                                                       .suspendProcessing(false)
+                                                       .suspendRetrieval(false)
+                                                       .build());
+        } catch (DispatchException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
     }
 
+    @Override
+    public void visit(IntegrationServerPackage visited) throws ComponentVisitorException {
+        try {
+            rootInvoker.enablePackage(new EnablePackage(visited.getPackageName()));
+        } catch (DispatchException e) {
+            throw new ConfigurationVisitorException(visited, e);
+        }
+    }
 }

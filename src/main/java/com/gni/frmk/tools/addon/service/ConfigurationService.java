@@ -1,8 +1,7 @@
 package com.gni.frmk.tools.addon.service;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
-import com.gni.frmk.tools.addon.data.Configuration;
-import com.gni.frmk.tools.addon.invoke.ServiceException;
+import com.gni.frmk.tools.addon.configuration.Configuration;
 import com.gni.frmk.tools.addon.operation.strategy.ParseStrategy;
 import com.gni.frmk.tools.addon.operation.visitor.DisableStatusVisitor;
 import com.gni.frmk.tools.addon.operation.visitor.EnableStatusVisitor;
@@ -11,6 +10,7 @@ import com.google.common.io.Closeables;
 
 import javax.xml.bind.JAXBContext;
 import java.io.*;
+import java.util.Date;
 
 /**
  * Cette impletion simple va sauvegarder la configuration dans un fichier xml dans le repertoire config du package.
@@ -28,21 +28,21 @@ public class ConfigurationService {
         packageConfigDir = utils.getCurrentPackageConfigDir();
     }
 
-    public Configuration loadConfiguration(String name) throws ServiceException {
+    public Configuration loadConfiguration(String name) {
         File input = new File(packageConfigDir, String.format("%s.xml", name));
         if (input.exists() && input.canRead() && input.isFile()) {
             try {
                 JAXBContext ctx = JAXBContext.newInstance(Configuration.class);
                 return (Configuration) ctx.createUnmarshaller().unmarshal(new FileInputStream(input));
             } catch (Exception e) {
-                throw new ServiceException("loadConfiguration", e);
+                throw new RuntimeException("loadConfiguration", e);
             }
         } else {
             throw new IllegalArgumentException(String.format("configuration name %s not found", name));
         }
     }
 
-    public String loadRawConfiguration(String name) throws ServiceException {
+    public String loadRawConfiguration(String name)  {
         File input = new File(packageConfigDir, String.format("%s.xml", name));
         if (input.exists() && input.canRead() && input.isFile()) {
             try {
@@ -59,7 +59,7 @@ public class ConfigurationService {
                     Closeables.closeQuietly(in);
                 }
             } catch (IOException e) {
-                throw new ServiceException("loadRawConfiguration", e);
+                throw new RuntimeException("loadRawConfiguration", e);
             }
         } else {
             throw new IllegalArgumentException(String.format("configuration name %s not found", name));
@@ -67,27 +67,28 @@ public class ConfigurationService {
     }
 
 
-    public void saveConfiguration(Configuration cnf) throws ServiceException {
+    public Configuration saveConfiguration(Configuration cnf) {
         File output = new File(packageConfigDir, String.format("%s.xml", cnf.getName()));
+        Configuration toSave = cnf;
         if (output.exists()) {
-            cnf.updateModificationDate();
+            toSave=Configuration.builder().from(cnf).touch(new Date()).build();
         }
         try {
             JAXBContext ctx = JAXBContext.newInstance(Configuration.class);
             ctx.createMarshaller().marshal(cnf,new FileOutputStream(output));
         } catch (Exception e) {
-            ServiceException sex = new ServiceException("saveConfiguration", e);
-            throw sex;
+            throw  new RuntimeException("saveConfiguration", e);
         }
+        return toSave;
     }
 
-    public void clearConfiguration(String configurationName) throws ServiceException {
+    public Configuration clearConfiguration(String configurationName)  {
         File output = new File(packageConfigDir, String.format("%s.xml", configurationName));
+        Configuration cnf = loadConfiguration(configurationName);
         if (output.exists()) {
-            Configuration cnf = loadConfiguration(configurationName);
-            cnf.clear();
-            saveConfiguration(cnf);
+            cnf=saveConfiguration(Configuration.builder().from(cnf).clear().build());
         }
+        return cnf;
     }
 
     public Configuration closeAllConfiguration(Configuration cnf) {

@@ -1,21 +1,20 @@
 package com.gni.frmk.tools.addon.operation.visitor;
 
 import com.gni.frmk.tools.addon.configuration.components.ActivableState.ActivableStatus;
-import com.gni.frmk.tools.addon.configuration.components.AdapterConnection;
-import com.gni.frmk.tools.addon.configuration.components.AdapterListener;
-import com.gni.frmk.tools.addon.configuration.components.AdapterNotification;
+import com.gni.frmk.tools.addon.configuration.components.*;
 import com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus;
-import com.gni.frmk.tools.addon.configuration.components.JmsAlias;
-import com.gni.frmk.tools.addon.configuration.components.JmsTrigger;
-import com.gni.frmk.tools.addon.configuration.components.NativeTrigger;
-import com.gni.frmk.tools.addon.configuration.components.Port;
-import com.gni.frmk.tools.addon.configuration.components.Scheduler;
 import com.gni.frmk.tools.addon.configuration.components.Scheduler.SchedulerState.SchedulerStatus;
-import com.gni.frmk.tools.addon.configuration.components.TemporaryActivableState;
-import com.gni.frmk.tools.addon.invoke.ServiceException;
 import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
+import com.gni.frmk.tools.addon.invoke.WmRootInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
-import com.gni.frmk.tools.addon.invoke.divers.WmRootNativeInvoker;
+import com.gni.frmk.tools.addon.invoke.actions.wmart.*;
+import com.gni.frmk.tools.addon.invoke.actions.wmjms.DisableJmsAlias;
+import com.gni.frmk.tools.addon.invoke.actions.wmjms.DisableJmsTriggers;
+import com.gni.frmk.tools.addon.invoke.actions.wmjms.EnableJmsAlias;
+import com.gni.frmk.tools.addon.invoke.actions.wmjms.EnableJmsTriggers;
+import com.gni.frmk.tools.addon.invoke.actions.wmjms.SuspendJmsTriggers;
+import com.gni.frmk.tools.addon.invoke.actions.wmroot.*;
+import com.gni.frmk.tools.addon.invoke.exceptions.DispatchException;
 
 /**
  * Created by IntelliJ IDEA.
@@ -26,12 +25,12 @@ import com.gni.frmk.tools.addon.invoke.divers.WmRootNativeInvoker;
  */
 public class ApplyConfigurationVisitor implements ConfigurationVisitorRaisingException {
 
-    private final WmRootNativeInvoker rootInvoker;
+    private final WmRootInvoker rootInvoker;
     private final WmRootJmsInvoker jmsInvoker;
     private final WmArtInvoker artInvoker;
 
     public ApplyConfigurationVisitor(WmArtInvoker artInvoker, WmRootJmsInvoker jmsInvoker,
-            WmRootNativeInvoker rootInvoker) {
+            WmRootInvoker rootInvoker) {
         this.artInvoker = artInvoker;
         this.jmsInvoker = jmsInvoker;
         this.rootInvoker = rootInvoker;
@@ -41,15 +40,15 @@ public class ApplyConfigurationVisitor implements ConfigurationVisitorRaisingExc
         try {
             switch (visited.getState().getEnabled()) {
                 case ENABLED:
-                    artInvoker.enableConnection(visited.getAlias());
+                    artInvoker.enableConnection(new EnableConnection(visited.getAlias()));
                     break;
                 case DISABLED:
-                    artInvoker.disableConnection(visited.getAlias());
+                    artInvoker.disableConnection(new DisableConnection(visited.getAlias()));
                     break;
                 default:
                     throw new IllegalStateException("unknown state");
             }
-        } catch (ServiceException e) {
+        } catch (DispatchException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
     }
@@ -60,21 +59,21 @@ public class ApplyConfigurationVisitor implements ConfigurationVisitorRaisingExc
             EnableStatus status = visited.getState().getEnabled();
             switch (state) {
                 case ACTIVE:
-                    artInvoker.resumeListener(visited.getName());
+                    artInvoker.resumeListener(new ResumeListener(visited.getName()));
                     break;
                 case INACTIVE:
-                    artInvoker.suspendListener(visited.getName());
+                    artInvoker.suspendListener(new SuspendListener(visited.getName()));
                     break;
             }
             switch (status) {
                 case ENABLED:
-                    artInvoker.enableListener(visited.getName());
+                    artInvoker.enableListener(new EnableListener(visited.getName()));
                     break;
                 case DISABLED:
-                    artInvoker.disableListener(visited.getName());
+                    artInvoker.disableListener(new DisableListener(visited.getName()));
                     break;
             }
-        } catch (ServiceException e) {
+        } catch (DispatchException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
     }
@@ -85,21 +84,21 @@ public class ApplyConfigurationVisitor implements ConfigurationVisitorRaisingExc
             EnableStatus status = visited.getState().getEnabled();
             switch (state) {
                 case ACTIVE:
-                    artInvoker.resumeNotification(visited.getName());
+                    artInvoker.resumeNotification(new ResumeNotification(visited.getName()));
                     break;
                 case INACTIVE:
-                    artInvoker.suspendNotification(visited.getName());
+                    artInvoker.suspendNotification(new SuspendNotification(visited.getName()));
                     break;
             }
             switch (status) {
                 case ENABLED:
-                    artInvoker.enableNotification(visited.getName());
+                    artInvoker.enableNotification(new EnableNotification(visited.getName()));
                     break;
                 case DISABLED:
-                    artInvoker.disableNotification(visited.getName());
+                    artInvoker.disableNotification(new DisableNotification(visited.getName()));
                     break;
             }
-        } catch (ServiceException e) {
+        } catch (DispatchException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
     }
@@ -108,15 +107,15 @@ public class ApplyConfigurationVisitor implements ConfigurationVisitorRaisingExc
         try {
             switch (visited.getState().getEnabled()) {
                 case ENABLED:
-                    rootInvoker.enablePortListener(visited.getKey(), visited.getPackageName());
+                    rootInvoker.enablePortListener(new EnablePortListener(visited.getPackageName(), visited.getKey()));
                     break;
                 case DISABLED:
-                    rootInvoker.disablePortListener(visited.getKey(), visited.getPackageName());
+                    rootInvoker.disablePortListener(new DisablePortListener(visited.getPackageName(), visited.getKey()));
                     break;
                 default:
                     throw new IllegalStateException("unknown state");
             }
-        } catch (ServiceException e) {
+        } catch (DispatchException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
     }
@@ -124,18 +123,38 @@ public class ApplyConfigurationVisitor implements ConfigurationVisitorRaisingExc
     public void visit(Scheduler visited) throws ConfigurationVisitorException {
         try {
             EnableStatus enabled = visited.getState().getEnabled();
+            //TODO utiliser ou supprimer scheduled state
             SchedulerStatus scheduled = visited.getState().getScheduled();
             switch (enabled) {
                 case ENABLED:
-                    rootInvoker.wakeupUserTask(visited.getOid());
+                    rootInvoker.wakeUpUserTask(new WakeUpUserTask(visited.getOid()));
                     break;
                 case DISABLED:
-                    rootInvoker.suspendUserTask(visited.getOid());
+                    rootInvoker.suspendUserTask(new SuspendUserTask(visited.getOid()));
                     break;
                 default:
                     throw new IllegalStateException("unknown state");
             }
-        } catch (ServiceException e) {
+        } catch (DispatchException e) {
+            throw new ConfigurationVisitorException(visited, e);
+        }
+    }
+
+    @Override
+    public void visit(IntegrationServerPackage visited) throws ConfigurationVisitorException {
+        try {
+            EnableStatus enabled = visited.getState().getEnabled();
+            switch (enabled) {
+                case ENABLED:
+                    rootInvoker.enablePackage(new EnablePackage(visited.getPackageName()));
+                    break;
+                case DISABLED:
+                    rootInvoker.disablePackage(new DisablePackage(visited.getPackageName()));
+                    break;
+                default:
+                    throw new IllegalStateException(String.format("unknown enable state %s", enabled));
+            }
+        } catch (DispatchException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
     }
@@ -145,15 +164,15 @@ public class ApplyConfigurationVisitor implements ConfigurationVisitorRaisingExc
             EnableStatus enableStatus = visited.getState().getEnabled();
             switch (enableStatus) {
                 case ENABLED:
-                    jmsInvoker.enableConnectionAlias(visited.getName());
+                    jmsInvoker.enableJmsAlias(new EnableJmsAlias(visited.getName()));
                     break;
                 case DISABLED:
-                    jmsInvoker.disableConnectionAlias(visited.getName());
+                    jmsInvoker.disableJmsAlias(new DisableJmsAlias(visited.getName()));
                     break;
                 default:
                     throw new IllegalStateException("unknown state");
             }
-        } catch (ServiceException e) {
+        } catch (DispatchException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
     }
@@ -164,21 +183,21 @@ public class ApplyConfigurationVisitor implements ConfigurationVisitorRaisingExc
             ActivableStatus activable = visited.getState().getActivable();
             switch (status) {
                 case ENABLED:
-                    jmsInvoker.enableJMSTriggers(visited.getName());
+                    jmsInvoker.enableJmsTriggers(new EnableJmsTriggers(visited.getName()));
                     break;
                 case DISABLED:
-                    jmsInvoker.disableJMSTriggers(visited.getName());
+                    jmsInvoker.disableJmsTriggers(new DisableJmsTriggers(visited.getName()));
                     break;
             }
             switch (activable) {
                 case ACTIVE:
-                    jmsInvoker.enableJMSTriggers(visited.getName());
+                    jmsInvoker.enableJmsTriggers(new EnableJmsTriggers(visited.getName()));
                     break;
                 case INACTIVE:
-                    jmsInvoker.suspendJmsTriggers(visited.getName());
+                    jmsInvoker.suspendJmsTriggers(new SuspendJmsTriggers(visited.getName()));
                     break;
             }
-        } catch (ServiceException e) {
+        } catch (DispatchException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
     }
@@ -195,8 +214,7 @@ public class ApplyConfigurationVisitor implements ConfigurationVisitorRaisingExc
      * </code>
      *
      * @param visited
-     * @throws com.gni.frmk.tools.addon.invoke.ServiceException
-     *
+     * @throws ConfigurationVisitorException
      */
     public void visit(NativeTrigger visited) throws ConfigurationVisitorException {
         //TODO verifier pourquoi enables est non utilisé
@@ -208,8 +226,12 @@ public class ApplyConfigurationVisitor implements ConfigurationVisitorRaisingExc
             processingPermanent = true;
         }
         try {
-            rootInvoker.suspendTriggers(true, processingSuspended, processingPermanent, visited.getName());
-        } catch (ServiceException e) {
+            SuspendTriggers action = SuspendTriggers.builder().addTriggerName(visited.getName())
+                                                    .suspendRetrieval(true)
+                                                    .suspendProcessing(processingSuspended)
+                                                    .persistChange(processingPermanent).build();
+            rootInvoker.suspendTriggers(action);
+        } catch (DispatchException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
 
@@ -220,8 +242,12 @@ public class ApplyConfigurationVisitor implements ConfigurationVisitorRaisingExc
             retrievalPermanent = true;
         }
         try {
-            rootInvoker.suspendTriggers(retrievalSuspended, processingSuspended, retrievalPermanent, visited.getName());
-        } catch (ServiceException e) {
+            SuspendTriggers action = SuspendTriggers.builder().addTriggerName(visited.getName())
+                                                    .suspendRetrieval(retrievalSuspended)
+                                                    .suspendProcessing(processingSuspended)
+                                                    .persistChange(retrievalPermanent).build();
+            rootInvoker.suspendTriggers(action);
+        } catch (DispatchException e) {
             throw new ConfigurationVisitorException(visited, e);
         }
     }

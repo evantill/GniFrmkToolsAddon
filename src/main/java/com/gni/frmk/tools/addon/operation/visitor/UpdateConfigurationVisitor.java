@@ -9,6 +9,6 @@ import com.gni.frmk.tools.addon.configuration.Configuration;
  *
  * @author: e03229
  */
-public interface UpdateConfigurationVisitor extends ConfigurationVisitorRaisingException {
-    Configuration getUpdatedConfiguration()  throws ConfigurationVisitorException;
+public interface UpdateConfigurationVisitor extends ConfigurationVisitor {
+    Configuration getUpdatedConfiguration();
 }

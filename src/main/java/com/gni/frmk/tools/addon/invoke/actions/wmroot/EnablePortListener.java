@@ -12,7 +12,8 @@ import com.gni.frmk.tools.addon.invoke.actions.StringAction;
  * @author: e03229
  */
 public class EnablePortListener extends StringPackageAwareAction<NoResult> {
-    protected EnablePortListener(String packageName, String parameter) {
-        super(packageName, parameter);
+    //TODO remplacer par BUILDER pour diminuer les risques dans le code
+    public EnablePortListener(String packageName, String key) {
+        super(packageName, key);
     }
 }

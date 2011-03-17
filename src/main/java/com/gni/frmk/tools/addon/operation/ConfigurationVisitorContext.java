@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.operation;
 
-import com.gni.frmk.tools.addon.data.Configuration;
+import com.gni.frmk.tools.addon.configuration.Configuration;
 import com.gni.frmk.tools.addon.operation.strategy.ConfigurationVisitorStrategy;
 
 /**

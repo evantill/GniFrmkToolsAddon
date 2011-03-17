@@ -1,10 +1,11 @@
 package com.gni.frmk.tools.addon.service;
 
-import com.gni.frmk.tools.addon.data.Configuration;
+import com.gni.frmk.tools.addon.configuration.Configuration;
 import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
-import com.gni.frmk.tools.addon.invoke.divers.WmRootNativeInvoker;
+import com.gni.frmk.tools.addon.invoke.exceptions.ActionException;
+import com.gni.frmk.tools.addon.invoke.exceptions.InvokeException;
 import com.gni.frmk.tools.addon.operation.strategy.CloseInputStrategy;
 import com.gni.frmk.tools.addon.operation.strategy.CloseOutputStrategy;
 import com.gni.frmk.tools.addon.operation.visitor.ApplyConfigurationVisitor;
@@ -27,28 +28,27 @@ public class AdminService {
     private final WmRootInvoker rootInvoker;
 
     public AdminService(String defaultConfigurationName,
-                        WmRootInvoker rootInvoker, WmRootJmsInvoker jmsInvoker, WmArtInvoker artInvoker,
-                        WmRootNativeInvoker rootNativeInvoker,
-                        ConfigurationService confSrv,
-                        ReportService reportSrv) {
-        this.changeConfigVisitor = new TraceConfigurationVisitorAdapter(new ApplyConfigurationVisitor(artInvoker, jmsInvoker, rootNativeInvoker));
+            WmRootInvoker rootInvoker, WmRootJmsInvoker jmsInvoker, WmArtInvoker artInvoker,
+            ConfigurationService confSrv,
+            ReportService reportSrv) {
+        this.changeConfigVisitor = new TraceConfigurationVisitorAdapter(new ApplyConfigurationVisitor(artInvoker, jmsInvoker, rootInvoker));
         this.confSrv = confSrv;
         this.reportSrv = reportSrv;
         this.defaultConfigurationName = defaultConfigurationName;
         this.rootInvoker = rootInvoker;
     }
 
-    private void changeServerInputState(Configuration cnf) throws ServiceException {
+    private void changeServerInputState(Configuration cnf) {
         CloseInputStrategy strategy = new CloseInputStrategy(changeConfigVisitor);
         strategy.execute(cnf);
     }
 
-    private void changeServerOutputState(Configuration cnf) throws ServiceException {
+    private void changeServerOutputState(Configuration cnf) {
         CloseOutputStrategy strategy = new CloseOutputStrategy(changeConfigVisitor);
         strategy.execute(cnf);
     }
 
-    public void closeServer(long maxSecondsToWait, boolean saveServerConfig) throws ServiceException {
+    public void closeServer(long maxSecondsToWait, boolean saveServerConfig) throws InvokeException, ActionException {
         Configuration defaultCnf = reportSrv.reportCurrentConfiguration(defaultConfigurationName);
         if (saveServerConfig) {
             confSrv.saveConfiguration(defaultCnf);
@@ -62,13 +62,13 @@ public class AdminService {
         }
     }
 
-    public void openServer() throws ServiceException {
+    public void openServer() {
         Configuration openCnf = confSrv.loadConfiguration(defaultConfigurationName);
         changeServerOutputState(openCnf);
         changeServerInputState(openCnf);
     }
 
-    public void openFullServer(boolean saveServerConfig) throws ServiceException {
+    public void openFullServer(boolean saveServerConfig) throws InvokeException, ActionException {
         Configuration cnf = reportSrv.reportCurrentConfiguration(defaultConfigurationName);
         Configuration openAll = confSrv.openAllConfiguration(cnf);
         if (saveServerConfig) {

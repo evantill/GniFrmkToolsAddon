@@ -29,6 +29,10 @@ public class EnableJmsTriggers implements Action<NoResult> {
         this.applyChangeAcrossCluster = false;
     }
 
+    public EnableJmsTriggers(String triggerName) {
+        this(Collections.singletonList(triggerName));
+    }
+
     public List<String> getTriggerNames() {
         return triggerNames;
     }

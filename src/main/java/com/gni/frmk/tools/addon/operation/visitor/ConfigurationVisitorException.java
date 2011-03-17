@@ -1,8 +1,7 @@
 package com.gni.frmk.tools.addon.operation.visitor;
 
-import com.gni.frmk.tools.addon.data.ConfigurationElement;
-import com.gni.frmk.tools.addon.data.component.Component;
-import com.gni.frmk.tools.addon.invoke.ServiceException;
+import com.gni.frmk.tools.addon.configuration.components.Component;
+import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitorException;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,41 +10,16 @@ import com.gni.frmk.tools.addon.invoke.ServiceException;
  * Time: 15:44
  * To change this template use File | Settings | File Templates.
  */
-public class ConfigurationVisitorException extends Exception {
+public class ConfigurationVisitorException extends ComponentVisitorException {
 
-    //TODO supprimer les references a ELEMENT apres migration datas
-    private final ConfigurationElement element;
-    private final Component component;
+    //TODO ajouter la configuration
 
-    public ConfigurationVisitorException(ConfigurationElement element, ServiceException e) {
-        super(e);
-        this.element = element;
-        this.component = null;
-    }
-
-    public ConfigurationVisitorException(Component component, ServiceException e) {
-        super(e);
-        this.component = component;
-        this.element = null;
-    }
-
-    public ConfigurationVisitorException(ConfigurationElement element, String message) {
-        super(message);
-        this.element = element;
-        this.component = null;
+    public ConfigurationVisitorException(Component component, Throwable caught) {
+        super(component, caught);
     }
 
     public ConfigurationVisitorException(Component component, String message) {
-        super(message);
-        this.component = component;
-        this.element = null;
+        super(component, message);
     }
 
-    public ConfigurationElement getElement() {
-        return element;
-    }
-
-    public Component getComponent() {
-        return component;
-    }
 }

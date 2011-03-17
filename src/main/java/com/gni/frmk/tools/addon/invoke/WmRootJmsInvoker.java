@@ -38,7 +38,7 @@ public class WmRootJmsInvoker extends AbstractWmHandler {
         addHandler(new EnableJmsTriggersHandler());
     }
 
-    public void suspendJmsTrigger(SuspendJmsTriggers param) throws ActionException, InvokeException {
+    public void suspendJmsTriggers(SuspendJmsTriggers param) throws ActionException, InvokeException {
         invoke(param);
     }
 
@@ -58,12 +58,12 @@ public class WmRootJmsInvoker extends AbstractWmHandler {
         invoke(param);
     }
 
-    public List<JmsTrigger> getJmsTriggerReport(GetJmsTriggerReport param) throws ActionException, InvokeException {
-        return invoke(param).getCollection();
+    public List<JmsAlias> getJmsAliasReport() throws ActionException, InvokeException {
+        return invoke(new GetJmsAliasReport()).getCollection();
     }
 
-    public List<JmsAlias> getJmsAliasReport(GetJmsAliasReport param) throws ActionException, InvokeException {
-        return invoke(param).getCollection();
+    public List<JmsTrigger> getJmsTriggerReport() throws InvokeException, ActionException {
+        return invoke(new GetJmsTriggerReport()).getCollection();
     }
 
     @Override

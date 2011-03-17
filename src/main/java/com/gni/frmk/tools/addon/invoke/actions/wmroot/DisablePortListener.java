@@ -11,7 +11,8 @@ import com.gni.frmk.tools.addon.invoke.results.NoResult;
  * @author: e03229
  */
 public class DisablePortListener extends StringPackageAwareAction<NoResult> {
-    protected DisablePortListener(String packageName, String parameter) {
-        super(packageName, parameter);
+    //TODO remplacer par BUILDER pour diminuer les risques dans le code
+    public DisablePortListener(String packageName, String key) {
+        super(packageName, key);
     }
 }

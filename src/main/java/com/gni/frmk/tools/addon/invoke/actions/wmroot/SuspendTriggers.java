@@ -57,7 +57,7 @@ public class SuspendTriggers implements Action<NoResult> {
 
     public static class Builder {
         private Set<String> triggerNames = Sets.newHashSet();
-        private boolean applyChangeAcrossCluster=false;
+        private boolean applyChangeAcrossCluster = false;
         private boolean persistChange;
         private boolean retrievalSuspend;
         private boolean processingSuspend;

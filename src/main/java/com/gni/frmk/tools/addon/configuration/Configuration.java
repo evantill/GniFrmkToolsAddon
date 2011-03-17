@@ -8,6 +8,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -138,8 +139,8 @@ public class Configuration {
             return this;
         }
 
-        public Builder touch() {
-            modification = new Date();
+        public Builder touch(Date when) {
+            modification = new Date(when.getTime());
             return this;
         }
 
@@ -148,8 +149,18 @@ public class Configuration {
             return this;
         }
 
+        public Builder addAdapterConnections(Collection<AdapterConnection> connections) {
+            adapterConnections.addAll(connections);
+            return this;
+        }
+
         public Builder addAdapterListener(AdapterListener listener) {
             adapterListeners.add(listener);
+            return this;
+        }
+
+        public Builder addAdapterListeners(Collection<AdapterListener> listeners) {
+            adapterListeners.addAll(listeners);
             return this;
         }
 
@@ -158,8 +169,18 @@ public class Configuration {
             return this;
         }
 
+        public Builder addAdapterNotifications(Collection<AdapterNotification> notifications) {
+            adapterNotifications.addAll(notifications);
+            return this;
+        }
+
         public Builder addPackage(IntegrationServerPackage pkg) {
             integrationServerPackages.add(pkg);
+            return this;
+        }
+
+        public Builder addPackages(Collection<IntegrationServerPackage> pkgs) {
+            integrationServerPackages.addAll(pkgs);
             return this;
         }
 
@@ -168,8 +189,18 @@ public class Configuration {
             return this;
         }
 
+        public Builder addJmsAliasConnections(Collection<JmsAlias> aliases) {
+            jmsAliases.addAll(aliases);
+            return this;
+        }
+
         public Builder addJmsTrigger(JmsTrigger trigger) {
             jmsTriggers.add(trigger);
+            return this;
+        }
+
+        public Builder addJmsTriggers(Collection<JmsTrigger> triggers) {
+            jmsTriggers.addAll(triggers);
             return this;
         }
 
@@ -178,13 +209,57 @@ public class Configuration {
             return this;
         }
 
+        public Builder addNativeTriggers(Collection<NativeTrigger> triggers) {
+            nativeTriggers.addAll(triggers);
+            return this;
+        }
+
         public Builder addPort(Port port) {
             ports.add(port);
             return this;
         }
 
+        public Builder addPorts(Collection<Port> ports) {
+            ports.addAll(ports);
+            return this;
+        }
+
         public Builder addScheduler(Scheduler scheduler) {
             schedulers.add(scheduler);
+            return this;
+        }
+
+        public Builder addSchedulers(Collection<Scheduler> schedulers) {
+            schedulers.addAll(schedulers);
+            return this;
+        }
+
+        public Builder from(Configuration source) {
+            name = source.getName();
+            creation = source.getCreation();
+            modification = source.getModification();
+            adapterConnections.addAll(source.getAdapterConnections());
+            adapterListeners.addAll(source.getAdapterListeners());
+            adapterNotifications.addAll(source.getAdapterNotifications());
+            integrationServerPackages.addAll(source.getIntegrationServerPackages());
+            jmsAliases.addAll(source.getJmsAliases());
+            jmsTriggers.addAll(source.getJmsTriggers());
+            nativeTriggers.addAll(source.getNativeTriggers());
+            ports.addAll(source.getPorts());
+            schedulers.addAll(source.getSchedulers());
+            return this;
+        }
+
+        public Builder clear() {
+            adapterConnections.clear();
+            adapterListeners.clear();
+            adapterNotifications.clear();
+            integrationServerPackages.clear();
+            jmsAliases.clear();
+            jmsTriggers.clear();
+            nativeTriggers.clear();
+            ports.clear();
+            schedulers.clear();
             return this;
         }
 
@@ -212,17 +287,6 @@ public class Configuration {
             //TODO validate
         }
 
-        public void clear() {
-            adapterConnections.clear();
-            adapterListeners.clear();
-            adapterNotifications.clear();
-            integrationServerPackages.clear();
-            jmsAliases.clear();
-            jmsTriggers.clear();
-            nativeTriggers.clear();
-            ports.clear();
-            schedulers.clear();
-        }
     }
 
 }

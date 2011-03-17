@@ -11,7 +11,7 @@ import com.gni.frmk.tools.addon.invoke.actions.StringAction;
  * @author: e03229
  */
 public class EnableNotification extends StringAction<NoResult> {
-    public EnableNotification(String parameter) {
-        super(parameter);
+    public EnableNotification(String notificationName) {
+        super(notificationName);
     }
 }

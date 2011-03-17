@@ -2,16 +2,18 @@ package com.gni.frmk.tools.addon.invoke;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
 import com.gni.frmk.tools.addon.configuration.components.IntegrationServerPackage;
-import com.gni.frmk.tools.addon.invoke.actions.wmroot.GetAllServiceStats;
+import com.gni.frmk.tools.addon.configuration.components.NativeTrigger;
+import com.gni.frmk.tools.addon.configuration.components.Port;
+import com.gni.frmk.tools.addon.configuration.components.Scheduler;
+import com.gni.frmk.tools.addon.invoke.actions.wmroot.*;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.GetAllServiceStats.Result;
-import com.gni.frmk.tools.addon.invoke.actions.wmroot.PackageList;
-import com.gni.frmk.tools.addon.invoke.actions.wmroot.WaitServicesEnd;
 import com.gni.frmk.tools.addon.invoke.exceptions.ActionException;
 import com.gni.frmk.tools.addon.invoke.exceptions.InvokeException;
 import com.gni.frmk.tools.addon.invoke.handlers.wmroot.GetAllServiceStatsHandler;
 import com.gni.frmk.tools.addon.invoke.handlers.wmroot.PackageListHandler;
 import com.gni.frmk.tools.addon.invoke.handlers.wmroot.WaitServicesEndHandler;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -33,6 +35,14 @@ public class WmRootInvoker extends AbstractWmHandler {
         addHandler(new WaitServicesEndHandler(new GetAllServiceStatsHandler()));
     }
 
+    public void disablePortListener(DisablePortListener param) throws InvokeException, ActionException {
+        invoke(param);
+    }
+
+    public void disableScheduler(SuspendUserTask param) throws InvokeException, ActionException {
+        invoke(param);
+    }
+
     public Set<IntegrationServerPackage> getPackageList(PackageList param) throws ActionException, InvokeException {
         return invoke(param).getCollection();
     }
@@ -51,5 +61,41 @@ public class WmRootInvoker extends AbstractWmHandler {
 
     public void waitServicesEnd(long maxSecondsToWait) throws ActionException, InvokeException {
         invoke(new WaitServicesEnd(toolsPackageName, maxSecondsToWait, 500));
+    }
+
+    public void suspendUserTask(SuspendUserTask param) throws InvokeException, ActionException {
+        invoke(param);
+    }
+
+    public void suspendTriggers(SuspendTriggers param) throws InvokeException, ActionException {
+        invoke(param);
+    }
+
+    public void disablePackage(DisablePackage param) throws InvokeException, ActionException {
+        invoke(param);
+    }
+
+    public void enablePortListener(EnablePortListener param) throws InvokeException, ActionException {
+        invoke(param);
+    }
+
+    public void wakeUpUserTask(WakeUpUserTask param) throws InvokeException, ActionException {
+        invoke(param);
+    }
+
+    public void enablePackage(EnablePackage param) throws InvokeException, ActionException {
+        invoke(param);
+    }
+
+    public List<Port> listPortListeners() throws InvokeException, ActionException {
+        return invoke(new ListPortListeners()).getCollection();
+    }
+
+    public List<Scheduler> getUserTaskList() throws InvokeException, ActionException {
+        return invoke(new GetUserTaskList()).getCollection();
+    }
+
+    public List<NativeTrigger> getNativeTriggerReport() throws InvokeException, ActionException {
+        return invoke(new GetNativeTriggerReport()).getCollection();
     }
 }

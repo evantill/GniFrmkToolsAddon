@@ -1,17 +1,16 @@
 package com.gni.frmk.tools.addon;
 
-import com.gni.frmk.tools.addon.data.Configuration;
+import com.gni.frmk.tools.addon.configuration.Configuration;
+import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
-import com.gni.frmk.tools.addon.invoke.divers.WmRootNativeInvoker;
+import com.gni.frmk.tools.addon.invoke.exceptions.DispatchException;
 import com.gni.frmk.tools.addon.service.AdminService;
 import com.gni.frmk.tools.addon.service.ConfigurationService;
 import com.gni.frmk.tools.addon.service.ReportService;
 import com.wm.app.b2b.server.ServiceException;
-import com.wm.data.IData;
-import com.wm.data.IDataCursor;
-import com.wm.data.IDataUtil;
+import com.wm.data.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -27,26 +26,15 @@ public class CallServiceWrapper {
     private ReportService reportService;
 
     public CallServiceWrapper(String packageNsName, String defaultConfigName) {
-
+        //TODO remplacer le ctx par une factory
+        InvokeContext ctx = new InvokeContext();
         final IntegrationServerUtil utils = new IntegrationServerUtil(packageNsName);
-        ServiceInvokerFactory factory = new ServiceInvokerFactory() {
-            public ServiceInvokerBuilder createServiceInvokerBuilder(String serviceName) {
-                return new LocalServiceInvokerBuilder(utils, serviceName);
-            }
-        };
-        WmRootInvoker rootInvoker = new WmRootInvoker(utils, factory, toolsPackageName);
-        WmRootNativeInvoker rootNativeInvoker = new WmRootNativeInvoker(utils, factory);
-        WmRootJmsInvoker rootJmsInvoker = new WmRootJmsInvoker(utils, factory);
-        WmArtInvoker artInvoker = new WmArtInvoker(utils, factory);
+        WmRootInvoker rootInvoker = new WmRootInvoker(utils, ctx, packageNsName);
+        WmRootJmsInvoker rootJmsInvoker = new WmRootJmsInvoker(utils, ctx, packageNsName);
+        WmArtInvoker artInvoker = new WmArtInvoker(utils, ctx);
         configurationService = new ConfigurationService(utils);
-        reportService = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
-        adminService = new AdminService(defaultConfigName,
-                rootInvoker,
-                rootJmsInvoker,
-                artInvoker,
-                rootNativeInvoker,
-                configurationService,
-                reportService);
+        reportService = new ReportService(rootInvoker, rootJmsInvoker, artInvoker);
+        adminService = new AdminService(defaultConfigName, rootInvoker, rootJmsInvoker, artInvoker, configurationService, reportService);
     }
 
     public void readServerConfig(IData pipeline) throws ServiceException {
@@ -55,8 +43,6 @@ public class CallServiceWrapper {
             String configurationName = IDataUtil.getString(curPipeline, "configurationName");
             String xml = configurationService.loadRawConfiguration(configurationName);
             IDataUtil.put(curPipeline, "xml", xml);
-        } catch (com.gni.frmk.tools.addon.invoke.ServiceException e) {
-            rethrowServiceException(e);
         } finally {
             curPipeline.destroy();
         }
@@ -69,7 +55,7 @@ public class CallServiceWrapper {
             configurationService.clearConfiguration(configurationName);
             Configuration cnf = reportService.reportCurrentConfiguration(configurationName);
             configurationService.saveConfiguration(cnf);
-        } catch (com.gni.frmk.tools.addon.invoke.ServiceException e) {
+        } catch (DispatchException e) {
             rethrowServiceException(e);
         } finally {
             curPipeline.destroy();
@@ -82,7 +68,7 @@ public class CallServiceWrapper {
             int maxSecondsToWait = IDataUtil.getInt(curPipeline, "maxSecondsToWait", 10);
             boolean saveServerConfig = IDataUtil.getBoolean(curPipeline, "saveServerConfig", false);
             adminService.closeServer(maxSecondsToWait, saveServerConfig);
-        } catch (com.gni.frmk.tools.addon.invoke.ServiceException e) {
+        } catch (DispatchException e) {
             rethrowServiceException(e);
         } finally {
             curPipeline.destroy();
@@ -90,11 +76,7 @@ public class CallServiceWrapper {
     }
 
     public void openServer(IData pipeline) throws ServiceException {
-        try {
-            adminService.openServer();
-        } catch (com.gni.frmk.tools.addon.invoke.ServiceException e) {
-            rethrowServiceException(e);
-        }
+        adminService.openServer();
     }
 
     public void openFullServer(IData pipeline) throws ServiceException {
@@ -102,14 +84,14 @@ public class CallServiceWrapper {
         try {
             boolean saveServerConfig = IDataUtil.getBoolean(curPipeline, "saveServerConfig", false);
             adminService.openFullServer(saveServerConfig);
-        } catch (com.gni.frmk.tools.addon.invoke.ServiceException e) {
+        } catch (DispatchException e) {
             rethrowServiceException(e);
         } finally {
             curPipeline.destroy();
         }
     }
 
-    private void rethrowServiceException(com.gni.frmk.tools.addon.invoke.ServiceException e) throws ServiceException {
+    private void rethrowServiceException(DispatchException e) throws ServiceException {
         throw new ServiceException(e);
     }
 

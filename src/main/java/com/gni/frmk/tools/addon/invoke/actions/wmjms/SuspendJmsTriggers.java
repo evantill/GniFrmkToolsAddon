@@ -29,6 +29,10 @@ public class SuspendJmsTriggers implements Action<NoResult> {
         this.applyChangeAcrossCluster = false;
     }
 
+    public SuspendJmsTriggers(String triggerName) {
+        this(Collections.singletonList(triggerName));
+    }
+
     public List<String> getTriggerNames() {
         return triggerNames;
     }

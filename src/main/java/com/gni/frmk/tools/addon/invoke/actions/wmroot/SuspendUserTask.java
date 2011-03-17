@@ -11,7 +11,7 @@ import com.gni.frmk.tools.addon.invoke.results.NoResult;
  * @author: e03229
  */
 public class SuspendUserTask extends StringAction<NoResult> {
-    public SuspendUserTask(String parameter) {
-        super(parameter);
+    public SuspendUserTask(String oid) {
+        super(oid);
     }
 }

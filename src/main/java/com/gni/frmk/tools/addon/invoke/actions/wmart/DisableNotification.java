@@ -11,7 +11,7 @@ import com.gni.frmk.tools.addon.invoke.actions.StringAction;
  * @author: e03229
  */
 public class DisableNotification extends StringAction<NoResult> {
-    public DisableNotification(String parameter) {
-        super(parameter);
+    public DisableNotification(String notificationName) {
+        super(notificationName);
     }
 }

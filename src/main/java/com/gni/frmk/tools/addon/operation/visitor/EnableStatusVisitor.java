@@ -2,18 +2,8 @@ package com.gni.frmk.tools.addon.operation.visitor;
 
 import com.gni.frmk.tools.addon.configuration.Configuration;
 import com.gni.frmk.tools.addon.configuration.Configuration.Builder;
-import com.gni.frmk.tools.addon.configuration.components.ActivableState;
-import com.gni.frmk.tools.addon.configuration.components.AdapterConnection;
-import com.gni.frmk.tools.addon.configuration.components.AdapterListener;
-import com.gni.frmk.tools.addon.configuration.components.AdapterNotification;
-import com.gni.frmk.tools.addon.configuration.components.ConnectableState;
-import com.gni.frmk.tools.addon.configuration.components.EnableState;
-import com.gni.frmk.tools.addon.configuration.components.JmsAlias;
-import com.gni.frmk.tools.addon.configuration.components.JmsTrigger;
-import com.gni.frmk.tools.addon.configuration.components.NativeTrigger;
+import com.gni.frmk.tools.addon.configuration.components.*;
 import com.gni.frmk.tools.addon.configuration.components.NativeTrigger.NativeTriggerState;
-import com.gni.frmk.tools.addon.configuration.components.Port;
-import com.gni.frmk.tools.addon.configuration.components.Scheduler;
 import com.gni.frmk.tools.addon.configuration.components.Scheduler.SchedulerState;
 
 import static com.gni.frmk.tools.addon.configuration.components.ActivableState.ActivableStatus.ACTIVE;
@@ -100,6 +90,15 @@ public class EnableStatusVisitor implements UpdateConfigurationVisitor {
                                              .defineState(changedState)
                                              .build();
         builder.addNativeTrigger(changed);
+    }
+
+    @Override
+    public void visit(IntegrationServerPackage visited) {
+        IntegrationServerPackage changedState = IntegrationServerPackage.builder()
+                                                                        .from(visited)
+                                                                        .defineState(new EnableState(ENABLED))
+                                                                        .build();
+        builder.addPackage(changedState);
     }
 
     public void clear() {

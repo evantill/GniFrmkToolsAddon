@@ -11,7 +11,7 @@ import com.gni.frmk.tools.addon.invoke.results.NoResult;
  * @author: e03229
  */
 public class EnableListener extends StringAction<NoResult> {
-    public EnableListener(String parameter) {
-        super(parameter);
+    public EnableListener(String listenerName) {
+        super(listenerName);
     }
 }

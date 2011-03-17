@@ -11,7 +11,7 @@ import com.gni.frmk.tools.addon.invoke.results.NoResult;
  * @author: e03229
  */
 public class EnablePackage extends PackageAwareAction<NoResult> {
-    protected EnablePackage(String packageName) {
+    public EnablePackage(String packageName) {
         super(packageName);
     }
 }

@@ -1,6 +1,5 @@
 package com.gni.frmk.tools.addon.operation.visitor;
 
-import com.gni.frmk.tools.addon.configuration.Configuration;
 import com.gni.frmk.tools.addon.configuration.components.*;
 
 import java.lang.reflect.InvocationHandler;
@@ -15,16 +14,16 @@ import java.lang.reflect.Proxy;
  * Time: 14:08
  * To change this template use File | Settings | File Templates.
  */
-public abstract class ConfigurationVisitorAdapter<T extends Throwable> implements ConfigurationVisitor, InvocationHandler {
+public abstract class UpdateConfigurationVisitorAdapter<T extends Throwable> implements UpdateConfigurationVisitor, InvocationHandler {
 
-    private final ConfigurationVisitorRaisingException decorated;
-    private final ConfigurationVisitor proxy;
+    private final UpdateConfigurationVisitorRaisingException decorated;
+    private final UpdateConfigurationVisitor proxy;
 
-    public ConfigurationVisitorAdapter(ConfigurationVisitorRaisingException decorated) {
+    public UpdateConfigurationVisitorAdapter(UpdateConfigurationVisitorRaisingException decorated) {
         this.decorated = decorated;
-        proxy = (ConfigurationVisitor) Proxy.newProxyInstance(
+        proxy = (UpdateConfigurationVisitor) Proxy.newProxyInstance(
                 Thread.currentThread().getContextClassLoader(),
-                new Class[]{ConfigurationVisitor.class},
+                new Class[]{UpdateConfigurationVisitor.class},
                 this);
     }
 

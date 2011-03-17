@@ -1,18 +1,9 @@
 package com.gni.frmk.tools.addon.service;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
-import com.gni.frmk.tools.addon.data.Configuration;
-import com.gni.frmk.tools.addon.data.adapter.AdapterConnection;
-import com.gni.frmk.tools.addon.data.adapter.AdapterListener;
-import com.gni.frmk.tools.addon.data.adapter.AdapterNotification;
-import com.gni.frmk.tools.addon.data.port.Port;
-import com.gni.frmk.tools.addon.data.scheduler.Scheduler;
-import com.gni.frmk.tools.addon.data.trigger.JmsAlias;
-import com.gni.frmk.tools.addon.data.trigger.JmsTrigger;
-import com.gni.frmk.tools.addon.data.trigger.NativeTrigger;
+import com.gni.frmk.tools.addon.invoke.WmRootInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
 import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
-import com.gni.frmk.tools.addon.invoke.divers.WmRootNativeInvoker;
 import com.gni.frmk.tools.addon.invoke.utils.PipelineTestUtils;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -38,7 +29,7 @@ public class PrepareReportServiceTest {
     private static IntegrationServerUtil isUtils;
     private static PipelineTestUtils testUtils;
     private static WmRootJmsInvoker rootJmsInvoker;
-    private static WmRootNativeInvoker rootNativeInvoker;
+    private static WmRootInvoker rootNativeInvoker;
     private static WmArtInvoker artInvoker;
 
     @BeforeClass
@@ -47,16 +38,16 @@ public class PrepareReportServiceTest {
         isUtils = mock(IntegrationServerUtil.class);
         when(isUtils.getCurrentPackageConfigDir()).thenReturn(testUtils.getTraceDirectory());
 
-        ServiceInvokerFactory fact = new ServiceInvokerFactory() {
-            public ServiceInvokerBuilder createServiceInvokerBuilder(String serviceName) {
-                RecordServiceInvokerBuilder builder = new RecordServiceInvokerBuilder(isUtils, serviceName, testUtils);
-                builder.defineRemoteServer("ar2dv102.groupe.generali.fr:5550", "claurent", "claurent");
-                return builder;
-            }
-        };
-        rootJmsInvoker = new WmRootJmsInvoker(isUtils, fact);
-        artInvoker = new WmArtInvoker(isUtils, fact);
-        rootNativeInvoker = new WmRootNativeInvoker(isUtils, fact);
+//        ServiceInvokerFactory fact = new ServiceInvokerFactory() {
+//            public ServiceInvokerBuilder createServiceInvokerBuilder(String serviceName) {
+//                RecordServiceInvokerBuilder builder = new RecordServiceInvokerBuilder(isUtils, serviceName, testUtils);
+//                builder.defineRemoteServer("ar2dv102.groupe.generali.fr:5550", "claurent", "claurent");
+//                return builder;
+//            }
+//        };
+//        rootJmsInvoker = new WmRootJmsInvoker(isUtils, fact);
+//        artInvoker = new WmArtInvoker(isUtils, fact);
+//        rootNativeInvoker = new WmRootNativeInvoker(isUtils, fact);
     }
 
     @AfterClass
@@ -64,72 +55,72 @@ public class PrepareReportServiceTest {
         //TODO disconnect all sessions
     }
 
-    @Test
-    public void testReportPortList() throws ServiceException {
-        ReportService srv = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
-        Set<Port> set = srv.reportPortList();
-        assertNotEmpty(set);
-    }
-
-    @Test
-    public void testReportAdapterConnectionList() throws ServiceException {
-        ReportService srv = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
-        Set<AdapterConnection> set = srv.reportAdapterConnectionList();
-        assertNotEmpty(set);
-    }
-
-    @Test
-    public void testReportSchedulerList() throws ServiceException {
-        ReportService srv = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
-        Set<Scheduler> set = srv.reportSchedulerList();
-        assertNotEmpty(set);
-    }
-
-    @Test
-    @Ignore("need a SAP Adapter to test this case")
-    public void testReportAdapterListenerList() throws ServiceException {
-        ReportService srv = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
-        Set<AdapterListener> set = srv.reportAdapterListenerList();
-        assertNotEmpty(set);
-    }
-
-    @Test
-    public void testReportAdapterNotificationList() throws ServiceException {
-        ReportService srv = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
-        Set<AdapterNotification> set = srv.reportAdapterNotificationList();
-        assertNotEmpty(set);
-    }
-
-    @Test
-    public void testReportJmsAliasList() throws ServiceException {
-        ReportService srv = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
-        Set<JmsAlias> set = srv.reportJmsAliasList();
-        assertNotEmpty(set);
-    }
-
-    @Test
-    public void testReportJmsTriggerList() throws ServiceException {
-        ReportService srv = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
-        Set<JmsTrigger> set = srv.reportJmsTriggerList();
-        assertNotEmpty(set);
-    }
-
-
-    @Test
-    public void testReportNativeTriggerList() throws ServiceException {
-        ReportService srv = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
-        Set<NativeTrigger> set = srv.reportNativeTriggerList();
-        assertNotEmpty(set);
-    }
-
-    @Test
-    public void testReportCurrentConfiguration() throws ServiceException {
-        ReportService srv = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
-        Configuration conf = srv.reportCurrentConfiguration("testReportCurrentConfiguration");
-        ConfigurationService cs = new ConfigurationService(isUtils);
-        cs.saveConfiguration(conf);
-    }
-
+//    @Test
+//    public void testReportPortList() throws ServiceException {
+//        ReportService srv = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
+//        Set<Port> set = srv.reportPortList();
+//        assertNotEmpty(set);
+//    }
+//
+//    @Test
+//    public void testReportAdapterConnectionList() throws ServiceException {
+//        ReportService srv = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
+//        Set<AdapterConnection> set = srv.reportAdapterConnectionList();
+//        assertNotEmpty(set);
+//    }
+//
+//    @Test
+//    public void testReportSchedulerList() throws ServiceException {
+//        ReportService srv = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
+//        Set<Scheduler> set = srv.reportSchedulerList();
+//        assertNotEmpty(set);
+//    }
+//
+//    @Test
+//    @Ignore("need a SAP Adapter to test this case")
+//    public void testReportAdapterListenerList() throws ServiceException {
+//        ReportService srv = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
+//        Set<AdapterListener> set = srv.reportAdapterListenerList();
+//        assertNotEmpty(set);
+//    }
+//
+//    @Test
+//    public void testReportAdapterNotificationList() throws ServiceException {
+//        ReportService srv = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
+//        Set<AdapterNotification> set = srv.reportAdapterNotificationList();
+//        assertNotEmpty(set);
+//    }
+//
+//    @Test
+//    public void testReportJmsAliasList() throws ServiceException {
+//        ReportService srv = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
+//        Set<JmsAlias> set = srv.reportJmsAliasList();
+//        assertNotEmpty(set);
+//    }
+//
+//    @Test
+//    public void testReportJmsTriggerList() throws ServiceException {
+//        ReportService srv = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
+//        Set<JmsTrigger> set = srv.reportJmsTriggerList();
+//        assertNotEmpty(set);
+//    }
+//
+//
+//    @Test
+//    public void testReportNativeTriggerList() throws ServiceException {
+//        ReportService srv = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
+//        Set<NativeTrigger> set = srv.reportNativeTriggerList();
+//        assertNotEmpty(set);
+//    }
+//
+//    @Test
+//    public void testReportCurrentConfiguration() throws ServiceException {
+//        ReportService srv = new ReportService(rootNativeInvoker, rootJmsInvoker, artInvoker);
+//        Configuration conf = srv.reportCurrentConfiguration("testReportCurrentConfiguration");
+//        ConfigurationService cs = new ConfigurationService(isUtils);
+//        cs.saveConfiguration(conf);
+//    }
+//
     private void assertNotEmpty(Set<?> Set) {
         assertNotNull("Set must not be null", Set);
         assertTrue("Set must not be empty", Set.size() > 0);

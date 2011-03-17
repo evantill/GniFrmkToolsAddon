@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.operation.visitor;
 
-import com.gni.frmk.tools.addon.data.Configuration;
+import com.gni.frmk.tools.addon.configuration.Configuration;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 

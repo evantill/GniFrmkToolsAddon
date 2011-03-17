@@ -11,7 +11,7 @@ import com.gni.frmk.tools.addon.invoke.actions.StringAction;
  * @author: e03229
  */
 public class EnableConnection extends StringAction<NoResult> {
-    public EnableConnection(String parameter) {
-        super(parameter);
+    public EnableConnection(String aliasName) {
+        super(aliasName);
     }
 }

@@ -44,6 +44,7 @@ public class TraceConfigurationVisitorAdapter extends ConfigurationVisitorAdapte
         failedExceptions.put(visited, t);
     }
 
+    @Override
     public void clear() {
         startedComponents.clear();
         completedComponents.clear();
