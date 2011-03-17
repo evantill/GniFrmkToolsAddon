@@ -6,6 +6,7 @@ import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
 import javax.validation.constraints.NotNull;
 
 import static com.gni.frmk.tools.addon.configuration.components.Component.ComponentState.ComponentStateStatus.*;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,12 +26,15 @@ public class Scheduler extends PackageAware<StringId, SchedulerState> {
     @NotNull
     private final String service;
 
+    private final String description;
+
     public Scheduler(SchedulerBuilder builder) {
         super(builder);
         oid = builder.oid;
         schedulerType = builder.schedulerType;
         name = builder.name;
         service = builder.service;
+        description = builder.description;
     }
 
     public String getOid() {
@@ -47,6 +51,10 @@ public class Scheduler extends PackageAware<StringId, SchedulerState> {
 
     public String getService() {
         return service;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     @Override
@@ -96,29 +104,35 @@ public class Scheduler extends PackageAware<StringId, SchedulerState> {
         private String schedulerType;
         private String name;
         private String service;
+        private String description;
 
         public SchedulerBuilder() {
             defineType(ComponentType.SCHEDULER);
         }
 
         public SchedulerBuilder schedulerType(String value) {
-            schedulerType = value;
+            schedulerType = checkNotNull(value);
             return self();
         }
 
         public SchedulerBuilder name(String value) {
-            name = value;
+            name = checkNotNull(value);
             return self();
         }
 
         public SchedulerBuilder oid(String value) {
-            oid = value;
+            oid = checkNotNull(value);
             defineId(new StringId(oid));
             return self();
         }
 
         public SchedulerBuilder service(String value) {
-            service = value;
+            service = checkNotNull(value);
+            return self();
+        }
+
+        public SchedulerBuilder description(String value) {
+            description = value;
             return self();
         }
 

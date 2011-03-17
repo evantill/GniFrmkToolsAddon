@@ -45,6 +45,7 @@ public class RemoteInvokeContext extends InvokeContext {
         }
     }
 
+    @Override
     public IData invoke(NSName service, IData input) throws InvokeException {
         boolean autoConnected = false;
         if (autoConnection && !context.isConnected()) {
@@ -62,4 +63,8 @@ public class RemoteInvokeContext extends InvokeContext {
         }
     }
 
+    @Override
+    public boolean canInvoke(NSName service) throws ServiceNotAvaibleException {
+        return context.getNamespace().nodeExists(service);
+    }
 }

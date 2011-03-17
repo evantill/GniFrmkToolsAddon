@@ -2,9 +2,7 @@ package com.gni.frmk.tools.addon.configuration.components;
 
 import com.gni.frmk.tools.addon.configuration.components.Component.ComponentState;
 
-import static com.gni.frmk.tools.addon.configuration.components.Component.ComponentState.ComponentStateStatus.OFF;
-import static com.gni.frmk.tools.addon.configuration.components.Component.ComponentState.ComponentStateStatus.ON;
-import static com.gni.frmk.tools.addon.configuration.components.Component.ComponentState.ComponentStateStatus.UNKNOWN;
+import static com.gni.frmk.tools.addon.configuration.components.Component.ComponentState.ComponentStateStatus.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,15 +13,27 @@ import static com.gni.frmk.tools.addon.configuration.components.Component.Compon
  */
 public class EnableState implements ComponentState {
     public enum EnableStatus {
-        ENABLED, DISABLED;
+        ENABLED {
+            @Override
+            public boolean isEnabled() {
+                return true;
+            }
+        }, DISABLED {
+            @Override
+            public boolean isEnabled() {
+                return false;
+            }
+        };
 
         public static EnableStatus fromBooleanString(String enabled) {
-            return Boolean.parseBoolean(enabled)?ENABLED:DISABLED;
+            return fromBoolean(Boolean.parseBoolean(enabled));
         }
 
-        public static EnableStatus fromValueString(String enabled) {
-            return valueOf(enabled.toUpperCase());
+        public static EnableStatus fromBoolean(boolean enabled) {
+            return enabled ? ENABLED : DISABLED;
         }
+
+        public abstract boolean isEnabled();
     }
 
     private final EnableStatus enabled;

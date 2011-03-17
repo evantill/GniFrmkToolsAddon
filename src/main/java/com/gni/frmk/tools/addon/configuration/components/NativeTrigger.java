@@ -7,6 +7,8 @@ import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
 
 import javax.validation.constraints.NotNull;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 14/03/11
@@ -51,7 +53,7 @@ public class NativeTrigger extends PackageAware<StringId, NativeTriggerState> {
         }
 
         public NativeTriggerBuilder name(String value) {
-            name = value;
+            name = checkNotNull(value);
             defineId(new StringId(name));
             return self();
         }
@@ -112,8 +114,18 @@ public class NativeTrigger extends PackageAware<StringId, NativeTriggerState> {
                 return this;
             }
 
+            public Builder defineRetrieval(TemporaryActivableState state) {
+                retrievalState = state;
+                return this;
+            }
+
             public Builder defineProcessing(TemporaryStatus temporary, ActivableStatus status) {
                 processingState = new TemporaryActivableState(temporary, status);
+                return this;
+            }
+
+            public Builder defineProcessing(TemporaryActivableState state) {
+                processingState = state;
                 return this;
             }
 

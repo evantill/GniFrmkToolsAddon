@@ -1,8 +1,11 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
 import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
+import com.google.common.base.Objects;
 
 import javax.validation.constraints.NotNull;
+
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,9 +19,13 @@ public class Port extends PackageAware<StringId, ActivableState> {
     @NotNull
     private final String key;
 
+    @NotNull
+    private final boolean primary;
+
     public Port(PortBuilder builder) {
         super(builder);
         key = builder.key;
+        primary=builder.primary;
     }
 
     @Override
@@ -30,6 +37,27 @@ public class Port extends PackageAware<StringId, ActivableState> {
         return key;
     }
 
+    public boolean isPrimary() {
+        return primary;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+        if (o instanceof Port) {
+            Port other = (Port) o;
+            return Objects.equal(getKey(), other.getKey());
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getKey());
+    }
+
     public static PortBuilder builder() {
         return new PortBuilder();
     }
@@ -37,6 +65,7 @@ public class Port extends PackageAware<StringId, ActivableState> {
     public static class PortBuilder extends PackageAware.Builder<PortBuilder, Port, StringId, ActivableState> {
 
         protected String key;
+        protected boolean primary=false;
 
         public PortBuilder() {
             defineType(ComponentType.PORT);
@@ -48,8 +77,13 @@ public class Port extends PackageAware<StringId, ActivableState> {
         }
 
         public PortBuilder key(String value) {
-            key = value;
+            key = checkNotNull(value);
             defineId(new StringId(key));
+            return self();
+        }
+
+        public PortBuilder primary(boolean value) {
+            primary = value;
             return self();
         }
 

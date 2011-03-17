@@ -13,17 +13,25 @@ import com.gni.frmk.tools.addon.configuration.components.Component.ComponentStat
 public class TemporaryActivableState implements ComponentState {
 
     public enum TemporaryStatus {
-        TEMPORARY, PERMANENT;
+        TEMPORARY {
+            @Override
+            public boolean isPermanent() {
+                return false;
+            }
+        }, PERMANENT {
+            @Override
+            public boolean isPermanent() {
+                return true;
+            }
+        };
 
-        public boolean isPermanent() {
-            return this == PERMANENT;
-        }
+        public abstract boolean isPermanent();
     }
 
     private final TemporaryStatus temporary;
     private final ActivableStatus activable;
 
-    protected TemporaryActivableState(TemporaryStatus temporary, ActivableStatus activable) {
+    public TemporaryActivableState(TemporaryStatus temporary, ActivableStatus activable) {
         this.temporary = temporary;
         this.activable = activable;
     }

@@ -1,7 +1,5 @@
 package com.gni.frmk.tools.addon.invoke;
 
-import com.gni.frmk.tools.addon.invoke.ActionPattern.Action;
-import com.gni.frmk.tools.addon.invoke.ActionPattern.ActionHandler;
 import com.gni.frmk.tools.addon.invoke.ActionPattern.ExecutionContext;
 import com.gni.frmk.tools.addon.invoke.ActionPattern.Result;
 import com.google.common.collect.Maps;
@@ -15,7 +13,7 @@ import java.util.Map;
  *
  * @author: e03229
  */
-public class SimpleServiceRegistry implements ServiceRegistry {
+public class SimpleServiceRegistry implements ActionHandlerRegistry {
 
     private final Map<Class<? extends Action<?>>, ActionHandler<?, ?, ?>> handlers = Maps.newHashMap();
 
@@ -27,10 +25,10 @@ public class SimpleServiceRegistry implements ServiceRegistry {
                        "SuspiciousMethodCalls"})
     @Override
     public <A extends Action<R>, R extends Result, E extends ExecutionContext> ActionHandler<A, R, E> findHandler(A action)
-            throws ServiceNotFoundException {
+            throws ActionNotFoundException {
         ActionHandler<A, R, E> handler = (ActionHandler<A, R, E>) handlers.get(action.getClass());
         if (handler == null) {
-            throw new ServiceNotFoundException(action);
+            throw new ActionNotFoundException(action);
         }
         return handler;
     }

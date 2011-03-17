@@ -1,6 +1,5 @@
 package com.gni.frmk.tools.addon.invoke;
 
-import com.gni.frmk.tools.addon.invoke.ActionPattern.ActionException;
 import com.gni.frmk.tools.addon.invoke.wmroot.GetPackageListInvokerTest;
 
 /**

@@ -13,10 +13,49 @@ import static com.gni.frmk.tools.addon.configuration.components.Component.Compon
  */
 public class ActivableState extends EnableState implements ComponentState {
     public enum ActivableStatus {
-        ACTIVE, INACTIVE;
+        ACTIVE {
+            @Override
+            public boolean isActive() {
+                return true;
+            }
 
-        public boolean isActive() {
-            return this==ACTIVE;
+            @Override
+            public ActivableStatus invert() {
+                return INACTIVE;
+            }
+        },
+        INACTIVE {
+            @Override
+            public boolean isActive() {
+                return false;
+            }
+
+            @Override
+            public ActivableStatus invert() {
+                return ACTIVE;
+            }
+        };
+
+        public abstract boolean isActive();
+
+        public abstract ActivableStatus invert();
+
+        public static ActivableStatus fromStateString(String stateValue, String activeString, String inactiveString) {
+            if (activeString.equals(stateValue)) {
+                return ACTIVE;
+            }
+            if (inactiveString.equals(stateValue)) {
+                return INACTIVE;
+            }
+            throw new IllegalStateException(String.format("invalid activable state %s", stateValue));
+        }
+
+        public static ActivableStatus fromBooleanString(String active) {
+            return fromBoolean(Boolean.parseBoolean(active));
+        }
+
+        public static ActivableStatus fromBoolean(boolean active) {
+            return active ? ACTIVE : INACTIVE;
         }
     }
 
