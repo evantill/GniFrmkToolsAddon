@@ -1,7 +1,6 @@
 package com.gni.frmk.tools.addon.invoke;
 
-import com.gni.frmk.tools.addon.invoke.exceptions.InvokeException;
-import com.gni.frmk.tools.addon.invoke.exceptions.ServiceInvokeException;
+import com.gni.frmk.tools.addon.dispatcher.Action;
 import com.gni.frmk.tools.addon.invoke.utils.PipelineTestUtils;
 import com.wm.data.*;
 import com.wm.lang.ns.NSName;
@@ -25,18 +24,14 @@ public class InvokeContextRecord extends InvokeContext {
     }
 
     @Override
-    public IData invoke(NSName service, IData input) throws ServiceInvokeException {
+    public IData invoke(Action<?> action, NSName service, IData input) throws ServiceInvokeException {
         try {
             utils.saveServiceInput(service.getFullName(), input);
-            try {
-                IData output = decorated.invoke(service, input);
-                utils.saveServiceOutput(service.getFullName(), output);
-                return output;
-            } catch (InvokeException caught) {
-                throw new ServiceInvokeException(this, service, input, caught);
-            }
+            IData output = decorated.invoke(action, service, input);
+            utils.saveServiceOutput(service.getFullName(), output);
+            return output;
         } catch (IOException e) {
-            throw new ServiceInvokeException(this, service, input, e);
+            throw new ServiceInvokeException(this, action, service, input, e);
         }
     }
 

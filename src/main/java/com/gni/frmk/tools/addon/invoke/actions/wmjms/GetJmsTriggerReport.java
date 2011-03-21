@@ -1,9 +1,8 @@
 package com.gni.frmk.tools.addon.invoke.actions.wmjms;
 
 import com.gni.frmk.tools.addon.configuration.components.JmsTrigger;
-import com.gni.frmk.tools.addon.configuration.components.NativeTrigger;
-import com.gni.frmk.tools.addon.invoke.Action;
-import com.gni.frmk.tools.addon.invoke.results.ListResult;
+import com.gni.frmk.tools.addon.dispatcher.Action;
+import com.gni.frmk.tools.addon.dispatcher.ListResult;
 
 /**
  * Created by IntelliJ IDEA.

@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.invoke;
 
-import com.gni.frmk.tools.addon.invoke.exceptions.InvokeException;
+import com.gni.frmk.tools.addon.dispatcher.Action;
+import com.gni.frmk.tools.addon.dispatcher.DispatchException;
 import com.wm.app.b2b.client.Context;
 import com.wm.app.b2b.client.ServiceException;
 import com.wm.data.*;
@@ -30,13 +31,13 @@ public class RemoteInvokeContext extends InvokeContext {
         this.autoConnection = autoConnection;
     }
 
-    public void connect() throws InvokeException {
+    public void connect() throws DispatchException {
         try {
             if (!context.isConnected()) {
                 context.connect(server, userName, password);
             }
         } catch (ServiceException e) {
-            throw new InvokeException(this, e);
+            throw new DispatchException(e);
         }
     }
 
@@ -47,14 +48,18 @@ public class RemoteInvokeContext extends InvokeContext {
     }
 
     @Override
-    public IData invoke(NSName service, IData input) throws InvokeException {
+    public IData invoke(Action<?> action, NSName service, IData input) throws ServiceInvokeException {
         boolean autoConnected = false;
         if (autoConnection && !context.isConnected()) {
-            connect();
-            autoConnected = true;
+            try {
+                connect();
+                autoConnected = true;
+            } catch (DispatchException e) {
+                throw new ServiceInvokeException(this, action, service, input, e);
+            }
         }
         try {
-            return super.invoke(service, input);
+            return super.invoke(action, service, input);
         } finally {
             if (autoConnected) {
                 disconnect();

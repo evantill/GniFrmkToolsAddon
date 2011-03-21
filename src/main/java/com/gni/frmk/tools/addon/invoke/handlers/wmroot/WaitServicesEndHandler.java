@@ -1,13 +1,13 @@
 package com.gni.frmk.tools.addon.invoke.handlers.wmroot;
 
-import com.gni.frmk.tools.addon.invoke.ActionHandler;
+import com.gni.frmk.tools.addon.dispatcher.NoResult;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
+import com.gni.frmk.tools.addon.invoke.ServiceInvokeException;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.GetAllServiceStats;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.GetAllServiceStats.Result;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.WaitServicesEnd;
-import com.gni.frmk.tools.addon.invoke.exceptions.ActionException;
-import com.gni.frmk.tools.addon.invoke.exceptions.InvokeException;
-import com.gni.frmk.tools.addon.invoke.results.NoResult;
+import com.gni.frmk.tools.addon.invoke.handlers.InvokeHandler;
+import com.wm.lang.ns.NSName;
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,13 +16,9 @@ import com.gni.frmk.tools.addon.invoke.results.NoResult;
  *
  * @author: e03229
  */
-public class WaitServicesEndHandler implements ActionHandler<WaitServicesEnd, NoResult, InvokeContext> {
+public class WaitServicesEndHandler implements InvokeHandler<WaitServicesEnd, NoResult> {
 
-    private final GetAllServiceStatsHandler getAllServiceStatsHandler;
-
-    public WaitServicesEndHandler(GetAllServiceStatsHandler getAllServiceStatsHandler) {
-        this.getAllServiceStatsHandler = getAllServiceStatsHandler;
-    }
+    private final GetAllServiceStatsHandler getAllServiceStatsHandler = new GetAllServiceStatsHandler();
 
     @Override
     public Class<WaitServicesEnd> getActionType() {
@@ -30,7 +26,12 @@ public class WaitServicesEndHandler implements ActionHandler<WaitServicesEnd, No
     }
 
     @Override
-    public NoResult execute(WaitServicesEnd action, InvokeContext context) throws ActionException, InvokeException {
+    public NSName getService() {
+        return getAllServiceStatsHandler.getService();
+    }
+
+    @Override
+    public NoResult execute(WaitServicesEnd action, InvokeContext context) throws ServiceInvokeException {
         long maxSecondsToWait = action.getMaxSecondsToWait();
         long timeoutTime = System.currentTimeMillis() + (maxSecondsToWait * 1000);
         final GetAllServiceStats getAllServiceStats;
@@ -56,7 +57,7 @@ public class WaitServicesEndHandler implements ActionHandler<WaitServicesEnd, No
             }
         }
         if (nbrRunning > 0) {
-            throw new ActionException(action, String.format("waitServicesEnd timeout : still %s service(s) running", nbrRunning));
+            throw new ServiceInvokeException(context, action, getService(), null, String.format("waitServicesEnd timeout : still %s service(s) running", nbrRunning));
         }
         return NoResult.newInstance();
     }

@@ -1,10 +1,10 @@
 package com.gni.frmk.tools.addon.invoke.handlers.wmart;
 
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.invoke.ActionHandler;
-import com.gni.frmk.tools.addon.invoke.InvokeContext;
-import com.gni.frmk.tools.addon.invoke.results.SetResult;
+import com.gni.frmk.tools.addon.dispatcher.ActionHandler;
+import com.gni.frmk.tools.addon.dispatcher.SetResult;
 import com.gni.frmk.tools.addon.invoke.actions.wmart.RetrieveAdapterTypesList;
+import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.google.common.collect.Sets;
 import com.wm.data.*;
 

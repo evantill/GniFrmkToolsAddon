@@ -1,10 +1,9 @@
 package com.gni.frmk.tools.addon.invoke.handlers;
 
-import com.gni.frmk.tools.addon.invoke.Action;
-import com.gni.frmk.tools.addon.invoke.ActionHandler;
+import com.gni.frmk.tools.addon.dispatcher.Action;
+import com.gni.frmk.tools.addon.dispatcher.Result;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
-import com.gni.frmk.tools.addon.invoke.Result;
-import com.gni.frmk.tools.addon.invoke.exceptions.InvokeException;
+import com.gni.frmk.tools.addon.invoke.ServiceInvokeException;
 import com.wm.data.*;
 import com.wm.lang.ns.NSName;
 
@@ -15,20 +14,20 @@ import com.wm.lang.ns.NSName;
  *
  * @author: e03229
  */
-public abstract class AbstractInvokeHandler<A extends Action<R>, R extends Result> implements ActionHandler<A, R, InvokeContext> {
+public abstract class AbstractInvokeHandler<A extends Action<R>, R extends Result> implements InvokeHandler<A, R> {
     protected static final IData EMPTY_INPUT = IDataFactory.create();
 
     protected final NSName service;
 
     public AbstractInvokeHandler(String serviceName) {service = NSName.create(serviceName);}
 
-    public R execute(A action, InvokeContext context) throws InvokeException {
+    public R execute(A action, InvokeContext context) throws ServiceInvokeException {
         IData input = prepareInput(action);
-        IData output = context.invoke(service, input);
-        return parseOutput(action,output);
+        IData output = context.invoke(action, service, input);
+        return parseOutput(action, output);
     }
 
-    protected abstract R parseOutput(A action,IData output);
+    protected abstract R parseOutput(A action, IData output);
 
     protected abstract IData prepareInput(A in);
 

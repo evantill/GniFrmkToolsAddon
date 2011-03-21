@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.invoke.exceptions;
+package com.gni.frmk.tools.addon.invoke;
 
-import com.gni.frmk.tools.addon.invoke.InvokeContext;
+import com.gni.frmk.tools.addon.dispatcher.Action;
 import com.wm.data.*;
 import com.wm.lang.ns.NSName;
 
@@ -15,8 +15,14 @@ public class ServiceInvokeException extends InvokeException {
     private final NSName service;
     private final IData input;
 
-    public ServiceInvokeException(InvokeContext ctx, NSName service, IData input, Throwable cause) {
-        super(ctx, cause);
+    public ServiceInvokeException(InvokeContext ctx, Action<?> action, NSName service, IData input,String message) {
+        super(ctx, action, message);
+        this.service = service;
+        this.input = input;
+    }
+
+    public ServiceInvokeException(InvokeContext ctx, Action<?> action, NSName service, IData input, Throwable caught) {
+        super(ctx, action, caught);
         this.service = service;
         this.input = input;
     }

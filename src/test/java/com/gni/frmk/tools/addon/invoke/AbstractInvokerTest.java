@@ -1,7 +1,9 @@
 package com.gni.frmk.tools.addon.invoke;
 
-import com.gni.frmk.tools.addon.invoke.exceptions.ActionException;
-import com.gni.frmk.tools.addon.invoke.exceptions.InvokeException;
+import com.gni.frmk.tools.addon.dispatcher.Action;
+import com.gni.frmk.tools.addon.dispatcher.ActionException;
+import com.gni.frmk.tools.addon.dispatcher.ActionHandler;
+import com.gni.frmk.tools.addon.dispatcher.Result;
 import com.gni.frmk.tools.addon.invoke.utils.PipelineTestUtils;
 
 /**

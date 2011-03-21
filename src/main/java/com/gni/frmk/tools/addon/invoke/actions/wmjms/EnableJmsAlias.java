@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.invoke.actions.wmjms;
 
-import com.gni.frmk.tools.addon.invoke.Action;
-import com.gni.frmk.tools.addon.invoke.results.NoResult;
+import com.gni.frmk.tools.addon.dispatcher.NoResult;
+import com.gni.frmk.tools.addon.dispatcher.Action;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

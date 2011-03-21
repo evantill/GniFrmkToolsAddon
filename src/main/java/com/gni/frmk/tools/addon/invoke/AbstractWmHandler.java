@@ -1,13 +1,10 @@
 package com.gni.frmk.tools.addon.invoke;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
-import com.gni.frmk.tools.addon.invoke.Action;
-import com.gni.frmk.tools.addon.invoke.ActionHandler;
-import com.gni.frmk.tools.addon.invoke.InvokeContext;
-import com.gni.frmk.tools.addon.invoke.Result;
-import com.gni.frmk.tools.addon.invoke.SimpleServiceRegistry;
-import com.gni.frmk.tools.addon.invoke.exceptions.ActionException;
-import com.gni.frmk.tools.addon.invoke.exceptions.InvokeException;
+import com.gni.frmk.tools.addon.dispatcher.Action;
+import com.gni.frmk.tools.addon.dispatcher.ActionException;
+import com.gni.frmk.tools.addon.dispatcher.Result;
+import com.gni.frmk.tools.addon.dispatcher.ActionHandler;
 
 /**
  * Created by IntelliJ IDEA.
@@ -18,7 +15,7 @@ import com.gni.frmk.tools.addon.invoke.exceptions.InvokeException;
  */
 public abstract class AbstractWmHandler {
     private final IntegrationServerUtil isUtil;
-    private final SimpleServiceRegistry registry = new SimpleServiceRegistry();
+    private final InvokeServiceRegistry registry = new InvokeServiceRegistry();
     private final String packageName;
     private final InvokeContext context;
 

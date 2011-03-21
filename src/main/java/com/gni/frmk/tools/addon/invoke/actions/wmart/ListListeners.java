@@ -1,8 +1,8 @@
 package com.gni.frmk.tools.addon.invoke.actions.wmart;
 
 import com.gni.frmk.tools.addon.configuration.components.AdapterListener;
-import com.gni.frmk.tools.addon.invoke.actions.StringAction;
-import com.gni.frmk.tools.addon.invoke.results.ListResult;
+import com.gni.frmk.tools.addon.dispatcher.ListResult;
+import com.gni.frmk.tools.addon.dispatcher.StringAction;
 
 /**
  * Created by IntelliJ IDEA.

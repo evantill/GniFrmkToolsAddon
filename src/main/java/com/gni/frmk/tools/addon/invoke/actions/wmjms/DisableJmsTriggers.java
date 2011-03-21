@@ -1,8 +1,7 @@
 package com.gni.frmk.tools.addon.invoke.actions.wmjms;
 
-import com.gni.frmk.tools.addon.invoke.Action;
-import com.gni.frmk.tools.addon.invoke.results.NoResult;
-import com.google.common.collect.Lists;
+import com.gni.frmk.tools.addon.dispatcher.Action;
+import com.gni.frmk.tools.addon.dispatcher.NoResult;
 
 import java.util.Collections;
 import java.util.List;

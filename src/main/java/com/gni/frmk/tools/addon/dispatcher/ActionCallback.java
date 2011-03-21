@@ -1,4 +1,6 @@
-package com.gni.frmk.tools.addon.invoke;
+package com.gni.frmk.tools.addon.dispatcher;
+
+import com.gni.frmk.tools.addon.dispatcher.Result;
 
 /**
 * Created by IntelliJ IDEA.
@@ -7,7 +9,7 @@ package com.gni.frmk.tools.addon.invoke;
 *
 * @author: e03229
 */
-public interface ActionCallback<R> {
+public interface ActionCallback<R extends Result> {
     void onFailure(Throwable caught);
 
     void onSuccess(R result);

@@ -1,8 +1,8 @@
 package com.gni.frmk.tools.addon.invoke.handlers.wmart;
 
+import com.gni.frmk.tools.addon.dispatcher.Result;
+import com.gni.frmk.tools.addon.dispatcher.StringAction;
 import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.invoke.Result;
-import com.gni.frmk.tools.addon.invoke.actions.StringAction;
 import com.wm.data.*;
 
 /**

@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.invoke;
 
-import com.gni.frmk.tools.addon.invoke.exceptions.InvokeException;
-import com.gni.frmk.tools.addon.invoke.exceptions.ServiceInvokeException;
+import com.gni.frmk.tools.addon.dispatcher.Action;
+import com.gni.frmk.tools.addon.dispatcher.ExecutionContext;
 import com.wm.app.b2b.server.Service;
 import com.wm.app.b2b.server.ns.Namespace;
 import com.wm.data.*;
@@ -15,11 +15,11 @@ import com.wm.lang.ns.NSName;
  * @author: e03229
  */
 public class InvokeContext implements ExecutionContext {
-    public IData invoke(NSName service, IData input) throws InvokeException {
+    public IData invoke(Action<?> action, NSName service, IData input) throws ServiceInvokeException {
         try {
             return Service.doInvoke(service, input);
         } catch (Exception e) {
-            throw new ServiceInvokeException(this, service, input, e);
+            throw new ServiceInvokeException(this, action, service, input, e);
         }
     }
 

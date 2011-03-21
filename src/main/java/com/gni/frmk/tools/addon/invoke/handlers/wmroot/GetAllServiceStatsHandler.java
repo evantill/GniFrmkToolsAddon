@@ -1,9 +1,9 @@
 package com.gni.frmk.tools.addon.invoke.handlers.wmroot;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
-import com.gni.frmk.tools.addon.invoke.ActionHandler;
-import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.GetAllServiceStats;
+import com.gni.frmk.tools.addon.dispatcher.ActionHandler;
+import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.GetAllServiceStats.Result;
 import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
 import com.google.common.collect.Sets;

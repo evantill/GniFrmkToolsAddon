@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.invoke.results;
+package com.gni.frmk.tools.addon.dispatcher;
 
-import com.gni.frmk.tools.addon.invoke.Result;
+import com.gni.frmk.tools.addon.dispatcher.Result;
 
 import java.util.Collection;
 

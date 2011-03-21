@@ -1,10 +1,10 @@
 package com.gni.frmk.tools.addon.invoke.handlers.wmjms;
 
-import com.gni.frmk.tools.addon.invoke.ActionHandler;
+import com.gni.frmk.tools.addon.dispatcher.ActionHandler;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.actions.wmjms.EnableJmsTriggers;
 import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.invoke.results.NoResult;
+import com.gni.frmk.tools.addon.dispatcher.NoResult;
 import com.wm.data.*;
 
 /**

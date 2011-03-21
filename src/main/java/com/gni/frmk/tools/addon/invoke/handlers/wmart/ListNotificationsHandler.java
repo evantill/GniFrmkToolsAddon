@@ -2,9 +2,9 @@ package com.gni.frmk.tools.addon.invoke.handlers.wmart;
 
 import com.gni.frmk.tools.addon.configuration.components.ActivableState;
 import com.gni.frmk.tools.addon.configuration.components.AdapterNotification;
-import com.gni.frmk.tools.addon.invoke.ActionHandler;
+import com.gni.frmk.tools.addon.dispatcher.ActionHandler;
+import com.gni.frmk.tools.addon.dispatcher.ListResult;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
-import com.gni.frmk.tools.addon.invoke.results.ListResult;
 import com.gni.frmk.tools.addon.invoke.actions.wmart.ListNotifications;
 import com.google.common.collect.Lists;
 import com.wm.data.*;

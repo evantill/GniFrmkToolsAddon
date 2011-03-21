@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.invoke.results;
+package com.gni.frmk.tools.addon.dispatcher;
 
 import java.util.List;
 

@@ -1,6 +1,4 @@
-package com.gni.frmk.tools.addon.invoke.results;
-
-import com.gni.frmk.tools.addon.invoke.Result;
+package com.gni.frmk.tools.addon.dispatcher;
 
 /**
  * Created by IntelliJ IDEA.

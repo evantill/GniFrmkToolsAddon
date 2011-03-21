@@ -4,10 +4,9 @@ import com.gni.frmk.tools.addon.IntegrationServerUtil;
 import com.gni.frmk.tools.addon.configuration.components.AdapterConnection;
 import com.gni.frmk.tools.addon.configuration.components.AdapterListener;
 import com.gni.frmk.tools.addon.configuration.components.AdapterNotification;
-import com.gni.frmk.tools.addon.invoke.actions.wmart.*;
-import com.gni.frmk.tools.addon.invoke.exceptions.ActionException;
-import com.gni.frmk.tools.addon.invoke.exceptions.InvokeException;
+import com.gni.frmk.tools.addon.dispatcher.ActionException;
 import com.gni.frmk.tools.addon.invoke.handlers.wmart.*;
+import com.gni.frmk.tools.addon.invoke.actions.wmart.*;
 
 import java.util.List;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.invoke;
+package com.gni.frmk.tools.addon.dispatcher;
 
 /**
 * Created by IntelliJ IDEA.
@@ -7,5 +7,5 @@ package com.gni.frmk.tools.addon.invoke;
 *
 * @author: e03229
 */
-public interface ExecutionContext {
+public interface Result {
 }

@@ -1,6 +1,4 @@
-package com.gni.frmk.tools.addon.invoke.exceptions;
-
-import com.gni.frmk.tools.addon.invoke.Action;
+package com.gni.frmk.tools.addon.dispatcher;
 
 /**
  * Created by IntelliJ IDEA.

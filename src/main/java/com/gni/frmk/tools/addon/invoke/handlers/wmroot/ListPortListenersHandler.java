@@ -4,11 +4,11 @@ import com.gni.frmk.tools.addon.configuration.components.ActivableState;
 import com.gni.frmk.tools.addon.configuration.components.ActivableState.ActivableStatus;
 import com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.configuration.components.Port;
-import com.gni.frmk.tools.addon.invoke.ActionHandler;
-import com.gni.frmk.tools.addon.invoke.InvokeContext;
+import com.gni.frmk.tools.addon.dispatcher.ActionHandler;
+import com.gni.frmk.tools.addon.dispatcher.ListResult;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.ListPortListeners;
 import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.invoke.results.ListResult;
+import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.google.common.collect.Lists;
 import com.wm.data.*;
 

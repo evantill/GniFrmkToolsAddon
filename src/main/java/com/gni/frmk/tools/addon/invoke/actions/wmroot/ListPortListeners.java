@@ -1,8 +1,8 @@
 package com.gni.frmk.tools.addon.invoke.actions.wmroot;
 
 import com.gni.frmk.tools.addon.configuration.components.Port;
-import com.gni.frmk.tools.addon.invoke.Action;
-import com.gni.frmk.tools.addon.invoke.results.ListResult;
+import com.gni.frmk.tools.addon.dispatcher.ListResult;
+import com.gni.frmk.tools.addon.dispatcher.Action;
 
 /**
  * Created by IntelliJ IDEA.

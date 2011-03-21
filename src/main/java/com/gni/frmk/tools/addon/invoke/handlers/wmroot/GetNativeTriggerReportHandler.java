@@ -6,11 +6,11 @@ import com.gni.frmk.tools.addon.configuration.components.NativeTrigger;
 import com.gni.frmk.tools.addon.configuration.components.NativeTrigger.NativeTriggerState;
 import com.gni.frmk.tools.addon.configuration.components.TemporaryActivableState;
 import com.gni.frmk.tools.addon.configuration.components.TemporaryActivableState.TemporaryStatus;
-import com.gni.frmk.tools.addon.invoke.ActionHandler;
-import com.gni.frmk.tools.addon.invoke.InvokeContext;
+import com.gni.frmk.tools.addon.dispatcher.ActionHandler;
+import com.gni.frmk.tools.addon.dispatcher.ListResult;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.GetNativeTriggerReport;
+import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.invoke.results.ListResult;
 import com.google.common.collect.Lists;
 import com.wm.data.*;
 

@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.invoke.actions.wmroot;
 
 import com.gni.frmk.tools.addon.invoke.actions.StringPackageAwareAction;
-import com.gni.frmk.tools.addon.invoke.results.NoResult;
+import com.gni.frmk.tools.addon.dispatcher.NoResult;
 
 /**
  * Created by IntelliJ IDEA.

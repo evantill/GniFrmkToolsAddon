@@ -5,13 +5,12 @@ import com.gni.frmk.tools.addon.configuration.components.IntegrationServerPackag
 import com.gni.frmk.tools.addon.configuration.components.NativeTrigger;
 import com.gni.frmk.tools.addon.configuration.components.Port;
 import com.gni.frmk.tools.addon.configuration.components.Scheduler;
-import com.gni.frmk.tools.addon.invoke.actions.wmroot.*;
+import com.gni.frmk.tools.addon.dispatcher.ActionException;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.GetAllServiceStats.Result;
-import com.gni.frmk.tools.addon.invoke.exceptions.ActionException;
-import com.gni.frmk.tools.addon.invoke.exceptions.InvokeException;
 import com.gni.frmk.tools.addon.invoke.handlers.wmroot.GetAllServiceStatsHandler;
-import com.gni.frmk.tools.addon.invoke.handlers.wmroot.PackageListHandler;
 import com.gni.frmk.tools.addon.invoke.handlers.wmroot.WaitServicesEndHandler;
+import com.gni.frmk.tools.addon.invoke.handlers.wmroot.PackageListHandler;
+import com.gni.frmk.tools.addon.invoke.actions.wmroot.*;
 
 import java.util.List;
 import java.util.Set;
@@ -32,7 +31,7 @@ public class WmRootInvoker extends AbstractWmHandler {
         this.toolsPackageName = toolsPackageName;
         addHandler(new PackageListHandler());
         addHandler(new GetAllServiceStatsHandler());
-        addHandler(new WaitServicesEndHandler(new GetAllServiceStatsHandler()));
+        addHandler(new WaitServicesEndHandler());
     }
 
     public void disablePortListener(DisablePortListener param) throws InvokeException, ActionException {

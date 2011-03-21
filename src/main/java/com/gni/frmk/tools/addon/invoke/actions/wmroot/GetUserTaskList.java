@@ -1,8 +1,8 @@
 package com.gni.frmk.tools.addon.invoke.actions.wmroot;
 
 import com.gni.frmk.tools.addon.configuration.components.Scheduler;
-import com.gni.frmk.tools.addon.invoke.Action;
-import com.gni.frmk.tools.addon.invoke.results.ListResult;
+import com.gni.frmk.tools.addon.dispatcher.Action;
+import com.gni.frmk.tools.addon.dispatcher.ListResult;
 
 /**
  * Created by IntelliJ IDEA.

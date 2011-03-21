@@ -1,9 +1,9 @@
 package com.gni.frmk.tools.addon.invoke.handlers.wmart;
 
-import com.gni.frmk.tools.addon.invoke.ActionHandler;
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.dispatcher.ActionHandler;
+import com.gni.frmk.tools.addon.dispatcher.NoResult;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;
-import com.gni.frmk.tools.addon.invoke.results.NoResult;
+import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.invoke.actions.wmart.EnableConnection;
 import com.wm.data.*;
 

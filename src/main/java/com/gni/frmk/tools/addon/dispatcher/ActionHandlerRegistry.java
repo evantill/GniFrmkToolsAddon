@@ -1,6 +1,4 @@
-package com.gni.frmk.tools.addon.invoke;
-
-import com.gni.frmk.tools.addon.invoke.exceptions.ActionNotFoundException;
+package com.gni.frmk.tools.addon.dispatcher;
 
 /**
  * Created by IntelliJ IDEA.
@@ -17,6 +15,7 @@ public interface ActionHandlerRegistry {
      *
      * @param action The action.
      * @return The handler.
+     * @throws ActionNotFoundException
      */
     public <A extends Action<R>, R extends Result, E extends ExecutionContext> ActionHandler<A, R, E> findHandler(A action)
             throws ActionNotFoundException;

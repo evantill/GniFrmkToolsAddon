@@ -1,11 +1,11 @@
 package com.gni.frmk.tools.addon.service;
 
 import com.gni.frmk.tools.addon.configuration.Configuration;
+import com.gni.frmk.tools.addon.dispatcher.ActionException;
 import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
-import com.gni.frmk.tools.addon.invoke.exceptions.ActionException;
-import com.gni.frmk.tools.addon.invoke.exceptions.InvokeException;
+import com.gni.frmk.tools.addon.invoke.InvokeException;
 import com.gni.frmk.tools.addon.operation.strategy.CloseInputStrategy;
 import com.gni.frmk.tools.addon.operation.strategy.CloseOutputStrategy;
 import com.gni.frmk.tools.addon.operation.visitor.ApplyConfigurationVisitor;

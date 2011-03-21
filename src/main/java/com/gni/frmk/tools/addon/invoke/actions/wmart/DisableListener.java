@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.invoke.actions.wmart;
 
-import com.gni.frmk.tools.addon.invoke.actions.StringAction;
-import com.gni.frmk.tools.addon.invoke.results.NoResult;
+import com.gni.frmk.tools.addon.dispatcher.StringAction;
+import com.gni.frmk.tools.addon.dispatcher.NoResult;
 
 /**
  * Created by IntelliJ IDEA.

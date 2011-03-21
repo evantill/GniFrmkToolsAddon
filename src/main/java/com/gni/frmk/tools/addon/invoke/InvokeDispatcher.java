@@ -1,7 +1,10 @@
 package com.gni.frmk.tools.addon.invoke;
 
-import com.gni.frmk.tools.addon.invoke.exceptions.DispatchException;
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.dispatcher.Action;
+import com.gni.frmk.tools.addon.dispatcher.ActionException;
+import com.gni.frmk.tools.addon.dispatcher.ActionHandler;
+import com.gni.frmk.tools.addon.dispatcher.Dispatch;
+import com.gni.frmk.tools.addon.dispatcher.Result;
 
 /**
  * Created by IntelliJ IDEA.
@@ -10,19 +13,19 @@ import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
  *
  * @author: e03229
  */
-public abstract class InvokeDispatcher implements Dispatch {
+abstract class InvokeDispatcher implements Dispatch {
 
-    protected abstract SimpleServiceRegistry getHandlerRegistry();
+    protected abstract InvokeServiceRegistry getHandlerRegistry();
 
-    protected abstract ExecutionContext getExecutionContext();
+    protected abstract InvokeContext getInvokeContext();
 
     @Override
-    public <A extends Action<R>, R extends Result> R execute(A action) throws DispatchException {
-        ActionHandler<A, R, ExecutionContext> handler = getHandlerRegistry().findHandler(action);
-        return handler.execute(action, getExecutionContext());
+    public <A extends Action<R>, R extends Result> R execute(A action) throws ActionException {
+        ActionHandler<A, R, InvokeContext> handler = getHandlerRegistry().findInvoker(action);
+        return handler.execute(action, getInvokeContext());
     }
 
-    public void registerHandler(AbstractInvokeHandler<?, ?> handler) {
+    public <H extends ActionHandler<?,?,? extends InvokeContext>> void registerHandler(H handler) {
         getHandlerRegistry().addHandler(handler);
     }
 }

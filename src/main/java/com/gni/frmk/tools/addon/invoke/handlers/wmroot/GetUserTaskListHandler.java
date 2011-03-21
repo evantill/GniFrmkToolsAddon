@@ -4,11 +4,11 @@ import com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatu
 import com.gni.frmk.tools.addon.configuration.components.Scheduler;
 import com.gni.frmk.tools.addon.configuration.components.Scheduler.SchedulerState;
 import com.gni.frmk.tools.addon.configuration.components.Scheduler.SchedulerState.SchedulerStatus;
-import com.gni.frmk.tools.addon.invoke.ActionHandler;
-import com.gni.frmk.tools.addon.invoke.InvokeContext;
+import com.gni.frmk.tools.addon.dispatcher.ActionHandler;
+import com.gni.frmk.tools.addon.dispatcher.ListResult;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.GetUserTaskList;
 import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.invoke.results.ListResult;
+import com.gni.frmk.tools.addon.invoke.InvokeContext;
 import com.google.common.collect.Lists;
 import com.wm.data.*;
 
