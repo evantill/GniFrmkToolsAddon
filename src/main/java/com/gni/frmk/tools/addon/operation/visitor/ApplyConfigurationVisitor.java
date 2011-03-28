@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.operation.visitor;
 import com.gni.frmk.tools.addon.configuration.components.ActivableState.ActivableStatus;
 import com.gni.frmk.tools.addon.configuration.components.*;
 import com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus;
-import com.gni.frmk.tools.addon.configuration.components.Scheduler.SchedulerState.SchedulerStatus;
+import com.gni.frmk.tools.addon.configuration.components.SchedulerState.SchedulerStatus;
 import com.gni.frmk.tools.addon.dispatcher.DispatchException;
 import com.gni.frmk.tools.addon.invoke.actions.wmjms.DisableJmsTriggers;
 import com.gni.frmk.tools.addon.invoke.actions.wmjms.*;

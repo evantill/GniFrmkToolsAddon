@@ -7,49 +7,46 @@ import static com.gni.frmk.tools.addon.configuration.components.ComponentState.C
 
 /**
  * Created by IntelliJ IDEA.
- * Date: 14/03/11
- * Time: 14:47
+ * Date: 28/03/11
+ * Time: 16:32
  *
  * @author: e03229
  */
 @XmlRootElement
-public class ConnectableState extends EnableState implements ComponentState {
-    public enum ConnectableStatus {
-        CONNECTED, DISCONNECTED;
-
-        public static ConnectableStatus fromBoolean(boolean connected) {
-            return connected?CONNECTED:DISCONNECTED;
-        }
+public class SchedulerState extends EnableState {
+    public static enum SchedulerStatus {
+        UNEXPIRED, EXPIRED
     }
 
     @XmlElement
-    private final ConnectableStatus connected;
+    private final SchedulerStatus scheduled;
 
-    public ConnectableState(EnableStatus enabled, ConnectableStatus connected) {
+    public SchedulerState(EnableStatus enabled, SchedulerStatus scheduled) {
         super(enabled);
-        this.connected = connected;
+        this.scheduled = scheduled;
     }
 
-    protected  ConnectableState(){
+    private SchedulerState(){
         super();
-        connected=null;
+        scheduled=null;
     }
 
-    public ConnectableStatus getConnected() {
-        return connected;
+    public SchedulerStatus getScheduled() {
+        return scheduled;
     }
 
     @Override
     public ComponentStateStatus getComponentStatus() {
         ComponentStateStatus enableStatus = super.getComponentStatus();
-        switch (connected) {
-            case CONNECTED:
+        switch (scheduled) {
+            case UNEXPIRED:
                 return enableStatus.composeWith(ON);
-            case DISCONNECTED:
+            case EXPIRED:
                 return enableStatus.composeWith(OFF);
             default:
                 return enableStatus.composeWith(UNKNOWN);
         }
     }
+
 
 }

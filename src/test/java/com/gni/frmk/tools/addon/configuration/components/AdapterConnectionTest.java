@@ -18,7 +18,7 @@ public class AdapterConnectionTest {
     @Test
     public void testBuilder() {
         AdapterConnection cnx = AdapterConnection.builder().alias("alias").packageName("packageName").build();
-        Assert.assertNotNull(cnx.getId());
+        Assert.assertNotNull(cnx.getComponentId());
     }
 
     @Test

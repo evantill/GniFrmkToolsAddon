@@ -3,6 +3,8 @@ package com.gni.frmk.tools.addon.configuration.components;
 import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
 
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,14 +13,21 @@ import javax.validation.constraints.NotNull;
  *
  * @author: e03229
  */
+@XmlRootElement
 public class AdapterNotification extends AdapterTypeAware<StringId, ActivableState> {
 
     @NotNull
+    @XmlElement
     private final String name;
 
     public AdapterNotification(AdapterNotificationBuilder builder) {
         super(builder);
         name = builder.name;
+    }
+
+    private AdapterNotification() {
+        super();
+        name=null;
     }
 
     @Override

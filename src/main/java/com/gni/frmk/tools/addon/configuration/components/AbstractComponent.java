@@ -1,9 +1,16 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
+import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentId;
+import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentState;
+import com.gni.frmk.tools.addon.configuration.components.ComponentDetail.Value;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlValue;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -16,33 +23,49 @@ import java.util.Set;
  *
  * @author: e03229
  */
-public abstract class AbstractComponent<I extends ComponentId, S extends ComponentState> implements Component {
+public abstract class AbstractComponent<I extends AbstractComponentId, S extends AbstractComponentState>
+        implements Component {
 
     @NotNull
-    private final I id;
+    @XmlElementRef
+    private final I componentId;
 
     @NotNull
-    private final List<ComponentDetail> details;
+    @XmlElement
+    private final ComponentType type;
 
     @NotNull
+    @XmlElementRef
     private final S state;
 
     @NotNull
-    private final ComponentType type;
+    @XmlElementRef
+    @XmlElementWrapper
+    private final List<AbstractComponentDetail> details;
 
     protected AbstractComponent(Builder<?, ?, I, S> builder) {
-        id = builder.id;
+        componentId = builder.id;
         details = Lists.newArrayList(builder.details);
         state = builder.state;
         type = builder.type;
     }
 
-    public I getId() {
-        return id;
+    protected AbstractComponent() {
+        componentId = null;
+        details = null;
+        state = null;
+        type = null;
     }
 
+    public I getComponentId() {
+        return componentId;
+    }
+
+    @Override
     public List<ComponentDetail> getDetails() {
-        return Collections.unmodifiableList(details);
+        List<ComponentDetail> returnValue = Lists.newArrayList();
+        returnValue.addAll(details);
+        return returnValue;
     }
 
     public S getState() {
@@ -53,24 +76,24 @@ public abstract class AbstractComponent<I extends ComponentId, S extends Compone
         return type;
     }
 
-    public static abstract class Builder<T extends Builder<T, B, I, S>, B extends AbstractComponent<I, S>, I extends ComponentId, S extends ComponentState>
+    public static abstract class Builder<T extends Builder<T, B, I, S>, B extends AbstractComponent<I, S>, I extends AbstractComponentId, S extends AbstractComponentState>
             implements ComponentBuilder<T, B> {
         protected I id;
         protected S state;
         protected ComponentType type;
-        protected Set<ComponentDetail> details = Sets.newHashSet();
+        protected Set<AbstractComponentDetail> details = Sets.newHashSet();
 
         public final Builder<T, B, I, S> defineId(I value) {
             id = value;
             return self();
         }
 
-        public final Builder<T, B, I, S> defineDetail(ComponentDetail value) {
+        public final Builder<T, B, I, S> defineDetail(AbstractComponentDetail value) {
             details.add(value);
             return self();
         }
 
-        public final Builder<T, B, I, S> defineDetails(ComponentDetail... values) {
+        public final Builder<T, B, I, S> defineDetails(AbstractComponentDetail... values) {
             details.addAll(Arrays.asList(values));
             return self();
         }
@@ -89,15 +112,39 @@ public abstract class AbstractComponent<I extends ComponentId, S extends Compone
 
         public abstract B build();
 
-        @Override
+        //TODO @Override
         public T from(B source) {
-            id = source.getId();
+            id = source.getComponentId();
             state = source.getState();
             type = source.getType();
             for (ComponentDetail detail : source.getDetails()) {
-                details.add(detail);
+                details.add((AbstractComponentDetail) detail);
             }
             return self();
         }
     }
+
+    public static abstract class AbstractComponentId implements ComponentId {
+        private final @XmlValue String rawValue;
+
+        protected AbstractComponentId(String rawValue) {
+            this.rawValue = rawValue;
+        }
+
+        protected AbstractComponentId() {
+            this.rawValue = null;
+        }
+
+        public String getRawValue() {
+            return rawValue;
+        }
+    }
+
+
+    public static abstract class AbstractComponentState implements ComponentState {
+    }
+
+    public static abstract class AbstractComponentDetail<T extends Value> implements ComponentDetail<T> {
+    }
+
 }

@@ -1,6 +1,11 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
+import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentId;
+import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentState;
+import com.gni.frmk.tools.addon.configuration.components.PackageAware.Builder;
+
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlElement;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,21 +14,27 @@ import javax.validation.constraints.NotNull;
  *
  * @author: e03229
  */
-public abstract class AdapterTypeAware<I extends ComponentId, S extends ComponentState> extends PackageAware<I, S> {
+public abstract class AdapterTypeAware<I extends AbstractComponentId, S extends AbstractComponentState> extends PackageAware<I, S> {
 
     @NotNull
+    @XmlElement
     private final String adapterType;
+
+    protected AdapterTypeAware() {
+        super();
+        adapterType = null;
+    }
 
     protected AdapterTypeAware(Builder<?, ?, I, S> builder) {
         super(builder);
-        adapterType = builder.adapterType;
+        adapterType=builder.adapterType;
     }
 
     public String getAdapterType() {
         return adapterType;
     }
 
-    public static abstract class Builder<T extends Builder<T, B, I, S>, B extends AdapterTypeAware<I, S>, I extends ComponentId, S extends ComponentState>
+    public static abstract class Builder<T extends Builder<T, B, I, S>, B extends AdapterTypeAware<I, S>, I extends AbstractComponentId, S extends AbstractComponentState>
             extends PackageAware.Builder<T, B, I, S> {
 
         protected String adapterType;

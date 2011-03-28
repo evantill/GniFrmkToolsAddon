@@ -1,5 +1,9 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
+import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentId;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 09/03/11
@@ -7,19 +11,22 @@ package com.gni.frmk.tools.addon.configuration.components;
  *
  * @author: e03229
  */
-public class StringId implements ComponentId {
-    private final String value;
+@XmlRootElement
+public class StringId extends AbstractComponentId implements ComponentId {
+
+    protected StringId() {
+    }
 
     public StringId(String value) {
-        this.value = value;
+        super(value);
     }
 
     public String getValue() {
-        return value;
+        return getRawValue();
     }
 
     @Override
     public String asString() {
-        return value;
+        return getRawValue();
     }
 }

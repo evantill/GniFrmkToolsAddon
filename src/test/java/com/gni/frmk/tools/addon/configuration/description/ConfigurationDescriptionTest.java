@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.configuration.description;
 
+import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentDetail;
 import com.gni.frmk.tools.addon.configuration.components.Component;
 import com.gni.frmk.tools.addon.configuration.components.ComponentDetail;
 import com.gni.frmk.tools.addon.configuration.components.ComponentId;
@@ -64,10 +65,10 @@ public class ConfigurationDescriptionTest {
         return list;
     }
 
-    private ComponentDetail newInformation(String key, String value) {
+    private AbstractComponentDetail newInformation(String key, String value) {
         ComponentDetail.Value detailValue = mock(ComponentDetail.Value.class);
         when(detailValue.asString()).thenReturn(value);
-        ComponentDetail mock = mock(ComponentDetail.class);
+        AbstractComponentDetail mock = mock(AbstractComponentDetail.class);
         when(mock.getKey()).thenReturn(key);
         when(mock.getValue()).thenReturn(detailValue);
         return mock;
@@ -76,7 +77,7 @@ public class ConfigurationDescriptionTest {
     private Component newComponent(String name, int nbrValue) {
         Component mock = mock(Component.class);
         ComponentId id = newId(name);
-        when(mock.getId()).thenReturn(id);
+        when(mock.getComponentId()).thenReturn(id);
         when(mock.getType()).thenReturn(ADAPTER_CONNECTION);
         String[][] rawInfos = new String[nbrValue][2];
         for (int i = 0; i < rawInfos.length; i++) {

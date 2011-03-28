@@ -2,8 +2,8 @@ package com.gni.frmk.tools.addon.invoke.handlers.wmroot;
 
 import com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.configuration.components.Scheduler;
-import com.gni.frmk.tools.addon.configuration.components.Scheduler.SchedulerState;
-import com.gni.frmk.tools.addon.configuration.components.Scheduler.SchedulerState.SchedulerStatus;
+import com.gni.frmk.tools.addon.configuration.components.SchedulerState;
+import com.gni.frmk.tools.addon.configuration.components.SchedulerState.SchedulerStatus;
 import com.gni.frmk.tools.addon.dispatcher.ActionHandler;
 import com.gni.frmk.tools.addon.dispatcher.ListResult;
 import com.gni.frmk.tools.addon.invoke.actions.wmroot.GetUserTaskList;

@@ -3,13 +3,13 @@ package com.gni.frmk.tools.addon.operation.visitor;
 import com.gni.frmk.tools.addon.configuration.Configuration;
 import com.gni.frmk.tools.addon.configuration.Configuration.Builder;
 import com.gni.frmk.tools.addon.configuration.components.*;
-import com.gni.frmk.tools.addon.configuration.components.NativeTrigger.NativeTriggerState;
-import com.gni.frmk.tools.addon.configuration.components.Scheduler.SchedulerState;
+import com.gni.frmk.tools.addon.configuration.components.NativeTriggerState;
+import com.gni.frmk.tools.addon.configuration.components.SchedulerState;
 
 import static com.gni.frmk.tools.addon.configuration.components.ActivableState.ActivableStatus.ACTIVE;
 import static com.gni.frmk.tools.addon.configuration.components.ConnectableState.ConnectableStatus.CONNECTED;
 import static com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus.ENABLED;
-import static com.gni.frmk.tools.addon.configuration.components.Scheduler.SchedulerState.SchedulerStatus.UNEXPIRED;
+import static com.gni.frmk.tools.addon.configuration.components.SchedulerState.SchedulerStatus.UNEXPIRED;
 import static com.gni.frmk.tools.addon.configuration.components.TemporaryActivableState.TemporaryStatus.PERMANENT;
 
 /**

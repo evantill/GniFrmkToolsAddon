@@ -1,11 +1,11 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
-import com.gni.frmk.tools.addon.configuration.components.Scheduler.SchedulerState;
 import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
 
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
-import static com.gni.frmk.tools.addon.configuration.components.ComponentState.ComponentStateStatus.*;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
@@ -15,17 +15,23 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author: e03229
  */
+@XmlRootElement
 public class Scheduler extends PackageAware<StringId, SchedulerState> {
 
     @NotNull
+    @XmlElement
     private final String oid;
     @NotNull
+    @XmlElement
     private final String schedulerType;
     @NotNull
+    @XmlElement
     private final String name;
     @NotNull
+    @XmlElement
     private final String service;
 
+    @XmlElement
     private final String description;
 
     public Scheduler(SchedulerBuilder builder) {
@@ -35,6 +41,15 @@ public class Scheduler extends PackageAware<StringId, SchedulerState> {
         name = builder.name;
         service = builder.service;
         description = builder.description;
+    }
+
+    private Scheduler() {
+        super();
+        oid=null;
+        schedulerType = null;
+        name = null;
+        service = null;
+        description = null;
     }
 
     public String getOid() {
@@ -62,37 +77,6 @@ public class Scheduler extends PackageAware<StringId, SchedulerState> {
         visitor.visit(this);
     }
 
-    public static class SchedulerState extends EnableState {
-        public static enum SchedulerStatus {
-            UNEXPIRED, EXPIRED
-        }
-
-        private final SchedulerStatus scheduled;
-
-        public SchedulerState(EnableStatus enabled, SchedulerStatus scheduled) {
-            super(enabled);
-            this.scheduled = scheduled;
-        }
-
-        public SchedulerStatus getScheduled() {
-            return scheduled;
-        }
-
-        @Override
-        public ComponentStateStatus getComponentStatus() {
-            ComponentStateStatus enableStatus = super.getComponentStatus();
-            switch (scheduled) {
-                case UNEXPIRED:
-                    return enableStatus.composeWith(ON);
-                case EXPIRED:
-                    return enableStatus.composeWith(OFF);
-                default:
-                    return enableStatus.composeWith(UNKNOWN);
-            }
-        }
-
-
-    }
 
     public static SchedulerBuilder builder() {
         return new SchedulerBuilder();

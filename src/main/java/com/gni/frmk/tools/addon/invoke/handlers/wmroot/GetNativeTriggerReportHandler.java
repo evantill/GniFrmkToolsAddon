@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.invoke.handlers.wmroot;
 import com.gni.frmk.tools.addon.configuration.components.ActivableState.ActivableStatus;
 import com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.configuration.components.NativeTrigger;
-import com.gni.frmk.tools.addon.configuration.components.NativeTrigger.NativeTriggerState;
+import com.gni.frmk.tools.addon.configuration.components.NativeTriggerState;
 import com.gni.frmk.tools.addon.configuration.components.TemporaryActivableState;
 import com.gni.frmk.tools.addon.configuration.components.TemporaryActivableState.TemporaryStatus;
 import com.gni.frmk.tools.addon.dispatcher.ActionHandler;

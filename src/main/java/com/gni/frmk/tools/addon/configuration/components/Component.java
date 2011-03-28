@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
+import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentDetail;
 import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public interface Component {
 
-    ComponentId getId();
+    ComponentId getComponentId();
 
     List<ComponentDetail> getDetails();
 

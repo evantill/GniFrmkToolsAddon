@@ -1,5 +1,10 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
+import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentState;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import static com.gni.frmk.tools.addon.configuration.components.ComponentState.ComponentStateStatus.*;
 
 /**
@@ -9,7 +14,8 @@ import static com.gni.frmk.tools.addon.configuration.components.ComponentState.C
  *
  * @author: e03229
  */
-public class EnableState implements ComponentState {
+@XmlRootElement
+public class EnableState extends AbstractComponentState implements ComponentState {
     public enum EnableStatus {
         ENABLED {
             @Override
@@ -34,10 +40,15 @@ public class EnableState implements ComponentState {
         public abstract boolean isEnabled();
     }
 
+    @XmlElement
     private final EnableStatus enabled;
 
     public EnableState(EnableStatus enabled) {
         this.enabled = enabled;
+    }
+
+    protected EnableState(){
+        enabled=null;
     }
 
     public EnableStatus getEnabled() {

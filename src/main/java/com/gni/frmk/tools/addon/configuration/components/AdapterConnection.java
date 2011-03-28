@@ -3,6 +3,10 @@ package com.gni.frmk.tools.addon.configuration.components;
 import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
 
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,14 +15,21 @@ import javax.validation.constraints.NotNull;
  * Time: 11:30
  * To change this template use File | Settings | File Templates.
  */
+@XmlRootElement
 public class AdapterConnection extends AdapterTypeAware<StringId, EnableState> {
 
     @NotNull
+    @XmlElement
     private final String alias;
 
     public AdapterConnection(AdapterConnectionBuilder builder) {
         super(builder);
         alias = builder.alias;
+    }
+
+    private AdapterConnection() {
+        super();
+        alias=null;
     }
 
     @Override

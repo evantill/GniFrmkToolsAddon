@@ -2,6 +2,8 @@ package com.gni.frmk.tools.addon.configuration.components;
 
 import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 14/03/11
@@ -9,10 +11,15 @@ import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
  *
  * @author: e03229
  */
+@XmlRootElement
 public class IntegrationServerPackage extends PackageAware<StringId, EnableState> {
 
     public IntegrationServerPackage(Builder<?, ?, StringId, EnableState> builder) {
         super(builder);
+    }
+
+    private IntegrationServerPackage(){
+        super();
     }
 
     @Override

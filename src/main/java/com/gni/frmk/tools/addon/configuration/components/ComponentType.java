@@ -1,5 +1,7 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 09/03/11
@@ -7,6 +9,7 @@ package com.gni.frmk.tools.addon.configuration.components;
  *
  * @author: e03229
  */
+@XmlRootElement
 public enum ComponentType {
     ADAPTER_CONNECTION,
     ADAPTER_LISTENER,

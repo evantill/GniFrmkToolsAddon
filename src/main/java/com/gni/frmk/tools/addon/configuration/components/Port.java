@@ -4,6 +4,8 @@ import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
 import com.google.common.base.Objects;
 
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -14,18 +16,27 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author: e03229
  */
+@XmlRootElement
 public class Port extends PackageAware<StringId, ActivableState> {
 
     @NotNull
+    @XmlElement
     private final String key;
 
     @NotNull
+    @XmlElement
     private final boolean primary;
 
     public Port(PortBuilder builder) {
         super(builder);
         key = builder.key;
         primary=builder.primary;
+    }
+
+    private Port(){
+        super();
+        key=null;
+        primary=false;
     }
 
     @Override

@@ -1,5 +1,8 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import static com.gni.frmk.tools.addon.configuration.components.ComponentState.ComponentStateStatus.*;
 
 /**
@@ -9,6 +12,7 @@ import static com.gni.frmk.tools.addon.configuration.components.ComponentState.C
  *
  * @author: e03229
  */
+@XmlRootElement
 public class ActivableState extends EnableState implements ComponentState {
     public enum ActivableStatus {
         ACTIVE {
@@ -57,11 +61,17 @@ public class ActivableState extends EnableState implements ComponentState {
         }
     }
 
+    @XmlElement
     private final ActivableStatus activable;
 
     public ActivableState(EnableStatus enabled, ActivableStatus activable) {
         super(enabled);
         this.activable = activable;
+    }
+
+    private ActivableState(){
+        super();
+        activable=null;
     }
 
     public ActivableStatus getActivable() {

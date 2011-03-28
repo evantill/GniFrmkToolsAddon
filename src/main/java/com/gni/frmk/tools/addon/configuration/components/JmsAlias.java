@@ -3,6 +3,8 @@ package com.gni.frmk.tools.addon.configuration.components;
 import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
 
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,12 +13,15 @@ import javax.validation.constraints.NotNull;
  *
  * @author: e03229
  */
+@XmlRootElement
 public class JmsAlias extends AbstractComponent<StringId, ConnectableState> {
 
     @NotNull
+    @XmlElement
     private final String name;
 
     @NotNull
+    @XmlElement
     private final String description;
 
     public JmsAlias(JmsAliasBuilder builder) {
@@ -25,6 +30,11 @@ public class JmsAlias extends AbstractComponent<StringId, ConnectableState> {
         description = builder.description;
     }
 
+    private JmsAlias(){
+        super();
+        name=null;
+        description=null;
+    }
     @Override
     public void accept(ComponentVisitor visitor) {
         visitor.visit(this);

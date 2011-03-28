@@ -1,0 +1,29 @@
+#
+# component
+#
+AdapterConnection
+AdapterListener
+AdapterNotification
+IntegrationServerPackage
+JmsAlias
+JmsTrigger
+NativeTrigger
+Port
+Scheduler
+#
+# state
+#
+ActivableState
+ConnectableState
+EnableState
+NativeTriggerState
+SchedulerState
+TemporaryActivableState
+#
+# id
+#
+StringId
+#
+# detail
+#
+SimpleDetail

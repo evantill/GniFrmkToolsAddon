@@ -145,7 +145,7 @@ public class ComponentDescription {
         @Override
         public void visitAny(Component visited) {
             componentType(visited.getType());
-            componentId(visited.getId());
+            componentId(visited.getComponentId());
             addAllInformations(visited.getDetails());
         }
 

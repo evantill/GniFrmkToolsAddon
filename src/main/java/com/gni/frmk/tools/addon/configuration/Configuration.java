@@ -8,6 +8,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.*;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -23,32 +24,55 @@ import static java.util.Collections.unmodifiableList;
  *
  * @author: e03229
  */
+@XmlRootElement
+@XmlAccessorType(value = XmlAccessType.NONE)
 public class Configuration {
 
     @NotNull
+    @XmlAttribute
     private final String name;
     @NotNull
+    @XmlAttribute
     private final Date creation;
     @NotNull
+    @XmlAttribute
     private Date modification;
 
     @Valid
+    @XmlElement
+    @XmlElementWrapper
     private final List<AdapterConnection> adapterConnections;
     @Valid
+    @XmlElement
+    @XmlElementWrapper
     private final List<AdapterListener> adapterListeners;
     @Valid
+    @XmlElement
+    @XmlElementWrapper
     private final List<AdapterNotification> adapterNotifications;
     @Valid
+    @XmlElement
+    @XmlElementWrapper
     private final List<IntegrationServerPackage> integrationServerPackages;
     @Valid
+    @XmlElement
+    @XmlElementWrapper
     private final List<JmsAlias> jmsAliases;
     @Valid
+    @XmlElement
+    @XmlElementWrapper
     private final List<JmsTrigger> jmsTriggers;
     @Valid
+    @XmlElement
+    @XmlElementWrapper
     private final List<NativeTrigger> nativeTriggers;
     @Valid
+    @XmlElement
+    @XmlElementWrapper
     private final List<Port> ports;
     @Valid
+    @XmlElement
+    @XmlElementWrapper
     private final List<Scheduler> schedulers;
 
     public Configuration(Builder builder) {
@@ -64,6 +88,21 @@ public class Configuration {
         nativeTriggers = builder.nativeTriggers;
         ports = builder.ports;
         schedulers = builder.schedulers;
+    }
+
+    private Configuration() {
+        name = null;
+        creation = null;
+        modification = null;
+        adapterConnections = null;
+        adapterListeners = null;
+        adapterNotifications = null;
+        integrationServerPackages = null;
+        jmsAliases = null;
+        jmsTriggers = null;
+        nativeTriggers = null;
+        ports = null;
+        schedulers = null;
     }
 
     public List<AdapterConnection> getAdapterConnections() {

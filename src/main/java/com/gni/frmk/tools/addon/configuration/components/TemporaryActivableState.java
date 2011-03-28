@@ -1,6 +1,11 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
+import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentState;
 import com.gni.frmk.tools.addon.configuration.components.ActivableState.ActivableStatus;
+
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,7 +14,8 @@ import com.gni.frmk.tools.addon.configuration.components.ActivableState.Activabl
  *
  * @author: e03229
  */
-public class TemporaryActivableState implements ComponentState {
+@XmlRootElement
+public class TemporaryActivableState extends AbstractComponentState implements ComponentState {
 
     public enum TemporaryStatus {
         TEMPORARY {
@@ -27,12 +33,19 @@ public class TemporaryActivableState implements ComponentState {
         public abstract boolean isPermanent();
     }
 
+    @XmlAttribute
     private final TemporaryStatus temporary;
+    @XmlElement
     private final ActivableStatus activable;
 
     public TemporaryActivableState(TemporaryStatus temporary, ActivableStatus activable) {
         this.temporary = temporary;
         this.activable = activable;
+    }
+
+    private TemporaryActivableState(){
+        temporary=null;
+        activable=null;
     }
 
     public TemporaryStatus getTemporary() {
