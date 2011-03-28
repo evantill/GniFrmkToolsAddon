@@ -66,4 +66,9 @@ public class EnableState extends AbstractComponentState implements ComponentStat
                 return UNKNOWN;
         }
     }
+
+    @Override
+    public ComponentStateType getType() {
+        return ComponentStateType.ENABLE_STATE;
+    }
 }

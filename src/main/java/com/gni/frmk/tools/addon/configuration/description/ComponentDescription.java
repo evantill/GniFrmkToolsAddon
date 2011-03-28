@@ -85,7 +85,7 @@ public class ComponentDescription {
         return source;
     }
 
-    public static class Builder extends GenericComponentVisitor implements BuilderWithValidation<ComponentDescription>, ComponentVisitor {
+    public static class Builder extends GenericComponentVisitor implements BuilderWithValidation<Builder,ComponentDescription>, ComponentVisitor {
         private static final String COMPONENT_TYPE_REQUIRED = "component type required";
         private static final String COMPONENT_ID_REQUIRED = "component id required";
         private String type;
@@ -125,10 +125,11 @@ public class ComponentDescription {
         }
 
         @Override
-        public void validate() throws ValidationException {
+        public Builder validate() throws ValidationException {
             try {
                 checkNotNull(type, COMPONENT_TYPE_REQUIRED);
                 checkNotNull(id, COMPONENT_ID_REQUIRED);
+                return this;
             } catch (NullPointerException npex) {
                 throw new ValidationException(npex);
             }
@@ -136,10 +137,7 @@ public class ComponentDescription {
 
         @Override
         public ComponentDescription buildAndValidate() throws BuildException, ValidationException {
-            ComponentDescription desc = build();
-            //TODO validate
-            validate();
-            return desc;
+            return validate().build();
         }
 
         @Override

@@ -91,4 +91,8 @@ public class ActivableState extends EnableState implements ComponentState {
         }
     }
 
+    @Override
+    public ComponentStateType getType() {
+        return ComponentStateType.ACTIAVABLE_STATE;
+    }
 }

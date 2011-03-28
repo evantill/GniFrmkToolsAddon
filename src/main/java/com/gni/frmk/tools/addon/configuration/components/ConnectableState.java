@@ -52,4 +52,8 @@ public class ConnectableState extends EnableState implements ComponentState {
         }
     }
 
+    @Override
+    public ComponentStateType getType() {
+        return ComponentStateType.CONNECTABLE_STATE;
+    }
 }

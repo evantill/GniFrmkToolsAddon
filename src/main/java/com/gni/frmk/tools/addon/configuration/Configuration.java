@@ -157,7 +157,7 @@ public class Configuration {
         return new Builder();
     }
 
-    public static class Builder implements BuilderWithValidation<Configuration> {
+    public static class Builder implements BuilderWithValidation<Builder,Configuration> {
         private String name;
         private Date creation;
         private Date modification;
@@ -322,8 +322,9 @@ public class Configuration {
         }
 
         @Override
-        public void validate() throws ValidationException {
+        public Builder validate() throws ValidationException {
             //TODO validate
+            return this;
         }
 
     }

@@ -80,7 +80,7 @@ public class ConfigurationDescription {
         return source;
     }
 
-    public static class Builder implements BuilderWithValidation<ConfigurationDescription> {
+    public static class Builder implements BuilderWithValidation<Builder,ConfigurationDescription> {
 
         private static final String CONFIGURATION_NAME_REQUIRED = "configuration name required";
         private static final String CREATION_DATE_REQUIRED = "creation date required";
@@ -131,11 +131,12 @@ public class ConfigurationDescription {
         }
 
         @Override
-        public void validate() throws ValidationException {
+        public Builder validate() throws ValidationException {
             try {
                 checkNotNull(configurationName, CONFIGURATION_NAME_REQUIRED);
                 checkNotNull(creationDate, CREATION_DATE_REQUIRED);
                 checkNotNull(modificationDate, MODIFICATION_DATE_REQUIRED);
+                return this;
             } catch (NullPointerException npex) {
                 throw new ValidationException(npex);
             }
@@ -143,10 +144,7 @@ public class ConfigurationDescription {
 
         @Override
         public ConfigurationDescription buildAndValidate() throws BuildException, ValidationException {
-            ConfigurationDescription desc = build();
-            //TODO validate
-            validate();
-            return desc;
+            return validate().build();
         }
     }
 

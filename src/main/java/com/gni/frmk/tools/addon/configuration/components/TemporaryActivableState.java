@@ -68,4 +68,8 @@ public class TemporaryActivableState extends AbstractComponentState implements C
         }
     }
 
+    @Override
+    public ComponentStateType getType() {
+        return ComponentStateType.TEMPORARY_ACTIVABLE_STATE;
+    }
 }

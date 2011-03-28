@@ -12,13 +12,13 @@ import java.util.Set;
  * Time: 10:12
  * To change this template use File | Settings | File Templates.
  */
-public interface BuilderWithValidation<T> {
+public interface BuilderWithValidation<B extends BuilderWithValidation<B,T>,T> {
 
     T build() throws BuildException;
 
     T buildAndValidate() throws BuildException, ValidationException;
 
-    void validate() throws ValidationException;
+    B validate() throws ValidationException;
 
     public class BuildException extends RuntimeException {
 

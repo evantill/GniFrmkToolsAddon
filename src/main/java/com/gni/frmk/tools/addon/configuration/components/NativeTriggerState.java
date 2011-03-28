@@ -55,6 +55,11 @@ public class NativeTriggerState extends AbstractComponentState implements Compon
                       .composeWith(processingState.getComponentStatus());
     }
 
+    @Override
+    public ComponentStateType getType() {
+        return ComponentStateType.NATIVE_TRIGGER_STATE;
+    }
+
     public static Builder builder() {
         return new Builder();
     }

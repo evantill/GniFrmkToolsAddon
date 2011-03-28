@@ -26,4 +26,6 @@ public interface ComponentState {
     }
 
     ComponentStateStatus getComponentStatus();
+
+    ComponentStateType getType();
 }
