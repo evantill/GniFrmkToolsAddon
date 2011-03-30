@@ -25,9 +25,9 @@ public class JmsTrigger extends PackageAware<StringId, ActivableState> {
         name = builder.name;
     }
 
-    private JmsTrigger(){
+    private JmsTrigger() {
         super();
-        name=null;
+        name = null;
     }
 
     @Override
@@ -44,6 +44,7 @@ public class JmsTrigger extends PackageAware<StringId, ActivableState> {
     }
 
     public static class JmsTriggerBuilder extends PackageAware.Builder<JmsTriggerBuilder, JmsTrigger, StringId, ActivableState> {
+        @NotNull
         private String name;
 
         public JmsTriggerBuilder() {
@@ -62,7 +63,7 @@ public class JmsTrigger extends PackageAware<StringId, ActivableState> {
         }
 
         @Override
-        public JmsTrigger build() {
+        protected JmsTrigger buildObjectBeforeValidation() {
             return new JmsTrigger(this);
         }
     }

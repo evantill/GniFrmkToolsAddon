@@ -75,7 +75,9 @@ public class Port extends PackageAware<StringId, ActivableState> {
 
     public static class PortBuilder extends PackageAware.Builder<PortBuilder, Port, StringId, ActivableState> {
 
+        @NotNull
         protected String key;
+
         protected boolean primary=false;
 
         public PortBuilder() {
@@ -99,7 +101,7 @@ public class Port extends PackageAware<StringId, ActivableState> {
         }
 
         @Override
-        public Port build() {
+        protected Port buildObjectBeforeValidation() {
             return new Port(this);
         }
 

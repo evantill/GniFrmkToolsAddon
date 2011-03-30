@@ -54,6 +54,7 @@ public class JmsAlias extends AbstractComponent<StringId, ConnectableState> {
 
     public static class JmsAliasBuilder extends AbstractComponent.Builder<JmsAliasBuilder, JmsAlias, StringId, ConnectableState> {
 
+        @NotNull
         private String name;
         private String description;
 
@@ -78,7 +79,7 @@ public class JmsAlias extends AbstractComponent<StringId, ConnectableState> {
         }
 
         @Override
-        public JmsAlias build() {
+        protected JmsAlias buildObjectBeforeValidation() {
             return new JmsAlias(this);
         }
     }

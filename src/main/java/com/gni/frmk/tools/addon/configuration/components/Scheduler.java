@@ -45,7 +45,7 @@ public class Scheduler extends PackageAware<StringId, SchedulerState> {
 
     private Scheduler() {
         super();
-        oid=null;
+        oid = null;
         schedulerType = null;
         name = null;
         service = null;
@@ -84,10 +84,15 @@ public class Scheduler extends PackageAware<StringId, SchedulerState> {
 
     public static class SchedulerBuilder extends PackageAware.Builder<SchedulerBuilder, Scheduler, StringId, SchedulerState> {
 
+        @NotNull
         private String oid;
+        @NotNull
         private String schedulerType;
+        @NotNull
         private String name;
+        @NotNull
         private String service;
+        @NotNull
         private String description;
 
         public SchedulerBuilder() {
@@ -126,7 +131,7 @@ public class Scheduler extends PackageAware<StringId, SchedulerState> {
         }
 
         @Override
-        public Scheduler build() {
+        protected Scheduler buildObjectBeforeValidation() {
             return new Scheduler(this);
         }
     }

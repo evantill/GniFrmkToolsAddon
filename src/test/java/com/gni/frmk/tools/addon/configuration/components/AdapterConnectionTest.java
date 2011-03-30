@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
+import com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus;
 import junit.framework.Assert;
 import org.junit.Test;
 
@@ -17,13 +18,23 @@ public class AdapterConnectionTest {
 
     @Test
     public void testBuilder() {
-        AdapterConnection cnx = AdapterConnection.builder().alias("alias").packageName("packageName").build();
+        AdapterConnection cnx = AdapterConnection.builder()
+                                                 .alias("alias")
+                                                 .adapterType("jdbc")
+                                                 .packageName("packageName")
+                                                 .defineState(new EnableState(EnableStatus.ENABLED))
+                                                 .build();
         Assert.assertNotNull(cnx.getComponentId());
     }
 
     @Test
     public void testDetails() throws JAXBException {
-        AdapterConnection cnx = AdapterConnection.builder().alias("alias").packageName("packageName").build();
+        AdapterConnection cnx = AdapterConnection.builder()
+                                                 .alias("alias")
+                                                 .adapterType("jdbc")
+                                                 .packageName("packageName")
+                                                 .defineState(new EnableState(EnableStatus.ENABLED))
+                                                 .build();
         List<ComponentDetail> details = cnx.getDetails();
         for (ComponentDetail detail : details) {
             System.out.println("detail = " + detail);

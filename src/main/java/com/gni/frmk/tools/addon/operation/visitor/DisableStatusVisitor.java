@@ -107,6 +107,6 @@ public class DisableStatusVisitor implements UpdateConfigurationVisitor {
     }
 
     public Configuration getUpdatedConfiguration() {
-        return builder.buildAndValidate();
+        return builder.build();
     }
 }

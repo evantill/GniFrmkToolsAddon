@@ -7,10 +7,14 @@ import com.gni.frmk.tools.addon.configuration.components.ConnectableState.Connec
 import com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.configuration.components.SchedulerState.SchedulerStatus;
 import com.gni.frmk.tools.addon.configuration.components.TemporaryActivableState.TemporaryStatus;
+import com.google.common.base.Charsets;
+import com.google.common.io.Resources;
+import org.custommonkey.xmlunit.XMLUnit;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.xml.sax.SAXException;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -20,8 +24,10 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -29,6 +35,7 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.TimeZone;
 
+import static org.custommonkey.xmlunit.XMLAssert.assertXMLEqual;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -41,7 +48,11 @@ import static org.junit.Assert.assertNotNull;
  */
 public class ConfigurationTest {
 
-    private final String xmlSimple = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><configuration name=\"configuration_test_simple\" creation=\"2011-03-03T19:00:23.828Z\" modification=\"2011-03-03T19:00:23.828Z\"><adapterConnections><adapterConnections><stringId>alias_1</stringId><type>ADAPTER_CONNECTION</type><enableState><enabled>ENABLED</enabled></enableState><details/><packageName>packageName_1</packageName><adapterType>JDBCAdapter</adapterType><alias>alias_1</alias></adapterConnections></adapterConnections><adapterListeners/><adapterNotifications/><integrationServerPackages/><jmsAliases/><jmsTriggers/><nativeTriggers/><ports/><schedulers/></configuration>";
+    private static final String DHMS_PATTERN = "yyyy-MM-dd HH:mm:ss.SSS";
+    private static final String NOW_DHMS = "2011-03-03 19:00:23.828";
+    private static final String JAXB_PACKAGES = "com.gni.frmk.tools.addon.configuration:com.gni.frmk.tools.addon.configuration.components";
+    private static String xmlSimple = loadXml("simple");
+    private static String xmlFull = loadXml("full");
 
     private static Locale savedLocale = Locale.getDefault();
     private static TimeZone savedTimeZone = TimeZone.getDefault();
@@ -51,6 +62,12 @@ public class ConfigurationTest {
     @Before
     public void clear() {
         index = 0;
+    }
+
+    @BeforeClass
+    public static void xmlUnitConfiguration() {
+        XMLUnit.setIgnoreAttributeOrder(true);
+        XMLUnit.setIgnoreWhitespace(true);
     }
 
     @BeforeClass
@@ -73,14 +90,14 @@ public class ConfigurationTest {
                                                  .packageName("packageName")
                                                  .defineState(new EnableState(EnableStatus.ENABLED))
                                                  .build();
-        Configuration cnf = Configuration.builder().create("name",now()).addAdapterConnection(cnx).buildAndValidate();
+        Configuration cnf = Configuration.builder().create("name", now()).addAdapterConnection(cnx).build();
     }
 
     @Test
-    public void testSimpleMarshall() throws JAXBException {
+    public void testSimpleMarshall() throws JAXBException, IOException, SAXException {
         Configuration cnf = newSimpleConfiguration();
         String out = marshal(cnf, false);
-        assertEquals("marshalling error", xmlSimple, out);
+        assertXMLEqual(xmlSimple, out);
     }
 
     @Test
@@ -93,17 +110,35 @@ public class ConfigurationTest {
         assertEquals(1, cnf.getAdapterConnections().size());
     }
 
+    @Test
+    public void testFullMarshall() throws JAXBException, IOException, SAXException {
+        Configuration cnf = newFullConfiguration();
+        String out = marshal(cnf, false);
+        assertXMLEqual(xmlFull, out);
+    }
+
+    @Test
+    public void testFullUnmMarshall() throws JAXBException {
+        Configuration fromCnf = newFullConfiguration();
+        String xml = marshal(fromCnf, false);
+        Configuration cnf = unmarshall(xml);
+        raiseExceptionIfInvalid(cnf);
+        assertNotNull(cnf);
+        assertEquals(10, cnf.getAdapterConnections().size());
+    }
+
+
     private Date now() {
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-            return sdf.parse("2011-03-03 19:00:23.828");
+            SimpleDateFormat sdf = new SimpleDateFormat(DHMS_PATTERN);
+            return sdf.parse(NOW_DHMS);
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
     }
 
     private String marshal(Configuration cnf, boolean prettyPrint) throws JAXBException {
-        JAXBContext ctx = JAXBContext.newInstance("com.gni.frmk.tools.addon.configuration:com.gni.frmk.tools.addon.configuration.components");
+        JAXBContext ctx = createJaxbContext();
         Marshaller m = ctx.createMarshaller();
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, prettyPrint);
         StringWriter out = new StringWriter();
@@ -111,8 +146,12 @@ public class ConfigurationTest {
         return out.toString();
     }
 
+    private JAXBContext createJaxbContext() throws JAXBException {
+        return JAXBContext.newInstance(JAXB_PACKAGES);
+    }
+
     private Configuration unmarshall(String xml) throws JAXBException {
-        JAXBContext ctx = JAXBContext.newInstance("com.gni.frmk.tools.addon.configuration:com.gni.frmk.tools.addon.configuration.components");
+        JAXBContext ctx = createJaxbContext();
         Unmarshaller u = ctx.createUnmarshaller();
         StringReader in = new StringReader(xml);
         return (Configuration) u.unmarshal(in);
@@ -177,6 +216,7 @@ public class ConfigurationTest {
                         .name(String.format("name_%d", index))
                         .service(String.format("service_%d", index))
                         .description(String.format("description_%d", index))
+                        .packageName(String.format("Scheduler_package_name_%d", index))
                         .defineState(new SchedulerState(EnableStatus.ENABLED, SchedulerStatus.EXPIRED))
                         .build();
     }
@@ -259,5 +299,14 @@ public class ConfigurationTest {
                                   .packageName(String.format("packageName_%d", index))
                                   .defineState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE))
                                   .build();
+    }
+
+    private static String loadXml(final String name) {
+        try {
+            URL resource = ConfigurationTest.class.getResource(String.format("ConfigurationTest_%s.xml", name));
+            return Resources.toString(resource, Charsets.UTF_8);
+        } catch (IOException e) {
+            throw new IllegalStateException(e);
+        }
     }
 }

@@ -43,7 +43,7 @@ public class IntegrationServerPackage extends PackageAware<StringId, EnableState
         }
 
         @Override
-        public IntegrationServerPackage build() {
+        protected IntegrationServerPackage buildObjectBeforeValidation() {
             return new IntegrationServerPackage(this);
         }
 

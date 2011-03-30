@@ -1,8 +1,5 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
-import com.gni.frmk.tools.addon.configuration.components.ActivableState.ActivableStatus;
-import com.gni.frmk.tools.addon.configuration.components.NativeTriggerState;
-import com.gni.frmk.tools.addon.configuration.components.TemporaryActivableState.TemporaryStatus;
 import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
 
 import javax.validation.constraints.NotNull;
@@ -30,9 +27,9 @@ public class NativeTrigger extends PackageAware<StringId, NativeTriggerState> {
         name = builder.name;
     }
 
-    private NativeTrigger(){
+    private NativeTrigger() {
         super();
-        name=null;
+        name = null;
     }
 
     @Override
@@ -50,6 +47,7 @@ public class NativeTrigger extends PackageAware<StringId, NativeTriggerState> {
 
     public static class NativeTriggerBuilder extends PackageAware.Builder<NativeTriggerBuilder, NativeTrigger, StringId, NativeTriggerState> {
 
+        @NotNull
         private String name;
 
         public NativeTriggerBuilder() {
@@ -68,7 +66,7 @@ public class NativeTrigger extends PackageAware<StringId, NativeTriggerState> {
         }
 
         @Override
-        public NativeTrigger build() {
+        protected NativeTrigger buildObjectBeforeValidation() {
             return new NativeTrigger(this);
         }
     }

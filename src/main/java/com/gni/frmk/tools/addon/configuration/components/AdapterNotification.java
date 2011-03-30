@@ -44,6 +44,8 @@ public class AdapterNotification extends AdapterTypeAware<StringId, ActivableSta
     }
 
     public static class AdapterNotificationBuilder extends AdapterTypeAware.Builder<AdapterNotificationBuilder, AdapterNotification, StringId, ActivableState> {
+
+        @NotNull
         protected String name;
 
         public AdapterNotificationBuilder() {
@@ -62,7 +64,7 @@ public class AdapterNotification extends AdapterTypeAware<StringId, ActivableSta
         }
 
         @Override
-        public AdapterNotification build() {
+        protected AdapterNotification buildObjectBeforeValidation() {
             return new AdapterNotification(this);
         }
 

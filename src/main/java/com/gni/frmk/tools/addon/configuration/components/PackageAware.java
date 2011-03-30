@@ -37,6 +37,7 @@ public abstract class PackageAware<I extends AbstractComponentId, S extends Abst
     public static abstract class Builder<T extends Builder<T, B, I, S>, B extends PackageAware<I, S>, I extends AbstractComponentId, S extends AbstractComponentState>
             extends AbstractComponent.Builder<T, B, I, S> {
 
+        @NotNull
         protected String packageName;
 
         public Builder<T, B, I, S> packageName(String value) {

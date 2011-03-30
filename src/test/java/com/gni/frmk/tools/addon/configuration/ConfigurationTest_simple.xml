@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration name="configuration_test_simple" creation="2011-03-03T19:00:23.828Z"
+               modification="2011-03-03T19:00:23.828Z">
+    <adapterConnections>
+        <adapterConnections>
+            <stringId>alias_1</stringId>
+            <type>ADAPTER_CONNECTION</type>
+            <enableState>
+                <enabled>ENABLED</enabled>
+            </enableState>
+            <details/>
+            <packageName>packageName_1</packageName>
+            <adapterType>JDBCAdapter</adapterType>
+            <alias>alias_1</alias>
+        </adapterConnections>
+    </adapterConnections>
+    <adapterListeners/>
+    <adapterNotifications/>
+    <integrationServerPackages/>
+    <jmsAliases/>
+    <jmsTriggers/>
+    <nativeTriggers/>
+    <ports/>
+    <schedulers/>
+</configuration>

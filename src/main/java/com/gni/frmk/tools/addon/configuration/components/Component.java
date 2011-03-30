@@ -1,6 +1,5 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
-import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentDetail;
 import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
 
 import java.util.List;
@@ -12,17 +11,18 @@ import java.util.List;
  * Time: 11:30
  * To change this template use File | Settings | File Templates.
  */
-public interface Component {
+public interface Component<I extends ComponentId, S extends ComponentState> {
 
-    ComponentId getComponentId();
+    I getComponentId();
 
     List<ComponentDetail> getDetails();
 
-    ComponentState getState();
-
     ComponentType getType();
 
-    void accept(ComponentVisitor visitor);
+    S getState();
 
+    void setState(S state);
+
+    void accept(ComponentVisitor visitor);
 
 }

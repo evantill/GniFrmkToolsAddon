@@ -37,6 +37,7 @@ public abstract class AdapterTypeAware<I extends AbstractComponentId, S extends 
     public static abstract class Builder<T extends Builder<T, B, I, S>, B extends AdapterTypeAware<I, S>, I extends AbstractComponentId, S extends AbstractComponentState>
             extends PackageAware.Builder<T, B, I, S> {
 
+        @NotNull
         protected String adapterType;
 
         public Builder<T, B, I, S> adapterType(String value) {

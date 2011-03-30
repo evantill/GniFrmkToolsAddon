@@ -157,7 +157,7 @@ public class Configuration {
         return new Builder();
     }
 
-    public static class Builder implements BuilderWithValidation<Builder,Configuration> {
+    public static class Builder extends BuilderWithJsr303Validation<Builder,Configuration> {
         private String name;
         private Date creation;
         private Date modification;
@@ -175,102 +175,102 @@ public class Configuration {
             this.name = name;
             this.creation = new Date(when.getTime());
             this.modification = new Date(when.getTime());
-            return this;
+            return self();
         }
 
         public Builder touch(Date when) {
             modification = new Date(when.getTime());
-            return this;
+            return self();
         }
 
         public Builder addAdapterConnection(AdapterConnection connection) {
             adapterConnections.add(connection);
-            return this;
+           return self();
         }
 
         public Builder addAdapterConnections(Collection<AdapterConnection> connections) {
             adapterConnections.addAll(connections);
-            return this;
+            return self();
         }
 
         public Builder addAdapterListener(AdapterListener listener) {
             adapterListeners.add(listener);
-            return this;
+           return self();
         }
 
         public Builder addAdapterListeners(Collection<AdapterListener> listeners) {
             adapterListeners.addAll(listeners);
-            return this;
+           return self();
         }
 
         public Builder addAdapterNotification(AdapterNotification notification) {
             adapterNotifications.add(notification);
-            return this;
+           return self();
         }
 
         public Builder addAdapterNotifications(Collection<AdapterNotification> notifications) {
             adapterNotifications.addAll(notifications);
-            return this;
+           return self();
         }
 
         public Builder addPackage(IntegrationServerPackage pkg) {
             integrationServerPackages.add(pkg);
-            return this;
+           return self();
         }
 
         public Builder addPackages(Collection<IntegrationServerPackage> pkgs) {
             integrationServerPackages.addAll(pkgs);
-            return this;
+            return self();
         }
 
         public Builder addJmsAliasConnection(JmsAlias alias) {
             jmsAliases.add(alias);
-            return this;
+            return self();
         }
 
         public Builder addJmsAliasConnections(Collection<JmsAlias> aliases) {
             jmsAliases.addAll(aliases);
-            return this;
+           return self();
         }
 
         public Builder addJmsTrigger(JmsTrigger trigger) {
             jmsTriggers.add(trigger);
-            return this;
+            return self();
         }
 
         public Builder addJmsTriggers(Collection<JmsTrigger> triggers) {
             jmsTriggers.addAll(triggers);
-            return this;
+            return self();
         }
 
         public Builder addNativeTrigger(NativeTrigger trigger) {
             nativeTriggers.add(trigger);
-            return this;
+           return self();
         }
 
         public Builder addNativeTriggers(Collection<NativeTrigger> triggers) {
             nativeTriggers.addAll(triggers);
-            return this;
+            return self();
         }
 
         public Builder addPort(Port port) {
             ports.add(port);
-            return this;
+           return self();
         }
 
         public Builder addPorts(Collection<Port> ports) {
             ports.addAll(ports);
-            return this;
+            return self();
         }
 
         public Builder addScheduler(Scheduler scheduler) {
             schedulers.add(scheduler);
-            return this;
+           return self();
         }
 
         public Builder addSchedulers(Collection<Scheduler> schedulers) {
             schedulers.addAll(schedulers);
-            return this;
+            return self();
         }
 
         public Builder from(Configuration source) {
@@ -286,7 +286,7 @@ public class Configuration {
             nativeTriggers.addAll(source.getNativeTriggers());
             ports.addAll(source.getPorts());
             schedulers.addAll(source.getSchedulers());
-            return this;
+           return self();
         }
 
         public Builder clear() {
@@ -299,34 +299,18 @@ public class Configuration {
             nativeTriggers.clear();
             ports.clear();
             schedulers.clear();
-            return this;
+            return self();
         }
 
         @Override
-        public Configuration build() throws BuildException {
+        protected Configuration buildObjectBeforeValidation() {
             return new Configuration(this);
         }
 
         @Override
-        public Configuration buildAndValidate() throws BuildException, ValidationException {
-            Configuration cnf = build();
-            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-            Validator validator = factory.getValidator();
-            Set<ConstraintViolation<Configuration>> constraintViolations = validator.validate(cnf);
-            if (constraintViolations.size() > 0) {
-                //TODO implementer gestion exception
-                throw new RuntimeException("todo");
-                //throw new ValidationException(constraintViolations);
-            }
-            return cnf;
-        }
-
-        @Override
-        public Builder validate() throws ValidationException {
-            //TODO validate
+        public Builder self() {
             return this;
         }
 
     }
-
 }

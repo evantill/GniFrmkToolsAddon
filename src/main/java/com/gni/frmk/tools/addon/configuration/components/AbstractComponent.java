@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
+import com.gni.frmk.tools.addon.configuration.BuilderWithJsr303Validation;
 import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentId;
 import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentState;
 import com.gni.frmk.tools.addon.configuration.components.ComponentDetail.Value;
@@ -16,6 +17,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 09/03/11
@@ -23,8 +26,7 @@ import java.util.Set;
  *
  * @author: e03229
  */
-public abstract class AbstractComponent<I extends AbstractComponentId, S extends AbstractComponentState>
-        implements Component {
+public abstract class AbstractComponent<I extends AbstractComponentId, S extends AbstractComponentState> implements Component<I, S> {
 
     @NotNull
     @XmlElementRef
@@ -36,7 +38,7 @@ public abstract class AbstractComponent<I extends AbstractComponentId, S extends
 
     @NotNull
     @XmlElementRef
-    private final S state;
+    private S state;
 
     @NotNull
     @XmlElementRef
@@ -72,15 +74,25 @@ public abstract class AbstractComponent<I extends AbstractComponentId, S extends
         return state;
     }
 
+    @Override
+    public void setState(S state) {
+        this.state = checkNotNull(state);
+    }
+
     public ComponentType getType() {
         return type;
     }
 
     public static abstract class Builder<T extends Builder<T, B, I, S>, B extends AbstractComponent<I, S>, I extends AbstractComponentId, S extends AbstractComponentState>
-            implements ComponentBuilder<T, B> {
+            extends BuilderWithJsr303Validation<T,B> implements ComponentBuilder<T, B>
+    {
+        @NotNull
         protected I id;
+        @NotNull
         protected S state;
+        @NotNull
         protected ComponentType type;
+
         protected Set<AbstractComponentDetail> details = Sets.newHashSet();
 
         public final Builder<T, B, I, S> defineId(I value) {
@@ -108,10 +120,6 @@ public abstract class AbstractComponent<I extends AbstractComponentId, S extends
             return self();
         }
 
-        public abstract T self();
-
-        public abstract B build();
-
         //TODO @Override
         public T from(B source) {
             id = source.getComponentId();
@@ -125,7 +133,9 @@ public abstract class AbstractComponent<I extends AbstractComponentId, S extends
     }
 
     public static abstract class AbstractComponentId implements ComponentId {
-        private final @XmlValue String rawValue;
+        private final
+        @XmlValue
+        String rawValue;
 
         protected AbstractComponentId(String rawValue) {
             this.rawValue = rawValue;
@@ -139,7 +149,6 @@ public abstract class AbstractComponent<I extends AbstractComponentId, S extends
             return rawValue;
         }
     }
-
 
     public static abstract class AbstractComponentState implements ComponentState {
     }

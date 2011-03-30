@@ -47,6 +47,7 @@ public class AdapterConnection extends AdapterTypeAware<StringId, EnableState> {
 
     public static class AdapterConnectionBuilder extends  AdapterTypeAware.Builder<AdapterConnectionBuilder,AdapterConnection,StringId,EnableState>  {
 
+        @NotNull
         protected String alias;
 
         public AdapterConnectionBuilder() {
@@ -72,7 +73,7 @@ public class AdapterConnection extends AdapterTypeAware<StringId, EnableState> {
         }
 
         @Override
-        public AdapterConnection build() {
+        protected AdapterConnection buildObjectBeforeValidation() {
             return new AdapterConnection(this);
         }
     }

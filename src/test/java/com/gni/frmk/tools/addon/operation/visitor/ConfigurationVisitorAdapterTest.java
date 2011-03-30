@@ -46,6 +46,7 @@ public class ConfigurationVisitorAdapterTest {
             startedList.add(visited);
         }
 
+        /** @noinspection ThrowableResultOfMethodCallIgnored*/
         @Override
         protected void statusFailed(Component visited, Throwable t) {
             koList.add(visited);

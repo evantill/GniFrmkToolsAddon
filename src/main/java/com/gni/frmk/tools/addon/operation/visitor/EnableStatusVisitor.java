@@ -3,8 +3,6 @@ package com.gni.frmk.tools.addon.operation.visitor;
 import com.gni.frmk.tools.addon.configuration.Configuration;
 import com.gni.frmk.tools.addon.configuration.Configuration.Builder;
 import com.gni.frmk.tools.addon.configuration.components.*;
-import com.gni.frmk.tools.addon.configuration.components.NativeTriggerState;
-import com.gni.frmk.tools.addon.configuration.components.SchedulerState;
 
 import static com.gni.frmk.tools.addon.configuration.components.ActivableState.ActivableStatus.ACTIVE;
 import static com.gni.frmk.tools.addon.configuration.components.ConnectableState.ConnectableStatus.CONNECTED;
@@ -106,7 +104,7 @@ public class EnableStatusVisitor implements UpdateConfigurationVisitor {
     }
 
     public Configuration getUpdatedConfiguration() {
-        return builder.buildAndValidate();
+        return builder.build();
     }
 }
 

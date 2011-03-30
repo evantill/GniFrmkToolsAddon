@@ -14,9 +14,9 @@ import java.util.Set;
  */
 public interface BuilderWithValidation<B extends BuilderWithValidation<B,T>,T> {
 
-    T build() throws BuildException;
+    B self();
 
-    T buildAndValidate() throws BuildException, ValidationException;
+    T build() throws BuildException, ValidationException;
 
     B validate() throws ValidationException;
 
@@ -25,14 +25,14 @@ public interface BuilderWithValidation<B extends BuilderWithValidation<B,T>,T> {
     }
 
     public class ValidationException extends RuntimeException {
-        private final Set<ConstraintViolation<?>> violations;
+        private final Set<ConstraintViolation> violations;
 
-        public ValidationException(Set<ConstraintViolation<?>> violations) {
+        public ValidationException(Set<? extends ConstraintViolation> violations) {
             super("validation exception");
-            this.violations = violations;
+            this.violations = Sets.newHashSet(violations);
         }
 
-        public Set<ConstraintViolation<?>> getViolations() {
+        public Set<ConstraintViolation> getViolations() {
             return violations;
         }
 

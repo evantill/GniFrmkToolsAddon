@@ -25,10 +25,11 @@ public class AdapterListener extends AdapterTypeAware<StringId, ActivableState> 
         name = builder.name;
     }
 
-    private AdapterListener(){
+    private AdapterListener() {
         super();
-        name=null;
+        name = null;
     }
+
     @Override
     public void accept(ComponentVisitor visitor) {
         visitor.visit(this);
@@ -43,6 +44,7 @@ public class AdapterListener extends AdapterTypeAware<StringId, ActivableState> 
     }
 
     public static class AdapterListenerBuilder extends AdapterTypeAware.Builder<AdapterListenerBuilder, AdapterListener, StringId, ActivableState> {
+        @NotNull
         protected String name;
 
         public AdapterListenerBuilder() {
@@ -61,7 +63,7 @@ public class AdapterListener extends AdapterTypeAware<StringId, ActivableState> 
         }
 
         @Override
-        public AdapterListener build() {
+        protected AdapterListener buildObjectBeforeValidation() {
             return new AdapterListener(this);
         }
 
