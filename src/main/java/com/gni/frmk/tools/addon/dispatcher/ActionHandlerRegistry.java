@@ -21,7 +21,7 @@ public interface ActionHandlerRegistry {
             throws ActionNotFoundException;
 
     /**
-     * Clears all registered handlers from the registry.
+     * Clears all registered handler from the registry.
      */
     public void clearHandlers();
 

@@ -2,7 +2,7 @@ package com.gni.frmk.tools.addon.operation.strategy;
 
 import com.gni.frmk.tools.addon.configuration.ComponentConfiguration;
 import com.gni.frmk.tools.addon.configuration.Configuration;
-import com.gni.frmk.tools.addon.configuration.components.*;
+import com.gni.frmk.tools.addon.configuration.component.*;
 import com.gni.frmk.tools.addon.operation.visitor.ConfigurationVisitor;
 
 /**

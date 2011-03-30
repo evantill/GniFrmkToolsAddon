@@ -1,20 +1,20 @@
 package com.gni.frmk.tools.addon.operation.visitor;
 
-import com.gni.frmk.tools.addon.configuration.components.*;
-import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitorException;
+import com.gni.frmk.tools.addon.configuration.component.*;
+import com.gni.frmk.tools.addon.configuration.visitor.ComponentVisitorException;
 import com.gni.frmk.tools.addon.dispatcher.DispatchException;
-import com.gni.frmk.tools.addon.invoke.actions.wmart.EnableConnection;
-import com.gni.frmk.tools.addon.invoke.actions.wmart.EnableListener;
-import com.gni.frmk.tools.addon.invoke.actions.wmart.EnableNotification;
-import com.gni.frmk.tools.addon.invoke.actions.wmroot.EnablePortListener;
-import com.gni.frmk.tools.addon.invoke.actions.wmroot.SuspendTriggers;
-import com.gni.frmk.tools.addon.invoke.actions.wmroot.WakeUpUserTask;
+import com.gni.frmk.tools.addon.invoke.action.wmart.EnableConnection;
+import com.gni.frmk.tools.addon.invoke.action.wmart.EnableListener;
+import com.gni.frmk.tools.addon.invoke.action.wmart.EnableNotification;
+import com.gni.frmk.tools.addon.invoke.action.wmroot.EnablePortListener;
+import com.gni.frmk.tools.addon.invoke.action.wmroot.SuspendTriggers;
+import com.gni.frmk.tools.addon.invoke.action.wmroot.WakeUpUserTask;
 import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
-import com.gni.frmk.tools.addon.invoke.actions.wmjms.EnableJmsAlias;
-import com.gni.frmk.tools.addon.invoke.actions.wmjms.EnableJmsTriggers;
-import com.gni.frmk.tools.addon.invoke.actions.wmroot.EnablePackage;
+import com.gni.frmk.tools.addon.invoke.action.wmjms.EnableJmsAlias;
+import com.gni.frmk.tools.addon.invoke.action.wmjms.EnableJmsTriggers;
+import com.gni.frmk.tools.addon.invoke.action.wmroot.EnablePackage;
 
 /**
  * Created by IntelliJ IDEA.

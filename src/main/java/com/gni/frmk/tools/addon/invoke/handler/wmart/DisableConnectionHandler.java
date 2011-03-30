@@ -1,0 +1,41 @@
+package com.gni.frmk.tools.addon.invoke.handler.wmart;
+
+import com.gni.frmk.tools.addon.dispatcher.NoResult;
+import com.gni.frmk.tools.addon.invoke.action.wmart.DisableConnection;
+import com.gni.frmk.tools.addon.invoke.InvokeContext;
+import com.gni.frmk.tools.addon.invoke.handler.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.dispatcher.ActionHandler;
+import com.wm.data.*;
+
+/**
+ * Created by IntelliJ IDEA.
+ * Date: 16/03/11
+ * Time: 17:19
+ *
+ * @author: e03229
+ */
+public class DisableConnectionHandler extends AbstractInvokeHandler<DisableConnection, NoResult>
+        implements ActionHandler<DisableConnection, NoResult, InvokeContext> {
+
+    public DisableConnectionHandler() {
+        super("wm.art.admin.connection:disableConnection");
+    }
+
+    @Override
+    public Class<DisableConnection> getActionType() {
+        return DisableConnection.class;
+    }
+
+    @Override
+    protected NoResult parseOutput(DisableConnection action, IData output) {
+        return NoResult.newInstance();
+    }
+
+    @Override
+    protected IData prepareInput(DisableConnection in) {
+        return IDataFactory.create(new Object[][]{
+                {"connectionAlias",
+                 in.getParameter()}
+        });
+    }
+}

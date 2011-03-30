@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.operation.visitor;
 
-import com.gni.frmk.tools.addon.configuration.components.*;
+import com.gni.frmk.tools.addon.configuration.component.*;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;

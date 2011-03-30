@@ -1,20 +1,20 @@
 package com.gni.frmk.tools.addon.operation.visitor;
 
-import com.gni.frmk.tools.addon.configuration.components.ActivableState.ActivableStatus;
-import com.gni.frmk.tools.addon.configuration.components.*;
-import com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus;
-import com.gni.frmk.tools.addon.configuration.components.SchedulerState.SchedulerStatus;
+import com.gni.frmk.tools.addon.configuration.component.ActivableState.ActivableStatus;
+import com.gni.frmk.tools.addon.configuration.component.*;
+import com.gni.frmk.tools.addon.configuration.component.EnableState.EnableStatus;
+import com.gni.frmk.tools.addon.configuration.component.SchedulerState.SchedulerStatus;
 import com.gni.frmk.tools.addon.dispatcher.DispatchException;
-import com.gni.frmk.tools.addon.invoke.actions.wmjms.DisableJmsTriggers;
-import com.gni.frmk.tools.addon.invoke.actions.wmjms.*;
+import com.gni.frmk.tools.addon.invoke.action.wmjms.DisableJmsTriggers;
+import com.gni.frmk.tools.addon.invoke.action.wmjms.*;
 import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
-import com.gni.frmk.tools.addon.invoke.actions.wmjms.DisableJmsAlias;
-import com.gni.frmk.tools.addon.invoke.actions.wmart.*;
-import com.gni.frmk.tools.addon.invoke.actions.wmjms.EnableJmsTriggers;
-import com.gni.frmk.tools.addon.invoke.actions.wmjms.SuspendJmsTriggers;
-import com.gni.frmk.tools.addon.invoke.actions.wmroot.*;
+import com.gni.frmk.tools.addon.invoke.action.wmjms.DisableJmsAlias;
+import com.gni.frmk.tools.addon.invoke.action.wmart.*;
+import com.gni.frmk.tools.addon.invoke.action.wmjms.EnableJmsTriggers;
+import com.gni.frmk.tools.addon.invoke.action.wmjms.SuspendJmsTriggers;
+import com.gni.frmk.tools.addon.invoke.action.wmroot.*;
 
 /**
  * Created by IntelliJ IDEA.

@@ -5,7 +5,7 @@ import com.gni.frmk.tools.addon.dispatcher.ActionException;
 import com.gni.frmk.tools.addon.dispatcher.ActionHandler;
 import com.gni.frmk.tools.addon.dispatcher.ActionNotFoundException;
 import com.gni.frmk.tools.addon.dispatcher.Result;
-import com.gni.frmk.tools.addon.invoke.handlers.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.invoke.handler.AbstractInvokeHandler;
 import com.wm.data.*;
 import com.wm.lang.ns.NSName;
 import org.junit.Test;

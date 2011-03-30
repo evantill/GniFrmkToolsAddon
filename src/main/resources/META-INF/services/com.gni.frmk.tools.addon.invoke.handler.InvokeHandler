@@ -1,0 +1,36 @@
+#cd /cygdrive/e/jtb/workspaces/default/GniFrmkToolsAddon/src/main/java
+#find . -type f | grep  handler | awk 'BEGIN{FS="/"} {tmp = ""; for(i=2; i <= NF; i++) { tmp = tmp $i "."; } tmp=substr(tmp,1,length(tmp)-6); print tmp}'
+com.gni.frmk.tools.addon.invoke.handler.wmart.DisableConnectionHandler
+com.gni.frmk.tools.addon.invoke.handler.wmart.DisableListenerHandler
+com.gni.frmk.tools.addon.invoke.handler.wmart.DisableNotificationHandler
+com.gni.frmk.tools.addon.invoke.handler.wmart.EnableConnectionHandler
+com.gni.frmk.tools.addon.invoke.handler.wmart.EnableListenerHandler
+com.gni.frmk.tools.addon.invoke.handler.wmart.EnableNotificationHandler
+com.gni.frmk.tools.addon.invoke.handler.wmart.ListAdapterConnectionsHandler
+com.gni.frmk.tools.addon.invoke.handler.wmart.ListListenersHandler
+com.gni.frmk.tools.addon.invoke.handler.wmart.ListNotificationsHandler
+com.gni.frmk.tools.addon.invoke.handler.wmart.ResumeListenerHandler
+com.gni.frmk.tools.addon.invoke.handler.wmart.ResumeNotificationHandler
+com.gni.frmk.tools.addon.invoke.handler.wmart.RetrieveAdapterTypesListHandler
+com.gni.frmk.tools.addon.invoke.handler.wmart.SuspendListenerHandler
+com.gni.frmk.tools.addon.invoke.handler.wmart.SuspendNotificationHandler
+com.gni.frmk.tools.addon.invoke.handler.wmjms.DisableJmsAliasHandler
+com.gni.frmk.tools.addon.invoke.handler.wmjms.DisableJmsTriggersHandler
+com.gni.frmk.tools.addon.invoke.handler.wmjms.EnableJmsAliasHandler
+com.gni.frmk.tools.addon.invoke.handler.wmjms.EnableJmsTriggersHandler
+com.gni.frmk.tools.addon.invoke.handler.wmjms.GetJmsAliasReportHandler
+com.gni.frmk.tools.addon.invoke.handler.wmjms.GetJmsTriggerReportHandler
+com.gni.frmk.tools.addon.invoke.handler.wmjms.SuspendJmsTriggersHandler
+com.gni.frmk.tools.addon.invoke.handler.wmroot.DisablePackageHandler
+com.gni.frmk.tools.addon.invoke.handler.wmroot.DisablePortListenerHandler
+com.gni.frmk.tools.addon.invoke.handler.wmroot.EnablePackageHandler
+com.gni.frmk.tools.addon.invoke.handler.wmroot.EnablePortListenerHandler
+com.gni.frmk.tools.addon.invoke.handler.wmroot.GetAllServiceStatsHandler
+com.gni.frmk.tools.addon.invoke.handler.wmroot.GetNativeTriggerReportHandler
+com.gni.frmk.tools.addon.invoke.handler.wmroot.GetUserTaskListHandler
+com.gni.frmk.tools.addon.invoke.handler.wmroot.ListPortListenersHandler
+com.gni.frmk.tools.addon.invoke.handler.wmroot.PackageListHandler
+com.gni.frmk.tools.addon.invoke.handler.wmroot.SuspendTriggersHandler
+com.gni.frmk.tools.addon.invoke.handler.wmroot.SuspendUserTaskHandler
+com.gni.frmk.tools.addon.invoke.handler.wmroot.WaitServicesEndHandler
+com.gni.frmk.tools.addon.invoke.handler.wmroot.WakeUpUserTaskHandler

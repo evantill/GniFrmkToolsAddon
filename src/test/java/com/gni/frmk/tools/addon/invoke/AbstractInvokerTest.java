@@ -4,7 +4,7 @@ import com.gni.frmk.tools.addon.dispatcher.Action;
 import com.gni.frmk.tools.addon.dispatcher.ActionException;
 import com.gni.frmk.tools.addon.dispatcher.ActionHandler;
 import com.gni.frmk.tools.addon.dispatcher.Result;
-import com.gni.frmk.tools.addon.invoke.utils.PipelineTestUtils;
+import com.gni.frmk.tools.addon.invoke.util.PipelineTestUtils;
 
 /**
  * Created by IntelliJ IDEA.

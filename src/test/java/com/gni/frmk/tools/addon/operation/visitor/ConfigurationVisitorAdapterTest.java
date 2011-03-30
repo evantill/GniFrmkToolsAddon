@@ -1,9 +1,9 @@
 package com.gni.frmk.tools.addon.operation.visitor;
 
-import com.gni.frmk.tools.addon.configuration.components.AdapterConnection;
-import com.gni.frmk.tools.addon.configuration.components.AdapterListener;
-import com.gni.frmk.tools.addon.configuration.components.Component;
-import com.gni.frmk.tools.addon.configuration.components.Port;
+import com.gni.frmk.tools.addon.configuration.component.AdapterConnection;
+import com.gni.frmk.tools.addon.configuration.component.AdapterListener;
+import com.gni.frmk.tools.addon.configuration.component.Component;
+import com.gni.frmk.tools.addon.configuration.component.Port;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import org.junit.Test;

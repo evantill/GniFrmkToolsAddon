@@ -1,12 +1,12 @@
 package com.gni.frmk.tools.addon.configuration;
 
 import com.gni.frmk.tools.addon.configuration.Configuration.Builder;
-import com.gni.frmk.tools.addon.configuration.components.*;
-import com.gni.frmk.tools.addon.configuration.components.ActivableState.ActivableStatus;
-import com.gni.frmk.tools.addon.configuration.components.ConnectableState.ConnectableStatus;
-import com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus;
-import com.gni.frmk.tools.addon.configuration.components.SchedulerState.SchedulerStatus;
-import com.gni.frmk.tools.addon.configuration.components.TemporaryActivableState.TemporaryStatus;
+import com.gni.frmk.tools.addon.configuration.component.*;
+import com.gni.frmk.tools.addon.configuration.component.ActivableState.ActivableStatus;
+import com.gni.frmk.tools.addon.configuration.component.ConnectableState.ConnectableStatus;
+import com.gni.frmk.tools.addon.configuration.component.EnableState.EnableStatus;
+import com.gni.frmk.tools.addon.configuration.component.SchedulerState.SchedulerStatus;
+import com.gni.frmk.tools.addon.configuration.component.TemporaryActivableState.TemporaryStatus;
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
 import org.custommonkey.xmlunit.XMLUnit;
@@ -50,7 +50,7 @@ public class ConfigurationTest {
 
     private static final String DHMS_PATTERN = "yyyy-MM-dd HH:mm:ss.SSS";
     private static final String NOW_DHMS = "2011-03-03 19:00:23.828";
-    private static final String JAXB_PACKAGES = "com.gni.frmk.tools.addon.configuration:com.gni.frmk.tools.addon.configuration.components";
+    private static final String JAXB_PACKAGES = "com.gni.frmk.tools.addon.configuration:com.gni.frmk.tools.addon.configuration.component";
     private static String xmlSimple = loadXml("simple");
     private static String xmlFull = loadXml("full");
 

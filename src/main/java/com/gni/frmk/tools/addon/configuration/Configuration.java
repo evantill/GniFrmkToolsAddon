@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.configuration;
 
 import com.gni.frmk.tools.addon.configuration.builder.BuilderWithJsr303Validation;
-import com.gni.frmk.tools.addon.configuration.components.*;
+import com.gni.frmk.tools.addon.configuration.component.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;

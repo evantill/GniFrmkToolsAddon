@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.configuration;
 
 import com.gni.frmk.tools.addon.configuration.ComponentConfiguration.ComponentStateContext;
-import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentState;
+import com.gni.frmk.tools.addon.configuration.component.AbstractComponent.AbstractComponentState;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;

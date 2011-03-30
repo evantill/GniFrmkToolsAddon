@@ -1,11 +1,11 @@
 package com.gni.frmk.tools.addon.invoke;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
-import com.gni.frmk.tools.addon.configuration.components.JmsAlias;
-import com.gni.frmk.tools.addon.configuration.components.JmsTrigger;
+import com.gni.frmk.tools.addon.configuration.component.JmsAlias;
+import com.gni.frmk.tools.addon.configuration.component.JmsTrigger;
 import com.gni.frmk.tools.addon.dispatcher.ActionException;
-import com.gni.frmk.tools.addon.invoke.handlers.wmjms.*;
-import com.gni.frmk.tools.addon.invoke.actions.wmjms.*;
+import com.gni.frmk.tools.addon.invoke.handler.wmjms.*;
+import com.gni.frmk.tools.addon.invoke.action.wmjms.*;
 
 import java.util.List;
 

@@ -1,16 +1,16 @@
 package com.gni.frmk.tools.addon.invoke;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
-import com.gni.frmk.tools.addon.configuration.components.IntegrationServerPackage;
-import com.gni.frmk.tools.addon.configuration.components.NativeTrigger;
-import com.gni.frmk.tools.addon.configuration.components.Port;
-import com.gni.frmk.tools.addon.configuration.components.Scheduler;
+import com.gni.frmk.tools.addon.configuration.component.IntegrationServerPackage;
+import com.gni.frmk.tools.addon.configuration.component.NativeTrigger;
+import com.gni.frmk.tools.addon.configuration.component.Port;
+import com.gni.frmk.tools.addon.configuration.component.Scheduler;
 import com.gni.frmk.tools.addon.dispatcher.ActionException;
-import com.gni.frmk.tools.addon.invoke.actions.wmroot.GetAllServiceStats.Result;
-import com.gni.frmk.tools.addon.invoke.handlers.wmroot.GetAllServiceStatsHandler;
-import com.gni.frmk.tools.addon.invoke.handlers.wmroot.WaitServicesEndHandler;
-import com.gni.frmk.tools.addon.invoke.handlers.wmroot.PackageListHandler;
-import com.gni.frmk.tools.addon.invoke.actions.wmroot.*;
+import com.gni.frmk.tools.addon.invoke.action.wmroot.GetAllServiceStats.Result;
+import com.gni.frmk.tools.addon.invoke.handler.wmroot.GetAllServiceStatsHandler;
+import com.gni.frmk.tools.addon.invoke.handler.wmroot.WaitServicesEndHandler;
+import com.gni.frmk.tools.addon.invoke.handler.wmroot.PackageListHandler;
+import com.gni.frmk.tools.addon.invoke.action.wmroot.*;
 
 import java.util.List;
 import java.util.Set;

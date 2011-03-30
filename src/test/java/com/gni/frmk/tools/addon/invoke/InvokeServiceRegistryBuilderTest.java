@@ -3,9 +3,9 @@ package com.gni.frmk.tools.addon.invoke;
 import com.gni.frmk.tools.addon.dispatcher.Action;
 import com.gni.frmk.tools.addon.dispatcher.ActionHandler;
 import com.gni.frmk.tools.addon.dispatcher.NoResult;
-import com.gni.frmk.tools.addon.invoke.actions.wmart.DisableConnection;
-import com.gni.frmk.tools.addon.invoke.handlers.InvokeHandler;
-import com.gni.frmk.tools.addon.invoke.handlers.wmart.DisableConnectionHandler;
+import com.gni.frmk.tools.addon.invoke.action.wmart.DisableConnection;
+import com.gni.frmk.tools.addon.invoke.handler.InvokeHandler;
+import com.gni.frmk.tools.addon.invoke.handler.wmart.DisableConnectionHandler;
 import com.wm.lang.ns.NSName;
 import org.junit.Test;
 

@@ -1,10 +1,10 @@
 package com.gni.frmk.tools.addon.invoke.wmroot;
 
-import com.gni.frmk.tools.addon.configuration.components.IntegrationServerPackage;
+import com.gni.frmk.tools.addon.configuration.component.IntegrationServerPackage;
 import com.gni.frmk.tools.addon.dispatcher.ActionException;
 import com.gni.frmk.tools.addon.dispatcher.ActionHandler;
-import com.gni.frmk.tools.addon.invoke.actions.wmroot.PackageList;
-import com.gni.frmk.tools.addon.invoke.handlers.wmroot.PackageListHandler;
+import com.gni.frmk.tools.addon.invoke.action.wmroot.PackageList;
+import com.gni.frmk.tools.addon.invoke.handler.wmroot.PackageListHandler;
 import com.gni.frmk.tools.addon.dispatcher.SetResult;
 import com.gni.frmk.tools.addon.invoke.AbstractInvokerTest;
 import com.gni.frmk.tools.addon.invoke.InvokeContext;

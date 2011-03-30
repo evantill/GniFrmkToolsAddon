@@ -4,14 +4,14 @@ import com.gni.frmk.tools.addon.configuration.ComponentConfiguration;
 import com.gni.frmk.tools.addon.configuration.ComponentConfiguration.ComponentStateContext;
 import com.gni.frmk.tools.addon.configuration.Configuration;
 import com.gni.frmk.tools.addon.configuration.Configuration.Builder;
-import com.gni.frmk.tools.addon.configuration.components.*;
-import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentState;
+import com.gni.frmk.tools.addon.configuration.component.*;
+import com.gni.frmk.tools.addon.configuration.component.AbstractComponent.AbstractComponentState;
 
-import static com.gni.frmk.tools.addon.configuration.components.ActivableState.ActivableStatus.ACTIVE;
-import static com.gni.frmk.tools.addon.configuration.components.ConnectableState.ConnectableStatus.CONNECTED;
-import static com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus.ENABLED;
-import static com.gni.frmk.tools.addon.configuration.components.SchedulerState.SchedulerStatus.UNEXPIRED;
-import static com.gni.frmk.tools.addon.configuration.components.TemporaryActivableState.TemporaryStatus.PERMANENT;
+import static com.gni.frmk.tools.addon.configuration.component.ActivableState.ActivableStatus.ACTIVE;
+import static com.gni.frmk.tools.addon.configuration.component.ConnectableState.ConnectableStatus.CONNECTED;
+import static com.gni.frmk.tools.addon.configuration.component.EnableState.EnableStatus.ENABLED;
+import static com.gni.frmk.tools.addon.configuration.component.SchedulerState.SchedulerStatus.UNEXPIRED;
+import static com.gni.frmk.tools.addon.configuration.component.TemporaryActivableState.TemporaryStatus.PERMANENT;
 
 /**
  * Created by IntelliJ IDEA.

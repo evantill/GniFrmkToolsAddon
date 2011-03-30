@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.operation.visitor;
 
-import com.gni.frmk.tools.addon.configuration.components.Component;
-import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitorException;
+import com.gni.frmk.tools.addon.configuration.component.Component;
+import com.gni.frmk.tools.addon.configuration.visitor.ComponentVisitorException;
 
 /**
  * Created by IntelliJ IDEA.

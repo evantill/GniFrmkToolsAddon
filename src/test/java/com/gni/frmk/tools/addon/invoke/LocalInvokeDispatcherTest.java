@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.invoke;
 
 import com.gni.frmk.tools.addon.dispatcher.NoResult;
-import com.gni.frmk.tools.addon.invoke.actions.wmart.DisableConnection;
+import com.gni.frmk.tools.addon.invoke.action.wmart.DisableConnection;
 import com.wm.data.*;
 import com.wm.lang.ns.NSName;
 import org.junit.Test;

@@ -2,16 +2,15 @@ package com.gni.frmk.tools.addon.configuration;
 
 import com.gni.frmk.tools.addon.configuration.ComponentConfigurationAdapters.ComponentStatesAdapter;
 import com.gni.frmk.tools.addon.configuration.builder.BuilderWithJsr303Validation;
-import com.gni.frmk.tools.addon.configuration.components.AbstractComponent;
-import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentState;
-import com.gni.frmk.tools.addon.configuration.components.AdapterConnection;
-import com.gni.frmk.tools.addon.configuration.components.EnableState;
-import com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus;
+import com.gni.frmk.tools.addon.configuration.component.AbstractComponent;
+import com.gni.frmk.tools.addon.configuration.component.AbstractComponent.AbstractComponentState;
+import com.gni.frmk.tools.addon.configuration.component.AdapterConnection;
+import com.gni.frmk.tools.addon.configuration.component.EnableState;
+import com.gni.frmk.tools.addon.configuration.component.EnableState.EnableStatus;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElementRef;
-import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.Map;

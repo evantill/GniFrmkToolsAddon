@@ -2,15 +2,15 @@ package com.gni.frmk.tools.addon.operation.visitor;
 
 import com.gni.frmk.tools.addon.configuration.Configuration;
 import com.gni.frmk.tools.addon.configuration.Configuration.Builder;
-import com.gni.frmk.tools.addon.configuration.components.*;
-import com.gni.frmk.tools.addon.configuration.components.NativeTriggerState;
-import com.gni.frmk.tools.addon.configuration.components.SchedulerState;
+import com.gni.frmk.tools.addon.configuration.component.*;
+import com.gni.frmk.tools.addon.configuration.component.NativeTriggerState;
+import com.gni.frmk.tools.addon.configuration.component.SchedulerState;
 
-import static com.gni.frmk.tools.addon.configuration.components.ActivableState.ActivableStatus.INACTIVE;
-import static com.gni.frmk.tools.addon.configuration.components.ConnectableState.ConnectableStatus.DISCONNECTED;
-import static com.gni.frmk.tools.addon.configuration.components.EnableState.EnableStatus.DISABLED;
-import static com.gni.frmk.tools.addon.configuration.components.SchedulerState.SchedulerStatus.EXPIRED;
-import static com.gni.frmk.tools.addon.configuration.components.TemporaryActivableState.TemporaryStatus.PERMANENT;
+import static com.gni.frmk.tools.addon.configuration.component.ActivableState.ActivableStatus.INACTIVE;
+import static com.gni.frmk.tools.addon.configuration.component.ConnectableState.ConnectableStatus.DISCONNECTED;
+import static com.gni.frmk.tools.addon.configuration.component.EnableState.EnableStatus.DISABLED;
+import static com.gni.frmk.tools.addon.configuration.component.SchedulerState.SchedulerStatus.EXPIRED;
+import static com.gni.frmk.tools.addon.configuration.component.TemporaryActivableState.TemporaryStatus.PERMANENT;
 
 
 /**

@@ -4,11 +4,9 @@ import com.gni.frmk.tools.addon.IntegrationServerUtil;
 import com.gni.frmk.tools.addon.invoke.WmRootInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
 import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
-import com.gni.frmk.tools.addon.invoke.utils.PipelineTestUtils;
+import com.gni.frmk.tools.addon.invoke.util.PipelineTestUtils;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
 
 import java.util.Set;
 

@@ -1,15 +1,9 @@
 package com.gni.frmk.tools.addon.operation.visitor;
 
 import com.gni.frmk.tools.addon.configuration.ComponentConfiguration;
-import com.gni.frmk.tools.addon.configuration.Configuration;
-import com.gni.frmk.tools.addon.configuration.components.*;
-import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentState;
-import com.gni.frmk.tools.addon.configuration.visitors.ComponentVisitor;
-
-import javax.validation.Valid;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import java.util.List;
+import com.gni.frmk.tools.addon.configuration.component.*;
+import com.gni.frmk.tools.addon.configuration.component.AbstractComponent.AbstractComponentState;
+import com.gni.frmk.tools.addon.configuration.visitor.ComponentVisitor;
 
 /**
  * Created by IntelliJ IDEA.

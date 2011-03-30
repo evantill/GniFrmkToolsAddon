@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.invoke;
 
-import com.gni.frmk.tools.addon.invoke.handlers.InvokeHandler;
+import com.gni.frmk.tools.addon.invoke.handler.InvokeHandler;
 import com.google.common.collect.Maps;
 
 import java.io.BufferedReader;
