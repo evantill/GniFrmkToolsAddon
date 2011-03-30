@@ -1,12 +1,8 @@
 package com.gni.frmk.tools.addon.operation.strategy;
 
+import com.gni.frmk.tools.addon.configuration.ComponentConfiguration;
 import com.gni.frmk.tools.addon.configuration.Configuration;
-import com.gni.frmk.tools.addon.configuration.components.AdapterListener;
-import com.gni.frmk.tools.addon.configuration.components.AdapterNotification;
-import com.gni.frmk.tools.addon.configuration.components.JmsTrigger;
-import com.gni.frmk.tools.addon.configuration.components.NativeTrigger;
-import com.gni.frmk.tools.addon.configuration.components.Port;
-import com.gni.frmk.tools.addon.configuration.components.Scheduler;
+import com.gni.frmk.tools.addon.configuration.components.*;
 import com.gni.frmk.tools.addon.operation.visitor.ConfigurationVisitor;
 
 /**
@@ -26,23 +22,23 @@ public class CloseInputStrategy implements ConfigurationVisitorStrategy {
 
     public void execute(Configuration cnf) {
         visitor.clear();
-        for (Port element : cnf.getPorts()) {
-            element.accept(visitor);
+        for (ComponentConfiguration<Port, ActivableState> element : cnf.getPortConfigurations()) {
+            element.getComponent().accept(visitor);
         }
-        for (Scheduler element : cnf.getSchedulers()) {
-            element.accept(visitor);
+        for (ComponentConfiguration<Scheduler, SchedulerState> element : cnf.getSchedulerConfigurations()) {
+            element.getComponent().accept(visitor);
         }
-        for (JmsTrigger element : cnf.getJmsTriggers()) {
-            element.accept(visitor);
+        for (ComponentConfiguration<JmsTrigger, ActivableState> element : cnf.getJmsTriggerConfigurations()) {
+           element.getComponent().accept(visitor);
         }
-        for (NativeTrigger element : cnf.getNativeTriggers()) {
-            element.accept(visitor);
+        for (ComponentConfiguration<NativeTrigger, NativeTriggerState> element : cnf.getNativeTriggerConfigurations()) {
+           element.getComponent().accept(visitor);
         }
-        for (AdapterNotification element : cnf.getAdapterNotifications()) {
-            element.accept(visitor);
+        for (ComponentConfiguration<AdapterNotification, ActivableState> element : cnf.getAdapterNotificationConfigurations()) {
+           element.getComponent().accept(visitor);
         }
-        for (AdapterListener element : cnf.getAdapterListeners()) {
-            element.accept(visitor);
+        for (ComponentConfiguration<AdapterListener, ActivableState> element : cnf.getAdapterListenerConfigurations()) {
+            element.getComponent().accept(visitor);
         }
     }
 }

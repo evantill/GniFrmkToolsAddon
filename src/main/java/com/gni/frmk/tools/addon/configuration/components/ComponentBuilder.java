@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
-import com.gni.frmk.tools.addon.configuration.BuilderWithValidation;
+import com.gni.frmk.tools.addon.configuration.builder.BuilderWithValidation;
 
 /**
  * Created by IntelliJ IDEA.

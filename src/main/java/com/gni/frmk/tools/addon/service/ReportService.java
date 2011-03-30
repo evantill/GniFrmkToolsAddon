@@ -86,18 +86,19 @@ public class ReportService {
     }
 
     public Configuration reportCurrentConfiguration(final String name) throws InvokeException, ActionException {
-        return Configuration.builder()
-                            .create(name, new Date())
-                            .addPackages(reportPackages())
-                            .addAdapterConnections(reportAdapterConnectionList())
-                            .addAdapterListeners(reportAdapterListenerList())
-                            .addAdapterNotifications(reportAdapterNotificationList())
-                            .addJmsTriggers(reportJmsTriggerList())
-                            .addJmsAliasConnections(reportJmsAliasList())
-                            .addNativeTriggers(reportNativeTriggerList())
-                            .addPorts(reportPortList())
-                            .addSchedulers(reportSchedulerList())
-                            .build();
+//        return Configuration.builder()
+//                            .create(name, new Date())
+//                            .addPackages(reportPackages())
+//                            .addAdapterConnections(reportAdapterConnectionList())
+//                            .addAdapterListeners(reportAdapterListenerList())
+//                            .addAdapterNotifications(reportAdapterNotificationList())
+//                            .addJmsTriggers(reportJmsTriggerList())
+//                            .addJmsAliasConnections(reportJmsAliasList())
+//                            .addNativeTriggers(reportNativeTriggerList())
+//                            .addPorts(reportPortList())
+//                            .addSchedulers(reportSchedulerList())
+//                            .build();
+        return null;
     }
 
     private Set<String> listAdapterTypes() throws InvokeException, ActionException {

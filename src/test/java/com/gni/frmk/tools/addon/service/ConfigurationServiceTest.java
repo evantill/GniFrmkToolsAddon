@@ -14,7 +14,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -76,18 +75,18 @@ public class ConfigurationServiceTest {
         ConfigurationService srv = new ConfigurationService(utils);
         Configuration cnf = srv.loadConfiguration(LOAD_CONFIGURATION_NAME);
         assertNotNull(cnf);
-        assertEquals(4, cnf.getNativeTriggers().size());
+        assertEquals(4, cnf.getNativeTriggerConfigurations().size());
     }
 
     @Test
     public void testSaveConfiguration()  {
         int indx = 0;
         ConfigurationService srv = new ConfigurationService(utils);
-        Configuration cnf = Configuration.builder()
-                                         .create("testSaveConfiguration", new Date())
-                                         .addAdapterConnection(createAdapterConnection(++indx))
-                                         .addAdapterConnection(createAdapterConnection(++indx))
-                                         .build();
+//        Configuration cnf = Configuration.builder()
+//                                         .create("testSaveConfiguration", new Date())
+//                                         .addAdapterConnection(createAdapterConnection(++indx))
+//                                         .addAdapterConnection(createAdapterConnection(++indx))
+//                                         .build();
 //        cnf.getAdapterListenerList().add(createListenerConnection(++indx));
 //        cnf.getAdapterListenerList().add(createListenerConnection(++indx));
 //        cnf.getAdapterNotificationList().add(createNotificationConnection(++indx));
@@ -106,7 +105,7 @@ public class ConfigurationServiceTest {
 //        cnf.getNativeTriggerList().add(createNativeTrigger(++indx));
 //        cnf.getJmsAliasList().add(createJmsAlias(++indx));
 //        cnf.getJmsAliasList().add(createJmsAlias(++indx));
-        srv.saveConfiguration(cnf);
+//        srv.saveConfiguration(cnf);
     }
 
 //    private JmsAlias createJmsAlias(int indx) {

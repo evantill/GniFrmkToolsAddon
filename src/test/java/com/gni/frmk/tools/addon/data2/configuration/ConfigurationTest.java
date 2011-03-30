@@ -9,7 +9,6 @@ import org.junit.Test;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.*;
 
@@ -84,7 +83,7 @@ public class ConfigurationTest {
         FileReader in = new FileReader(loadConfigurationFile);
         Configuration configuration = (Configuration) unmarshaller.unmarshal(in);
         assertNotNull(configuration);
-        assertEquals(4, configuration.getNativeTriggers().size());
+        assertEquals(4, configuration.getNativeTriggerConfigurations().size());
     }
 
 //    @Test

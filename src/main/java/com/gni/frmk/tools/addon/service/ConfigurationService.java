@@ -93,15 +93,15 @@ public class ConfigurationService {
 
     public Configuration closeAllConfiguration(Configuration cnf) {
         DisableStatusVisitor visitor = new DisableStatusVisitor();
-        ParseStrategy strategy = new ParseStrategy(visitor);
-        strategy.execute(cnf);
+//        ParseStrategy strategy = new ParseStrategy(visitor);
+//        strategy.execute(cnf);
         return cnf;
     }
 
     public Configuration openAllConfiguration(Configuration cnf) {
-        EnableStatusVisitor visitor = new EnableStatusVisitor();
-        ParseStrategy strategy = new ParseStrategy(visitor);
-        strategy.execute(cnf);
+//        EnableStatusVisitor visitor = new EnableStatusVisitor();
+//        ParseStrategy strategy = new ParseStrategy(visitor);
+//        strategy.execute(cnf);
         return cnf;
     }
 }

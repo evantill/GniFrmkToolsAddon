@@ -20,7 +20,7 @@ import static com.gni.frmk.tools.addon.configuration.components.TemporaryActivab
  * Time: 11:55
  * To change this template use File | Settings | File Templates.
  */
-public class DisableStatusVisitor implements UpdateConfigurationVisitor {
+public class DisableStatusVisitor /*implements UpdateConfigurationVisitor*/ {
 
     Builder builder = Configuration.builder();
 
@@ -29,7 +29,7 @@ public class DisableStatusVisitor implements UpdateConfigurationVisitor {
                                                      .from(visited)
                                                      .defineState(new EnableState(DISABLED))
                                                      .build();
-        builder.addAdapterConnection(changed);
+//        builder.addAdapterConnection(changed);
     }
 
     public void visit(AdapterListener visited) {
@@ -37,7 +37,7 @@ public class DisableStatusVisitor implements UpdateConfigurationVisitor {
                                                  .from(visited)
                                                  .defineState(new ActivableState(DISABLED, INACTIVE))
                                                  .build();
-        builder.addAdapterListener(changed);
+//        builder.addAdapterListener(changed);
     }
 
     public void visit(AdapterNotification visited) {
@@ -45,7 +45,7 @@ public class DisableStatusVisitor implements UpdateConfigurationVisitor {
                                                          .from(visited)
                                                          .defineState(new ActivableState(DISABLED, INACTIVE))
                                                          .build();
-        builder.addAdapterNotification(changed);
+//        builder.addAdapterNotification(changed);
     }
 
     public void visit(Port visited) {
@@ -53,7 +53,7 @@ public class DisableStatusVisitor implements UpdateConfigurationVisitor {
                            .from(visited)
                            .defineState(new ActivableState(DISABLED, INACTIVE))
                            .build();
-        builder.addPort(changed);
+//        builder.addPort(changed);
     }
 
     public void visit(Scheduler visited) {
@@ -61,7 +61,7 @@ public class DisableStatusVisitor implements UpdateConfigurationVisitor {
                                      .from(visited)
                                      .defineState(new SchedulerState(DISABLED, EXPIRED))
                                      .build();
-        builder.addScheduler(changed);
+//        builder.addScheduler(changed);
     }
 
     public void visit(JmsAlias visited) {
@@ -69,7 +69,7 @@ public class DisableStatusVisitor implements UpdateConfigurationVisitor {
                                    .from(visited)
                                    .defineState(new ConnectableState(DISABLED, DISCONNECTED))
                                    .build();
-        builder.addJmsAliasConnection(changed);
+//        builder.addJmsAliasConnection(changed);
     }
 
     public void visit(JmsTrigger visited) {
@@ -77,7 +77,7 @@ public class DisableStatusVisitor implements UpdateConfigurationVisitor {
                                        .from(visited)
                                        .defineState(new ActivableState(DISABLED, INACTIVE))
                                        .build();
-        builder.addJmsTrigger(changed);
+//        builder.addJmsTrigger(changed);
     }
 
     public void visit(NativeTrigger visited) {
@@ -90,16 +90,16 @@ public class DisableStatusVisitor implements UpdateConfigurationVisitor {
                                              .from(visited)
                                              .defineState(changedState)
                                              .build();
-        builder.addNativeTrigger(changed);
+//        builder.addNativeTrigger(changed);
     }
 
-    @Override
+    //@Override
     public void visit(IntegrationServerPackage visited) {
         IntegrationServerPackage changedState = IntegrationServerPackage.builder()
                                                                         .from(visited)
                                                                         .defineState(new EnableState(DISABLED))
                                                                         .build();
-        builder.addPackage(changedState);
+//        builder.addPackage(changedState);
     }
 
     public void clear() {

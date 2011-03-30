@@ -1,8 +1,11 @@
 package com.gni.frmk.tools.addon.operation.visitor;
 
+import com.gni.frmk.tools.addon.configuration.ComponentConfiguration;
+import com.gni.frmk.tools.addon.configuration.ComponentConfiguration.ComponentStateContext;
 import com.gni.frmk.tools.addon.configuration.Configuration;
 import com.gni.frmk.tools.addon.configuration.Configuration.Builder;
 import com.gni.frmk.tools.addon.configuration.components.*;
+import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentState;
 
 import static com.gni.frmk.tools.addon.configuration.components.ActivableState.ActivableStatus.ACTIVE;
 import static com.gni.frmk.tools.addon.configuration.components.ConnectableState.ConnectableStatus.CONNECTED;
@@ -17,16 +20,21 @@ import static com.gni.frmk.tools.addon.configuration.components.TemporaryActivab
  * Time: 11:42
  * To change this template use File | Settings | File Templates.
  */
-public class EnableStatusVisitor implements UpdateConfigurationVisitor {
+public class EnableStatusVisitor /*implements UpdateConfigurationVisitor*/ {
 
     Builder builder = Configuration.builder();
+
+//    @Override
+    public <C extends AbstractComponent<?, S>, S extends AbstractComponentState> void visitComponentConfiguration(ComponentConfiguration<C, S> visited) {
+        visited.getComponent().setState(visited.getStates().get(ComponentStateContext.OPEN));
+    }
 
     public void visit(AdapterConnection visited) {
         AdapterConnection changed = AdapterConnection.builder()
                                                      .from(visited)
                                                      .defineState(new EnableState(ENABLED))
                                                      .build();
-        builder.addAdapterConnection(changed);
+//        builder.addAdapterConnection(changed);
     }
 
     public void visit(AdapterListener visited) {
@@ -34,7 +42,7 @@ public class EnableStatusVisitor implements UpdateConfigurationVisitor {
                                                  .from(visited)
                                                  .defineState(new ActivableState(ENABLED, ACTIVE))
                                                  .build();
-        builder.addAdapterListener(changed);
+//        builder.addAdapterListener(changed);
     }
 
     public void visit(AdapterNotification visited) {
@@ -42,7 +50,7 @@ public class EnableStatusVisitor implements UpdateConfigurationVisitor {
                                                          .from(visited)
                                                          .defineState(new ActivableState(ENABLED, ACTIVE))
                                                          .build();
-        builder.addAdapterNotification(changed);
+//        builder.addAdapterNotification(changed);
     }
 
     public void visit(Port visited) {
@@ -50,7 +58,7 @@ public class EnableStatusVisitor implements UpdateConfigurationVisitor {
                            .from(visited)
                            .defineState(new ActivableState(ENABLED, ACTIVE))
                            .build();
-        builder.addPort(changed);
+//        builder.addPort(changed);
     }
 
     public void visit(Scheduler visited) {
@@ -58,7 +66,7 @@ public class EnableStatusVisitor implements UpdateConfigurationVisitor {
                                      .from(visited)
                                      .defineState(new SchedulerState(ENABLED, UNEXPIRED))
                                      .build();
-        builder.addScheduler(changed);
+//        builder.addScheduler(changed);
     }
 
     public void visit(JmsAlias visited) {
@@ -66,7 +74,7 @@ public class EnableStatusVisitor implements UpdateConfigurationVisitor {
                                    .from(visited)
                                    .defineState(new ConnectableState(ENABLED, CONNECTED))
                                    .build();
-        builder.addJmsAliasConnection(changed);
+//        builder.addJmsAliasConnection(changed);
     }
 
     public void visit(JmsTrigger visited) {
@@ -74,7 +82,7 @@ public class EnableStatusVisitor implements UpdateConfigurationVisitor {
                                        .from(visited)
                                        .defineState(new ActivableState(ENABLED, ACTIVE))
                                        .build();
-        builder.addJmsTrigger(changed);
+//        builder.addJmsTrigger(changed);
     }
 
     public void visit(NativeTrigger visited) {
@@ -87,16 +95,16 @@ public class EnableStatusVisitor implements UpdateConfigurationVisitor {
                                              .from(visited)
                                              .defineState(changedState)
                                              .build();
-        builder.addNativeTrigger(changed);
+//        builder.addNativeTrigger(changed);
     }
 
-    @Override
+//    @Override
     public void visit(IntegrationServerPackage visited) {
         IntegrationServerPackage changedState = IntegrationServerPackage.builder()
                                                                         .from(visited)
                                                                         .defineState(new EnableState(ENABLED))
                                                                         .build();
-        builder.addPackage(changedState);
+//        builder.addPackage(changedState);
     }
 
     public void clear() {

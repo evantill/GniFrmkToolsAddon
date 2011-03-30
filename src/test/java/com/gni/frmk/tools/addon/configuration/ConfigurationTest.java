@@ -64,10 +64,11 @@ public class ConfigurationTest {
         index = 0;
     }
 
-    @BeforeClass
-    public static void xmlUnitConfiguration() {
+    @Before
+    public void xmlUnitConfiguration() {
         XMLUnit.setIgnoreAttributeOrder(true);
         XMLUnit.setIgnoreWhitespace(true);
+        XMLUnit.setIgnoreAttributeOrder(true);
     }
 
     @BeforeClass
@@ -90,13 +91,21 @@ public class ConfigurationTest {
                                                  .packageName("packageName")
                                                  .defineState(new EnableState(EnableStatus.ENABLED))
                                                  .build();
-        Configuration cnf = Configuration.builder().create("name", now()).addAdapterConnection(cnx).build();
+        ComponentConfiguration<AdapterConnection, EnableState> cnxConf = ComponentConfiguration.builder(AdapterConnection.class)
+                                                                                               .defineComponent(cnx)
+                                                                                               .defineOpenState(new EnableState(EnableStatus.ENABLED))
+                                                                                               .defineCloseState(new EnableState(EnableStatus.DISABLED))
+                                                                                               .build();
+        Configuration cnf = Configuration.builder()
+                                         .create("name", now())
+                                         .addAdapterConnection(cnxConf)
+                                         .build();
     }
 
     @Test
     public void testSimpleMarshall() throws JAXBException, IOException, SAXException {
         Configuration cnf = newSimpleConfiguration();
-        String out = marshal(cnf, false);
+        String out = marshal(cnf, true);
         assertXMLEqual(xmlSimple, out);
     }
 
@@ -107,13 +116,13 @@ public class ConfigurationTest {
         Configuration cnf = unmarshall(xml);
         raiseExceptionIfInvalid(cnf);
         assertNotNull(cnf);
-        assertEquals(1, cnf.getAdapterConnections().size());
+        assertEquals(1, cnf.getAdapterConnectionConfigurations().size());
     }
 
     @Test
     public void testFullMarshall() throws JAXBException, IOException, SAXException {
         Configuration cnf = newFullConfiguration();
-        String out = marshal(cnf, false);
+        String out = marshal(cnf, true);
         assertXMLEqual(xmlFull, out);
     }
 
@@ -124,9 +133,8 @@ public class ConfigurationTest {
         Configuration cnf = unmarshall(xml);
         raiseExceptionIfInvalid(cnf);
         assertNotNull(cnf);
-        assertEquals(10, cnf.getAdapterConnections().size());
+        assertEquals(10, cnf.getAdapterConnectionConfigurations().size());
     }
-
 
     private Date now() {
         try {
@@ -172,41 +180,124 @@ public class ConfigurationTest {
 
     private Configuration newSimpleConfiguration() {
         Builder builder = Configuration.builder().create("configuration_test_simple", now());
-        builder.addAdapterConnection(newAdapterConnection());
+        builder.addAdapterConnection(newAdapterConnectionConfiguration());
         return builder.build();
     }
 
     private Configuration newFullConfiguration() {
         Builder builder = Configuration.builder().create("configuration_test_full", now());
         for (int i = 0; i < 10; i++) {
-            builder.addAdapterConnection(newAdapterConnection());
+            builder.addAdapterConnection(newAdapterConnectionConfiguration());
         }
         for (int i = 0; i < 10; i++) {
-            builder.addAdapterListener(newAdapterListener());
+            builder.addAdapterListener(newAdapterListenerConfiguration());
         }
         for (int i = 0; i < 10; i++) {
-            builder.addAdapterNotification(newAdapterNotification());
+            builder.addAdapterNotification(newAdapterNotificationConfiguration());
         }
         for (int i = 0; i < 10; i++) {
-            builder.addJmsAliasConnection(newJmsAlias());
+            builder.addJmsAliasConnection(newJmsAliasConfiguration());
         }
         for (int i = 0; i < 10; i++) {
-            builder.addJmsTrigger(newJmsTrigger());
+            builder.addJmsTrigger(newJmsTriggerConfiguration());
         }
         for (int i = 0; i < 10; i++) {
-            builder.addNativeTrigger(newNativeTrigger());
+            builder.addNativeTrigger(newNativeTriggerConfiguration());
         }
         for (int i = 0; i < 10; i++) {
-            builder.addPackage(newPackage());
+            builder.addPackage(newPackageConfiguration());
         }
         for (int i = 0; i < 10; i++) {
-            builder.addPort(newPort());
+            builder.addPort(newPortConfiguration());
         }
         for (int i = 0; i < 10; i++) {
-            builder.addScheduler(newScheduler());
+            builder.addScheduler(newSchedulerConfiguration());
         }
         return builder.build();
     }
+
+    private ComponentConfiguration<Scheduler, SchedulerState> newSchedulerConfiguration() {
+        return ComponentConfiguration.builder(Scheduler.class)
+                                     .defineComponent(newScheduler())
+                                     .defineOpenState(new SchedulerState(EnableStatus.ENABLED, SchedulerStatus.UNEXPIRED))
+                                     .defineCloseState(new SchedulerState(EnableStatus.DISABLED, SchedulerStatus.EXPIRED))
+                                     .build();
+    }
+
+    private ComponentConfiguration<Port, ActivableState> newPortConfiguration() {
+        return ComponentConfiguration.builder(Port.class)
+                                     .defineComponent(newPort())
+                                     .defineOpenState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE))
+                                     .defineCloseState(new ActivableState(EnableStatus.DISABLED, ActivableStatus.INACTIVE))
+                                     .build();
+    }
+
+    private ComponentConfiguration<NativeTrigger, NativeTriggerState> newNativeTriggerConfiguration() {
+        NativeTriggerState openState = NativeTriggerState.builder()
+                                                         .defineEnable(EnableStatus.ENABLED)
+                                                         .defineProcessing(TemporaryStatus.PERMANENT, ActivableStatus.ACTIVE)
+                                                         .defineRetrieval(TemporaryStatus.PERMANENT, ActivableStatus.ACTIVE)
+                                                         .build();
+        NativeTriggerState closeState = NativeTriggerState.builder()
+                                                          .defineEnable(EnableStatus.DISABLED)
+                                                          .defineProcessing(TemporaryStatus.PERMANENT, ActivableStatus.INACTIVE)
+                                                          .defineRetrieval(TemporaryStatus.PERMANENT, ActivableStatus.INACTIVE)
+                                                          .build();
+        return ComponentConfiguration.builder(NativeTrigger.class)
+                                     .defineComponent(newNativeTrigger())
+                                     .defineOpenState(openState)
+                                     .defineCloseState(closeState)
+                                     .build();
+    }
+
+    private ComponentConfiguration<IntegrationServerPackage, EnableState> newPackageConfiguration() {
+        return ComponentConfiguration.builder(IntegrationServerPackage.class)
+                                     .defineComponent(newIntegrationServerPackage())
+                                     .defineOpenState(new EnableState(EnableStatus.ENABLED))
+                                     .defineCloseState(new EnableState(EnableStatus.DISABLED))
+                                     .build();
+    }
+
+    private ComponentConfiguration<JmsTrigger, ActivableState> newJmsTriggerConfiguration() {
+        return ComponentConfiguration.builder(JmsTrigger.class)
+                                     .defineComponent(newJmsTrigger())
+                                     .defineOpenState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE))
+                                     .defineCloseState(new ActivableState(EnableStatus.DISABLED, ActivableStatus.INACTIVE))
+                                     .build();
+    }
+
+    private ComponentConfiguration<JmsAlias, ConnectableState> newJmsAliasConfiguration() {
+        return ComponentConfiguration.builder(JmsAlias.class)
+                                     .defineComponent(newJmsAlias())
+                                     .defineOpenState(new ConnectableState(EnableStatus.ENABLED, ConnectableStatus.CONNECTED))
+                                     .defineCloseState(new ConnectableState(EnableStatus.DISABLED, ConnectableStatus.DISCONNECTED))
+                                     .build();
+    }
+
+    private ComponentConfiguration<AdapterNotification, ActivableState> newAdapterNotificationConfiguration() {
+        return ComponentConfiguration.builder(AdapterNotification.class)
+                                     .defineComponent(newAdapterNotification())
+                                     .defineOpenState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE))
+                                     .defineCloseState(new ActivableState(EnableStatus.DISABLED, ActivableStatus.INACTIVE))
+                                     .build();
+    }
+
+    private ComponentConfiguration<AdapterListener, ActivableState> newAdapterListenerConfiguration() {
+        return ComponentConfiguration.builder(AdapterListener.class)
+                                     .defineComponent(newAdapterListener())
+                                     .defineOpenState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE))
+                                     .defineCloseState(new ActivableState(EnableStatus.DISABLED, ActivableStatus.INACTIVE))
+                                     .build();
+    }
+
+    private ComponentConfiguration<AdapterConnection, EnableState> newAdapterConnectionConfiguration() {
+        return ComponentConfiguration.builder(AdapterConnection.class)
+                                     .defineComponent(newAdapterConnection())
+                                     .defineOpenState(new EnableState(EnableStatus.ENABLED))
+                                     .defineCloseState(new EnableState(EnableStatus.DISABLED))
+                                     .build();
+    }
+
 
     private Scheduler newScheduler() {
         index++;
@@ -231,7 +322,7 @@ public class ConfigurationTest {
                    .build();
     }
 
-    private IntegrationServerPackage newPackage() {
+    private IntegrationServerPackage newIntegrationServerPackage() {
         index++;
         return IntegrationServerPackage.builder()
                                        .packageName(String.format("packageName_%d", index))

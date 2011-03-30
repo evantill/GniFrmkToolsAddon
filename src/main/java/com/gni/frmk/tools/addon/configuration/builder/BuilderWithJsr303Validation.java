@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.configuration;
+package com.gni.frmk.tools.addon.configuration.builder;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;

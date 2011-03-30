@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.configuration.components;
 
-import com.gni.frmk.tools.addon.configuration.BuilderWithJsr303Validation;
+import com.gni.frmk.tools.addon.configuration.builder.BuilderWithJsr303Validation;
 import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentId;
 import com.gni.frmk.tools.addon.configuration.components.AbstractComponent.AbstractComponentState;
 import com.gni.frmk.tools.addon.configuration.components.ComponentDetail.Value;
@@ -13,7 +13,6 @@ import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlValue;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 

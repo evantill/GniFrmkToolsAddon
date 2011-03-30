@@ -1,7 +1,10 @@
 package com.gni.frmk.tools.addon.operation.strategy;
 
+import com.gni.frmk.tools.addon.configuration.ComponentConfiguration;
 import com.gni.frmk.tools.addon.configuration.Configuration;
 import com.gni.frmk.tools.addon.configuration.components.AdapterConnection;
+import com.gni.frmk.tools.addon.configuration.components.ConnectableState;
+import com.gni.frmk.tools.addon.configuration.components.EnableState;
 import com.gni.frmk.tools.addon.configuration.components.JmsAlias;
 import com.gni.frmk.tools.addon.operation.visitor.ConfigurationVisitor;
 
@@ -21,11 +24,11 @@ public class OpenOutputStrategy implements ConfigurationVisitorStrategy {
     }
 
     public void execute(Configuration cnf) {
-        for (AdapterConnection element : cnf.getAdapterConnections()) {
-            element.accept(visitor);
+        for (ComponentConfiguration<AdapterConnection, EnableState> element : cnf.getAdapterConnectionConfigurations()) {
+            element.getComponent().accept(visitor);
         }
-        for (JmsAlias element : cnf.getJmsAliases()) {
-            element.accept(visitor);
+        for (ComponentConfiguration<JmsAlias, ConnectableState> element : cnf.getJmsAliasConfigurations()) {
+            element.getComponent().accept(visitor);
         }
     }
 }
