@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.data2.configuration;
 
-import com.gni.frmk.tools.addon.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.Configuration;
 import com.google.common.io.ByteStreams;
 import com.google.common.io.Closeables;
 import org.junit.AfterClass;

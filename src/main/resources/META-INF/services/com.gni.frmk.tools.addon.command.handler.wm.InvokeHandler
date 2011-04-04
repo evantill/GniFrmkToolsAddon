@@ -1,0 +1,37 @@
+#cd /cygdrive/e/jtb/workspaces/default/GniFrmkToolsAddon/src/main/java
+#find . -type f | grep  handler | awk 'BEGIN{FS="/"} {tmp = ""; for(i=2; i <= NF; i++) { tmp = tmp $i "."; } tmp=substr(tmp,1,length(tmp)-6); print tmp}'
+
+com.gni.frmk.tools.addon.command.handler.wm.art.DisableConnectionHandler
+com.gni.frmk.tools.addon.command.handler.wm.art.DisableListenerHandler
+com.gni.frmk.tools.addon.command.handler.wm.art.DisableNotificationHandler
+com.gni.frmk.tools.addon.command.handler.wm.art.EnableConnectionHandler
+com.gni.frmk.tools.addon.command.handler.wm.art.EnableListenerHandler
+com.gni.frmk.tools.addon.command.handler.wm.art.EnableNotificationHandler
+com.gni.frmk.tools.addon.command.handler.wm.art.ListAdapterConnectionsHandler
+com.gni.frmk.tools.addon.command.handler.wm.art.ListListenersHandler
+com.gni.frmk.tools.addon.command.handler.wm.art.ListNotificationsHandler
+com.gni.frmk.tools.addon.command.handler.wm.art.ResumeListenerHandler
+com.gni.frmk.tools.addon.command.handler.wm.art.ResumeNotificationHandler
+com.gni.frmk.tools.addon.command.handler.wm.art.RetrieveAdapterTypesListHandler
+com.gni.frmk.tools.addon.command.handler.wm.art.SuspendListenerHandler
+com.gni.frmk.tools.addon.command.handler.wm.art.SuspendNotificationHandler
+com.gni.frmk.tools.addon.command.handler.wm.jms.DisableJmsAliasHandler
+com.gni.frmk.tools.addon.command.handler.wm.jms.DisableJmsTriggersHandler
+com.gni.frmk.tools.addon.command.handler.wm.jms.EnableJmsAliasHandler
+com.gni.frmk.tools.addon.command.handler.wm.jms.EnableJmsTriggersHandler
+com.gni.frmk.tools.addon.command.handler.wm.jms.GetJmsAliasReportHandler
+com.gni.frmk.tools.addon.command.handler.wm.jms.GetJmsTriggerReportHandler
+com.gni.frmk.tools.addon.command.handler.wm.jms.SuspendJmsTriggersHandler
+com.gni.frmk.tools.addon.command.handler.wm.root.DisablePackageHandler
+com.gni.frmk.tools.addon.command.handler.wm.root.DisablePortListenerHandler
+com.gni.frmk.tools.addon.command.handler.wm.root.EnablePackageHandler
+com.gni.frmk.tools.addon.command.handler.wm.root.EnablePortListenerHandler
+com.gni.frmk.tools.addon.command.handler.wm.root.GetAllServiceStatsHandler
+com.gni.frmk.tools.addon.command.handler.wm.root.GetNativeTriggerReportHandler
+com.gni.frmk.tools.addon.command.handler.wm.root.GetUserTaskListHandler
+com.gni.frmk.tools.addon.command.handler.wm.root.ListPortListenersHandler
+com.gni.frmk.tools.addon.command.handler.wm.root.PackageListHandler
+com.gni.frmk.tools.addon.command.handler.wm.root.SuspendTriggersHandler
+com.gni.frmk.tools.addon.command.handler.wm.root.SuspendUserTaskHandler
+com.gni.frmk.tools.addon.command.handler.wm.root.WaitServicesEndHandler
+com.gni.frmk.tools.addon.command.handler.wm.root.WakeUpUserTaskHandler

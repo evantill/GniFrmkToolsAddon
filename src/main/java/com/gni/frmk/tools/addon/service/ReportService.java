@@ -1,17 +1,17 @@
 package com.gni.frmk.tools.addon.service;
 
-import com.gni.frmk.tools.addon.configuration.Configuration;
-import com.gni.frmk.tools.addon.configuration.component.*;
-import com.gni.frmk.tools.addon.dispatcher.ActionException;
-import com.gni.frmk.tools.addon.invoke.action.wmart.ListNotifications;
-import com.gni.frmk.tools.addon.invoke.action.wmart.RetrieveAdapterTypesList;
-import com.gni.frmk.tools.addon.invoke.InvokeException;
+import com.gni.frmk.tools.addon.command.action.wm.art.ListAdaptersConnections;
+import com.gni.frmk.tools.addon.command.action.wm.art.ListListeners;
+import com.gni.frmk.tools.addon.command.action.wm.art.ListNotifications;
+import com.gni.frmk.tools.addon.command.action.wm.art.RetrieveAdapterTypesList;
+import com.gni.frmk.tools.addon.command.action.wm.root.PackageList;
+import com.gni.frmk.tools.addon.command.api.ActionException;
+import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeException;
 import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
-import com.gni.frmk.tools.addon.invoke.action.wmart.ListAdaptersConnections;
-import com.gni.frmk.tools.addon.invoke.action.wmart.ListListeners;
-import com.gni.frmk.tools.addon.invoke.action.wmroot.PackageList;
+import com.gni.frmk.tools.addon.model.component.*;
+import com.gni.frmk.tools.addon.model.configuration.Configuration;
 import com.google.common.collect.Lists;
 
 import java.util.List;

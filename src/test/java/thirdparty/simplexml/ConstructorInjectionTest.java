@@ -1,6 +1,5 @@
 package thirdparty.simplexml;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;

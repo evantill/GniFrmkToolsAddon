@@ -1,10 +1,10 @@
 package com.gni.frmk.tools.addon.service;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
+import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.util.PipelineTestUtils;
+import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
-import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
-import com.gni.frmk.tools.addon.invoke.util.PipelineTestUtils;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 

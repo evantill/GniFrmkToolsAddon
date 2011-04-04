@@ -1,9 +1,11 @@
 package com.gni.frmk.tools.addon.service;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
-import com.gni.frmk.tools.addon.configuration.Configuration;
-import com.gni.frmk.tools.addon.configuration.component.*;
-import com.gni.frmk.tools.addon.configuration.component.EnableState.EnableStatus;
+import com.gni.frmk.tools.addon.model.component.AdapterConnection;
+import com.gni.frmk.tools.addon.model.component.Scheduler;
+import com.gni.frmk.tools.addon.model.component.state.EnableState;
+import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
+import com.gni.frmk.tools.addon.model.configuration.Configuration;
 import com.google.common.io.ByteStreams;
 import com.google.common.io.Closeables;
 import org.junit.AfterClass;

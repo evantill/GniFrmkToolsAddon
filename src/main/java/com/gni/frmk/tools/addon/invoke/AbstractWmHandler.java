@@ -1,10 +1,13 @@
 package com.gni.frmk.tools.addon.invoke;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
-import com.gni.frmk.tools.addon.dispatcher.Action;
-import com.gni.frmk.tools.addon.dispatcher.ActionException;
-import com.gni.frmk.tools.addon.dispatcher.Result;
-import com.gni.frmk.tools.addon.dispatcher.ActionHandler;
+import com.gni.frmk.tools.addon.command.api.Action;
+import com.gni.frmk.tools.addon.command.api.ActionException;
+import com.gni.frmk.tools.addon.command.api.ActionHandler;
+import com.gni.frmk.tools.addon.command.api.Result;
+import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeContext;
+import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeException;
+import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeServiceRegistry;
 
 /**
  * Created by IntelliJ IDEA.

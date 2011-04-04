@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.data2.adapter;
 
-import com.gni.frmk.tools.addon.configuration.component.AdapterConnection;
+import com.gni.frmk.tools.addon.model.component.AdapterConnection;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

@@ -1,11 +1,12 @@
 package com.gni.frmk.tools.addon;
 
-import com.gni.frmk.tools.addon.configuration.Configuration;
-import com.gni.frmk.tools.addon.dispatcher.DispatchException;
-import com.gni.frmk.tools.addon.invoke.InvokeContext;
+import com.gni.frmk.tools.addon.command.api.DispatchException;
+import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeContext;
+import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.context.InvokeContextLocal;
 import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
+import com.gni.frmk.tools.addon.model.configuration.Configuration;
 import com.gni.frmk.tools.addon.service.AdminService;
 import com.gni.frmk.tools.addon.service.ConfigurationService;
 import com.gni.frmk.tools.addon.service.ReportService;
@@ -27,7 +28,7 @@ public class CallServiceWrapper {
 
     public CallServiceWrapper(String packageNsName, String defaultConfigName) {
         //TODO remplacer le ctx par une factory
-        InvokeContext ctx = new InvokeContext();
+        InvokeContext ctx = new InvokeContextLocal();
         final IntegrationServerUtil utils = new IntegrationServerUtil(packageNsName);
         WmRootInvoker rootInvoker = new WmRootInvoker(utils, ctx, packageNsName);
         WmRootJmsInvoker rootJmsInvoker = new WmRootJmsInvoker(utils, ctx, packageNsName);

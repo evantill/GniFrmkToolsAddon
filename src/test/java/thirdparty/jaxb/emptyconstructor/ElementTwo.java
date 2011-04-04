@@ -1,8 +1,6 @@
 package thirdparty.jaxb.emptyconstructor;
 
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlValue;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * Created by IntelliJ IDEA.

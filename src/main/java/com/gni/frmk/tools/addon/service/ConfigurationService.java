@@ -1,10 +1,8 @@
 package com.gni.frmk.tools.addon.service;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
-import com.gni.frmk.tools.addon.configuration.Configuration;
-import com.gni.frmk.tools.addon.operation.strategy.ParseStrategy;
-import com.gni.frmk.tools.addon.operation.visitor.DisableStatusVisitor;
-import com.gni.frmk.tools.addon.operation.visitor.EnableStatusVisitor;
+import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.visitor.DisableStatusVisitor;
 import com.google.common.io.CharStreams;
 import com.google.common.io.Closeables;
 

@@ -1,0 +1,3242 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration name="configuration_test_full" creation="2011-03-03T19:00:23.828Z"
+               modification="2011-03-03T19:00:23.828Z">
+    <adapterConnectionConfigurations>
+        <adapterConnectionConfiguration>
+            <adapterConnection>
+                <stringId>alias_1</stringId>
+                <type>ADAPTER_CONNECTION</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_1</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <alias>alias_1</alias>
+            </adapterConnection>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </adapterConnectionConfiguration>
+        <adapterConnectionConfiguration>
+            <adapterConnection>
+                <stringId>alias_2</stringId>
+                <type>ADAPTER_CONNECTION</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_2</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <alias>alias_2</alias>
+            </adapterConnection>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </adapterConnectionConfiguration>
+        <adapterConnectionConfiguration>
+            <adapterConnection>
+                <stringId>alias_3</stringId>
+                <type>ADAPTER_CONNECTION</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_3</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <alias>alias_3</alias>
+            </adapterConnection>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </adapterConnectionConfiguration>
+        <adapterConnectionConfiguration>
+            <adapterConnection>
+                <stringId>alias_4</stringId>
+                <type>ADAPTER_CONNECTION</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_4</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <alias>alias_4</alias>
+            </adapterConnection>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </adapterConnectionConfiguration>
+        <adapterConnectionConfiguration>
+            <adapterConnection>
+                <stringId>alias_5</stringId>
+                <type>ADAPTER_CONNECTION</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_5</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <alias>alias_5</alias>
+            </adapterConnection>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </adapterConnectionConfiguration>
+        <adapterConnectionConfiguration>
+            <adapterConnection>
+                <stringId>alias_6</stringId>
+                <type>ADAPTER_CONNECTION</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_6</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <alias>alias_6</alias>
+            </adapterConnection>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </adapterConnectionConfiguration>
+        <adapterConnectionConfiguration>
+            <adapterConnection>
+                <stringId>alias_7</stringId>
+                <type>ADAPTER_CONNECTION</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_7</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <alias>alias_7</alias>
+            </adapterConnection>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </adapterConnectionConfiguration>
+        <adapterConnectionConfiguration>
+            <adapterConnection>
+                <stringId>alias_8</stringId>
+                <type>ADAPTER_CONNECTION</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_8</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <alias>alias_8</alias>
+            </adapterConnection>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </adapterConnectionConfiguration>
+        <adapterConnectionConfiguration>
+            <adapterConnection>
+                <stringId>alias_9</stringId>
+                <type>ADAPTER_CONNECTION</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_9</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <alias>alias_9</alias>
+            </adapterConnection>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </adapterConnectionConfiguration>
+        <adapterConnectionConfiguration>
+            <adapterConnection>
+                <stringId>alias_10</stringId>
+                <type>ADAPTER_CONNECTION</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_10</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <alias>alias_10</alias>
+            </adapterConnection>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </adapterConnectionConfiguration>
+    </adapterConnectionConfigurations>
+    <adapterListenerConfigurations>
+        <adapterListenerConfiguration>
+            <adapterListener>
+                <stringId>listener_name_11</stringId>
+                <type>ADAPTER_LISTENER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_11</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>listener_name_11</name>
+            </adapterListener>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterListenerConfiguration>
+        <adapterListenerConfiguration>
+            <adapterListener>
+                <stringId>listener_name_12</stringId>
+                <type>ADAPTER_LISTENER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_12</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>listener_name_12</name>
+            </adapterListener>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterListenerConfiguration>
+        <adapterListenerConfiguration>
+            <adapterListener>
+                <stringId>listener_name_13</stringId>
+                <type>ADAPTER_LISTENER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_13</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>listener_name_13</name>
+            </adapterListener>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterListenerConfiguration>
+        <adapterListenerConfiguration>
+            <adapterListener>
+                <stringId>listener_name_14</stringId>
+                <type>ADAPTER_LISTENER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_14</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>listener_name_14</name>
+            </adapterListener>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterListenerConfiguration>
+        <adapterListenerConfiguration>
+            <adapterListener>
+                <stringId>listener_name_15</stringId>
+                <type>ADAPTER_LISTENER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_15</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>listener_name_15</name>
+            </adapterListener>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterListenerConfiguration>
+        <adapterListenerConfiguration>
+            <adapterListener>
+                <stringId>listener_name_16</stringId>
+                <type>ADAPTER_LISTENER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_16</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>listener_name_16</name>
+            </adapterListener>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterListenerConfiguration>
+        <adapterListenerConfiguration>
+            <adapterListener>
+                <stringId>listener_name_17</stringId>
+                <type>ADAPTER_LISTENER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_17</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>listener_name_17</name>
+            </adapterListener>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterListenerConfiguration>
+        <adapterListenerConfiguration>
+            <adapterListener>
+                <stringId>listener_name_18</stringId>
+                <type>ADAPTER_LISTENER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_18</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>listener_name_18</name>
+            </adapterListener>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterListenerConfiguration>
+        <adapterListenerConfiguration>
+            <adapterListener>
+                <stringId>listener_name_19</stringId>
+                <type>ADAPTER_LISTENER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_19</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>listener_name_19</name>
+            </adapterListener>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterListenerConfiguration>
+        <adapterListenerConfiguration>
+            <adapterListener>
+                <stringId>listener_name_20</stringId>
+                <type>ADAPTER_LISTENER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_20</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>listener_name_20</name>
+            </adapterListener>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterListenerConfiguration>
+    </adapterListenerConfigurations>
+    <adapterNotificationConfigurations>
+        <adapterNotificationConfiguration>
+            <adapterNotification>
+                <stringId>notification_name_21</stringId>
+                <type>ADAPTER_NOTIFICATION</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_21</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>notification_name_21</name>
+            </adapterNotification>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterNotificationConfiguration>
+        <adapterNotificationConfiguration>
+            <adapterNotification>
+                <stringId>notification_name_22</stringId>
+                <type>ADAPTER_NOTIFICATION</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_22</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>notification_name_22</name>
+            </adapterNotification>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterNotificationConfiguration>
+        <adapterNotificationConfiguration>
+            <adapterNotification>
+                <stringId>notification_name_23</stringId>
+                <type>ADAPTER_NOTIFICATION</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_23</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>notification_name_23</name>
+            </adapterNotification>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterNotificationConfiguration>
+        <adapterNotificationConfiguration>
+            <adapterNotification>
+                <stringId>notification_name_24</stringId>
+                <type>ADAPTER_NOTIFICATION</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_24</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>notification_name_24</name>
+            </adapterNotification>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterNotificationConfiguration>
+        <adapterNotificationConfiguration>
+            <adapterNotification>
+                <stringId>notification_name_25</stringId>
+                <type>ADAPTER_NOTIFICATION</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_25</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>notification_name_25</name>
+            </adapterNotification>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterNotificationConfiguration>
+        <adapterNotificationConfiguration>
+            <adapterNotification>
+                <stringId>notification_name_26</stringId>
+                <type>ADAPTER_NOTIFICATION</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_26</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>notification_name_26</name>
+            </adapterNotification>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterNotificationConfiguration>
+        <adapterNotificationConfiguration>
+            <adapterNotification>
+                <stringId>notification_name_27</stringId>
+                <type>ADAPTER_NOTIFICATION</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_27</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>notification_name_27</name>
+            </adapterNotification>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterNotificationConfiguration>
+        <adapterNotificationConfiguration>
+            <adapterNotification>
+                <stringId>notification_name_28</stringId>
+                <type>ADAPTER_NOTIFICATION</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_28</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>notification_name_28</name>
+            </adapterNotification>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterNotificationConfiguration>
+        <adapterNotificationConfiguration>
+            <adapterNotification>
+                <stringId>notification_name_29</stringId>
+                <type>ADAPTER_NOTIFICATION</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_29</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>notification_name_29</name>
+            </adapterNotification>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterNotificationConfiguration>
+        <adapterNotificationConfiguration>
+            <adapterNotification>
+                <stringId>notification_name_30</stringId>
+                <type>ADAPTER_NOTIFICATION</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_30</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <name>notification_name_30</name>
+            </adapterNotification>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </adapterNotificationConfiguration>
+    </adapterNotificationConfigurations>
+    <integrationServerPackageConfigurations>
+        <integrationServerPackageConfiguration>
+            <integrationServerPackage>
+                <stringId>packageName_61</stringId>
+                <type>IS_PACKAGE</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_61</packageName>
+            </integrationServerPackage>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration>
+            <integrationServerPackage>
+                <stringId>packageName_62</stringId>
+                <type>IS_PACKAGE</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_62</packageName>
+            </integrationServerPackage>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration>
+            <integrationServerPackage>
+                <stringId>packageName_63</stringId>
+                <type>IS_PACKAGE</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_63</packageName>
+            </integrationServerPackage>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration>
+            <integrationServerPackage>
+                <stringId>packageName_64</stringId>
+                <type>IS_PACKAGE</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_64</packageName>
+            </integrationServerPackage>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration>
+            <integrationServerPackage>
+                <stringId>packageName_65</stringId>
+                <type>IS_PACKAGE</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_65</packageName>
+            </integrationServerPackage>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration>
+            <integrationServerPackage>
+                <stringId>packageName_66</stringId>
+                <type>IS_PACKAGE</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_66</packageName>
+            </integrationServerPackage>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration>
+            <integrationServerPackage>
+                <stringId>packageName_67</stringId>
+                <type>IS_PACKAGE</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_67</packageName>
+            </integrationServerPackage>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration>
+            <integrationServerPackage>
+                <stringId>packageName_68</stringId>
+                <type>IS_PACKAGE</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_68</packageName>
+            </integrationServerPackage>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration>
+            <integrationServerPackage>
+                <stringId>packageName_69</stringId>
+                <type>IS_PACKAGE</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_69</packageName>
+            </integrationServerPackage>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration>
+            <integrationServerPackage>
+                <stringId>packageName_70</stringId>
+                <type>IS_PACKAGE</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_70</packageName>
+            </integrationServerPackage>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </integrationServerPackageConfiguration>
+    </integrationServerPackageConfigurations>
+    <jmsAliasConfigurations>
+        <jmsAliasConfiguration>
+            <jmsAlias>
+                <stringId>jms_alias_name31</stringId>
+                <type>JMS_ALIAS</type>
+                <connectableState>
+                    <enabled>ENABLED</enabled>
+                    <connected>CONNECTED</connected>
+                </connectableState>
+                <details/>
+                <name>jms_alias_name31</name>
+                <description>description 31</description>
+            </jmsAlias>
+            <states>
+                <state context="OPEN">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CURRENT">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CLOSE">
+                    <connectableState>
+                        <enabled>DISABLED</enabled>
+                        <connected>DISCONNECTED</connected>
+                    </connectableState>
+                </state>
+            </states>
+        </jmsAliasConfiguration>
+        <jmsAliasConfiguration>
+            <jmsAlias>
+                <stringId>jms_alias_name32</stringId>
+                <type>JMS_ALIAS</type>
+                <connectableState>
+                    <enabled>ENABLED</enabled>
+                    <connected>CONNECTED</connected>
+                </connectableState>
+                <details/>
+                <name>jms_alias_name32</name>
+                <description>description 32</description>
+            </jmsAlias>
+            <states>
+                <state context="OPEN">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CURRENT">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CLOSE">
+                    <connectableState>
+                        <enabled>DISABLED</enabled>
+                        <connected>DISCONNECTED</connected>
+                    </connectableState>
+                </state>
+            </states>
+        </jmsAliasConfiguration>
+        <jmsAliasConfiguration>
+            <jmsAlias>
+                <stringId>jms_alias_name33</stringId>
+                <type>JMS_ALIAS</type>
+                <connectableState>
+                    <enabled>ENABLED</enabled>
+                    <connected>CONNECTED</connected>
+                </connectableState>
+                <details/>
+                <name>jms_alias_name33</name>
+                <description>description 33</description>
+            </jmsAlias>
+            <states>
+                <state context="OPEN">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CURRENT">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CLOSE">
+                    <connectableState>
+                        <enabled>DISABLED</enabled>
+                        <connected>DISCONNECTED</connected>
+                    </connectableState>
+                </state>
+            </states>
+        </jmsAliasConfiguration>
+        <jmsAliasConfiguration>
+            <jmsAlias>
+                <stringId>jms_alias_name34</stringId>
+                <type>JMS_ALIAS</type>
+                <connectableState>
+                    <enabled>ENABLED</enabled>
+                    <connected>CONNECTED</connected>
+                </connectableState>
+                <details/>
+                <name>jms_alias_name34</name>
+                <description>description 34</description>
+            </jmsAlias>
+            <states>
+                <state context="OPEN">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CURRENT">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CLOSE">
+                    <connectableState>
+                        <enabled>DISABLED</enabled>
+                        <connected>DISCONNECTED</connected>
+                    </connectableState>
+                </state>
+            </states>
+        </jmsAliasConfiguration>
+        <jmsAliasConfiguration>
+            <jmsAlias>
+                <stringId>jms_alias_name35</stringId>
+                <type>JMS_ALIAS</type>
+                <connectableState>
+                    <enabled>ENABLED</enabled>
+                    <connected>CONNECTED</connected>
+                </connectableState>
+                <details/>
+                <name>jms_alias_name35</name>
+                <description>description 35</description>
+            </jmsAlias>
+            <states>
+                <state context="OPEN">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CURRENT">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CLOSE">
+                    <connectableState>
+                        <enabled>DISABLED</enabled>
+                        <connected>DISCONNECTED</connected>
+                    </connectableState>
+                </state>
+            </states>
+        </jmsAliasConfiguration>
+        <jmsAliasConfiguration>
+            <jmsAlias>
+                <stringId>jms_alias_name36</stringId>
+                <type>JMS_ALIAS</type>
+                <connectableState>
+                    <enabled>ENABLED</enabled>
+                    <connected>CONNECTED</connected>
+                </connectableState>
+                <details/>
+                <name>jms_alias_name36</name>
+                <description>description 36</description>
+            </jmsAlias>
+            <states>
+                <state context="OPEN">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CURRENT">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CLOSE">
+                    <connectableState>
+                        <enabled>DISABLED</enabled>
+                        <connected>DISCONNECTED</connected>
+                    </connectableState>
+                </state>
+            </states>
+        </jmsAliasConfiguration>
+        <jmsAliasConfiguration>
+            <jmsAlias>
+                <stringId>jms_alias_name37</stringId>
+                <type>JMS_ALIAS</type>
+                <connectableState>
+                    <enabled>ENABLED</enabled>
+                    <connected>CONNECTED</connected>
+                </connectableState>
+                <details/>
+                <name>jms_alias_name37</name>
+                <description>description 37</description>
+            </jmsAlias>
+            <states>
+                <state context="OPEN">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CURRENT">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CLOSE">
+                    <connectableState>
+                        <enabled>DISABLED</enabled>
+                        <connected>DISCONNECTED</connected>
+                    </connectableState>
+                </state>
+            </states>
+        </jmsAliasConfiguration>
+        <jmsAliasConfiguration>
+            <jmsAlias>
+                <stringId>jms_alias_name38</stringId>
+                <type>JMS_ALIAS</type>
+                <connectableState>
+                    <enabled>ENABLED</enabled>
+                    <connected>CONNECTED</connected>
+                </connectableState>
+                <details/>
+                <name>jms_alias_name38</name>
+                <description>description 38</description>
+            </jmsAlias>
+            <states>
+                <state context="OPEN">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CURRENT">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CLOSE">
+                    <connectableState>
+                        <enabled>DISABLED</enabled>
+                        <connected>DISCONNECTED</connected>
+                    </connectableState>
+                </state>
+            </states>
+        </jmsAliasConfiguration>
+        <jmsAliasConfiguration>
+            <jmsAlias>
+                <stringId>jms_alias_name39</stringId>
+                <type>JMS_ALIAS</type>
+                <connectableState>
+                    <enabled>ENABLED</enabled>
+                    <connected>CONNECTED</connected>
+                </connectableState>
+                <details/>
+                <name>jms_alias_name39</name>
+                <description>description 39</description>
+            </jmsAlias>
+            <states>
+                <state context="OPEN">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CURRENT">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CLOSE">
+                    <connectableState>
+                        <enabled>DISABLED</enabled>
+                        <connected>DISCONNECTED</connected>
+                    </connectableState>
+                </state>
+            </states>
+        </jmsAliasConfiguration>
+        <jmsAliasConfiguration>
+            <jmsAlias>
+                <stringId>jms_alias_name40</stringId>
+                <type>JMS_ALIAS</type>
+                <connectableState>
+                    <enabled>ENABLED</enabled>
+                    <connected>CONNECTED</connected>
+                </connectableState>
+                <details/>
+                <name>jms_alias_name40</name>
+                <description>description 40</description>
+            </jmsAlias>
+            <states>
+                <state context="OPEN">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CURRENT">
+                    <connectableState>
+                        <enabled>ENABLED</enabled>
+                        <connected>CONNECTED</connected>
+                    </connectableState>
+                </state>
+                <state context="CLOSE">
+                    <connectableState>
+                        <enabled>DISABLED</enabled>
+                        <connected>DISCONNECTED</connected>
+                    </connectableState>
+                </state>
+            </states>
+        </jmsAliasConfiguration>
+    </jmsAliasConfigurations>
+    <jmsTriggerConfigurations>
+        <jmsTriggerConfiguration>
+            <jmsTrigger>
+                <stringId>trigger_name41</stringId>
+                <type>JMS_TRIGGER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_41</packageName>
+                <name>trigger_name41</name>
+            </jmsTrigger>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </jmsTriggerConfiguration>
+        <jmsTriggerConfiguration>
+            <jmsTrigger>
+                <stringId>trigger_name42</stringId>
+                <type>JMS_TRIGGER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_42</packageName>
+                <name>trigger_name42</name>
+            </jmsTrigger>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </jmsTriggerConfiguration>
+        <jmsTriggerConfiguration>
+            <jmsTrigger>
+                <stringId>trigger_name43</stringId>
+                <type>JMS_TRIGGER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_43</packageName>
+                <name>trigger_name43</name>
+            </jmsTrigger>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </jmsTriggerConfiguration>
+        <jmsTriggerConfiguration>
+            <jmsTrigger>
+                <stringId>trigger_name44</stringId>
+                <type>JMS_TRIGGER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_44</packageName>
+                <name>trigger_name44</name>
+            </jmsTrigger>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </jmsTriggerConfiguration>
+        <jmsTriggerConfiguration>
+            <jmsTrigger>
+                <stringId>trigger_name45</stringId>
+                <type>JMS_TRIGGER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_45</packageName>
+                <name>trigger_name45</name>
+            </jmsTrigger>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </jmsTriggerConfiguration>
+        <jmsTriggerConfiguration>
+            <jmsTrigger>
+                <stringId>trigger_name46</stringId>
+                <type>JMS_TRIGGER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_46</packageName>
+                <name>trigger_name46</name>
+            </jmsTrigger>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </jmsTriggerConfiguration>
+        <jmsTriggerConfiguration>
+            <jmsTrigger>
+                <stringId>trigger_name47</stringId>
+                <type>JMS_TRIGGER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_47</packageName>
+                <name>trigger_name47</name>
+            </jmsTrigger>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </jmsTriggerConfiguration>
+        <jmsTriggerConfiguration>
+            <jmsTrigger>
+                <stringId>trigger_name48</stringId>
+                <type>JMS_TRIGGER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_48</packageName>
+                <name>trigger_name48</name>
+            </jmsTrigger>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </jmsTriggerConfiguration>
+        <jmsTriggerConfiguration>
+            <jmsTrigger>
+                <stringId>trigger_name49</stringId>
+                <type>JMS_TRIGGER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_49</packageName>
+                <name>trigger_name49</name>
+            </jmsTrigger>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </jmsTriggerConfiguration>
+        <jmsTriggerConfiguration>
+            <jmsTrigger>
+                <stringId>trigger_name50</stringId>
+                <type>JMS_TRIGGER</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>ACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_50</packageName>
+                <name>trigger_name50</name>
+            </jmsTrigger>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </jmsTriggerConfiguration>
+    </jmsTriggerConfigurations>
+    <nativeTriggerConfigurations>
+        <nativeTriggerConfiguration>
+            <nativeTrigger>
+                <stringId>native_trigger_name_51</stringId>
+                <type>NATIVE_TRIGGER</type>
+                <nativeTriggerState>
+                    <enabled>
+                        <enabled>ENABLED</enabled>
+                    </enabled>
+                    <retrievalState temporary="PERMANENT">
+                        <activable>INACTIVE</activable>
+                    </retrievalState>
+                    <processingState temporary="TEMPORARY">
+                        <activable>ACTIVE</activable>
+                    </processingState>
+                </nativeTriggerState>
+                <details/>
+                <name>native_trigger_name_51</name>
+            </nativeTrigger>
+            <states>
+                <state context="OPEN">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CURRENT">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="TEMPORARY">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CLOSE">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>DISABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+            </states>
+        </nativeTriggerConfiguration>
+        <nativeTriggerConfiguration>
+            <nativeTrigger>
+                <stringId>native_trigger_name_52</stringId>
+                <type>NATIVE_TRIGGER</type>
+                <nativeTriggerState>
+                    <enabled>
+                        <enabled>ENABLED</enabled>
+                    </enabled>
+                    <retrievalState temporary="PERMANENT">
+                        <activable>INACTIVE</activable>
+                    </retrievalState>
+                    <processingState temporary="TEMPORARY">
+                        <activable>ACTIVE</activable>
+                    </processingState>
+                </nativeTriggerState>
+                <details/>
+                <name>native_trigger_name_52</name>
+            </nativeTrigger>
+            <states>
+                <state context="OPEN">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CURRENT">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="TEMPORARY">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CLOSE">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>DISABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+            </states>
+        </nativeTriggerConfiguration>
+        <nativeTriggerConfiguration>
+            <nativeTrigger>
+                <stringId>native_trigger_name_53</stringId>
+                <type>NATIVE_TRIGGER</type>
+                <nativeTriggerState>
+                    <enabled>
+                        <enabled>ENABLED</enabled>
+                    </enabled>
+                    <retrievalState temporary="PERMANENT">
+                        <activable>INACTIVE</activable>
+                    </retrievalState>
+                    <processingState temporary="TEMPORARY">
+                        <activable>ACTIVE</activable>
+                    </processingState>
+                </nativeTriggerState>
+                <details/>
+                <name>native_trigger_name_53</name>
+            </nativeTrigger>
+            <states>
+                <state context="OPEN">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CURRENT">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="TEMPORARY">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CLOSE">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>DISABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+            </states>
+        </nativeTriggerConfiguration>
+        <nativeTriggerConfiguration>
+            <nativeTrigger>
+                <stringId>native_trigger_name_54</stringId>
+                <type>NATIVE_TRIGGER</type>
+                <nativeTriggerState>
+                    <enabled>
+                        <enabled>ENABLED</enabled>
+                    </enabled>
+                    <retrievalState temporary="PERMANENT">
+                        <activable>INACTIVE</activable>
+                    </retrievalState>
+                    <processingState temporary="TEMPORARY">
+                        <activable>ACTIVE</activable>
+                    </processingState>
+                </nativeTriggerState>
+                <details/>
+                <name>native_trigger_name_54</name>
+            </nativeTrigger>
+            <states>
+                <state context="OPEN">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CURRENT">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="TEMPORARY">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CLOSE">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>DISABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+            </states>
+        </nativeTriggerConfiguration>
+        <nativeTriggerConfiguration>
+            <nativeTrigger>
+                <stringId>native_trigger_name_55</stringId>
+                <type>NATIVE_TRIGGER</type>
+                <nativeTriggerState>
+                    <enabled>
+                        <enabled>ENABLED</enabled>
+                    </enabled>
+                    <retrievalState temporary="PERMANENT">
+                        <activable>INACTIVE</activable>
+                    </retrievalState>
+                    <processingState temporary="TEMPORARY">
+                        <activable>ACTIVE</activable>
+                    </processingState>
+                </nativeTriggerState>
+                <details/>
+                <name>native_trigger_name_55</name>
+            </nativeTrigger>
+            <states>
+                <state context="OPEN">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CURRENT">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="TEMPORARY">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CLOSE">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>DISABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+            </states>
+        </nativeTriggerConfiguration>
+        <nativeTriggerConfiguration>
+            <nativeTrigger>
+                <stringId>native_trigger_name_56</stringId>
+                <type>NATIVE_TRIGGER</type>
+                <nativeTriggerState>
+                    <enabled>
+                        <enabled>ENABLED</enabled>
+                    </enabled>
+                    <retrievalState temporary="PERMANENT">
+                        <activable>INACTIVE</activable>
+                    </retrievalState>
+                    <processingState temporary="TEMPORARY">
+                        <activable>ACTIVE</activable>
+                    </processingState>
+                </nativeTriggerState>
+                <details/>
+                <name>native_trigger_name_56</name>
+            </nativeTrigger>
+            <states>
+                <state context="OPEN">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CURRENT">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="TEMPORARY">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CLOSE">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>DISABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+            </states>
+        </nativeTriggerConfiguration>
+        <nativeTriggerConfiguration>
+            <nativeTrigger>
+                <stringId>native_trigger_name_57</stringId>
+                <type>NATIVE_TRIGGER</type>
+                <nativeTriggerState>
+                    <enabled>
+                        <enabled>ENABLED</enabled>
+                    </enabled>
+                    <retrievalState temporary="PERMANENT">
+                        <activable>INACTIVE</activable>
+                    </retrievalState>
+                    <processingState temporary="TEMPORARY">
+                        <activable>ACTIVE</activable>
+                    </processingState>
+                </nativeTriggerState>
+                <details/>
+                <name>native_trigger_name_57</name>
+            </nativeTrigger>
+            <states>
+                <state context="OPEN">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CURRENT">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="TEMPORARY">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CLOSE">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>DISABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+            </states>
+        </nativeTriggerConfiguration>
+        <nativeTriggerConfiguration>
+            <nativeTrigger>
+                <stringId>native_trigger_name_58</stringId>
+                <type>NATIVE_TRIGGER</type>
+                <nativeTriggerState>
+                    <enabled>
+                        <enabled>ENABLED</enabled>
+                    </enabled>
+                    <retrievalState temporary="PERMANENT">
+                        <activable>INACTIVE</activable>
+                    </retrievalState>
+                    <processingState temporary="TEMPORARY">
+                        <activable>ACTIVE</activable>
+                    </processingState>
+                </nativeTriggerState>
+                <details/>
+                <name>native_trigger_name_58</name>
+            </nativeTrigger>
+            <states>
+                <state context="OPEN">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CURRENT">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="TEMPORARY">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CLOSE">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>DISABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+            </states>
+        </nativeTriggerConfiguration>
+        <nativeTriggerConfiguration>
+            <nativeTrigger>
+                <stringId>native_trigger_name_59</stringId>
+                <type>NATIVE_TRIGGER</type>
+                <nativeTriggerState>
+                    <enabled>
+                        <enabled>ENABLED</enabled>
+                    </enabled>
+                    <retrievalState temporary="PERMANENT">
+                        <activable>INACTIVE</activable>
+                    </retrievalState>
+                    <processingState temporary="TEMPORARY">
+                        <activable>ACTIVE</activable>
+                    </processingState>
+                </nativeTriggerState>
+                <details/>
+                <name>native_trigger_name_59</name>
+            </nativeTrigger>
+            <states>
+                <state context="OPEN">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CURRENT">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="TEMPORARY">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CLOSE">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>DISABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+            </states>
+        </nativeTriggerConfiguration>
+        <nativeTriggerConfiguration>
+            <nativeTrigger>
+                <stringId>native_trigger_name_60</stringId>
+                <type>NATIVE_TRIGGER</type>
+                <nativeTriggerState>
+                    <enabled>
+                        <enabled>ENABLED</enabled>
+                    </enabled>
+                    <retrievalState temporary="PERMANENT">
+                        <activable>INACTIVE</activable>
+                    </retrievalState>
+                    <processingState temporary="TEMPORARY">
+                        <activable>ACTIVE</activable>
+                    </processingState>
+                </nativeTriggerState>
+                <details/>
+                <name>native_trigger_name_60</name>
+            </nativeTrigger>
+            <states>
+                <state context="OPEN">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CURRENT">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>ENABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="TEMPORARY">
+                            <activable>ACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+                <state context="CLOSE">
+                    <nativeTriggerState>
+                        <enabled>
+                            <enabled>DISABLED</enabled>
+                        </enabled>
+                        <retrievalState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </retrievalState>
+                        <processingState temporary="PERMANENT">
+                            <activable>INACTIVE</activable>
+                        </processingState>
+                    </nativeTriggerState>
+                </state>
+            </states>
+        </nativeTriggerConfiguration>
+    </nativeTriggerConfigurations>
+    <portConfigurations>
+        <portConfiguration>
+            <port>
+                <stringId>port_key_71</stringId>
+                <type>PORT</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>INACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_71</packageName>
+                <key>port_key_71</key>
+                <primary>true</primary>
+            </port>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </portConfiguration>
+        <portConfiguration>
+            <port>
+                <stringId>port_key_72</stringId>
+                <type>PORT</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>INACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_72</packageName>
+                <key>port_key_72</key>
+                <primary>true</primary>
+            </port>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </portConfiguration>
+        <portConfiguration>
+            <port>
+                <stringId>port_key_73</stringId>
+                <type>PORT</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>INACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_73</packageName>
+                <key>port_key_73</key>
+                <primary>true</primary>
+            </port>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </portConfiguration>
+        <portConfiguration>
+            <port>
+                <stringId>port_key_74</stringId>
+                <type>PORT</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>INACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_74</packageName>
+                <key>port_key_74</key>
+                <primary>true</primary>
+            </port>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </portConfiguration>
+        <portConfiguration>
+            <port>
+                <stringId>port_key_75</stringId>
+                <type>PORT</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>INACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_75</packageName>
+                <key>port_key_75</key>
+                <primary>true</primary>
+            </port>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </portConfiguration>
+        <portConfiguration>
+            <port>
+                <stringId>port_key_76</stringId>
+                <type>PORT</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>INACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_76</packageName>
+                <key>port_key_76</key>
+                <primary>true</primary>
+            </port>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </portConfiguration>
+        <portConfiguration>
+            <port>
+                <stringId>port_key_77</stringId>
+                <type>PORT</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>INACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_77</packageName>
+                <key>port_key_77</key>
+                <primary>true</primary>
+            </port>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </portConfiguration>
+        <portConfiguration>
+            <port>
+                <stringId>port_key_78</stringId>
+                <type>PORT</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>INACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_78</packageName>
+                <key>port_key_78</key>
+                <primary>true</primary>
+            </port>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </portConfiguration>
+        <portConfiguration>
+            <port>
+                <stringId>port_key_79</stringId>
+                <type>PORT</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>INACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_79</packageName>
+                <key>port_key_79</key>
+                <primary>true</primary>
+            </port>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </portConfiguration>
+        <portConfiguration>
+            <port>
+                <stringId>port_key_80</stringId>
+                <type>PORT</type>
+                <activableState>
+                    <enabled>ENABLED</enabled>
+                    <activable>INACTIVE</activable>
+                </activableState>
+                <details/>
+                <packageName>packageName_80</packageName>
+                <key>port_key_80</key>
+                <primary>true</primary>
+            </port>
+            <states>
+                <state context="OPEN">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>ACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CURRENT">
+                    <activableState>
+                        <enabled>ENABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+                <state context="CLOSE">
+                    <activableState>
+                        <enabled>DISABLED</enabled>
+                        <activable>INACTIVE</activable>
+                    </activableState>
+                </state>
+            </states>
+        </portConfiguration>
+    </portConfigurations>
+    <schedulerConfigurations>
+        <schedulerConfiguration>
+            <scheduler>
+                <stringId>oid_81</stringId>
+                <type>SCHEDULER</type>
+                <schedulerState>
+                    <enabled>ENABLED</enabled>
+                    <scheduled>EXPIRED</scheduled>
+                </schedulerState>
+                <details/>
+                <oid>oid_81</oid>
+                <schedulerType>schedulerType_81</schedulerType>
+                <name>name_81</name>
+                <service>service_81</service>
+                <description>description_81</description>
+            </scheduler>
+            <states>
+                <state context="OPEN">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>UNEXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CURRENT">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CLOSE">
+                    <schedulerState>
+                        <enabled>DISABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+            </states>
+        </schedulerConfiguration>
+        <schedulerConfiguration>
+            <scheduler>
+                <stringId>oid_82</stringId>
+                <type>SCHEDULER</type>
+                <schedulerState>
+                    <enabled>ENABLED</enabled>
+                    <scheduled>EXPIRED</scheduled>
+                </schedulerState>
+                <details/>
+                <oid>oid_82</oid>
+                <schedulerType>schedulerType_82</schedulerType>
+                <name>name_82</name>
+                <service>service_82</service>
+                <description>description_82</description>
+            </scheduler>
+            <states>
+                <state context="OPEN">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>UNEXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CURRENT">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CLOSE">
+                    <schedulerState>
+                        <enabled>DISABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+            </states>
+        </schedulerConfiguration>
+        <schedulerConfiguration>
+            <scheduler>
+                <stringId>oid_83</stringId>
+                <type>SCHEDULER</type>
+                <schedulerState>
+                    <enabled>ENABLED</enabled>
+                    <scheduled>EXPIRED</scheduled>
+                </schedulerState>
+                <details/>
+                <oid>oid_83</oid>
+                <schedulerType>schedulerType_83</schedulerType>
+                <name>name_83</name>
+                <service>service_83</service>
+                <description>description_83</description>
+            </scheduler>
+            <states>
+                <state context="OPEN">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>UNEXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CURRENT">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CLOSE">
+                    <schedulerState>
+                        <enabled>DISABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+            </states>
+        </schedulerConfiguration>
+        <schedulerConfiguration>
+            <scheduler>
+                <stringId>oid_84</stringId>
+                <type>SCHEDULER</type>
+                <schedulerState>
+                    <enabled>ENABLED</enabled>
+                    <scheduled>EXPIRED</scheduled>
+                </schedulerState>
+                <details/>
+                <oid>oid_84</oid>
+                <schedulerType>schedulerType_84</schedulerType>
+                <name>name_84</name>
+                <service>service_84</service>
+                <description>description_84</description>
+            </scheduler>
+            <states>
+                <state context="OPEN">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>UNEXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CURRENT">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CLOSE">
+                    <schedulerState>
+                        <enabled>DISABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+            </states>
+        </schedulerConfiguration>
+        <schedulerConfiguration>
+            <scheduler>
+                <stringId>oid_85</stringId>
+                <type>SCHEDULER</type>
+                <schedulerState>
+                    <enabled>ENABLED</enabled>
+                    <scheduled>EXPIRED</scheduled>
+                </schedulerState>
+                <details/>
+                <oid>oid_85</oid>
+                <schedulerType>schedulerType_85</schedulerType>
+                <name>name_85</name>
+                <service>service_85</service>
+                <description>description_85</description>
+            </scheduler>
+            <states>
+                <state context="OPEN">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>UNEXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CURRENT">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CLOSE">
+                    <schedulerState>
+                        <enabled>DISABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+            </states>
+        </schedulerConfiguration>
+        <schedulerConfiguration>
+            <scheduler>
+                <stringId>oid_86</stringId>
+                <type>SCHEDULER</type>
+                <schedulerState>
+                    <enabled>ENABLED</enabled>
+                    <scheduled>EXPIRED</scheduled>
+                </schedulerState>
+                <details/>
+                <oid>oid_86</oid>
+                <schedulerType>schedulerType_86</schedulerType>
+                <name>name_86</name>
+                <service>service_86</service>
+                <description>description_86</description>
+            </scheduler>
+            <states>
+                <state context="OPEN">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>UNEXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CURRENT">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CLOSE">
+                    <schedulerState>
+                        <enabled>DISABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+            </states>
+        </schedulerConfiguration>
+        <schedulerConfiguration>
+            <scheduler>
+                <stringId>oid_87</stringId>
+                <type>SCHEDULER</type>
+                <schedulerState>
+                    <enabled>ENABLED</enabled>
+                    <scheduled>EXPIRED</scheduled>
+                </schedulerState>
+                <details/>
+                <oid>oid_87</oid>
+                <schedulerType>schedulerType_87</schedulerType>
+                <name>name_87</name>
+                <service>service_87</service>
+                <description>description_87</description>
+            </scheduler>
+            <states>
+                <state context="OPEN">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>UNEXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CURRENT">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CLOSE">
+                    <schedulerState>
+                        <enabled>DISABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+            </states>
+        </schedulerConfiguration>
+        <schedulerConfiguration>
+            <scheduler>
+                <stringId>oid_88</stringId>
+                <type>SCHEDULER</type>
+                <schedulerState>
+                    <enabled>ENABLED</enabled>
+                    <scheduled>EXPIRED</scheduled>
+                </schedulerState>
+                <details/>
+                <oid>oid_88</oid>
+                <schedulerType>schedulerType_88</schedulerType>
+                <name>name_88</name>
+                <service>service_88</service>
+                <description>description_88</description>
+            </scheduler>
+            <states>
+                <state context="OPEN">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>UNEXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CURRENT">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CLOSE">
+                    <schedulerState>
+                        <enabled>DISABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+            </states>
+        </schedulerConfiguration>
+        <schedulerConfiguration>
+            <scheduler>
+                <stringId>oid_89</stringId>
+                <type>SCHEDULER</type>
+                <schedulerState>
+                    <enabled>ENABLED</enabled>
+                    <scheduled>EXPIRED</scheduled>
+                </schedulerState>
+                <details/>
+                <oid>oid_89</oid>
+                <schedulerType>schedulerType_89</schedulerType>
+                <name>name_89</name>
+                <service>service_89</service>
+                <description>description_89</description>
+            </scheduler>
+            <states>
+                <state context="OPEN">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>UNEXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CURRENT">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CLOSE">
+                    <schedulerState>
+                        <enabled>DISABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+            </states>
+        </schedulerConfiguration>
+        <schedulerConfiguration>
+            <scheduler>
+                <stringId>oid_90</stringId>
+                <type>SCHEDULER</type>
+                <schedulerState>
+                    <enabled>ENABLED</enabled>
+                    <scheduled>EXPIRED</scheduled>
+                </schedulerState>
+                <details/>
+                <oid>oid_90</oid>
+                <schedulerType>schedulerType_90</schedulerType>
+                <name>name_90</name>
+                <service>service_90</service>
+                <description>description_90</description>
+            </scheduler>
+            <states>
+                <state context="OPEN">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>UNEXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CURRENT">
+                    <schedulerState>
+                        <enabled>ENABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+                <state context="CLOSE">
+                    <schedulerState>
+                        <enabled>DISABLED</enabled>
+                        <scheduled>EXPIRED</scheduled>
+                    </schedulerState>
+                </state>
+            </states>
+        </schedulerConfiguration>
+    </schedulerConfigurations>
+</configuration>

@@ -1,16 +1,16 @@
 package com.gni.frmk.tools.addon.service;
 
-import com.gni.frmk.tools.addon.configuration.Configuration;
-import com.gni.frmk.tools.addon.dispatcher.ActionException;
+import com.gni.frmk.tools.addon.command.api.ActionException;
+import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeException;
 import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootInvoker;
 import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
-import com.gni.frmk.tools.addon.invoke.InvokeException;
-import com.gni.frmk.tools.addon.operation.strategy.CloseInputStrategy;
-import com.gni.frmk.tools.addon.operation.strategy.CloseOutputStrategy;
-import com.gni.frmk.tools.addon.operation.visitor.ApplyConfigurationVisitor;
-import com.gni.frmk.tools.addon.operation.visitor.ConfigurationVisitor;
-import com.gni.frmk.tools.addon.operation.visitor.TraceConfigurationVisitorAdapter;
+import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.strategy.CloseInputStrategy;
+import com.gni.frmk.tools.addon.strategy.CloseOutputStrategy;
+import com.gni.frmk.tools.addon.visitor.ApplyConfigurationVisitor;
+import com.gni.frmk.tools.addon.visitor.api.ConfigurationVisitor;
+import com.gni.frmk.tools.addon.visitor.TraceConfigurationVisitorAdapter;
 
 /**
  * Created by IntelliJ IDEA.
