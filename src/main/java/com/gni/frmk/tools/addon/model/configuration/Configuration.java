@@ -10,11 +10,13 @@ import com.gni.frmk.tools.addon.model.component.state.SchedulerState;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.xml.bind.annotation.*;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.Lists.newArrayList;
 import static java.util.Collections.unmodifiableList;
 
@@ -28,10 +30,16 @@ import static java.util.Collections.unmodifiableList;
 @XmlRootElement
 @XmlAccessorType(value = XmlAccessType.NONE)
 public class Configuration {
-
+    @NotNull
+    @Pattern(regexp="\\w{1,32}")
+    @XmlAttribute
+    private final String id;
     @NotNull
     @XmlAttribute
     private final String name;
+    @NotNull
+    @XmlAttribute
+    private final String packageName;
     @NotNull
     @XmlAttribute
     private final Date creation;
@@ -77,7 +85,9 @@ public class Configuration {
     private final List<ComponentConfiguration<Scheduler, SchedulerState>> schedulerConfigurations;
 
     public Configuration(Builder builder) {
+        id=builder.id;
         name = builder.name;
+        packageName = builder.packageName;
         creation = builder.creation;
         modification = builder.modification;
         adapterConnectionConfigurations = builder.adapterConnectionConfigurations;
@@ -92,7 +102,9 @@ public class Configuration {
     }
 
     private Configuration() {
+        id=null;
         name = null;
+        packageName = null;
         creation = null;
         modification = null;
         adapterConnectionConfigurations = null;
@@ -142,12 +154,20 @@ public class Configuration {
         return unmodifiableList(schedulerConfigurations);
     }
 
+    public String getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
 
     public Date getCreation() {
         return new Date(creation.getTime());
+    }
+
+    public String getPackageName() {
+        return packageName;
     }
 
     public Date getModification() {
@@ -160,7 +180,12 @@ public class Configuration {
 
     public static class Builder extends BuilderWithJsr303Validation<Builder, Configuration> {
         @NotNull
+        @Pattern(regexp="\\w{1,32}")
+        private String id;
+        @NotNull
         private String name;
+        @NotNull
+        private String packageName;
         @NotNull
         private Date creation;
         @NotNull
@@ -185,10 +210,22 @@ public class Configuration {
         @Valid
         private List<ComponentConfiguration<Scheduler, SchedulerState>> schedulerConfigurations = newArrayList();
 
-        public Builder create(String name, Date when) {
-            this.name = name;
+        public Builder create(String packageName, String id, Date when) {
+            this.id = id;
+            this.name=id;
+            this.packageName=packageName;
             this.creation = new Date(when.getTime());
             this.modification = new Date(when.getTime());
+            return self();
+        }
+
+        public Builder in(String packageName) {
+            this.packageName = checkNotNull(packageName);
+            return self();
+        }
+
+        public Builder name(String name) {
+            this.name = checkNotNull(name);
             return self();
         }
 
@@ -289,6 +326,8 @@ public class Configuration {
 
         public Builder from(Configuration source) {
             name = source.getName();
+            id = source.getId();
+            packageName = source.getPackageName();
             creation = source.getCreation();
             modification = source.getModification();
             adapterConnectionConfigurations.addAll(source.getAdapterConnectionConfigurations());

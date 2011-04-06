@@ -3,13 +3,11 @@ package com.gni.frmk.tools.addon.model.configuration;
 import com.gni.frmk.tools.addon.BuilderWithJsr303Validation;
 import com.gni.frmk.tools.addon.model.component.AbstractComponent;
 import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentState;
-import com.gni.frmk.tools.addon.model.component.AdapterConnection;
-import com.gni.frmk.tools.addon.model.component.state.EnableState;
-import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.model.configuration.ComponentConfigurationAdapters.ComponentStatesAdapter;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -34,6 +32,8 @@ public class ComponentConfiguration<C extends AbstractComponent<?, S>, S extends
 
     public ComponentConfiguration(Builder<C, S> builder) {
         component = builder.component;
+        exist = builder.exist;
+        selected = builder.selected;
         states = newTreeMap();
         states.put(OPEN, builder.openState);
         states.put(CURRENT, builder.currentState);
@@ -48,9 +48,19 @@ public class ComponentConfiguration<C extends AbstractComponent<?, S>, S extends
     @XmlJavaTypeAdapter(ComponentStatesAdapter.class)
     private final Map<ComponentStateContext, S> states;
 
+    @XmlAttribute
+    @NotNull
+    private final Boolean exist;
+
+    @XmlAttribute
+    @NotNull
+    private final Boolean selected;
+
     private ComponentConfiguration() {
         component = null;
         states = null;
+        exist = null;
+        selected = null;
     }
 
     public C getComponent() {
@@ -80,10 +90,24 @@ public class ComponentConfiguration<C extends AbstractComponent<?, S>, S extends
         private S openState;
         @NotNull
         private S closeState;
+        @NotNull
+        private Boolean selected;
+        @NotNull
+        private Boolean exist;
 
         public Builder<C, S> defineComponent(C c) {
             component = c;
             currentState = c.getState();
+            return self();
+        }
+
+        public Builder<C, S> select(boolean value) {
+            this.selected = value;
+            return self();
+        }
+
+        public Builder<C, S> exist(boolean value) {
+            this.exist = value;
             return self();
         }
 
@@ -119,19 +143,5 @@ public class ComponentConfiguration<C extends AbstractComponent<?, S>, S extends
         protected ComponentConfiguration<C, S> buildObjectBeforeValidation() {
             return new ComponentConfiguration<C, S>(self());
         }
-    }
-
-    public static void main(String[] args) {
-        AdapterConnection cnx = AdapterConnection.builder()
-                                                 .alias("eeee")
-                                                 .adapterType("jdbc")
-                                                 .packageName("pck")
-                                                 .build();
-        ComponentConfiguration<AdapterConnection, EnableState> cc = ComponentConfiguration.builder(AdapterConnection.class)
-                                                                                          .defineComponent(cnx)
-                                                                                          .defineOpenState(new EnableState(EnableStatus.ENABLED))
-                                                                                          .defineCloseState(new EnableState(EnableStatus.DISABLED))
-                                                                                          .build();
-        System.out.println("cc = " + cc);
     }
 }

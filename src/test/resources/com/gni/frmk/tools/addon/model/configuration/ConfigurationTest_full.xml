@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<configuration name="configuration_test_full" creation="2011-03-03T19:00:23.828Z"
-               modification="2011-03-03T19:00:23.828Z">
+<configuration id="configuration_test_full" name="configuration_test_full" creation="2011-03-03T19:00:23.828Z"
+               modification="2011-03-03T19:00:23.828Z" packageName="WmRoot">
     <adapterConnectionConfigurations>
         <adapterConnectionConfiguration>
             <adapterConnection>

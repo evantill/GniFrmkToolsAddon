@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.visitor.api;
 
+import com.gni.frmk.tools.addon.model.api.Component;
 import com.gni.frmk.tools.addon.model.component.*;
 
 /**
@@ -11,17 +12,17 @@ import com.gni.frmk.tools.addon.model.component.*;
  */
 public interface ComponentVisitorRaisingException {
 
-    void visit(AdapterConnection visited)throws ComponentVisitorException;
+    void visit(AdapterConnection visited) throws ComponentVisitorException;
 
-    void visit(AdapterListener visited)throws ComponentVisitorException;
+    void visit(AdapterListener visited) throws ComponentVisitorException;
 
-    void visit(AdapterNotification visited)throws ComponentVisitorException;
+    void visit(AdapterNotification visited) throws ComponentVisitorException;
 
-    void visit(Port visited)throws ComponentVisitorException;
+    void visit(Port visited) throws ComponentVisitorException;
 
-    void visit(Scheduler visited)throws ComponentVisitorException;
+    void visit(Scheduler visited) throws ComponentVisitorException;
 
-    void visit(NativeTrigger visited)throws ComponentVisitorException;
+    void visit(NativeTrigger visited) throws ComponentVisitorException;
 
     void visit(JmsTrigger visited) throws ComponentVisitorException;
 
@@ -29,4 +30,21 @@ public interface ComponentVisitorRaisingException {
 
     void visit(IntegrationServerPackage visited) throws ComponentVisitorException;
 
+    public static class ComponentVisitorException extends Exception {
+        private final Component component;
+
+        public ComponentVisitorException(Component component, Throwable cause) {
+            super(cause);
+            this.component = component;
+        }
+
+        public ComponentVisitorException(Component component, String message) {
+            super(message);
+            this.component = component;
+        }
+
+        public Component getComponent() {
+            return component;
+        }
+    }
 }

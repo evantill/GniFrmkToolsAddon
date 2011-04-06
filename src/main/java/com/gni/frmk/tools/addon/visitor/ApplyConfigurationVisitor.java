@@ -8,15 +8,14 @@ import com.gni.frmk.tools.addon.command.action.wm.jms.EnableJmsTriggers;
 import com.gni.frmk.tools.addon.command.action.wm.jms.SuspendJmsTriggers;
 import com.gni.frmk.tools.addon.command.action.wm.root.*;
 import com.gni.frmk.tools.addon.command.api.DispatchException;
-import com.gni.frmk.tools.addon.invoke.WmArtInvoker;
-import com.gni.frmk.tools.addon.invoke.WmRootInvoker;
-import com.gni.frmk.tools.addon.invoke.WmRootJmsInvoker;
+import com.gni.frmk.tools.addon.oldies.invoke.WmArtInvoker;
+import com.gni.frmk.tools.addon.oldies.invoke.WmRootInvoker;
+import com.gni.frmk.tools.addon.oldies.invoke.WmRootJmsInvoker;
 import com.gni.frmk.tools.addon.model.component.*;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.model.component.state.SchedulerState.SchedulerStatus;
 import com.gni.frmk.tools.addon.model.component.state.TemporaryActivableState;
-import com.gni.frmk.tools.addon.visitor.api.ConfigurationVisitorException;
 import com.gni.frmk.tools.addon.visitor.api.ConfigurationVisitorRaisingException;
 
 /**
