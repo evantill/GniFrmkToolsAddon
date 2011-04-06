@@ -4,6 +4,8 @@ import com.gni.frmk.tools.addon.BuilderWithJsr303Validation;
 import com.gni.frmk.tools.addon.model.component.AbstractComponent;
 import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentState;
 import com.gni.frmk.tools.addon.model.configuration.ComponentConfigurationAdapters.ComponentStatesAdapter;
+import com.gni.frmk.tools.addon.service.api.configuration.ComponentConfigurationVisited;
+import com.gni.frmk.tools.addon.service.api.configuration.ComponentConfigurationVisitor;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -24,7 +26,8 @@ import static com.google.common.collect.Maps.newTreeMap;
  * @author: e03229
  */
 @XmlRootElement
-public class ComponentConfiguration<C extends AbstractComponent<?, S>, S extends AbstractComponentState> {
+public class ComponentConfiguration<C extends AbstractComponent<?, S>, S extends AbstractComponentState>
+        implements ComponentConfigurationVisited{
 
     public static enum ComponentStateContext {
         OPEN, CURRENT, CLOSE
@@ -69,6 +72,11 @@ public class ComponentConfiguration<C extends AbstractComponent<?, S>, S extends
 
     public Map<ComponentStateContext, S> getStates() {
         return states;
+    }
+
+    @Override
+    public void accept(ComponentConfigurationVisitor visitor) {
+        visitor.visit(this);
     }
 
     public static <C extends AbstractComponent<?, S>, S extends AbstractComponentState> Builder<C, S> builder(Class<C> componentType) {

@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.model.component.state;
 
-import com.gni.frmk.tools.addon.model.api.ComponentState;
 import com.gni.frmk.tools.addon.model.api.ComponentStateType;
+import com.gni.frmk.tools.addon.model.api.ComponentState;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;

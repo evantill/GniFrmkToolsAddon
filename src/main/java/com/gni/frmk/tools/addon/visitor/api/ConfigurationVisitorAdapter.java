@@ -1,8 +1,8 @@
 package com.gni.frmk.tools.addon.visitor.api;
 
+import com.gni.frmk.tools.addon.model.api.Component;
 import com.gni.frmk.tools.addon.model.component.*;
 import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentState;
-import com.gni.frmk.tools.addon.model.api.Component;
 import com.gni.frmk.tools.addon.model.configuration.ComponentConfiguration;
 
 import java.lang.reflect.InvocationHandler;

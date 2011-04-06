@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.model.component;
 import com.gni.frmk.tools.addon.model.api.ComponentType;
 import com.gni.frmk.tools.addon.model.component.id.StringId;
 import com.gni.frmk.tools.addon.model.component.state.EnableState;
-import com.gni.frmk.tools.addon.visitor.api.ComponentVisitor;
+import com.gni.frmk.tools.addon.service.api.component.ComponentVisitor;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

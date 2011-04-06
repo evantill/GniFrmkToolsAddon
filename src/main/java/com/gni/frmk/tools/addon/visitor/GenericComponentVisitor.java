@@ -1,9 +1,9 @@
 package com.gni.frmk.tools.addon.visitor;
 
 
-import com.gni.frmk.tools.addon.model.component.*;
 import com.gni.frmk.tools.addon.model.api.Component;
-import com.gni.frmk.tools.addon.visitor.api.ComponentVisitor;
+import com.gni.frmk.tools.addon.model.component.*;
+import com.gni.frmk.tools.addon.service.api.component.ComponentVisitor;
 
 /**
  * Created by IntelliJ IDEA.

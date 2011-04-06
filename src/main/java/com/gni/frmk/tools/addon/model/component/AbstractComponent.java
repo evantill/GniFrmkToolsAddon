@@ -1,15 +1,15 @@
 package com.gni.frmk.tools.addon.model.component;
 
 import com.gni.frmk.tools.addon.BuilderWithJsr303Validation;
-import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentId;
-import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentState;
-import com.gni.frmk.tools.addon.model.api.Component;
-import com.gni.frmk.tools.addon.model.api.ComponentBuilder;
-import com.gni.frmk.tools.addon.model.api.ComponentType;
-import com.gni.frmk.tools.addon.model.api.ComponentDetail;
-import com.gni.frmk.tools.addon.model.api.ComponentDetail.Value;
 import com.gni.frmk.tools.addon.model.api.ComponentId;
 import com.gni.frmk.tools.addon.model.api.ComponentState;
+import com.gni.frmk.tools.addon.model.api.Component;
+import com.gni.frmk.tools.addon.model.api.ComponentDetail;
+import com.gni.frmk.tools.addon.model.api.ComponentType;
+import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentId;
+import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentState;
+import com.gni.frmk.tools.addon.model.api.ComponentBuilder;
+import com.gni.frmk.tools.addon.model.api.ComponentDetail.Value;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 

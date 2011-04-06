@@ -1,8 +1,8 @@
 package com.gni.frmk.tools.addon.model.component.state;
 
+import com.gni.frmk.tools.addon.model.api.ComponentStateType;
 import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentState;
 import com.gni.frmk.tools.addon.model.api.ComponentState;
-import com.gni.frmk.tools.addon.model.api.ComponentStateType;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;
 import com.gni.frmk.tools.addon.model.component.state.TemporaryActivableState.TemporaryStatus;
 

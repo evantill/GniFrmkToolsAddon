@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.model.component.id;
 
-import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentId;
 import com.gni.frmk.tools.addon.model.api.ComponentId;
+import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentId;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

@@ -7,6 +7,8 @@ import com.gni.frmk.tools.addon.model.component.state.ConnectableState;
 import com.gni.frmk.tools.addon.model.component.state.EnableState;
 import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState;
 import com.gni.frmk.tools.addon.model.component.state.SchedulerState;
+import com.gni.frmk.tools.addon.service.api.configuration.ConfigurationVisited;
+import com.gni.frmk.tools.addon.service.api.configuration.ConfigurationVisitor;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -29,7 +31,7 @@ import static java.util.Collections.unmodifiableList;
  */
 @XmlRootElement
 @XmlAccessorType(value = XmlAccessType.NONE)
-public class Configuration {
+public class Configuration implements ConfigurationVisited{
     @NotNull
     @Pattern(regexp="\\w{1,32}")
     @XmlAttribute
@@ -118,40 +120,54 @@ public class Configuration {
         schedulerConfigurations = null;
     }
 
+    @Override
     public List<ComponentConfiguration<AdapterConnection, EnableState>> getAdapterConnectionConfigurations() {
         return unmodifiableList(adapterConnectionConfigurations);
     }
 
+    @Override
     public List<ComponentConfiguration<AdapterListener, ActivableState>> getAdapterListenerConfigurations() {
         return unmodifiableList(adapterListenerConfigurations);
     }
 
+    @Override
     public List<ComponentConfiguration<AdapterNotification, ActivableState>> getAdapterNotificationConfigurations() {
         return unmodifiableList(adapterNotificationConfigurations);
     }
 
+    @Override
     public List<ComponentConfiguration<IntegrationServerPackage, EnableState>> getIntegrationServerPackageConfigurations() {
         return unmodifiableList(integrationServerPackageConfigurations);
     }
 
+    @Override
     public List<ComponentConfiguration<JmsAlias, ConnectableState>> getJmsAliasConfigurations() {
         return unmodifiableList(jmsAliasConfigurations);
     }
 
+    @Override
     public List<ComponentConfiguration<JmsTrigger, ActivableState>> getJmsTriggerConfigurations() {
         return unmodifiableList(jmsTriggerConfigurations);
     }
 
+    @Override
     public List<ComponentConfiguration<NativeTrigger, NativeTriggerState>> getNativeTriggerConfigurations() {
         return unmodifiableList(nativeTriggerConfigurations);
     }
 
+    @Override
     public List<ComponentConfiguration<Port, ActivableState>> getPortConfigurations() {
         return unmodifiableList(portConfigurations);
     }
 
+    @Override
     public List<ComponentConfiguration<Scheduler, SchedulerState>> getSchedulerConfigurations() {
         return unmodifiableList(schedulerConfigurations);
+    }
+
+    @Override
+    public void accept(ConfigurationVisitor visitor) {
+        visitor.dispatchVisit(this);
     }
 
     public String getId() {
