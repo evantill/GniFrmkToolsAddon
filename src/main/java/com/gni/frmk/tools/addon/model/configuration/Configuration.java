@@ -42,7 +42,7 @@ public class Configuration implements ConfigurationVisited {
     private final Date creation;
     @NotNull
     @XmlAttribute
-    private Date modification;
+    private final Date modification;
 
     @Valid
     @XmlElement(name = "adapterConnectionConfiguration")
