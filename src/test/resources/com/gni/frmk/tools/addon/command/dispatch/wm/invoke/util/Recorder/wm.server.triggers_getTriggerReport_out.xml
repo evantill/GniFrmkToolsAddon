@@ -1833,6 +1833,900 @@
         </record>
       </record>
       <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="name">GniRefservcommunsClientsResumeBPM038.GniRefservcommunsClientsResumeBPM038.GniRefservcommunsClientsResumeBPM038_1.logicalResumeIn:transitionTrigger</value>
+        <record name="properties" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="executeEnabled">true</value>
+          <value name="joinTimeOut">86400000</value>
+          <value name="queueCapacity">10</value>
+          <value name="queueRefillLevel">4</value>
+          <value name="ackQueueSize">1</value>
+          <value name="maxRetryAttempts">5</value>
+          <value name="retryInterval">0</value>
+          <value name="isConcurrent">true</value>
+          <value name="serialSuspendOnError">false</value>
+          <value name="maxExecutionThreads">10</value>
+          <value name="dupDetection">false</value>
+          <value name="dupHistory">false</value>
+          <value name="dupHistoryTTL">7200000</value>
+          <value name="queueCapacityThrottle">10</value>
+          <value name="queueRefillLevelThrottle">4</value>
+          <value name="maxExecutionThreadsThrottle">10</value>
+          <value name="redeliveryAction">1</value>
+          <value name="monitorServiceName">wm.prt.admin:monitorPRTDB</value>
+        </record>
+        <array name="conditions" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Subprocess Start Event</value>
+            <value name="service">wm.prt.dispatch:handleSubprocessStart</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">wm.prt.dispatch:SubprocessStart</value>
+                <value name="filterSource">ProcessModelID L_EQUALS "GniRefservcommunsClientsResumeBPM038/GniRefservcommunsClientsResumeBPM038" &amp;&amp; ProcessModelVersion L_EQUALS "1"</value>
+              </record>
+            </array>
+            <value name="documentTypesString">SubprocessStart</value>
+          </record>
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Inbound transitions</value>
+            <value name="service">wm.prt.dispatch:handleTransition</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">wm.prt.dispatch:ProcessTransitionVol</value>
+                <value name="filterSource">(ProcessModelID L_EQUALS "GniRefservcommunsClientsResumeBPM038/GniRefservcommunsClientsResumeBPM038" &amp;&amp; ProcessModelVersion L_EQUALS "1") &amp;&amp; (TargetStepID L_EQUALS "S28" || TargetStepID L_EQUALS "S93" || TargetStepID L_EQUALS "S25")</value>
+              </record>
+            </array>
+            <value name="documentTypesString">ProcessTransitionVol</value>
+          </record>
+        </array>
+        <record name="retrievalStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="state">active</value>
+        </record>
+        <record name="processingStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="activeThreadCount">0</value>
+          <value name="volatileQueueCount">0</value>
+          <value name="persistedQueueCount">0</value>
+          <value name="state">active</value>
+        </record>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="name">GniRefservcommunsClientsResumeBPM038.GniRefservcommunsClientsResumeBPM038.GniRefservcommunsClientsResumeBPM038_1.logicalResumeOut:transitionTrigger</value>
+        <record name="properties" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="executeEnabled">true</value>
+          <value name="joinTimeOut">86400000</value>
+          <value name="queueCapacity">10</value>
+          <value name="queueRefillLevel">4</value>
+          <value name="ackQueueSize">1</value>
+          <value name="maxRetryAttempts">5</value>
+          <value name="retryInterval">0</value>
+          <value name="isConcurrent">true</value>
+          <value name="serialSuspendOnError">false</value>
+          <value name="maxExecutionThreads">10</value>
+          <value name="dupDetection">false</value>
+          <value name="dupHistory">false</value>
+          <value name="dupHistoryTTL">7200000</value>
+          <value name="queueCapacityThrottle">10</value>
+          <value name="queueRefillLevelThrottle">4</value>
+          <value name="maxExecutionThreadsThrottle">10</value>
+          <value name="redeliveryAction">1</value>
+          <value name="monitorServiceName">wm.prt.admin:monitorPRTDB</value>
+        </record>
+        <array name="conditions" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Subprocess Start Event</value>
+            <value name="service">wm.prt.dispatch:handleSubprocessStart</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">wm.prt.dispatch:SubprocessStart</value>
+                <value name="filterSource">ProcessModelID L_EQUALS "GniRefservcommunsClientsResumeBPM038/GniRefservcommunsClientsResumeBPM038" &amp;&amp; ProcessModelVersion L_EQUALS "1"</value>
+              </record>
+            </array>
+            <value name="documentTypesString">SubprocessStart</value>
+          </record>
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Inbound transitions</value>
+            <value name="service">wm.prt.dispatch:handleTransition</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">wm.prt.dispatch:ProcessTransitionVol</value>
+                <value name="filterSource">(ProcessModelID L_EQUALS "GniRefservcommunsClientsResumeBPM038/GniRefservcommunsClientsResumeBPM038" &amp;&amp; ProcessModelVersion L_EQUALS "1") &amp;&amp; (TargetStepID L_EQUALS "S34" || TargetStepID L_EQUALS "S31")</value>
+              </record>
+            </array>
+            <value name="documentTypesString">ProcessTransitionVol</value>
+          </record>
+        </array>
+        <record name="retrievalStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="state">active</value>
+        </record>
+        <record name="processingStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="activeThreadCount">0</value>
+          <value name="volatileQueueCount">0</value>
+          <value name="persistedQueueCount">0</value>
+          <value name="state">active</value>
+        </record>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="name">GniRefservcommunsClientsResumeBPM038.GniRefservcommunsClientsResumeBPM038.GniRefservcommunsClientsResumeBPM038_1.logicalResumeTech:transitionTrigger</value>
+        <record name="properties" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="executeEnabled">true</value>
+          <value name="joinTimeOut">86400000</value>
+          <value name="queueCapacity">10</value>
+          <value name="queueRefillLevel">4</value>
+          <value name="ackQueueSize">1</value>
+          <value name="maxRetryAttempts">5</value>
+          <value name="retryInterval">0</value>
+          <value name="isConcurrent">true</value>
+          <value name="serialSuspendOnError">false</value>
+          <value name="maxExecutionThreads">10</value>
+          <value name="dupDetection">false</value>
+          <value name="dupHistory">false</value>
+          <value name="dupHistoryTTL">7200000</value>
+          <value name="queueCapacityThrottle">10</value>
+          <value name="queueRefillLevelThrottle">4</value>
+          <value name="maxExecutionThreadsThrottle">10</value>
+          <value name="redeliveryAction">1</value>
+          <value name="monitorServiceName">wm.prt.admin:monitorPRTDB</value>
+        </record>
+        <array name="conditions" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Subprocess Start Event</value>
+            <value name="service">wm.prt.dispatch:handleSubprocessStart</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">wm.prt.dispatch:SubprocessStart</value>
+                <value name="filterSource">ProcessModelID L_EQUALS "GniRefservcommunsClientsResumeBPM038/GniRefservcommunsClientsResumeBPM038" &amp;&amp; ProcessModelVersion L_EQUALS "1"</value>
+              </record>
+            </array>
+            <value name="documentTypesString">SubprocessStart</value>
+          </record>
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Inbound transitions</value>
+            <value name="service">wm.prt.dispatch:handleTransition</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">wm.prt.dispatch:ProcessTransitionVol</value>
+                <value name="filterSource">(ProcessModelID L_EQUALS "GniRefservcommunsClientsResumeBPM038/GniRefservcommunsClientsResumeBPM038" &amp;&amp; ProcessModelVersion L_EQUALS "1") &amp;&amp; (TargetStepID L_EQUALS "S105")</value>
+              </record>
+            </array>
+            <value name="documentTypesString">ProcessTransitionVol</value>
+          </record>
+        </array>
+        <record name="retrievalStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="state">active</value>
+        </record>
+        <record name="processingStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="activeThreadCount">0</value>
+          <value name="volatileQueueCount">0</value>
+          <value name="persistedQueueCount">0</value>
+          <value name="state">active</value>
+        </record>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="name">GniRefservcommunsClientsResumeBPM038.GniRefservcommunsClientsResumeBPM038.logicalResumeIn:subscriptionTrigger</value>
+        <record name="properties" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="executeEnabled">true</value>
+          <value name="joinTimeOut">86400000</value>
+          <value name="queueCapacity">10</value>
+          <value name="queueRefillLevel">4</value>
+          <value name="ackQueueSize">1</value>
+          <value name="maxRetryAttempts">0</value>
+          <value name="retryInterval">0</value>
+          <value name="isConcurrent">true</value>
+          <value name="serialSuspendOnError">false</value>
+          <value name="maxExecutionThreads">10</value>
+          <value name="dupDetection">false</value>
+          <value name="dupHistory">false</value>
+          <value name="dupHistoryTTL">7200000</value>
+          <value name="queueCapacityThrottle">10</value>
+          <value name="queueRefillLevelThrottle">4</value>
+          <value name="maxExecutionThreadsThrottle">10</value>
+          <value name="redeliveryAction">1</value>
+          <value name="monitorServiceName">wm.prt.admin:monitorPRTDB</value>
+        </record>
+        <array name="conditions" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Subscribed inputs</value>
+            <value name="service">wm.prt.dispatch:handlePublishedInput</value>
+            <value name="joinType">OR</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">GniResume_Sinistre_Ulis_In.document:InterfaceUlis</value>
+                <value name="filterSource"></value>
+              </record>
+            </array>
+            <value name="documentTypesString">InterfaceUlis</value>
+          </record>
+        </array>
+        <record name="retrievalStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="state">active</value>
+        </record>
+        <record name="processingStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="activeThreadCount">0</value>
+          <value name="volatileQueueCount">0</value>
+          <value name="persistedQueueCount">0</value>
+          <value name="state">active</value>
+        </record>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="name">GniRefservcommuns_Clients_Resume_BPM035.GniRefservcommunsClientsResumeBPM035.GniRefservcommunsClientsResumeBPM035_1.logicalResumeIn:transitionTrigger</value>
+        <record name="properties" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="executeEnabled">true</value>
+          <value name="joinTimeOut">86400000</value>
+          <value name="queueCapacity">10</value>
+          <value name="queueRefillLevel">4</value>
+          <value name="ackQueueSize">1</value>
+          <value name="maxRetryAttempts">5</value>
+          <value name="retryInterval">0</value>
+          <value name="isConcurrent">true</value>
+          <value name="serialSuspendOnError">false</value>
+          <value name="maxExecutionThreads">10</value>
+          <value name="dupDetection">false</value>
+          <value name="dupHistory">false</value>
+          <value name="dupHistoryTTL">7200000</value>
+          <value name="queueCapacityThrottle">10</value>
+          <value name="queueRefillLevelThrottle">4</value>
+          <value name="maxExecutionThreadsThrottle">10</value>
+          <value name="redeliveryAction">1</value>
+          <value name="monitorServiceName">wm.prt.admin:monitorPRTDB</value>
+        </record>
+        <array name="conditions" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Inbound transitions</value>
+            <value name="service">wm.prt.dispatch:handleTransition</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">wm.prt.dispatch:ProcessTransitionVol</value>
+                <value name="filterSource">(ProcessModelID L_EQUALS "GniRefservcommunsClientsResumeBPM035/GniRefservcommunsClientsResumeBPM035" &amp;&amp; ProcessModelVersion L_EQUALS "1") &amp;&amp; (TargetStepID L_EQUALS "S13" || TargetStepID L_EQUALS "S5")</value>
+              </record>
+            </array>
+            <value name="documentTypesString">ProcessTransitionVol</value>
+          </record>
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Subprocess Start Event</value>
+            <value name="service">wm.prt.dispatch:handleSubprocessStart</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">wm.prt.dispatch:SubprocessStart</value>
+                <value name="filterSource">ProcessModelID L_EQUALS "GniRefservcommunsClientsResumeBPM035/GniRefservcommunsClientsResumeBPM035" &amp;&amp; ProcessModelVersion L_EQUALS "1"</value>
+              </record>
+            </array>
+            <value name="documentTypesString">SubprocessStart</value>
+          </record>
+        </array>
+        <record name="retrievalStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="state">active</value>
+        </record>
+        <record name="processingStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="activeThreadCount">0</value>
+          <value name="volatileQueueCount">0</value>
+          <value name="persistedQueueCount">0</value>
+          <value name="state">active</value>
+        </record>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="name">GniRefservcommuns_Clients_Resume_BPM035.GniRefservcommunsClientsResumeBPM035.GniRefservcommunsClientsResumeBPM035_1.logicalResumeOut:transitionTrigger</value>
+        <record name="properties" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="executeEnabled">true</value>
+          <value name="joinTimeOut">86400000</value>
+          <value name="queueCapacity">10</value>
+          <value name="queueRefillLevel">4</value>
+          <value name="ackQueueSize">1</value>
+          <value name="maxRetryAttempts">5</value>
+          <value name="retryInterval">0</value>
+          <value name="isConcurrent">true</value>
+          <value name="serialSuspendOnError">false</value>
+          <value name="maxExecutionThreads">10</value>
+          <value name="dupDetection">false</value>
+          <value name="dupHistory">false</value>
+          <value name="dupHistoryTTL">7200000</value>
+          <value name="queueCapacityThrottle">10</value>
+          <value name="queueRefillLevelThrottle">4</value>
+          <value name="maxExecutionThreadsThrottle">10</value>
+          <value name="redeliveryAction">1</value>
+          <value name="monitorServiceName">wm.prt.admin:monitorPRTDB</value>
+        </record>
+        <array name="conditions" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Inbound transitions</value>
+            <value name="service">wm.prt.dispatch:handleTransition</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">wm.prt.dispatch:ProcessTransitionVol</value>
+                <value name="filterSource">(ProcessModelID L_EQUALS "GniRefservcommunsClientsResumeBPM035/GniRefservcommunsClientsResumeBPM035" &amp;&amp; ProcessModelVersion L_EQUALS "1") &amp;&amp; (TargetStepID L_EQUALS "S21" || TargetStepID L_EQUALS "S16" || TargetStepID L_EQUALS "S48")</value>
+              </record>
+            </array>
+            <value name="documentTypesString">ProcessTransitionVol</value>
+          </record>
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Subprocess Start Event</value>
+            <value name="service">wm.prt.dispatch:handleSubprocessStart</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">wm.prt.dispatch:SubprocessStart</value>
+                <value name="filterSource">ProcessModelID L_EQUALS "GniRefservcommunsClientsResumeBPM035/GniRefservcommunsClientsResumeBPM035" &amp;&amp; ProcessModelVersion L_EQUALS "1"</value>
+              </record>
+            </array>
+            <value name="documentTypesString">SubprocessStart</value>
+          </record>
+        </array>
+        <record name="retrievalStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="state">active</value>
+        </record>
+        <record name="processingStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="activeThreadCount">0</value>
+          <value name="volatileQueueCount">0</value>
+          <value name="persistedQueueCount">0</value>
+          <value name="state">active</value>
+        </record>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="name">GniRefservcommuns_Clients_Resume_BPM035.GniRefservcommunsClientsResumeBPM035.GniRefservcommunsClientsResumeBPM035_1.logicalResumeTech:transitionTrigger</value>
+        <record name="properties" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="executeEnabled">true</value>
+          <value name="joinTimeOut">86400000</value>
+          <value name="queueCapacity">10</value>
+          <value name="queueRefillLevel">4</value>
+          <value name="ackQueueSize">1</value>
+          <value name="maxRetryAttempts">5</value>
+          <value name="retryInterval">0</value>
+          <value name="isConcurrent">true</value>
+          <value name="serialSuspendOnError">false</value>
+          <value name="maxExecutionThreads">10</value>
+          <value name="dupDetection">false</value>
+          <value name="dupHistory">false</value>
+          <value name="dupHistoryTTL">7200000</value>
+          <value name="queueCapacityThrottle">10</value>
+          <value name="queueRefillLevelThrottle">4</value>
+          <value name="maxExecutionThreadsThrottle">10</value>
+          <value name="redeliveryAction">1</value>
+          <value name="monitorServiceName">wm.prt.admin:monitorPRTDB</value>
+        </record>
+        <array name="conditions" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Inbound transitions</value>
+            <value name="service">wm.prt.dispatch:handleTransition</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">wm.prt.dispatch:ProcessTransitionVol</value>
+                <value name="filterSource">(ProcessModelID L_EQUALS "GniRefservcommunsClientsResumeBPM035/GniRefservcommunsClientsResumeBPM035" &amp;&amp; ProcessModelVersion L_EQUALS "1") &amp;&amp; (TargetStepID L_EQUALS "S101" || TargetStepID L_EQUALS "S92")</value>
+              </record>
+            </array>
+            <value name="documentTypesString">ProcessTransitionVol</value>
+          </record>
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Subprocess Start Event</value>
+            <value name="service">wm.prt.dispatch:handleSubprocessStart</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">wm.prt.dispatch:SubprocessStart</value>
+                <value name="filterSource">ProcessModelID L_EQUALS "GniRefservcommunsClientsResumeBPM035/GniRefservcommunsClientsResumeBPM035" &amp;&amp; ProcessModelVersion L_EQUALS "1"</value>
+              </record>
+            </array>
+            <value name="documentTypesString">SubprocessStart</value>
+          </record>
+        </array>
+        <record name="retrievalStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="state">active</value>
+        </record>
+        <record name="processingStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="activeThreadCount">0</value>
+          <value name="volatileQueueCount">0</value>
+          <value name="persistedQueueCount">0</value>
+          <value name="state">active</value>
+        </record>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="name">GniRefservcommuns_Clients_Resume_BPM035.GniRefservcommunsClientsResumeBPM035.GniRefservcommunsClientsResumeBPM035_2.logicalResumeIn:transitionTrigger</value>
+        <record name="properties" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="executeEnabled">true</value>
+          <value name="joinTimeOut">86400000</value>
+          <value name="queueCapacity">10</value>
+          <value name="queueRefillLevel">4</value>
+          <value name="ackQueueSize">1</value>
+          <value name="maxRetryAttempts">5</value>
+          <value name="retryInterval">0</value>
+          <value name="isConcurrent">true</value>
+          <value name="serialSuspendOnError">false</value>
+          <value name="maxExecutionThreads">10</value>
+          <value name="dupDetection">false</value>
+          <value name="dupHistory">false</value>
+          <value name="dupHistoryTTL">7200000</value>
+          <value name="queueCapacityThrottle">10</value>
+          <value name="queueRefillLevelThrottle">4</value>
+          <value name="maxExecutionThreadsThrottle">10</value>
+          <value name="redeliveryAction">1</value>
+          <value name="monitorServiceName">wm.prt.admin:monitorPRTDB</value>
+        </record>
+        <array name="conditions" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Subprocess Start Event</value>
+            <value name="service">wm.prt.dispatch:handleSubprocessStart</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">wm.prt.dispatch:SubprocessStart</value>
+                <value name="filterSource">ProcessModelID L_EQUALS "GniRefservcommunsClientsResumeBPM035/GniRefservcommunsClientsResumeBPM035" &amp;&amp; ProcessModelVersion L_EQUALS "2"</value>
+              </record>
+            </array>
+            <value name="documentTypesString">SubprocessStart</value>
+          </record>
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Inbound transitions</value>
+            <value name="service">wm.prt.dispatch:handleTransition</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">wm.prt.dispatch:ProcessTransitionVol</value>
+                <value name="filterSource">(ProcessModelID L_EQUALS "GniRefservcommunsClientsResumeBPM035/GniRefservcommunsClientsResumeBPM035" &amp;&amp; ProcessModelVersion L_EQUALS "2") &amp;&amp; (TargetStepID L_EQUALS "S187" || TargetStepID L_EQUALS "S16" || TargetStepID L_EQUALS "S179" || TargetStepID L_EQUALS "S13" || TargetStepID L_EQUALS "S5" || TargetStepID L_EQUALS "S171")</value>
+              </record>
+            </array>
+            <value name="documentTypesString">ProcessTransitionVol</value>
+          </record>
+        </array>
+        <record name="retrievalStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="state">active</value>
+        </record>
+        <record name="processingStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="activeThreadCount">0</value>
+          <value name="volatileQueueCount">0</value>
+          <value name="persistedQueueCount">0</value>
+          <value name="state">active</value>
+        </record>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="name">GniRefservcommuns_Clients_Resume_BPM035.GniRefservcommunsClientsResumeBPM035.GniRefservcommunsClientsResumeBPM035_2.logicalResumeOut:transitionTrigger</value>
+        <record name="properties" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="executeEnabled">true</value>
+          <value name="joinTimeOut">86400000</value>
+          <value name="queueCapacity">10</value>
+          <value name="queueRefillLevel">4</value>
+          <value name="ackQueueSize">1</value>
+          <value name="maxRetryAttempts">5</value>
+          <value name="retryInterval">0</value>
+          <value name="isConcurrent">true</value>
+          <value name="serialSuspendOnError">false</value>
+          <value name="maxExecutionThreads">10</value>
+          <value name="dupDetection">false</value>
+          <value name="dupHistory">false</value>
+          <value name="dupHistoryTTL">7200000</value>
+          <value name="queueCapacityThrottle">10</value>
+          <value name="queueRefillLevelThrottle">4</value>
+          <value name="maxExecutionThreadsThrottle">10</value>
+          <value name="redeliveryAction">1</value>
+          <value name="monitorServiceName">wm.prt.admin:monitorPRTDB</value>
+        </record>
+        <array name="conditions" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Inbound transitions</value>
+            <value name="service">wm.prt.dispatch:handleTransition</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">wm.prt.dispatch:ProcessTransitionVol</value>
+                <value name="filterSource">(ProcessModelID L_EQUALS "GniRefservcommunsClientsResumeBPM035/GniRefservcommunsClientsResumeBPM035" &amp;&amp; ProcessModelVersion L_EQUALS "2") &amp;&amp; (TargetStepID L_EQUALS "S48" || TargetStepID L_EQUALS "S21")</value>
+              </record>
+            </array>
+            <value name="documentTypesString">ProcessTransitionVol</value>
+          </record>
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Subprocess Start Event</value>
+            <value name="service">wm.prt.dispatch:handleSubprocessStart</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">wm.prt.dispatch:SubprocessStart</value>
+                <value name="filterSource">ProcessModelID L_EQUALS "GniRefservcommunsClientsResumeBPM035/GniRefservcommunsClientsResumeBPM035" &amp;&amp; ProcessModelVersion L_EQUALS "2"</value>
+              </record>
+            </array>
+            <value name="documentTypesString">SubprocessStart</value>
+          </record>
+        </array>
+        <record name="retrievalStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="state">active</value>
+        </record>
+        <record name="processingStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="activeThreadCount">0</value>
+          <value name="volatileQueueCount">0</value>
+          <value name="persistedQueueCount">0</value>
+          <value name="state">active</value>
+        </record>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="name">GniRefservcommuns_Clients_Resume_BPM035.GniRefservcommunsClientsResumeBPM035.GniRefservcommunsClientsResumeBPM035_2.logicalResumeTech:transitionTrigger</value>
+        <record name="properties" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="executeEnabled">true</value>
+          <value name="joinTimeOut">86400000</value>
+          <value name="queueCapacity">10</value>
+          <value name="queueRefillLevel">4</value>
+          <value name="ackQueueSize">1</value>
+          <value name="maxRetryAttempts">5</value>
+          <value name="retryInterval">0</value>
+          <value name="isConcurrent">true</value>
+          <value name="serialSuspendOnError">false</value>
+          <value name="maxExecutionThreads">10</value>
+          <value name="dupDetection">false</value>
+          <value name="dupHistory">false</value>
+          <value name="dupHistoryTTL">7200000</value>
+          <value name="queueCapacityThrottle">10</value>
+          <value name="queueRefillLevelThrottle">4</value>
+          <value name="maxExecutionThreadsThrottle">10</value>
+          <value name="redeliveryAction">1</value>
+          <value name="monitorServiceName">wm.prt.admin:monitorPRTDB</value>
+        </record>
+        <array name="conditions" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Inbound transitions</value>
+            <value name="service">wm.prt.dispatch:handleTransition</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">wm.prt.dispatch:ProcessTransitionVol</value>
+                <value name="filterSource">(ProcessModelID L_EQUALS "GniRefservcommunsClientsResumeBPM035/GniRefservcommunsClientsResumeBPM035" &amp;&amp; ProcessModelVersion L_EQUALS "2") &amp;&amp; (TargetStepID L_EQUALS "S93" || TargetStepID L_EQUALS "S88")</value>
+              </record>
+            </array>
+            <value name="documentTypesString">ProcessTransitionVol</value>
+          </record>
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Subprocess Start Event</value>
+            <value name="service">wm.prt.dispatch:handleSubprocessStart</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">wm.prt.dispatch:SubprocessStart</value>
+                <value name="filterSource">ProcessModelID L_EQUALS "GniRefservcommunsClientsResumeBPM035/GniRefservcommunsClientsResumeBPM035" &amp;&amp; ProcessModelVersion L_EQUALS "2"</value>
+              </record>
+            </array>
+            <value name="documentTypesString">SubprocessStart</value>
+          </record>
+        </array>
+        <record name="retrievalStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="state">active</value>
+        </record>
+        <record name="processingStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="activeThreadCount">0</value>
+          <value name="volatileQueueCount">0</value>
+          <value name="persistedQueueCount">0</value>
+          <value name="state">active</value>
+        </record>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="name">GniRefservcommuns_Clients_Resume_BPM035.GniRefservcommunsClientsResumeBPM035.logicalResumeIn:subscriptionTrigger</value>
+        <record name="properties" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="executeEnabled">true</value>
+          <value name="joinTimeOut">86400000</value>
+          <value name="queueCapacity">10</value>
+          <value name="queueRefillLevel">4</value>
+          <value name="ackQueueSize">1</value>
+          <value name="maxRetryAttempts">0</value>
+          <value name="retryInterval">0</value>
+          <value name="isConcurrent">true</value>
+          <value name="serialSuspendOnError">false</value>
+          <value name="maxExecutionThreads">10</value>
+          <value name="dupDetection">false</value>
+          <value name="dupHistory">false</value>
+          <value name="dupHistoryTTL">7200000</value>
+          <value name="queueCapacityThrottle">10</value>
+          <value name="queueRefillLevelThrottle">4</value>
+          <value name="maxExecutionThreadsThrottle">10</value>
+          <value name="redeliveryAction">1</value>
+          <value name="monitorServiceName">wm.prt.admin:monitorPRTDB</value>
+        </record>
+        <array name="conditions" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Subscribed inputs</value>
+            <value name="service">wm.prt.dispatch:handlePublishedInput</value>
+            <value name="joinType">OR</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">GniResume_Contrat_FUE_In.document.interface_FUE:interface_FUE</value>
+                <value name="filterSource"></value>
+              </record>
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">GniResume_Contrat_Commun.document:interface_FUE_Partiel</value>
+                <value name="filterSource"></value>
+              </record>
+            </array>
+            <value name="documentTypesString">interface_FUE, interface_FUE_Partiel</value>
+          </record>
+        </array>
+        <record name="retrievalStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="state">active</value>
+        </record>
+        <record name="processingStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="activeThreadCount">0</value>
+          <value name="volatileQueueCount">0</value>
+          <value name="persistedQueueCount">0</value>
+          <value name="state">active</value>
+        </record>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="name">GniResume_Contrat_BCV_In.trigger:getErreurTrigger</value>
+        <record name="properties" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="executeEnabled">true</value>
+          <value name="joinTimeOut">86400000</value>
+          <value name="queueCapacity">10</value>
+          <value name="queueRefillLevel">4</value>
+          <value name="ackQueueSize">1</value>
+          <value name="maxRetryAttempts">5</value>
+          <value name="retryInterval">10000</value>
+          <value name="isConcurrent">true</value>
+          <value name="serialSuspendOnError">false</value>
+          <value name="maxExecutionThreads">1</value>
+          <value name="dupDetection">false</value>
+          <value name="dupHistory">false</value>
+          <value name="dupHistoryTTL">7200000</value>
+          <value name="queueCapacityThrottle">10</value>
+          <value name="queueRefillLevelThrottle">4</value>
+          <value name="maxExecutionThreadsThrottle">0</value>
+          <value name="redeliveryAction">0</value>
+          <value name="monitorServiceName">NA</value>
+        </record>
+        <array name="conditions" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Condition1</value>
+            <value name="service">GniResume_Contrat_BCV_In.traitement.gestionErreurs:getErreurAndAnalyse</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">pub.gni.error.doc.error:ErrorMessage</value>
+                <value name="filterSource">%TransportInfo/ApplicationDomain% L_EQUALS "RESUME_CONTRAT_BCV" &amp;&amp; %ErrorStatus/Status% L_EQUALS "ANALYSING"</value>
+              </record>
+            </array>
+            <value name="documentTypesString">ErrorMessage</value>
+          </record>
+        </array>
+        <record name="retrievalStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="state">suspended</value>
+        </record>
+        <record name="processingStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="activeThreadCount">0</value>
+          <value name="volatileQueueCount">0</value>
+          <value name="persistedQueueCount">0</value>
+          <value name="state">suspended</value>
+        </record>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="name">GniResume_Contrat_FDP_In.trigger:getErreurTrigger</value>
+        <record name="properties" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="executeEnabled">true</value>
+          <value name="joinTimeOut">86400000</value>
+          <value name="queueCapacity">10</value>
+          <value name="queueRefillLevel">4</value>
+          <value name="ackQueueSize">1</value>
+          <value name="maxRetryAttempts">5</value>
+          <value name="retryInterval">10000</value>
+          <value name="isConcurrent">true</value>
+          <value name="serialSuspendOnError">false</value>
+          <value name="maxExecutionThreads">1</value>
+          <value name="dupDetection">false</value>
+          <value name="dupHistory">false</value>
+          <value name="dupHistoryTTL">7200000</value>
+          <value name="queueCapacityThrottle">10</value>
+          <value name="queueRefillLevelThrottle">4</value>
+          <value name="maxExecutionThreadsThrottle">0</value>
+          <value name="redeliveryAction">0</value>
+          <value name="monitorServiceName">NA</value>
+        </record>
+        <array name="conditions" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Condition1</value>
+            <value name="service">GniResume_Contrat_FDP_In.traitement.gestionErreurs:getErreurAndAnalyse</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">pub.gni.error.doc.error:ErrorMessage</value>
+                <value name="filterSource">%TransportInfo/ApplicationDomain% L_EQUALS "RESUME_CONTRAT_FDP" &amp;&amp; %ErrorStatus/Status% L_EQUALS "ANALYSING"</value>
+              </record>
+            </array>
+            <value name="documentTypesString">ErrorMessage</value>
+          </record>
+        </array>
+        <record name="retrievalStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="state">suspended</value>
+        </record>
+        <record name="processingStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="activeThreadCount">0</value>
+          <value name="volatileQueueCount">0</value>
+          <value name="persistedQueueCount">0</value>
+          <value name="state">suspended</value>
+        </record>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="name">GniResume_Contrat_FUE_In.trigger:getErreurTrigger</value>
+        <record name="properties" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="executeEnabled">true</value>
+          <value name="joinTimeOut">86400000</value>
+          <value name="queueCapacity">10</value>
+          <value name="queueRefillLevel">4</value>
+          <value name="ackQueueSize">1</value>
+          <value name="maxRetryAttempts">5</value>
+          <value name="retryInterval">10000</value>
+          <value name="isConcurrent">true</value>
+          <value name="serialSuspendOnError">false</value>
+          <value name="maxExecutionThreads">1</value>
+          <value name="dupDetection">false</value>
+          <value name="dupHistory">false</value>
+          <value name="dupHistoryTTL">7200000</value>
+          <value name="queueCapacityThrottle">10</value>
+          <value name="queueRefillLevelThrottle">4</value>
+          <value name="maxExecutionThreadsThrottle">0</value>
+          <value name="redeliveryAction">0</value>
+          <value name="monitorServiceName">NA</value>
+        </record>
+        <array name="conditions" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Condition1</value>
+            <value name="service">GniResume_Contrat_FUE_In.traitement.gestionErreurs:getErreurAndAnalyse</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">pub.gni.error.doc.error:ErrorMessage</value>
+                <value name="filterSource">%TransportInfo/ApplicationDomain% L_EQUALS "RESUME_CONTRAT_FUE" &amp;&amp; %ErrorStatus/Status% L_EQUALS "ANALYSING"</value>
+              </record>
+            </array>
+            <value name="documentTypesString">ErrorMessage</value>
+          </record>
+        </array>
+        <record name="retrievalStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="state">suspended</value>
+        </record>
+        <record name="processingStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="activeThreadCount">0</value>
+          <value name="volatileQueueCount">0</value>
+          <value name="persistedQueueCount">0</value>
+          <value name="state">suspended</value>
+        </record>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="name">GniResume_Contrat_MDA_In.trigger:getErreurTrigger</value>
+        <record name="properties" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="executeEnabled">true</value>
+          <value name="joinTimeOut">86400000</value>
+          <value name="queueCapacity">10</value>
+          <value name="queueRefillLevel">4</value>
+          <value name="ackQueueSize">1</value>
+          <value name="maxRetryAttempts">5</value>
+          <value name="retryInterval">10000</value>
+          <value name="isConcurrent">true</value>
+          <value name="serialSuspendOnError">false</value>
+          <value name="maxExecutionThreads">1</value>
+          <value name="dupDetection">false</value>
+          <value name="dupHistory">false</value>
+          <value name="dupHistoryTTL">7200000</value>
+          <value name="queueCapacityThrottle">10</value>
+          <value name="queueRefillLevelThrottle">4</value>
+          <value name="maxExecutionThreadsThrottle">0</value>
+          <value name="redeliveryAction">0</value>
+          <value name="monitorServiceName">NA</value>
+        </record>
+        <array name="conditions" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Condition1</value>
+            <value name="service">GniResume_Contrat_MDA_In.traitement.gestionErreurs:getErreurAndAnalyse</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">pub.gni.error.doc.error:ErrorMessage</value>
+                <value name="filterSource">%TransportInfo/ApplicationDomain% L_EQUALS "RESUME_CONTRAT_MDA" &amp;&amp; %ErrorStatus/Status% L_EQUALS "ANALYSING"</value>
+              </record>
+            </array>
+            <value name="documentTypesString">ErrorMessage</value>
+          </record>
+        </array>
+        <record name="retrievalStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="state">suspended</value>
+        </record>
+        <record name="processingStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="activeThreadCount">0</value>
+          <value name="volatileQueueCount">0</value>
+          <value name="persistedQueueCount">0</value>
+          <value name="state">suspended</value>
+        </record>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="name">GniResume_Contrat_RES_In.trigger:getErreurTrigger</value>
+        <record name="properties" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="executeEnabled">true</value>
+          <value name="joinTimeOut">86400000</value>
+          <value name="queueCapacity">10</value>
+          <value name="queueRefillLevel">4</value>
+          <value name="ackQueueSize">1</value>
+          <value name="maxRetryAttempts">5</value>
+          <value name="retryInterval">10000</value>
+          <value name="isConcurrent">true</value>
+          <value name="serialSuspendOnError">false</value>
+          <value name="maxExecutionThreads">1</value>
+          <value name="dupDetection">false</value>
+          <value name="dupHistory">false</value>
+          <value name="dupHistoryTTL">7200000</value>
+          <value name="queueCapacityThrottle">10</value>
+          <value name="queueRefillLevelThrottle">4</value>
+          <value name="maxExecutionThreadsThrottle">0</value>
+          <value name="redeliveryAction">0</value>
+          <value name="monitorServiceName">NA</value>
+        </record>
+        <array name="conditions" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Condition1</value>
+            <value name="service">GniResume_Contrat_MDA_In.traitement.gestionErreurs:getErreurAndAnalyse</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">pub.gni.error.doc.error:ErrorMessage</value>
+                <value name="filterSource">%TransportInfo/ApplicationDomain% L_EQUALS "RESUME_CONTRAT_RES" &amp;&amp; %ErrorStatus/Status% L_EQUALS "ANALYSING"</value>
+              </record>
+            </array>
+            <value name="documentTypesString">ErrorMessage</value>
+          </record>
+        </array>
+        <record name="retrievalStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="state">suspended</value>
+        </record>
+        <record name="processingStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="activeThreadCount">0</value>
+          <value name="volatileQueueCount">0</value>
+          <value name="persistedQueueCount">0</value>
+          <value name="state">suspended</value>
+        </record>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="name">GniResume_Sinistre_Ulis_In.trigger:getErreurTrigger</value>
+        <record name="properties" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="executeEnabled">true</value>
+          <value name="joinTimeOut">86400000</value>
+          <value name="queueCapacity">10</value>
+          <value name="queueRefillLevel">4</value>
+          <value name="ackQueueSize">1</value>
+          <value name="maxRetryAttempts">5</value>
+          <value name="retryInterval">10000</value>
+          <value name="isConcurrent">true</value>
+          <value name="serialSuspendOnError">false</value>
+          <value name="maxExecutionThreads">1</value>
+          <value name="dupDetection">false</value>
+          <value name="dupHistory">false</value>
+          <value name="dupHistoryTTL">7200000</value>
+          <value name="queueCapacityThrottle">10</value>
+          <value name="queueRefillLevelThrottle">4</value>
+          <value name="maxExecutionThreadsThrottle">1</value>
+          <value name="redeliveryAction">0</value>
+          <value name="monitorServiceName">NA</value>
+        </record>
+        <array name="conditions" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="name">Condition1</value>
+            <value name="service">GniResume_Sinistre_Ulis_In.traitement.gestionErreurs:getErreurAndAnalyze</value>
+            <value name="joinType">N/A</value>
+            <array name="documentTypeFilterPairs" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="documentType">pub.gni.error.doc.error:ErrorMessage</value>
+                <value name="filterSource">%TransportInfo/ApplicationDomain% L_EQUALS "RESUME_SINISTRE" &amp;&amp; %ErrorStatus/Status% L_EQUALS "ANALYSING"</value>
+              </record>
+            </array>
+            <value name="documentTypesString">ErrorMessage</value>
+          </record>
+        </array>
+        <record name="retrievalStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="state">active</value>
+        </record>
+        <record name="processingStatus" javaclass="com.wm.data.ISMemDataImpl">
+          <value name="activeThreadCount">0</value>
+          <value name="volatileQueueCount">0</value>
+          <value name="persistedQueueCount">0</value>
+          <value name="state">active</value>
+        </record>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
         <value name="name">GniTestHDBPM.GniTestHDBPM1.Default:subscriptionTrigger</value>
         <record name="properties" javaclass="com.wm.data.ISMemDataImpl">
           <value name="executeEnabled">true</value>

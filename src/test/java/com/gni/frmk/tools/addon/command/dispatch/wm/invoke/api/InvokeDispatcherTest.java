@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api;
 
-import com.gni.frmk.tools.addon.command.action.wm.art.DisableConnection;
+import com.gni.frmk.tools.addon.command.action.wm.art.connection.DisableConnection;
 import com.gni.frmk.tools.addon.command.api.Action;
 import com.gni.frmk.tools.addon.command.api.ActionException;
 import com.gni.frmk.tools.addon.command.api.ActionHandler;

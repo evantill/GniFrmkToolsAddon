@@ -17,6 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author: e03229
  */
 @XmlRootElement
+//TODO passer sur un etat triple : ENABLE DISABLED SUSPENDED
 public class JmsTrigger extends PackageAware<StringId, ActivableState> {
 
     @NotNull

@@ -12,7 +12,7 @@ import com.wm.data.*;
  *
  * @author: e03229
  */
-abstract class AdapterTypeAwareHandler<A extends StringAction<R>, R extends Result>
+public abstract class AdapterTypeAwareHandler<A extends StringAction<R>, R extends Result>
         extends AbstractInvokeHandler<A, R> {
 
     protected AdapterTypeAwareHandler(String serviceName) {

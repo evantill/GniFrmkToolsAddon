@@ -1,11 +1,23 @@
 package com.gni.frmk.tools.addon.oldies.invoke;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
-import com.gni.frmk.tools.addon.command.action.wm.jms.*;
+import com.gni.frmk.tools.addon.command.action.wm.jms.alias.DisableJmsAlias;
+import com.gni.frmk.tools.addon.command.action.wm.jms.alias.EnableJmsAlias;
+import com.gni.frmk.tools.addon.command.action.wm.jms.alias.GetJmsAliasReport;
+import com.gni.frmk.tools.addon.command.action.wm.jms.trigger.DisableJmsTriggers;
+import com.gni.frmk.tools.addon.command.action.wm.jms.trigger.EnableJmsTriggers;
+import com.gni.frmk.tools.addon.command.action.wm.jms.trigger.GetJmsTriggerReport;
+import com.gni.frmk.tools.addon.command.action.wm.jms.trigger.SuspendJmsTriggers;
 import com.gni.frmk.tools.addon.command.api.ActionException;
 import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeException;
-import com.gni.frmk.tools.addon.command.handler.wm.jms.*;
+import com.gni.frmk.tools.addon.command.handler.wm.jms.alias.DisableJmsAliasHandler;
+import com.gni.frmk.tools.addon.command.handler.wm.jms.alias.EnableJmsAliasHandler;
+import com.gni.frmk.tools.addon.command.handler.wm.jms.alias.GetJmsAliasReportHandler;
+import com.gni.frmk.tools.addon.command.handler.wm.jms.trigger.DisableJmsTriggersHandler;
+import com.gni.frmk.tools.addon.command.handler.wm.jms.trigger.EnableJmsTriggersHandler;
+import com.gni.frmk.tools.addon.command.handler.wm.jms.trigger.GetJmsTriggerReportHandler;
+import com.gni.frmk.tools.addon.command.handler.wm.jms.trigger.SuspendJmsTriggersHandler;
 import com.gni.frmk.tools.addon.model.component.JmsAlias;
 import com.gni.frmk.tools.addon.model.component.JmsTrigger;
 

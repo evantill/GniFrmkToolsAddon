@@ -83,6 +83,7 @@ public abstract class ComponentConfiguration<T extends AbstractComponent<?, S>, 
         @NotNull
         private T component;
         @NotNull
+        //TODO verifier si peux etre surrime car utile ?
         private S currentState;
         @NotNull
         private S openState;

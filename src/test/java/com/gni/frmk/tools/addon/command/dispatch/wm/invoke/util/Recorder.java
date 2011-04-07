@@ -1,6 +1,32 @@
 package com.gni.frmk.tools.addon.command.dispatch.wm.invoke.util;
 
-import com.gni.frmk.tools.addon.command.action.wm.root.*;
+import com.gni.frmk.tools.addon.command.action.wm.art.*;
+import com.gni.frmk.tools.addon.command.action.wm.art.connection.DisableConnection;
+import com.gni.frmk.tools.addon.command.action.wm.art.connection.EnableConnection;
+import com.gni.frmk.tools.addon.command.action.wm.art.connection.ListAdaptersConnections;
+import com.gni.frmk.tools.addon.command.action.wm.art.listener.ListListeners;
+import com.gni.frmk.tools.addon.command.action.wm.art.notifications.ListNotifications;
+import com.gni.frmk.tools.addon.command.action.wm.art.notifications.ResumeNotification;
+import com.gni.frmk.tools.addon.command.action.wm.art.notifications.SuspendNotification;
+import com.gni.frmk.tools.addon.command.action.wm.jms.alias.DisableJmsAlias;
+import com.gni.frmk.tools.addon.command.action.wm.jms.alias.GetJmsAliasReport;
+import com.gni.frmk.tools.addon.command.action.wm.jms.trigger.DisableJmsTriggers;
+import com.gni.frmk.tools.addon.command.action.wm.jms.alias.EnableJmsAlias;
+import com.gni.frmk.tools.addon.command.action.wm.jms.trigger.EnableJmsTriggers;
+import com.gni.frmk.tools.addon.command.action.wm.jms.trigger.GetJmsTriggerReport;
+import com.gni.frmk.tools.addon.command.action.wm.jms.trigger.SuspendJmsTriggers;
+import com.gni.frmk.tools.addon.command.action.wm.root.ispackage.DisablePackage;
+import com.gni.frmk.tools.addon.command.action.wm.root.ispackage.EnablePackage;
+import com.gni.frmk.tools.addon.command.action.wm.root.ispackage.PackageList;
+import com.gni.frmk.tools.addon.command.action.wm.root.port.DisablePortListener;
+import com.gni.frmk.tools.addon.command.action.wm.root.port.EnablePortListener;
+import com.gni.frmk.tools.addon.command.action.wm.root.port.ListPortListeners;
+import com.gni.frmk.tools.addon.command.action.wm.root.scheduler.GetUserTaskList;
+import com.gni.frmk.tools.addon.command.action.wm.root.scheduler.SuspendUserTask;
+import com.gni.frmk.tools.addon.command.action.wm.root.scheduler.WakeUpUserTask;
+import com.gni.frmk.tools.addon.command.action.wm.root.service.GetAllServiceStats;
+import com.gni.frmk.tools.addon.command.action.wm.root.trigger.GetNativeTriggerReport;
+import com.gni.frmk.tools.addon.command.action.wm.root.trigger.SuspendTriggers;
 import com.gni.frmk.tools.addon.command.api.Action;
 import com.gni.frmk.tools.addon.command.api.ActionException;
 import com.gni.frmk.tools.addon.command.api.DispatchException;
@@ -64,6 +90,26 @@ public class Recorder {
             addAction(new GetUserTaskList());
             addAction(new SuspendUserTask("b2f57910-5edd-11e0-8fef-b8721ad3c5a7"));
             addAction(new WakeUpUserTask("b2f57910-5edd-11e0-8fef-b8721ad3c5a7"));
+            //art
+            addAction(new RetrieveAdapterTypesList());
+            addAction(new ListAdaptersConnections("JDBCAdapter"));
+            addAction(new DisableConnection("GniFrmkToolsAddOnTest.adapter.jdbc:cnxEssai"));
+            addAction(new EnableConnection("GniFrmkToolsAddOnTest.adapter.jdbc:cnxEssai"));
+            //
+            addAction(new ListNotifications("JDBCAdapter"));
+            addAction(new SuspendNotification("GniFrmkToolsAddOnTest.adapter.jdbc:notification"));
+            addAction(new ResumeNotification("GniFrmkToolsAddOnTest.adapter.jdbc:notification"));
+            //
+            addAction(new ListListeners("JDBCAdapter"));
+            //jms
+            addAction(new GetJmsAliasReport());
+            addAction(new DisableJmsAlias("GniFrmkToolsAddOnTest_JMS_ALIAS"));
+            addAction(new EnableJmsAlias("GniFrmkToolsAddOnTest_JMS_ALIAS"));
+            //
+            addAction(new GetJmsTriggerReport());
+            addAction(new SuspendJmsTriggers("GniFrmkToolsAddOnTest.jms:jmsTrigger"));
+            addAction(new DisableJmsTriggers("GniFrmkToolsAddOnTest.jms:jmsTrigger"));
+            addAction(new EnableJmsTriggers("GniFrmkToolsAddOnTest.jms:jmsTrigger"));
         }
 
         private void addAction(Action<?> action) {
@@ -114,7 +160,7 @@ public class Recorder {
             dispatcher.execute(new AllActions(dispatcher));
         } finally {
             remoteCtx.disconnect();
+            System.exit(0);
         }
-        System.exit(0);
     }
 }

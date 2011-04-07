@@ -22,6 +22,36 @@
     </array>
     <array name="listeners" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
+        <value name="port">/APP/DATA/DEV/RCE/RESUME/RES/SAS/IN@*.DATA.ok</value>
+        <value name="protocol">FilePolling</value>
+        <value name="pkg">GniResume_Contrat_RES_In</value>
+        <value name="enabled">false</value>
+        <value name="key">FilePollingListener:/APP/DATA/DEV/RCE/RESUME/RES/SAS/IN@*.DATA.ok</value>
+        <value name="factoryKey">webMethods/FilePolling</value>
+        <value name="configURL">/WmFlatFile/configFilePolling.dsp</value>
+        <value name="provider">webMethods</value>
+        <value name="monitorDir">/APP/DATA/DEV/RCE/RESUME/RES/SAS/IN</value>
+        <value name="workDir">/APP/DATA/DEV/RCE/RESUME/RES/SAS/IN/WORK/</value>
+        <value name="completionDir">/APP/DATA/DEV/RCE/RESUME/RES/SAS/IN/COMPLETION/</value>
+        <value name="errorDir">/APP/DATA/DEV/RCE/RESUME/RES/SAS/IN/ERROR/</value>
+        <value name="fileNameFilter">*.DATA.ok</value>
+        <value name="fileAge">5</value>
+        <value name="recursive">no</value>
+        <value name="clusterEnabled">no</value>
+        <value name="cleanupAtStartup">yes</value>
+        <value name="runUser">Administrator</value>
+        <value name="processingService">GniResume_Contrat_RES_In.Interface:receiveFileRES</value>
+        <value name="filePollingInterval">10</value>
+        <value name="logMinMessage">no</value>
+        <value name="NFSDirectories">no</value>
+        <value name="cleanUpFileAge">7</value>
+        <value name="cleanUpInterval">24</value>
+        <value name="maxThreads">1</value>
+        <value name="lockFileExtension">.lock</value>
+        <value name="status">Inactive</value>
+        <value name="listening">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
         <number name="port" type="java.lang.Integer">7502</number>
         <value name="protocol">HTTP</value>
         <value name="pkg">WmRoot</value>
@@ -201,6 +231,36 @@
         <value name="listening">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
+        <value name="port">/APP/DATA/DEV/RCE/RESUME/FDP/SAS/IN@*.DATA.ok</value>
+        <value name="protocol">FilePolling</value>
+        <value name="pkg">GniResume_Contrat_FDP_In</value>
+        <value name="enabled">false</value>
+        <value name="key">FilePollingListener:/APP/DATA/DEV/RCE/RESUME/FDP/SAS/IN@*.DATA.ok</value>
+        <value name="factoryKey">webMethods/FilePolling</value>
+        <value name="configURL">/WmFlatFile/configFilePolling.dsp</value>
+        <value name="provider">webMethods</value>
+        <value name="monitorDir">/APP/DATA/DEV/RCE/RESUME/FDP/SAS/IN</value>
+        <value name="workDir">/APP/DATA/DEV/RCE/RESUME/FDP/SAS/IN/WORK/</value>
+        <value name="completionDir">/APP/DATA/DEV/RCE/RESUME/FDP/SAS/IN/COMPLETION/</value>
+        <value name="errorDir">/APP/DATA/DEV/RCE/RESUME/FDP/SAS/IN/ERROR/</value>
+        <value name="fileNameFilter">*.DATA.ok</value>
+        <value name="fileAge">5</value>
+        <value name="recursive">no</value>
+        <value name="clusterEnabled">no</value>
+        <value name="cleanupAtStartup">yes</value>
+        <value name="runUser">Administrator</value>
+        <value name="processingService">GniResume_Contrat_BCV_In.Interface:receiveFileBCV</value>
+        <value name="filePollingInterval">10</value>
+        <value name="logMinMessage">no</value>
+        <value name="NFSDirectories">no</value>
+        <value name="cleanUpFileAge">7</value>
+        <value name="cleanUpInterval">24</value>
+        <value name="maxThreads">1</value>
+        <value name="lockFileExtension">.lock</value>
+        <value name="status">Inactive</value>
+        <value name="listening">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
         <number name="port" type="java.lang.Integer">6539</number>
         <value name="protocol">HTTP</value>
         <value name="pkg">GniSinistre_Get_Out</value>
@@ -222,6 +282,36 @@
         <value name="curDelay">0</value>
         <value name="stepsize">10000</value>
         <value name="suspended">false</value>
+        <value name="status">Inactive</value>
+        <value name="listening">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="port">/APP/DATA/DEV/RCE/RESUME/MDA/SAS/IN@*.DATA.ok</value>
+        <value name="protocol">FilePolling</value>
+        <value name="pkg">GniResume_Contrat_MDA_In</value>
+        <value name="enabled">false</value>
+        <value name="key">FilePollingListener:/APP/DATA/DEV/RCE/RESUME/MDA/SAS/IN@*.DATA.ok</value>
+        <value name="factoryKey">webMethods/FilePolling</value>
+        <value name="configURL">/WmFlatFile/configFilePolling.dsp</value>
+        <value name="provider">webMethods</value>
+        <value name="monitorDir">/APP/DATA/DEV/RCE/RESUME/MDA/SAS/IN</value>
+        <value name="workDir">/APP/DATA/DEV/RCE/RESUME/MDA/SAS/IN/WORK/</value>
+        <value name="completionDir">/APP/DATA/DEV/RCE/RESUME/MDA/SAS/IN/COMPLETION/</value>
+        <value name="errorDir">/APP/DATA/DEV/RCE/RESUME/MDA/SAS/IN/ERROR/</value>
+        <value name="fileNameFilter">*.DATA.ok</value>
+        <value name="fileAge">5</value>
+        <value name="recursive">no</value>
+        <value name="clusterEnabled">no</value>
+        <value name="cleanupAtStartup">yes</value>
+        <value name="runUser">Administrator</value>
+        <value name="processingService">GniResume_Contrat_MDA_In.Interface:receiveFileMDA</value>
+        <value name="filePollingInterval">10</value>
+        <value name="logMinMessage">no</value>
+        <value name="NFSDirectories">no</value>
+        <value name="cleanUpFileAge">7</value>
+        <value name="cleanUpInterval">24</value>
+        <value name="maxThreads">1</value>
+        <value name="lockFileExtension">.lock</value>
         <value name="status">Inactive</value>
         <value name="listening">false</value>
       </record>
@@ -294,6 +384,36 @@
         <value name="listening">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
+        <value name="port">/APP/DATA/DEV/RCE/RESUME/BCV/SAS/IN@*.DATA.ok</value>
+        <value name="protocol">FilePolling</value>
+        <value name="pkg">GniResume_Contrat_BCV_In</value>
+        <value name="enabled">false</value>
+        <value name="key">FilePollingListener:/APP/DATA/DEV/RCE/RESUME/BCV/SAS/IN@*.DATA.ok</value>
+        <value name="factoryKey">webMethods/FilePolling</value>
+        <value name="configURL">/WmFlatFile/configFilePolling.dsp</value>
+        <value name="provider">webMethods</value>
+        <value name="monitorDir">/APP/DATA/DEV/RCE/RESUME/BCV/SAS/IN</value>
+        <value name="workDir">/APP/DATA/DEV/RCE/RESUME/BCV/SAS/IN/WORK/</value>
+        <value name="completionDir">/APP/DATA/DEV/RCE/RESUME/BCV/SAS/IN/COMPLETION/</value>
+        <value name="errorDir">/APP/DATA/DEV/RCE/RESUME/BCV/SAS/IN/ERROR/</value>
+        <value name="fileNameFilter">*.DATA.ok</value>
+        <value name="fileAge">5</value>
+        <value name="recursive">no</value>
+        <value name="clusterEnabled">no</value>
+        <value name="cleanupAtStartup">yes</value>
+        <value name="runUser">Administrator</value>
+        <value name="processingService">GniResume_Contrat_BCV_In.Interface:receiveFileBCV</value>
+        <value name="filePollingInterval">10</value>
+        <value name="logMinMessage">no</value>
+        <value name="NFSDirectories">no</value>
+        <value name="cleanUpFileAge">7</value>
+        <value name="cleanUpInterval">24</value>
+        <value name="maxThreads">1</value>
+        <value name="lockFileExtension">.lock</value>
+        <value name="status">Inactive</value>
+        <value name="listening">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
         <number name="port" type="java.lang.Integer">9999</number>
         <value name="protocol">HTTP</value>
         <value name="pkg">GniFrmkToolsAddOnTest</value>
@@ -336,6 +456,78 @@
         <value name="status">Active</value>
         <value name="listening">true</value>
         <value name="type">exclude</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <number name="port" type="java.lang.Integer">6531</number>
+        <value name="protocol">HTTP</value>
+        <value name="pkg">GniResume_Contrat_FUE_In</value>
+        <value name="enabled">false</value>
+        <value name="key">HTTPListener@6531</value>
+        <value name="factoryKey">webMethods/HTTP</value>
+        <value name="configURL">/WmRoot/configHTTP.dsp</value>
+        <value name="provider">webMethods</value>
+        <value name="listenerType">Regular</value>
+        <null name="clientAuth"/>
+        <value name="ssl">false</value>
+        <value name="maxQueue">200</value>
+        <value name="keepAliveTimeout">20000</value>
+        <value name="internalPort">-1</value>
+        <value name="curDelay">0</value>
+        <value name="stepsize">10000</value>
+        <value name="suspended">false</value>
+        <value name="status">Inactive</value>
+        <value name="listening">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="port">/APP/DATA/DEV/RCE/RESUME/FUE/SAS/IN@*.DATA.ok</value>
+        <value name="protocol">FilePolling</value>
+        <value name="pkg">GniResume_Contrat_FUE_In</value>
+        <value name="enabled">false</value>
+        <value name="key">FilePollingListener:/APP/DATA/DEV/RCE/RESUME/FUE/SAS/IN@*.DATA.ok</value>
+        <value name="factoryKey">webMethods/FilePolling</value>
+        <value name="configURL">/WmFlatFile/configFilePolling.dsp</value>
+        <value name="provider">webMethods</value>
+        <value name="monitorDir">/APP/DATA/DEV/RCE/RESUME/FUE/SAS/IN</value>
+        <value name="workDir">/APP/DATA/DEV/RCE/RESUME/FUE/SAS/IN/WORK/</value>
+        <value name="completionDir">/APP/DATA/DEV/RCE/RESUME/FUE/SAS/IN/COMPLETION/</value>
+        <value name="errorDir">/APP/DATA/DEV/RCE/RESUME/FUE/SAS/IN/ERROR/</value>
+        <value name="fileNameFilter">*.DATA.ok</value>
+        <value name="fileAge">5</value>
+        <value name="recursive">no</value>
+        <value name="clusterEnabled">no</value>
+        <value name="cleanupAtStartup">yes</value>
+        <value name="runUser">Administrator</value>
+        <value name="processingService">GniResume_Contrat_FUE_In.Interface:receiveFileFUE</value>
+        <value name="filePollingInterval">10</value>
+        <value name="logMinMessage">no</value>
+        <value name="NFSDirectories">no</value>
+        <value name="cleanUpFileAge">7</value>
+        <value name="cleanUpInterval">24</value>
+        <value name="maxThreads">1</value>
+        <value name="lockFileExtension">.lock</value>
+        <value name="status">Inactive</value>
+        <value name="listening">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <number name="port" type="java.lang.Integer">6542</number>
+        <value name="protocol">HTTP</value>
+        <value name="pkg">GniResume_Sinistre_Ulis_In</value>
+        <value name="enabled">false</value>
+        <value name="key">HTTPListener@6542</value>
+        <value name="factoryKey">webMethods/HTTP</value>
+        <value name="configURL">/WmRoot/configHTTP.dsp</value>
+        <value name="provider">webMethods</value>
+        <value name="listenerType">Regular</value>
+        <null name="clientAuth"/>
+        <value name="ssl">false</value>
+        <value name="maxQueue">200</value>
+        <value name="keepAliveTimeout">20000</value>
+        <value name="internalPort">-1</value>
+        <value name="curDelay">0</value>
+        <value name="stepsize">10000</value>
+        <value name="suspended">false</value>
+        <value name="status">Inactive</value>
+        <value name="listening">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <number name="port" type="java.lang.Integer">6525</number>

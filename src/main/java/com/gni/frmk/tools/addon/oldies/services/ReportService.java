@@ -1,10 +1,10 @@
 package com.gni.frmk.tools.addon.oldies.services;
 
-import com.gni.frmk.tools.addon.command.action.wm.art.ListAdaptersConnections;
-import com.gni.frmk.tools.addon.command.action.wm.art.ListListeners;
-import com.gni.frmk.tools.addon.command.action.wm.art.ListNotifications;
+import com.gni.frmk.tools.addon.command.action.wm.art.connection.ListAdaptersConnections;
+import com.gni.frmk.tools.addon.command.action.wm.art.listener.ListListeners;
+import com.gni.frmk.tools.addon.command.action.wm.art.notifications.ListNotifications;
 import com.gni.frmk.tools.addon.command.action.wm.art.RetrieveAdapterTypesList;
-import com.gni.frmk.tools.addon.command.action.wm.root.PackageList;
+import com.gni.frmk.tools.addon.command.action.wm.root.ispackage.PackageList;
 import com.gni.frmk.tools.addon.command.api.ActionException;
 import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeException;
 import com.gni.frmk.tools.addon.oldies.invoke.WmArtInvoker;

@@ -1,14 +1,14 @@
 package com.gni.frmk.tools.addon.visitor;
 
-import com.gni.frmk.tools.addon.command.action.wm.art.DisableConnection;
-import com.gni.frmk.tools.addon.command.action.wm.art.DisableListener;
-import com.gni.frmk.tools.addon.command.action.wm.art.DisableNotification;
-import com.gni.frmk.tools.addon.command.action.wm.jms.DisableJmsAlias;
-import com.gni.frmk.tools.addon.command.action.wm.jms.DisableJmsTriggers;
-import com.gni.frmk.tools.addon.command.action.wm.root.DisablePackage;
-import com.gni.frmk.tools.addon.command.action.wm.root.DisablePortListener;
-import com.gni.frmk.tools.addon.command.action.wm.root.SuspendTriggers;
-import com.gni.frmk.tools.addon.command.action.wm.root.SuspendUserTask;
+import com.gni.frmk.tools.addon.command.action.wm.art.connection.DisableConnection;
+import com.gni.frmk.tools.addon.command.action.wm.art.listener.DisableListener;
+import com.gni.frmk.tools.addon.command.action.wm.art.notifications.DisableNotification;
+import com.gni.frmk.tools.addon.command.action.wm.jms.alias.DisableJmsAlias;
+import com.gni.frmk.tools.addon.command.action.wm.jms.trigger.DisableJmsTriggers;
+import com.gni.frmk.tools.addon.command.action.wm.root.ispackage.DisablePackage;
+import com.gni.frmk.tools.addon.command.action.wm.root.port.DisablePortListener;
+import com.gni.frmk.tools.addon.command.action.wm.root.trigger.SuspendTriggers;
+import com.gni.frmk.tools.addon.command.action.wm.root.scheduler.SuspendUserTask;
 import com.gni.frmk.tools.addon.command.api.DispatchException;
 import com.gni.frmk.tools.addon.oldies.invoke.WmArtInvoker;
 import com.gni.frmk.tools.addon.oldies.invoke.WmRootInvoker;

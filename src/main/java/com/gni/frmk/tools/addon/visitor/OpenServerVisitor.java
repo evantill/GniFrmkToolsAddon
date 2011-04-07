@@ -1,14 +1,14 @@
 package com.gni.frmk.tools.addon.visitor;
 
-import com.gni.frmk.tools.addon.command.action.wm.art.EnableConnection;
-import com.gni.frmk.tools.addon.command.action.wm.art.EnableListener;
-import com.gni.frmk.tools.addon.command.action.wm.art.EnableNotification;
-import com.gni.frmk.tools.addon.command.action.wm.jms.EnableJmsAlias;
-import com.gni.frmk.tools.addon.command.action.wm.jms.EnableJmsTriggers;
-import com.gni.frmk.tools.addon.command.action.wm.root.EnablePackage;
-import com.gni.frmk.tools.addon.command.action.wm.root.EnablePortListener;
-import com.gni.frmk.tools.addon.command.action.wm.root.SuspendTriggers;
-import com.gni.frmk.tools.addon.command.action.wm.root.WakeUpUserTask;
+import com.gni.frmk.tools.addon.command.action.wm.art.connection.EnableConnection;
+import com.gni.frmk.tools.addon.command.action.wm.art.listener.EnableListener;
+import com.gni.frmk.tools.addon.command.action.wm.art.notifications.EnableNotification;
+import com.gni.frmk.tools.addon.command.action.wm.jms.alias.EnableJmsAlias;
+import com.gni.frmk.tools.addon.command.action.wm.jms.trigger.EnableJmsTriggers;
+import com.gni.frmk.tools.addon.command.action.wm.root.ispackage.EnablePackage;
+import com.gni.frmk.tools.addon.command.action.wm.root.port.EnablePortListener;
+import com.gni.frmk.tools.addon.command.action.wm.root.scheduler.WakeUpUserTask;
+import com.gni.frmk.tools.addon.command.action.wm.root.trigger.SuspendTriggers;
 import com.gni.frmk.tools.addon.command.api.DispatchException;
 import com.gni.frmk.tools.addon.oldies.invoke.WmArtInvoker;
 import com.gni.frmk.tools.addon.oldies.invoke.WmRootInvoker;
