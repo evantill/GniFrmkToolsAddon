@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.visitor.api;
 import com.gni.frmk.tools.addon.model.api.Component;
 import com.gni.frmk.tools.addon.model.component.*;
 import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentState;
-import com.gni.frmk.tools.addon.model.configuration.ComponentConfiguration;
+import com.gni.frmk.tools.addon.model.configuration.component.ComponentConfiguration;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;

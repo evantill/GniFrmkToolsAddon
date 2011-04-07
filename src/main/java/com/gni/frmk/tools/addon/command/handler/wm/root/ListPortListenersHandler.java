@@ -6,13 +6,14 @@ import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.command.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.command.result.ListResult;
 import com.gni.frmk.tools.addon.model.component.Port;
+import com.gni.frmk.tools.addon.model.component.Port.PortBuilder;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
-import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.wm.data.*;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * Created by IntelliJ IDEA.
@@ -32,32 +33,38 @@ public class ListPortListenersHandler extends AbstractInvokeHandler<ListPortList
     protected ListResult<Port> parseOutput(ListPortListeners action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
-            List<Port> values = Lists.newArrayList();
+            Map<String, Port> values = Maps.newHashMap();
+            for (Port value : action.getCollection()) {
+                values.put(value.getComponentId().asString(), value);
+            }
             IData[] tasksDatas = IDataUtil.getIDataArray(cur, "listeners");
             if (tasksDatas != null) {
-
                 for (IData portData : tasksDatas) {
-                    Port port = parsePort(portData);
-                    if (!port.isPrimary()) {
-                        values.add(port);
+                    IDataCursor portCur = portData.getCursor();
+                    try {
+                        String key = IDataUtil.getString(portCur, "key");
+                        Port value = values.get(key);
+                        if (value == null && action.isUpdate()) {
+                            continue;
+                        }
+                        PortBuilder builder = Port.builder();
+                        if (action.isUpdate()) {
+                            builder.from(value);
+                        } else {
+                            builder.key(key)
+                                   .primary(IDataUtil.getBoolean(portCur, "primary", false))
+                                   .packageName(IDataUtil.getString(portCur, "pkg"));
+                        }
+                        value = builder.defineState(defineState(portCur)).build();
+                        if (!value.isPrimary()) {
+                            values.put(value.getComponentId().asString(), value);
+                        }
+                    } finally {
+                        portCur.destroy();
                     }
                 }
             }
-            return new ListResult<Port>(values);
-        } finally {
-            cur.destroy();
-        }
-    }
-
-    private Port parsePort(IData data) {
-        IDataCursor cur = data.getCursor();
-        try {
-            return Port.builder()
-                       .key(IDataUtil.getString(cur, "key"))
-                       .primary(IDataUtil.getBoolean(cur, "primary", false))
-                       .packageName(IDataUtil.getString(cur, "pkg"))
-                       .defineState(defineState(cur))
-                       .build();
+            return new ListResult<Port>(values.values());
         } finally {
             cur.destroy();
         }

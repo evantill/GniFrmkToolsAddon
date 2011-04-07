@@ -6,15 +6,16 @@ import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.command.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.command.result.ListResult;
 import com.gni.frmk.tools.addon.model.component.NativeTrigger;
+import com.gni.frmk.tools.addon.model.component.NativeTrigger.NativeTriggerBuilder;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState;
 import com.gni.frmk.tools.addon.model.component.state.TemporaryActivableState;
 import com.gni.frmk.tools.addon.model.component.state.TemporaryActivableState.TemporaryStatus;
-import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.wm.data.*;
 
-import java.util.List;
+import java.util.Map;
 
 import static com.gni.frmk.tools.addon.model.component.state.TemporaryActivableState.TemporaryStatus.PERMANENT;
 import static com.gni.frmk.tools.addon.model.component.state.TemporaryActivableState.TemporaryStatus.TEMPORARY;
@@ -55,7 +56,7 @@ public class GetNativeTriggerReportHandler extends AbstractInvokeHandler<GetNati
 
     private TemporaryActivableState parseTmpActState(IData doc) {
         //case of a trigger without subscription
-        if(doc==null){
+        if (doc == null) {
             //TODO add log
             return new TemporaryActivableState(TemporaryStatus.PERMANENT, ActivableStatus.INACTIVE);
         }
@@ -82,26 +83,37 @@ public class GetNativeTriggerReportHandler extends AbstractInvokeHandler<GetNati
     protected ListResult<NativeTrigger> parseOutput(GetNativeTriggerReport action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
-            List<NativeTrigger> values = Lists.newArrayList();
+            Map<String, NativeTrigger> values = Maps.newHashMap();
+            for (NativeTrigger value : action.getCollection()) {
+                values.put(value.getComponentId().asString(), value);
+            }
             IData[] dataList = IDataUtil.getIDataArray(cur, "triggers");
             if (dataList != null) {
                 for (IData single : dataList) {
                     IDataCursor curLoop = single.getCursor();
                     try {
-                        values.add(NativeTrigger.builder()
-                                                .name(IDataUtil.getString(curLoop, "name"))
-                                                .defineState(parseTriggerState(curLoop))
-                                                .build());
+                        String name = IDataUtil.getString(curLoop, "name");
+                        NativeTrigger value = values.get(name);
+                        if (value == null && action.isUpdate()) {
+                            continue;
+                        }
+                        NativeTriggerBuilder builder = NativeTrigger.builder();
+                        if (action.isUpdate()) {
+                            builder.from(value);
+                        } else {
+                            builder.name(name);
+                        }
+                        value = builder.defineState(parseTriggerState(curLoop)).build();
+                        values.put(value.getComponentId().asString(), value);
                     } finally {
                         curLoop.destroy();
                     }
                 }
             }
-            return new ListResult<NativeTrigger>(values);
+            return new ListResult<NativeTrigger>(values.values());
         } finally {
             cur.destroy();
         }
-
     }
 
     @Override

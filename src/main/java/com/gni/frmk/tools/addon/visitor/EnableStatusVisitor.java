@@ -7,8 +7,8 @@ import com.gni.frmk.tools.addon.model.component.state.ConnectableState;
 import com.gni.frmk.tools.addon.model.component.state.EnableState;
 import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState;
 import com.gni.frmk.tools.addon.model.component.state.SchedulerState;
-import com.gni.frmk.tools.addon.model.configuration.ComponentConfiguration;
-import com.gni.frmk.tools.addon.model.configuration.ComponentConfiguration.ComponentStateContext;
+import com.gni.frmk.tools.addon.model.configuration.component.ComponentConfiguration;
+import com.gni.frmk.tools.addon.model.configuration.component.ComponentConfiguration.ComponentStateContext;
 import com.gni.frmk.tools.addon.model.configuration.Configuration;
 import com.gni.frmk.tools.addon.model.configuration.Configuration.Builder;
 
@@ -31,7 +31,7 @@ public class EnableStatusVisitor /*implements UpdateConfigurationVisitor*/ {
 
 //    @Override
     public <C extends AbstractComponent<?, S>, S extends AbstractComponentState> void visitComponentConfiguration(ComponentConfiguration<C, S> visited) {
-        visited.getComponent().setState(visited.getStates().get(ComponentStateContext.OPEN));
+//        visited.getComponent().setState(visited.getStates().get(ComponentStateContext.OPEN));
     }
 
     public void visit(AdapterConnection visited) {

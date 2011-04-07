@@ -6,13 +6,14 @@ import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.command.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.command.result.ListResult;
 import com.gni.frmk.tools.addon.model.component.JmsAlias;
+import com.gni.frmk.tools.addon.model.component.JmsAlias.JmsAliasBuilder;
 import com.gni.frmk.tools.addon.model.component.state.ConnectableState;
 import com.gni.frmk.tools.addon.model.component.state.ConnectableState.ConnectableStatus;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
-import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.wm.data.*;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * Created by IntelliJ IDEA.
@@ -43,23 +44,36 @@ public class GetJmsAliasReportHandler extends AbstractInvokeHandler<GetJmsAliasR
     protected ListResult<JmsAlias> parseOutput(GetJmsAliasReport action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
-            List<JmsAlias> values = Lists.newArrayList();
+            Map<String, JmsAlias> values = Maps.newHashMap();
+            for (JmsAlias value : action.getCollection()) {
+                values.put(value.getComponentId().asString(), value);
+            }
             IData[] dataList = IDataUtil.getIDataArray(cur, "aliasDataList");
             if (dataList != null) {
                 for (IData single : dataList) {
                     IDataCursor curLoop = single.getCursor();
                     try {
-                        values.add(JmsAlias.builder()
-                                           .name(IDataUtil.getString(curLoop, "aliasName"))
-                                           .description(IDataUtil.getString(curLoop, "description"))
-                                           .defineState(parseConnectableState(IDataUtil.getIData(curLoop, "trigger")))
-                                           .build());
+                        String aliasName = IDataUtil.getString(curLoop, "aliasName");
+                        JmsAlias value = values.get(aliasName);
+                        if (value == null && action.isUpdate()) {
+                            continue;
+                        }
+                        JmsAliasBuilder builder = JmsAlias.builder();
+                        if (action.isUpdate()) {
+                            builder.from(value);
+                        } else {
+                            builder.name(aliasName)
+                                   .description(IDataUtil.getString(curLoop, "description"));
+                        }
+                        ConnectableState state = parseConnectableState(IDataUtil.getIData(curLoop, "trigger"));
+                        value = builder.defineState(state).build();
+                        values.put(value.getComponentId().asString(), value);
                     } finally {
                         curLoop.destroy();
                     }
                 }
             }
-            return new ListResult<JmsAlias>(values);
+            return new ListResult<JmsAlias>(values.values());
         } finally {
             cur.destroy();
         }

@@ -2,7 +2,7 @@
 <configuration id="configuration_test_simple" name="configuration_test_simple" creation="2011-03-03T19:00:23.828Z"
                modification="2011-03-03T19:00:23.828Z" packageName="WmRoot">
     <adapterConnectionConfigurations>
-        <adapterConnectionConfiguration>
+        <adapterConnectionConfiguration exist="false" selected="true">
             <adapterConnection>
                 <stringId>alias_1</stringId>
                 <type>ADAPTER_CONNECTION</type>

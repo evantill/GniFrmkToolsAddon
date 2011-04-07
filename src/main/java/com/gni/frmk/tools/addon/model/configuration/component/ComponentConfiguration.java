@@ -1,9 +1,9 @@
-package com.gni.frmk.tools.addon.model.configuration;
+package com.gni.frmk.tools.addon.model.configuration.component;
 
 import com.gni.frmk.tools.addon.BuilderWithJsr303Validation;
 import com.gni.frmk.tools.addon.model.component.AbstractComponent;
 import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentState;
-import com.gni.frmk.tools.addon.model.configuration.ComponentConfigurationAdapters.ComponentStatesAdapter;
+import com.gni.frmk.tools.addon.model.configuration.component.ComponentConfigurationAdapters.ComponentStatesAdapter;
 import com.gni.frmk.tools.addon.service.api.configuration.ComponentConfigurationVisited;
 import com.gni.frmk.tools.addon.service.api.configuration.ComponentConfigurationVisitor;
 
@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.Map;
 
-import static com.gni.frmk.tools.addon.model.configuration.ComponentConfiguration.ComponentStateContext.*;
+import static com.gni.frmk.tools.addon.model.configuration.component.ComponentConfiguration.ComponentStateContext.*;
 import static com.google.common.collect.Maps.newTreeMap;
 
 /**
@@ -26,14 +26,14 @@ import static com.google.common.collect.Maps.newTreeMap;
  * @author: e03229
  */
 @XmlRootElement
-public class ComponentConfiguration<C extends AbstractComponent<?, S>, S extends AbstractComponentState>
-        implements ComponentConfigurationVisited{
+public abstract class ComponentConfiguration<T extends AbstractComponent<?, S>, S extends AbstractComponentState>
+        implements ComponentConfigurationVisited {
 
     public static enum ComponentStateContext {
         OPEN, CURRENT, CLOSE
     }
 
-    public ComponentConfiguration(Builder<C, S> builder) {
+    public ComponentConfiguration(Builder<?, ?, T, S> builder) {
         component = builder.component;
         exist = builder.exist;
         selected = builder.selected;
@@ -45,7 +45,7 @@ public class ComponentConfiguration<C extends AbstractComponent<?, S>, S extends
 
     @Valid
     @XmlElementRef
-    private final C component;
+    private final T component;
 
     @Valid
     @XmlJavaTypeAdapter(ComponentStatesAdapter.class)
@@ -59,14 +59,14 @@ public class ComponentConfiguration<C extends AbstractComponent<?, S>, S extends
     @NotNull
     private final Boolean selected;
 
-    private ComponentConfiguration() {
+    protected ComponentConfiguration() {
         component = null;
         states = null;
         exist = null;
         selected = null;
     }
 
-    public C getComponent() {
+    public T getComponent() {
         return component;
     }
 
@@ -74,24 +74,14 @@ public class ComponentConfiguration<C extends AbstractComponent<?, S>, S extends
         return states;
     }
 
-    @Override
-    public void accept(ComponentConfigurationVisitor visitor) {
-        visitor.visit(this);
-    }
-
-    public static <C extends AbstractComponent<?, S>, S extends AbstractComponentState> Builder<C, S> builder(Class<C> componentType) {
-        return new Builder<C, S>() {
-            @Override
-            public Builder<C, S> self() {
-                return this;
-            }
-        };
-    }
-
-    public static abstract class Builder<C extends AbstractComponent<?, S>, S extends AbstractComponentState>
-            extends BuilderWithJsr303Validation<Builder<C, S>, ComponentConfiguration<C, S>> {
+    public static abstract class Builder
+            <B extends Builder<B, C, T, S>,
+                    C extends ComponentConfiguration<T, S>,
+                    T extends AbstractComponent<?, S>,
+                    S extends AbstractComponentState>
+            extends BuilderWithJsr303Validation<B, C> {
         @NotNull
-        private C component;
+        private T component;
         @NotNull
         private S currentState;
         @NotNull
@@ -103,23 +93,23 @@ public class ComponentConfiguration<C extends AbstractComponent<?, S>, S extends
         @NotNull
         private Boolean exist;
 
-        public Builder<C, S> defineComponent(C c) {
-            component = c;
-            currentState = c.getState();
+        public B defineComponent(T t) {
+            component = t;
+            currentState = t.getState();
             return self();
         }
 
-        public Builder<C, S> select(boolean value) {
+        public B select(boolean value) {
             this.selected = value;
             return self();
         }
 
-        public Builder<C, S> exist(boolean value) {
+        public B exist(boolean value) {
             this.exist = value;
             return self();
         }
 
-        public Builder<C, S> defineState(ComponentStateContext context, S state) {
+        public B defineState(ComponentStateContext context, S state) {
             switch (context) {
                 case OPEN:
                     return defineOpenState(state);
@@ -132,24 +122,19 @@ public class ComponentConfiguration<C extends AbstractComponent<?, S>, S extends
             }
         }
 
-        public Builder<C, S> defineCurrentState(S state) {
+        public B defineCurrentState(S state) {
             currentState = state;
             return self();
         }
 
-        public Builder<C, S> defineOpenState(S state) {
+        public B defineOpenState(S state) {
             openState = state;
             return self();
         }
 
-        public Builder<C, S> defineCloseState(S state) {
+        public B defineCloseState(S state) {
             closeState = state;
             return self();
-        }
-
-        @Override
-        protected ComponentConfiguration<C, S> buildObjectBeforeValidation() {
-            return new ComponentConfiguration<C, S>(self());
         }
     }
 }

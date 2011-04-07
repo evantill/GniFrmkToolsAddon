@@ -6,14 +6,14 @@ import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.command.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.command.result.ListResult;
 import com.gni.frmk.tools.addon.model.component.Scheduler;
-import com.gni.frmk.tools.addon.model.component.state.EnableState;
+import com.gni.frmk.tools.addon.model.component.Scheduler.SchedulerBuilder;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.model.component.state.SchedulerState;
 import com.gni.frmk.tools.addon.model.component.state.SchedulerState.SchedulerStatus;
-import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.wm.data.*;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * Created by IntelliJ IDEA.
@@ -34,7 +34,7 @@ public class GetUserTaskListHandler extends AbstractInvokeHandler<GetUserTaskLis
         }, READY {
             @Override
             public EnableStatus toEnableState() {
-                return  EnableStatus.ENABLED;
+                return EnableStatus.ENABLED;
             }
         };
 
@@ -49,33 +49,46 @@ public class GetUserTaskListHandler extends AbstractInvokeHandler<GetUserTaskLis
     protected ListResult<Scheduler> parseOutput(GetUserTaskList action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
-            List<Scheduler> values = Lists.newArrayList();
+            Map<String, Scheduler> values = Maps.newHashMap();
+            for (Scheduler value : action.getCollection()) {
+                values.put(value.getComponentId().asString(), value);
+            }
             IData[] tasksDatas = IDataUtil.getIDataArray(cur, "tasks");
             if (tasksDatas != null) {
                 for (IData tasks : tasksDatas) {
                     IDataCursor curDoc = tasks.getCursor();
                     try {
-                        values.add(Scheduler.builder()
-                                            .name(IDataUtil.getString(curDoc, "name"))
-                                            .oid(IDataUtil.getString(curDoc, "oid"))
-                                            .schedulerType(IDataUtil.getString(curDoc, "type"))
-                                            .service(IDataUtil.getString(curDoc, "service"))
-                                            .description(IDataUtil.getString(curDoc, "description"))
-                                            .defineState(defineState(curDoc))
-                                            .build());
+                        String oid = IDataUtil.getString(curDoc, "oid");
+                        Scheduler value = values.get(oid);
+                        if (value == null && action.isUpdate()) {
+                            continue;
+                        }
+                        SchedulerBuilder builder = Scheduler.builder();
+                        if (action.isUpdate()) {
+                            builder.from(value);
+                        } else {
+                            builder.oid(oid)
+                                   .name(IDataUtil.getString(curDoc, "name"))
+                                   .schedulerType(IDataUtil.getString(curDoc, "type"))
+                                   .service(IDataUtil.getString(curDoc, "service"))
+                                   .description(IDataUtil.getString(curDoc, "description"));
+                        }
+                        value = builder.defineState(defineState(curDoc)).build();
+                        values.put(value.getComponentId().asString(), value);
                     } finally {
                         curDoc.destroy();
                     }
                 }
             }
-            return new ListResult<Scheduler>(values);
+            return new ListResult<Scheduler>(values.values());
         } finally {
             cur.destroy();
         }
     }
 
     private SchedulerState defineState(IDataCursor curDoc) {
-        EnableStatus enabled = SuspendedState.valueOf(IDataUtil.getString(curDoc, "execState").toUpperCase()).toEnableState();
+        EnableStatus enabled = SuspendedState.valueOf(IDataUtil.getString(curDoc, "execState").toUpperCase())
+                                             .toEnableState();
         SchedulerStatus scheduled = SchedulerStatus.valueOf(IDataUtil.getString(curDoc, "schedState").toUpperCase());
         return new SchedulerState(enabled, scheduled);
     }

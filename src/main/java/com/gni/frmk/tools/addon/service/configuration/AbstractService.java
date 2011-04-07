@@ -1,10 +1,7 @@
 package com.gni.frmk.tools.addon.service.configuration;
 
-import com.gni.frmk.tools.addon.model.component.AbstractComponent;
-import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentState;
-import com.gni.frmk.tools.addon.model.configuration.ComponentConfiguration;
-import com.gni.frmk.tools.addon.service.api.component.ComponentVisited;
-import com.gni.frmk.tools.addon.service.api.component.ComponentVisitor;
+import com.gni.frmk.tools.addon.command.api.Action;
+import com.gni.frmk.tools.addon.command.api.Result;
 import com.gni.frmk.tools.addon.service.api.configuration.*;
 import com.gni.frmk.tools.addon.service.api.configuration.ConfigurationProcessingStrategy.Operation;
 
@@ -15,7 +12,7 @@ import com.gni.frmk.tools.addon.service.api.configuration.ConfigurationProcessin
  *
  * @author: e03229
  */
-public abstract class AbstractService implements ComponentVisitor, ConfigurationProcessingContext, ConfigurationService {
+public abstract class AbstractService implements ComponentConfigurationVisitor, ConfigurationProcessingContext, ConfigurationService {
 
     private class ConfigurationVisitorAdapter implements ConfigurationVisitor {
         @Override
@@ -23,7 +20,7 @@ public abstract class AbstractService implements ComponentVisitor, Configuration
             AbstractService.this.executeStrategy(new Operation() {
                 @Override
                 public ComponentConfigurationVisitor getVisitor() {
-                    return AbstractService.this.componentCnfVisitorAdapter;
+                    return AbstractService.this;
                 }
 
                 @Override
@@ -34,24 +31,7 @@ public abstract class AbstractService implements ComponentVisitor, Configuration
         }
     }
 
-    private class ComponentConfigurationVisitorAdapter implements ComponentConfigurationVisitor {
-        @Override
-        public <C extends AbstractComponent<?, S>, S extends AbstractComponentState>
-        void visit(ComponentConfiguration<C, S> visited) {
-            AbstractService.this.visitComponentConfiguration(visited);
-        }
-
-        @Override
-        public void dispatchVisit(ComponentConfigurationVisited visitable) {
-            visitable.accept(this);
-        }
-    }
-
-    protected abstract <C extends AbstractComponent<?, S>, S extends AbstractComponentState>
-    void visitComponentConfiguration(ComponentConfiguration<C, S> visited);
-
     private final ConfigurationVisitorAdapter cnfVisitorAdapter = new ConfigurationVisitorAdapter();
-    private final ComponentConfigurationVisitorAdapter componentCnfVisitorAdapter = new ComponentConfigurationVisitorAdapter();
     private final ConfigurationProcessingStrategy strategy;
 
     protected AbstractService(ConfigurationProcessingStrategy strategy) {
@@ -59,7 +39,7 @@ public abstract class AbstractService implements ComponentVisitor, Configuration
     }
 
     @Override
-    public void dispatchVisit(ComponentVisited visitable) {
+    public void dispatchVisit(ComponentConfigurationVisited visitable) {
         visitable.accept(this);
     }
 
@@ -72,4 +52,6 @@ public abstract class AbstractService implements ComponentVisitor, Configuration
     public void execute(ConfigurationVisited target) {
         cnfVisitorAdapter.dispatchVisit(target);
     }
+
+    public abstract <A extends Action<R>, R extends Result> R dispatch(A command);
 }

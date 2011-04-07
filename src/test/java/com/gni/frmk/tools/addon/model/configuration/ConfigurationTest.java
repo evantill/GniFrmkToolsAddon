@@ -3,6 +3,7 @@ package com.gni.frmk.tools.addon.model.configuration;
 import com.gni.frmk.tools.addon.model.component.AdapterConnection;
 import com.gni.frmk.tools.addon.model.component.state.EnableState;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
+import com.gni.frmk.tools.addon.model.configuration.component.AdapterConnectionConfiguration;
 import org.custommonkey.xmlunit.XMLUnit;
 import org.junit.Before;
 import org.junit.Rule;
@@ -35,13 +36,17 @@ public class ConfigurationTest {
                                                  .packageName("packageName")
                                                  .defineState(new EnableState(EnableStatus.ENABLED))
                                                  .build();
-        ComponentConfiguration<AdapterConnection, EnableState> cnxConf = ComponentConfiguration.builder(AdapterConnection.class)
-                                                                                               .defineComponent(cnx)
-                                                                                               .defineOpenState(new EnableState(EnableStatus.ENABLED))
-                                                                                               .defineCloseState(new EnableState(EnableStatus.DISABLED))
-                                                                                               .build();
+        EnableState closeState = new EnableState(EnableStatus.DISABLED);
+        EnableState openState = new EnableState(EnableStatus.ENABLED);
+        AdapterConnectionConfiguration cnxConf = AdapterConnectionConfiguration.builder()
+                                                                               .defineComponent(cnx)
+                                                                               .defineOpenState(openState)
+                                                                               .defineCloseState(closeState)
+                                                                               .select(true)
+                                                                               .exist(false)
+                                                                               .build();
         Configuration cnf = Configuration.builder()
-                                         .create("WmRoot","id", util.now())
+                                         .create("WmRoot", "id", util.now())
                                          .addAdapterConnection(cnxConf)
                                          .build();
     }

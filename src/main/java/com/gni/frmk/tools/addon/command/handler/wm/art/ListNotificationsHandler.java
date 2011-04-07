@@ -2,14 +2,15 @@ package com.gni.frmk.tools.addon.command.handler.wm.art;
 
 import com.gni.frmk.tools.addon.command.action.wm.art.ListNotifications;
 import com.gni.frmk.tools.addon.command.api.ActionHandler;
-import com.gni.frmk.tools.addon.command.result.ListResult;
 import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeContext;
+import com.gni.frmk.tools.addon.command.result.ListResult;
 import com.gni.frmk.tools.addon.model.component.AdapterNotification;
+import com.gni.frmk.tools.addon.model.component.AdapterNotification.AdapterNotificationBuilder;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState;
-import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.wm.data.*;
 
-import java.util.List;
+import java.util.Map;
 
 import static com.gni.frmk.tools.addon.command.handler.wm.art.ListenerNotificationUtils.defineState;
 
@@ -36,25 +37,39 @@ public class ListNotificationsHandler extends AdapterTypeAwareHandler<ListNotifi
     protected ListResult<AdapterNotification> parseOutput(ListNotifications action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
-            List<AdapterNotification> values = Lists.newArrayList();
+            Map<String, AdapterNotification> values = Maps.newHashMap();
+            for (AdapterNotification notification : action.getCollection()) {
+                values.put(notification.getComponentId().asString(), notification);
+            }
             IData[] dataList = IDataUtil.getIDataArray(cur, "notificationDataList");
             if (dataList != null) {
                 for (IData single : dataList) {
                     IDataCursor curLoop = single.getCursor();
                     try {
+                        String notificationNodeName = IDataUtil.getString(curLoop, "notificationNodeName");
+                        AdapterNotification value = values.get(notificationNodeName);
+                        if (value == null && action.isUpdate()) {
+                            continue;
+                        }
+                        AdapterNotificationBuilder builder = AdapterNotification.builder();
+                        if (action.isUpdate()) {
+                            builder.from(value);
+                        } else {
+                            builder.name(notificationNodeName)
+                                   .adapterType(IDataUtil.getString(curLoop, "name"))
+                                   .packageName(IDataUtil.getString(curLoop, "packageName"));
+                        }
                         ActivableState state = defineState(IDataUtil.getString(curLoop, "notificationEnabled"));
-                        values.add(AdapterNotification.builder()
-                                                      .name(IDataUtil.getString(curLoop, "notificationNodeName"))
-                                                      .adapterType(IDataUtil.getString(curLoop, "name"))
-                                                      .packageName(IDataUtil.getString(curLoop, "packageName"))
-                                                      .defineState(state)
-                                                      .build());
+                        builder.defineState(state);
+                        //add result
+                        value = builder.build();
+                        values.put(value.getComponentId().asString(), value);
                     } finally {
                         curLoop.destroy();
                     }
                 }
             }
-            return new ListResult<AdapterNotification>(values);
+            return new ListResult<AdapterNotification>(values.values());
         } finally {
             cur.destroy();
         }

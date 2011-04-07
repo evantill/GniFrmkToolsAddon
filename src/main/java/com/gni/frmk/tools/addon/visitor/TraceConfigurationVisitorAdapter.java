@@ -19,7 +19,7 @@ import static java.util.Collections.unmodifiableSet;
  * Time: 19:02
  * To change this template use File | Settings | File Templates.
  */
-public class TraceConfigurationVisitorAdapter extends ConfigurationVisitorAdapter {
+public abstract class TraceConfigurationVisitorAdapter extends ConfigurationVisitorAdapter {
     private final Set<Component> startedComponents = Sets.newHashSet();
     private final Set<Component> completedComponents = Sets.newHashSet();
     private final Set<Component> failedComponents = Sets.newHashSet();

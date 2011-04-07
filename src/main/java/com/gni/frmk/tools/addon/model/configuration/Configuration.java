@@ -1,12 +1,7 @@
 package com.gni.frmk.tools.addon.model.configuration;
 
 import com.gni.frmk.tools.addon.BuilderWithJsr303Validation;
-import com.gni.frmk.tools.addon.model.component.*;
-import com.gni.frmk.tools.addon.model.component.state.ActivableState;
-import com.gni.frmk.tools.addon.model.component.state.ConnectableState;
-import com.gni.frmk.tools.addon.model.component.state.EnableState;
-import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState;
-import com.gni.frmk.tools.addon.model.component.state.SchedulerState;
+import com.gni.frmk.tools.addon.model.configuration.component.*;
 import com.gni.frmk.tools.addon.service.api.configuration.ConfigurationVisited;
 import com.gni.frmk.tools.addon.service.api.configuration.ConfigurationVisitor;
 
@@ -31,9 +26,9 @@ import static java.util.Collections.unmodifiableList;
  */
 @XmlRootElement
 @XmlAccessorType(value = XmlAccessType.NONE)
-public class Configuration implements ConfigurationVisited{
+public class Configuration implements ConfigurationVisited {
     @NotNull
-    @Pattern(regexp="\\w{1,32}")
+    @Pattern(regexp = "\\w{1,32}")
     @XmlAttribute
     private final String id;
     @NotNull
@@ -52,42 +47,42 @@ public class Configuration implements ConfigurationVisited{
     @Valid
     @XmlElement(name = "adapterConnectionConfiguration")
     @XmlElementWrapper
-    private final List<ComponentConfiguration<AdapterConnection, EnableState>> adapterConnectionConfigurations;
+    private final List<AdapterConnectionConfiguration> adapterConnectionConfigurations;
     @Valid
     @XmlElement(name = "adapterListenerConfiguration")
     @XmlElementWrapper
-    private final List<ComponentConfiguration<AdapterListener, ActivableState>> adapterListenerConfigurations;
+    private final List<AdapterListenerConfiguration> adapterListenerConfigurations;
     @Valid
     @XmlElement(name = "adapterNotificationConfiguration")
     @XmlElementWrapper
-    private final List<ComponentConfiguration<AdapterNotification, ActivableState>> adapterNotificationConfigurations;
+    private final List<AdapterNotificationConfiguration> adapterNotificationConfigurations;
     @Valid
     @XmlElement(name = "integrationServerPackageConfiguration")
     @XmlElementWrapper
-    private final List<ComponentConfiguration<IntegrationServerPackage, EnableState>> integrationServerPackageConfigurations;
+    private final List<IntegrationServerPackageConfiguration> integrationServerPackageConfigurations;
     @Valid
     @XmlElement(name = "jmsAliasConfiguration")
     @XmlElementWrapper
-    private final List<ComponentConfiguration<JmsAlias, ConnectableState>> jmsAliasConfigurations;
+    private final List<JmsAliasConfiguration> jmsAliasConfigurations;
     @Valid
     @XmlElement(name = "jmsTriggerConfiguration")
     @XmlElementWrapper
-    private final List<ComponentConfiguration<JmsTrigger, ActivableState>> jmsTriggerConfigurations;
+    private final List<JmsTriggerConfiguration> jmsTriggerConfigurations;
     @Valid
     @XmlElement(name = "nativeTriggerConfiguration")
     @XmlElementWrapper
-    private final List<ComponentConfiguration<NativeTrigger, NativeTriggerState>> nativeTriggerConfigurations;
+    private final List<NativeTriggerConfiguration> nativeTriggerConfigurations;
     @Valid
     @XmlElement(name = "portConfiguration")
     @XmlElementWrapper
-    private final List<ComponentConfiguration<Port, ActivableState>> portConfigurations;
+    private final List<PortConfiguration> portConfigurations;
     @Valid
     @XmlElement(name = "schedulerConfiguration")
     @XmlElementWrapper
-    private final List<ComponentConfiguration<Scheduler, SchedulerState>> schedulerConfigurations;
+    private final List<SchedulerConfiguration> schedulerConfigurations;
 
     public Configuration(Builder builder) {
-        id=builder.id;
+        id = builder.id;
         name = builder.name;
         packageName = builder.packageName;
         creation = builder.creation;
@@ -104,7 +99,7 @@ public class Configuration implements ConfigurationVisited{
     }
 
     private Configuration() {
-        id=null;
+        id = null;
         name = null;
         packageName = null;
         creation = null;
@@ -121,47 +116,47 @@ public class Configuration implements ConfigurationVisited{
     }
 
     @Override
-    public List<ComponentConfiguration<AdapterConnection, EnableState>> getAdapterConnectionConfigurations() {
+    public List<AdapterConnectionConfiguration> getAdapterConnectionConfigurations() {
         return unmodifiableList(adapterConnectionConfigurations);
     }
 
     @Override
-    public List<ComponentConfiguration<AdapterListener, ActivableState>> getAdapterListenerConfigurations() {
+    public List<AdapterListenerConfiguration> getAdapterListenerConfigurations() {
         return unmodifiableList(adapterListenerConfigurations);
     }
 
     @Override
-    public List<ComponentConfiguration<AdapterNotification, ActivableState>> getAdapterNotificationConfigurations() {
+    public List<AdapterNotificationConfiguration> getAdapterNotificationConfigurations() {
         return unmodifiableList(adapterNotificationConfigurations);
     }
 
     @Override
-    public List<ComponentConfiguration<IntegrationServerPackage, EnableState>> getIntegrationServerPackageConfigurations() {
+    public List<IntegrationServerPackageConfiguration> getIntegrationServerPackageConfigurations() {
         return unmodifiableList(integrationServerPackageConfigurations);
     }
 
     @Override
-    public List<ComponentConfiguration<JmsAlias, ConnectableState>> getJmsAliasConfigurations() {
+    public List<JmsAliasConfiguration> getJmsAliasConfigurations() {
         return unmodifiableList(jmsAliasConfigurations);
     }
 
     @Override
-    public List<ComponentConfiguration<JmsTrigger, ActivableState>> getJmsTriggerConfigurations() {
+    public List<JmsTriggerConfiguration> getJmsTriggerConfigurations() {
         return unmodifiableList(jmsTriggerConfigurations);
     }
 
     @Override
-    public List<ComponentConfiguration<NativeTrigger, NativeTriggerState>> getNativeTriggerConfigurations() {
+    public List<NativeTriggerConfiguration> getNativeTriggerConfigurations() {
         return unmodifiableList(nativeTriggerConfigurations);
     }
 
     @Override
-    public List<ComponentConfiguration<Port, ActivableState>> getPortConfigurations() {
+    public List<PortConfiguration> getPortConfigurations() {
         return unmodifiableList(portConfigurations);
     }
 
     @Override
-    public List<ComponentConfiguration<Scheduler, SchedulerState>> getSchedulerConfigurations() {
+    public List<SchedulerConfiguration> getSchedulerConfigurations() {
         return unmodifiableList(schedulerConfigurations);
     }
 
@@ -196,7 +191,7 @@ public class Configuration implements ConfigurationVisited{
 
     public static class Builder extends BuilderWithJsr303Validation<Builder, Configuration> {
         @NotNull
-        @Pattern(regexp="\\w{1,32}")
+        @Pattern(regexp = "\\w{1,32}")
         private String id;
         @NotNull
         private String name;
@@ -207,29 +202,30 @@ public class Configuration implements ConfigurationVisited{
         @NotNull
         private Date modification;
 
+
         @Valid
-        private List<ComponentConfiguration<AdapterConnection, EnableState>> adapterConnectionConfigurations = newArrayList();
+        private final List<AdapterConnectionConfiguration> adapterConnectionConfigurations = newArrayList();
         @Valid
-        private List<ComponentConfiguration<AdapterListener, ActivableState>> adapterListenerConfigurations = newArrayList();
+        private final List<AdapterListenerConfiguration> adapterListenerConfigurations = newArrayList();
         @Valid
-        private List<ComponentConfiguration<AdapterNotification, ActivableState>> adapterNotificationConfigurations = newArrayList();
+        private final List<AdapterNotificationConfiguration> adapterNotificationConfigurations = newArrayList();
         @Valid
-        private List<ComponentConfiguration<IntegrationServerPackage, EnableState>> integrationServerPackageConfigurations = newArrayList();
+        private final List<IntegrationServerPackageConfiguration> integrationServerPackageConfigurations = newArrayList();
         @Valid
-        private List<ComponentConfiguration<JmsAlias, ConnectableState>> jmsAliasConfigurations = newArrayList();
+        private final List<JmsAliasConfiguration> jmsAliasConfigurations = newArrayList();
         @Valid
-        private List<ComponentConfiguration<JmsTrigger, ActivableState>> jmsTriggerConfigurations = newArrayList();
+        private final List<JmsTriggerConfiguration> jmsTriggerConfigurations = newArrayList();
         @Valid
-        private List<ComponentConfiguration<NativeTrigger, NativeTriggerState>> nativeTriggerConfigurations = newArrayList();
+        private final List<NativeTriggerConfiguration> nativeTriggerConfigurations = newArrayList();
         @Valid
-        private List<ComponentConfiguration<Port, ActivableState>> portConfigurations = newArrayList();
+        private final List<PortConfiguration> portConfigurations = newArrayList();
         @Valid
-        private List<ComponentConfiguration<Scheduler, SchedulerState>> schedulerConfigurations = newArrayList();
+        private final List<SchedulerConfiguration> schedulerConfigurations = newArrayList();
 
         public Builder create(String packageName, String id, Date when) {
             this.id = id;
-            this.name=id;
-            this.packageName=packageName;
+            this.name = id;
+            this.packageName = packageName;
             this.creation = new Date(when.getTime());
             this.modification = new Date(when.getTime());
             return self();
@@ -250,92 +246,92 @@ public class Configuration implements ConfigurationVisited{
             return self();
         }
 
-        public Builder addAdapterConnection(ComponentConfiguration<AdapterConnection, EnableState> connection) {
+        public Builder addAdapterConnection(AdapterConnectionConfiguration connection) {
             adapterConnectionConfigurations.add(connection);
             return self();
         }
 
-        public Builder addAdapterConnections(Collection<ComponentConfiguration<AdapterConnection, EnableState>> connections) {
+        public Builder addAdapterConnections(Collection<AdapterConnectionConfiguration> connections) {
             adapterConnectionConfigurations.addAll(connections);
             return self();
         }
 
-        public Builder addAdapterListener(ComponentConfiguration<AdapterListener, ActivableState> listener) {
+        public Builder addAdapterListener(AdapterListenerConfiguration listener) {
             adapterListenerConfigurations.add(listener);
             return self();
         }
 
-        public Builder addAdapterListeners(Collection<ComponentConfiguration<AdapterListener, ActivableState>> listeners) {
+        public Builder addAdapterListeners(Collection<AdapterListenerConfiguration> listeners) {
             adapterListenerConfigurations.addAll(listeners);
             return self();
         }
 
-        public Builder addAdapterNotification(ComponentConfiguration<AdapterNotification, ActivableState> notification) {
+        public Builder addAdapterNotification(AdapterNotificationConfiguration notification) {
             adapterNotificationConfigurations.add(notification);
             return self();
         }
 
-        public Builder addAdapterNotifications(Collection<ComponentConfiguration<AdapterNotification, ActivableState>> notifications) {
+        public Builder addAdapterNotifications(Collection<AdapterNotificationConfiguration> notifications) {
             adapterNotificationConfigurations.addAll(notifications);
             return self();
         }
 
-        public Builder addPackage(ComponentConfiguration<IntegrationServerPackage, EnableState> pkg) {
+        public Builder addPackage(IntegrationServerPackageConfiguration pkg) {
             integrationServerPackageConfigurations.add(pkg);
             return self();
         }
 
-        public Builder addPackages(Collection<ComponentConfiguration<IntegrationServerPackage, EnableState>> pkgs) {
+        public Builder addPackages(Collection<IntegrationServerPackageConfiguration> pkgs) {
             integrationServerPackageConfigurations.addAll(pkgs);
             return self();
         }
 
-        public Builder addJmsAliasConnection(ComponentConfiguration<JmsAlias, ConnectableState> alias) {
+        public Builder addJmsAliasConnection(JmsAliasConfiguration alias) {
             jmsAliasConfigurations.add(alias);
             return self();
         }
 
-        public Builder addJmsAliasConnections(Collection<ComponentConfiguration<JmsAlias, ConnectableState>> aliases) {
+        public Builder addJmsAliasConnections(Collection<JmsAliasConfiguration> aliases) {
             jmsAliasConfigurations.addAll(aliases);
             return self();
         }
 
-        public Builder addJmsTrigger(ComponentConfiguration<JmsTrigger, ActivableState> trigger) {
+        public Builder addJmsTrigger(JmsTriggerConfiguration trigger) {
             jmsTriggerConfigurations.add(trigger);
             return self();
         }
 
-        public Builder addJmsTriggers(Collection<ComponentConfiguration<JmsTrigger, ActivableState>> triggers) {
+        public Builder addJmsTriggers(Collection<JmsTriggerConfiguration> triggers) {
             jmsTriggerConfigurations.addAll(triggers);
             return self();
         }
 
-        public Builder addNativeTrigger(ComponentConfiguration<NativeTrigger, NativeTriggerState> trigger) {
+        public Builder addNativeTrigger(NativeTriggerConfiguration trigger) {
             nativeTriggerConfigurations.add(trigger);
             return self();
         }
 
-        public Builder addNativeTriggers(Collection<ComponentConfiguration<NativeTrigger, NativeTriggerState>> triggers) {
+        public Builder addNativeTriggers(Collection<NativeTriggerConfiguration> triggers) {
             nativeTriggerConfigurations.addAll(triggers);
             return self();
         }
 
-        public Builder addPort(ComponentConfiguration<Port, ActivableState> port) {
+        public Builder addPort(PortConfiguration port) {
             portConfigurations.add(port);
             return self();
         }
 
-        public Builder addPorts(Collection<ComponentConfiguration<Port, ActivableState>> ports) {
+        public Builder addPorts(Collection<PortConfiguration> ports) {
             ports.addAll(ports);
             return self();
         }
 
-        public Builder addScheduler(ComponentConfiguration<Scheduler, SchedulerState> scheduler) {
+        public Builder addScheduler(SchedulerConfiguration scheduler) {
             schedulerConfigurations.add(scheduler);
             return self();
         }
 
-        public Builder addSchedulers(Collection<ComponentConfiguration<Scheduler, SchedulerState>> schedulers) {
+        public Builder addSchedulers(Collection<SchedulerConfiguration> schedulers) {
             schedulers.addAll(schedulers);
             return self();
         }

@@ -6,8 +6,6 @@ import com.gni.frmk.tools.addon.oldies.invoke.WmArtInvoker;
 import com.gni.frmk.tools.addon.oldies.invoke.WmRootInvoker;
 import com.gni.frmk.tools.addon.oldies.invoke.WmRootJmsInvoker;
 import com.gni.frmk.tools.addon.model.configuration.Configuration;
-import com.gni.frmk.tools.addon.strategy.CloseInputStrategy;
-import com.gni.frmk.tools.addon.strategy.CloseOutputStrategy;
 import com.gni.frmk.tools.addon.visitor.ApplyConfigurationVisitor;
 import com.gni.frmk.tools.addon.visitor.api.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.visitor.TraceConfigurationVisitorAdapter;
@@ -21,7 +19,7 @@ import com.gni.frmk.tools.addon.visitor.TraceConfigurationVisitorAdapter;
  */
 public class AdminService {
 
-    private final ConfigurationVisitor changeConfigVisitor;
+//    private final ConfigurationVisitor changeConfigVisitor;
     private final String defaultConfigurationName;
     private final ReportService reportSrv;
     private final ConfigurationService confSrv;
@@ -31,7 +29,7 @@ public class AdminService {
             WmRootInvoker rootInvoker, WmRootJmsInvoker jmsInvoker, WmArtInvoker artInvoker,
             ConfigurationService confSrv,
             ReportService reportSrv) {
-        this.changeConfigVisitor = new TraceConfigurationVisitorAdapter(new ApplyConfigurationVisitor(artInvoker, jmsInvoker, rootInvoker));
+//        this.changeConfigVisitor = new TraceConfigurationVisitorAdapter(new ApplyConfigurationVisitor(artInvoker, jmsInvoker, rootInvoker));
         this.confSrv = confSrv;
         this.reportSrv = reportSrv;
         this.defaultConfigurationName = defaultConfigurationName;
@@ -39,13 +37,13 @@ public class AdminService {
     }
 
     private void changeServerInputState(Configuration cnf) {
-        CloseInputStrategy strategy = new CloseInputStrategy(changeConfigVisitor);
-        strategy.execute(cnf);
+//        CloseInputStrategy strategy = new CloseInputStrategy(changeConfigVisitor);
+//        strategy.execute(cnf);
     }
 
     private void changeServerOutputState(Configuration cnf) {
-        CloseOutputStrategy strategy = new CloseOutputStrategy(changeConfigVisitor);
-        strategy.execute(cnf);
+//        CloseOutputStrategy strategy = new CloseOutputStrategy(changeConfigVisitor);
+//        strategy.execute(cnf);
     }
 
     public void closeServer(long maxSecondsToWait, boolean saveServerConfig) throws InvokeException, ActionException {

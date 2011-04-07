@@ -9,15 +9,14 @@ import com.gni.frmk.tools.addon.command.action.wm.root.DisablePackage;
 import com.gni.frmk.tools.addon.command.action.wm.root.DisablePortListener;
 import com.gni.frmk.tools.addon.command.action.wm.root.SuspendTriggers;
 import com.gni.frmk.tools.addon.command.action.wm.root.SuspendUserTask;
-import com.gni.frmk.tools.addon.command.api.Action;
-import com.gni.frmk.tools.addon.command.api.Result;
 import com.gni.frmk.tools.addon.model.component.*;
 import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentState;
-import com.gni.frmk.tools.addon.model.configuration.ComponentConfiguration;
+import com.gni.frmk.tools.addon.model.configuration.component.*;
+import com.gni.frmk.tools.addon.service.api.configuration.ConfigurationProcessingStrategy;
 import com.gni.frmk.tools.addon.service.configuration.strategy.CloseStrategy;
 
-import static com.gni.frmk.tools.addon.model.configuration.ComponentConfiguration.ComponentStateContext.CLOSE;
-import static com.gni.frmk.tools.addon.model.configuration.ComponentConfiguration.ComponentStateContext.OPEN;
+import static com.gni.frmk.tools.addon.model.configuration.component.ComponentConfiguration.ComponentStateContext.CURRENT;
+import static com.gni.frmk.tools.addon.model.configuration.component.ComponentConfiguration.ComponentStateContext.OPEN;
 
 /**
  * Created by IntelliJ IDEA.
@@ -32,50 +31,60 @@ public abstract class ClosePlateform extends AbstractService {
         super(new CloseStrategy());
     }
 
+    protected ClosePlateform(ConfigurationProcessingStrategy strategy) {
+        super(strategy);
+    }
+
     @Override
-    protected <C extends AbstractComponent<?, S>, S extends AbstractComponentState>
-    void visitComponentConfiguration(ComponentConfiguration<C, S> visited) {
-        S currentState = visited.getComponent().getState();
+    public <C extends AbstractComponent<?, S>, S extends AbstractComponentState> void visit(ComponentConfiguration<C, S> visited) {
+        C component = visited.getComponent();
+        S currentState = component.getState();
         //prepare for reopen : OPEN will be the current state
         visited.getStates().put(OPEN, currentState);
         //define current state as requested state for close operation
-        visited.getComponent().setState(visited.getStates().get(CLOSE));
+        visited.getStates().put(CURRENT, currentState);
     }
 
     @Override
-    public void visit(AdapterConnection visited) {
-        DisableConnection command = new DisableConnection(visited.getAlias());
+    public void visit(AdapterConnectionConfiguration visited) {
+        AdapterConnection component = visited.getComponent();
+        DisableConnection command = new DisableConnection(component.getAlias());
         dispatch(command);
     }
 
     @Override
-    public void visit(AdapterListener visited) {
-        DisableListener command = new DisableListener(visited.getName());
+    public void visit(AdapterListenerConfiguration visited) {
+        AdapterListener component = visited.getComponent();
+        DisableListener command = new DisableListener(component.getName());
         dispatch(command);
     }
 
     @Override
-    public void visit(AdapterNotification visited) {
-        DisableNotification command = new DisableNotification(visited.getName());
+    public void visit(AdapterNotificationConfiguration visited) {
+        AdapterNotification component = visited.getComponent();
+        DisableNotification command = new DisableNotification(component.getName());
         dispatch(command);
     }
 
     @Override
-    public void visit(Port visited) {
-        DisablePortListener command = new DisablePortListener(visited.getPackageName(), visited.getKey());
+    public void visit(PortConfiguration visited) {
+        Port component = visited.getComponent();
+        DisablePortListener command = new DisablePortListener(component.getPackageName(), component.getKey());
         dispatch(command);
     }
 
     @Override
-    public void visit(Scheduler visited) {
-        SuspendUserTask command = new SuspendUserTask(visited.getOid());
+    public void visit(SchedulerConfiguration visited) {
+        Scheduler component = visited.getComponent();
+        SuspendUserTask command = new SuspendUserTask(component.getOid());
         dispatch(command);
     }
 
     @Override
-    public void visit(NativeTrigger visited) {
+    public void visit(NativeTriggerConfiguration visited) {
+        NativeTrigger component = visited.getComponent();
         SuspendTriggers command = SuspendTriggers.builder()
-                                                 .addTriggerName(visited.getName())
+                                                 .addTriggerName(component.getName())
                                                  .applyChangeAcrossCluster(false)
                                                  .persistChange(true)
                                                  .suspendProcessing(true)
@@ -85,22 +94,23 @@ public abstract class ClosePlateform extends AbstractService {
     }
 
     @Override
-    public void visit(JmsTrigger visited) {
-        SuspendJmsTriggers command = new SuspendJmsTriggers(visited.getName());
+    public void visit(JmsTriggerConfiguration visited) {
+        JmsTrigger component = visited.getComponent();
+        SuspendJmsTriggers command = new SuspendJmsTriggers(component.getName());
         dispatch(command);
     }
 
     @Override
-    public void visit(JmsAlias visited) {
-        DisableJmsAlias command = new DisableJmsAlias(visited.getName());
+    public void visit(JmsAliasConfiguration visited) {
+        JmsAlias component = visited.getComponent();
+        DisableJmsAlias command = new DisableJmsAlias(component.getName());
         dispatch(command);
     }
 
     @Override
-    public void visit(IntegrationServerPackage visited) {
-        DisablePackage command = new DisablePackage(visited.getPackageName());
+    public void visit(IntegrationServerPackageConfiguration visited) {
+        IntegrationServerPackage component = visited.getComponent();
+        DisablePackage command = new DisablePackage(component.getPackageName());
         dispatch(command);
     }
-
-    public abstract <A extends Action<R>, R extends Result> R dispatch(A command);
 }

@@ -43,7 +43,7 @@ public abstract class AbstractComponent<I extends AbstractComponentId, S extends
 
     @NotNull
     @XmlElementRef
-    private S state;
+    private final S state;
 
     @NotNull
     @XmlElementRef
@@ -77,11 +77,6 @@ public abstract class AbstractComponent<I extends AbstractComponentId, S extends
 
     public S getState() {
         return state;
-    }
-
-    @Override
-    public void setState(S state) {
-        this.state = checkNotNull(state);
     }
 
     public ComponentType getType() {

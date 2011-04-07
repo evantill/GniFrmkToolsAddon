@@ -1,15 +1,6 @@
 package com.gni.frmk.tools.addon.service.configuration.strategy;
 
-import com.gni.frmk.tools.addon.model.component.*;
-import com.gni.frmk.tools.addon.model.component.state.ActivableState;
-import com.gni.frmk.tools.addon.model.component.state.ConnectableState;
-import com.gni.frmk.tools.addon.model.component.state.EnableState;
-import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState;
-import com.gni.frmk.tools.addon.model.component.state.SchedulerState;
-import com.gni.frmk.tools.addon.model.configuration.ComponentConfiguration;
-import com.gni.frmk.tools.addon.service.api.configuration.ComponentConfigurationVisitor;
 import com.gni.frmk.tools.addon.service.api.configuration.ConfigurationProcessingStrategy;
-import com.gni.frmk.tools.addon.service.api.configuration.ConfigurationVisited;
 
 /**
  * Created by IntelliJ IDEA.

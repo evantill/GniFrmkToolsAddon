@@ -19,6 +19,7 @@ import java.io.*;
 public class ConfigurationSerializer {
     private static final String[] MODEL_PACKAGES = new String[]{
             "com.gni.frmk.tools.addon.model.configuration",
+            "com.gni.frmk.tools.addon.model.configuration.component",
             "com.gni.frmk.tools.addon.model.component",
             "com.gni.frmk.tools.addon.model.component.detail",
             "com.gni.frmk.tools.addon.model.component.id",

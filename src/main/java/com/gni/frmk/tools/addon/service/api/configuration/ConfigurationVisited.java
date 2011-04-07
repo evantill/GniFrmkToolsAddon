@@ -6,7 +6,7 @@ import com.gni.frmk.tools.addon.model.component.state.ConnectableState;
 import com.gni.frmk.tools.addon.model.component.state.EnableState;
 import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState;
 import com.gni.frmk.tools.addon.model.component.state.SchedulerState;
-import com.gni.frmk.tools.addon.model.configuration.ComponentConfiguration;
+import com.gni.frmk.tools.addon.model.configuration.component.*;
 import com.gni.frmk.tools.addon.service.api.Visitable;
 
 import java.util.List;
@@ -19,22 +19,22 @@ import java.util.List;
  * @author: e03229
  */
 public interface ConfigurationVisited extends Visitable<ConfigurationVisitor, ConfigurationVisited> {
-    List<ComponentConfiguration<AdapterConnection, EnableState>> getAdapterConnectionConfigurations();
+    List<AdapterConnectionConfiguration> getAdapterConnectionConfigurations();
 
-    List<ComponentConfiguration<AdapterListener, ActivableState>> getAdapterListenerConfigurations();
+    List<AdapterListenerConfiguration> getAdapterListenerConfigurations();
 
-    List<ComponentConfiguration<AdapterNotification, ActivableState>> getAdapterNotificationConfigurations();
+    List<AdapterNotificationConfiguration> getAdapterNotificationConfigurations();
 
-    List<ComponentConfiguration<IntegrationServerPackage, EnableState>> getIntegrationServerPackageConfigurations();
+    List<IntegrationServerPackageConfiguration> getIntegrationServerPackageConfigurations();
 
-    List<ComponentConfiguration<JmsAlias, ConnectableState>> getJmsAliasConfigurations();
+    List<JmsAliasConfiguration> getJmsAliasConfigurations();
 
-    List<ComponentConfiguration<JmsTrigger, ActivableState>> getJmsTriggerConfigurations();
+    List<JmsTriggerConfiguration> getJmsTriggerConfigurations();
 
-    List<ComponentConfiguration<NativeTrigger, NativeTriggerState>> getNativeTriggerConfigurations();
+    List<NativeTriggerConfiguration> getNativeTriggerConfigurations();
 
-    List<ComponentConfiguration<Port, ActivableState>> getPortConfigurations();
+    List<PortConfiguration> getPortConfigurations();
 
-    List<ComponentConfiguration<Scheduler, SchedulerState>> getSchedulerConfigurations();
+    List<SchedulerConfiguration> getSchedulerConfigurations();
 
 }

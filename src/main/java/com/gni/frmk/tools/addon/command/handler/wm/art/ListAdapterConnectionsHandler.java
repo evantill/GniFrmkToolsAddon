@@ -5,12 +5,13 @@ import com.gni.frmk.tools.addon.command.api.ActionHandler;
 import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.command.result.ListResult;
 import com.gni.frmk.tools.addon.model.component.AdapterConnection;
+import com.gni.frmk.tools.addon.model.component.AdapterConnection.AdapterConnectionBuilder;
 import com.gni.frmk.tools.addon.model.component.state.EnableState;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
-import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.wm.data.*;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * Created by IntelliJ IDEA.
@@ -35,27 +36,43 @@ public class ListAdapterConnectionsHandler extends AdapterTypeAwareHandler<ListA
     protected ListResult<AdapterConnection> parseOutput(ListAdaptersConnections action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
-            List<AdapterConnection> values = Lists.newArrayList();
+            Map<String, AdapterConnection> values = Maps.newHashMap();
+            for (AdapterConnection connection : action.getCollection()) {
+                values.put(connection.getComponentId().asString(), connection);
+            }
             IData[] dataList = IDataUtil.getIDataArray(cur, "connectionDataList");
             if (dataList != null) {
                 for (IData single : dataList) {
                     IDataCursor curLoop = single.getCursor();
                     try {
+                        String connectionAlias = IDataUtil.getString(curLoop, "connectionAlias");
+                        AdapterConnection value = values.get(connectionAlias);
+                        if (value == null && action.isUpdate()) {
+                            continue;
+                        }
+                        AdapterConnectionBuilder builder = AdapterConnection.builder();
+                        if (action.isUpdate()) {
+                            builder.from(value);
+                        } else {
+                            builder.alias(IDataUtil.getString(curLoop, "connectionAlias"))
+                                   .adapterType(IDataUtil.getString(curLoop, "name"))
+                                   .packageName(IDataUtil.getString(curLoop, "packageName"));
+                        }
                         EnableStatus enabled = EnableStatus.valueOf(IDataUtil.getString(curLoop, "connectionState")
                                                                              .toUpperCase());
-                        values.add(AdapterConnection.builder()
-                                                    .alias(IDataUtil.getString(curLoop, "connectionAlias"))
-                                                    .adapterType(IDataUtil.getString(curLoop, "name"))
-                                                    .packageName(IDataUtil.getString(curLoop, "packageName"))
-                                                    .defineState(new EnableState(enabled)).build());
+                        builder.defineState(new EnableState(enabled));
+                        //add result
+                        value = builder.build();
+                        values.put(value.getComponentId().asString(),value);
                     } finally {
                         curLoop.destroy();
                     }
                 }
             }
-            return new ListResult<AdapterConnection>(values);
+            return new ListResult<AdapterConnection>(values.values());
         } finally {
             cur.destroy();
         }
+
     }
 }

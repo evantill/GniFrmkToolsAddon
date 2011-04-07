@@ -19,7 +19,7 @@ public class CloseStrategy extends InputOutputStrategy {
         return this;
     }
 
-    private void waitServicesEnd() {
+    protected void waitServicesEnd() {
         //TODO implementer
         throw new UnsupportedOperationException("waitServicesEnd not implemented");
     }

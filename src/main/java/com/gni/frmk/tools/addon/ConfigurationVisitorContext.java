@@ -1,7 +1,6 @@
 package com.gni.frmk.tools.addon;
 
 import com.gni.frmk.tools.addon.model.configuration.Configuration;
-import com.gni.frmk.tools.addon.strategy.ConfigurationVisitorStrategy;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,13 +11,13 @@ import com.gni.frmk.tools.addon.strategy.ConfigurationVisitorStrategy;
  */
 public class ConfigurationVisitorContext {
 
-    private final ConfigurationVisitorStrategy strategy;
-
-    public ConfigurationVisitorContext(ConfigurationVisitorStrategy strategy) {
-        this.strategy = strategy;
-    }
-
-    void executeStrategy(Configuration cnf) {
-        strategy.execute(cnf);
-    }
+//    private final ConfigurationVisitorStrategy strategy;
+//
+//    public ConfigurationVisitorContext(ConfigurationVisitorStrategy strategy) {
+//        this.strategy = strategy;
+//    }
+//
+//    void executeStrategy(Configuration cnf) {
+//        strategy.execute(cnf);
+//    }
 }

@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.api;
 
-import com.gni.frmk.tools.addon.service.api.configuration.ConfigurationService;
-import com.gni.frmk.tools.addon.service.configuration.AbstractService;
+import com.gni.frmk.tools.addon.command.api.Action;
+import com.gni.frmk.tools.addon.command.api.Result;
 
 /**
  * Created by IntelliJ IDEA.
@@ -10,25 +10,33 @@ import com.gni.frmk.tools.addon.service.configuration.AbstractService;
  *
  * @author: e03229
  */
-public class TraceService extends AbstractService {
+public class TraceService extends TestAbstractService {
 
     public TraceService() {
         super(new FullParsingStrategy());
     }
 
     @Override
-    public void visit(Composant1 visitable) {
+    public void visit(TestComposant1 visitable) {
         System.out.println("TraceService.visit 1");
     }
 
     @Override
-    public void visit(Composant2 visitable) {
+    public void visit(TestComposant2 visitable) {
         System.out.println("TraceService.visit 2");
     }
 
+    @Override
+    public <A extends Action<R>, R extends Result> R dispatch(A command) {
+        System.out.println("TraceService.dispatch");
+        return null;
+    }
+
     public static void main(String[] args) {
-        ConfigurationService srv = new TraceService();
-        Configuration cnf = new Configuration(new Composant1(), new Composant2());
+        TestConfigurationService srv = new TraceService();
+        TestConfiguration cnf = new TestConfiguration(new TestComposant1(), new TestComposant2());
         srv.execute(cnf);
     }
+
+
 }

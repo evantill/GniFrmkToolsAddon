@@ -21,6 +21,4 @@ public interface Component<I extends ComponentId, S extends ComponentState> exte
 
     S getState();
 
-    void setState(S state);
-
 }

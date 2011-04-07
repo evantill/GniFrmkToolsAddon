@@ -13,18 +13,17 @@ import com.gni.frmk.tools.addon.model.component.state.SchedulerState;
 import com.gni.frmk.tools.addon.model.component.state.SchedulerState.SchedulerStatus;
 import com.gni.frmk.tools.addon.model.component.state.TemporaryActivableState.TemporaryStatus;
 import com.gni.frmk.tools.addon.model.configuration.Configuration.Builder;
+import com.gni.frmk.tools.addon.model.configuration.component.*;
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
 import org.junit.rules.ExternalResource;
-import org.simpleframework.xml.Serializer;
-import org.simpleframework.xml.core.Persister;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.StringReader;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -52,10 +51,9 @@ public class ConfigurationTestRule extends ExternalResource {
     private static ConfigurationSerializer serializer;
 
     public static Configuration loadConfiguration(Class classToTest, String name) throws Exception {
-        String resName = String.format("%s/%s.xml", classToTest.getSimpleName(), name);
-        InputStream input = classToTest.getResourceAsStream(resName);
-        Serializer serializer = new Persister();
-        return serializer.read(Configuration.class, input);
+        String xml = loadXml(name, classToTest);
+        ConfigurationSerializer serializer = new ConfigurationSerializer();
+        return serializer.loadConfiguration(new StringReader(xml));
     }
 
     public static String loadXml(final String name, final Class testClassName) {
@@ -142,23 +140,27 @@ public class ConfigurationTestRule extends ExternalResource {
         return builder.build();
     }
 
-    private ComponentConfiguration<Scheduler, SchedulerState> newSchedulerConfiguration() {
-        return ComponentConfiguration.builder(Scheduler.class)
+    private SchedulerConfiguration newSchedulerConfiguration() {
+        return SchedulerConfiguration.builder()
                                      .defineComponent(newScheduler())
                                      .defineOpenState(new SchedulerState(EnableStatus.ENABLED, SchedulerStatus.UNEXPIRED))
                                      .defineCloseState(new SchedulerState(EnableStatus.DISABLED, SchedulerStatus.EXPIRED))
+                                     .select(true)
+                                     .exist(false)
                                      .build();
     }
 
-    private ComponentConfiguration<Port, ActivableState> newPortConfiguration() {
-        return ComponentConfiguration.builder(Port.class)
-                                     .defineComponent(newPort())
-                                     .defineOpenState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE))
-                                     .defineCloseState(new ActivableState(EnableStatus.DISABLED, ActivableStatus.INACTIVE))
-                                     .build();
+    private PortConfiguration newPortConfiguration() {
+        return PortConfiguration.builder()
+                                .defineComponent(newPort())
+                                .defineOpenState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE))
+                                .defineCloseState(new ActivableState(EnableStatus.DISABLED, ActivableStatus.INACTIVE))
+                                .select(true)
+                                .exist(false)
+                                .build();
     }
 
-    private ComponentConfiguration<NativeTrigger, NativeTriggerState> newNativeTriggerConfiguration() {
+    private NativeTriggerConfiguration newNativeTriggerConfiguration() {
         NativeTriggerState openState = NativeTriggerState.builder()
                                                          .defineEnable(EnableStatus.ENABLED)
                                                          .defineProcessing(TemporaryStatus.PERMANENT, ActivableStatus.ACTIVE)
@@ -169,59 +171,73 @@ public class ConfigurationTestRule extends ExternalResource {
                                                           .defineProcessing(TemporaryStatus.PERMANENT, ActivableStatus.INACTIVE)
                                                           .defineRetrieval(TemporaryStatus.PERMANENT, ActivableStatus.INACTIVE)
                                                           .build();
-        return ComponentConfiguration.builder(NativeTrigger.class)
-                                     .defineComponent(newNativeTrigger())
-                                     .defineOpenState(openState)
-                                     .defineCloseState(closeState)
-                                     .build();
+        return NativeTriggerConfiguration.builder()
+                                         .defineComponent(newNativeTrigger())
+                                         .defineOpenState(openState)
+                                         .defineCloseState(closeState)
+                                         .select(true)
+                                         .exist(false)
+                                         .build();
     }
 
-    private ComponentConfiguration<IntegrationServerPackage, EnableState> newPackageConfiguration() {
-        return ComponentConfiguration.builder(IntegrationServerPackage.class)
-                                     .defineComponent(newIntegrationServerPackage())
-                                     .defineOpenState(new EnableState(EnableStatus.ENABLED))
-                                     .defineCloseState(new EnableState(EnableStatus.DISABLED))
-                                     .build();
+    private IntegrationServerPackageConfiguration newPackageConfiguration() {
+        return IntegrationServerPackageConfiguration.builder()
+                                                    .defineComponent(newIntegrationServerPackage())
+                                                    .defineOpenState(new EnableState(EnableStatus.ENABLED))
+                                                    .defineCloseState(new EnableState(EnableStatus.DISABLED))
+                                                    .select(true)
+                                                    .exist(false)
+                                                    .build();
     }
 
-    private ComponentConfiguration<JmsTrigger, ActivableState> newJmsTriggerConfiguration() {
-        return ComponentConfiguration.builder(JmsTrigger.class)
-                                     .defineComponent(newJmsTrigger())
-                                     .defineOpenState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE))
-                                     .defineCloseState(new ActivableState(EnableStatus.DISABLED, ActivableStatus.INACTIVE))
-                                     .build();
+    private JmsTriggerConfiguration newJmsTriggerConfiguration() {
+        return JmsTriggerConfiguration.builder()
+                                      .defineComponent(newJmsTrigger())
+                                      .defineOpenState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE))
+                                      .defineCloseState(new ActivableState(EnableStatus.DISABLED, ActivableStatus.INACTIVE))
+                                      .select(true)
+                                      .exist(false)
+                                      .build();
     }
 
-    private ComponentConfiguration<JmsAlias, ConnectableState> newJmsAliasConfiguration() {
-        return ComponentConfiguration.builder(JmsAlias.class)
-                                     .defineComponent(newJmsAlias())
-                                     .defineOpenState(new ConnectableState(EnableStatus.ENABLED, ConnectableStatus.CONNECTED))
-                                     .defineCloseState(new ConnectableState(EnableStatus.DISABLED, ConnectableStatus.DISCONNECTED))
-                                     .build();
+    private JmsAliasConfiguration newJmsAliasConfiguration() {
+        return JmsAliasConfiguration.builder()
+                                    .defineComponent(newJmsAlias())
+                                    .defineOpenState(new ConnectableState(EnableStatus.ENABLED, ConnectableStatus.CONNECTED))
+                                    .defineCloseState(new ConnectableState(EnableStatus.DISABLED, ConnectableStatus.DISCONNECTED))
+                                    .select(true)
+                                    .exist(false)
+                                    .build();
     }
 
-    private ComponentConfiguration<AdapterNotification, ActivableState> newAdapterNotificationConfiguration() {
-        return ComponentConfiguration.builder(AdapterNotification.class)
-                                     .defineComponent(newAdapterNotification())
-                                     .defineOpenState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE))
-                                     .defineCloseState(new ActivableState(EnableStatus.DISABLED, ActivableStatus.INACTIVE))
-                                     .build();
+    private AdapterNotificationConfiguration newAdapterNotificationConfiguration() {
+        return AdapterNotificationConfiguration.builder()
+                                               .defineComponent(newAdapterNotification())
+                                               .defineOpenState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE))
+                                               .defineCloseState(new ActivableState(EnableStatus.DISABLED, ActivableStatus.INACTIVE))
+                                               .select(true)
+                                               .exist(false)
+                                               .build();
     }
 
-    private ComponentConfiguration<AdapterListener, ActivableState> newAdapterListenerConfiguration() {
-        return ComponentConfiguration.builder(AdapterListener.class)
-                                     .defineComponent(newAdapterListener())
-                                     .defineOpenState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE))
-                                     .defineCloseState(new ActivableState(EnableStatus.DISABLED, ActivableStatus.INACTIVE))
-                                     .build();
+    private AdapterListenerConfiguration newAdapterListenerConfiguration() {
+        return AdapterListenerConfiguration.builder()
+                                           .defineComponent(newAdapterListener())
+                                           .defineOpenState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE))
+                                           .defineCloseState(new ActivableState(EnableStatus.DISABLED, ActivableStatus.INACTIVE))
+                                           .select(true)
+                                           .exist(false)
+                                           .build();
     }
 
-    private ComponentConfiguration<AdapterConnection, EnableState> newAdapterConnectionConfiguration() {
-        return ComponentConfiguration.builder(AdapterConnection.class)
-                                     .defineComponent(newAdapterConnection())
-                                     .defineOpenState(new EnableState(EnableStatus.ENABLED))
-                                     .defineCloseState(new EnableState(EnableStatus.DISABLED))
-                                     .build();
+    private AdapterConnectionConfiguration newAdapterConnectionConfiguration() {
+        return AdapterConnectionConfiguration.builder()
+                                             .defineComponent(newAdapterConnection())
+                                             .defineOpenState(new EnableState(EnableStatus.ENABLED))
+                                             .defineCloseState(new EnableState(EnableStatus.DISABLED))
+                                             .select(true)
+                                             .exist(false)
+                                             .build();
     }
 
     private Scheduler newScheduler() {

@@ -2,17 +2,18 @@ package com.gni.frmk.tools.addon.command.handler.wm.jms;
 
 import com.gni.frmk.tools.addon.command.action.wm.jms.GetJmsTriggerReport;
 import com.gni.frmk.tools.addon.command.api.ActionHandler;
+import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.command.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.command.result.ListResult;
-import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.model.component.JmsTrigger;
+import com.gni.frmk.tools.addon.model.component.JmsTrigger.JmsTriggerBuilder;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
-import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.wm.data.*;
 
-import java.util.List;
+import java.util.Map;
 
 import static com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus.ACTIVE;
 import static com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus.INACTIVE;
@@ -65,24 +66,37 @@ public class GetJmsTriggerReportHandler extends AbstractInvokeHandler<GetJmsTrig
     protected ListResult<JmsTrigger> parseOutput(GetJmsTriggerReport action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
-            List<JmsTrigger> values = Lists.newArrayList();
+            Map<String, JmsTrigger> values = Maps.newHashMap();
+            for (JmsTrigger trigger : action.getCollection()) {
+                values.put(trigger.getComponentId().asString(), trigger);
+            }
             IData[] dataList = IDataUtil.getIDataArray(cur, "triggerDataList");
             if (dataList != null) {
                 for (IData single : dataList) {
                     IDataCursor curLoop = single.getCursor();
                     try {
                         String triggerName = IDataUtil.getString(curLoop, "node_nsName");
-                        values.add(JmsTrigger.builder()
-                                             .name(triggerName)
-                                             .packageName(IDataUtil.getString(curLoop, "node_pkg"))
-                                             .defineState(parseActivableState(triggerName, IDataUtil.getIData(curLoop, "trigger")))
-                                             .build());
+                        JmsTrigger value = values.get(triggerName);
+                        if (value == null && action.isUpdate()) {
+                            continue;
+                        }
+                        JmsTriggerBuilder builder = JmsTrigger.builder();
+                        if (action.isUpdate()) {
+                            builder.from(value);
+                        } else {
+                            builder.name(triggerName).packageName(IDataUtil.getString(curLoop, "node_pkg"));
+                        }
+                        ActivableState state = parseActivableState(triggerName, IDataUtil.getIData(curLoop, "trigger"));
+                        builder.defineState(state);
+                        //add
+                        value = builder.build();
+                        values.put(value.getComponentId().asString(), value);
                     } finally {
                         curLoop.destroy();
                     }
                 }
             }
-            return new ListResult<JmsTrigger>(values);
+            return new ListResult<JmsTrigger>(values.values());
         } finally {
             cur.destroy();
         }

@@ -1,8 +1,5 @@
 package com.gni.frmk.tools.addon.api;
 
-import com.gni.frmk.tools.addon.service.api.configuration.ConfigurationProcessingStrategy;
-import com.gni.frmk.tools.addon.service.api.configuration.ConfigurationVisited;
-
 /**
  * Created by IntelliJ IDEA.
  * Date: 06/04/11
@@ -10,13 +7,14 @@ import com.gni.frmk.tools.addon.service.api.configuration.ConfigurationVisited;
  *
  * @author: e03229
  */
-public class PartialParsingStrategy implements ConfigurationProcessingStrategy{
+public class PartialParsingStrategy implements TestConfigurationStrategy {
+
 
     @Override
-    public ConfigurationProcessingStrategy execute(Operation o) {
+    public TestConfigurationStrategy execute(Operation o) {
         System.out.println("PartialParsingStrategy.execute");
-        ConfigurationVisited cnf = o.getVisited();
-        o.getVisitor().dispatchVisit(cnf.getCompoqsant1());
+        TestConfigurationVisited cnf = o.getVisited();
+        o.getVisitor().dispatchVisit(cnf.getComposant1());
         return this;
     }
 }

@@ -2,7 +2,7 @@
 <configuration id="configuration_test_full" name="configuration_test_full" creation="2011-03-03T19:00:23.828Z"
                modification="2011-03-03T19:00:23.828Z" packageName="WmRoot">
     <adapterConnectionConfigurations>
-        <adapterConnectionConfiguration>
+        <adapterConnectionConfiguration exist="false" selected="true">
             <adapterConnection>
                 <stringId>alias_1</stringId>
                 <type>ADAPTER_CONNECTION</type>
@@ -32,7 +32,7 @@
                 </state>
             </states>
         </adapterConnectionConfiguration>
-        <adapterConnectionConfiguration>
+        <adapterConnectionConfiguration exist="false" selected="true">
             <adapterConnection>
                 <stringId>alias_2</stringId>
                 <type>ADAPTER_CONNECTION</type>
@@ -62,7 +62,7 @@
                 </state>
             </states>
         </adapterConnectionConfiguration>
-        <adapterConnectionConfiguration>
+        <adapterConnectionConfiguration exist="false" selected="true">
             <adapterConnection>
                 <stringId>alias_3</stringId>
                 <type>ADAPTER_CONNECTION</type>
@@ -92,7 +92,7 @@
                 </state>
             </states>
         </adapterConnectionConfiguration>
-        <adapterConnectionConfiguration>
+        <adapterConnectionConfiguration exist="false" selected="true">
             <adapterConnection>
                 <stringId>alias_4</stringId>
                 <type>ADAPTER_CONNECTION</type>
@@ -122,7 +122,7 @@
                 </state>
             </states>
         </adapterConnectionConfiguration>
-        <adapterConnectionConfiguration>
+        <adapterConnectionConfiguration exist="false" selected="true">
             <adapterConnection>
                 <stringId>alias_5</stringId>
                 <type>ADAPTER_CONNECTION</type>
@@ -152,7 +152,7 @@
                 </state>
             </states>
         </adapterConnectionConfiguration>
-        <adapterConnectionConfiguration>
+        <adapterConnectionConfiguration exist="false" selected="true">
             <adapterConnection>
                 <stringId>alias_6</stringId>
                 <type>ADAPTER_CONNECTION</type>
@@ -182,7 +182,7 @@
                 </state>
             </states>
         </adapterConnectionConfiguration>
-        <adapterConnectionConfiguration>
+        <adapterConnectionConfiguration exist="false" selected="true">
             <adapterConnection>
                 <stringId>alias_7</stringId>
                 <type>ADAPTER_CONNECTION</type>
@@ -212,7 +212,7 @@
                 </state>
             </states>
         </adapterConnectionConfiguration>
-        <adapterConnectionConfiguration>
+        <adapterConnectionConfiguration exist="false" selected="true">
             <adapterConnection>
                 <stringId>alias_8</stringId>
                 <type>ADAPTER_CONNECTION</type>
@@ -242,7 +242,7 @@
                 </state>
             </states>
         </adapterConnectionConfiguration>
-        <adapterConnectionConfiguration>
+        <adapterConnectionConfiguration exist="false" selected="true">
             <adapterConnection>
                 <stringId>alias_9</stringId>
                 <type>ADAPTER_CONNECTION</type>
@@ -272,7 +272,7 @@
                 </state>
             </states>
         </adapterConnectionConfiguration>
-        <adapterConnectionConfiguration>
+        <adapterConnectionConfiguration exist="false" selected="true">
             <adapterConnection>
                 <stringId>alias_10</stringId>
                 <type>ADAPTER_CONNECTION</type>
@@ -304,7 +304,7 @@
         </adapterConnectionConfiguration>
     </adapterConnectionConfigurations>
     <adapterListenerConfigurations>
-        <adapterListenerConfiguration>
+        <adapterListenerConfiguration exist="false" selected="true">
             <adapterListener>
                 <stringId>listener_name_11</stringId>
                 <type>ADAPTER_LISTENER</type>
@@ -338,7 +338,7 @@
                 </state>
             </states>
         </adapterListenerConfiguration>
-        <adapterListenerConfiguration>
+        <adapterListenerConfiguration exist="false" selected="true">
             <adapterListener>
                 <stringId>listener_name_12</stringId>
                 <type>ADAPTER_LISTENER</type>
@@ -372,7 +372,7 @@
                 </state>
             </states>
         </adapterListenerConfiguration>
-        <adapterListenerConfiguration>
+        <adapterListenerConfiguration exist="false" selected="true">
             <adapterListener>
                 <stringId>listener_name_13</stringId>
                 <type>ADAPTER_LISTENER</type>
@@ -406,7 +406,7 @@
                 </state>
             </states>
         </adapterListenerConfiguration>
-        <adapterListenerConfiguration>
+        <adapterListenerConfiguration exist="false" selected="true">
             <adapterListener>
                 <stringId>listener_name_14</stringId>
                 <type>ADAPTER_LISTENER</type>
@@ -440,7 +440,7 @@
                 </state>
             </states>
         </adapterListenerConfiguration>
-        <adapterListenerConfiguration>
+        <adapterListenerConfiguration exist="false" selected="true">
             <adapterListener>
                 <stringId>listener_name_15</stringId>
                 <type>ADAPTER_LISTENER</type>
@@ -474,7 +474,7 @@
                 </state>
             </states>
         </adapterListenerConfiguration>
-        <adapterListenerConfiguration>
+        <adapterListenerConfiguration exist="false" selected="true">
             <adapterListener>
                 <stringId>listener_name_16</stringId>
                 <type>ADAPTER_LISTENER</type>
@@ -508,7 +508,7 @@
                 </state>
             </states>
         </adapterListenerConfiguration>
-        <adapterListenerConfiguration>
+        <adapterListenerConfiguration exist="false" selected="true">
             <adapterListener>
                 <stringId>listener_name_17</stringId>
                 <type>ADAPTER_LISTENER</type>
@@ -542,7 +542,7 @@
                 </state>
             </states>
         </adapterListenerConfiguration>
-        <adapterListenerConfiguration>
+        <adapterListenerConfiguration exist="false" selected="true">
             <adapterListener>
                 <stringId>listener_name_18</stringId>
                 <type>ADAPTER_LISTENER</type>
@@ -576,7 +576,7 @@
                 </state>
             </states>
         </adapterListenerConfiguration>
-        <adapterListenerConfiguration>
+        <adapterListenerConfiguration exist="false" selected="true">
             <adapterListener>
                 <stringId>listener_name_19</stringId>
                 <type>ADAPTER_LISTENER</type>
@@ -610,7 +610,7 @@
                 </state>
             </states>
         </adapterListenerConfiguration>
-        <adapterListenerConfiguration>
+        <adapterListenerConfiguration exist="false" selected="true">
             <adapterListener>
                 <stringId>listener_name_20</stringId>
                 <type>ADAPTER_LISTENER</type>
@@ -646,7 +646,7 @@
         </adapterListenerConfiguration>
     </adapterListenerConfigurations>
     <adapterNotificationConfigurations>
-        <adapterNotificationConfiguration>
+        <adapterNotificationConfiguration exist="false" selected="true">
             <adapterNotification>
                 <stringId>notification_name_21</stringId>
                 <type>ADAPTER_NOTIFICATION</type>
@@ -680,7 +680,7 @@
                 </state>
             </states>
         </adapterNotificationConfiguration>
-        <adapterNotificationConfiguration>
+        <adapterNotificationConfiguration exist="false" selected="true">
             <adapterNotification>
                 <stringId>notification_name_22</stringId>
                 <type>ADAPTER_NOTIFICATION</type>
@@ -714,7 +714,7 @@
                 </state>
             </states>
         </adapterNotificationConfiguration>
-        <adapterNotificationConfiguration>
+        <adapterNotificationConfiguration exist="false" selected="true">
             <adapterNotification>
                 <stringId>notification_name_23</stringId>
                 <type>ADAPTER_NOTIFICATION</type>
@@ -748,7 +748,7 @@
                 </state>
             </states>
         </adapterNotificationConfiguration>
-        <adapterNotificationConfiguration>
+        <adapterNotificationConfiguration exist="false" selected="true">
             <adapterNotification>
                 <stringId>notification_name_24</stringId>
                 <type>ADAPTER_NOTIFICATION</type>
@@ -782,7 +782,7 @@
                 </state>
             </states>
         </adapterNotificationConfiguration>
-        <adapterNotificationConfiguration>
+        <adapterNotificationConfiguration exist="false" selected="true">
             <adapterNotification>
                 <stringId>notification_name_25</stringId>
                 <type>ADAPTER_NOTIFICATION</type>
@@ -816,7 +816,7 @@
                 </state>
             </states>
         </adapterNotificationConfiguration>
-        <adapterNotificationConfiguration>
+        <adapterNotificationConfiguration exist="false" selected="true">
             <adapterNotification>
                 <stringId>notification_name_26</stringId>
                 <type>ADAPTER_NOTIFICATION</type>
@@ -850,7 +850,7 @@
                 </state>
             </states>
         </adapterNotificationConfiguration>
-        <adapterNotificationConfiguration>
+        <adapterNotificationConfiguration exist="false" selected="true">
             <adapterNotification>
                 <stringId>notification_name_27</stringId>
                 <type>ADAPTER_NOTIFICATION</type>
@@ -884,7 +884,7 @@
                 </state>
             </states>
         </adapterNotificationConfiguration>
-        <adapterNotificationConfiguration>
+        <adapterNotificationConfiguration exist="false" selected="true">
             <adapterNotification>
                 <stringId>notification_name_28</stringId>
                 <type>ADAPTER_NOTIFICATION</type>
@@ -918,7 +918,7 @@
                 </state>
             </states>
         </adapterNotificationConfiguration>
-        <adapterNotificationConfiguration>
+        <adapterNotificationConfiguration exist="false" selected="true">
             <adapterNotification>
                 <stringId>notification_name_29</stringId>
                 <type>ADAPTER_NOTIFICATION</type>
@@ -952,7 +952,7 @@
                 </state>
             </states>
         </adapterNotificationConfiguration>
-        <adapterNotificationConfiguration>
+        <adapterNotificationConfiguration exist="false" selected="true">
             <adapterNotification>
                 <stringId>notification_name_30</stringId>
                 <type>ADAPTER_NOTIFICATION</type>
@@ -988,7 +988,7 @@
         </adapterNotificationConfiguration>
     </adapterNotificationConfigurations>
     <integrationServerPackageConfigurations>
-        <integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration exist="false" selected="true">
             <integrationServerPackage>
                 <stringId>packageName_61</stringId>
                 <type>IS_PACKAGE</type>
@@ -1016,7 +1016,7 @@
                 </state>
             </states>
         </integrationServerPackageConfiguration>
-        <integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration exist="false" selected="true">
             <integrationServerPackage>
                 <stringId>packageName_62</stringId>
                 <type>IS_PACKAGE</type>
@@ -1044,7 +1044,7 @@
                 </state>
             </states>
         </integrationServerPackageConfiguration>
-        <integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration exist="false" selected="true">
             <integrationServerPackage>
                 <stringId>packageName_63</stringId>
                 <type>IS_PACKAGE</type>
@@ -1072,7 +1072,7 @@
                 </state>
             </states>
         </integrationServerPackageConfiguration>
-        <integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration exist="false" selected="true">
             <integrationServerPackage>
                 <stringId>packageName_64</stringId>
                 <type>IS_PACKAGE</type>
@@ -1100,7 +1100,7 @@
                 </state>
             </states>
         </integrationServerPackageConfiguration>
-        <integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration exist="false" selected="true">
             <integrationServerPackage>
                 <stringId>packageName_65</stringId>
                 <type>IS_PACKAGE</type>
@@ -1128,7 +1128,7 @@
                 </state>
             </states>
         </integrationServerPackageConfiguration>
-        <integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration exist="false" selected="true">
             <integrationServerPackage>
                 <stringId>packageName_66</stringId>
                 <type>IS_PACKAGE</type>
@@ -1156,7 +1156,7 @@
                 </state>
             </states>
         </integrationServerPackageConfiguration>
-        <integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration exist="false" selected="true">
             <integrationServerPackage>
                 <stringId>packageName_67</stringId>
                 <type>IS_PACKAGE</type>
@@ -1184,7 +1184,7 @@
                 </state>
             </states>
         </integrationServerPackageConfiguration>
-        <integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration exist="false" selected="true">
             <integrationServerPackage>
                 <stringId>packageName_68</stringId>
                 <type>IS_PACKAGE</type>
@@ -1212,7 +1212,7 @@
                 </state>
             </states>
         </integrationServerPackageConfiguration>
-        <integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration exist="false" selected="true">
             <integrationServerPackage>
                 <stringId>packageName_69</stringId>
                 <type>IS_PACKAGE</type>
@@ -1240,7 +1240,7 @@
                 </state>
             </states>
         </integrationServerPackageConfiguration>
-        <integrationServerPackageConfiguration>
+        <integrationServerPackageConfiguration exist="false" selected="true">
             <integrationServerPackage>
                 <stringId>packageName_70</stringId>
                 <type>IS_PACKAGE</type>
@@ -1270,7 +1270,7 @@
         </integrationServerPackageConfiguration>
     </integrationServerPackageConfigurations>
     <jmsAliasConfigurations>
-        <jmsAliasConfiguration>
+        <jmsAliasConfiguration exist="false" selected="true">
             <jmsAlias>
                 <stringId>jms_alias_name31</stringId>
                 <type>JMS_ALIAS</type>
@@ -1303,7 +1303,7 @@
                 </state>
             </states>
         </jmsAliasConfiguration>
-        <jmsAliasConfiguration>
+        <jmsAliasConfiguration exist="false" selected="true">
             <jmsAlias>
                 <stringId>jms_alias_name32</stringId>
                 <type>JMS_ALIAS</type>
@@ -1336,7 +1336,7 @@
                 </state>
             </states>
         </jmsAliasConfiguration>
-        <jmsAliasConfiguration>
+        <jmsAliasConfiguration exist="false" selected="true">
             <jmsAlias>
                 <stringId>jms_alias_name33</stringId>
                 <type>JMS_ALIAS</type>
@@ -1369,7 +1369,7 @@
                 </state>
             </states>
         </jmsAliasConfiguration>
-        <jmsAliasConfiguration>
+        <jmsAliasConfiguration exist="false" selected="true">
             <jmsAlias>
                 <stringId>jms_alias_name34</stringId>
                 <type>JMS_ALIAS</type>
@@ -1402,7 +1402,7 @@
                 </state>
             </states>
         </jmsAliasConfiguration>
-        <jmsAliasConfiguration>
+        <jmsAliasConfiguration exist="false" selected="true">
             <jmsAlias>
                 <stringId>jms_alias_name35</stringId>
                 <type>JMS_ALIAS</type>
@@ -1435,7 +1435,7 @@
                 </state>
             </states>
         </jmsAliasConfiguration>
-        <jmsAliasConfiguration>
+        <jmsAliasConfiguration exist="false" selected="true">
             <jmsAlias>
                 <stringId>jms_alias_name36</stringId>
                 <type>JMS_ALIAS</type>
@@ -1468,7 +1468,7 @@
                 </state>
             </states>
         </jmsAliasConfiguration>
-        <jmsAliasConfiguration>
+        <jmsAliasConfiguration exist="false" selected="true">
             <jmsAlias>
                 <stringId>jms_alias_name37</stringId>
                 <type>JMS_ALIAS</type>
@@ -1501,7 +1501,7 @@
                 </state>
             </states>
         </jmsAliasConfiguration>
-        <jmsAliasConfiguration>
+        <jmsAliasConfiguration exist="false" selected="true">
             <jmsAlias>
                 <stringId>jms_alias_name38</stringId>
                 <type>JMS_ALIAS</type>
@@ -1534,7 +1534,7 @@
                 </state>
             </states>
         </jmsAliasConfiguration>
-        <jmsAliasConfiguration>
+        <jmsAliasConfiguration exist="false" selected="true">
             <jmsAlias>
                 <stringId>jms_alias_name39</stringId>
                 <type>JMS_ALIAS</type>
@@ -1567,7 +1567,7 @@
                 </state>
             </states>
         </jmsAliasConfiguration>
-        <jmsAliasConfiguration>
+        <jmsAliasConfiguration exist="false" selected="true">
             <jmsAlias>
                 <stringId>jms_alias_name40</stringId>
                 <type>JMS_ALIAS</type>
@@ -1602,7 +1602,7 @@
         </jmsAliasConfiguration>
     </jmsAliasConfigurations>
     <jmsTriggerConfigurations>
-        <jmsTriggerConfiguration>
+        <jmsTriggerConfiguration exist="false" selected="true">
             <jmsTrigger>
                 <stringId>trigger_name41</stringId>
                 <type>JMS_TRIGGER</type>
@@ -1635,7 +1635,7 @@
                 </state>
             </states>
         </jmsTriggerConfiguration>
-        <jmsTriggerConfiguration>
+        <jmsTriggerConfiguration exist="false" selected="true">
             <jmsTrigger>
                 <stringId>trigger_name42</stringId>
                 <type>JMS_TRIGGER</type>
@@ -1668,7 +1668,7 @@
                 </state>
             </states>
         </jmsTriggerConfiguration>
-        <jmsTriggerConfiguration>
+        <jmsTriggerConfiguration exist="false" selected="true">
             <jmsTrigger>
                 <stringId>trigger_name43</stringId>
                 <type>JMS_TRIGGER</type>
@@ -1701,7 +1701,7 @@
                 </state>
             </states>
         </jmsTriggerConfiguration>
-        <jmsTriggerConfiguration>
+        <jmsTriggerConfiguration exist="false" selected="true">
             <jmsTrigger>
                 <stringId>trigger_name44</stringId>
                 <type>JMS_TRIGGER</type>
@@ -1734,7 +1734,7 @@
                 </state>
             </states>
         </jmsTriggerConfiguration>
-        <jmsTriggerConfiguration>
+        <jmsTriggerConfiguration exist="false" selected="true">
             <jmsTrigger>
                 <stringId>trigger_name45</stringId>
                 <type>JMS_TRIGGER</type>
@@ -1767,7 +1767,7 @@
                 </state>
             </states>
         </jmsTriggerConfiguration>
-        <jmsTriggerConfiguration>
+        <jmsTriggerConfiguration exist="false" selected="true">
             <jmsTrigger>
                 <stringId>trigger_name46</stringId>
                 <type>JMS_TRIGGER</type>
@@ -1800,7 +1800,7 @@
                 </state>
             </states>
         </jmsTriggerConfiguration>
-        <jmsTriggerConfiguration>
+        <jmsTriggerConfiguration exist="false" selected="true">
             <jmsTrigger>
                 <stringId>trigger_name47</stringId>
                 <type>JMS_TRIGGER</type>
@@ -1833,7 +1833,7 @@
                 </state>
             </states>
         </jmsTriggerConfiguration>
-        <jmsTriggerConfiguration>
+        <jmsTriggerConfiguration exist="false" selected="true">
             <jmsTrigger>
                 <stringId>trigger_name48</stringId>
                 <type>JMS_TRIGGER</type>
@@ -1866,7 +1866,7 @@
                 </state>
             </states>
         </jmsTriggerConfiguration>
-        <jmsTriggerConfiguration>
+        <jmsTriggerConfiguration exist="false" selected="true">
             <jmsTrigger>
                 <stringId>trigger_name49</stringId>
                 <type>JMS_TRIGGER</type>
@@ -1899,7 +1899,7 @@
                 </state>
             </states>
         </jmsTriggerConfiguration>
-        <jmsTriggerConfiguration>
+        <jmsTriggerConfiguration exist="false" selected="true">
             <jmsTrigger>
                 <stringId>trigger_name50</stringId>
                 <type>JMS_TRIGGER</type>
@@ -1934,7 +1934,7 @@
         </jmsTriggerConfiguration>
     </jmsTriggerConfigurations>
     <nativeTriggerConfigurations>
-        <nativeTriggerConfiguration>
+        <nativeTriggerConfiguration exist="false" selected="true">
             <nativeTrigger>
                 <stringId>native_trigger_name_51</stringId>
                 <type>NATIVE_TRIGGER</type>
@@ -1994,7 +1994,7 @@
                 </state>
             </states>
         </nativeTriggerConfiguration>
-        <nativeTriggerConfiguration>
+        <nativeTriggerConfiguration exist="false" selected="true">
             <nativeTrigger>
                 <stringId>native_trigger_name_52</stringId>
                 <type>NATIVE_TRIGGER</type>
@@ -2054,7 +2054,7 @@
                 </state>
             </states>
         </nativeTriggerConfiguration>
-        <nativeTriggerConfiguration>
+        <nativeTriggerConfiguration exist="false" selected="true">
             <nativeTrigger>
                 <stringId>native_trigger_name_53</stringId>
                 <type>NATIVE_TRIGGER</type>
@@ -2114,7 +2114,7 @@
                 </state>
             </states>
         </nativeTriggerConfiguration>
-        <nativeTriggerConfiguration>
+        <nativeTriggerConfiguration exist="false" selected="true">
             <nativeTrigger>
                 <stringId>native_trigger_name_54</stringId>
                 <type>NATIVE_TRIGGER</type>
@@ -2174,7 +2174,7 @@
                 </state>
             </states>
         </nativeTriggerConfiguration>
-        <nativeTriggerConfiguration>
+        <nativeTriggerConfiguration exist="false" selected="true">
             <nativeTrigger>
                 <stringId>native_trigger_name_55</stringId>
                 <type>NATIVE_TRIGGER</type>
@@ -2234,7 +2234,7 @@
                 </state>
             </states>
         </nativeTriggerConfiguration>
-        <nativeTriggerConfiguration>
+        <nativeTriggerConfiguration exist="false" selected="true">
             <nativeTrigger>
                 <stringId>native_trigger_name_56</stringId>
                 <type>NATIVE_TRIGGER</type>
@@ -2294,7 +2294,7 @@
                 </state>
             </states>
         </nativeTriggerConfiguration>
-        <nativeTriggerConfiguration>
+        <nativeTriggerConfiguration exist="false" selected="true">
             <nativeTrigger>
                 <stringId>native_trigger_name_57</stringId>
                 <type>NATIVE_TRIGGER</type>
@@ -2354,7 +2354,7 @@
                 </state>
             </states>
         </nativeTriggerConfiguration>
-        <nativeTriggerConfiguration>
+        <nativeTriggerConfiguration exist="false" selected="true">
             <nativeTrigger>
                 <stringId>native_trigger_name_58</stringId>
                 <type>NATIVE_TRIGGER</type>
@@ -2414,7 +2414,7 @@
                 </state>
             </states>
         </nativeTriggerConfiguration>
-        <nativeTriggerConfiguration>
+        <nativeTriggerConfiguration exist="false" selected="true">
             <nativeTrigger>
                 <stringId>native_trigger_name_59</stringId>
                 <type>NATIVE_TRIGGER</type>
@@ -2474,7 +2474,7 @@
                 </state>
             </states>
         </nativeTriggerConfiguration>
-        <nativeTriggerConfiguration>
+        <nativeTriggerConfiguration exist="false" selected="true">
             <nativeTrigger>
                 <stringId>native_trigger_name_60</stringId>
                 <type>NATIVE_TRIGGER</type>
@@ -2536,7 +2536,7 @@
         </nativeTriggerConfiguration>
     </nativeTriggerConfigurations>
     <portConfigurations>
-        <portConfiguration>
+        <portConfiguration exist="false" selected="true">
             <port>
                 <stringId>port_key_71</stringId>
                 <type>PORT</type>
@@ -2570,7 +2570,7 @@
                 </state>
             </states>
         </portConfiguration>
-        <portConfiguration>
+        <portConfiguration exist="false" selected="true">
             <port>
                 <stringId>port_key_72</stringId>
                 <type>PORT</type>
@@ -2604,7 +2604,7 @@
                 </state>
             </states>
         </portConfiguration>
-        <portConfiguration>
+        <portConfiguration exist="false" selected="true">
             <port>
                 <stringId>port_key_73</stringId>
                 <type>PORT</type>
@@ -2638,7 +2638,7 @@
                 </state>
             </states>
         </portConfiguration>
-        <portConfiguration>
+        <portConfiguration exist="false" selected="true">
             <port>
                 <stringId>port_key_74</stringId>
                 <type>PORT</type>
@@ -2672,7 +2672,7 @@
                 </state>
             </states>
         </portConfiguration>
-        <portConfiguration>
+        <portConfiguration exist="false" selected="true">
             <port>
                 <stringId>port_key_75</stringId>
                 <type>PORT</type>
@@ -2706,7 +2706,7 @@
                 </state>
             </states>
         </portConfiguration>
-        <portConfiguration>
+        <portConfiguration exist="false" selected="true">
             <port>
                 <stringId>port_key_76</stringId>
                 <type>PORT</type>
@@ -2740,7 +2740,7 @@
                 </state>
             </states>
         </portConfiguration>
-        <portConfiguration>
+        <portConfiguration exist="false" selected="true">
             <port>
                 <stringId>port_key_77</stringId>
                 <type>PORT</type>
@@ -2774,7 +2774,7 @@
                 </state>
             </states>
         </portConfiguration>
-        <portConfiguration>
+        <portConfiguration exist="false" selected="true">
             <port>
                 <stringId>port_key_78</stringId>
                 <type>PORT</type>
@@ -2808,7 +2808,7 @@
                 </state>
             </states>
         </portConfiguration>
-        <portConfiguration>
+        <portConfiguration exist="false" selected="true">
             <port>
                 <stringId>port_key_79</stringId>
                 <type>PORT</type>
@@ -2842,7 +2842,7 @@
                 </state>
             </states>
         </portConfiguration>
-        <portConfiguration>
+        <portConfiguration exist="false" selected="true">
             <port>
                 <stringId>port_key_80</stringId>
                 <type>PORT</type>
@@ -2878,7 +2878,7 @@
         </portConfiguration>
     </portConfigurations>
     <schedulerConfigurations>
-        <schedulerConfiguration>
+        <schedulerConfiguration exist="false" selected="true">
             <scheduler>
                 <stringId>oid_81</stringId>
                 <type>SCHEDULER</type>
@@ -2914,7 +2914,7 @@
                 </state>
             </states>
         </schedulerConfiguration>
-        <schedulerConfiguration>
+        <schedulerConfiguration exist="false" selected="true">
             <scheduler>
                 <stringId>oid_82</stringId>
                 <type>SCHEDULER</type>
@@ -2950,7 +2950,7 @@
                 </state>
             </states>
         </schedulerConfiguration>
-        <schedulerConfiguration>
+        <schedulerConfiguration exist="false" selected="true">
             <scheduler>
                 <stringId>oid_83</stringId>
                 <type>SCHEDULER</type>
@@ -2986,7 +2986,7 @@
                 </state>
             </states>
         </schedulerConfiguration>
-        <schedulerConfiguration>
+        <schedulerConfiguration exist="false" selected="true">
             <scheduler>
                 <stringId>oid_84</stringId>
                 <type>SCHEDULER</type>
@@ -3022,7 +3022,7 @@
                 </state>
             </states>
         </schedulerConfiguration>
-        <schedulerConfiguration>
+        <schedulerConfiguration exist="false" selected="true">
             <scheduler>
                 <stringId>oid_85</stringId>
                 <type>SCHEDULER</type>
@@ -3058,7 +3058,7 @@
                 </state>
             </states>
         </schedulerConfiguration>
-        <schedulerConfiguration>
+        <schedulerConfiguration exist="false" selected="true">
             <scheduler>
                 <stringId>oid_86</stringId>
                 <type>SCHEDULER</type>
@@ -3094,7 +3094,7 @@
                 </state>
             </states>
         </schedulerConfiguration>
-        <schedulerConfiguration>
+        <schedulerConfiguration exist="false" selected="true">
             <scheduler>
                 <stringId>oid_87</stringId>
                 <type>SCHEDULER</type>
@@ -3130,7 +3130,7 @@
                 </state>
             </states>
         </schedulerConfiguration>
-        <schedulerConfiguration>
+        <schedulerConfiguration exist="false" selected="true">
             <scheduler>
                 <stringId>oid_88</stringId>
                 <type>SCHEDULER</type>
@@ -3166,7 +3166,7 @@
                 </state>
             </states>
         </schedulerConfiguration>
-        <schedulerConfiguration>
+        <schedulerConfiguration exist="false" selected="true">
             <scheduler>
                 <stringId>oid_89</stringId>
                 <type>SCHEDULER</type>
@@ -3202,7 +3202,7 @@
                 </state>
             </states>
         </schedulerConfiguration>
-        <schedulerConfiguration>
+        <schedulerConfiguration exist="false" selected="true">
             <scheduler>
                 <stringId>oid_90</stringId>
                 <type>SCHEDULER</type>
