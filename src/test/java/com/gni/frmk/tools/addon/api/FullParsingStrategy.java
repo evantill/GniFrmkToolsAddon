@@ -7,12 +7,12 @@ package com.gni.frmk.tools.addon.api;
  *
  * @author: e03229
  */
-public class FullParsingStrategy implements TestConfigurationStrategy {
+public class FullParsingStrategy implements TConfigurationStrategy {
 
     @Override
-    public TestConfigurationStrategy execute(Operation o) {
+    public TConfigurationStrategy execute(Operation o) {
         System.out.println("FullParsingStrategy.execute");
-        TestConfigurationVisited cnf = o.getVisited();
+        TConfigurationVisited cnf = o.getVisited();
         o.getVisitor().dispatchVisit(cnf.getComposant1());
         o.getVisitor().dispatchVisit(cnf.getComposant2());
         return this;

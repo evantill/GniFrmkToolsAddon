@@ -9,5 +9,5 @@ import com.gni.frmk.tools.addon.service.api.Visitor;
  *
  * @author: e03229
  */
-public interface TestConfigurationVisitor extends Visitor<TestConfigurationVisitor,TestConfigurationVisited> {
+public interface TConfigurationVisitor extends Visitor<TConfigurationVisitor,TConfigurationVisited> {
 }

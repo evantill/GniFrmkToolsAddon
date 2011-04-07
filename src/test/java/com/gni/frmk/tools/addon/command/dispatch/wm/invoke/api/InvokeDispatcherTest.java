@@ -131,7 +131,7 @@ public class InvokeDispatcherTest {
         InvokeDispatcher dispatcher = new InvokeDispatcher(registry, contextMock);
         NoResult result = dispatcher.execute(action);
         Mockito.verify(contextMock)
-               .invoke(same(action), eq(NSName.create("wm.art.admin.connection:disableConnection")), Matchers.<IData>any());
+               .invoke(same(action), eq(NSName.create("pub.art.connection:disableConnection")), Matchers.<IData>any());
     }
 
 

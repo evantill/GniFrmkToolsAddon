@@ -9,9 +9,9 @@ import com.gni.frmk.tools.addon.service.api.Visitor;
  *
  * @author: e03229
  */
-public interface TestComponentVisitor extends Visitor<TestComponentVisitor, TestComponentVisited> {
+public interface TComponentVisitor extends Visitor<TComponentVisitor, TComponentVisited> {
 
-    void visit(TestComposant1 visited);
+    void visit(TComposant1 visited);
 
-    void visit(TestComposant2 visited);
+    void visit(TComposant2 visited);
 }

@@ -7,6 +7,6 @@ package com.gni.frmk.tools.addon.api;
  *
  * @author: e03229
  */
-public interface TestConfigurationService {
-    void execute(TestConfigurationVisited cnf);
+public interface TConfigurationService {
+    void execute(TConfigurationVisited cnf);
 }

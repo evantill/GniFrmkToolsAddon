@@ -9,9 +9,9 @@ import com.gni.frmk.tools.addon.service.api.Visitable;
  *
  * @author: e03229
  */
-public interface TestConfigurationVisited extends Visitable<TestConfigurationVisitor, TestConfigurationVisited> {
+public interface TConfigurationVisited extends Visitable<TConfigurationVisitor, TConfigurationVisited> {
 
-    TestComposant1 getComposant1();
-    TestComposant2 getComposant2();
+    TComposant1 getComposant1();
+    TComposant2 getComposant2();
 
 }

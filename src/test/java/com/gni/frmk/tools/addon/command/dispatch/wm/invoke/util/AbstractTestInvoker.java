@@ -18,12 +18,12 @@ import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.util.PipelineTestUtil
  *
  * @author: e03229
  */
-public abstract class AbstractInvokerTest<A extends Action<R>, R extends Result> {
+public abstract class AbstractTestInvoker<A extends Action<R>, R extends Result> {
 
     protected final PipelineTestUtils utils;
     protected final InvokeContextReplay replay;
 
-    protected AbstractInvokerTest() {
+    protected AbstractTestInvoker() {
         utils = new PipelineTestUtils(getClass());
         replay = new InvokeContextReplay(utils);
     }

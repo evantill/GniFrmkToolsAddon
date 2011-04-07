@@ -11,19 +11,19 @@ import com.gni.frmk.tools.addon.command.api.Result;
  *
  * @author: e03229
  */
-public class TraceServiceC1 extends TestAbstractService {
+public class TraceServiceC1 extends TAbstractService {
 
     public TraceServiceC1() {
         super(new PartialParsingStrategy());
     }
 
     @Override
-    public void visit(TestComposant1 visitable) {
+    public void visit(TComposant1 visitable) {
         System.out.println("TraceServiceC1.visit 1");
     }
 
     @Override
-    public void visit(TestComposant2 visitable) {
+    public void visit(TComposant2 visitable) {
         System.out.println("TraceServiceC1.visit 2");
     }
 
@@ -34,8 +34,8 @@ public class TraceServiceC1 extends TestAbstractService {
     }
 
     public static void main(String[] args) {
-        TestConfigurationService srv = new TraceServiceC1();
-        TestConfiguration cnf = new TestConfiguration(new TestComposant1(), new TestComposant2());
+        TConfigurationService srv = new TraceServiceC1();
+        TConfiguration cnf = new TConfiguration(new TComposant1(), new TComposant2());
         srv.execute(cnf);
     }
 }

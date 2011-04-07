@@ -28,11 +28,6 @@ public class CurrentStatusService extends AbstractService{
     }
 
     @Override
-    public <C extends AbstractComponent<?, S>, S extends AbstractComponentState> void visit(ComponentConfiguration<C, S> visited) {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    @Override
     public void visit(AdapterConnectionConfiguration visited) {
         //To change body of implemented methods use File | Settings | File Templates.
     }

@@ -9,5 +9,5 @@ import com.gni.frmk.tools.addon.service.api.Visitable;
  *
  * @author: e03229
  */
-public interface TestComponentVisited extends Visitable<TestComponentVisitor,TestComponentVisited>{
+public interface TComponentVisited extends Visitable<TComponentVisitor,TComponentVisited>{
 }

@@ -7,9 +7,9 @@ package com.gni.frmk.tools.addon.api;
  *
  * @author: e03229
  */
-public class TestComposant2 implements TestComponentVisited {
+public class TComposant2 implements TComponentVisited {
     @Override
-    public void accept(TestComponentVisitor visitor) {
+    public void accept(TComponentVisitor visitor) {
         System.out.println("Composant2.accept");
         visitor.visit(this);
     }

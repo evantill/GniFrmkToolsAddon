@@ -35,9 +35,9 @@ public abstract class ClosePlateform extends AbstractService {
         super(strategy);
     }
 
-    @Override
-    public <C extends AbstractComponent<?, S>, S extends AbstractComponentState> void visit(ComponentConfiguration<C, S> visited) {
-        C component = visited.getComponent();
+    private <C extends AbstractComponent<?, S>, S extends AbstractComponentState>
+        void prepareStatusForNextOpen(ComponentConfiguration<C, S> visited){
+            C component = visited.getComponent();
         S currentState = component.getState();
         //prepare for reopen : OPEN will be the current state
         visited.getStates().put(OPEN, currentState);
@@ -47,6 +47,7 @@ public abstract class ClosePlateform extends AbstractService {
 
     @Override
     public void visit(AdapterConnectionConfiguration visited) {
+        prepareStatusForNextOpen(visited);
         AdapterConnection component = visited.getComponent();
         DisableConnection command = new DisableConnection(component.getAlias());
         dispatch(command);
@@ -54,6 +55,7 @@ public abstract class ClosePlateform extends AbstractService {
 
     @Override
     public void visit(AdapterListenerConfiguration visited) {
+        prepareStatusForNextOpen(visited);
         AdapterListener component = visited.getComponent();
         DisableListener command = new DisableListener(component.getName());
         dispatch(command);
@@ -61,6 +63,7 @@ public abstract class ClosePlateform extends AbstractService {
 
     @Override
     public void visit(AdapterNotificationConfiguration visited) {
+        prepareStatusForNextOpen(visited);
         AdapterNotification component = visited.getComponent();
         DisableNotification command = new DisableNotification(component.getName());
         dispatch(command);
@@ -68,6 +71,7 @@ public abstract class ClosePlateform extends AbstractService {
 
     @Override
     public void visit(PortConfiguration visited) {
+        prepareStatusForNextOpen(visited);
         Port component = visited.getComponent();
         DisablePortListener command = new DisablePortListener(component.getPackageName(), component.getKey());
         dispatch(command);
@@ -75,6 +79,7 @@ public abstract class ClosePlateform extends AbstractService {
 
     @Override
     public void visit(SchedulerConfiguration visited) {
+        prepareStatusForNextOpen(visited);
         Scheduler component = visited.getComponent();
         SuspendUserTask command = new SuspendUserTask(component.getOid());
         dispatch(command);
@@ -82,6 +87,7 @@ public abstract class ClosePlateform extends AbstractService {
 
     @Override
     public void visit(NativeTriggerConfiguration visited) {
+        prepareStatusForNextOpen(visited);
         NativeTrigger component = visited.getComponent();
         SuspendTriggers command = SuspendTriggers.builder()
                                                  .addTriggerName(component.getName())
@@ -95,6 +101,7 @@ public abstract class ClosePlateform extends AbstractService {
 
     @Override
     public void visit(JmsTriggerConfiguration visited) {
+        prepareStatusForNextOpen(visited);
         JmsTrigger component = visited.getComponent();
         SuspendJmsTriggers command = new SuspendJmsTriggers(component.getName());
         dispatch(command);
@@ -102,6 +109,7 @@ public abstract class ClosePlateform extends AbstractService {
 
     @Override
     public void visit(JmsAliasConfiguration visited) {
+        prepareStatusForNextOpen(visited);
         JmsAlias component = visited.getComponent();
         DisableJmsAlias command = new DisableJmsAlias(component.getName());
         dispatch(command);
@@ -109,6 +117,7 @@ public abstract class ClosePlateform extends AbstractService {
 
     @Override
     public void visit(IntegrationServerPackageConfiguration visited) {
+        prepareStatusForNextOpen(visited);
         IntegrationServerPackage component = visited.getComponent();
         DisablePackage command = new DisablePackage(component.getPackageName());
         dispatch(command);

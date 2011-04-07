@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.command.dispatch.wm.invoke;
 import com.gni.frmk.tools.addon.command.action.wm.root.ispackage.PackageList;
 import com.gni.frmk.tools.addon.command.api.ActionException;
 import com.gni.frmk.tools.addon.command.api.ActionHandler;
-import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.util.AbstractInvokerTest;
+import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.util.AbstractTestInvoker;
 import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeException;
 import com.gni.frmk.tools.addon.command.handler.wm.root.ispackage.PackageListHandler;
@@ -18,7 +18,7 @@ import junit.framework.Assert;
  *
  * @author: e03229
  */
-public class PackageListInvokerTest extends AbstractInvokerTest<PackageList, SetResult<IntegrationServerPackage>> {
+public class PackageListTestInvoker extends AbstractTestInvoker<PackageList, SetResult<IntegrationServerPackage>> {
 
     public void testGetPackageList() throws ActionException, InvokeException {
         SetResult<IntegrationServerPackage> r = execute();
