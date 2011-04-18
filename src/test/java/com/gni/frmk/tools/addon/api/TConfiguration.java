@@ -1,5 +1,8 @@
 package com.gni.frmk.tools.addon.api;
 
+import com.gni.frmk.tools.addon.api.visitor.TConfigurationVisited;
+import com.gni.frmk.tools.addon.api.visitor.TConfigurationVisitor;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 06/04/11

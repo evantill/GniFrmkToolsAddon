@@ -33,6 +33,10 @@ public class TemporaryActivableState extends AbstractComponentState implements C
         };
 
         public abstract boolean isPermanent();
+
+        public boolean isTemporary() {
+            return !isPermanent();
+        }
     }
 
     @XmlAttribute
@@ -45,9 +49,9 @@ public class TemporaryActivableState extends AbstractComponentState implements C
         this.activable = activable;
     }
 
-    private TemporaryActivableState(){
-        temporary=null;
-        activable=null;
+    private TemporaryActivableState() {
+        temporary = null;
+        activable = null;
     }
 
     public TemporaryStatus getTemporary() {

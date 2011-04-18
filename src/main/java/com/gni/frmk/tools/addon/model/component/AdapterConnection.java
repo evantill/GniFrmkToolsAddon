@@ -1,9 +1,9 @@
 package com.gni.frmk.tools.addon.model.component;
 
+import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.api.ComponentType;
 import com.gni.frmk.tools.addon.model.component.id.StringId;
 import com.gni.frmk.tools.addon.model.component.state.EnableState;
-import com.gni.frmk.tools.addon.service.api.component.ComponentVisitor;
 
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
@@ -30,12 +30,12 @@ public class AdapterConnection extends AdapterTypeAware<StringId, EnableState> {
 
     private AdapterConnection() {
         super();
-        alias=null;
+        alias = null;
     }
 
     @Override
-    public void accept(ComponentVisitor visitor) {
-        visitor.visit(this);
+    public void accept(ConfigurationVisitor visitor) {
+        visitor.visitComponent(this);
     }
 
     public String getAlias() {
@@ -46,7 +46,7 @@ public class AdapterConnection extends AdapterTypeAware<StringId, EnableState> {
         return new AdapterConnectionBuilder();
     }
 
-    public static class AdapterConnectionBuilder extends  AdapterTypeAware.Builder<AdapterConnectionBuilder,AdapterConnection,StringId,EnableState>  {
+    public static class AdapterConnectionBuilder extends AdapterTypeAware.Builder<AdapterConnectionBuilder, AdapterConnection, StringId, EnableState> {
 
         @NotNull
         protected String alias;
@@ -55,9 +55,9 @@ public class AdapterConnection extends AdapterTypeAware<StringId, EnableState> {
             defineType(ComponentType.ADAPTER_CONNECTION);
         }
 
-           public AdapterConnectionBuilder alias(String value) {
+        public AdapterConnectionBuilder alias(String value) {
             alias = value;
-           defineId(new StringId(alias));
+            defineId(new StringId(alias));
             return self();
         }
 

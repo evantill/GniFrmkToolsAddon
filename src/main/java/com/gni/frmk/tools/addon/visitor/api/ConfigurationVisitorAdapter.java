@@ -76,48 +76,48 @@ public abstract class ConfigurationVisitorAdapter<T extends Throwable> implement
     protected abstract void statusFailed(Component visited, Throwable e);
 
     @Override
-    public void visit(AdapterConnection visited) {
-        proxy.visit(visited);
+    public void visitComponent(AdapterConnection visited) throws VisitorException {
+        proxy.visitComponent(visited);
     }
 
     @Override
-    public void visit(AdapterListener visited) {
-        proxy.visit(visited);
+    public void visitComponent(AdapterListener visited) throws VisitorException {
+        proxy.visitComponent(visited);
     }
 
     @Override
-    public void visit(AdapterNotification visited) {
-        proxy.visit(visited);
+    public void visitComponent(AdapterNotification visited) throws VisitorException {
+        proxy.visitComponent(visited);
     }
 
     @Override
-    public void visit(Port visited) {
-        proxy.visit(visited);
+    public void visitComponent(Port visited) throws VisitorException {
+        proxy.visitComponent(visited);
     }
 
     @Override
-    public void visit(Scheduler visited) {
-        proxy.visit(visited);
+    public void visitComponent(Scheduler visited) throws VisitorException {
+        proxy.visitComponent(visited);
     }
 
     @Override
-    public void visit(JmsAlias visited) {
-        proxy.visit(visited);
+    public void visitComponent(JmsAlias visited) throws VisitorException {
+        proxy.visitComponent(visited);
     }
 
     @Override
-    public void visit(JmsTrigger visited) {
-        proxy.visit(visited);
+    public void visitComponent(JmsTrigger visited) throws VisitorException {
+        proxy.visitComponent(visited);
     }
 
     @Override
-    public void visit(NativeTrigger visited) {
-        proxy.visit(visited);
+    public void visitComponent(NativeTrigger visited) throws VisitorException {
+        proxy.visitComponent(visited);
     }
 
     @Override
-    public void visit(IntegrationServerPackage visited) {
-        proxy.visit(visited);
+    public void visitComponent(IntegrationServerPackage visited) throws VisitorException {
+        proxy.visitComponent(visited);
     }
 
 

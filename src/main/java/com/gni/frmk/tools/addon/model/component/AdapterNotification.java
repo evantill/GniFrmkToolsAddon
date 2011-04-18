@@ -1,9 +1,9 @@
 package com.gni.frmk.tools.addon.model.component;
 
+import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.api.ComponentType;
 import com.gni.frmk.tools.addon.model.component.id.StringId;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState;
-import com.gni.frmk.tools.addon.service.api.component.ComponentVisitor;
 
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
@@ -30,12 +30,12 @@ public class AdapterNotification extends AdapterTypeAware<StringId, ActivableSta
 
     private AdapterNotification() {
         super();
-        name=null;
+        name = null;
     }
 
     @Override
-    public void accept(ComponentVisitor visitor) {
-        visitor.visit(this);
+    public void accept(ConfigurationVisitor visitor) {
+        visitor.visitComponent(this);
     }
 
     public String getName() {

@@ -10,10 +10,5 @@ import com.gni.frmk.tools.addon.BuilderWithValidation;
  * @author: e03229
  */
 public interface ComponentBuilder<B extends ComponentBuilder<B,T>, T extends Component> extends BuilderWithValidation<B,T> {
-
-//    void build();
-
-    //B self();
-
     B from(T source);
 }

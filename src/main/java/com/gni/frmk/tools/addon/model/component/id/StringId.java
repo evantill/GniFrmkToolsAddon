@@ -13,7 +13,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author: e03229
  */
 @XmlRootElement
-public class StringId extends AbstractComponentId implements ComponentId {
+public class StringId extends AbstractComponentId
+        implements ComponentId, Comparable<StringId>
+{
 
     protected StringId() {
     }
@@ -29,5 +31,10 @@ public class StringId extends AbstractComponentId implements ComponentId {
     @Override
     public String asString() {
         return getRawValue();
+    }
+
+    @Override
+    public int compareTo(StringId o) {
+        return getValue().compareTo(o.getValue());
     }
 }

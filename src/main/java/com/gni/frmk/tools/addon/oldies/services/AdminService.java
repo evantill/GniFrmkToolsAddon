@@ -1,14 +1,11 @@
 package com.gni.frmk.tools.addon.oldies.services;
 
-import com.gni.frmk.tools.addon.command.api.ActionException;
-import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeException;
+import com.gni.frmk.tools.addon.api.action.ActionException;
+import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeException;
 import com.gni.frmk.tools.addon.oldies.invoke.WmArtInvoker;
 import com.gni.frmk.tools.addon.oldies.invoke.WmRootInvoker;
 import com.gni.frmk.tools.addon.oldies.invoke.WmRootJmsInvoker;
 import com.gni.frmk.tools.addon.model.configuration.Configuration;
-import com.gni.frmk.tools.addon.visitor.ApplyConfigurationVisitor;
-import com.gni.frmk.tools.addon.visitor.api.ConfigurationVisitor;
-import com.gni.frmk.tools.addon.visitor.TraceConfigurationVisitorAdapter;
 
 /**
  * Created by IntelliJ IDEA.

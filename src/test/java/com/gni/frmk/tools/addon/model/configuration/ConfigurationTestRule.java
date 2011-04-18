@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.model.configuration;
 
-import com.gni.frmk.tools.addon.manager.ConfigurationSerializer;
+import com.gni.frmk.tools.addon.handler.configuration.repository.ConfigurationSerializer;
 import com.gni.frmk.tools.addon.model.component.*;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;

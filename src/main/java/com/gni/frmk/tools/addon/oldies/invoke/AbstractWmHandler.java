@@ -1,13 +1,12 @@
 package com.gni.frmk.tools.addon.oldies.invoke;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
-import com.gni.frmk.tools.addon.command.api.Action;
-import com.gni.frmk.tools.addon.command.api.ActionException;
-import com.gni.frmk.tools.addon.command.api.ActionHandler;
-import com.gni.frmk.tools.addon.command.api.Result;
-import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeContext;
-import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeException;
-import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeServiceRegistry;
+import com.gni.frmk.tools.addon.api.action.Action;
+import com.gni.frmk.tools.addon.api.action.ActionHandler;
+import com.gni.frmk.tools.addon.api.action.DispatchException;
+import com.gni.frmk.tools.addon.api.action.Result;
+import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
+import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeServiceRegistry;
 
 /**
  * Created by IntelliJ IDEA.
@@ -32,7 +31,7 @@ public abstract class AbstractWmHandler {
         registry.addHandler(invoker);
     }
 
-    protected <A extends Action<R>, R extends Result> R invoke(A action) throws ActionException, InvokeException {
+    protected <A extends Action<R>, R extends Result> R invoke(A action) throws DispatchException {
         return registry.findHandler(action).execute(action, context);
     }
 

@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.model.api;
 
-import com.gni.frmk.tools.addon.service.api.component.ComponentVisited;
+import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisited;
 
 import java.util.List;
 
@@ -11,7 +11,8 @@ import java.util.List;
  * Time: 11:30
  * To change this template use File | Settings | File Templates.
  */
-public interface Component<I extends ComponentId, S extends ComponentState> extends ComponentVisited{
+public interface Component<I extends ComponentId, S extends ComponentState>
+        extends ConfigurationVisited {
 
     I getComponentId();
 

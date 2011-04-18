@@ -1,7 +1,15 @@
 package com.gni.frmk.tools.addon.api;
 
-import com.gni.frmk.tools.addon.command.api.Action;
-import com.gni.frmk.tools.addon.command.api.Result;
+import com.gni.frmk.tools.addon.api.action.Action;
+import com.gni.frmk.tools.addon.api.action.Result;
+import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor.VisitorException;
+import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
+import com.gni.frmk.tools.addon.api.strategy.TConfigurationStrategy;
+import com.gni.frmk.tools.addon.api.visitor.TComponentVisited;
+import com.gni.frmk.tools.addon.api.visitor.TComponentVisitor;
+import com.gni.frmk.tools.addon.api.visitor.TConfigurationVisited;
+import com.gni.frmk.tools.addon.api.visitor.TConfigurationVisitor;
+import com.gni.frmk.tools.addon.visitor.api.ComponentVisitorRaisingException.ComponentVisitorException;
 
 /**
  * Created by IntelliJ IDEA.
@@ -37,7 +45,7 @@ public abstract class TAbstractService extends TConfigurationContext implements 
     }
 
     @Override
-    public void dispatchVisit(TComponentVisited visitable) {
+    public void dispatchVisit(TComponentVisited visitable) throws ComponentVisitorException, VisitorException, ConfigurationVisitor.VisitorException {
         visitable.accept(this);
     }
 

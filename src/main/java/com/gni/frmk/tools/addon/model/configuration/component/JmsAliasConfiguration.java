@@ -1,8 +1,8 @@
 package com.gni.frmk.tools.addon.model.configuration.component;
 
+import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.component.JmsAlias;
 import com.gni.frmk.tools.addon.model.component.state.ConnectableState;
-import com.gni.frmk.tools.addon.service.api.configuration.ComponentConfigurationVisitor;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -21,8 +21,8 @@ public class JmsAliasConfiguration extends ComponentConfiguration<JmsAlias, Conn
     }
 
     @Override
-    public void accept(ComponentConfigurationVisitor visitor) {
-        visitor.visit(this);
+    protected void doAcceptSimple(ConfigurationVisitor visitor) {
+        visitor.visitComponentConfiguration(this);
     }
 
     /**

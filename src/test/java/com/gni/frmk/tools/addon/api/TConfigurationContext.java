@@ -1,7 +1,8 @@
 package com.gni.frmk.tools.addon.api;
 
-import com.gni.frmk.tools.addon.api.TConfigurationStrategy.Operation;
-import com.gni.frmk.tools.addon.service.api.Context;
+import com.gni.frmk.tools.addon.api.strategy.TConfigurationStrategy.Operation;
+import com.gni.frmk.tools.addon.api.strategy.Context;
+import com.gni.frmk.tools.addon.api.strategy.TConfigurationStrategy;
 
 /**
  * Created by IntelliJ IDEA.

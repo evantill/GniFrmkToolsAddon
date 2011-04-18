@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.oldies.service;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
-import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.util.PipelineTestUtils;
+import com.gni.frmk.tools.addon.dispatch.wm.invoke.util.PipelineTestUtils;
 import com.gni.frmk.tools.addon.oldies.invoke.WmArtInvoker;
 import com.gni.frmk.tools.addon.oldies.invoke.WmRootInvoker;
 import com.gni.frmk.tools.addon.oldies.invoke.WmRootJmsInvoker;

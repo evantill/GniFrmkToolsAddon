@@ -59,47 +59,47 @@ public abstract class UpdateConfigurationVisitorAdapter<T extends Throwable> imp
     protected abstract void statusFailed(Component visited, Throwable e);
 
     @Override
-    public void visit(AdapterConnection visited) {
-        proxy.visit(visited);
+    public void visitComponent(AdapterConnection visited) {
+        proxy.visitComponent(visited);
     }
 
     @Override
-    public void visit(AdapterListener visited) {
-        proxy.visit(visited);
+    public void visitComponent(AdapterListener visited) {
+        proxy.visitComponent(visited);
     }
 
     @Override
-    public void visit(AdapterNotification visited) {
-        proxy.visit(visited);
+    public void visitComponent(AdapterNotification visited) {
+        proxy.visitComponent(visited);
     }
 
     @Override
-    public void visit(Port visited) {
-        proxy.visit(visited);
+    public void visitComponent(Port visited) {
+        proxy.visitComponent(visited);
     }
 
     @Override
-    public void visit(Scheduler visited) {
-        proxy.visit(visited);
+    public void visitComponent(Scheduler visited) {
+        proxy.visitComponent(visited);
     }
 
     @Override
-    public void visit(JmsAlias visited) {
-        proxy.visit(visited);
+    public void visitComponent(JmsAlias visited) {
+        proxy.visitComponent(visited);
     }
 
     @Override
-    public void visit(JmsTrigger visited) {
-        proxy.visit(visited);
+    public void visitComponent(JmsTrigger visited) {
+        proxy.visitComponent(visited);
     }
 
     @Override
-    public void visit(NativeTrigger visited) {
-        proxy.visit(visited);
+    public void visitComponent(NativeTrigger visited) {
+        proxy.visitComponent(visited);
     }
 
     @Override
-    public void visit(IntegrationServerPackage visited) {
-        proxy.visit(visited);
+    public void visitComponent(IntegrationServerPackage visited) {
+        proxy.visitComponent(visited);
     }
 }

@@ -31,7 +31,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author: e03229
  */
-public abstract class AbstractComponent<I extends AbstractComponentId, S extends AbstractComponentState> implements Component<I, S> {
+public abstract class AbstractComponent<I extends AbstractComponentId, S extends AbstractComponentState>
+        implements Component<I, S> {
 
     @NotNull
     @XmlElementRef

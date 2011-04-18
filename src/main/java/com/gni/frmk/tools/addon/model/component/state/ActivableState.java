@@ -43,6 +43,10 @@ public class ActivableState extends EnableState implements ComponentState {
 
         public abstract boolean isActive();
 
+        public  boolean isNotActive(){
+            return !isActive();
+        }
+
         public abstract ActivableStatus invert();
 
         public static ActivableStatus fromStateString(String stateValue, String activeString, String inactiveString) {

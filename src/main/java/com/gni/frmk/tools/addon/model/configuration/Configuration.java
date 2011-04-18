@@ -1,9 +1,10 @@
 package com.gni.frmk.tools.addon.model.configuration;
 
 import com.gni.frmk.tools.addon.BuilderWithJsr303Validation;
+import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisited;
+import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.configuration.component.*;
-import com.gni.frmk.tools.addon.service.api.configuration.ConfigurationVisited;
-import com.gni.frmk.tools.addon.service.api.configuration.ConfigurationVisitor;
+import com.google.common.collect.Lists;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -115,54 +116,62 @@ public class Configuration implements ConfigurationVisited {
         schedulerConfigurations = null;
     }
 
-    @Override
     public List<AdapterConnectionConfiguration> getAdapterConnectionConfigurations() {
         return unmodifiableList(adapterConnectionConfigurations);
     }
 
-    @Override
     public List<AdapterListenerConfiguration> getAdapterListenerConfigurations() {
         return unmodifiableList(adapterListenerConfigurations);
     }
 
-    @Override
     public List<AdapterNotificationConfiguration> getAdapterNotificationConfigurations() {
         return unmodifiableList(adapterNotificationConfigurations);
     }
 
-    @Override
     public List<IntegrationServerPackageConfiguration> getIntegrationServerPackageConfigurations() {
         return unmodifiableList(integrationServerPackageConfigurations);
     }
 
-    @Override
     public List<JmsAliasConfiguration> getJmsAliasConfigurations() {
         return unmodifiableList(jmsAliasConfigurations);
     }
 
-    @Override
     public List<JmsTriggerConfiguration> getJmsTriggerConfigurations() {
         return unmodifiableList(jmsTriggerConfigurations);
     }
 
-    @Override
     public List<NativeTriggerConfiguration> getNativeTriggerConfigurations() {
         return unmodifiableList(nativeTriggerConfigurations);
     }
 
-    @Override
     public List<PortConfiguration> getPortConfigurations() {
         return unmodifiableList(portConfigurations);
     }
 
-    @Override
     public List<SchedulerConfiguration> getSchedulerConfigurations() {
         return unmodifiableList(schedulerConfigurations);
     }
 
+    public List<ComponentConfiguration<?, ?>> getComponentConfigurations() {
+        List<ComponentConfiguration<?, ?>> union = Lists.newArrayList();
+        union.addAll(getAdapterConnectionConfigurations());
+        union.addAll(getAdapterListenerConfigurations());
+        union.addAll(getAdapterNotificationConfigurations());
+        union.addAll(getIntegrationServerPackageConfigurations());
+        union.addAll(getJmsAliasConfigurations());
+        union.addAll(getJmsTriggerConfigurations());
+        union.addAll(getNativeTriggerConfigurations());
+        union.addAll(getPortConfigurations());
+        union.addAll(getSchedulerConfigurations());
+        return union;
+    }
+
     @Override
     public void accept(ConfigurationVisitor visitor) {
-        visitor.dispatchVisit(this);
+        visitor.visitConfiguration(this);
+        for (ComponentConfiguration<?, ?> visited : getComponentConfigurations()) {
+            visited.accept(visitor);
+        }
     }
 
     public String getId() {
@@ -365,6 +374,42 @@ public class Configuration implements ConfigurationVisited {
             portConfigurations.clear();
             schedulerConfigurations.clear();
             return self();
+        }
+
+        public List<AdapterConnectionConfiguration> getAdapterConnectionConfigurations() {
+            return adapterConnectionConfigurations;
+        }
+
+        public List<AdapterListenerConfiguration> getAdapterListenerConfigurations() {
+            return adapterListenerConfigurations;
+        }
+
+        public List<AdapterNotificationConfiguration> getAdapterNotificationConfigurations() {
+            return adapterNotificationConfigurations;
+        }
+
+        public List<IntegrationServerPackageConfiguration> getIntegrationServerPackageConfigurations() {
+            return integrationServerPackageConfigurations;
+        }
+
+        public List<JmsAliasConfiguration> getJmsAliasConfigurations() {
+            return jmsAliasConfigurations;
+        }
+
+        public List<JmsTriggerConfiguration> getJmsTriggerConfigurations() {
+            return jmsTriggerConfigurations;
+        }
+
+        public List<NativeTriggerConfiguration> getNativeTriggerConfigurations() {
+            return nativeTriggerConfigurations;
+        }
+
+        public List<PortConfiguration> getPortConfigurations() {
+            return portConfigurations;
+        }
+
+        public List<SchedulerConfiguration> getSchedulerConfigurations() {
+            return schedulerConfigurations;
         }
 
         @Override

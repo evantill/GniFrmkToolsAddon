@@ -1,9 +1,9 @@
 package com.gni.frmk.tools.addon.visitor;
 
 
+import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.api.Component;
 import com.gni.frmk.tools.addon.model.component.*;
-import com.gni.frmk.tools.addon.service.api.component.ComponentVisitor;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,52 +12,52 @@ import com.gni.frmk.tools.addon.service.api.component.ComponentVisitor;
  * Time: 10:46
  * To change this template use File | Settings | File Templates.
  */
-public abstract class GenericComponentVisitor implements ComponentVisitor {
+public abstract class GenericComponentVisitor implements ConfigurationVisitor {
 
     public abstract void visitAny(Component visited);
 
     @Override
-    public void visit(AdapterConnection visited) {
+    public void visitComponent(AdapterConnection visited) {
         visitAny(visited);
     }
 
     @Override
-    public void visit(AdapterListener visited) {
+    public void visitComponent(AdapterListener visited) {
         visitAny(visited);
     }
 
     @Override
-    public void visit(AdapterNotification visited) {
+    public void visitComponent(AdapterNotification visited) {
         visitAny(visited);
     }
 
     @Override
-    public void visit(Port visited) {
+    public void visitComponent(Port visited) {
         visitAny(visited);
     }
 
     @Override
-    public void visit(Scheduler visited) {
+    public void visitComponent(Scheduler visited) {
         visitAny(visited);
     }
 
     @Override
-    public void visit(NativeTrigger visited) {
+    public void visitComponent(NativeTrigger visited) {
         visitAny(visited);
     }
 
     @Override
-    public void visit(JmsTrigger visited) {
+    public void visitComponent(JmsTrigger visited) {
         visitAny(visited);
     }
 
     @Override
-    public void visit(JmsAlias visited) {
+    public void visitComponent(JmsAlias visited) {
         visitAny(visited);
     }
 
     @Override
-    public void visit(IntegrationServerPackage visited) {
+    public void visitComponent(IntegrationServerPackage visited) {
         visitAny(visited);
     }
 }

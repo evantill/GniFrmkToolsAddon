@@ -1,9 +1,9 @@
 package com.gni.frmk.tools.addon.model.component;
 
+import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.api.ComponentType;
 import com.gni.frmk.tools.addon.model.component.id.StringId;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState;
-import com.gni.frmk.tools.addon.service.api.component.ComponentVisitor;
 import com.google.common.base.Objects;
 
 import javax.validation.constraints.NotNull;
@@ -33,18 +33,18 @@ public class Port extends PackageAware<StringId, ActivableState> {
     public Port(PortBuilder builder) {
         super(builder);
         key = builder.key;
-        primary=builder.primary;
+        primary = builder.primary;
     }
 
-    private Port(){
+    private Port() {
         super();
-        key=null;
-        primary=false;
+        key = null;
+        primary = false;
     }
 
     @Override
-    public void accept(ComponentVisitor visitor) {
-        visitor.visit(this);
+    public void accept(ConfigurationVisitor visitor) {
+        visitor.visitComponent(this);
     }
 
     public String getKey() {
@@ -81,7 +81,7 @@ public class Port extends PackageAware<StringId, ActivableState> {
         @NotNull
         protected String key;
 
-        protected boolean primary=false;
+        protected boolean primary = false;
 
         public PortBuilder() {
             defineType(ComponentType.PORT);

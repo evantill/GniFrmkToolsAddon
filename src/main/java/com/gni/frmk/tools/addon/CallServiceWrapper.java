@@ -1,11 +1,8 @@
 package com.gni.frmk.tools.addon;
 
-import com.gni.frmk.tools.addon.command.api.DispatchException;
-import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.api.InvokeContext;
-import com.gni.frmk.tools.addon.command.dispatch.wm.invoke.context.InvokeContextLocal;
-import com.gni.frmk.tools.addon.oldies.invoke.WmArtInvoker;
-import com.gni.frmk.tools.addon.oldies.invoke.WmRootInvoker;
-import com.gni.frmk.tools.addon.oldies.invoke.WmRootJmsInvoker;
+import com.gni.frmk.tools.addon.api.action.DispatchException;
+import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
+import com.gni.frmk.tools.addon.dispatch.wm.invoke.context.InvokeContextLocal;
 import com.gni.frmk.tools.addon.model.configuration.Configuration;
 import com.gni.frmk.tools.addon.oldies.services.AdminService;
 import com.gni.frmk.tools.addon.oldies.services.ConfigurationService;

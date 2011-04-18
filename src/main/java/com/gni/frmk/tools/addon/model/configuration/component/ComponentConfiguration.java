@@ -1,11 +1,11 @@
 package com.gni.frmk.tools.addon.model.configuration.component;
 
 import com.gni.frmk.tools.addon.BuilderWithJsr303Validation;
+import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisited;
+import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.component.AbstractComponent;
 import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentState;
 import com.gni.frmk.tools.addon.model.configuration.component.ComponentConfigurationAdapters.ComponentStatesAdapter;
-import com.gni.frmk.tools.addon.service.api.configuration.ComponentConfigurationVisited;
-import com.gni.frmk.tools.addon.service.api.configuration.ComponentConfigurationVisitor;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -27,7 +27,7 @@ import static com.google.common.collect.Maps.newTreeMap;
  */
 @XmlRootElement
 public abstract class ComponentConfiguration<T extends AbstractComponent<?, S>, S extends AbstractComponentState>
-        implements ComponentConfigurationVisited {
+        implements ConfigurationVisited {
 
     public static enum ComponentStateContext {
         OPEN, CURRENT, CLOSE
@@ -73,6 +73,14 @@ public abstract class ComponentConfiguration<T extends AbstractComponent<?, S>, 
     public Map<ComponentStateContext, S> getStates() {
         return states;
     }
+
+    @Override
+    public final void accept(ConfigurationVisitor visitor) {
+        doAcceptSimple(visitor);
+        getComponent().accept(visitor);
+    }
+
+    protected abstract void doAcceptSimple(ConfigurationVisitor visitor);
 
     public static abstract class Builder
             <B extends Builder<B, C, T, S>,

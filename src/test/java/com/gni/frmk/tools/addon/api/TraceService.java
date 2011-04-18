@@ -1,7 +1,8 @@
 package com.gni.frmk.tools.addon.api;
 
-import com.gni.frmk.tools.addon.command.api.Action;
-import com.gni.frmk.tools.addon.command.api.Result;
+import com.gni.frmk.tools.addon.api.action.Action;
+import com.gni.frmk.tools.addon.api.action.Result;
+import com.gni.frmk.tools.addon.api.strategy.FullParsingStrategy;
 
 /**
  * Created by IntelliJ IDEA.
