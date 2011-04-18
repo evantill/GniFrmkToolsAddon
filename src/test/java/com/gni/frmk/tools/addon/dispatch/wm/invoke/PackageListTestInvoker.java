@@ -7,7 +7,7 @@ import com.gni.frmk.tools.addon.dispatch.wm.invoke.util.AbstractTestInvoker;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.root.ispackage.PackageListHandler;
 import com.gni.frmk.tools.addon.result.SetResult;
-import com.gni.frmk.tools.addon.model.component.IntegrationServerPackage;
+import com.gni.frmk.tools.addon.model.component.ImmutableIntegrationServerPackage;
 import junit.framework.Assert;
 
 /**
@@ -17,15 +17,15 @@ import junit.framework.Assert;
  *
  * @author: e03229
  */
-public class PackageListTestInvoker extends AbstractTestInvoker<PackageList, SetResult<IntegrationServerPackage>> {
+public class PackageListTestInvoker extends AbstractTestInvoker<PackageList, SetResult<ImmutableIntegrationServerPackage>> {
 
     public void testGetPackageList() throws DispatchException {
-        SetResult<IntegrationServerPackage> r = execute();
+        SetResult<ImmutableIntegrationServerPackage> r = execute();
         Assert.assertEquals(5, r.getCollection().size());
     }
 
     @Override
-    protected ActionHandler<PackageList, SetResult<IntegrationServerPackage>, InvokeContext> getActionHandler() {
+    protected ActionHandler<PackageList, SetResult<ImmutableIntegrationServerPackage>, InvokeContext> getActionHandler() {
         return new PackageListHandler();
     }
 

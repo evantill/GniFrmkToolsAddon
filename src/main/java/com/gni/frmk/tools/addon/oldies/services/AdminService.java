@@ -2,10 +2,10 @@ package com.gni.frmk.tools.addon.oldies.services;
 
 import com.gni.frmk.tools.addon.api.action.ActionException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeException;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.oldies.invoke.WmArtInvoker;
 import com.gni.frmk.tools.addon.oldies.invoke.WmRootInvoker;
 import com.gni.frmk.tools.addon.oldies.invoke.WmRootJmsInvoker;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
 
 /**
  * Created by IntelliJ IDEA.
@@ -33,22 +33,22 @@ public class AdminService {
         this.rootInvoker = rootInvoker;
     }
 
-    private void changeServerInputState(Configuration cnf) {
+    private void changeServerInputState(ImmutableConfiguration cnf) {
 //        CloseInputStrategy strategy = new CloseInputStrategy(changeConfigVisitor);
 //        strategy.execute(cnf);
     }
 
-    private void changeServerOutputState(Configuration cnf) {
+    private void changeServerOutputState(ImmutableConfiguration cnf) {
 //        CloseOutputStrategy strategy = new CloseOutputStrategy(changeConfigVisitor);
 //        strategy.execute(cnf);
     }
 
     public void closeServer(long maxSecondsToWait, boolean saveServerConfig) throws InvokeException, ActionException {
-        Configuration defaultCnf = reportSrv.reportCurrentConfiguration(defaultConfigurationName);
+        ImmutableConfiguration defaultCnf = reportSrv.reportCurrentConfiguration(defaultConfigurationName);
         if (saveServerConfig) {
             confSrv.saveConfiguration(defaultCnf);
         }
-        Configuration closeAll = confSrv.closeAllConfiguration(defaultCnf);
+        ImmutableConfiguration closeAll = confSrv.closeAllConfiguration(defaultCnf);
         changeServerInputState(closeAll);
         try {
             rootInvoker.waitServicesEnd(maxSecondsToWait);
@@ -58,14 +58,14 @@ public class AdminService {
     }
 
     public void openServer() {
-        Configuration openCnf = confSrv.loadConfiguration(defaultConfigurationName);
+        ImmutableConfiguration openCnf = confSrv.loadConfiguration(defaultConfigurationName);
         changeServerOutputState(openCnf);
         changeServerInputState(openCnf);
     }
 
     public void openFullServer(boolean saveServerConfig) throws InvokeException, ActionException {
-        Configuration cnf = reportSrv.reportCurrentConfiguration(defaultConfigurationName);
-        Configuration openAll = confSrv.openAllConfiguration(cnf);
+        ImmutableConfiguration cnf = reportSrv.reportCurrentConfiguration(defaultConfigurationName);
+        ImmutableConfiguration openAll = confSrv.openAllConfiguration(cnf);
         if (saveServerConfig) {
             confSrv.saveConfiguration(openAll);
         }

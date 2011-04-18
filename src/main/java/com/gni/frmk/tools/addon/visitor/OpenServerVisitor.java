@@ -36,7 +36,7 @@ public class OpenServerVisitor implements ConfigurationVisitorRaisingException {
     }
 
     @Override
-    public void visit(AdapterConnection visited) throws ConfigurationVisitorException {
+    public void visit(ImmutableAdapterConnection visited) throws ConfigurationVisitorException {
         try {
             artInvoker.enableConnection(new EnableConnection(visited.getAlias()));
         } catch (DispatchException e) {
@@ -45,7 +45,7 @@ public class OpenServerVisitor implements ConfigurationVisitorRaisingException {
     }
 
     @Override
-    public void visit(AdapterListener visited) throws ConfigurationVisitorException {
+    public void visit(ImmutableAdapterListener visited) throws ConfigurationVisitorException {
         try {
             artInvoker.enableListener(new EnableListener(visited.getName()));
         } catch (DispatchException e) {
@@ -54,7 +54,7 @@ public class OpenServerVisitor implements ConfigurationVisitorRaisingException {
     }
 
     @Override
-    public void visit(AdapterNotification visited) throws ConfigurationVisitorException {
+    public void visit(ImmutableAdapterNotification visited) throws ConfigurationVisitorException {
         try {
             artInvoker.enableNotification(new EnableNotification(visited.getName()));
         } catch (DispatchException e) {
@@ -63,7 +63,7 @@ public class OpenServerVisitor implements ConfigurationVisitorRaisingException {
     }
 
     @Override
-    public void visit(Port visited) throws ConfigurationVisitorException {
+    public void visit(ImmutablePort visited) throws ConfigurationVisitorException {
         try {
             rootInvoker.enablePortListener(new EnablePortListener(visited.getPackageName(), visited.getKey()));
         } catch (DispatchException e) {
@@ -72,7 +72,7 @@ public class OpenServerVisitor implements ConfigurationVisitorRaisingException {
     }
 
     @Override
-    public void visit(Scheduler visited) throws ConfigurationVisitorException {
+    public void visit(ImmutableScheduler visited) throws ConfigurationVisitorException {
         try {
             rootInvoker.wakeUpUserTask(new WakeUpUserTask(visited.getOid()));
         } catch (DispatchException e) {
@@ -81,7 +81,7 @@ public class OpenServerVisitor implements ConfigurationVisitorRaisingException {
     }
 
     @Override
-    public void visit(JmsAlias visited) throws ConfigurationVisitorException {
+    public void visit(ImmutableJmsAlias visited) throws ConfigurationVisitorException {
         try {
             jmsInvoker.enableJmsAlias(new EnableJmsAlias(visited.getName()));
         } catch (DispatchException e) {
@@ -90,7 +90,7 @@ public class OpenServerVisitor implements ConfigurationVisitorRaisingException {
     }
 
     @Override
-    public void visit(JmsTrigger visited) throws ConfigurationVisitorException {
+    public void visit(ImmutableJmsTrigger visited) throws ConfigurationVisitorException {
         try {
             jmsInvoker.enableJmsTriggers(new EnableJmsTriggers(visited.getName()));
         } catch (DispatchException e) {
@@ -99,7 +99,7 @@ public class OpenServerVisitor implements ConfigurationVisitorRaisingException {
     }
 
     @Override
-    public void visit(NativeTrigger visited) throws ConfigurationVisitorException {
+    public void visit(ImmutableNativeTrigger visited) throws ConfigurationVisitorException {
         try {
             rootInvoker.suspendTriggers(SuspendTriggers.builder()
                                                        .addTriggerName(visited.getName())
@@ -113,7 +113,7 @@ public class OpenServerVisitor implements ConfigurationVisitorRaisingException {
     }
 
     @Override
-    public void visit(IntegrationServerPackage visited) throws ComponentVisitorException {
+    public void visit(ImmutableIntegrationServerPackage visited) throws ComponentVisitorException {
         try {
             rootInvoker.enablePackage(new EnablePackage(visited.getPackageName()));
         } catch (DispatchException e) {

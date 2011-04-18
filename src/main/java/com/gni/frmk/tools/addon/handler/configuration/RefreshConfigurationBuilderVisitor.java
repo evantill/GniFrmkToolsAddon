@@ -2,9 +2,9 @@ package com.gni.frmk.tools.addon.handler.configuration;
 
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisited;
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
-import com.gni.frmk.tools.addon.model.component.AdapterConnection;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
-import com.gni.frmk.tools.addon.model.configuration.Configuration.Builder;
+import com.gni.frmk.tools.addon.model.component.ImmutableAdapterConnection;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration.MutableConfiguration;
 import com.gni.frmk.tools.addon.model.configuration.component.AdapterConnectionConfiguration;
 
 /**
@@ -16,7 +16,7 @@ import com.gni.frmk.tools.addon.model.configuration.component.AdapterConnectionC
  */
 public class RefreshConfigurationBuilderVisitor implements ConfigurationVisitor {
 
-    Builder builder = Configuration.builder();
+    MutableConfiguration builder = ImmutableConfiguration.builder();
 
     @Override
     public void dispatchVisit(ConfigurationVisited visitable) {
@@ -24,12 +24,12 @@ public class RefreshConfigurationBuilderVisitor implements ConfigurationVisitor 
     }
 
     @Override
-    public void visitConfiguration(Configuration configuration) {
+    public void visitConfiguration(ImmutableConfiguration configuration) {
         builder.from(configuration).from(configuration);
     }
 
     @Override
-    public void visitComponent(AdapterConnection visited) {
+    public void visitComponent(ImmutableAdapterConnection visited) {
         builder.getAdapterConnectionConfigurations().get(0).
     }
 

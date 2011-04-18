@@ -7,11 +7,11 @@ import com.gni.frmk.tools.addon.action.wm.art.RetrieveAdapterTypesList;
 import com.gni.frmk.tools.addon.action.wm.root.ispackage.PackageList;
 import com.gni.frmk.tools.addon.api.action.ActionException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeException;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.oldies.invoke.WmArtInvoker;
 import com.gni.frmk.tools.addon.oldies.invoke.WmRootInvoker;
 import com.gni.frmk.tools.addon.oldies.invoke.WmRootJmsInvoker;
 import com.gni.frmk.tools.addon.model.component.*;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
 import com.google.common.collect.Lists;
 
 import java.util.List;
@@ -36,55 +36,55 @@ public class ReportService {
         this.artInvoker = artInvoker;
     }
 
-    public List<AdapterConnection> reportAdapterConnectionList() throws InvokeException, ActionException {
-        List<AdapterConnection> result = Lists.newArrayList();
+    public List<ImmutableAdapterConnection> reportAdapterConnectionList() throws InvokeException, ActionException {
+        List<ImmutableAdapterConnection> result = Lists.newArrayList();
         for (String type : listAdapterTypes()) {
             result.addAll(listAdapterConnections(type));
         }
         return result;
     }
 
-    public List<AdapterListener> reportAdapterListenerList() throws InvokeException, ActionException {
-        List<AdapterListener> result = Lists.newArrayList();
+    public List<ImmutableAdapterListener> reportAdapterListenerList() throws InvokeException, ActionException {
+        List<ImmutableAdapterListener> result = Lists.newArrayList();
         for (String type : listAdapterTypes()) {
             result.addAll(listAdapterListeners(type));
         }
         return result;
     }
 
-    public List<AdapterNotification> reportAdapterNotificationList() throws InvokeException, ActionException {
-        List<AdapterNotification> result = Lists.newArrayList();
+    public List<ImmutableAdapterNotification> reportAdapterNotificationList() throws InvokeException, ActionException {
+        List<ImmutableAdapterNotification> result = Lists.newArrayList();
         for (String type : listAdapterTypes()) {
             result.addAll(listAdapterNotifications(type));
         }
         return result;
     }
 
-    public List<Port> reportPortList() throws InvokeException, ActionException {
+    public List<ImmutablePort> reportPortList() throws InvokeException, ActionException {
         return rootInvoker.listPortListeners();
     }
 
-    public List<Scheduler> reportSchedulerList() throws InvokeException, ActionException {
+    public List<ImmutableScheduler> reportSchedulerList() throws InvokeException, ActionException {
         return rootInvoker.getUserTaskList();
     }
 
-    public List<JmsTrigger> reportJmsTriggerList() throws InvokeException, ActionException {
+    public List<ImmutableJmsTrigger> reportJmsTriggerList() throws InvokeException, ActionException {
         return rootJmsInvoker.getJmsTriggerReport();
     }
 
-    public List<NativeTrigger> reportNativeTriggerList() throws InvokeException, ActionException {
+    public List<ImmutableNativeTrigger> reportNativeTriggerList() throws InvokeException, ActionException {
         return rootInvoker.getNativeTriggerReport();
     }
 
-    public List<JmsAlias> reportJmsAliasList() throws InvokeException, ActionException {
+    public List<ImmutableJmsAlias> reportJmsAliasList() throws InvokeException, ActionException {
         return rootJmsInvoker.getJmsAliasReport();
     }
 
-    public Set<IntegrationServerPackage> reportPackages() throws InvokeException, ActionException {
+    public Set<ImmutableIntegrationServerPackage> reportPackages() throws InvokeException, ActionException {
         return rootInvoker.getPackageList(new PackageList());
     }
 
-    public Configuration reportCurrentConfiguration(final String name) throws InvokeException, ActionException {
+    public ImmutableConfiguration reportCurrentConfiguration(final String name) throws InvokeException, ActionException {
 //        return Configuration.builder()
 //                            .create(name, new Date())
 //                            .addPackages(reportPackages())
@@ -104,15 +104,15 @@ public class ReportService {
         return artInvoker.retrieveAdapterTypesList(new RetrieveAdapterTypesList());
     }
 
-    private List<AdapterConnection> listAdapterConnections(String adapterTypeName) throws InvokeException, ActionException {
+    private List<ImmutableAdapterConnection> listAdapterConnections(String adapterTypeName) throws InvokeException, ActionException {
         return artInvoker.listAdaptersConnections(new ListAdaptersConnections(adapterTypeName));
     }
 
-    private List<AdapterListener> listAdapterListeners(String adapterTypeName) throws InvokeException, ActionException {
+    private List<ImmutableAdapterListener> listAdapterListeners(String adapterTypeName) throws InvokeException, ActionException {
         return artInvoker.listListeners(new ListListeners(adapterTypeName));
     }
 
-    private List<AdapterNotification> listAdapterNotifications(String adapterTypeName) throws InvokeException, ActionException {
+    private List<ImmutableAdapterNotification> listAdapterNotifications(String adapterTypeName) throws InvokeException, ActionException {
         return artInvoker.listNotifications(new ListNotifications(adapterTypeName));
     }
 }

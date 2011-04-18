@@ -4,8 +4,7 @@ import com.gni.frmk.tools.addon.action.wm.root.port.ListPortListeners;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.model.component.Port;
-import com.gni.frmk.tools.addon.model.component.Port.PortBuilder;
+import com.gni.frmk.tools.addon.model.component.ImmutablePort.MutablePort;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
@@ -22,19 +21,19 @@ import java.util.Map;
  *
  * @author: e03229
  */
-public class ListPortListenersHandler extends AbstractInvokeHandler<ListPortListeners, ListResult<Port>>
-        implements ActionHandler<ListPortListeners, ListResult<Port>, InvokeContext> {
+public class ListPortListenersHandler extends AbstractInvokeHandler<ListPortListeners, ListResult<MutablePort>>
+        implements ActionHandler<ListPortListeners, ListResult<MutablePort>, InvokeContext> {
 
     public ListPortListenersHandler() {
         super("wm.server.ports:listListeners");
     }
 
     @Override
-    protected ListResult<Port> parseOutput(ListPortListeners action, IData output) {
+    protected ListResult<MutablePort> parseOutput(ListPortListeners action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
-            Map<String, Port> values = Maps.newHashMap();
-            for (Port value : action.getCollection()) {
+            Map<String, MutablePort> values = Maps.newHashMap();
+            for (MutablePort value : action.getCollection()) {
                 values.put(value.getComponentId().asString(), value);
             }
             IData[] tasksDatas = IDataUtil.getIDataArray(cur, "listeners");
@@ -43,19 +42,15 @@ public class ListPortListenersHandler extends AbstractInvokeHandler<ListPortList
                     IDataCursor portCur = portData.getCursor();
                     try {
                         String key = IDataUtil.getString(portCur, "key");
-                        Port value = values.get(key);
+                        MutablePort value = values.get(key);
                         if (value == null && action.isUpdate()) {
                             continue;
+                        } else if (value == null && !action.isUpdate()) {
+                            value = new MutablePort();
+                            value.setPrimary(IDataUtil.getBoolean(portCur, "primary", false));
+                            value.setPackageName(IDataUtil.getString(portCur, "pkg"));
                         }
-                        PortBuilder builder = Port.builder();
-                        if (action.isUpdate()) {
-                            builder.from(value);
-                        } else {
-                            builder.key(key)
-                                   .primary(IDataUtil.getBoolean(portCur, "primary", false))
-                                   .packageName(IDataUtil.getString(portCur, "pkg"));
-                        }
-                        value = builder.defineState(defineState(portCur)).build();
+                        value.setState(defineState(portCur));
                         if (!value.isPrimary()) {
                             values.put(value.getComponentId().asString(), value);
                         }
@@ -64,7 +59,7 @@ public class ListPortListenersHandler extends AbstractInvokeHandler<ListPortList
                     }
                 }
             }
-            return new ListResult<Port>(values.values());
+            return new ListResult<MutablePort>(values.values());
         } finally {
             cur.destroy();
         }

@@ -16,7 +16,7 @@ import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisited;
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.api.Component;
 import com.gni.frmk.tools.addon.model.component.*;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.model.configuration.component.*;
 import com.google.common.collect.Lists;
 
@@ -51,11 +51,11 @@ public class RefreshConfigurationVisitor
     }
 
     @Override
-    public void visitConfiguration(Configuration configuration) {
+    public void visitConfiguration(ImmutableConfiguration configuration) {
     }
 
     @Override
-    public void visitComponent(AdapterConnection visited) {
+    public void visitComponent(ImmutableAdapterConnection visited) {
         final String adapterType = visited.getAdapterType();
         ListAdaptersConnections action = new ListAdaptersConnections(adapterType);
         action.addToCollection(visited);
@@ -63,7 +63,7 @@ public class RefreshConfigurationVisitor
     }
 
     @Override
-    public void visitComponent(AdapterListener visited) {
+    public void visitComponent(ImmutableAdapterListener visited) {
         final String adapterType = visited.getAdapterType();
         ListListeners action = new ListListeners(adapterType);
         action.addToCollection(visited);
@@ -71,7 +71,7 @@ public class RefreshConfigurationVisitor
     }
 
     @Override
-    public void visitComponent(AdapterNotification visited) {
+    public void visitComponent(ImmutableAdapterNotification visited) {
         final String adapterType = visited.getAdapterType();
         ListNotifications action = new ListNotifications(adapterType);
         action.addToCollection(visited);
@@ -79,42 +79,42 @@ public class RefreshConfigurationVisitor
     }
 
     @Override
-    public void visitComponent(Port visited) {
+    public void visitComponent(ImmutablePort visited) {
         ListPortListeners action = new ListPortListeners();
         action.addToCollection(visited);
         addAction(action);
     }
 
     @Override
-    public void visitComponent(Scheduler visited) {
+    public void visitComponent(ImmutableScheduler visited) {
         GetUserTaskList action = new GetUserTaskList();
         action.addToCollection(visited);
         addAction(action);
     }
 
     @Override
-    public void visitComponent(NativeTrigger visited) {
+    public void visitComponent(ImmutableNativeTrigger visited) {
         GetNativeTriggerReport action = new GetNativeTriggerReport();
         action.addToCollection(visited);
         addAction(action);
     }
 
     @Override
-    public void visitComponent(IntegrationServerPackage visited) {
+    public void visitComponent(ImmutableIntegrationServerPackage visited) {
         PackageList action = new PackageList();
         action.addToCollection(visited);
         addAction(action);
     }
 
     @Override
-    public void visitComponent(JmsTrigger visited) {
+    public void visitComponent(ImmutableJmsTrigger visited) {
         GetJmsTriggerReport action = new GetJmsTriggerReport();
         action.addToCollection(visited);
         addAction(action);
     }
 
     @Override
-    public void visitComponent(JmsAlias visited) {
+    public void visitComponent(ImmutableJmsAlias visited) {
         GetJmsAliasReport action = new GetJmsAliasReport();
         action.addToCollection(visited);
         addAction(action);

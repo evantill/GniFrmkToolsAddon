@@ -3,7 +3,6 @@ package com.gni.frmk.tools.addon.handler.component;
 import com.gni.frmk.tools.addon.model.api.Component;
 import com.gni.frmk.tools.addon.model.api.ComponentId;
 import com.gni.frmk.tools.addon.model.api.ComponentType;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
 
 import java.util.Set;
 

@@ -4,14 +4,13 @@ import com.gni.frmk.tools.addon.action.wm.root.trigger.GetNativeTriggerReport;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.result.ListResult;
-import com.gni.frmk.tools.addon.model.component.NativeTrigger;
-import com.gni.frmk.tools.addon.model.component.NativeTrigger.NativeTriggerBuilder;
+import com.gni.frmk.tools.addon.model.component.ImmutableNativeTrigger.MutableNativeTrigger;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState;
 import com.gni.frmk.tools.addon.model.component.state.TemporaryActivableState;
 import com.gni.frmk.tools.addon.model.component.state.TemporaryActivableState.TemporaryStatus;
+import com.gni.frmk.tools.addon.result.ListResult;
 import com.google.common.collect.Maps;
 import com.wm.data.*;
 
@@ -27,11 +26,11 @@ import static com.gni.frmk.tools.addon.model.component.state.TemporaryActivableS
  *
  * @author: e03229
  */
-public class GetNativeTriggerReportHandler extends AbstractInvokeHandler<GetNativeTriggerReport, ListResult<NativeTrigger>>
-        implements ActionHandler<GetNativeTriggerReport, ListResult<NativeTrigger>, InvokeContext> {
+public class GetNativeTriggerReportHandler extends AbstractInvokeHandler<GetNativeTriggerReport, ListResult<MutableNativeTrigger>>
+        implements ActionHandler<GetNativeTriggerReport, ListResult<MutableNativeTrigger>, InvokeContext> {
 
     public GetNativeTriggerReportHandler() {
-            super("wm.server.triggers:getTriggerReport");
+        super("wm.server.triggers:getTriggerReport");
     }
 
     private NativeTriggerState parseTriggerState(IDataCursor cur) {
@@ -80,11 +79,11 @@ public class GetNativeTriggerReportHandler extends AbstractInvokeHandler<GetNati
     }
 
     @Override
-    protected ListResult<NativeTrigger> parseOutput(GetNativeTriggerReport action, IData output) {
+    protected ListResult<MutableNativeTrigger> parseOutput(GetNativeTriggerReport action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
-            Map<String, NativeTrigger> values = Maps.newHashMap();
-            for (NativeTrigger value : action.getCollection()) {
+            Map<String, MutableNativeTrigger> values = Maps.newHashMap();
+            for (MutableNativeTrigger value : action.getCollection()) {
                 values.put(value.getComponentId().asString(), value);
             }
             IData[] dataList = IDataUtil.getIDataArray(cur, "triggers");
@@ -93,24 +92,21 @@ public class GetNativeTriggerReportHandler extends AbstractInvokeHandler<GetNati
                     IDataCursor curLoop = single.getCursor();
                     try {
                         String name = IDataUtil.getString(curLoop, "name");
-                        NativeTrigger value = values.get(name);
+                        MutableNativeTrigger value = values.get(name);
                         if (value == null && action.isUpdate()) {
                             continue;
+                        } else if (value == null && !action.isUpdate()) {
+                            value = new MutableNativeTrigger();
+                            value.setName(name);
                         }
-                        NativeTriggerBuilder builder = NativeTrigger.builder();
-                        if (action.isUpdate()) {
-                            builder.from(value);
-                        } else {
-                            builder.name(name);
-                        }
-                        value = builder.defineState(parseTriggerState(curLoop)).build();
+                        value.setState(parseTriggerState(curLoop));
                         values.put(value.getComponentId().asString(), value);
                     } finally {
                         curLoop.destroy();
                     }
                 }
             }
-            return new ListResult<NativeTrigger>(values.values());
+            return new ListResult<MutableNativeTrigger>(values.values());
         } finally {
             cur.destroy();
         }

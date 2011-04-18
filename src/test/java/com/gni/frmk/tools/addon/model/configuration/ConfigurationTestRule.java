@@ -12,7 +12,7 @@ import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState;
 import com.gni.frmk.tools.addon.model.component.state.SchedulerState;
 import com.gni.frmk.tools.addon.model.component.state.SchedulerState.SchedulerStatus;
 import com.gni.frmk.tools.addon.model.component.state.TemporaryActivableState.TemporaryStatus;
-import com.gni.frmk.tools.addon.model.configuration.Configuration.Builder;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration.MutableConfiguration;
 import com.gni.frmk.tools.addon.model.configuration.component.*;
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
@@ -50,7 +50,7 @@ public class ConfigurationTestRule extends ExternalResource {
 
     private static ConfigurationSerializer serializer;
 
-    public static Configuration loadConfiguration(Class classToTest, String name) throws Exception {
+    public static ImmutableConfiguration loadConfiguration(Class classToTest, String name) throws Exception {
         String xml = loadXml(name, classToTest);
         ConfigurationSerializer serializer = new ConfigurationSerializer();
         return serializer.loadConfiguration(new StringReader(xml));
@@ -89,27 +89,27 @@ public class ConfigurationTestRule extends ExternalResource {
         }
     }
 
-    public Set<ConstraintViolation<Configuration>> validate(Configuration cnf) {
+    public Set<ConstraintViolation<ImmutableConfiguration>> validate(ImmutableConfiguration cnf) {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         return validator.validate(cnf);
     }
 
-    public void raiseExceptionIfInvalid(Configuration cnf) {
-        Set<ConstraintViolation<Configuration>> violations = validate(cnf);
+    public void raiseExceptionIfInvalid(ImmutableConfiguration cnf) {
+        Set<ConstraintViolation<ImmutableConfiguration>> violations = validate(cnf);
         if (violations.size() > 0) {
             throw new RuntimeException(violations.toString());
         }
     }
 
-    public Configuration newSimpleConfiguration() {
-        Builder builder = Configuration.builder().create("WmRoot", "configuration_test_simple", now());
+    public ImmutableConfiguration newSimpleConfiguration() {
+        MutableConfiguration builder = ImmutableConfiguration.builder().create("WmRoot", "configuration_test_simple", now());
         builder.addAdapterConnection(newAdapterConnectionConfiguration());
         return builder.build();
     }
 
-    public Configuration newFullConfiguration() {
-        Builder builder = Configuration.builder().create("WmRoot", "configuration_test_full", now());
+    public ImmutableConfiguration newFullConfiguration() {
+        MutableConfiguration builder = ImmutableConfiguration.builder().create("WmRoot", "configuration_test_full", now());
         for (int i = 0; i < 10; i++) {
             builder.addAdapterConnection(newAdapterConnectionConfiguration());
         }
@@ -240,9 +240,9 @@ public class ConfigurationTestRule extends ExternalResource {
                                              .build();
     }
 
-    private Scheduler newScheduler() {
+    private ImmutableScheduler newScheduler() {
         index++;
-        return Scheduler.builder()
+        return ImmutableScheduler.builder()
                         .oid(String.format("oid_%d", index))
                         .schedulerType(String.format("schedulerType_%d", index))
                         .name(String.format("name_%d", index))
@@ -252,9 +252,9 @@ public class ConfigurationTestRule extends ExternalResource {
                         .build();
     }
 
-    private Port newPort() {
+    private ImmutablePort newPort() {
         index++;
-        return Port.builder()
+        return ImmutablePort.builder()
                    .key(String.format("port_key_%d", index))
                    .primary(true)
                    .packageName(String.format("packageName_%d", index))
@@ -262,48 +262,48 @@ public class ConfigurationTestRule extends ExternalResource {
                    .build();
     }
 
-    private IntegrationServerPackage newIntegrationServerPackage() {
+    private ImmutableIntegrationServerPackage newIntegrationServerPackage() {
         index++;
-        return IntegrationServerPackage.builder()
+        return ImmutableIntegrationServerPackage.builder()
                                        .packageName(String.format("packageName_%d", index))
                                        .defineState(new EnableState(EnableStatus.ENABLED))
                                        .build();
     }
 
-    private NativeTrigger newNativeTrigger() {
+    private ImmutableNativeTrigger newNativeTrigger() {
         index++;
         NativeTriggerState state = NativeTriggerState.builder()
                                                      .defineEnable(EnableStatus.ENABLED)
                                                      .defineRetrieval(TemporaryStatus.PERMANENT, ActivableStatus.INACTIVE)
                                                      .defineProcessing(TemporaryStatus.TEMPORARY, ActivableStatus.ACTIVE)
                                                      .build();
-        return NativeTrigger.builder()
+        return ImmutableNativeTrigger.builder()
                             .name(String.format("native_trigger_name_%d", index))
                             .defineState(state)
                             .build();
     }
 
-    private JmsTrigger newJmsTrigger() {
+    private ImmutableJmsTrigger newJmsTrigger() {
         index++;
-        return JmsTrigger.builder()
+        return ImmutableJmsTrigger.builder()
                          .name(String.format("trigger_name%d", index))
                          .packageName(String.format("packageName_%d", index))
                          .defineState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE))
                          .build();
     }
 
-    private JmsAlias newJmsAlias() {
+    private ImmutableJmsAlias newJmsAlias() {
         index++;
-        return JmsAlias.builder()
+        return ImmutableJmsAlias.builder()
                        .name(String.format("jms_alias_name%d", index))
                        .description(String.format("description %d", index))
                        .defineState(new ConnectableState(EnableStatus.ENABLED, ConnectableStatus.CONNECTED))
                        .build();
     }
 
-    private AdapterConnection newAdapterConnection() {
+    private ImmutableAdapterConnection newAdapterConnection() {
         index++;
-        return AdapterConnection.builder()
+        return ImmutableAdapterConnection.builder()
                                 .alias(String.format("alias_%d", index))
                                 .adapterType("JDBCAdapter")
                                 .packageName(String.format("packageName_%d", index))
@@ -311,9 +311,9 @@ public class ConfigurationTestRule extends ExternalResource {
                                 .build();
     }
 
-    private AdapterListener newAdapterListener() {
+    private ImmutableAdapterListener newAdapterListener() {
         index++;
-        return AdapterListener.builder()
+        return ImmutableAdapterListener.builder()
                               .name(String.format("listener_name_%d", index))
                               .adapterType("JDBCAdapter")
                               .packageName(String.format("packageName_%d", index))
@@ -321,9 +321,9 @@ public class ConfigurationTestRule extends ExternalResource {
                               .build();
     }
 
-    private AdapterNotification newAdapterNotification() {
+    private ImmutableAdapterNotification newAdapterNotification() {
         index++;
-        return AdapterNotification.builder()
+        return ImmutableAdapterNotification.builder()
                                   .name(String.format("notification_name_%d", index))
                                   .adapterType("JDBCAdapter")
                                   .packageName(String.format("packageName_%d", index))

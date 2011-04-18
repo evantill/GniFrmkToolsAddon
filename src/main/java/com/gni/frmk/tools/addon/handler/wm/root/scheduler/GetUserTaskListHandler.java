@@ -4,12 +4,11 @@ import com.gni.frmk.tools.addon.action.wm.root.scheduler.GetUserTaskList;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.result.ListResult;
-import com.gni.frmk.tools.addon.model.component.Scheduler;
-import com.gni.frmk.tools.addon.model.component.Scheduler.SchedulerBuilder;
+import com.gni.frmk.tools.addon.model.component.ImmutableScheduler.MutableScheduler;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.model.component.state.SchedulerState;
 import com.gni.frmk.tools.addon.model.component.state.SchedulerState.SchedulerStatus;
+import com.gni.frmk.tools.addon.result.ListResult;
 import com.google.common.collect.Maps;
 import com.wm.data.*;
 
@@ -22,8 +21,8 @@ import java.util.Map;
  *
  * @author: e03229
  */
-public class GetUserTaskListHandler extends AbstractInvokeHandler<GetUserTaskList, ListResult<Scheduler>>
-        implements ActionHandler<GetUserTaskList, ListResult<Scheduler>, InvokeContext> {
+public class GetUserTaskListHandler extends AbstractInvokeHandler<GetUserTaskList, ListResult<MutableScheduler>>
+        implements ActionHandler<GetUserTaskList, ListResult<MutableScheduler>, InvokeContext> {
 
     private enum SuspendedState {
         SUSPENDED {
@@ -46,11 +45,11 @@ public class GetUserTaskListHandler extends AbstractInvokeHandler<GetUserTaskLis
     }
 
     @Override
-    protected ListResult<Scheduler> parseOutput(GetUserTaskList action, IData output) {
+    protected ListResult<MutableScheduler> parseOutput(GetUserTaskList action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
-            Map<String, Scheduler> values = Maps.newHashMap();
-            for (Scheduler value : action.getCollection()) {
+            Map<String, MutableScheduler> values = Maps.newHashMap();
+            for (MutableScheduler value : action.getCollection()) {
                 values.put(value.getComponentId().asString(), value);
             }
             IData[] tasksDatas = IDataUtil.getIDataArray(cur, "tasks");
@@ -59,28 +58,27 @@ public class GetUserTaskListHandler extends AbstractInvokeHandler<GetUserTaskLis
                     IDataCursor curDoc = tasks.getCursor();
                     try {
                         String oid = IDataUtil.getString(curDoc, "oid");
-                        Scheduler value = values.get(oid);
+                        MutableScheduler value = values.get(oid);
                         if (value == null && action.isUpdate()) {
                             continue;
+                        } else if (value == null && !action.isUpdate()) {
+                            value = new MutableScheduler();
+                            value.setOid(oid);
+                            value.setName(IDataUtil.getString(curDoc, "name"));
+                            value.setSchedulerType(IDataUtil.getString(curDoc, "type"));
+                            value.setService(IDataUtil.getString(curDoc, "service"));
+                            value.setDescription(IDataUtil.getString(curDoc, "description"));
+
                         }
-                        SchedulerBuilder builder = Scheduler.builder();
-                        if (action.isUpdate()) {
-                            builder.from(value);
-                        } else {
-                            builder.oid(oid)
-                                   .name(IDataUtil.getString(curDoc, "name"))
-                                   .schedulerType(IDataUtil.getString(curDoc, "type"))
-                                   .service(IDataUtil.getString(curDoc, "service"))
-                                   .description(IDataUtil.getString(curDoc, "description"));
-                        }
-                        value = builder.defineState(defineState(curDoc)).build();
+
+                        value.setState(defineState(curDoc));
                         values.put(value.getComponentId().asString(), value);
                     } finally {
                         curDoc.destroy();
                     }
                 }
             }
-            return new ListResult<Scheduler>(values.values());
+            return new ListResult<MutableScheduler>(values.values());
         } finally {
             cur.destroy();
         }

@@ -2,7 +2,7 @@ package com.gni.frmk.tools.addon.service;
 
 import com.gni.frmk.tools.addon.api.action.Action;
 import com.gni.frmk.tools.addon.handler.configuration.visitor.ClosePlateformVisitor;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import java.util.List;
 public class ClosePlateformService {
 
 
-    public void execute(Configuration cnf){
+    public void execute(ImmutableConfiguration cnf){
         ClosePlateformVisitor visitor = new ClosePlateformVisitor();
         visitor.dispatchVisit(cnf);
         List<Action<?>> actions = visitor.produce();

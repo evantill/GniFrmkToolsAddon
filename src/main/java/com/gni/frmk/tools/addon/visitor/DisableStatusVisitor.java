@@ -6,8 +6,8 @@ import com.gni.frmk.tools.addon.model.component.state.ConnectableState;
 import com.gni.frmk.tools.addon.model.component.state.EnableState;
 import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState;
 import com.gni.frmk.tools.addon.model.component.state.SchedulerState;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
-import com.gni.frmk.tools.addon.model.configuration.Configuration.Builder;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration.MutableConfiguration;
 
 import static com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus.INACTIVE;
 import static com.gni.frmk.tools.addon.model.component.state.ConnectableState.ConnectableStatus.DISCONNECTED;
@@ -25,71 +25,71 @@ import static com.gni.frmk.tools.addon.model.component.state.TemporaryActivableS
  */
 public class DisableStatusVisitor /*implements UpdateConfigurationVisitor*/ {
 
-    Builder builder = Configuration.builder();
+    MutableConfiguration builder = ImmutableConfiguration.builder();
 
-    public void visit(AdapterConnection visited) {
-        AdapterConnection changed = AdapterConnection.builder()
+    public void visit(ImmutableAdapterConnection visited) {
+        ImmutableAdapterConnection changed = ImmutableAdapterConnection.builder()
                                                      .from(visited)
                                                      .defineState(new EnableState(DISABLED))
                                                      .build();
 //        builder.addAdapterConnection(changed);
     }
 
-    public void visit(AdapterListener visited) {
-        AdapterListener changed = AdapterListener.builder()
+    public void visit(ImmutableAdapterListener visited) {
+        ImmutableAdapterListener changed = ImmutableAdapterListener.builder()
                                                  .from(visited)
                                                  .defineState(new ActivableState(DISABLED, INACTIVE))
                                                  .build();
 //        builder.addAdapterListener(changed);
     }
 
-    public void visit(AdapterNotification visited) {
-        AdapterNotification changed = AdapterNotification.builder()
+    public void visit(ImmutableAdapterNotification visited) {
+        ImmutableAdapterNotification changed = ImmutableAdapterNotification.builder()
                                                          .from(visited)
                                                          .defineState(new ActivableState(DISABLED, INACTIVE))
                                                          .build();
 //        builder.addAdapterNotification(changed);
     }
 
-    public void visit(Port visited) {
-        Port changed = Port.builder()
+    public void visit(ImmutablePort visited) {
+        ImmutablePort changed = ImmutablePort.builder()
                            .from(visited)
                            .defineState(new ActivableState(DISABLED, INACTIVE))
                            .build();
 //        builder.addPort(changed);
     }
 
-    public void visit(Scheduler visited) {
-        Scheduler changed = Scheduler.builder()
+    public void visit(ImmutableScheduler visited) {
+        ImmutableScheduler changed = ImmutableScheduler.builder()
                                      .from(visited)
                                      .defineState(new SchedulerState(DISABLED, EXPIRED))
                                      .build();
 //        builder.addScheduler(changed);
     }
 
-    public void visit(JmsAlias visited) {
-        JmsAlias changed = JmsAlias.builder()
+    public void visit(ImmutableJmsAlias visited) {
+        ImmutableJmsAlias changed = ImmutableJmsAlias.builder()
                                    .from(visited)
                                    .defineState(new ConnectableState(DISABLED, DISCONNECTED))
                                    .build();
 //        builder.addJmsAliasConnection(changed);
     }
 
-    public void visit(JmsTrigger visited) {
-        JmsTrigger changed = JmsTrigger.builder()
+    public void visit(ImmutableJmsTrigger visited) {
+        ImmutableJmsTrigger changed = ImmutableJmsTrigger.builder()
                                        .from(visited)
                                        .defineState(new ActivableState(DISABLED, INACTIVE))
                                        .build();
 //        builder.addJmsTrigger(changed);
     }
 
-    public void visit(NativeTrigger visited) {
+    public void visit(ImmutableNativeTrigger visited) {
         NativeTriggerState changedState = NativeTriggerState.builder()
                                                             .defineEnable(DISABLED)
                                                             .defineProcessing(PERMANENT, INACTIVE)
                                                             .defineRetrieval(PERMANENT, INACTIVE)
                                                             .build();
-        NativeTrigger changed = NativeTrigger.builder()
+        ImmutableNativeTrigger changed = ImmutableNativeTrigger.builder()
                                              .from(visited)
                                              .defineState(changedState)
                                              .build();
@@ -97,8 +97,8 @@ public class DisableStatusVisitor /*implements UpdateConfigurationVisitor*/ {
     }
 
     //@Override
-    public void visit(IntegrationServerPackage visited) {
-        IntegrationServerPackage changedState = IntegrationServerPackage.builder()
+    public void visit(ImmutableIntegrationServerPackage visited) {
+        ImmutableIntegrationServerPackage changedState = ImmutableIntegrationServerPackage.builder()
                                                                         .from(visited)
                                                                         .defineState(new EnableState(DISABLED))
                                                                         .build();
@@ -109,7 +109,7 @@ public class DisableStatusVisitor /*implements UpdateConfigurationVisitor*/ {
         builder.clear();
     }
 
-    public Configuration getUpdatedConfiguration() {
+    public ImmutableConfiguration getUpdatedConfiguration() {
         return builder.build();
     }
 }

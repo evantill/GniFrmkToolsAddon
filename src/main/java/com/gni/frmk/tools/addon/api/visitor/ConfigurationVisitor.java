@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.api.visitor;
 
 import com.gni.frmk.tools.addon.model.component.*;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.model.configuration.component.*;
 
 /**
@@ -14,25 +14,25 @@ import com.gni.frmk.tools.addon.model.configuration.component.*;
 public interface ConfigurationVisitor
         extends Visitor<ConfigurationVisitor, ConfigurationVisited> {
 
-    void visitComponent(AdapterConnection visited);
+    void visitComponent(ImmutableAdapterConnection visited);
 
-    void visitComponent(AdapterListener visited);
+    void visitComponent(ImmutableAdapterListener visited);
 
-    void visitComponent(AdapterNotification visited);
+    void visitComponent(ImmutableAdapterNotification visited);
 
-    void visitComponent(Port visited);
+    void visitComponent(ImmutablePort visited);
 
-    void visitComponent(Scheduler visited);
+    void visitComponent(ImmutableScheduler visited);
 
-    void visitComponent(NativeTrigger visited);
+    void visitComponent(ImmutableNativeTrigger visited);
 
-    void visitComponent(JmsTrigger visited);
+    void visitComponent(ImmutableJmsTrigger visited);
 
-    void visitComponent(JmsAlias visited);
+    void visitComponent(ImmutableJmsAlias visited);
 
-    void visitComponent(IntegrationServerPackage visited);
+    void visitComponent(ImmutableIntegrationServerPackage visited);
 
-    void visitConfiguration(Configuration configuration);
+    void visitConfiguration(ImmutableConfiguration configuration);
 
     void visitComponentConfiguration(AdapterConnectionConfiguration visited);
 

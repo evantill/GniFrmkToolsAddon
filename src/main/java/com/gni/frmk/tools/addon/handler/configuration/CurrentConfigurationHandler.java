@@ -22,8 +22,8 @@ import com.gni.frmk.tools.addon.model.component.state.ConnectableState;
 import com.gni.frmk.tools.addon.model.component.state.EnableState;
 import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState;
 import com.gni.frmk.tools.addon.model.component.state.SchedulerState;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
-import com.gni.frmk.tools.addon.model.configuration.Configuration.Builder;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration.MutableConfiguration;
 import com.gni.frmk.tools.addon.model.configuration.component.*;
 import com.gni.frmk.tools.addon.result.ConfigurationResult;
 import com.google.common.collect.Lists;
@@ -70,7 +70,7 @@ public class CurrentConfigurationHandler
     @Override
     public ConfigurationResult execute(CurrentConfiguration action, ExecutionContext context) throws ActionException {
         final List<ActionException> exceptions = Lists.newArrayList();
-        Builder builder = Configuration.builder();
+        MutableConfiguration builder = ImmutableConfiguration.builder();
         builder.create(DEFAULT_PACKAGE, DEFAULT_CONFIGURATION_ID, new Date());
         ConfigurationVisitor configurationVisitor = new ConfigurationVisitorAdapter(builder, action, exceptions);
         ConfigurationVisitor componentVisitor = new ComponentVisitorAdapter(configurationVisitor, action, exceptions);
@@ -96,16 +96,16 @@ public class CurrentConfigurationHandler
             CurrentConfiguration action,
             List<ActionException> exceptions) {
         try {
-            List<JmsAlias> aliases = dispatch(new GetJmsAliasReport()).getCollection();
-            for (JmsAlias alias : aliases) {
+            List<ImmutableJmsAlias> aliases = dispatch(new GetJmsAliasReport()).getCollection();
+            for (ImmutableJmsAlias alias : aliases) {
                 visitor.dispatchVisit(alias);
             }
         } catch (DispatchException e) {
             exceptions.add(new ActionException(action, e));
         }
         try {
-            List<JmsTrigger> jmsTriggers = dispatch(new GetJmsTriggerReport()).getCollection();
-            for (JmsTrigger trigger : jmsTriggers) {
+            List<ImmutableJmsTrigger> jmsTriggers = dispatch(new GetJmsTriggerReport()).getCollection();
+            for (ImmutableJmsTrigger trigger : jmsTriggers) {
                 visitor.dispatchVisit(trigger);
             }
         } catch (DispatchException e) {
@@ -117,8 +117,8 @@ public class CurrentConfigurationHandler
             CurrentConfiguration action,
             List<ActionException> exceptions) {
         try {
-            Set<IntegrationServerPackage> packages = dispatch(new PackageList()).getCollection();
-            for (IntegrationServerPackage pkg : packages) {
+            Set<ImmutableIntegrationServerPackage> packages = dispatch(new PackageList()).getCollection();
+            for (ImmutableIntegrationServerPackage pkg : packages) {
                 visitor.dispatchVisit(pkg);
             }
         } catch (DispatchException e) {
@@ -126,24 +126,24 @@ public class CurrentConfigurationHandler
         }
         try {
 
-            List<Port> ports = dispatch(new ListPortListeners()).getCollection();
-            for (Port port : ports) {
+            List<ImmutablePort> ports = dispatch(new ListPortListeners()).getCollection();
+            for (ImmutablePort port : ports) {
                 visitor.dispatchVisit(port);
             }
         } catch (DispatchException e) {
             exceptions.add(new ActionException(action, e));
         }
         try {
-            List<Scheduler> schedulers = dispatch(new GetUserTaskList()).getCollection();
-            for (Scheduler scheduler : schedulers) {
+            List<ImmutableScheduler> schedulers = dispatch(new GetUserTaskList()).getCollection();
+            for (ImmutableScheduler scheduler : schedulers) {
                 visitor.dispatchVisit(scheduler);
             }
         } catch (DispatchException e) {
             exceptions.add(new ActionException(action, e));
         }
         try {
-            List<NativeTrigger> nativeTriggers = dispatch(new GetNativeTriggerReport()).getCollection();
-            for (NativeTrigger trigger : nativeTriggers) {
+            List<ImmutableNativeTrigger> nativeTriggers = dispatch(new GetNativeTriggerReport()).getCollection();
+            for (ImmutableNativeTrigger trigger : nativeTriggers) {
                 visitor.dispatchVisit(trigger);
             }
         } catch (DispatchException e) {
@@ -157,16 +157,16 @@ public class CurrentConfigurationHandler
         try {
             Set<String> adapterTypes = dispatch(new RetrieveAdapterTypesList()).getCollection();
             for (String adapterType : adapterTypes) {
-                List<AdapterConnection> connections = dispatch(new ListAdaptersConnections(adapterType)).getCollection();
-                for (AdapterConnection connection : connections) {
+                List<ImmutableAdapterConnection> connections = dispatch(new ListAdaptersConnections(adapterType)).getCollection();
+                for (ImmutableAdapterConnection connection : connections) {
                     visitor.dispatchVisit(connection);
                 }
-                List<AdapterListener> listeners = dispatch(new ListListeners(adapterType)).getCollection();
-                for (AdapterListener listener : listeners) {
+                List<ImmutableAdapterListener> listeners = dispatch(new ListListeners(adapterType)).getCollection();
+                for (ImmutableAdapterListener listener : listeners) {
                     visitor.dispatchVisit(listener);
                 }
-                List<AdapterNotification> notifications = dispatch(new ListNotifications(adapterType)).getCollection();
-                for (AdapterNotification notification : notifications) {
+                List<ImmutableAdapterNotification> notifications = dispatch(new ListNotifications(adapterType)).getCollection();
+                for (ImmutableAdapterNotification notification : notifications) {
                     visitor.dispatchVisit(notification);
                 }
             }
@@ -199,7 +199,7 @@ public class CurrentConfigurationHandler
         }
 
         @Override
-        public void visitComponent(AdapterConnection visited) {
+        public void visitComponent(ImmutableAdapterConnection visited) {
             AdapterConnectionConfiguration.Builder builder = AdapterConnectionConfiguration.builder();
             AdapterConnectionConfiguration conf = builder.defineComponent(visited)
                                                          .exist(true)
@@ -211,7 +211,7 @@ public class CurrentConfigurationHandler
         }
 
         @Override
-        public void visitComponent(AdapterListener visited) {
+        public void visitComponent(ImmutableAdapterListener visited) {
             AdapterListenerConfiguration.Builder builder = AdapterListenerConfiguration.builder();
             AdapterListenerConfiguration cnf = builder.defineComponent(visited)
                                                       .exist(true)
@@ -223,7 +223,7 @@ public class CurrentConfigurationHandler
         }
 
         @Override
-        public void visitComponent(AdapterNotification visited) {
+        public void visitComponent(ImmutableAdapterNotification visited) {
             AdapterNotificationConfiguration.Builder builder = AdapterNotificationConfiguration.builder();
             AdapterNotificationConfiguration cnf = builder.defineComponent(visited)
                                                           .exist(true)
@@ -235,7 +235,7 @@ public class CurrentConfigurationHandler
         }
 
         @Override
-        public void visitComponent(Port visited) {
+        public void visitComponent(ImmutablePort visited) {
             PortConfiguration.Builder builder = PortConfiguration.builder();
             PortConfiguration cnf = builder.defineComponent(visited)
                                            .exist(true)
@@ -247,7 +247,7 @@ public class CurrentConfigurationHandler
         }
 
         @Override
-        public void visitComponent(Scheduler visited) {
+        public void visitComponent(ImmutableScheduler visited) {
             SchedulerConfiguration.Builder builder = SchedulerConfiguration.builder();
             SchedulerConfiguration cnf = builder.defineComponent(visited)
                                                 .exist(true)
@@ -259,7 +259,7 @@ public class CurrentConfigurationHandler
         }
 
         @Override
-        public void visitComponent(NativeTrigger visited) {
+        public void visitComponent(ImmutableNativeTrigger visited) {
             NativeTriggerConfiguration.Builder builder = NativeTriggerConfiguration.builder();
             NativeTriggerState closeState = NativeTriggerState.builder()
                                                               .defineEnable(DISABLED)
@@ -281,7 +281,7 @@ public class CurrentConfigurationHandler
         }
 
         @Override
-        public void visitComponent(JmsTrigger visited) {
+        public void visitComponent(ImmutableJmsTrigger visited) {
             JmsTriggerConfiguration.Builder builder = JmsTriggerConfiguration.builder();
             JmsTriggerConfiguration cnf = builder.defineComponent(visited)
                                                  .exist(true)
@@ -293,7 +293,7 @@ public class CurrentConfigurationHandler
         }
 
         @Override
-        public void visitComponent(JmsAlias visited) {
+        public void visitComponent(ImmutableJmsAlias visited) {
             JmsAliasConfiguration.Builder builder = JmsAliasConfiguration.builder();
             JmsAliasConfiguration cnf = builder.defineComponent(visited)
                                                .exist(true)
@@ -305,7 +305,7 @@ public class CurrentConfigurationHandler
         }
 
         @Override
-        public void visitComponent(IntegrationServerPackage visited) {
+        public void visitComponent(ImmutableIntegrationServerPackage visited) {
             IntegrationServerPackageConfiguration.Builder builder = IntegrationServerPackageConfiguration.builder();
             IntegrationServerPackageConfiguration cnf = builder.defineComponent(visited)
                                                                .exist(true)
@@ -318,12 +318,12 @@ public class CurrentConfigurationHandler
     }
 
     private final class ConfigurationVisitorAdapter implements ConfigurationVisitor {
-        private final Builder adaptee;
+        private final MutableConfiguration adaptee;
         private final CurrentConfiguration action;
         private final List<ActionException> exceptions;
 
         private ConfigurationVisitorAdapter(
-                Builder adaptee,
+                MutableConfiguration adaptee,
                 CurrentConfiguration action,
                 List<ActionException> exceptions) {
             this.adaptee = adaptee;

@@ -1,7 +1,8 @@
 package com.gni.frmk.tools.addon.model.configuration.component;
 
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
-import com.gni.frmk.tools.addon.model.component.Port;
+import com.gni.frmk.tools.addon.model.component.ImmutablePort;
+import com.gni.frmk.tools.addon.model.component.ImmutablePort;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -14,7 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author: e03229
  */
 @XmlRootElement
-public class PortConfiguration extends ComponentConfiguration<Port, ActivableState> {
+public class PortConfiguration extends ComponentConfiguration<ImmutablePort, ActivableState> {
 
     public PortConfiguration(Builder builder) {
         super(builder);
@@ -37,7 +38,7 @@ public class PortConfiguration extends ComponentConfiguration<Port, ActivableSta
     }
 
     public static class Builder
-            extends ComponentConfiguration.Builder<Builder, PortConfiguration, Port, ActivableState> {
+            extends ComponentConfiguration.Builder<Builder, PortConfiguration, ImmutablePort, ActivableState> {
         @Override
         protected PortConfiguration buildObjectBeforeValidation() {
             return new PortConfiguration(this);

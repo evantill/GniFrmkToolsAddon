@@ -2,8 +2,8 @@ package com.gni.frmk.tools.addon.action.wm.art.listener;
 
 import com.gni.frmk.tools.addon.action.StringAction;
 import com.gni.frmk.tools.addon.action.UpdatableCollectionAction;
+import com.gni.frmk.tools.addon.model.component.ImmutableAdapterListener.MutableAdapterListener;
 import com.gni.frmk.tools.addon.result.ListResult;
-import com.gni.frmk.tools.addon.model.component.AdapterListener;
 import com.google.common.collect.Lists;
 
 import java.util.Collection;
@@ -18,22 +18,27 @@ import java.util.List;
  * @author: e03229
  */
 public class ListListeners
-        extends StringAction<ListResult<AdapterListener>>
-        implements UpdatableCollectionAction<AdapterListener, List<AdapterListener>, ListResult<AdapterListener>> {
+        extends StringAction<ListResult<MutableAdapterListener>>
+        implements UpdatableCollectionAction<MutableAdapterListener, List<MutableAdapterListener>, ListResult<MutableAdapterListener>> {
 
-    private final List<AdapterListener> listeners = Lists.newArrayList();
+    private final List<MutableAdapterListener> listeners = Lists.newArrayList();
 
     public ListListeners(String adapterType) {
         super(adapterType);
     }
 
     @Override
-    public void setCollection(Collection<AdapterListener> collection) {
+    public void setCollection(Collection<MutableAdapterListener> collection) {
         listeners.addAll(collection);
     }
 
     @Override
-    public List<AdapterListener> getCollection() {
+    public void addToCollection(MutableAdapterListener element) {
+        listeners.add(element);
+    }
+
+    @Override
+    public List<MutableAdapterListener> getCollection() {
         return Collections.unmodifiableList(listeners);
     }
 

@@ -13,8 +13,7 @@ import com.gni.frmk.tools.addon.api.action.Action;
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisited;
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.component.*;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
-import com.gni.frmk.tools.addon.model.configuration.component.*;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.google.common.collect.Lists;
 
 import java.util.List;
@@ -43,37 +42,37 @@ public class OpenPlateformFullVisitor
     }
 
     @Override
-    public void visitComponent(AdapterConnection visited) {
+    public void visitComponent(ImmutableAdapterConnection visited) {
         openOutput(new EnableConnection(visited.getAlias()));
     }
 
     @Override
-    public void visitComponent(AdapterListener visited) {
+    public void visitComponent(ImmutableAdapterListener visited) {
         openInput(new EnableListener(visited.getName()));
     }
 
     @Override
-    public void visitComponent(AdapterNotification visited) {
+    public void visitComponent(ImmutableAdapterNotification visited) {
         openInput(new EnableNotification(visited.getName()));
     }
 
     @Override
-    public void visitComponent(IntegrationServerPackage visited) {
+    public void visitComponent(ImmutableIntegrationServerPackage visited) {
         //TODO a implementer dans un deuxieme temps
     }
 
     @Override
-    public void visitComponent(Port visited) {
+    public void visitComponent(ImmutablePort visited) {
         openInput(new EnablePortListener(visited.getPackageName(), visited.getKey()));
     }
 
     @Override
-    public void visitComponent(Scheduler visited) {
+    public void visitComponent(ImmutableScheduler visited) {
         openInput(new WakeUpUserTask(visited.getOid()));
     }
 
     @Override
-    public void visitComponent(NativeTrigger visited) {
+    public void visitComponent(ImmutableNativeTrigger visited) {
         SuspendTriggers action = SuspendTriggers.builder()
                                                 .addTriggerName(visited.getName())
                                                 .applyChangeAcrossCluster(false)
@@ -85,17 +84,17 @@ public class OpenPlateformFullVisitor
     }
 
     @Override
-    public void visitComponent(JmsTrigger visited) {
+    public void visitComponent(ImmutableJmsTrigger visited) {
         openInput(new EnableJmsTriggers(visited.getName()));
     }
 
     @Override
-    public void visitComponent(JmsAlias visited) {
+    public void visitComponent(ImmutableJmsAlias visited) {
         openOutput(new EnableJmsAlias(visited.getName()));
     }
 
     @Override
-    public void visitConfiguration(Configuration configuration) {
+    public void visitConfiguration(ImmutableConfiguration configuration) {
         //TODO peut etre modifier la date de derniere modification de la configuration
     }
 

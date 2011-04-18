@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.model.configuration.component;
 
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
-import com.gni.frmk.tools.addon.model.component.IntegrationServerPackage;
+import com.gni.frmk.tools.addon.model.component.ImmutableIntegrationServerPackage;
 import com.gni.frmk.tools.addon.model.component.state.EnableState;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author: e03229
  */
 @XmlRootElement
-public class IntegrationServerPackageConfiguration extends ComponentConfiguration<IntegrationServerPackage, EnableState> {
+public class IntegrationServerPackageConfiguration extends ComponentConfiguration<ImmutableIntegrationServerPackage, EnableState> {
 
     public IntegrationServerPackageConfiguration(Builder builder) {
         super(builder);
@@ -37,7 +37,7 @@ public class IntegrationServerPackageConfiguration extends ComponentConfiguratio
     }
 
     public static class Builder
-            extends ComponentConfiguration.Builder<Builder, IntegrationServerPackageConfiguration, IntegrationServerPackage, EnableState> {
+            extends ComponentConfiguration.Builder<Builder, IntegrationServerPackageConfiguration, ImmutableIntegrationServerPackage, EnableState> {
         @Override
         protected IntegrationServerPackageConfiguration buildObjectBeforeValidation() {
             return new IntegrationServerPackageConfiguration(this);

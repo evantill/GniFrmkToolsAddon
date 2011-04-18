@@ -20,7 +20,7 @@ public class AdapterConnectionTest {
 
     @Test
     public void testBuilder() {
-        AdapterConnection cnx = AdapterConnection.builder()
+        ImmutableAdapterConnection cnx = ImmutableAdapterConnection.builder()
                                                  .alias("alias")
                                                  .adapterType("jdbc")
                                                  .packageName("packageName")
@@ -31,7 +31,7 @@ public class AdapterConnectionTest {
 
     @Test
     public void testDetails() throws JAXBException {
-        AdapterConnection cnx = AdapterConnection.builder()
+        ImmutableAdapterConnection cnx = ImmutableAdapterConnection.builder()
                                                  .alias("alias")
                                                  .adapterType("jdbc")
                                                  .packageName("packageName")

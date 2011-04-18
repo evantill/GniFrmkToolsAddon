@@ -10,7 +10,7 @@ import com.gni.frmk.tools.addon.api.action.ExecutionContext;
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.handler.configuration.visitor.OpenPlateformFullVisitor;
 import com.gni.frmk.tools.addon.handler.configuration.visitor.OpenPlateformVisitor;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.result.ConfigurationResult;
 
 import java.util.List;
@@ -31,7 +31,7 @@ public class OpenPlateformHandler implements ActionHandler<OpenPlateform, Config
 
     @Override
     public ConfigurationResult execute(OpenPlateform action, ExecutionContext context) throws ActionException {
-        final Configuration cnf = action.getConfiguration();
+        final ImmutableConfiguration cnf = action.getConfiguration();
         ConfigurationVisitor visitor;
         Producer<List<Action<?>>> producer;
         if(action.isFull()){

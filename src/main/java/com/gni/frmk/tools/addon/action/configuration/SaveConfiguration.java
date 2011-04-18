@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.action.configuration;
 
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.result.ConfigurationResult;
 
 /**
@@ -12,7 +12,7 @@ import com.gni.frmk.tools.addon.result.ConfigurationResult;
  */
 public class SaveConfiguration extends ConfigurationAction<ConfigurationResult> {
 
-    public SaveConfiguration(Configuration configuration) {
+    public SaveConfiguration(ImmutableConfiguration configuration) {
         super(configuration);
     }
 }

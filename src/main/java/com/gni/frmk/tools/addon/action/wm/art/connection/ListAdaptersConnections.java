@@ -2,8 +2,9 @@ package com.gni.frmk.tools.addon.action.wm.art.connection;
 
 import com.gni.frmk.tools.addon.action.StringAction;
 import com.gni.frmk.tools.addon.action.UpdatableCollectionAction;
+import com.gni.frmk.tools.addon.model.component.ImmutableAdapterConnection;
+import com.gni.frmk.tools.addon.model.component.ImmutableAdapterConnection.MutableAdapterConnection;
 import com.gni.frmk.tools.addon.result.ListResult;
-import com.gni.frmk.tools.addon.model.component.AdapterConnection;
 import com.google.common.collect.Lists;
 
 import java.util.Collection;
@@ -18,27 +19,27 @@ import java.util.List;
  * @author: e03229
  */
 public class ListAdaptersConnections
-        extends StringAction<ListResult<AdapterConnection>>
-        implements UpdatableCollectionAction<AdapterConnection, List<AdapterConnection>, ListResult<AdapterConnection>> {
+        extends StringAction<ListResult<MutableAdapterConnection>>
+        implements UpdatableCollectionAction<MutableAdapterConnection, List<MutableAdapterConnection>, ListResult<MutableAdapterConnection>> {
 
-    private final List<AdapterConnection> connections = Lists.newArrayList();
+    private final List<MutableAdapterConnection> connections = Lists.newArrayList();
 
     public ListAdaptersConnections(String adapterType) {
         super(adapterType);
     }
 
     @Override
-    public void setCollection(Collection<AdapterConnection> collection) {
+    public void setCollection(Collection<MutableAdapterConnection> collection) {
         connections.addAll(connections);
     }
 
     @Override
-    public void addToCollection(AdapterConnection element) {
+    public void addToCollection(MutableAdapterConnection element) {
         connections.add(element);
     }
 
     @Override
-    public List<AdapterConnection> getCollection() {
+    public List<MutableAdapterConnection> getCollection() {
         return Collections.unmodifiableList(connections);
     }
 

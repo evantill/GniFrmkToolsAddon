@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.handler.configuration.wm;
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
 import com.gni.frmk.tools.addon.handler.configuration.repository.ConfigurationSerializer;
 import com.gni.frmk.tools.addon.handler.configuration.repository.ConfigurationSerializer.SerializationException;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.model.configuration.ConfigurationTest;
 import com.gni.frmk.tools.addon.model.configuration.ConfigurationTestRule;
 import com.google.common.base.Charsets;
@@ -47,7 +47,7 @@ public class ISLocalConfigurationRepositoryTest {
     }
 
     private IntegrationServerUtil mockIsUtil(File tmpDir, int nbrPkg, boolean initContent) throws IOException {
-        Configuration defaultCnf = serializer.loadConfiguration(new StringReader(simpleXml));
+        ImmutableConfiguration defaultCnf = serializer.loadConfiguration(new StringReader(simpleXml));
         String[] packages = new String[nbrPkg];
         for (int i = 0; i < packages.length; i++) {
             packages[i] = String.format("packageName%d", i + 1);
@@ -63,7 +63,7 @@ public class ISLocalConfigurationRepositoryTest {
             if (initContent) {
                 File conf = new File(pkgDir, String.format("config/addon/configuration_file_name_%d.xml", i + 1));
                 Files.createParentDirs(conf);
-                Configuration cnf = Configuration.builder()
+                ImmutableConfiguration cnf = ImmutableConfiguration.builder()
                                                  .from(defaultCnf)
                                                  .create(pkg, String.format("configuration_file_name_%d",
                                                          i + 1), testUtil.now())
@@ -118,8 +118,8 @@ public class ISLocalConfigurationRepositoryTest {
         try {
             ISLocalConfigurationRepository repo = new ISLocalConfigurationRepository(mockIsUtil(tmpDir, 10, true), serializer);
             String KEY = "configuration_file_name_9";
-            Configuration cnf = repo.loadConfiguration(KEY);
-            Configuration modified = Configuration.builder()
+            ImmutableConfiguration cnf = repo.loadConfiguration(KEY);
+            ImmutableConfiguration modified = ImmutableConfiguration.builder()
                                                   .from(cnf)
                                                   .create("WmRoot", "default", testUtil.now())
                                                   .build();
@@ -139,7 +139,7 @@ public class ISLocalConfigurationRepositoryTest {
         try {
             ISLocalConfigurationRepository repo = new ISLocalConfigurationRepository(mockIsUtil(tmpDir, 10, true), serializer);
             String KEY = "configuration_file_name_9";
-            Configuration cnf = repo.loadConfiguration(KEY);
+            ImmutableConfiguration cnf = repo.loadConfiguration(KEY);
             Assert.assertEquals(1, cnf.getAdapterConnectionConfigurations().size());
             Assert.assertEquals(KEY, cnf.getName());
         } finally {

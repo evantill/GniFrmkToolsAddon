@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.oldies.services;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.visitor.DisableStatusVisitor;
 import com.google.common.io.CharStreams;
 import com.google.common.io.Closeables;
@@ -26,12 +26,12 @@ public class ConfigurationService {
         packageConfigDir = utils.getCurrentPackageConfigDir();
     }
 
-    public Configuration loadConfiguration(String name) {
+    public ImmutableConfiguration loadConfiguration(String name) {
         File input = new File(packageConfigDir, String.format("%s.xml", name));
         if (input.exists() && input.canRead() && input.isFile()) {
             try {
-                JAXBContext ctx = JAXBContext.newInstance(Configuration.class);
-                return (Configuration) ctx.createUnmarshaller().unmarshal(new FileInputStream(input));
+                JAXBContext ctx = JAXBContext.newInstance(ImmutableConfiguration.class);
+                return (ImmutableConfiguration) ctx.createUnmarshaller().unmarshal(new FileInputStream(input));
             } catch (Exception e) {
                 throw new RuntimeException("loadConfiguration", e);
             }
@@ -65,14 +65,14 @@ public class ConfigurationService {
     }
 
 
-    public Configuration saveConfiguration(Configuration cnf) {
+    public ImmutableConfiguration saveConfiguration(ImmutableConfiguration cnf) {
         File output = new File(packageConfigDir, String.format("%s.xml", cnf.getName()));
-        Configuration toSave = cnf;
+        ImmutableConfiguration toSave = cnf;
         if (output.exists()) {
-            toSave=Configuration.builder().from(cnf).touch(new Date()).build();
+            toSave= ImmutableConfiguration.builder().from(cnf).touch(new Date()).build();
         }
         try {
-            JAXBContext ctx = JAXBContext.newInstance(Configuration.class);
+            JAXBContext ctx = JAXBContext.newInstance(ImmutableConfiguration.class);
             ctx.createMarshaller().marshal(cnf,new FileOutputStream(output));
         } catch (Exception e) {
             throw  new RuntimeException("saveConfiguration", e);
@@ -80,23 +80,23 @@ public class ConfigurationService {
         return toSave;
     }
 
-    public Configuration clearConfiguration(String configurationName)  {
+    public ImmutableConfiguration clearConfiguration(String configurationName)  {
         File output = new File(packageConfigDir, String.format("%s.xml", configurationName));
-        Configuration cnf = loadConfiguration(configurationName);
+        ImmutableConfiguration cnf = loadConfiguration(configurationName);
         if (output.exists()) {
-            cnf=saveConfiguration(Configuration.builder().from(cnf).clear().build());
+            cnf=saveConfiguration(ImmutableConfiguration.builder().from(cnf).clear().build());
         }
         return cnf;
     }
 
-    public Configuration closeAllConfiguration(Configuration cnf) {
+    public ImmutableConfiguration closeAllConfiguration(ImmutableConfiguration cnf) {
         DisableStatusVisitor visitor = new DisableStatusVisitor();
 //        ParseStrategy strategy = new ParseStrategy(visitor);
 //        strategy.execute(cnf);
         return cnf;
     }
 
-    public Configuration openAllConfiguration(Configuration cnf) {
+    public ImmutableConfiguration openAllConfiguration(ImmutableConfiguration cnf) {
 //        EnableStatusVisitor visitor = new EnableStatusVisitor();
 //        ParseStrategy strategy = new ParseStrategy(visitor);
 //        strategy.execute(cnf);

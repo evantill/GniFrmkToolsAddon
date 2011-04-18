@@ -1,7 +1,6 @@
 package com.gni.frmk.tools.addon.action.configuration;
 
-import com.gni.frmk.tools.addon.action.StringAction;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.result.ConfigurationResult;
 
 /**
@@ -12,7 +11,7 @@ import com.gni.frmk.tools.addon.result.ConfigurationResult;
  * @author: e03229
  */
 public class RefreshConfiguration extends ConfigurationAction<ConfigurationResult> {
-    public RefreshConfiguration(Configuration configuration) {
+    public RefreshConfiguration(ImmutableConfiguration configuration) {
         super(configuration);
     }
 

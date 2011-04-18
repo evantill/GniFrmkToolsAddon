@@ -13,28 +13,28 @@ import com.gni.frmk.tools.addon.model.component.*;
 public interface ConfigurationVisitorRaisingException extends ComponentVisitorRaisingException {
 
     @Override
-    void visit(AdapterConnection visited) throws ConfigurationVisitorException;
+    void visit(ImmutableAdapterConnection visited) throws ConfigurationVisitorException;
 
     @Override
-    void visit(AdapterListener visited) throws ConfigurationVisitorException;;
+    void visit(ImmutableAdapterListener visited) throws ConfigurationVisitorException;;
 
     @Override
-    void visit(AdapterNotification visited) throws ConfigurationVisitorException;;
+    void visit(ImmutableAdapterNotification visited) throws ConfigurationVisitorException;;
 
     @Override
-    void visit(Port visited) throws ConfigurationVisitorException;;
+    void visit(ImmutablePort visited) throws ConfigurationVisitorException;;
 
     @Override
-    void visit(Scheduler visited) throws ConfigurationVisitorException;
+    void visit(ImmutableScheduler visited) throws ConfigurationVisitorException;
 
     @Override
-    void visit(NativeTrigger visited) throws ConfigurationVisitorException;
+    void visit(ImmutableNativeTrigger visited) throws ConfigurationVisitorException;
 
     @Override
-    void visit(JmsTrigger visited) throws ConfigurationVisitorException;;
+    void visit(ImmutableJmsTrigger visited) throws ConfigurationVisitorException;;
 
     @Override
-    void visit(JmsAlias visited) throws ConfigurationVisitorException;;
+    void visit(ImmutableJmsAlias visited) throws ConfigurationVisitorException;;
 
 
       /**

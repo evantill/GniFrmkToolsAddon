@@ -2,8 +2,8 @@ package com.gni.frmk.tools.addon.action.wm.art.notifications;
 
 import com.gni.frmk.tools.addon.action.StringAction;
 import com.gni.frmk.tools.addon.action.UpdatableCollectionAction;
+import com.gni.frmk.tools.addon.model.component.ImmutableAdapterNotification.MutableAdapterNotification;
 import com.gni.frmk.tools.addon.result.ListResult;
-import com.gni.frmk.tools.addon.model.component.AdapterNotification;
 import com.google.common.collect.Lists;
 
 import java.util.Collection;
@@ -18,23 +18,28 @@ import java.util.List;
  * @author: e03229
  */
 public class ListNotifications
-        extends StringAction<ListResult<AdapterNotification>>
-        implements UpdatableCollectionAction<AdapterNotification, List<AdapterNotification>, ListResult<AdapterNotification>> {
+        extends StringAction<ListResult<MutableAdapterNotification>>
+        implements UpdatableCollectionAction<MutableAdapterNotification, List<MutableAdapterNotification>, ListResult<MutableAdapterNotification>> {
 
-    private final List<AdapterNotification> notifications = Lists.newArrayList();
+    private final List<MutableAdapterNotification> notifications = Lists.newArrayList();
 
     public ListNotifications(String adapterType) {
         super(adapterType);
     }
 
     @Override
-    public void setCollection(Collection<AdapterNotification> collection) {
+    public void setCollection(Collection<MutableAdapterNotification> collection) {
         notifications.addAll(collection);
     }
 
     @Override
-    public List<AdapterNotification> getCollection() {
+    public List<MutableAdapterNotification> getCollection() {
         return Collections.unmodifiableList(notifications);
+    }
+
+    @Override
+    public void addToCollection(MutableAdapterNotification element) {
+        notifications.add(element);
     }
 
     @Override

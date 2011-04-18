@@ -2,8 +2,8 @@ package com.gni.frmk.tools.addon.action.wm.root.scheduler;
 
 import com.gni.frmk.tools.addon.action.UpdatableCollectionAction;
 import com.gni.frmk.tools.addon.api.action.Action;
+import com.gni.frmk.tools.addon.model.component.ImmutableScheduler.MutableScheduler;
 import com.gni.frmk.tools.addon.result.ListResult;
-import com.gni.frmk.tools.addon.model.component.Scheduler;
 import com.google.common.collect.Lists;
 
 import java.util.Collection;
@@ -18,23 +18,23 @@ import java.util.List;
  * @author: e03229
  */
 public class GetUserTaskList
-        implements Action<ListResult<Scheduler>>,
-        UpdatableCollectionAction<Scheduler, List<Scheduler>, ListResult<Scheduler>> {
+        implements Action<ListResult<MutableScheduler>>,
+        UpdatableCollectionAction<MutableScheduler, List<MutableScheduler>, ListResult<MutableScheduler>> {
 
-    private final List<Scheduler> schedulers = Lists.newArrayList();
+    private final List<MutableScheduler> schedulers = Lists.newArrayList();
 
     @Override
-    public void setCollection(Collection<Scheduler> collection) {
+    public void setCollection(Collection<MutableScheduler> collection) {
         schedulers.addAll(collection);
     }
 
     @Override
-    public List<Scheduler> getCollection() {
+    public List<MutableScheduler> getCollection() {
         return Collections.unmodifiableList(schedulers);
     }
 
     @Override
-    public void addToCollection(Scheduler element) {
+    public void addToCollection(MutableScheduler element) {
         schedulers.add(element);
     }
 

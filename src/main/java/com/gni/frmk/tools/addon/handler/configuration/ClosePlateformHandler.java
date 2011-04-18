@@ -8,7 +8,7 @@ import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.api.action.DispatchException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.configuration.visitor.ClosePlateformVisitor;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.result.ConfigurationResult;
 
 import java.util.List;
@@ -33,7 +33,7 @@ public class ClosePlateformHandler
 
     @Override
     public ConfigurationResult execute(ClosePlateform action, InvokeContext context) throws ActionException {
-        final Configuration cnf = action.getConfiguration();
+        final ImmutableConfiguration cnf = action.getConfiguration();
         final long maxSecondsToWait = action.getMaxSecondsToWait();
         final long delayBetweenTests = action.getDelayBetweenTest();
         final String filter = action.getFilter();

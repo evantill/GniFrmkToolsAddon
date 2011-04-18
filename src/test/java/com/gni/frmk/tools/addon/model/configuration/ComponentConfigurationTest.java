@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.model.configuration;
 
-import com.gni.frmk.tools.addon.model.component.AdapterConnection;
+import com.gni.frmk.tools.addon.model.component.ImmutableAdapterConnection;
 import com.gni.frmk.tools.addon.model.component.state.EnableState;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.model.configuration.component.AdapterConnectionConfiguration;
@@ -17,7 +17,7 @@ import org.junit.Test;
 public class ComponentConfigurationTest {
     @Test
     public void testBuilder() throws Exception {
-        AdapterConnection cnx = AdapterConnection.builder()
+        ImmutableAdapterConnection cnx = ImmutableAdapterConnection.builder()
                                                  .alias("eeee")
                                                  .adapterType("jdbc")
                                                  .packageName("pck")

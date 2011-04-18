@@ -17,47 +17,47 @@ public abstract class GenericComponentVisitor implements ConfigurationVisitor {
     public abstract void visitAny(Component visited);
 
     @Override
-    public void visitComponent(AdapterConnection visited) {
+    public void visitComponent(ImmutableAdapterConnection visited) {
         visitAny(visited);
     }
 
     @Override
-    public void visitComponent(AdapterListener visited) {
+    public void visitComponent(ImmutableAdapterListener visited) {
         visitAny(visited);
     }
 
     @Override
-    public void visitComponent(AdapterNotification visited) {
+    public void visitComponent(ImmutableAdapterNotification visited) {
         visitAny(visited);
     }
 
     @Override
-    public void visitComponent(Port visited) {
+    public void visitComponent(ImmutablePort visited) {
         visitAny(visited);
     }
 
     @Override
-    public void visitComponent(Scheduler visited) {
+    public void visitComponent(ImmutableScheduler visited) {
         visitAny(visited);
     }
 
     @Override
-    public void visitComponent(NativeTrigger visited) {
+    public void visitComponent(ImmutableNativeTrigger visited) {
         visitAny(visited);
     }
 
     @Override
-    public void visitComponent(JmsTrigger visited) {
+    public void visitComponent(ImmutableJmsTrigger visited) {
         visitAny(visited);
     }
 
     @Override
-    public void visitComponent(JmsAlias visited) {
+    public void visitComponent(ImmutableJmsAlias visited) {
         visitAny(visited);
     }
 
     @Override
-    public void visitComponent(IntegrationServerPackage visited) {
+    public void visitComponent(ImmutableIntegrationServerPackage visited) {
         visitAny(visited);
     }
 }

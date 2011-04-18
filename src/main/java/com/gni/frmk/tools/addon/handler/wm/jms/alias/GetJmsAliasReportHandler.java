@@ -4,12 +4,11 @@ import com.gni.frmk.tools.addon.action.wm.jms.alias.GetJmsAliasReport;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.result.ListResult;
-import com.gni.frmk.tools.addon.model.component.JmsAlias;
-import com.gni.frmk.tools.addon.model.component.JmsAlias.JmsAliasBuilder;
+import com.gni.frmk.tools.addon.model.component.ImmutableJmsAlias.MutableJmsAlias;
 import com.gni.frmk.tools.addon.model.component.state.ConnectableState;
 import com.gni.frmk.tools.addon.model.component.state.ConnectableState.ConnectableStatus;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
+import com.gni.frmk.tools.addon.result.ListResult;
 import com.google.common.collect.Maps;
 import com.wm.data.*;
 
@@ -22,8 +21,8 @@ import java.util.Map;
  *
  * @author: e03229
  */
-public class GetJmsAliasReportHandler extends AbstractInvokeHandler<GetJmsAliasReport, ListResult<JmsAlias>>
-        implements ActionHandler<GetJmsAliasReport, ListResult<JmsAlias>, InvokeContext> {
+public class GetJmsAliasReportHandler extends AbstractInvokeHandler<GetJmsAliasReport, ListResult<MutableJmsAlias>>
+        implements ActionHandler<GetJmsAliasReport, ListResult<MutableJmsAlias>, InvokeContext> {
 
     public GetJmsAliasReportHandler() {
         super("wm.server.jms:getConnectionAliasReport");
@@ -41,11 +40,11 @@ public class GetJmsAliasReportHandler extends AbstractInvokeHandler<GetJmsAliasR
     }
 
     @Override
-    protected ListResult<JmsAlias> parseOutput(GetJmsAliasReport action, IData output) {
+    protected ListResult<MutableJmsAlias> parseOutput(GetJmsAliasReport action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
-            Map<String, JmsAlias> values = Maps.newHashMap();
-            for (JmsAlias value : action.getCollection()) {
+            Map<String, MutableJmsAlias> values = Maps.newHashMap();
+            for (MutableJmsAlias value : action.getCollection()) {
                 values.put(value.getComponentId().asString(), value);
             }
             IData[] dataList = IDataUtil.getIDataArray(cur, "aliasDataList");
@@ -54,26 +53,23 @@ public class GetJmsAliasReportHandler extends AbstractInvokeHandler<GetJmsAliasR
                     IDataCursor curLoop = single.getCursor();
                     try {
                         String aliasName = IDataUtil.getString(curLoop, "aliasName");
-                        JmsAlias value = values.get(aliasName);
+                        MutableJmsAlias value = values.get(aliasName);
                         if (value == null && action.isUpdate()) {
                             continue;
-                        }
-                        JmsAliasBuilder builder = JmsAlias.builder();
-                        if (action.isUpdate()) {
-                            builder.from(value);
-                        } else {
-                            builder.name(aliasName)
-                                   .description(IDataUtil.getString(curLoop, "description"));
+                        } else if (value == null && !action.isUpdate()) {
+                            value = new MutableJmsAlias();
+                            value.setName(aliasName);
+                            value.setDescription(IDataUtil.getString(curLoop, "description"));
                         }
                         ConnectableState state = parseConnectableState(IDataUtil.getIData(curLoop, "trigger"));
-                        value = builder.defineState(state).build();
+                        value.setState(state);
                         values.put(value.getComponentId().asString(), value);
                     } finally {
                         curLoop.destroy();
                     }
                 }
             }
-            return new ListResult<JmsAlias>(values.values());
+            return new ListResult<MutableJmsAlias>(values.values());
         } finally {
             cur.destroy();
         }

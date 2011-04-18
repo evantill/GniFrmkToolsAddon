@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.model.configuration.component;
 
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
-import com.gni.frmk.tools.addon.model.component.AdapterConnection;
+import com.gni.frmk.tools.addon.model.component.ImmutableAdapterConnection;
 import com.gni.frmk.tools.addon.model.component.state.EnableState;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author: e03229
  */
 @XmlRootElement
-public class AdapterConnectionConfiguration extends ComponentConfiguration<AdapterConnection, EnableState> {
+public class AdapterConnectionConfiguration extends ComponentConfiguration<ImmutableAdapterConnection, EnableState> {
 
     public AdapterConnectionConfiguration(Builder builder) {
         super(builder);
@@ -37,7 +37,7 @@ public class AdapterConnectionConfiguration extends ComponentConfiguration<Adapt
     }
 
     public static class Builder
-            extends ComponentConfiguration.Builder<Builder, AdapterConnectionConfiguration, AdapterConnection, EnableState> {
+            extends ComponentConfiguration.Builder<Builder, AdapterConnectionConfiguration, ImmutableAdapterConnection, EnableState> {
         @Override
         protected AdapterConnectionConfiguration buildObjectBeforeValidation() {
             return new AdapterConnectionConfiguration(this);

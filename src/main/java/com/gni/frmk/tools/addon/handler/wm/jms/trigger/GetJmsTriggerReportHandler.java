@@ -4,12 +4,12 @@ import com.gni.frmk.tools.addon.action.wm.jms.trigger.GetJmsTriggerReport;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.result.ListResult;
-import com.gni.frmk.tools.addon.model.component.JmsTrigger;
-import com.gni.frmk.tools.addon.model.component.JmsTrigger.JmsTriggerBuilder;
+import com.gni.frmk.tools.addon.model.component.ImmutableJmsTrigger;
+import com.gni.frmk.tools.addon.model.component.ImmutableJmsTrigger.MutableJmsTrigger;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
+import com.gni.frmk.tools.addon.result.ListResult;
 import com.google.common.collect.Maps;
 import com.wm.data.*;
 
@@ -27,8 +27,8 @@ import static com.gni.frmk.tools.addon.model.component.state.EnableState.EnableS
  *
  * @author: e03229
  */
-public class GetJmsTriggerReportHandler extends AbstractInvokeHandler<GetJmsTriggerReport, ListResult<JmsTrigger>>
-        implements ActionHandler<GetJmsTriggerReport, ListResult<JmsTrigger>, InvokeContext> {
+public class GetJmsTriggerReportHandler extends AbstractInvokeHandler<GetJmsTriggerReport, ListResult<MutableJmsTrigger>>
+        implements ActionHandler<GetJmsTriggerReport, ListResult<MutableJmsTrigger>, InvokeContext> {
 
     public GetJmsTriggerReportHandler() {
         super("wm.server.jms:getTriggerReport");
@@ -63,11 +63,11 @@ public class GetJmsTriggerReportHandler extends AbstractInvokeHandler<GetJmsTrig
     }
 
     @Override
-    protected ListResult<JmsTrigger> parseOutput(GetJmsTriggerReport action, IData output) {
+    protected ListResult<MutableJmsTrigger> parseOutput(GetJmsTriggerReport action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
-            Map<String, JmsTrigger> values = Maps.newHashMap();
-            for (JmsTrigger trigger : action.getCollection()) {
+            Map<String, MutableJmsTrigger> values = Maps.newHashMap();
+            for (MutableJmsTrigger trigger : action.getCollection()) {
                 values.put(trigger.getComponentId().asString(), trigger);
             }
             IData[] dataList = IDataUtil.getIDataArray(cur, "triggerDataList");
@@ -76,27 +76,24 @@ public class GetJmsTriggerReportHandler extends AbstractInvokeHandler<GetJmsTrig
                     IDataCursor curLoop = single.getCursor();
                     try {
                         String triggerName = IDataUtil.getString(curLoop, "node_nsName");
-                        JmsTrigger value = values.get(triggerName);
+                        MutableJmsTrigger value = values.get(triggerName);
                         if (value == null && action.isUpdate()) {
                             continue;
-                        }
-                        JmsTriggerBuilder builder = JmsTrigger.builder();
-                        if (action.isUpdate()) {
-                            builder.from(value);
-                        } else {
-                            builder.name(triggerName).packageName(IDataUtil.getString(curLoop, "node_pkg"));
+                        } else if (value == null && !action.isUpdate()) {
+                            value = new MutableJmsTrigger();
+                            value.setName(triggerName);
+                            value.setPackageName(IDataUtil.getString(curLoop, "node_pkg"));
                         }
                         ActivableState state = parseActivableState(triggerName, IDataUtil.getIData(curLoop, "trigger"));
-                        builder.defineState(state);
                         //add
-                        value = builder.build();
+                        value.setState(state);
                         values.put(value.getComponentId().asString(), value);
                     } finally {
                         curLoop.destroy();
                     }
                 }
             }
-            return new ListResult<JmsTrigger>(values.values());
+            return new ListResult<MutableJmsTrigger>(values.values());
         } finally {
             cur.destroy();
         }

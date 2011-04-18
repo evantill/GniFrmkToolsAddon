@@ -1,7 +1,5 @@
 package com.gni.frmk.tools.addon;
 
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
-
 /**
  * Created by IntelliJ IDEA.
  * User: e03229

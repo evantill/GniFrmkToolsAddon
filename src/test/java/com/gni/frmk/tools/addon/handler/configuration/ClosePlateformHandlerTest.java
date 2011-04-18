@@ -21,7 +21,7 @@ import com.gni.frmk.tools.addon.handler.configuration.repository.ConfigurationSe
 import com.gni.frmk.tools.addon.handler.configuration.repository.ConfigurationRepository;
 import com.gni.frmk.tools.addon.handler.configuration.strategy.CloseStrategy;
 import com.gni.frmk.tools.addon.handler.configuration.wm.ISLocalConfigurationRepository;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.model.configuration.ConfigurationTest;
 import com.gni.frmk.tools.addon.model.configuration.ConfigurationTestRule;
 import com.gni.frmk.tools.addon.result.ConfigurationResult;
@@ -83,7 +83,7 @@ public class ClosePlateformHandlerTest {
         InvokeDispatcherDecorator dispatcherDecorator = new InvokeDispatcherDecorator(dispatcher);
         ClosePlateformHandler service = new ClosePlateformHandler(repository, dispatcherDecorator);
 
-        Configuration cnf = ConfigurationTestRule.loadConfiguration(ConfigurationTest.class, "full");
+        ImmutableConfiguration cnf = ConfigurationTestRule.loadConfiguration(ConfigurationTest.class, "full");
         ConfigurationResult result = dispatcher.execute(new ClosePlateform(cnf, 0));
         //check results
         Assert.assertEquals(expectedActions, realActions);

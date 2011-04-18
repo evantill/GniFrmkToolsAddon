@@ -76,47 +76,47 @@ public abstract class ConfigurationVisitorAdapter<T extends Throwable> implement
     protected abstract void statusFailed(Component visited, Throwable e);
 
     @Override
-    public void visitComponent(AdapterConnection visited) throws VisitorException {
+    public void visitComponent(ImmutableAdapterConnection visited) throws VisitorException {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(AdapterListener visited) throws VisitorException {
+    public void visitComponent(ImmutableAdapterListener visited) throws VisitorException {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(AdapterNotification visited) throws VisitorException {
+    public void visitComponent(ImmutableAdapterNotification visited) throws VisitorException {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(Port visited) throws VisitorException {
+    public void visitComponent(ImmutablePort visited) throws VisitorException {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(Scheduler visited) throws VisitorException {
+    public void visitComponent(ImmutableScheduler visited) throws VisitorException {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(JmsAlias visited) throws VisitorException {
+    public void visitComponent(ImmutableJmsAlias visited) throws VisitorException {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(JmsTrigger visited) throws VisitorException {
+    public void visitComponent(ImmutableJmsTrigger visited) throws VisitorException {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(NativeTrigger visited) throws VisitorException {
+    public void visitComponent(ImmutableNativeTrigger visited) throws VisitorException {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(IntegrationServerPackage visited) throws VisitorException {
+    public void visitComponent(ImmutableIntegrationServerPackage visited) throws VisitorException {
         proxy.visitComponent(visited);
     }
 

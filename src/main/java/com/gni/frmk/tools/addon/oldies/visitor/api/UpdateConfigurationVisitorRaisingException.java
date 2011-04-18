@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.oldies.visitor.api;
 
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.visitor.api.ConfigurationVisitorRaisingException;
 
 /**
@@ -11,5 +11,5 @@ import com.gni.frmk.tools.addon.visitor.api.ConfigurationVisitorRaisingException
  * To change this template use File | Settings | File Templates.
  */
 public interface UpdateConfigurationVisitorRaisingException extends ConfigurationVisitorRaisingException {
-    Configuration getUpdatedConfiguration() throws ConfigurationVisitorException;
+    ImmutableConfiguration getUpdatedConfiguration() throws ConfigurationVisitorException;
 }

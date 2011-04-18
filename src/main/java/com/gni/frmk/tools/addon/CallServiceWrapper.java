@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon;
 import com.gni.frmk.tools.addon.api.action.DispatchException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.context.InvokeContextLocal;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.oldies.services.AdminService;
 import com.gni.frmk.tools.addon.oldies.services.ConfigurationService;
 import com.gni.frmk.tools.addon.oldies.services.ReportService;
@@ -51,7 +51,7 @@ public class CallServiceWrapper {
         try {
             String configurationName = IDataUtil.getString(curPipeline, "configurationName");
             configurationService.clearConfiguration(configurationName);
-            Configuration cnf = reportService.reportCurrentConfiguration(configurationName);
+            ImmutableConfiguration cnf = reportService.reportCurrentConfiguration(configurationName);
             configurationService.saveConfiguration(cnf);
         } catch (DispatchException e) {
             rethrowServiceException(e);

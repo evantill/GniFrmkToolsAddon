@@ -20,7 +20,7 @@ import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableSt
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState;
 import com.gni.frmk.tools.addon.model.component.state.TemporaryActivableState;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.model.configuration.component.*;
 import com.google.common.collect.Lists;
 
@@ -60,37 +60,37 @@ public class ClosePlateformVisitor
     }
 
     @Override
-    public void visitComponent(AdapterConnection visited) {
+    public void visitComponent(ImmutableAdapterConnection visited) {
         closeOutput(new DisableConnection(visited.getAlias()));
     }
 
     @Override
-    public void visitComponent(AdapterListener visited) {
+    public void visitComponent(ImmutableAdapterListener visited) {
         closeInput(new DisableListener(visited.getName()));
     }
 
     @Override
-    public void visitComponent(AdapterNotification visited) {
+    public void visitComponent(ImmutableAdapterNotification visited) {
         closeInput(new DisableNotification(visited.getName()));
     }
 
     @Override
-    public void visitComponent(IntegrationServerPackage visited) {
+    public void visitComponent(ImmutableIntegrationServerPackage visited) {
         //TODO a implementer dans un deuxieme temps
     }
 
     @Override
-    public void visitComponent(Port visited) {
+    public void visitComponent(ImmutablePort visited) {
         closeInput(new DisablePortListener(visited.getPackageName(), visited.getKey()));
     }
 
     @Override
-    public void visitComponent(Scheduler visited) {
+    public void visitComponent(ImmutableScheduler visited) {
         closeInput(new SuspendUserTask(visited.getOid()));
     }
 
     @Override
-    public void visitComponent(NativeTrigger visited) {
+    public void visitComponent(ImmutableNativeTrigger visited) {
         SuspendTriggers action = SuspendTriggers.builder()
                                                 .addTriggerName(visited.getName())
                                                 .applyChangeAcrossCluster(false)
@@ -102,17 +102,17 @@ public class ClosePlateformVisitor
     }
 
     @Override
-    public void visitComponent(JmsTrigger visited) {
+    public void visitComponent(ImmutableJmsTrigger visited) {
         closeInput(new DisableJmsTriggers(visited.getName()));
     }
 
     @Override
-    public void visitComponent(JmsAlias visited) {
+    public void visitComponent(ImmutableJmsAlias visited) {
         closeOutput(new DisableJmsAlias(visited.getName()));
     }
 
     @Override
-    public void visitConfiguration(Configuration configuration) {
+    public void visitConfiguration(ImmutableConfiguration configuration) {
         //TODO peut etre modifier la date de derniere modification de la configuration
     }
 

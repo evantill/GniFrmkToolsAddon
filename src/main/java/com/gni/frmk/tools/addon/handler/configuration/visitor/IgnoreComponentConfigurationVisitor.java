@@ -1,9 +1,6 @@
 package com.gni.frmk.tools.addon.handler.configuration.visitor;
 
-import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisited;
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
-import com.gni.frmk.tools.addon.model.component.*;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
 import com.gni.frmk.tools.addon.model.configuration.component.*;
 
 /**

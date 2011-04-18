@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.model.configuration.component;
 
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
-import com.gni.frmk.tools.addon.model.component.JmsTrigger;
+import com.gni.frmk.tools.addon.model.component.ImmutableJmsTrigger;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author: e03229
  */
 @XmlRootElement
-public class JmsTriggerConfiguration extends ComponentConfiguration<JmsTrigger, ActivableState> {
+public class JmsTriggerConfiguration extends ComponentConfiguration<ImmutableJmsTrigger, ActivableState> {
 
     public JmsTriggerConfiguration(Builder builder) {
         super(builder);
@@ -37,7 +37,7 @@ public class JmsTriggerConfiguration extends ComponentConfiguration<JmsTrigger, 
     }
 
     public static class Builder
-            extends ComponentConfiguration.Builder<Builder, JmsTriggerConfiguration, JmsTrigger, ActivableState> {
+            extends ComponentConfiguration.Builder<Builder, JmsTriggerConfiguration, ImmutableJmsTrigger, ActivableState> {
         @Override
         protected JmsTriggerConfiguration buildObjectBeforeValidation() {
             return new JmsTriggerConfiguration(this);

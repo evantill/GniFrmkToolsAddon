@@ -59,47 +59,47 @@ public abstract class UpdateConfigurationVisitorAdapter<T extends Throwable> imp
     protected abstract void statusFailed(Component visited, Throwable e);
 
     @Override
-    public void visitComponent(AdapterConnection visited) {
+    public void visitComponent(ImmutableAdapterConnection visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(AdapterListener visited) {
+    public void visitComponent(ImmutableAdapterListener visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(AdapterNotification visited) {
+    public void visitComponent(ImmutableAdapterNotification visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(Port visited) {
+    public void visitComponent(ImmutablePort visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(Scheduler visited) {
+    public void visitComponent(ImmutableScheduler visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(JmsAlias visited) {
+    public void visitComponent(ImmutableJmsAlias visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(JmsTrigger visited) {
+    public void visitComponent(ImmutableJmsTrigger visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(NativeTrigger visited) {
+    public void visitComponent(ImmutableNativeTrigger visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(IntegrationServerPackage visited) {
+    public void visitComponent(ImmutableIntegrationServerPackage visited) {
         proxy.visitComponent(visited);
     }
 }

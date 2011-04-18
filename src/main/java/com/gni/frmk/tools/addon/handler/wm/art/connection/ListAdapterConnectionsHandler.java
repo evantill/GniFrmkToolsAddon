@@ -4,11 +4,10 @@ import com.gni.frmk.tools.addon.action.wm.art.connection.ListAdaptersConnections
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.art.AdapterTypeAwareHandler;
-import com.gni.frmk.tools.addon.result.ListResult;
-import com.gni.frmk.tools.addon.model.component.AdapterConnection;
-import com.gni.frmk.tools.addon.model.component.AdapterConnection.AdapterConnectionBuilder;
+import com.gni.frmk.tools.addon.model.component.ImmutableAdapterConnection.MutableAdapterConnection;
 import com.gni.frmk.tools.addon.model.component.state.EnableState;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
+import com.gni.frmk.tools.addon.result.ListResult;
 import com.google.common.collect.Maps;
 import com.wm.data.*;
 
@@ -21,8 +20,8 @@ import java.util.Map;
  *
  * @author: e03229
  */
-public class ListAdapterConnectionsHandler extends AdapterTypeAwareHandler<ListAdaptersConnections, ListResult<AdapterConnection>>
-        implements ActionHandler<ListAdaptersConnections, ListResult<AdapterConnection>, InvokeContext> {
+public class ListAdapterConnectionsHandler extends AdapterTypeAwareHandler<ListAdaptersConnections, ListResult<MutableAdapterConnection>>
+        implements ActionHandler<ListAdaptersConnections, ListResult<MutableAdapterConnection>, InvokeContext> {
 
     public ListAdapterConnectionsHandler() {
         super("pub.art.connection:listAdapterConnections");
@@ -34,44 +33,39 @@ public class ListAdapterConnectionsHandler extends AdapterTypeAwareHandler<ListA
     }
 
     @Override
-    protected ListResult<AdapterConnection> parseOutput(ListAdaptersConnections action, IData output) {
+    protected ListResult<MutableAdapterConnection> parseOutput(ListAdaptersConnections action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
-            Map<String, AdapterConnection> values = Maps.newHashMap();
-            for (AdapterConnection connection : action.getCollection()) {
+            Map<String, MutableAdapterConnection> values = Maps.newHashMap();
+            for (MutableAdapterConnection connection : action.getCollection()) {
                 values.put(connection.getComponentId().asString(), connection);
             }
             IData[] dataList = IDataUtil.getIDataArray(cur, "connectionDataList");
-            final String adapterType=action.getParameter();
+            final String adapterType = action.getParameter();
             if (dataList != null) {
                 for (IData single : dataList) {
                     IDataCursor curLoop = single.getCursor();
                     try {
                         String connectionAlias = IDataUtil.getString(curLoop, "connectionAlias");
-                        AdapterConnection value = values.get(connectionAlias);
+                        MutableAdapterConnection value = values.get(connectionAlias);
                         if (value == null && action.isUpdate()) {
                             continue;
-                        }
-                        AdapterConnectionBuilder builder = AdapterConnection.builder();
-                        if (action.isUpdate()) {
-                            builder.from(value);
-                        } else {
-                            builder.alias(IDataUtil.getString(curLoop, "connectionAlias"))
-                                   .adapterType(adapterType)
-                                   .packageName(IDataUtil.getString(curLoop, "packageName"));
+                        } else if (value == null && !action.isUpdate()) {
+                            value = new MutableAdapterConnection();
+                            value.setAlias(IDataUtil.getString(curLoop, "connectionAlias"));
+                            value.setAdapterType(adapterType);
+                            value.setPackageName(IDataUtil.getString(curLoop, "packageName"));
                         }
                         EnableStatus enabled = EnableStatus.valueOf(IDataUtil.getString(curLoop, "connectionState")
                                                                              .toUpperCase());
-                        builder.defineState(new EnableState(enabled));
-                        //add result
-                        value = builder.build();
-                        values.put(value.getComponentId().asString(),value);
+                        value.setState(new EnableState(enabled));
+                        values.put(value.getComponentId().asString(), value);
                     } finally {
                         curLoop.destroy();
                     }
                 }
             }
-            return new ListResult<AdapterConnection>(values.values());
+            return new ListResult<MutableAdapterConnection>(values.values());
         } finally {
             cur.destroy();
         }

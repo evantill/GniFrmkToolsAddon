@@ -2,8 +2,9 @@ package com.gni.frmk.tools.addon.action.wm.jms.trigger;
 
 import com.gni.frmk.tools.addon.action.UpdatableCollectionAction;
 import com.gni.frmk.tools.addon.api.action.Action;
+import com.gni.frmk.tools.addon.model.component.ImmutableJmsTrigger;
+import com.gni.frmk.tools.addon.model.component.ImmutableJmsTrigger.MutableJmsTrigger;
 import com.gni.frmk.tools.addon.result.ListResult;
-import com.gni.frmk.tools.addon.model.component.JmsTrigger;
 import com.google.common.collect.Lists;
 
 import java.util.Collection;
@@ -18,19 +19,24 @@ import java.util.List;
  * @author: e03229
  */
 public class GetJmsTriggerReport
-        implements Action<ListResult<JmsTrigger>>,
-        UpdatableCollectionAction<JmsTrigger, List<JmsTrigger>, ListResult<JmsTrigger>> {
+        implements Action<ListResult<MutableJmsTrigger>>,
+        UpdatableCollectionAction<MutableJmsTrigger, List<MutableJmsTrigger>, ListResult<MutableJmsTrigger>> {
 
-    private final List<JmsTrigger> triggers = Lists.newArrayList();
+    private final List<MutableJmsTrigger> triggers = Lists.newArrayList();
 
     @Override
-    public void setCollection(Collection<JmsTrigger> jmsTriggers) {
+    public void setCollection(Collection<MutableJmsTrigger> jmsTriggers) {
         triggers.addAll(jmsTriggers);
     }
 
     @Override
-    public List<JmsTrigger> getCollection() {
+    public List<MutableJmsTrigger> getCollection() {
         return Collections.unmodifiableList(triggers);
+    }
+
+    @Override
+    public void addToCollection(MutableJmsTrigger element) {
+        triggers.add(element);
     }
 
     @Override

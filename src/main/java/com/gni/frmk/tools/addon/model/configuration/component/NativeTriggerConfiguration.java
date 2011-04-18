@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.model.configuration.component;
 
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
-import com.gni.frmk.tools.addon.model.component.NativeTrigger;
+import com.gni.frmk.tools.addon.model.component.ImmutableNativeTrigger;
 import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author: e03229
  */
 @XmlRootElement
-public class NativeTriggerConfiguration extends ComponentConfiguration<NativeTrigger, NativeTriggerState> {
+public class NativeTriggerConfiguration extends ComponentConfiguration<ImmutableNativeTrigger, NativeTriggerState> {
 
     public NativeTriggerConfiguration(Builder builder) {
         super(builder);
@@ -37,7 +37,7 @@ public class NativeTriggerConfiguration extends ComponentConfiguration<NativeTri
     }
 
     public static class Builder
-            extends ComponentConfiguration.Builder<Builder, NativeTriggerConfiguration, NativeTrigger, NativeTriggerState> {
+            extends ComponentConfiguration.Builder<Builder, NativeTriggerConfiguration, ImmutableNativeTrigger, NativeTriggerState> {
         @Override
         protected NativeTriggerConfiguration buildObjectBeforeValidation() {
             return new NativeTriggerConfiguration(this);

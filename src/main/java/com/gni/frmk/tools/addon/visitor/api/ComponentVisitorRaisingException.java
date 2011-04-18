@@ -12,23 +12,23 @@ import com.gni.frmk.tools.addon.model.component.*;
  */
 public interface ComponentVisitorRaisingException {
 
-    void visit(AdapterConnection visited) throws ComponentVisitorException;
+    void visit(ImmutableAdapterConnection visited) throws ComponentVisitorException;
 
-    void visit(AdapterListener visited) throws ComponentVisitorException;
+    void visit(ImmutableAdapterListener visited) throws ComponentVisitorException;
 
-    void visit(AdapterNotification visited) throws ComponentVisitorException;
+    void visit(ImmutableAdapterNotification visited) throws ComponentVisitorException;
 
-    void visit(Port visited) throws ComponentVisitorException;
+    void visit(ImmutablePort visited) throws ComponentVisitorException;
 
-    void visit(Scheduler visited) throws ComponentVisitorException;
+    void visit(ImmutableScheduler visited) throws ComponentVisitorException;
 
-    void visit(NativeTrigger visited) throws ComponentVisitorException;
+    void visit(ImmutableNativeTrigger visited) throws ComponentVisitorException;
 
-    void visit(JmsTrigger visited) throws ComponentVisitorException;
+    void visit(ImmutableJmsTrigger visited) throws ComponentVisitorException;
 
-    void visit(JmsAlias visited) throws ComponentVisitorException;
+    void visit(ImmutableJmsAlias visited) throws ComponentVisitorException;
 
-    void visit(IntegrationServerPackage visited) throws ComponentVisitorException;
+    void visit(ImmutableIntegrationServerPackage visited) throws ComponentVisitorException;
 
     public static class ComponentVisitorException extends Exception {
         private final Component component;

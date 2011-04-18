@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.oldies.visitor;
 
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.model.configuration.ConfigurationTestRule;
 import org.junit.Test;
 
@@ -15,8 +15,8 @@ public class DiffConfigurationVisitorTest {
 
     @Test
     public void testDiffConfigurationSimple() throws Exception {
-        Configuration c1 = ConfigurationTestRule.loadConfiguration(DiffConfigurationVisitorTest.class, "configuration1");
-        Configuration c2 = ConfigurationTestRule.loadConfiguration(DiffConfigurationVisitorTest.class, "configuration2");
+        ImmutableConfiguration c1 = ConfigurationTestRule.loadConfiguration(DiffConfigurationVisitorTest.class, "configuration1");
+        ImmutableConfiguration c2 = ConfigurationTestRule.loadConfiguration(DiffConfigurationVisitorTest.class, "configuration2");
 //        TODO_DiffConfigurationVisitor_TODO visitor = new TODO_DiffConfigurationVisitor_TODO(c1);
 //        ParseStrategy strategy = new ParseStrategy(visitor);
 //        strategy.execute(c2);

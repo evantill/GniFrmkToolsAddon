@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.model.configuration;
 
-import com.gni.frmk.tools.addon.model.component.AdapterConnection;
+import com.gni.frmk.tools.addon.model.component.ImmutableAdapterConnection;
 import com.gni.frmk.tools.addon.model.component.state.EnableState;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.model.configuration.component.AdapterConnectionConfiguration;
@@ -30,7 +30,7 @@ public class ConfigurationTest {
 
     @Test
     public void testValidation() {
-        AdapterConnection cnx = AdapterConnection.builder()
+        ImmutableAdapterConnection cnx = ImmutableAdapterConnection.builder()
                                                  .alias("alias")
                                                  .adapterType("adapterType")
                                                  .packageName("packageName")
@@ -45,7 +45,7 @@ public class ConfigurationTest {
                                                                                .select(true)
                                                                                .exist(false)
                                                                                .build();
-        Configuration cnf = Configuration.builder()
+        ImmutableConfiguration cnf = ImmutableConfiguration.builder()
                                          .create("WmRoot", "id", util.now())
                                          .addAdapterConnection(cnxConf)
                                          .build();

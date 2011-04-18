@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.handler.configuration.repository;
 
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -47,20 +47,20 @@ public class ConfigurationSerializer {
         return builder.toString();
     }
 
-    public Configuration loadConfiguration(InputStream source) throws SerializationException {
+    public ImmutableConfiguration loadConfiguration(InputStream source) throws SerializationException {
         return loadConfiguration(new InputStreamReader(source));
     }
 
-    public Configuration loadConfiguration(Reader source) throws SerializationException {
+    public ImmutableConfiguration loadConfiguration(Reader source) throws SerializationException {
         try {
             Unmarshaller u = ctx.createUnmarshaller();
-            return (Configuration) u.unmarshal(source);
+            return (ImmutableConfiguration) u.unmarshal(source);
         } catch (JAXBException e) {
             throw new SerializationException(e);
         }
     }
 
-    public void saveConfiguration(Configuration cnf, Writer destination) throws SerializationException {
+    public void saveConfiguration(ImmutableConfiguration cnf, Writer destination) throws SerializationException {
         try {
             Marshaller m = ctx.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, prettyPrint);
@@ -72,7 +72,7 @@ public class ConfigurationSerializer {
         }
     }
 
-    public void saveConfiguration(Configuration cnf, OutputStream destination) throws SerializationException {
+    public void saveConfiguration(ImmutableConfiguration cnf, OutputStream destination) throws SerializationException {
         saveConfiguration(cnf, new OutputStreamWriter(destination));
     }
 

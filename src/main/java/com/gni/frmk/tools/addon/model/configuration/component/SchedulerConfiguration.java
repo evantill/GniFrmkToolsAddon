@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.model.configuration.component;
 
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
-import com.gni.frmk.tools.addon.model.component.Scheduler;
+import com.gni.frmk.tools.addon.model.component.ImmutableScheduler;
 import com.gni.frmk.tools.addon.model.component.state.SchedulerState;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author: e03229
  */
 @XmlRootElement
-public class SchedulerConfiguration extends ComponentConfiguration<Scheduler, SchedulerState> {
+public class SchedulerConfiguration extends ComponentConfiguration<ImmutableScheduler, SchedulerState> {
 
     public SchedulerConfiguration(Builder builder) {
         super(builder);
@@ -37,7 +37,7 @@ public class SchedulerConfiguration extends ComponentConfiguration<Scheduler, Sc
     }
 
     public static class Builder
-            extends ComponentConfiguration.Builder<Builder, SchedulerConfiguration, Scheduler, SchedulerState> {
+            extends ComponentConfiguration.Builder<Builder, SchedulerConfiguration, ImmutableScheduler, SchedulerState> {
         @Override
         protected SchedulerConfiguration buildObjectBeforeValidation() {
             return new SchedulerConfiguration(this);

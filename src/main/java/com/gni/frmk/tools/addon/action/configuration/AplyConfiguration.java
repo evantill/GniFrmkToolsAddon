@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.action.configuration;
 
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.result.ConfigurationResult;
 
 /**
@@ -25,7 +25,7 @@ public class AplyConfiguration extends ConfigurationAction<ConfigurationResult>{
      * @param     configuration
      */
       //TODO implementer apply configuration action
-    protected AplyConfiguration(Configuration configuration) {
+    protected AplyConfiguration(ImmutableConfiguration configuration) {
         super(configuration);
     }
 }

@@ -1,9 +1,6 @@
 package com.gni.frmk.tools.addon.result;
 
-import com.gni.frmk.tools.addon.api.action.ActionException;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
-
-import java.util.List;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,9 +9,9 @@ import java.util.List;
  *
  * @author: e03229
  */
-public class ConfigurationResult extends SingleResult<Configuration> {
+public class ConfigurationResult extends SingleResult<ImmutableConfiguration> {
 
-    public ConfigurationResult(Configuration value) {
+    public ConfigurationResult(ImmutableConfiguration value) {
         super(value);
     }
 }

@@ -2,7 +2,7 @@ package com.gni.frmk.tools.addon.action.configuration;
 
 import com.gni.frmk.tools.addon.api.action.Action;
 import com.gni.frmk.tools.addon.api.action.Result;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 
 /**
  * Created by IntelliJ IDEA.
@@ -13,13 +13,13 @@ import com.gni.frmk.tools.addon.model.configuration.Configuration;
  */
 public abstract class ConfigurationAction<R extends Result> implements Action<R> {
 
-    private final Configuration configuration;
+    private final ImmutableConfiguration configuration;
 
-    protected ConfigurationAction(Configuration configuration) {
+    protected ConfigurationAction(ImmutableConfiguration configuration) {
         this.configuration = configuration;
     }
 
-    public Configuration getConfiguration() {
+    public ImmutableConfiguration getConfiguration() {
         return configuration;
     }
 }

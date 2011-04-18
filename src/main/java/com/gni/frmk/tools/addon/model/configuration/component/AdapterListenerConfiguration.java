@@ -1,7 +1,8 @@
 package com.gni.frmk.tools.addon.model.configuration.component;
 
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
-import com.gni.frmk.tools.addon.model.component.AdapterListener;
+import com.gni.frmk.tools.addon.model.component.ImmutableAdapterListener;
+import com.gni.frmk.tools.addon.model.component.ImmutableAdapterListener;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -14,7 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author: e03229
  */
 @XmlRootElement
-public class AdapterListenerConfiguration extends ComponentConfiguration<AdapterListener, ActivableState> {
+public class AdapterListenerConfiguration extends ComponentConfiguration<ImmutableAdapterListener, ActivableState> {
 
     public AdapterListenerConfiguration(Builder builder) {
         super(builder);
@@ -37,7 +38,7 @@ public class AdapterListenerConfiguration extends ComponentConfiguration<Adapter
     }
 
     public static class Builder
-            extends ComponentConfiguration.Builder<Builder, AdapterListenerConfiguration, AdapterListener, ActivableState> {
+            extends ComponentConfiguration.Builder<Builder, AdapterListenerConfiguration, ImmutableAdapterListener, ActivableState> {
         @Override
         protected AdapterListenerConfiguration buildObjectBeforeValidation() {
             return new AdapterListenerConfiguration(this);

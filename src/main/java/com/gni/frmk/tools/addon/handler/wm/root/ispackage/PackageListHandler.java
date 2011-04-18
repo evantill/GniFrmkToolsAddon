@@ -4,8 +4,7 @@ import com.gni.frmk.tools.addon.action.wm.root.ispackage.PackageList;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.model.component.IntegrationServerPackage;
-import com.gni.frmk.tools.addon.model.component.IntegrationServerPackage.IntegrationServerPackageBuilder;
+import com.gni.frmk.tools.addon.model.component.ImmutableIntegrationServerPackage.MutableIntegrationServerPackage;
 import com.gni.frmk.tools.addon.model.component.state.EnableState;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.result.SetResult;
@@ -21,8 +20,8 @@ import java.util.Map;
  *
  * @author: e03229
  */
-public class PackageListHandler extends AbstractInvokeHandler<PackageList, SetResult<IntegrationServerPackage>>
-        implements ActionHandler<PackageList, SetResult<IntegrationServerPackage>, InvokeContext> {
+public class PackageListHandler extends AbstractInvokeHandler<PackageList, SetResult<MutableIntegrationServerPackage>>
+        implements ActionHandler<PackageList, SetResult<MutableIntegrationServerPackage>, InvokeContext> {
 
     public PackageListHandler() {
         super("wm.server.packages:packageList");
@@ -34,11 +33,11 @@ public class PackageListHandler extends AbstractInvokeHandler<PackageList, SetRe
     }
 
     @Override
-    protected SetResult<IntegrationServerPackage> parseOutput(PackageList action, IData output) {
+    protected SetResult<MutableIntegrationServerPackage> parseOutput(PackageList action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
-            Map<String, IntegrationServerPackage> values = Maps.newHashMap();
-            for (IntegrationServerPackage value : action.getCollection()) {
+            Map<String, MutableIntegrationServerPackage> values = Maps.newHashMap();
+            for (MutableIntegrationServerPackage value : action.getCollection()) {
                 values.put(value.getComponentId().asString(), value);
             }
             IData[] packagesDatas = IDataUtil.getIDataArray(cur, "packages");
@@ -47,25 +46,22 @@ public class PackageListHandler extends AbstractInvokeHandler<PackageList, SetRe
                     IDataCursor curLoop = packageData.getCursor();
                     try {
                         String pkgName = IDataUtil.getString(curLoop, "name");
-                        IntegrationServerPackage value = values.get(pkgName);
+                        MutableIntegrationServerPackage value = values.get(pkgName);
                         if (value == null && action.isUpdate()) {
                             continue;
-                        }
-                        IntegrationServerPackageBuilder builder = IntegrationServerPackage.builder();
-                        if (action.isUpdate()) {
-                            builder.from(value);
-                        } else {
-                            builder.packageName(pkgName);
+                        } else if (value == null && !action.isUpdate()) {
+                            value = new MutableIntegrationServerPackage();
+                            value.setPackageName(pkgName);
                         }
                         EnableStatus enabled = EnableStatus.fromBooleanString(IDataUtil.getString(curLoop, "enabled"));
-                        value = builder.defineState(new EnableState(enabled)).build();
+                        value.setState(new EnableState(enabled));
                         values.put(value.getComponentId().asString(), value);
                     } finally {
                         curLoop.destroy();
                     }
                 }
             }
-            return new SetResult<IntegrationServerPackage>(values.values());
+            return new SetResult<MutableIntegrationServerPackage>(values.values());
         } finally {
             cur.destroy();
         }

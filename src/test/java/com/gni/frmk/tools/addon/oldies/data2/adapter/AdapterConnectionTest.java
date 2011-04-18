@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.oldies.data2.adapter;
 
-import com.gni.frmk.tools.addon.model.component.AdapterConnection;
+import com.gni.frmk.tools.addon.model.component.ImmutableAdapterConnection;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -22,13 +22,13 @@ public class AdapterConnectionTest {
     static class AdapterConnectionXmlRoot {
 
         @XmlElement
-        private AdapterConnection connection;
+        private ImmutableAdapterConnection connection;
 
-        public AdapterConnection getConnection() {
+        public ImmutableAdapterConnection getConnection() {
             return connection;
         }
 
-        public void setConnection(AdapterConnection connection) {
+        public void setConnection(ImmutableAdapterConnection connection) {
             this.connection = connection;
         }
     }

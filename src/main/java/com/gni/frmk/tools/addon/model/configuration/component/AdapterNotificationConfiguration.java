@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.model.configuration.component;
 
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
-import com.gni.frmk.tools.addon.model.component.AdapterNotification;
+import com.gni.frmk.tools.addon.model.component.ImmutableAdapterNotification;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author: e03229
  */
 @XmlRootElement
-public class AdapterNotificationConfiguration extends ComponentConfiguration<AdapterNotification, ActivableState> {
+public class AdapterNotificationConfiguration extends ComponentConfiguration<ImmutableAdapterNotification, ActivableState> {
 
     public AdapterNotificationConfiguration(Builder builder) {
         super(builder);
@@ -36,7 +36,7 @@ public class AdapterNotificationConfiguration extends ComponentConfiguration<Ada
     }
 
     public static class Builder
-            extends ComponentConfiguration.Builder<Builder, AdapterNotificationConfiguration, AdapterNotification, ActivableState> {
+            extends ComponentConfiguration.Builder<Builder, AdapterNotificationConfiguration, ImmutableAdapterNotification, ActivableState> {
         @Override
         protected AdapterNotificationConfiguration buildObjectBeforeValidation() {
             return new AdapterNotificationConfiguration(this);

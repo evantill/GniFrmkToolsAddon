@@ -25,7 +25,7 @@ import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisited;
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.component.*;
 import com.gni.frmk.tools.addon.model.component.state.*;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.model.configuration.component.*;
 import com.gni.frmk.tools.addon.model.configuration.component.ComponentConfiguration.ComponentStateContext;
 import com.google.common.collect.Lists;
@@ -56,13 +56,13 @@ public class OpenPlateformVisitor
     }
 
     @Override
-    public void visitConfiguration(Configuration configuration) {
+    public void visitConfiguration(ImmutableConfiguration configuration) {
         //TODO peut etre modifier la date de derniere modification de la configuration
     }
 
     @Override
     public void visitComponentConfiguration(AdapterConnectionConfiguration visited) {
-        AdapterConnection component = visited.getComponent();
+        ImmutableAdapterConnection component = visited.getComponent();
         EnableState openState = visited.getStates().get(ComponentStateContext.OPEN);
         switch (openState.getEnabled()) {
             case ENABLED:
@@ -76,7 +76,7 @@ public class OpenPlateformVisitor
 
     @Override
     public void visitComponentConfiguration(AdapterListenerConfiguration visited) {
-        AdapterListener component = visited.getComponent();
+        ImmutableAdapterListener component = visited.getComponent();
         ActivableState openState = visited.getStates().get(ComponentStateContext.OPEN);
         switch (openState.getEnabled()) {
             case ENABLED:
@@ -98,7 +98,7 @@ public class OpenPlateformVisitor
 
     @Override
     public void visitComponentConfiguration(AdapterNotificationConfiguration visited) {
-        AdapterNotification component = visited.getComponent();
+        ImmutableAdapterNotification component = visited.getComponent();
         ActivableState openState = visited.getStates().get(ComponentStateContext.OPEN);
         switch (openState.getEnabled()) {
             case ENABLED:
@@ -120,7 +120,7 @@ public class OpenPlateformVisitor
 
     @Override
     public void visitComponentConfiguration(PortConfiguration visited) {
-        Port component = visited.getComponent();
+        ImmutablePort component = visited.getComponent();
         ActivableState openState = visited.getStates().get(ComponentStateContext.OPEN);
         switch (openState.getEnabled()) {
             case ENABLED:
@@ -134,7 +134,7 @@ public class OpenPlateformVisitor
 
     @Override
     public void visitComponentConfiguration(SchedulerConfiguration visited) {
-        Scheduler component = visited.getComponent();
+        ImmutableScheduler component = visited.getComponent();
         SchedulerState openState = visited.getStates().get(ComponentStateContext.OPEN);
         switch (openState.getEnabled()) {
             case ENABLED:
@@ -161,7 +161,7 @@ public class OpenPlateformVisitor
      */
     @Override
     public void visitComponentConfiguration(NativeTriggerConfiguration visited) {
-        NativeTrigger component = visited.getComponent();
+        ImmutableNativeTrigger component = visited.getComponent();
         String triggerName = component.getName();
         NativeTriggerState openState = visited.getStates().get(ComponentStateContext.OPEN);
         //Normally, disabling/enabling a trigger is only done in DEV so we will ignore disabled triggers
@@ -211,7 +211,7 @@ public class OpenPlateformVisitor
     //TODO change status to a tri state one
     @Override
     public void visitComponentConfiguration(JmsTriggerConfiguration visited) {
-        JmsTrigger component = visited.getComponent();
+        ImmutableJmsTrigger component = visited.getComponent();
         ActivableState openState = visited.getStates().get(ComponentStateContext.OPEN);
         switch (openState.getActivable()) {
             case INACTIVE:
@@ -232,7 +232,7 @@ public class OpenPlateformVisitor
 
     @Override
     public void visitComponentConfiguration(JmsAliasConfiguration visited) {
-        JmsAlias component = visited.getComponent();
+        ImmutableJmsAlias component = visited.getComponent();
         ConnectableState openState = visited.getStates().get(ComponentStateContext.OPEN);
         switch (openState.getEnabled()) {
             case ENABLED:

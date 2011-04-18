@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.model.configuration.component;
 
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
-import com.gni.frmk.tools.addon.model.component.JmsAlias;
+import com.gni.frmk.tools.addon.model.component.ImmutableJmsAlias;
 import com.gni.frmk.tools.addon.model.component.state.ConnectableState;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author: e03229
  */
 @XmlRootElement
-public class JmsAliasConfiguration extends ComponentConfiguration<JmsAlias, ConnectableState> {
+public class JmsAliasConfiguration extends ComponentConfiguration<ImmutableJmsAlias, ConnectableState> {
 
     public JmsAliasConfiguration(Builder builder) {
         super(builder);
@@ -37,7 +37,7 @@ public class JmsAliasConfiguration extends ComponentConfiguration<JmsAlias, Conn
     }
 
     public static class Builder
-            extends ComponentConfiguration.Builder<Builder, JmsAliasConfiguration, JmsAlias, ConnectableState> {
+            extends ComponentConfiguration.Builder<Builder, JmsAliasConfiguration, ImmutableJmsAlias, ConnectableState> {
         @Override
         protected JmsAliasConfiguration buildObjectBeforeValidation() {
             return new JmsAliasConfiguration(this);

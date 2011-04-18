@@ -4,7 +4,8 @@ import com.gni.frmk.tools.addon.action.configuration.RefreshConfiguration;
 import com.gni.frmk.tools.addon.api.action.*;
 import com.gni.frmk.tools.addon.handler.configuration.visitor.RefreshConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.api.Component;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration.MutableConfiguration;
 import com.gni.frmk.tools.addon.result.ConfigurationResult;
 
 import java.util.Collection;
@@ -26,8 +27,8 @@ public class RefreshConfigurationHandler
 
     @Override
     public ConfigurationResult execute(RefreshConfiguration action, ExecutionContext context) throws ActionException {
-        Configuration configuration = action.getConfiguration();
-        Configuration.Builder builder = Configuration.builder();
+        ImmutableConfiguration configuration = action.getConfiguration();
+        MutableConfiguration builder = ImmutableConfiguration.builder();
         builder.from(configuration);
 
         RefreshConfigurationVisitor visitor = new RefreshConfigurationVisitor();

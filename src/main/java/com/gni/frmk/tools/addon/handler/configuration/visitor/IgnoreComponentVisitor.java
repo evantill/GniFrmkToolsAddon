@@ -1,10 +1,7 @@
 package com.gni.frmk.tools.addon.handler.configuration.visitor;
 
-import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisited;
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.component.*;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
-import com.gni.frmk.tools.addon.model.configuration.component.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,29 +12,29 @@ import com.gni.frmk.tools.addon.model.configuration.component.*;
  */
 public abstract class IgnoreComponentVisitor implements ConfigurationVisitor {
     @Override
-    public final void visitComponent(AdapterConnection visited) {}
+    public final void visitComponent(ImmutableAdapterConnection visited) {}
 
     @Override
-    public final void visitComponent(AdapterListener visited) {}
+    public final void visitComponent(ImmutableAdapterListener visited) {}
 
     @Override
-    public final void visitComponent(AdapterNotification visited) {}
+    public final void visitComponent(ImmutableAdapterNotification visited) {}
 
     @Override
-    public final void visitComponent(Port visited) {}
+    public final void visitComponent(ImmutablePort visited) {}
 
     @Override
-    public final void visitComponent(Scheduler visited) {}
+    public final void visitComponent(ImmutableScheduler visited) {}
 
     @Override
-    public final void visitComponent(NativeTrigger visited) {}
+    public final void visitComponent(ImmutableNativeTrigger visited) {}
 
     @Override
-    public final void visitComponent(JmsTrigger visited) {}
+    public final void visitComponent(ImmutableJmsTrigger visited) {}
 
     @Override
-    public final void visitComponent(JmsAlias visited) {}
+    public final void visitComponent(ImmutableJmsAlias visited) {}
 
     @Override
-    public final void visitComponent(IntegrationServerPackage visited) {}
+    public final void visitComponent(ImmutableIntegrationServerPackage visited) {}
 }

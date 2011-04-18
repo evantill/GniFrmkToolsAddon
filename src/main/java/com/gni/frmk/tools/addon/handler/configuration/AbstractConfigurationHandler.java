@@ -9,7 +9,7 @@ import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.api.configuration.ConfigurationProcessingStrategy.Operation;
 import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisited;
 import com.gni.frmk.tools.addon.handler.configuration.repository.ConfigurationRepository;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.result.ConfigurationResult;
 
 /**
@@ -71,14 +71,14 @@ public abstract class AbstractConfigurationHandler<A extends ConfigurationAction
 
     @Override
     public final R execute(A action, E context) throws DispatchException {
-        Configuration conf = doExtractActionFromAction(action, context);
+        ImmutableConfiguration conf = doExtractActionFromAction(action, context);
         cnfVisitorAdapter.dispatchVisit(action.getConfiguration());
         return doPrepareResponse(action, context, conf);
     }
 
-    protected abstract R doPrepareResponse(A action, E context, Configuration configuration);
+    protected abstract R doPrepareResponse(A action, E context, ImmutableConfiguration configuration);
 
-    protected abstract Configuration doExtractActionFromAction(A action, E context);
+    protected abstract ImmutableConfiguration doExtractActionFromAction(A action, E context);
 
 
 }

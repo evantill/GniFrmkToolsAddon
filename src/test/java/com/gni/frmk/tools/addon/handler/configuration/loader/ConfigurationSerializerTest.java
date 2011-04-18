@@ -2,7 +2,7 @@ package com.gni.frmk.tools.addon.handler.configuration.loader;
 
 import com.gni.frmk.tools.addon.handler.configuration.repository.ConfigurationSerializer;
 import com.gni.frmk.tools.addon.handler.configuration.repository.ConfigurationSerializer.SerializationException;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.model.configuration.ConfigurationTest;
 import com.gni.frmk.tools.addon.model.configuration.ConfigurationTestRule;
 import org.custommonkey.xmlunit.XMLUnit;
@@ -51,7 +51,7 @@ public class ConfigurationSerializerTest {
 
     @Test
     public void testSaveSimpleConfiguration() throws IOException, SAXException {
-        Configuration cnf = util.newSimpleConfiguration();
+        ImmutableConfiguration cnf = util.newSimpleConfiguration();
         StringWriter out = new StringWriter();
         serializer.saveConfiguration(cnf, out);
         assertXMLEqual(xmlSimple, out.toString());
@@ -59,9 +59,9 @@ public class ConfigurationSerializerTest {
 
     @Test
     public void testLoadSimpleConfiguration() throws SerializationException {
-        Configuration fromCnf = util.newSimpleConfiguration();
+        ImmutableConfiguration fromCnf = util.newSimpleConfiguration();
         StringReader in = new StringReader(xmlSimple);
-        Configuration fromXml = serializer.loadConfiguration(in);
+        ImmutableConfiguration fromXml = serializer.loadConfiguration(in);
         util.raiseExceptionIfInvalid(fromXml);
         assertNotNull(fromXml);
         assertEquals(fromCnf.getAdapterConnectionConfigurations().size(), fromXml.getAdapterConnectionConfigurations()
@@ -70,7 +70,7 @@ public class ConfigurationSerializerTest {
 
     @Test
     public void testSaveFullConfiguration() throws IOException, SAXException {
-        Configuration cnf = util.newFullConfiguration();
+        ImmutableConfiguration cnf = util.newFullConfiguration();
         StringWriter out = new StringWriter();
         serializer.saveConfiguration(cnf, out);
         assertXMLEqual(xmlFull, out.toString());
@@ -78,9 +78,9 @@ public class ConfigurationSerializerTest {
 
     @Test
     public void testLoadFullConfiguration() throws SerializationException {
-        Configuration fromCnf = util.newFullConfiguration();
+        ImmutableConfiguration fromCnf = util.newFullConfiguration();
         StringReader in = new StringReader(xmlFull);
-        Configuration fromXml = serializer.loadConfiguration(in);
+        ImmutableConfiguration fromXml = serializer.loadConfiguration(in);
         util.raiseExceptionIfInvalid(fromXml);
         assertNotNull(fromXml);
         assertEquals(fromCnf.getAdapterConnectionConfigurations().size(),
