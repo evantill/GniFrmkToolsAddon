@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.handler.wm.art.listener;
 
 import com.gni.frmk.tools.addon.action.wm.art.listener.ResumeListener;
-import com.gni.frmk.tools.addon.api.action.ActionHandler;
+import ev.frmk.tools.plateform.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.result.NoResult;
@@ -29,8 +29,7 @@ public class ResumeListenerHandler extends AbstractInvokeHandler<ResumeListener,
     @Override
     protected IData prepareInput(ResumeListener in) {
         return IDataFactory.create(new Object[][]{
-                {"listenerName",
-                 in.getParameter()}
+                {"listenerName",in.getId().getName()}
         });
     }
 

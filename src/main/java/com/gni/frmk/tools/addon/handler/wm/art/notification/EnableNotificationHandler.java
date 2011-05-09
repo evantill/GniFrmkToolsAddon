@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.handler.wm.art.notification;
 
 import com.gni.frmk.tools.addon.action.wm.art.notifications.EnableNotification;
-import com.gni.frmk.tools.addon.api.action.ActionHandler;
+import ev.frmk.tools.plateform.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.result.NoResult;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
@@ -35,7 +35,7 @@ public class EnableNotificationHandler extends AbstractInvokeHandler<EnableNotif
     protected IData prepareInput(EnableNotification in) {
         return IDataFactory.create(new Object[][]{
                 {"notificationName",
-                 in.getParameter()}
+                 in.getId().getName()}
         });
     }
 }

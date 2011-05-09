@@ -1,18 +1,16 @@
 package com.gni.frmk.tools.addon.handler.wm.art.listener;
 
 import com.gni.frmk.tools.addon.action.wm.art.listener.ListListeners;
-import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
-import com.gni.frmk.tools.addon.handler.wm.art.AdapterTypeAwareHandler;
-import com.gni.frmk.tools.addon.model.component.ImmutableAdapterListener.MutableAdapterListener;
-import com.gni.frmk.tools.addon.model.component.state.ActivableState;
+import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
+import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.model.AdapterId;
 import com.gni.frmk.tools.addon.result.ListResult;
-import com.google.common.collect.Maps;
+import com.google.common.collect.Lists;
 import com.wm.data.*;
+import ev.frmk.tools.plateform.api.action.ActionHandler;
 
-import java.util.Map;
-
-import static com.gni.frmk.tools.addon.handler.wm.art.ListenerNotificationUtils.defineState;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,8 +19,9 @@ import static com.gni.frmk.tools.addon.handler.wm.art.ListenerNotificationUtils.
  *
  * @author: e03229
  */
-public class ListListenersHandler extends AdapterTypeAwareHandler<ListListeners, ListResult<MutableAdapterListener>>
-        implements ActionHandler<ListListeners, ListResult<MutableAdapterListener>, InvokeContext> {
+public class ListListenersHandler
+        extends AbstractInvokeHandler<ListListeners, ListResult<AdapterId>>
+        implements ActionHandler<ListListeners, ListResult<AdapterId>, InvokeContext> {
 
     public ListListenersHandler() {
         super("pub.art.listener:listAdapterListeners");
@@ -34,41 +33,35 @@ public class ListListenersHandler extends AdapterTypeAwareHandler<ListListeners,
     }
 
     @Override
-    protected ListResult<MutableAdapterListener> parseOutput(ListListeners action, IData output) {
+    protected IData prepareInput(ListListeners action) throws ParseInputException {
+        return IDataFactory.create(new Object[][]{
+                {"adapterTypeName",
+                 action.getAdapterType()}
+        });
+    }
+
+    @Override
+    protected ListResult<AdapterId> parseOutput(ListListeners action, IData output) {
         //TODO TESTER chez ALU sur les SAP Listeners
         IDataCursor cur = output.getCursor();
         try {
-            Map<String, MutableAdapterListener> values = Maps.newHashMap();
-            for (MutableAdapterListener listener : action.getCollection()) {
-                values.put(listener.getComponentId().asString(), listener);
-            }
             IData[] dataList = IDataUtil.getIDataArray(cur, "listenerDataList");
-            String adapterType = action.getParameter();
+            final String adapterType = action.getAdapterType();
+            final List<AdapterId> result = Lists.newArrayList();
             if (dataList != null) {
                 for (IData single : dataList) {
                     IDataCursor curLoop = single.getCursor();
                     try {
                         String listenerNodeName = IDataUtil.getString(curLoop, "notificationNodeName");
-                        MutableAdapterListener value = values.get(listenerNodeName);
-                        if (value == null && action.isUpdate()) {
-                            continue;
-                        } else if (value == null && !action.isUpdate()) {
-                            value = new MutableAdapterListener();
-                            value.setAdapterType(adapterType);
-                            value.setPackageName(IDataUtil.getString(curLoop, "packageName"));
-                        }
-                        ActivableState state = defineState(IDataUtil.getString(curLoop, "notificationEnabled"));
-                        value.setState(state);
-                        values.put(value.getComponentId().asString(), value);
+                        result.add(new AdapterId(listenerNodeName, adapterType));
                     } finally {
                         curLoop.destroy();
                     }
                 }
             }
-            return new ListResult<MutableAdapterListener>(values.values());
+            return new ListResult<AdapterId>(result);
         } finally {
             cur.destroy();
         }
-
     }
 }

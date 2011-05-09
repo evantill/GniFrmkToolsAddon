@@ -1,18 +1,16 @@
 package com.gni.frmk.tools.addon.handler.wm.art.notification;
 
 import com.gni.frmk.tools.addon.action.wm.art.notifications.ListNotifications;
-import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
-import com.gni.frmk.tools.addon.handler.wm.art.AdapterTypeAwareHandler;
-import com.gni.frmk.tools.addon.model.component.ImmutableAdapterNotification.MutableAdapterNotification;
-import com.gni.frmk.tools.addon.model.component.state.ActivableState;
+import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
+import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.model.AdapterId;
 import com.gni.frmk.tools.addon.result.ListResult;
-import com.google.common.collect.Maps;
+import com.google.common.collect.Lists;
 import com.wm.data.*;
+import ev.frmk.tools.plateform.api.action.ActionHandler;
 
-import java.util.Map;
-
-import static com.gni.frmk.tools.addon.handler.wm.art.ListenerNotificationUtils.defineState;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,8 +19,9 @@ import static com.gni.frmk.tools.addon.handler.wm.art.ListenerNotificationUtils.
  *
  * @author: e03229
  */
-public class ListNotificationsHandler extends AdapterTypeAwareHandler<ListNotifications, ListResult<MutableAdapterNotification>>
-        implements ActionHandler<ListNotifications, ListResult<MutableAdapterNotification>, InvokeContext> {
+public class ListNotificationsHandler
+        extends AbstractInvokeHandler<ListNotifications, ListResult<AdapterId>>
+        implements ActionHandler<ListNotifications, ListResult<AdapterId>, InvokeContext> {
 
     public ListNotificationsHandler() {
         super("pub.art.notification:listAdapterPollingNotifications");
@@ -34,41 +33,36 @@ public class ListNotificationsHandler extends AdapterTypeAwareHandler<ListNotifi
     }
 
     @Override
-    protected ListResult<MutableAdapterNotification> parseOutput(ListNotifications action, IData output) {
+    protected IData prepareInput(ListNotifications action) throws ParseInputException {
+        return IDataFactory.create(new Object[][]{
+                {"adapterTypeName",
+                 action.getAdapterType()}
+        });
+    }
+
+
+    @Override
+    protected ListResult<AdapterId> parseOutput(ListNotifications action, IData output) {
+        //TODO TESTER chez ALU sur les SAP Listeners
         IDataCursor cur = output.getCursor();
         try {
-            Map<String, MutableAdapterNotification> values = Maps.newHashMap();
-            for (MutableAdapterNotification notification : action.getCollection()) {
-                values.put(notification.getComponentId().asString(), notification);
-            }
             IData[] dataList = IDataUtil.getIDataArray(cur, "notificationDataList");
-            String adapterType = action.getParameter();
+            final String adapterType = action.getAdapterType();
+            final List<AdapterId> result = Lists.newArrayList();
             if (dataList != null) {
                 for (IData single : dataList) {
                     IDataCursor curLoop = single.getCursor();
                     try {
-                        String notificationNodeName = IDataUtil.getString(curLoop, "notificationNodeName");
-                        MutableAdapterNotification value = values.get(notificationNodeName);
-                        if (value == null && action.isUpdate()) {
-                            continue;
-                        } else if (value == null && !action.isUpdate()) {
-                            value = new MutableAdapterNotification();
-                            value.setAdapterType(adapterType);
-                            value.setPackageName(IDataUtil.getString(curLoop, "packageName"));
-                        }
-
-                        ActivableState state = defineState(IDataUtil.getString(curLoop, "notificationEnabled"));
-                        value.setState(state);
-                        values.put(value.getComponentId().asString(), value);
+                        String listenerNodeName = IDataUtil.getString(curLoop, "notificationNodeName");
+                        result.add(new AdapterId(listenerNodeName, adapterType));
                     } finally {
                         curLoop.destroy();
                     }
                 }
             }
-            return new ListResult<MutableAdapterNotification>(values.values());
+            return new ListResult<AdapterId>(result);
         } finally {
             cur.destroy();
         }
-
     }
 }
