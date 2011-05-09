@@ -1,14 +1,8 @@
 package com.gni.frmk.tools.addon.action.wm.art.notifications;
 
-import com.gni.frmk.tools.addon.action.StringAction;
-import com.gni.frmk.tools.addon.action.UpdatableCollectionAction;
-import com.gni.frmk.tools.addon.model.component.ImmutableAdapterNotification.MutableAdapterNotification;
+import com.gni.frmk.tools.addon.model.AdapterId;
 import com.gni.frmk.tools.addon.result.ListResult;
-import com.google.common.collect.Lists;
-
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import ev.frmk.tools.plateform.api.action.Action;
 
 /**
  * Created by IntelliJ IDEA.
@@ -18,33 +12,15 @@ import java.util.List;
  * @author: e03229
  */
 public class ListNotifications
-        extends StringAction<ListResult<MutableAdapterNotification>>
-        implements UpdatableCollectionAction<MutableAdapterNotification, List<MutableAdapterNotification>, ListResult<MutableAdapterNotification>> {
+        implements Action<ListResult<AdapterId>> {
 
-    private final List<MutableAdapterNotification> notifications = Lists.newArrayList();
+    private final String adapterType;
 
     public ListNotifications(String adapterType) {
-        super(adapterType);
+        this.adapterType = adapterType;
     }
 
-    @Override
-    public void setCollection(Collection<MutableAdapterNotification> collection) {
-        notifications.addAll(collection);
+    public String getAdapterType() {
+        return adapterType;
     }
-
-    @Override
-    public List<MutableAdapterNotification> getCollection() {
-        return Collections.unmodifiableList(notifications);
-    }
-
-    @Override
-    public void addToCollection(MutableAdapterNotification element) {
-        notifications.add(element);
-    }
-
-    @Override
-    public boolean isUpdate() {
-        return notifications.size() > 0;
-    }
-
 }

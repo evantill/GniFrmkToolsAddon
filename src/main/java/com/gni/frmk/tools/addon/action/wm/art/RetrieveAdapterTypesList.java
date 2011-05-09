@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.action.wm.art;
 
-import com.gni.frmk.tools.addon.api.action.Action;
+import ev.frmk.tools.plateform.api.action.Action;
 import com.gni.frmk.tools.addon.result.SetResult;
 
 /**

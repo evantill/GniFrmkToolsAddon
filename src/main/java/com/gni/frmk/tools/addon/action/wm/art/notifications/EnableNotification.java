@@ -1,7 +1,9 @@
 package com.gni.frmk.tools.addon.action.wm.art.notifications;
 
 import com.gni.frmk.tools.addon.action.StringAction;
+import com.gni.frmk.tools.addon.model.AdapterId;
 import com.gni.frmk.tools.addon.result.NoResult;
+import ev.frmk.tools.plateform.api.action.Action;
 
 /**
  * Created by IntelliJ IDEA.
@@ -10,8 +12,14 @@ import com.gni.frmk.tools.addon.result.NoResult;
  *
  * @author: e03229
  */
-public class EnableNotification extends StringAction<NoResult> {
-    public EnableNotification(String notificationName) {
-        super(notificationName);
+public class EnableNotification implements Action<NoResult> {
+    private final AdapterId id;
+
+    public EnableNotification(AdapterId id) {
+        this.id = id;
+    }
+
+    public AdapterId getId() {
+        return id;
     }
 }

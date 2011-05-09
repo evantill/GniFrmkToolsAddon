@@ -1,7 +1,9 @@
 package com.gni.frmk.tools.addon.action.wm.art.listener;
 
 import com.gni.frmk.tools.addon.action.StringAction;
+import com.gni.frmk.tools.addon.model.AdapterId;
 import com.gni.frmk.tools.addon.result.NoResult;
+import ev.frmk.tools.plateform.api.action.Action;
 
 /**
  * Created by IntelliJ IDEA.
@@ -10,8 +12,14 @@ import com.gni.frmk.tools.addon.result.NoResult;
  *
  * @author: e03229
  */
-public class DisableListener extends StringAction<NoResult> {
-    public DisableListener(String listenerName) {
-        super(listenerName);
+public class DisableListener implements Action<NoResult> {
+    private final AdapterId id;
+
+    public DisableListener(AdapterId id) {
+        this.id = id;
+    }
+
+    public AdapterId getId() {
+        return id;
     }
 }

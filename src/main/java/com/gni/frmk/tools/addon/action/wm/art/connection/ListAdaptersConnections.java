@@ -1,15 +1,8 @@
 package com.gni.frmk.tools.addon.action.wm.art.connection;
 
-import com.gni.frmk.tools.addon.action.StringAction;
-import com.gni.frmk.tools.addon.action.UpdatableCollectionAction;
-import com.gni.frmk.tools.addon.model.component.ImmutableAdapterConnection;
-import com.gni.frmk.tools.addon.model.component.ImmutableAdapterConnection.MutableAdapterConnection;
+import com.gni.frmk.tools.addon.model.AdapterId;
 import com.gni.frmk.tools.addon.result.ListResult;
-import com.google.common.collect.Lists;
-
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import ev.frmk.tools.plateform.api.action.Action;
 
 /**
  * Created by IntelliJ IDEA.
@@ -18,33 +11,15 @@ import java.util.List;
  *
  * @author: e03229
  */
-public class ListAdaptersConnections
-        extends StringAction<ListResult<MutableAdapterConnection>>
-        implements UpdatableCollectionAction<MutableAdapterConnection, List<MutableAdapterConnection>, ListResult<MutableAdapterConnection>> {
+public class ListAdaptersConnections implements Action<ListResult<AdapterId>> {
 
-    private final List<MutableAdapterConnection> connections = Lists.newArrayList();
+    private final String adapterType;
 
     public ListAdaptersConnections(String adapterType) {
-        super(adapterType);
+        this.adapterType = adapterType;
     }
 
-    @Override
-    public void setCollection(Collection<MutableAdapterConnection> collection) {
-        connections.addAll(connections);
-    }
-
-    @Override
-    public void addToCollection(MutableAdapterConnection element) {
-        connections.add(element);
-    }
-
-    @Override
-    public List<MutableAdapterConnection> getCollection() {
-        return Collections.unmodifiableList(connections);
-    }
-
-    @Override
-    public boolean isUpdate() {
-        return connections.size() > 0;
+    public String getAdapterType() {
+        return adapterType;
     }
 }
