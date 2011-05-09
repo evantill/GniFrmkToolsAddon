@@ -1,8 +1,8 @@
 package com.gni.frmk.tools.addon.handler.wm;
 
-import com.gni.frmk.tools.addon.api.action.Action;
-import com.gni.frmk.tools.addon.api.action.ActionHandler;
-import com.gni.frmk.tools.addon.api.action.Result;
+import ev.frmk.tools.plateform.api.action.Action;
+import ev.frmk.tools.plateform.api.action.ActionHandler;
+import ev.frmk.tools.plateform.api.action.Result;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInvokeException;
 import com.wm.lang.ns.NSName;
