@@ -3,11 +3,11 @@ package com.gni.frmk.tools.addon.handler.wm.root.service;
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
 import com.gni.frmk.tools.addon.action.wm.root.service.GetAllServiceStats;
 import com.gni.frmk.tools.addon.action.wm.root.service.GetAllServiceStats.Result;
-import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
 import com.google.common.collect.Sets;
 import com.wm.data.*;
+import ev.frmk.tools.plateform.api.action.ActionHandler;
 
 import java.util.Set;
 
@@ -20,7 +20,8 @@ import static com.google.common.collect.Sets.filter;
  *
  * @author: e03229
  */
-public class GetAllServiceStatsHandler extends AbstractInvokeHandler<GetAllServiceStats, Result>
+public class GetAllServiceStatsHandler
+        extends AbstractInvokeHandler<GetAllServiceStats, Result>
         implements ActionHandler<GetAllServiceStats, Result, InvokeContext> {
 
     public GetAllServiceStatsHandler() {

@@ -57,7 +57,8 @@ public class WaitServicesEndHandler implements InvokeHandler<WaitServicesEnd, No
             }
         }
         if (nbrRunning > 0) {
-            throw new ServiceInvokeException(context, action, getService(), null, String.format("waitServicesEnd timeout : still %s service(s) running", nbrRunning));
+            final String message = String.format("waitServicesEnd timeout : still %s service(s) running", nbrRunning);
+            throw new ServiceInvokeException(context, action, getService(), message);
         }
         return NoResult.newInstance();
     }
