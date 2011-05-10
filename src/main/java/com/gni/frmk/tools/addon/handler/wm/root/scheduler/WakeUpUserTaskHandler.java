@@ -1,11 +1,11 @@
 package com.gni.frmk.tools.addon.handler.wm.root.scheduler;
 
 import com.gni.frmk.tools.addon.action.wm.root.scheduler.WakeUpUserTask;
-import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.result.NoResult;
 import com.wm.data.*;
+import ev.frmk.tools.plateform.api.action.ActionHandler;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,7 +14,8 @@ import com.wm.data.*;
  *
  * @author: e03229
  */
-public class WakeUpUserTaskHandler extends AbstractInvokeHandler<WakeUpUserTask, NoResult>
+public class WakeUpUserTaskHandler
+        extends AbstractInvokeHandler<WakeUpUserTask, NoResult>
         implements ActionHandler<WakeUpUserTask, NoResult, InvokeContext> {
 
     public WakeUpUserTaskHandler() {
@@ -27,15 +28,17 @@ public class WakeUpUserTaskHandler extends AbstractInvokeHandler<WakeUpUserTask,
     }
 
     @Override
-    protected NoResult parseOutput(WakeUpUserTask action, IData output) {
+    protected NoResult parseOutput(WakeUpUserTask
+            action, IData output) {
         return NoResult.newInstance();
     }
 
     @Override
-    protected IData prepareInput(WakeUpUserTask in) {
+    protected IData prepareInput(WakeUpUserTask
+            in) {
         return IDataFactory.create(new Object[][]{
                 {"oid",
-                 in.getParameter()}
+                 in.getOid().getValue()}
         });
     }
 }

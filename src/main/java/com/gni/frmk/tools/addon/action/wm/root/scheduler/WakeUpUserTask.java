@@ -1,7 +1,8 @@
 package com.gni.frmk.tools.addon.action.wm.root.scheduler;
 
-import com.gni.frmk.tools.addon.action.StringAction;
+import com.gni.frmk.tools.addon.model.StringId;
 import com.gni.frmk.tools.addon.result.NoResult;
+import ev.frmk.tools.plateform.api.action.Action;
 
 /**
  * Created by IntelliJ IDEA.
@@ -10,8 +11,15 @@ import com.gni.frmk.tools.addon.result.NoResult;
  *
  * @author: e03229
  */
-public class WakeUpUserTask extends StringAction<NoResult> {
-    public WakeUpUserTask(String oid) {
-        super(oid);
+public class WakeUpUserTask implements Action<NoResult> {
+
+    private final StringId oid;
+
+    public WakeUpUserTask(StringId oid) {
+        this.oid = oid;
+    }
+
+    public StringId getOid() {
+        return oid;
     }
 }
