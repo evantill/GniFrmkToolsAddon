@@ -1,11 +1,11 @@
 package com.gni.frmk.tools.addon.handler.wm.root.scheduler;
 
 import com.gni.frmk.tools.addon.action.wm.root.scheduler.SuspendUserTask;
-import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.result.NoResult;
 import com.wm.data.*;
+import ev.frmk.tools.plateform.api.action.ActionHandler;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,7 +14,8 @@ import com.wm.data.*;
  *
  * @author: e03229
  */
-public class SuspendUserTaskHandler extends AbstractInvokeHandler<SuspendUserTask, NoResult>
+public class SuspendUserTaskHandler
+        extends AbstractInvokeHandler<SuspendUserTask, NoResult>
         implements ActionHandler<SuspendUserTask, NoResult, InvokeContext> {
 
     public SuspendUserTaskHandler() {
@@ -35,7 +36,7 @@ public class SuspendUserTaskHandler extends AbstractInvokeHandler<SuspendUserTas
     protected IData prepareInput(SuspendUserTask in) {
         return IDataFactory.create(new Object[][]{
                 {"oid",
-                 in.getParameter()}
+                 in.getOid().getValue()}
         });
     }
 }
