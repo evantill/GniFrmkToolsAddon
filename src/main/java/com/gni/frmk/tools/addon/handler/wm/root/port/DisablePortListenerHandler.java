@@ -1,11 +1,11 @@
 package com.gni.frmk.tools.addon.handler.wm.root.port;
 
 import com.gni.frmk.tools.addon.action.wm.root.port.DisablePortListener;
-import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.result.NoResult;
 import com.wm.data.*;
+import ev.frmk.tools.plateform.api.action.ActionHandler;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,8 +14,10 @@ import com.wm.data.*;
  *
  * @author: e03229
  */
-public class DisablePortListenerHandler extends AbstractInvokeHandler<DisablePortListener, NoResult>
+public class DisablePortListenerHandler
+        extends AbstractInvokeHandler<DisablePortListener, NoResult>
         implements ActionHandler<DisablePortListener, NoResult, InvokeContext> {
+
     public DisablePortListenerHandler() {
         super("wm.server.net.listeners:disableListener");
     }
@@ -24,9 +26,9 @@ public class DisablePortListenerHandler extends AbstractInvokeHandler<DisablePor
     protected IData prepareInput(DisablePortListener in) {
         return IDataFactory.create(new Object[][]{
                 {"listenerKey",
-                 in.getParameter()},
+                 in.getId().getId()},
                 {"pkg",
-                 in.getPackageName()}
+                 in.getId().getPackageName()}
         });
     }
 

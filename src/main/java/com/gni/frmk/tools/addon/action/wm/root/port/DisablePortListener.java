@@ -1,7 +1,8 @@
 package com.gni.frmk.tools.addon.action.wm.root.port;
 
-import com.gni.frmk.tools.addon.action.wm.StringPackageAwareAction;
+import com.gni.frmk.tools.addon.model.PackageAndStringId;
 import com.gni.frmk.tools.addon.result.NoResult;
+import ev.frmk.tools.plateform.api.action.Action;
 
 /**
  * Created by IntelliJ IDEA.
@@ -10,9 +11,15 @@ import com.gni.frmk.tools.addon.result.NoResult;
  *
  * @author: e03229
  */
-public class DisablePortListener extends StringPackageAwareAction<NoResult> {
-    //TODO remplacer par BUILDER pour diminuer les risques dans le code
-    public DisablePortListener(String packageName, String key) {
-        super(packageName, key);
+public class DisablePortListener implements Action<NoResult> {
+
+    private final PackageAndStringId id;
+
+    public DisablePortListener(PackageAndStringId id) {
+        this.id = id;
+    }
+
+    public PackageAndStringId getId() {
+        return id;
     }
 }
