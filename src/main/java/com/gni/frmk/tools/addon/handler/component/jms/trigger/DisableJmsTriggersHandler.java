@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.handler.wm.jms.trigger;
+package com.gni.frmk.tools.addon.handler.component.jms.trigger;
 
-import com.gni.frmk.tools.addon.action.wm.jms.trigger.EnableJmsTriggers;
+import com.gni.frmk.tools.addon.action.component.jms.trigger.DisableJmsTriggers;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.result.NoResult;
@@ -14,15 +14,16 @@ import com.gni.frmk.tools.addon.api.action.ActionHandler;
  *
  * @author: e03229
  */
-public class EnableJmsTriggersHandler extends AbstractInvokeHandler<EnableJmsTriggers, NoResult>
-        implements ActionHandler<EnableJmsTriggers, NoResult, InvokeContext> {
+public class DisableJmsTriggersHandler
+        extends AbstractInvokeHandler<DisableJmsTriggers, NoResult>
+        implements ActionHandler<DisableJmsTriggers, NoResult, InvokeContext> {
 
-    public EnableJmsTriggersHandler() {
-        super("wm.server.jms:enableJMSTriggers");
+    public DisableJmsTriggersHandler() {
+        super("wm.server.jms:disableJMSTriggers");
     }
 
     @Override
-    protected IData prepareInput(EnableJmsTriggers in) {
+    protected IData prepareInput(DisableJmsTriggers in) {
         return IDataFactory.create(new Object[][]{
                 {"triggerNameList",
                  in.getTriggerNames().toArray()},
@@ -32,12 +33,12 @@ public class EnableJmsTriggersHandler extends AbstractInvokeHandler<EnableJmsTri
     }
 
     @Override
-    protected NoResult parseOutput(EnableJmsTriggers action, IData output) {
+    protected NoResult parseOutput(DisableJmsTriggers action, IData output) {
         return NoResult.newInstance();
     }
 
     @Override
-    public Class<EnableJmsTriggers> getActionType() {
-        return EnableJmsTriggers.class;
+    public Class<DisableJmsTriggers> getActionType() {
+        return DisableJmsTriggers.class;
     }
 }

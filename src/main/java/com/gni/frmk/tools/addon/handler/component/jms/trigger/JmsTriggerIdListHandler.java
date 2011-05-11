@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.handler.wm.jms.alias;
+package com.gni.frmk.tools.addon.handler.component.jms.trigger;
 
-import com.gni.frmk.tools.addon.action.wm.jms.alias.GetJmsAliasReport;
+import com.gni.frmk.tools.addon.action.component.jms.trigger.JmsTriggerIdList;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.model.component.id.StringId;
@@ -18,26 +18,26 @@ import java.util.List;
  *
  * @author: e03229
  */
-public class GetJmsAliasReportHandler
-        extends AbstractInvokeHandler<GetJmsAliasReport, ListResult<StringId>>
-        implements ActionHandler<GetJmsAliasReport, ListResult<StringId>, InvokeContext> {
+public class JmsTriggerIdListHandler
+        extends AbstractInvokeHandler<JmsTriggerIdList, ListResult<StringId>>
+        implements ActionHandler<JmsTriggerIdList, ListResult<StringId>, InvokeContext> {
 
-    public GetJmsAliasReportHandler() {
-        super("wm.server.jms:getConnectionAliasReport");
+    public JmsTriggerIdListHandler() {
+        super("wm.server.jms:getTriggerReport");
     }
 
     @Override
-    protected ListResult<StringId> parseOutput(GetJmsAliasReport action, IData output) {
+    protected ListResult<StringId> parseOutput(JmsTriggerIdList action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
             List<StringId> result = Lists.newArrayList();
-            IData[] dataList = IDataUtil.getIDataArray(cur, "aliasDataList");
+            IData[] dataList = IDataUtil.getIDataArray(cur, "triggerDataList");
             if (dataList != null) {
                 for (IData single : dataList) {
                     IDataCursor curLoop = single.getCursor();
                     try {
-                        String aliasName = IDataUtil.getString(curLoop, "aliasName");
-                        result.add(new StringId(aliasName));
+                        String triggerName = IDataUtil.getString(curLoop, "node_nsName");
+                        result.add(new StringId(triggerName));
                     } finally {
                         curLoop.destroy();
                     }
@@ -47,16 +47,15 @@ public class GetJmsAliasReportHandler
         } finally {
             cur.destroy();
         }
-
     }
 
     @Override
-    protected IData prepareInput(GetJmsAliasReport in) {
+    protected IData prepareInput(JmsTriggerIdList in) {
         return EMPTY_INPUT;
     }
 
     @Override
-    public Class<GetJmsAliasReport> getActionType() {
-        return GetJmsAliasReport.class;
+    public Class<JmsTriggerIdList> getActionType() {
+        return JmsTriggerIdList.class;
     }
 }

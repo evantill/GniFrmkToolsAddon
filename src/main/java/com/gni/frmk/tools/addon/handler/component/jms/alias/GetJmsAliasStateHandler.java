@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.handler.wm.jms.alias;
+package com.gni.frmk.tools.addon.handler.component.jms.alias;
 
-import com.gni.frmk.tools.addon.action.wm.jms.alias.GetJmsAliasState;
+import com.gni.frmk.tools.addon.action.component.jms.alias.GetJmsAliasState;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.model.component.state.ConnectableState;

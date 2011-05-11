@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.handler.wm.jms.trigger;
+package com.gni.frmk.tools.addon.handler.component.jms.trigger;
 
-import com.gni.frmk.tools.addon.action.wm.jms.trigger.GetJmsTriggerDetail;
+import com.gni.frmk.tools.addon.action.component.jms.trigger.GetJmsTriggerDetail;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.model.component.JmsTrigger;

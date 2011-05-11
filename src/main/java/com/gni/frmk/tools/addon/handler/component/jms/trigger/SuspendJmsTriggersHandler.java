@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.handler.wm.jms.trigger;
+package com.gni.frmk.tools.addon.handler.component.jms.trigger;
 
-import com.gni.frmk.tools.addon.action.wm.jms.trigger.SuspendJmsTriggers;
+import com.gni.frmk.tools.addon.action.component.jms.trigger.SuspendJmsTriggers;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.result.NoResult;
