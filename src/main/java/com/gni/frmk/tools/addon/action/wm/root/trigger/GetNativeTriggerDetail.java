@@ -1,9 +1,9 @@
 package com.gni.frmk.tools.addon.action.wm.root.trigger;
 
-import com.gni.frmk.tools.addon.model.NoDetail;
-import com.gni.frmk.tools.addon.model.StringId;
+import com.gni.frmk.tools.addon.model.component.detail.NoDetail;
+import com.gni.frmk.tools.addon.model.component.id.StringId;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
-import ev.frmk.tools.plateform.api.action.Action;
+import com.gni.frmk.tools.addon.api.action.Action;
 
 /**
  * Created by IntelliJ IDEA.

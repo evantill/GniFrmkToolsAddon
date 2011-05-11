@@ -1,7 +1,6 @@
 package com.gni.frmk.tools.addon.dispatch.wm.invoke.api;
 
 import com.gni.frmk.tools.addon.api.action.Action;
-import com.wm.data.*;
 import com.wm.lang.ns.NSName;
 
 /**
@@ -13,25 +12,18 @@ import com.wm.lang.ns.NSName;
  */
 public class ServiceInvokeException extends InvokeException {
     private final NSName service;
-    private final IData input;
 
-    public ServiceInvokeException(InvokeContext ctx, Action<?> action, NSName service, IData input,String message) {
+    public ServiceInvokeException(InvokeContext ctx, Action<?> action, NSName service, String message) {
         super(ctx, action, message);
         this.service = service;
-        this.input = input;
     }
 
-    public ServiceInvokeException(InvokeContext ctx, Action<?> action, NSName service, IData input, Throwable caught) {
+    public ServiceInvokeException(InvokeContext ctx, Action<?> action, NSName service, Throwable caught) {
         super(ctx, action, caught);
         this.service = service;
-        this.input = input;
     }
 
     public NSName getService() {
         return service;
-    }
-
-    public IData getInput() {
-        return input;
     }
 }

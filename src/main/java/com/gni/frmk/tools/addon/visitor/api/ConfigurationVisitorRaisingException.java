@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.visitor.api;
 
-import com.gni.frmk.tools.addon.model.api.Component;
+import com.gni.frmk.tools.addon.model.Component;
 import com.gni.frmk.tools.addon.model.component.*;
 
 /**
@@ -13,31 +13,41 @@ import com.gni.frmk.tools.addon.model.component.*;
 public interface ConfigurationVisitorRaisingException extends ComponentVisitorRaisingException {
 
     @Override
-    void visit(ImmutableAdapterConnection visited) throws ConfigurationVisitorException;
+    void visit(AdapterConnection visited) throws ConfigurationVisitorException;
 
     @Override
-    void visit(ImmutableAdapterListener visited) throws ConfigurationVisitorException;;
+    void visit(AdapterListener visited) throws ConfigurationVisitorException;
+
+    ;
 
     @Override
-    void visit(ImmutableAdapterNotification visited) throws ConfigurationVisitorException;;
+    void visit(AdapterNotification visited) throws ConfigurationVisitorException;
+
+    ;
 
     @Override
-    void visit(ImmutablePort visited) throws ConfigurationVisitorException;;
+    void visit(Port visited) throws ConfigurationVisitorException;
+
+    ;
 
     @Override
-    void visit(ImmutableScheduler visited) throws ConfigurationVisitorException;
+    void visit(Scheduler visited) throws ConfigurationVisitorException;
 
     @Override
-    void visit(ImmutableNativeTrigger visited) throws ConfigurationVisitorException;
+    void visit(NativeTrigger visited) throws ConfigurationVisitorException;
 
     @Override
-    void visit(ImmutableJmsTrigger visited) throws ConfigurationVisitorException;;
+    void visit(JmsTrigger visited) throws ConfigurationVisitorException;
+
+    ;
 
     @Override
-    void visit(ImmutableJmsAlias visited) throws ConfigurationVisitorException;;
+    void visit(JmsAlias visited) throws ConfigurationVisitorException;
+
+    ;
 
 
-      /**
+    /**
      * Created by IntelliJ IDEA.
      * User: e03229
      * Date: 03/11/10

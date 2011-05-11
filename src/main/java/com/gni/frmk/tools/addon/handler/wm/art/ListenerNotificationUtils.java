@@ -1,13 +1,13 @@
 package com.gni.frmk.tools.addon.handler.wm.art;
 
-import com.gni.frmk.tools.addon.model.ActivableState;
-import com.gni.frmk.tools.addon.model.ActivableState.ActivableStatus;
-import com.gni.frmk.tools.addon.model.EnableState.EnableStatus;
+import com.gni.frmk.tools.addon.model.component.state.ActivableState;
+import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;
+import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
 
-import static com.gni.frmk.tools.addon.model.ActivableState.ActivableStatus.ACTIVE;
-import static com.gni.frmk.tools.addon.model.ActivableState.ActivableStatus.INACTIVE;
-import static com.gni.frmk.tools.addon.model.EnableState.EnableStatus.DISABLED;
-import static com.gni.frmk.tools.addon.model.EnableState.EnableStatus.ENABLED;
+import static com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus.ACTIVE;
+import static com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus.INACTIVE;
+import static com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus.DISABLED;
+import static com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus.ENABLED;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**

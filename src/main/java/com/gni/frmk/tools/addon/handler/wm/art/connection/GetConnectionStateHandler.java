@@ -5,11 +5,11 @@ import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.model.EnableState;
-import com.gni.frmk.tools.addon.model.EnableState.EnableStatus;
+import com.gni.frmk.tools.addon.model.component.state.EnableState;
+import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.result.ComponentStateResult;
 import com.wm.data.*;
-import ev.frmk.tools.plateform.api.action.ActionHandler;
+import com.gni.frmk.tools.addon.api.action.ActionHandler;
 
 /**
  * Created by IntelliJ IDEA.

@@ -1,9 +1,8 @@
 package com.gni.frmk.tools.addon.model.component;
 
-import com.gni.frmk.tools.addon.model.AdapterId;
-import com.gni.frmk.tools.addon.model.BaseComponent;
-import com.gni.frmk.tools.addon.model.EnableState;
-import com.gni.frmk.tools.addon.model.TypedComponentVisitor;
+import com.gni.frmk.tools.addon.model.component.id.AdapterId;
+import com.gni.frmk.tools.addon.model.component.state.EnableState;
+import com.gni.frmk.tools.addon.visitor.TypedComponentVisitor;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,7 +19,7 @@ public class AdapterConnection
         visitor.visitAdapterConnection(this);
     }
 
-    public static class Detail extends AbstractDetail {
+    public static class Detail extends BaseComponent.AbstractDetail {
         private String packageName;
 
         public Detail(String packageName) {

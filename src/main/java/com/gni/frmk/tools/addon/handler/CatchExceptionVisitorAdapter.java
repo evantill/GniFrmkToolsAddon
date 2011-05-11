@@ -33,7 +33,6 @@ public abstract class CatchExceptionVisitorAdapter<V extends Visitor<V, T>, T ex
         this.action = action;
     }
 
-    @Override
     public void notifyError(Throwable error, T visited) {
         errors.add(new ActionException(action,error));
     }

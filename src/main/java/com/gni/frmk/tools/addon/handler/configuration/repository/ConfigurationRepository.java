@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.handler.configuration.repository;
 
-import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
+import com.gni.frmk.tools.addon.model.Configuration;
 
 import java.util.Set;
 
@@ -13,6 +13,8 @@ import java.util.Set;
  */
 public interface ConfigurationRepository {
     Set<String> getConfigurationList();
-    void saveConfiguration(ImmutableConfiguration cnf);
-    ImmutableConfiguration loadConfiguration(String id);
+
+    void saveConfiguration(Configuration cnf);
+
+    Configuration loadConfiguration(String id);
 }

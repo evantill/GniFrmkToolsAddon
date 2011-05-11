@@ -1,9 +1,8 @@
 package com.gni.frmk.tools.addon.handler.component.wm;
 
 import com.gni.frmk.tools.addon.handler.component.ComponentRepository;
-import com.gni.frmk.tools.addon.model.api.Component;
-import com.gni.frmk.tools.addon.model.api.ComponentId;
-import com.gni.frmk.tools.addon.model.api.ComponentType;
+import com.gni.frmk.tools.addon.model.Component;
+import com.gni.frmk.tools.addon.model.Component.Type;
 import com.google.common.collect.Sets;
 
 import java.util.Arrays;
@@ -19,14 +18,14 @@ import java.util.Set;
 public class ISLocalComponentRepository implements ComponentRepository {
 
     @Override
-    public Set<ComponentType> getAvaibleTypes() {
-        Set<ComponentType> types = Sets.newHashSet();
-        types.addAll(Arrays.asList(ComponentType.values()));
+    public Set<Type> getAvaibleTypes() {
+        Set<Type> types = Sets.newHashSet();
+        types.addAll(Arrays.asList(Type.values()));
         return types;
     }
 
     @Override
-    public <T extends Component> T loadComponent(ComponentType type, ComponentId id) {
+    public <T extends Component> T loadComponent(Component.Type type, Component.Id id) {
 
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }

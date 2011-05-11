@@ -1,7 +1,9 @@
 package com.gni.frmk.tools.addon.action.wm.jms.trigger;
 
-import com.gni.frmk.tools.addon.api.action.Action;
+import com.gni.frmk.tools.addon.model.component.id.StringId;
 import com.gni.frmk.tools.addon.result.NoResult;
+import com.google.common.collect.Lists;
+import com.gni.frmk.tools.addon.api.action.Action;
 
 import java.util.Collections;
 import java.util.List;
@@ -16,25 +18,33 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * @author: e03229
  */
 public class SuspendJmsTriggers implements Action<NoResult> {
-    private final List<String> triggerNames;
+    private final List<StringId> triggerIds;
     private boolean applyChangeAcrossCluster;
 
-    public SuspendJmsTriggers(List<String> triggerNames, boolean applyChangeAcrossCluster) {
-        this.triggerNames = Collections.unmodifiableList(checkNotNull(triggerNames));
+    public SuspendJmsTriggers(List<StringId> triggerNames, boolean applyChangeAcrossCluster) {
+        this.triggerIds = Collections.unmodifiableList(checkNotNull(triggerNames));
         this.applyChangeAcrossCluster = applyChangeAcrossCluster;
     }
 
-    public SuspendJmsTriggers(List<String> triggerNames) {
-        this.triggerNames = Collections.unmodifiableList(checkNotNull(triggerNames));
+    public SuspendJmsTriggers(List<StringId> triggerNames) {
+        this.triggerIds = Collections.unmodifiableList(checkNotNull(triggerNames));
         this.applyChangeAcrossCluster = false;
     }
 
-    public SuspendJmsTriggers(String triggerName) {
+    public SuspendJmsTriggers(StringId triggerName) {
         this(Collections.singletonList(triggerName));
     }
 
-    public List<String> getTriggerNames() {
-        return triggerNames;
+    public List<StringId> getTriggerIds() {
+        return triggerIds;
+    }
+
+   public List<String> getTriggerNames() {
+        List<String> names = Lists.newArrayList();
+        for (StringId id : getTriggerIds()) {
+            names.add(id.getValue());
+        }
+        return names;
     }
 
     public boolean isApplyChangeAcrossCluster() {

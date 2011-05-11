@@ -7,6 +7,7 @@ import com.gni.frmk.tools.addon.api.action.ActionNotFoundException;
 import com.gni.frmk.tools.addon.api.action.DispatchException;
 import com.gni.frmk.tools.addon.api.action.Result;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.model.component.id.AdapterId;
 import com.gni.frmk.tools.addon.result.NoResult;
 import com.wm.data.*;
 import com.wm.lang.ns.NSName;
@@ -127,7 +128,7 @@ public class InvokeDispatcherTest {
         InvokeServiceRegistry registry = new InvokeServiceRegistryBuilder().defineServices().build();
         InvokeContext contextMock = Mockito.mock(InvokeContext.class);
         String aliasName = "aliasForTestConnection";
-        DisableConnection action = new DisableConnection(aliasName);
+        DisableConnection action = new DisableConnection(new AdapterId(aliasName,"JDBCAdapter"));
         InvokeDispatcher dispatcher = new InvokeDispatcher(registry, contextMock);
         NoResult result = dispatcher.execute(action);
         Mockito.verify(contextMock)

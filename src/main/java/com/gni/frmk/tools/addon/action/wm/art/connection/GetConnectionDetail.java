@@ -1,9 +1,9 @@
 package com.gni.frmk.tools.addon.action.wm.art.connection;
 
-import com.gni.frmk.tools.addon.model.AdapterId;
+import com.gni.frmk.tools.addon.model.component.id.AdapterId;
 import com.gni.frmk.tools.addon.model.component.AdapterConnection.Detail;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
-import ev.frmk.tools.plateform.api.action.Action;
+import com.gni.frmk.tools.addon.api.action.Action;
 
 /**
  * Created by IntelliJ IDEA.

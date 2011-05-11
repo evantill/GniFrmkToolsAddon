@@ -1,13 +1,5 @@
 package com.gni.frmk.tools.addon.model.component.state;
 
-import com.gni.frmk.tools.addon.model.api.ComponentState;
-import com.gni.frmk.tools.addon.model.api.ComponentStateType;
-
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
-import static com.gni.frmk.tools.addon.model.api.ComponentState.ComponentStateStatus.*;
-
 /**
  * Created by IntelliJ IDEA.
  * Date: 14/03/11
@@ -15,10 +7,19 @@ import static com.gni.frmk.tools.addon.model.api.ComponentState.ComponentStateSt
  *
  * @author: e03229
  */
-@XmlRootElement
-public class ActivableState extends EnableState implements ComponentState {
+public class ActivableState extends EnableState {
     public enum ActivableStatus {
-        ACTIVE {
+        UNKNOWN {
+            @Override
+            public boolean isActive() {
+                return false;
+            }
+
+            @Override
+            public ActivableStatus invert() {
+                return UNKNOWN;
+            }
+        }, ACTIVE {
             @Override
             public boolean isActive() {
                 return true;
@@ -43,7 +44,7 @@ public class ActivableState extends EnableState implements ComponentState {
 
         public abstract boolean isActive();
 
-        public  boolean isNotActive(){
+        public boolean isNotActive() {
             return !isActive();
         }
 
@@ -55,8 +56,9 @@ public class ActivableState extends EnableState implements ComponentState {
             }
             if (inactiveString.equals(stateValue)) {
                 return INACTIVE;
+            } else {
+                return UNKNOWN;
             }
-            throw new IllegalStateException(String.format("invalid activable state %s", stateValue));
         }
 
         public static ActivableStatus fromBooleanString(String active) {
@@ -68,7 +70,6 @@ public class ActivableState extends EnableState implements ComponentState {
         }
     }
 
-    @XmlElement
     private final ActivableStatus activable;
 
     public ActivableState(EnableStatus enabled, ActivableStatus activable) {
@@ -76,30 +77,12 @@ public class ActivableState extends EnableState implements ComponentState {
         this.activable = activable;
     }
 
-    private ActivableState(){
+    private ActivableState() {
         super();
-        activable=null;
+        activable = ActivableStatus.UNKNOWN;
     }
 
     public ActivableStatus getActivable() {
         return activable;
-    }
-
-    @Override
-    public ComponentStateStatus getComponentStatus() {
-        ComponentStateStatus enableStatus = super.getComponentStatus();
-        switch (activable) {
-            case ACTIVE:
-                return enableStatus.composeWith(ON);
-            case INACTIVE:
-                return enableStatus.composeWith(OFF);
-            default:
-                return enableStatus.composeWith(UNKNOWN);
-        }
-    }
-
-    @Override
-    public ComponentStateType getType() {
-        return ComponentStateType.ACTIAVABLE_STATE;
     }
 }

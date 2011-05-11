@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.action.configuration;
 
-import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
+
+import com.gni.frmk.tools.addon.model.Configuration;
 import com.gni.frmk.tools.addon.result.ConfigurationResult;
 
 /**
@@ -15,7 +16,7 @@ public class ClosePlateform extends ConfigurationAction<ConfigurationResult> {
     private final long maxSecondsToWait;
     private final long delayBetweenTest;
 
-    public ClosePlateform(ImmutableConfiguration configuration, String filter, long maxSecondsToWait, long delayBetweenTest) {
+    public ClosePlateform(Configuration configuration, String filter, long maxSecondsToWait, long delayBetweenTest) {
         super(configuration);
         this.filter = filter;
         this.maxSecondsToWait = maxSecondsToWait;

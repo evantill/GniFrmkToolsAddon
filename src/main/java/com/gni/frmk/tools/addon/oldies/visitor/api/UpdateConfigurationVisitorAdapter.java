@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.oldies.visitor.api;
 
-import com.gni.frmk.tools.addon.model.api.Component;
+import com.gni.frmk.tools.addon.model.Component;
 import com.gni.frmk.tools.addon.model.component.*;
 import com.gni.frmk.tools.addon.visitor.api.ConfigurationVisitorRaisingException;
 
@@ -59,47 +59,42 @@ public abstract class UpdateConfigurationVisitorAdapter<T extends Throwable> imp
     protected abstract void statusFailed(Component visited, Throwable e);
 
     @Override
-    public void visitComponent(ImmutableAdapterConnection visited) {
+    public void visitComponent(AdapterConnection visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(ImmutableAdapterListener visited) {
+    public void visitComponent(AdapterListener visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(ImmutableAdapterNotification visited) {
+    public void visitComponent(AdapterNotification visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(ImmutablePort visited) {
+    public void visitComponent(Port visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(ImmutableScheduler visited) {
+    public void visitComponent(Scheduler visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(ImmutableJmsAlias visited) {
+    public void visitComponent(JmsAlias visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(ImmutableJmsTrigger visited) {
+    public void visitComponent(JmsTrigger visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(ImmutableNativeTrigger visited) {
-        proxy.visitComponent(visited);
-    }
-
-    @Override
-    public void visitComponent(ImmutableIntegrationServerPackage visited) {
+    public void visitComponent(NativeTrigger visited) {
         proxy.visitComponent(visited);
     }
 }

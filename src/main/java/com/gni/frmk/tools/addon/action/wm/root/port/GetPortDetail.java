@@ -1,9 +1,9 @@
 package com.gni.frmk.tools.addon.action.wm.root.port;
 
-import com.gni.frmk.tools.addon.model.PackageAndStringId;
+import com.gni.frmk.tools.addon.model.component.id.PackageAndStringId;
 import com.gni.frmk.tools.addon.model.component.Port.Detail;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
-import ev.frmk.tools.plateform.api.action.Action;
+import com.gni.frmk.tools.addon.api.action.Action;
 
 /**
  * Created by IntelliJ IDEA.

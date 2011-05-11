@@ -2,9 +2,11 @@ package com.gni.frmk.tools.addon.handler.configuration.loader;
 
 import com.gni.frmk.tools.addon.handler.configuration.repository.ConfigurationSerializer;
 import com.gni.frmk.tools.addon.handler.configuration.repository.ConfigurationSerializer.SerializationException;
-import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
-import com.gni.frmk.tools.addon.model.configuration.ConfigurationTest;
+import com.gni.frmk.tools.addon.model.Component.Type;
+import com.gni.frmk.tools.addon.model.Configuration;
+import com.gni.frmk.tools.addon.model.ConfigurationTest;
 import com.gni.frmk.tools.addon.model.configuration.ConfigurationTestRule;
+import com.gni.frmk.tools.addon.model.configuration.ConfigurationUtils;
 import org.custommonkey.xmlunit.XMLUnit;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -16,8 +18,8 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
 
+import static junit.framework.Assert.assertEquals;
 import static org.custommonkey.xmlunit.XMLAssert.assertXMLEqual;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
@@ -31,6 +33,9 @@ public class ConfigurationSerializerTest {
 
     private static String xmlSimple = ConfigurationTestRule.loadXml("simple", ConfigurationTest.class);
     private static String xmlFull = ConfigurationTestRule.loadXml("full", ConfigurationTest.class);
+
+    @Rule
+    public ConfigurationUtils utils = new ConfigurationUtils(ConfigurationTestRule.NOW_DHMS);
 
     @Rule
     public ConfigurationTestRule util = new ConfigurationTestRule();
@@ -51,7 +56,7 @@ public class ConfigurationSerializerTest {
 
     @Test
     public void testSaveSimpleConfiguration() throws IOException, SAXException {
-        ImmutableConfiguration cnf = util.newSimpleConfiguration();
+        Configuration cnf = utils.newSimpleConfiguration();
         StringWriter out = new StringWriter();
         serializer.saveConfiguration(cnf, out);
         assertXMLEqual(xmlSimple, out.toString());
@@ -59,18 +64,17 @@ public class ConfigurationSerializerTest {
 
     @Test
     public void testLoadSimpleConfiguration() throws SerializationException {
-        ImmutableConfiguration fromCnf = util.newSimpleConfiguration();
+        Configuration  fromCnf = utils.newSimpleConfiguration();
         StringReader in = new StringReader(xmlSimple);
-        ImmutableConfiguration fromXml = serializer.loadConfiguration(in);
+        Configuration  fromXml = serializer.loadConfiguration(in);
         util.raiseExceptionIfInvalid(fromXml);
         assertNotNull(fromXml);
-        assertEquals(fromCnf.getAdapterConnectionConfigurations().size(), fromXml.getAdapterConnectionConfigurations()
-                                                                                 .size());
+        assertEquals(fromCnf.getComponentConfigurationsByType(Type.ADAPTER_CONNECTION).size(), fromXml.getComponentConfigurationsByType(Type.ADAPTER_CONNECTION).size());
     }
 
     @Test
     public void testSaveFullConfiguration() throws IOException, SAXException {
-        ImmutableConfiguration cnf = util.newFullConfiguration();
+        Configuration  cnf = utils.newFullConfiguration();
         StringWriter out = new StringWriter();
         serializer.saveConfiguration(cnf, out);
         assertXMLEqual(xmlFull, out.toString());
@@ -78,14 +82,14 @@ public class ConfigurationSerializerTest {
 
     @Test
     public void testLoadFullConfiguration() throws SerializationException {
-        ImmutableConfiguration fromCnf = util.newFullConfiguration();
+        Configuration  fromCnf = utils.newFullConfiguration();
         StringReader in = new StringReader(xmlFull);
-        ImmutableConfiguration fromXml = serializer.loadConfiguration(in);
+        Configuration  fromXml = serializer.loadConfiguration(in);
         util.raiseExceptionIfInvalid(fromXml);
         assertNotNull(fromXml);
-        assertEquals(fromCnf.getAdapterConnectionConfigurations().size(),
-                fromXml.getAdapterConnectionConfigurations().size());
-        assertEquals(10, fromXml.getAdapterConnectionConfigurations().size());
+        assertEquals(fromCnf.getComponentConfigurationsByType(Type.ADAPTER_CONNECTION).size(),
+                fromXml.getComponentConfigurationsByType(Type.ADAPTER_CONNECTION).size());
+        assertEquals(10, fromXml.getComponentConfigurationsByType(Type.ADAPTER_CONNECTION).size());
     }
 
 }

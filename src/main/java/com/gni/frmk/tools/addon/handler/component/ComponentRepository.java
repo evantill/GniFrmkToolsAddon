@@ -1,8 +1,7 @@
 package com.gni.frmk.tools.addon.handler.component;
 
-import com.gni.frmk.tools.addon.model.api.Component;
-import com.gni.frmk.tools.addon.model.api.ComponentId;
-import com.gni.frmk.tools.addon.model.api.ComponentType;
+import com.gni.frmk.tools.addon.model.Component;
+import com.gni.frmk.tools.addon.model.Component.Type;
 
 import java.util.Set;
 
@@ -14,6 +13,6 @@ import java.util.Set;
  * @author: e03229
  */
 public interface ComponentRepository {
-    Set<ComponentType> getAvaibleTypes();
-    <T extends Component> T loadComponent(ComponentType type, ComponentId id);
+    Set<Type> getAvaibleTypes();
+    <T extends Component> T loadComponent(Type type, Component.Id id);
 }

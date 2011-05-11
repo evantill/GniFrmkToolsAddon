@@ -1,11 +1,12 @@
 package com.gni.frmk.tools.addon.oldies.service;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
-import com.gni.frmk.tools.addon.model.component.ImmutableAdapterConnection;
-import com.gni.frmk.tools.addon.model.component.ImmutableScheduler;
+import com.gni.frmk.tools.addon.model.Component.Type;
+import com.gni.frmk.tools.addon.model.Configuration;
+import com.gni.frmk.tools.addon.model.component.AdapterConnection;
+import com.gni.frmk.tools.addon.model.component.Scheduler;
 import com.gni.frmk.tools.addon.model.component.state.EnableState;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
-import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
 import com.gni.frmk.tools.addon.oldies.services.ConfigurationService;
 import com.google.common.io.ByteStreams;
 import com.google.common.io.Closeables;
@@ -76,9 +77,9 @@ public class ConfigurationServiceTest {
     @Test
     public void testLoadConfiguration()  {
         ConfigurationService srv = new ConfigurationService(utils);
-        ImmutableConfiguration cnf = srv.loadConfiguration(LOAD_CONFIGURATION_NAME);
+        Configuration cnf = srv.loadConfiguration(LOAD_CONFIGURATION_NAME);
         assertNotNull(cnf);
-        assertEquals(4, cnf.getNativeTriggerConfigurations().size());
+        assertEquals(4, cnf.getComponentConfigurationsByType(Type.NATIVE_TRIGGER).size());
     }
 
     @Test
@@ -127,7 +128,7 @@ public class ConfigurationServiceTest {
 //        return new JmsTrigger("triggerJms" + indx, Trigger.Status.ENABLED, Trigger.State.SUSPENDED);
 //    }
 
-    private ImmutableScheduler createScheduler(int indx) {
+    private Scheduler createScheduler(int indx) {
         //TODO a corriger
         return null;
 //        return new Scheduler("typeScheduler",
@@ -146,13 +147,14 @@ public class ConfigurationServiceTest {
 //        return new AdapterNotificationBuilder("JDBCAdapter").define("notif" + indx, "pckgEssai" + indx, ComponentState.EnableStatus.ENABLED, ActivableComponentState.ActiveStatus.SUSPENDED).build();
 //    }
 
-    private ImmutableAdapterConnection createAdapterConnection(int indx) {
-        return  ImmutableAdapterConnection.builder()
-                                 .alias("aliasName" + indx)
-                                 .adapterType("JDBCAdapter")
-                                 .packageName("pckgEssai" + indx)
-                                 .defineState(new EnableState(EnableStatus.ENABLED))
-                                 .build();
+    private AdapterConnection createAdapterConnection(int indx) {
+//        return  AdapterConnection.builder()
+//                                 .alias("aliasName" + indx)
+//                                 .adapterType("JDBCAdapter")
+//                                 .packageName("pckgEssai" + indx)
+//                                 .defineState(new EnableState(EnableStatus.ENABLED))
+//                                 .build();
+        return null;
     }
 
 //    private AdapterListener createListenerConnection(int indx) {

@@ -1,8 +1,8 @@
 package com.gni.frmk.tools.addon.action.wm.art.notifications;
 
-import com.gni.frmk.tools.addon.model.AdapterId;
+import com.gni.frmk.tools.addon.model.component.id.AdapterId;
 import com.gni.frmk.tools.addon.result.ListResult;
-import ev.frmk.tools.plateform.api.action.Action;
+import com.gni.frmk.tools.addon.api.action.Action;
 
 /**
  * Created by IntelliJ IDEA.

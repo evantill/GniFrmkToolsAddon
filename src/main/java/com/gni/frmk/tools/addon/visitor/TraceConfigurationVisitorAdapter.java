@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.visitor;
 
-import com.gni.frmk.tools.addon.model.api.Component;
+import com.gni.frmk.tools.addon.model.Component;
 import com.gni.frmk.tools.addon.visitor.api.ConfigurationVisitorAdapter;
 import com.gni.frmk.tools.addon.visitor.api.ConfigurationVisitorRaisingException;
 import com.google.common.collect.Maps;

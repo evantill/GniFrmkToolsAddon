@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.result;
 
-import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
+import com.gni.frmk.tools.addon.model.Configuration;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,9 +9,9 @@ import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
  *
  * @author: e03229
  */
-public class ConfigurationResult extends SingleResult<ImmutableConfiguration> {
+public class ConfigurationResult extends SingleResult<Configuration> {
 
-    public ConfigurationResult(ImmutableConfiguration value) {
+    public ConfigurationResult(Configuration value) {
         super(value);
     }
 }

@@ -1,11 +1,11 @@
 package com.gni.frmk.tools.addon.handler.wm.jms.alias;
 
 import com.gni.frmk.tools.addon.action.wm.jms.alias.DisableJmsAlias;
-import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.result.NoResult;
 import com.wm.data.*;
+import com.gni.frmk.tools.addon.api.action.ActionHandler;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,7 +14,8 @@ import com.wm.data.*;
  *
  * @author: e03229
  */
-public class DisableJmsAliasHandler extends AbstractInvokeHandler<DisableJmsAlias, NoResult>
+public class DisableJmsAliasHandler
+        extends AbstractInvokeHandler<DisableJmsAlias, NoResult>
         implements ActionHandler<DisableJmsAlias, NoResult, InvokeContext> {
 
     public DisableJmsAliasHandler() {
@@ -25,7 +26,7 @@ public class DisableJmsAliasHandler extends AbstractInvokeHandler<DisableJmsAlia
     protected IData prepareInput(DisableJmsAlias in) {
         return IDataFactory.create(new Object[][]{
                 {"aliasName",
-                 in.getAliasName()}
+                 in.getAliasName().getValue()}
         });
     }
 

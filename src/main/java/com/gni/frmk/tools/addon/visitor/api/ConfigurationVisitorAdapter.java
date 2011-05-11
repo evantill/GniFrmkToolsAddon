@@ -1,9 +1,8 @@
 package com.gni.frmk.tools.addon.visitor.api;
 
-import com.gni.frmk.tools.addon.model.api.Component;
+import com.gni.frmk.tools.addon.model.Component;
+import com.gni.frmk.tools.addon.model.ComponentConfiguration;
 import com.gni.frmk.tools.addon.model.component.*;
-import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentState;
-import com.gni.frmk.tools.addon.model.configuration.component.ComponentConfiguration;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
@@ -76,53 +75,47 @@ public abstract class ConfigurationVisitorAdapter<T extends Throwable> implement
     protected abstract void statusFailed(Component visited, Throwable e);
 
     @Override
-    public void visitComponent(ImmutableAdapterConnection visited) throws VisitorException {
+    public void visitComponent(AdapterConnection visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(ImmutableAdapterListener visited) throws VisitorException {
+    public void visitComponent(AdapterListener visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(ImmutableAdapterNotification visited) throws VisitorException {
+    public void visitComponent(AdapterNotification visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(ImmutablePort visited) throws VisitorException {
+    public void visitComponent(Port visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(ImmutableScheduler visited) throws VisitorException {
+    public void visitComponent(Scheduler visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(ImmutableJmsAlias visited) throws VisitorException {
+    public void visitComponent(JmsAlias visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(ImmutableJmsTrigger visited) throws VisitorException {
+    public void visitComponent(JmsTrigger visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(ImmutableNativeTrigger visited) throws VisitorException {
+    public void visitComponent(NativeTrigger visited) {
         proxy.visitComponent(visited);
     }
 
     @Override
-    public void visitComponent(ImmutableIntegrationServerPackage visited) throws VisitorException {
-        proxy.visitComponent(visited);
-    }
-
-
-    @Override
-    public <C extends AbstractComponent<?, S>, S extends AbstractComponentState> void visitComponentConfiguration(ComponentConfiguration<C, S> visited) {
+    public void visitComponentConfiguration(ComponentConfiguration visited) {
         proxy.visitComponentConfiguration(visited);
     }
 }

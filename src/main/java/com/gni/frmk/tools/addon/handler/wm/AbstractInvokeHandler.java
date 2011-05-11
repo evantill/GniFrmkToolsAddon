@@ -8,8 +8,8 @@ import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
 import com.wm.data.*;
 import com.wm.lang.ns.NSName;
-import ev.frmk.tools.plateform.api.action.Action;
-import ev.frmk.tools.plateform.api.action.Result;
+import com.gni.frmk.tools.addon.api.action.Action;
+import com.gni.frmk.tools.addon.api.action.Result;
 
 /**
  * Created by IntelliJ IDEA.

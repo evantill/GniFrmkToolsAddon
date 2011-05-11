@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.oldies.data2.configuration;
 
-import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
+import com.gni.frmk.tools.addon.model.Component.Type;
+import com.gni.frmk.tools.addon.model.Configuration;
 import com.google.common.io.ByteStreams;
 import com.google.common.io.Closeables;
 import org.junit.AfterClass;
@@ -78,12 +79,12 @@ public class ConfigurationTest {
 
     @Test
     public void testLoadConfiguration() throws JAXBException, FileNotFoundException {
-        JAXBContext ctx = JAXBContext.newInstance(ImmutableConfiguration.class);
+        JAXBContext ctx = JAXBContext.newInstance(Configuration.class);
         Unmarshaller unmarshaller = ctx.createUnmarshaller();
         FileReader in = new FileReader(loadConfigurationFile);
-        ImmutableConfiguration configuration = (ImmutableConfiguration) unmarshaller.unmarshal(in);
+        Configuration configuration = (Configuration) unmarshaller.unmarshal(in);
         assertNotNull(configuration);
-        assertEquals(4, configuration.getNativeTriggerConfigurations().size());
+        assertEquals(4, configuration.getComponentConfigurationsByType(Type.NATIVE_TRIGGER).size());
     }
 
 //    @Test

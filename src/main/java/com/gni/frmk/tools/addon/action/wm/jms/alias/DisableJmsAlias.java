@@ -1,9 +1,8 @@
 package com.gni.frmk.tools.addon.action.wm.jms.alias;
 
-import com.gni.frmk.tools.addon.api.action.Action;
+import com.gni.frmk.tools.addon.model.component.id.StringId;
 import com.gni.frmk.tools.addon.result.NoResult;
-
-import static com.google.common.base.Preconditions.checkNotNull;
+import com.gni.frmk.tools.addon.api.action.Action;
 
 /**
  * Created by IntelliJ IDEA.
@@ -13,13 +12,13 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * @author: e03229
  */
 public class DisableJmsAlias implements Action<NoResult> {
-    private final String aliasName;
+    private final StringId aliasName;
 
-    public DisableJmsAlias(String aliasName) {
-        this.aliasName = checkNotNull(aliasName);
+    public DisableJmsAlias(StringId aliasName) {
+        this.aliasName = aliasName;
     }
 
-    public String getAliasName() {
+    public StringId getAliasName() {
         return aliasName;
     }
 }

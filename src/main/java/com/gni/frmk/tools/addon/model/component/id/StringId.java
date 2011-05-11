@@ -1,9 +1,6 @@
 package com.gni.frmk.tools.addon.model.component.id;
 
-import com.gni.frmk.tools.addon.model.api.ComponentId;
-import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentId;
-
-import javax.xml.bind.annotation.XmlRootElement;
+import com.gni.frmk.tools.addon.model.component.BaseComponent.AbstractId;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,29 +9,22 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author: e03229
  */
-@XmlRootElement
-public class StringId extends AbstractComponentId
-        implements ComponentId, Comparable<StringId>
-{
+public class StringId extends AbstractId {
 
-    protected StringId() {
-    }
+    private String value;
 
     public StringId(String value) {
-        super(value);
+        this.value = value;
+    }
+
+    public StringId() {
     }
 
     public String getValue() {
-        return getRawValue();
+        return value;
     }
 
-    @Override
-    public String asString() {
-        return getRawValue();
-    }
-
-    @Override
-    public int compareTo(StringId o) {
-        return getValue().compareTo(o.getValue());
+    public void setValue(String value) {
+        this.value = value;
     }
 }

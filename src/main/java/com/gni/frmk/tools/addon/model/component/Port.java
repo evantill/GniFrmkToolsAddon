@@ -1,9 +1,8 @@
 package com.gni.frmk.tools.addon.model.component;
 
-import com.gni.frmk.tools.addon.model.ActivableState;
-import com.gni.frmk.tools.addon.model.BaseComponent;
-import com.gni.frmk.tools.addon.model.PackageAndStringId;
-import com.gni.frmk.tools.addon.model.TypedComponentVisitor;
+import com.gni.frmk.tools.addon.model.component.state.ActivableState;
+import com.gni.frmk.tools.addon.model.component.id.PackageAndStringId;
+import com.gni.frmk.tools.addon.visitor.TypedComponentVisitor;
 import com.gni.frmk.tools.addon.model.component.Port.Detail;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -24,7 +23,7 @@ public class Port
         visitor.visitPort(this);
     }
 
-    public static class Detail extends AbstractDetail {
+    public static class Detail extends BaseComponent.AbstractDetail {
         private boolean primary;
 
         public Detail() {

@@ -7,7 +7,7 @@ import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
 import com.google.common.collect.Sets;
 import com.wm.data.*;
-import ev.frmk.tools.plateform.api.action.ActionHandler;
+import com.gni.frmk.tools.addon.api.action.ActionHandler;
 
 import java.util.Set;
 

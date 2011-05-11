@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.oldies.visitor.api;
 
-import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
+import com.gni.frmk.tools.addon.model.Configuration;
 import com.gni.frmk.tools.addon.visitor.api.ConfigurationVisitor;
 
 /**
@@ -11,5 +11,5 @@ import com.gni.frmk.tools.addon.visitor.api.ConfigurationVisitor;
  * @author: e03229
  */
 public interface UpdateConfigurationVisitor extends ConfigurationVisitor {
-    ImmutableConfiguration getUpdatedConfiguration();
+    Configuration getUpdatedConfiguration();
 }

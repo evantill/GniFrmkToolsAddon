@@ -1,13 +1,8 @@
 package com.gni.frmk.tools.addon.model.component.state;
 
-import com.gni.frmk.tools.addon.model.api.ComponentStateType;
-import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentState;
-import com.gni.frmk.tools.addon.model.api.ComponentState;
+import com.gni.frmk.tools.addon.model.component.BaseComponent.AbstractState;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;
-import com.gni.frmk.tools.addon.model.component.state.TemporaryActivableState.TemporaryStatus;
-
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,88 +11,107 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author: e03229
  */
-@XmlRootElement
-public class NativeTriggerState extends AbstractComponentState implements ComponentState {
+public class NativeTriggerState extends AbstractState {
 
-    @XmlElement
-    private final EnableState enabled;
-    @XmlElement
-    private final TemporaryActivableState retrievalState;
-    @XmlElement
-    private final TemporaryActivableState processingState;
+    public static enum TemporaryStatus {
+        UNKNOWN {
+            @Override
+            public boolean isPermanent() {
+                return false;
+            }
+        }, TEMPORARY {
+            @Override
+            public boolean isPermanent() {
+                return false;
+            }
+        }, PERMANENT {
+            @Override
+            public boolean isPermanent() {
+                return true;
+            }
+        };
 
-    public NativeTriggerState(Builder builder) {
-        this.enabled = builder.enabled;
-        this.retrievalState = builder.retrievalState;
-        this.processingState = builder.processingState;
+        public abstract boolean isPermanent();
+
+        public boolean isTemporary() {
+            return !isPermanent();
+        }
     }
 
-    private NativeTriggerState(){
-        enabled=null;
-        retrievalState=null;
-        processingState=null;
+    public static class TemporaryActivableState extends AbstractState {
+        private TemporaryStatus temporary;
+        private ActivableStatus activable;
+
+        public TemporaryActivableState(TemporaryStatus temporary, ActivableStatus activable) {
+            super(activable != ActivableStatus.UNKNOWN);
+            this.temporary = temporary;
+            this.activable = activable;
+        }
+
+        public TemporaryActivableState() {
+            super(false);
+        }
+
+        public TemporaryStatus getTemporary() {
+            return temporary;
+        }
+
+        public void setTemporary(TemporaryStatus temporary) {
+            this.temporary = temporary;
+        }
+
+        public ActivableStatus getActivable() {
+            return activable;
+        }
+
+        public void setActivable(ActivableStatus activable) {
+            this.activable = activable;
+        }
+    }
+
+    private EnableState enabled;
+    private TemporaryActivableState retrievalState;
+    private TemporaryActivableState processingState;
+
+    public NativeTriggerState() {
+        super(false);
     }
 
     public EnableState getEnabled() {
         return enabled;
     }
 
+    public void setEnabled(EnableState enabled) {
+        this.enabled = enabled;
+    }
+
     public TemporaryActivableState getRetrievalState() {
         return retrievalState;
+    }
+
+    public void setRetrievalState(TemporaryActivableState retrievalState) {
+        this.retrievalState = retrievalState;
     }
 
     public TemporaryActivableState getProcessingState() {
         return processingState;
     }
 
-    @Override
-    public ComponentStateStatus getComponentStatus() {
-        return enabled.getComponentStatus()
-                      .composeWith(retrievalState.getComponentStatus())
-                      .composeWith(processingState.getComponentStatus());
+    public void setProcessingState(TemporaryActivableState processingState) {
+        this.processingState = processingState;
     }
 
-    @Override
-    public ComponentStateType getType() {
-        return ComponentStateType.NATIVE_TRIGGER_STATE;
+    public static NativeTriggerState newNativeTriggerState(EnableState enabled, TemporaryActivableState retrievalState, TemporaryActivableState processingState) {
+        NativeTriggerState result = new NativeTriggerState();
+        result.setEnabled(enabled);
+        result.setRetrievalState(retrievalState);
+        result.setProcessingState(processingState);
+        return result;
     }
 
-    public static Builder builder() {
-        return new Builder();
+    public static NativeTriggerState newNativeTriggerState() {
+        TemporaryActivableState unknownState = new TemporaryActivableState(TemporaryStatus.UNKNOWN, ActivableStatus.UNKNOWN);
+        return newNativeTriggerState(new EnableState(EnableStatus.UNKNOWN), unknownState, unknownState);
     }
 
-    public static class Builder {
-        private EnableState enabled;
-        private TemporaryActivableState retrievalState;
-        private TemporaryActivableState processingState;
-
-        public Builder defineEnable(EnableState.EnableStatus status) {
-            enabled = new EnableState(status);
-            return this;
-        }
-
-        public Builder defineRetrieval(TemporaryStatus temporary, ActivableStatus status) {
-            retrievalState = new TemporaryActivableState(temporary, status);
-            return this;
-        }
-
-        public Builder defineRetrieval(TemporaryActivableState state) {
-            retrievalState = state;
-            return this;
-        }
-
-        public Builder defineProcessing(TemporaryStatus temporary, ActivableStatus status) {
-            processingState = new TemporaryActivableState(temporary, status);
-            return this;
-        }
-
-        public Builder defineProcessing(TemporaryActivableState state) {
-            processingState = state;
-            return this;
-        }
-
-        public NativeTriggerState build() {
-            return new NativeTriggerState(this);
-        }
-    }
 }

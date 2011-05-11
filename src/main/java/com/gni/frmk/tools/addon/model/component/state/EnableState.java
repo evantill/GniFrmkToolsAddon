@@ -1,13 +1,6 @@
 package com.gni.frmk.tools.addon.model.component.state;
 
-import com.gni.frmk.tools.addon.model.api.ComponentState;
-import com.gni.frmk.tools.addon.model.api.ComponentStateType;
-import com.gni.frmk.tools.addon.model.component.AbstractComponent.AbstractComponentState;
-
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
-import static com.gni.frmk.tools.addon.model.api.ComponentState.ComponentStateStatus.*;
+import com.gni.frmk.tools.addon.model.component.BaseComponent.AbstractState;
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,17 +9,23 @@ import static com.gni.frmk.tools.addon.model.api.ComponentState.ComponentStateSt
  *
  * @author: e03229
  */
-@XmlRootElement
-public class EnableState extends AbstractComponentState implements ComponentState {
-    public enum EnableStatus {
-        ENABLED {
+public class EnableState extends AbstractState {
+    public static enum EnableStatus {
+        UNKNOWN {
             @Override
             public boolean isEnabled() {
+                return false;
+            }
+        }, ENABLED {
+            @Override
+            public boolean isEnabled
+                    () {
                 return true;
             }
         }, DISABLED {
             @Override
-            public boolean isEnabled() {
+            public boolean isEnabled
+                    () {
                 return false;
             }
         };
@@ -42,35 +41,22 @@ public class EnableState extends AbstractComponentState implements ComponentStat
         public abstract boolean isEnabled();
     }
 
-    @XmlElement
-    private final EnableStatus enabled;
+    private EnableStatus enabled = EnableStatus.UNKNOWN;
 
-    public EnableState(EnableStatus enabled) {
-        this.enabled = enabled;
+    public EnableState() {
+        super(false);
     }
 
-    protected EnableState(){
-        enabled=null;
+    public EnableState(EnableStatus enabled) {
+        super(enabled != EnableStatus.UNKNOWN);
+        this.enabled = enabled;
     }
 
     public EnableStatus getEnabled() {
         return enabled;
     }
 
-    @Override
-    public ComponentStateStatus getComponentStatus() {
-        switch (enabled) {
-            case ENABLED:
-                return ON;
-            case DISABLED:
-                return OFF;
-            default:
-                return UNKNOWN;
-        }
-    }
-
-    @Override
-    public ComponentStateType getType() {
-        return ComponentStateType.ENABLE_STATE;
+    public void setEnabled(EnableStatus enabled) {
+        this.enabled = enabled;
     }
 }

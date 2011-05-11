@@ -4,12 +4,12 @@ import com.gni.frmk.tools.addon.action.wm.art.listener.GetListenerState;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.model.ActivableState;
-import com.gni.frmk.tools.addon.model.ActivableState.ActivableStatus;
-import com.gni.frmk.tools.addon.model.EnableState.EnableStatus;
+import com.gni.frmk.tools.addon.model.component.state.ActivableState;
+import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;
+import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.result.ComponentStateResult;
 import com.wm.data.*;
-import ev.frmk.tools.plateform.api.action.ActionHandler;
+import com.gni.frmk.tools.addon.api.action.ActionHandler;
 
 import static com.gni.frmk.tools.addon.handler.wm.art.ListenerNotificationUtils.defineState;
 

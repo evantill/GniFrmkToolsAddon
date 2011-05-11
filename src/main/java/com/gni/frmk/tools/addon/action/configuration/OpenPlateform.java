@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.action.configuration;
 
-import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
+import com.gni.frmk.tools.addon.model.Configuration;
 import com.gni.frmk.tools.addon.result.ConfigurationResult;
 
 /**
@@ -13,7 +13,7 @@ import com.gni.frmk.tools.addon.result.ConfigurationResult;
 public class OpenPlateform extends ConfigurationAction<ConfigurationResult>{
     private final boolean full;
 
-    public OpenPlateform(ImmutableConfiguration configuration, boolean full) {
+    public OpenPlateform(Configuration configuration, boolean full) {
         super(configuration);
         this.full = full;
     }

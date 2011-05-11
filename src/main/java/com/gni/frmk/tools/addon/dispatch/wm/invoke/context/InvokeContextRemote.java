@@ -2,6 +2,7 @@ package com.gni.frmk.tools.addon.dispatch.wm.invoke.context;
 
 import com.gni.frmk.tools.addon.api.action.Action;
 import com.gni.frmk.tools.addon.api.action.DispatchException;
+import com.gni.frmk.tools.addon.api.action.Dispatcher;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInvokeException;
 import com.wm.app.b2b.client.Context;
@@ -58,13 +59,13 @@ public class InvokeContextRemote implements InvokeContext {
                 connect();
                 autoConnected = true;
             } catch (DispatchException e) {
-                throw new ServiceInvokeException(this, action, service, input, e);
+                throw new ServiceInvokeException(this, action, service, e);
             }
         }
         try {
             return context.invoke(service, input);
         } catch (ServiceException e) {
-            throw new ServiceInvokeException(this, action, service, input, e);
+            throw new ServiceInvokeException(this, action, service, e);
         } finally {
             if (autoConnected) {
                 disconnect();
@@ -75,5 +76,10 @@ public class InvokeContextRemote implements InvokeContext {
     @Override
     public boolean canInvoke(NSName service) {
         return context.getNamespace().nodeExists(service);
+    }
+
+    @Override
+    public Dispatcher getDispatcher() {
+        throw new UnsupportedOperationException("not yet implemented");
     }
 }

@@ -1,9 +1,8 @@
 package com.gni.frmk.tools.addon.model.component;
 
-import com.gni.frmk.tools.addon.model.ActivableState;
-import com.gni.frmk.tools.addon.model.BaseComponent;
-import com.gni.frmk.tools.addon.model.StringId;
-import com.gni.frmk.tools.addon.model.TypedComponentVisitor;
+import com.gni.frmk.tools.addon.model.component.state.ActivableState;
+import com.gni.frmk.tools.addon.model.component.id.StringId;
+import com.gni.frmk.tools.addon.visitor.TypedComponentVisitor;
 import com.gni.frmk.tools.addon.model.component.JmsTrigger.Detail;
 
 /**
@@ -21,7 +20,7 @@ public class JmsTrigger extends BaseComponent<StringId, ActivableState, Detail> 
         visitor.visitJmsTrigger(this);
     }
 
-    public static class Detail extends AbstractDetail {
+    public static class Detail extends BaseComponent.AbstractDetail {
         private String packageName;
 
         public Detail(String packageName) {

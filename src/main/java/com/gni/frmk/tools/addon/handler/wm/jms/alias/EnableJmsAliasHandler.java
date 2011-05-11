@@ -1,11 +1,11 @@
 package com.gni.frmk.tools.addon.handler.wm.jms.alias;
 
 import com.gni.frmk.tools.addon.action.wm.jms.alias.EnableJmsAlias;
-import com.gni.frmk.tools.addon.api.action.ActionHandler;
+import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.result.NoResult;
-import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.wm.data.*;
+import com.gni.frmk.tools.addon.api.action.ActionHandler;
 
 /**
  * Created by IntelliJ IDEA.
@@ -24,8 +24,7 @@ public class EnableJmsAliasHandler extends AbstractInvokeHandler<EnableJmsAlias,
     @Override
     protected IData prepareInput(EnableJmsAlias in) {
         return IDataFactory.create(new Object[][]{
-                {"aliasName",
-                 in.getAliasName()}
+                {"aliasName", in.getAliasName().getValue()}
         });
     }
 

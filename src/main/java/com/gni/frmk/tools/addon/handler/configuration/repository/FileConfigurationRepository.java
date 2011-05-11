@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.handler.configuration.repository;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
-import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
+import com.gni.frmk.tools.addon.model.Configuration;
 import com.google.common.collect.Sets;
 import com.google.common.io.Files;
 
@@ -89,7 +89,7 @@ public class FileConfigurationRepository implements ConfigurationRepository {
     }
 
     @Override
-    public void saveConfiguration(ImmutableConfiguration cnf) {
+    public void saveConfiguration(Configuration cnf) {
         String packageName = cnf.getPackageName();
         if (!util.isPackageEnabled(packageName)) {
             throw new IllegalStateException(String.format("package %s not found", packageName));
@@ -111,7 +111,7 @@ public class FileConfigurationRepository implements ConfigurationRepository {
     }
 
     @Override
-    public ImmutableConfiguration loadConfiguration(String id) {
+    public Configuration loadConfiguration(String id) {
         File configurationFile = locateConfiguration(id);
         try {
             return loadFromFile(configurationFile);
@@ -136,7 +136,7 @@ public class FileConfigurationRepository implements ConfigurationRepository {
         return new File(toolConfigDir, idToFileName(id));
     }
 
-    private void saveToFile(ImmutableConfiguration cnf, File file) throws IOException {
+    private void saveToFile(Configuration cnf, File file) throws IOException {
         FileWriter out = new FileWriter(file);
         try {
             serializer.saveConfiguration(cnf, out);
@@ -145,7 +145,7 @@ public class FileConfigurationRepository implements ConfigurationRepository {
         }
     }
 
-    private ImmutableConfiguration loadFromFile(File file) throws IOException {
+    private Configuration loadFromFile(File file) throws IOException {
         FileReader in = new FileReader(file);
         try {
             return serializer.loadConfiguration(in);

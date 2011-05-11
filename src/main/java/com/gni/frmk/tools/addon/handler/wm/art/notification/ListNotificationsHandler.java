@@ -4,11 +4,11 @@ import com.gni.frmk.tools.addon.action.wm.art.notifications.ListNotifications;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.model.AdapterId;
+import com.gni.frmk.tools.addon.model.component.id.AdapterId;
 import com.gni.frmk.tools.addon.result.ListResult;
 import com.google.common.collect.Lists;
 import com.wm.data.*;
-import ev.frmk.tools.plateform.api.action.ActionHandler;
+import com.gni.frmk.tools.addon.api.action.ActionHandler;
 
 import java.util.List;
 

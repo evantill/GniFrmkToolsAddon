@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon;
 import com.gni.frmk.tools.addon.api.action.DispatchException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.context.InvokeContextLocal;
-import com.gni.frmk.tools.addon.model.configuration.ImmutableConfiguration;
+import com.gni.frmk.tools.addon.model.Configuration;
 import com.gni.frmk.tools.addon.oldies.services.AdminService;
 import com.gni.frmk.tools.addon.oldies.services.ConfigurationService;
 import com.gni.frmk.tools.addon.oldies.services.ReportService;
@@ -27,12 +27,9 @@ public class CallServiceWrapper {
         //TODO remplacer le ctx par une factory
         InvokeContext ctx = new InvokeContextLocal();
         final IntegrationServerUtil utils = new IntegrationServerUtil(packageNsName);
-        WmRootInvoker rootInvoker = new WmRootInvoker(utils, ctx, packageNsName);
-        WmRootJmsInvoker rootJmsInvoker = new WmRootJmsInvoker(utils, ctx, packageNsName);
-        WmArtInvoker artInvoker = new WmArtInvoker(utils, ctx);
         configurationService = new ConfigurationService(utils);
-        reportService = new ReportService(rootInvoker, rootJmsInvoker, artInvoker);
-        adminService = new AdminService(defaultConfigName, rootInvoker, rootJmsInvoker, artInvoker, configurationService, reportService);
+        reportService = new ReportService();
+        adminService = new AdminService(defaultConfigName, null, null, null, configurationService, reportService);
     }
 
     public void readServerConfig(IData pipeline) throws ServiceException {
@@ -51,7 +48,7 @@ public class CallServiceWrapper {
         try {
             String configurationName = IDataUtil.getString(curPipeline, "configurationName");
             configurationService.clearConfiguration(configurationName);
-            ImmutableConfiguration cnf = reportService.reportCurrentConfiguration(configurationName);
+            Configuration cnf = reportService.reportCurrentConfiguration(configurationName);
             configurationService.saveConfiguration(cnf);
         } catch (DispatchException e) {
             rethrowServiceException(e);

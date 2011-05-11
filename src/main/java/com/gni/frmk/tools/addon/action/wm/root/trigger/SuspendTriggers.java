@@ -2,7 +2,7 @@ package com.gni.frmk.tools.addon.action.wm.root.trigger;
 
 import com.gni.frmk.tools.addon.result.NoResult;
 import com.google.common.collect.Sets;
-import ev.frmk.tools.plateform.api.action.Action;
+import com.gni.frmk.tools.addon.api.action.Action;
 
 import java.util.Set;
 

@@ -2,10 +2,10 @@ package com.gni.frmk.tools.addon.handler.wm.root.trigger;
 
 import com.gni.frmk.tools.addon.action.wm.root.trigger.GetNativeTriggerDetail;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
-import com.gni.frmk.tools.addon.model.NoDetail;
+import com.gni.frmk.tools.addon.model.component.detail.NoDetail;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
-import ev.frmk.tools.plateform.api.action.ActionException;
-import ev.frmk.tools.plateform.api.action.ActionHandler;
+import com.gni.frmk.tools.addon.api.action.ActionException;
+import com.gni.frmk.tools.addon.api.action.ActionHandler;
 
 /**
  * Created by IntelliJ IDEA.

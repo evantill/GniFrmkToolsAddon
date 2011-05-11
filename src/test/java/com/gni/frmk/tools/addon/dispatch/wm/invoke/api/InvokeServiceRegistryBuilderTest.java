@@ -5,6 +5,7 @@ import com.gni.frmk.tools.addon.api.action.Action;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.handler.wm.InvokeHandler;
 import com.gni.frmk.tools.addon.handler.wm.art.connection.DisableConnectionHandler;
+import com.gni.frmk.tools.addon.model.component.id.AdapterId;
 import com.gni.frmk.tools.addon.result.NoResult;
 import com.wm.lang.ns.NSName;
 import org.junit.Assert;
@@ -58,7 +59,7 @@ public class InvokeServiceRegistryBuilderTest {
         InvokeServiceRegistryBuilder builder = new InvokeServiceRegistryBuilder().defineServices();
         assertEquals("error loading all services in services file",34,builder.handlers.size());
         InvokeServiceRegistry registry = builder.build();
-        DisableConnectionHandler h = (DisableConnectionHandler) registry.findInvoker(new DisableConnection("bidon"));
+        DisableConnectionHandler h = (DisableConnectionHandler) registry.findInvoker(new DisableConnection(new AdapterId("bidon","JDBCAdapter")));
         Assert.assertNotNull(h);
     }
 }

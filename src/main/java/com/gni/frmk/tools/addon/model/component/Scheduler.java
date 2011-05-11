@@ -1,10 +1,9 @@
 package com.gni.frmk.tools.addon.model.component;
 
-import com.gni.frmk.tools.addon.model.BaseComponent;
-import com.gni.frmk.tools.addon.model.SchedulerState;
-import com.gni.frmk.tools.addon.model.StringId;
-import com.gni.frmk.tools.addon.model.TypedComponentVisitor;
-import com.gni.frmk.tools.addon.model.component.AdapterConnection.Detail;
+import com.gni.frmk.tools.addon.model.component.Scheduler.Detail;
+import com.gni.frmk.tools.addon.model.component.id.StringId;
+import com.gni.frmk.tools.addon.model.component.state.SchedulerState;
+import com.gni.frmk.tools.addon.visitor.TypedComponentVisitor;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,7 +20,7 @@ public class Scheduler
         visitor.visitScheduler(this);
     }
 
-    public static class Detail extends AbstractDetail {
+    public static class Detail extends BaseComponent.AbstractDetail {
         private String schedulerType;
         private String name;
         private String service;

@@ -2,9 +2,6 @@ package com.gni.frmk.tools.addon.oldies.service;
 
 import com.gni.frmk.tools.addon.IntegrationServerUtil;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.util.PipelineTestUtils;
-import com.gni.frmk.tools.addon.oldies.invoke.WmArtInvoker;
-import com.gni.frmk.tools.addon.oldies.invoke.WmRootInvoker;
-import com.gni.frmk.tools.addon.oldies.invoke.WmRootJmsInvoker;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
@@ -26,9 +23,6 @@ public class ReportServiceTest {
 
     private static IntegrationServerUtil isUtils;
     private static PipelineTestUtils testUtils;
-    private static WmRootJmsInvoker rootJmsInvoker;
-    private static WmRootInvoker rootNativeInvoker;
-    private static WmArtInvoker artInvoker;
 
     @BeforeClass
     public static void setUp() throws URISyntaxException {

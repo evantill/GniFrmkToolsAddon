@@ -1,7 +1,6 @@
 package com.gni.frmk.tools.addon.oldies.data2.adapter;
 
-import com.gni.frmk.tools.addon.model.component.ImmutableAdapterListener;
-import com.gni.frmk.tools.addon.model.component.ImmutableAdapterListener;
+import com.gni.frmk.tools.addon.model.component.AdapterListener;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -23,13 +22,13 @@ public class AdapterListenerTest {
     static class AdapterListenerXmlRoot {
 
         @XmlElement
-        private ImmutableAdapterListener listener;
+        private AdapterListener listener;
 
-        public ImmutableAdapterListener getListener() {
+        public AdapterListener getListener() {
             return listener;
         }
 
-        public void setListener(ImmutableAdapterListener listener) {
+        public void setListener(AdapterListener listener) {
             this.listener = listener;
         }
     }
