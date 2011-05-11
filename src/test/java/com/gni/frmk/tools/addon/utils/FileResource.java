@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.model;
+package com.gni.frmk.tools.addon.utils;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;

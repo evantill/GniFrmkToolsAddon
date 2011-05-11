@@ -2,6 +2,8 @@ package com.gni.frmk.tools.addon.model;
 
 import com.gni.frmk.tools.addon.model.Component.Type;
 import com.gni.frmk.tools.addon.model.jaxb.JaxbUtil;
+import com.gni.frmk.tools.addon.model.utils.ConfigurationTestRule;
+import com.gni.frmk.tools.addon.utils.FileResource;
 import com.google.common.collect.Sets;
 import org.custommonkey.xmlunit.XMLAssert;
 import org.custommonkey.xmlunit.XMLUnit;
@@ -31,7 +33,7 @@ import java.util.Set;
 public class ConfigurationTest {
 
     @Rule
-    public ConfigurationUtils utils = new ConfigurationUtils("2010-05-03T20:01:59+01:00");
+    public ConfigurationTestRule utils = new ConfigurationTestRule("2010-05-03T20:01:59+01:00");
 
     @Rule
     public FileResource expectedXml = new FileResource(ConfigurationTest.class, "ConfigurationTest.xml");
@@ -39,7 +41,7 @@ public class ConfigurationTest {
     @Test
     public void testToXml() throws JAXBException, IOException, SAXException {
 
-        Configuration cnf = utils.createConfiguration();
+        Configuration cnf = utils.getConfigurationBuilder().createConfiguration();
 
         JAXBContext ctx = JaxbUtil.newContext();
 
@@ -49,7 +51,6 @@ public class ConfigurationTest {
         StringWriter out = new StringWriter();
         marshaller.marshal(cnf, out);
 
-        System.out.println("out = " + out);
         XMLUnit.setIgnoreAttributeOrder(true);
         XMLUnit.setIgnoreWhitespace(true);
         XMLAssert.assertXMLEqual(expectedXml.getContent(), out.toString());
@@ -63,7 +64,7 @@ public class ConfigurationTest {
         Unmarshaller unmarshaller = ctx.createUnmarshaller();
 
         Configuration cnf = (Configuration) unmarshaller.unmarshal(in);
-        Configuration expectedCnf = utils.createConfiguration();
+        Configuration expectedCnf = utils.getConfigurationBuilder().createConfiguration();
 
         Assert.assertEquals(expectedCnf.getCreation(), cnf.getCreation());
         Assert.assertEquals(expectedCnf.getId(), cnf.getId());
@@ -77,9 +78,7 @@ public class ConfigurationTest {
         XMLUnit.setIgnoreAttributeOrder(true);
         XMLUnit.setIgnoreWhitespace(true);
         XMLAssert.assertXMLEqual(expectedXml.getContent(), out.toString());
-
     }
-
 
     @Test
     public void testTypeFilter() throws JAXBException, IOException, SAXException {

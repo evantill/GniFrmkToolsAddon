@@ -1,32 +1,32 @@
-package com.gni.frmk.tools.addon.model;
+package com.gni.frmk.tools.addon.model.utils;
 
+import com.gni.frmk.tools.addon.model.BaseComponentConfiguration;
 import com.gni.frmk.tools.addon.model.Component.StateType;
 import com.gni.frmk.tools.addon.model.Component.Type;
-import com.gni.frmk.tools.addon.model.component.AdapterConnection.Detail;
-import com.gni.frmk.tools.addon.model.component.ComposantType1.*;
-import com.gni.frmk.tools.addon.model.component.ComposantType2.ConfigurationComposantType2;
+import com.gni.frmk.tools.addon.model.ComponentConfiguration;
+import com.gni.frmk.tools.addon.model.Configuration;
 import com.gni.frmk.tools.addon.model.component.*;
+import com.gni.frmk.tools.addon.model.component.AdapterConnection.Detail;
+import com.gni.frmk.tools.addon.model.component.ComposantType1.ConfigurationComposantType1;
+import com.gni.frmk.tools.addon.model.component.ComposantType2.ConfigurationComposantType2;
 import com.gni.frmk.tools.addon.model.component.detail.NoDetail;
 import com.gni.frmk.tools.addon.model.component.detail.SimpleDetail;
 import com.gni.frmk.tools.addon.model.component.id.AdapterId;
 import com.gni.frmk.tools.addon.model.component.id.PackageAndStringId;
 import com.gni.frmk.tools.addon.model.component.id.StringId;
+import com.gni.frmk.tools.addon.model.component.state.ActivableState;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;
-import com.gni.frmk.tools.addon.model.component.state.ConnectableState.ConnectableStatus;
 import com.gni.frmk.tools.addon.model.component.state.ConnectableState;
-import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
+import com.gni.frmk.tools.addon.model.component.state.ConnectableState.ConnectableStatus;
 import com.gni.frmk.tools.addon.model.component.state.EnableState;
+import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState;
 import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState.TemporaryActivableState;
 import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState.TemporaryStatus;
-import com.gni.frmk.tools.addon.model.component.state.SchedulerState.SchedulerStatus;
-import com.gni.frmk.tools.addon.model.component.state.ActivableState;
 import com.gni.frmk.tools.addon.model.component.state.SchedulerState;
+import com.gni.frmk.tools.addon.model.component.state.SchedulerState.SchedulerStatus;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import org.joda.time.format.DateTimeFormatter;
-import org.joda.time.format.ISODateTimeFormat;
-import org.junit.rules.ExternalResource;
 
 import java.util.Date;
 import java.util.List;
@@ -34,28 +34,19 @@ import java.util.Map;
 
 /**
  * Created by IntelliJ IDEA.
- * Date: 09/05/11
- * Time: 19:16
+ * Date: 11/05/11
+ * Time: 13:32
  *
  * @author: e03229
  */
-public class ConfigurationUtils extends ExternalResource {
+public class ConfigurationBuilder {
 
-    private final DateTimeFormatter parser = ISODateTimeFormat.dateTimeNoMillis();
-    private final String nowAsString;
-    private final Date now;
     private int index;
+    private final Date now;
 
-    public ConfigurationUtils(String nowAsString) {
-        this.nowAsString = nowAsString;
-        now = parser.parseDateTime(nowAsString).toDate();
-        index = 0;
-    }
-
-    public ConfigurationUtils(Date now) {
+    public ConfigurationBuilder(int indexStart, Date now) {
+        this.index = indexStart;
         this.now = now;
-        nowAsString = parser.print(now.getTime());
-        index = 0;
     }
 
     public Configuration newFullConfiguration() {

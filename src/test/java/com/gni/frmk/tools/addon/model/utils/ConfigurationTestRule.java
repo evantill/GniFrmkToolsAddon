@@ -1,9 +1,11 @@
-package com.gni.frmk.tools.addon.model;
+package com.gni.frmk.tools.addon.model.utils;
 
 import com.gni.frmk.tools.addon.handler.configuration.repository.ConfigurationSerializer;
 import com.gni.frmk.tools.addon.model.Configuration;
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
+import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.ISODateTimeFormat;
 import org.junit.rules.ExternalResource;
 
 import javax.validation.ConstraintViolation;
@@ -32,11 +34,29 @@ public class ConfigurationTestRule extends ExternalResource {
     public static final String DHMS_PATTERN = "yyyy-MM-dd HH:mm:ss.SSS";
     public static final String NOW_DHMS = "2011-03-03 19:00:23.828";
 
+    private ConfigurationSerializer serializer;
+
+    private final DateTimeFormatter parser = ISODateTimeFormat.dateTimeNoMillis();
+    private final String nowAsString;
+    private final Date now;
+    private ConfigurationBuilder configurationBuilder;
+
     private Locale savedLocale = Locale.getDefault();
     private TimeZone savedTimeZone = TimeZone.getDefault();
-    private int index = 0;
 
-    private static ConfigurationSerializer serializer;
+    public ConfigurationTestRule(String nowAsString) {
+        this.nowAsString = nowAsString;
+        now = parser.parseDateTime(nowAsString).toDate();
+    }
+
+    public ConfigurationTestRule(Date now) {
+        this.now = now;
+        nowAsString = parser.print(now.getTime());
+    }
+
+    public ConfigurationBuilder getConfigurationBuilder() {
+        return configurationBuilder;
+    }
 
     public static Configuration loadConfiguration(Class classToTest, String name) throws Exception {
         String xml = loadXml(name, classToTest);
@@ -55,15 +75,16 @@ public class ConfigurationTestRule extends ExternalResource {
 
     @Override
     protected void before() throws Throwable {
+        configurationBuilder = new ConfigurationBuilder(0, now());
         savedLocale = Locale.getDefault();
         savedTimeZone = TimeZone.getDefault();
         Locale.setDefault(Locale.US);
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-        index = 0;
     }
 
     @Override
     protected void after() {
+        configurationBuilder = null;
         Locale.setDefault(savedLocale);
         TimeZone.setDefault(savedTimeZone);
     }
@@ -89,4 +110,5 @@ public class ConfigurationTestRule extends ExternalResource {
             throw new RuntimeException(violations.toString());
         }
     }
+
 }
