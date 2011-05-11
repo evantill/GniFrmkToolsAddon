@@ -13,7 +13,8 @@ import javax.xml.bind.JAXBException;
 public class JaxbUtil {
 
     public static final JAXBContext newContext() throws JAXBException {
-        String contextPath="com.gni.frmk.tools.addon.model"+
+        String contextPath="com.gni.frmk.tools.addon.model.jaxb"+
+                           ":com.gni.frmk.tools.addon.model"+
                            ":com.gni.frmk.tools.addon.model.component"+
                            ":com.gni.frmk.tools.addon.model.component.id"+
                            ":com.gni.frmk.tools.addon.model.component.detail"+

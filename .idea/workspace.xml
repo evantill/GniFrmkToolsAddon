@@ -17,73 +17,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0351ebf0-d8f5-4a3c-a009-2885c7c92c58" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/jaxb/JaxbUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/com/gni/frmk/tools/addon/model/component/detail/jaxb.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/com/gni/frmk/tools/addon/model/component/id/jaxb.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/com/gni/frmk/tools/addon/model/component/jaxb.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/com/gni/frmk/tools/addon/model/component/state/jaxb.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/resources/com/gni/frmk/tools/addon/model/component/detail/jaxb.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/resources/com/gni/frmk/tools/addon/model/jaxb.index" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\model\configuration\package-info.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\test\resources\com\gni\frmk\tools\addon\model\configuration\jaxb.properties" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/action/wm/art/listener/GetListenerState.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/action/wm/art/listener/GetListenerState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/action/wm/art/notifications/GetNotificationState.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/action/wm/art/notifications/GetNotificationState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/action/wm/jms/trigger/GetJmsTriggerDetail.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/action/wm/jms/trigger/GetJmsTriggerDetail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/action/wm/jms/trigger/GetJmsTriggerState.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/action/wm/jms/trigger/GetJmsTriggerState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/action/wm/root/port/GetPortState.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/action/wm/root/port/GetPortState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/action/wm/root/scheduler/GetSchedulerState.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/action/wm/root/scheduler/GetSchedulerState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/action/wm/root/trigger/GetNativeTriggerState.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/action/wm/root/trigger/GetNativeTriggerState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/api/custom/visitor/ConfigurationVisitor.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/api/custom/visitor/ConfigurationVisitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/handler/configuration/OpenPlateformHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/handler/configuration/OpenPlateformHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/handler/wm/root/port/GetPortStateHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/handler/wm/root/port/GetPortStateHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/handler/wm/root/scheduler/GetSchedulerStateHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/handler/wm/root/scheduler/GetSchedulerStateHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/handler/wm/root/trigger/GetNativeTriggerStateHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/handler/wm/root/trigger/GetNativeTriggerStateHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/Configuration.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/Configuration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/AdapterConnection.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/AdapterConnection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/AdapterListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/AdapterListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/AdapterNotification.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/AdapterNotification.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/JmsAlias.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/JmsAlias.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/JmsTrigger.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/JmsTrigger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/NativeTrigger.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/NativeTrigger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/Port.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/Port.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/Scheduler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/Scheduler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/detail/NoDetail.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/detail/NoDetail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/id/AdapterId.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/id/AdapterId.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/id/PackageAndStringId.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/id/PackageAndStringId.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/id/StringId.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/id/StringId.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/state/ActivableState.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/state/ActivableState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/state/ConnectableState.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/state/ConnectableState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/state/EnableState.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/state/EnableState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/state/NativeTriggerState.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/state/NativeTriggerState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/oldies/services/ConfigurationService.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/oldies/services/ConfigurationService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/oldies/services/ReportService.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/oldies/services/ReportService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/oldies/visitor/api/UpdateConfigurationVisitorAdapter.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/oldies/visitor/api/UpdateConfigurationVisitorAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/visitor/ConfigurationVisitor.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/visitor/ConfigurationVisitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/visitor/GenericComponentVisitor.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/visitor/GenericComponentVisitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/visitor/api/ComponentVisitorRaisingException.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/visitor/api/ComponentVisitorRaisingException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/visitor/api/ConfigurationVisitor.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/visitor/api/ConfigurationVisitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/visitor/api/ConfigurationVisitorAdapter.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/visitor/api/ConfigurationVisitorAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/visitor/api/ConfigurationVisitorRaisingException.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/visitor/api/ConfigurationVisitorRaisingException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/com/gni/frmk/tools/addon/model/jaxb.index" afterPath="$PROJECT_DIR$/src/main/resources/com/gni/frmk/tools/addon/model/jaxb.index" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/handler/configuration/loader/ConfigurationSerializerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/handler/configuration/loader/ConfigurationSerializerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/handler/configuration/wm/ISLocalConfigurationRepositoryTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/handler/configuration/wm/ISLocalConfigurationRepositoryTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/model/ConfigurationTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/model/ConfigurationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/model/component/ComposantType1.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/model/component/ComposantType1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/model/component/ComposantType2.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/model/component/ComposantType2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/model/component/detail/SimpleDetail.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/model/component/detail/SimpleDetail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/oldies/data2/configuration/ConfigurationTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/oldies/data2/configuration/ConfigurationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/oldies/service/ConfigurationServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/oldies/service/ConfigurationServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/visitor/ConfigurationVisitorTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/visitor/ConfigurationVisitorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/com/gni/frmk/tools/addon/model/ConfigurationTest.xml" afterPath="$PROJECT_DIR$/src/test/resources/com/gni/frmk/tools/addon/model/ConfigurationTest.xml" />
-      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\model\component\BaseComponent.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/BaseComponent.java" />
-      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\model\configuration\BaseComponentConfiguration.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/BaseComponentConfiguration.java" />
-      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\java\com\gni\frmk\tools\addon\model\configuration\XmlJaxbAdapters.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/jaxb/XmlJaxbAdapters.java" />
-      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\test\java\com\gni\frmk\tools\addon\model\configuration\ConfigurationTestRule.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/model/ConfigurationTestRule.java" />
-      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\test\java\com\gni\frmk\tools\addon\model\configuration\ConfigurationUtils.java" afterPath="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/model/ConfigurationUtils.java" />
-      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\test\resources\com\gni\frmk\tools\addon\model\configuration\ConfigurationTest_full.xml" afterPath="$PROJECT_DIR$/src/test/resources/com/gni/frmk/tools/addon/model/ConfigurationTest_full.xml" />
-      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\test\resources\com\gni\frmk\tools\addon\model\configuration\ConfigurationTest_simple.xml" afterPath="$PROJECT_DIR$/src/test/resources/com/gni/frmk/tools/addon/model/ConfigurationTest_simple.xml" />
-      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\test\resources\com\gni\frmk\tools\addon\model\configuration\jaxb.index" afterPath="$PROJECT_DIR$/src/test/resources/com/gni/frmk/tools/addon/model/component/jaxb.index" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/jaxb/JaxbUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/jaxb/JaxbUtil.java" />
+      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\src\main\resources\com\gni\frmk\tools\addon\model\jaxb.properties" afterPath="$PROJECT_DIR$/src/main/resources/com/gni/frmk/tools/addon/model/jaxb/jaxb.properties" />
     </list>
     <list id="8235ac6d-d30b-4386-a229-cdc47fc4573f" name="brouillon" comment="" />
     <ignored path="$USER_HOME$/.grails/" />
@@ -328,6 +264,7 @@
       <favorite_root url="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/state" module="GniFrmkToolsAddon" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
       <favorite_root url="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/jaxb" module="GniFrmkToolsAddon" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
       <favorite_root url="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model" module="GniFrmkToolsAddon" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      <favorite_root url="file://$PROJECT_DIR$/src/main/resources/com/gni/frmk/tools/addon/model/jaxb" module="GniFrmkToolsAddon" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
       <favorite_root url="file://$PROJECT_DIR$/src/main/resources/com/gni/frmk/tools/addon/model" module="GniFrmkToolsAddon" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
       <favorite_root url="file://$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/model" module="GniFrmkToolsAddon" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
       <favorite_root url="file://$PROJECT_DIR$/src/test/resources/com/gni/frmk/tools/addon/model" module="GniFrmkToolsAddon" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -372,10 +309,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JaxbUtil.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="JaxbUtil.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/jaxb/JaxbUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="35" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0">
+            <state line="15" column="63" selection-start="371" selection-end="371" vertical-scroll-proportion="0.3846154">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -403,10 +340,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContextFinder.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ContextFinder.java" pinned="false" current="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/../../../softs/4.0.0/apps/jdk1.6.0_23/src.zip!/javax/xml/bind/ContextFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="221" column="23" selection-start="8608" selection-end="8608" vertical-scroll-proportion="0.08615384">
+            <state line="221" column="23" selection-start="8608" selection-end="8608" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="initializer##0;class#ContextFinder#0" expanded="true" />
@@ -423,6 +360,15 @@
                 <element signature="method#which#1;class#ContextFinder#0" expanded="true" />
                 <element signature="method#safeLoadClass#0;class#ContextFinder#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jaxb.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/com/gni/frmk/tools/addon/model/jaxb/jaxb.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -474,8 +420,8 @@
         <option value="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/model/component/jaxb.index" />
         <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/JmsAlias.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/jaxb/XmlJaxbAdapters.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/jaxb/JaxbUtil.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/model/ConfigurationTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/jaxb/JaxbUtil.java" />
       </list>
     </option>
   </component>
@@ -783,86 +729,6 @@
       </pane>
       <pane id="PackagesPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewLibrariesNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javax" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xml" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javax" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xml" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bind" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GniFrmkToolsAddon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javax" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="GniFrmkToolsAddon" />
@@ -2896,7 +2762,7 @@
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="jaxb was broken" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaning jaxb config" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -2930,6 +2796,7 @@
     <MESSAGE value="ajout level1 services pour jms" />
     <MESSAGE value="passage de la compilation pendant refactoring" />
     <MESSAGE value="jaxb was broken" />
+    <MESSAGE value="cleaning jaxb config" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2939,13 +2806,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/component/AdapterNotification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="13" selection-start="480" selection-end="480" vertical-scroll-proportion="0.20888469">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/gni/frmk/tools/addon/model/component/detail/SimpleDetail.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="13" selection-start="232" selection-end="232" vertical-scroll-proportion="0.17674859">
@@ -3030,15 +2890,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/jaxb/JaxbUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="35" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../../../softs/4.0.0/apps/jdk1.6.0_23/src.zip!/javax/xml/bind/JAXBContext.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="371" column="32" selection-start="16972" selection-end="16972" vertical-scroll-proportion="0.0">
@@ -3059,7 +2910,7 @@
     </entry>
     <entry file="jar://$PROJECT_DIR$/../../../softs/4.0.0/apps/jdk1.6.0_23/src.zip!/javax/xml/bind/ContextFinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="221" column="23" selection-start="8608" selection-end="8608" vertical-scroll-proportion="0.08615384">
+        <state line="221" column="23" selection-start="8608" selection-end="8608" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="initializer##0;class#ContextFinder#0" expanded="true" />
@@ -3075,6 +2926,22 @@
             <element signature="method#which#0;class#ContextFinder#0" expanded="true" />
             <element signature="method#which#1;class#ContextFinder#0" expanded="true" />
             <element signature="method#safeLoadClass#0;class#ContextFinder#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/gni/frmk/tools/addon/model/jaxb/jaxb.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gni/frmk/tools/addon/model/jaxb/JaxbUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="63" selection-start="371" selection-end="371" vertical-scroll-proportion="0.3846154">
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
