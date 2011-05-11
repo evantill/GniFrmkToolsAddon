@@ -1,30 +1,5 @@
 package com.gni.frmk.tools.addon.handler.configuration.wm;
 
-import com.gni.frmk.tools.addon.IntegrationServerUtil;
-import com.gni.frmk.tools.addon.handler.configuration.repository.ConfigurationSerializer;
-import com.gni.frmk.tools.addon.handler.configuration.repository.ConfigurationSerializer.SerializationException;
-import com.gni.frmk.tools.addon.model.Configuration;
-import com.gni.frmk.tools.addon.model.configuration.ConfigurationTestRule;
-import com.google.common.base.Charsets;
-import com.google.common.collect.Maps;
-import com.google.common.io.Closeables;
-import com.google.common.io.Files;
-import junit.framework.Assert;
-import org.junit.BeforeClass;
-import org.junit.Rule;
-import org.junit.Test;
-import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.StringReader;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Set;
-
 /**
  * Created by IntelliJ IDEA.
  * Date: 06/04/11

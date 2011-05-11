@@ -2,7 +2,7 @@ package com.gni.frmk.tools.addon.visitor;
 
 
 import com.gni.frmk.tools.addon.api.custom.visitor.ConfigurationVisitor;
-import com.gni.frmk.tools.addon.model.Component;
+import com.gni.frmk.tools.addon.model.*;
 import com.gni.frmk.tools.addon.model.component.*;
 
 /**

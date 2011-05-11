@@ -1,7 +1,8 @@
 package com.gni.frmk.tools.addon.model.component;
 
-import com.gni.frmk.tools.addon.model.component.state.ActivableState;
+import com.gni.frmk.tools.addon.model.BaseComponent;
 import com.gni.frmk.tools.addon.model.component.id.StringId;
+import com.gni.frmk.tools.addon.model.component.state.ActivableState;
 import com.gni.frmk.tools.addon.visitor.TypedComponentVisitor;
 import com.gni.frmk.tools.addon.model.component.JmsTrigger.Detail;
 

@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.action.wm.art.listener;
 
-import com.gni.frmk.tools.addon.model.component.state.ActivableState;
 import com.gni.frmk.tools.addon.model.component.id.AdapterId;
+import com.gni.frmk.tools.addon.model.component.state.ActivableState;
 import com.gni.frmk.tools.addon.result.ComponentStateResult;
 import com.gni.frmk.tools.addon.api.action.Action;
 

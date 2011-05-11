@@ -1,9 +1,5 @@
 package com.gni.frmk.tools.addon.visitor.api;
 
-import com.gni.frmk.tools.addon.model.ComponentConfiguration;
-import com.gni.frmk.tools.addon.model.component.BaseComponent;
-import com.gni.frmk.tools.addon.model.component.BaseComponent.AbstractState;
-
 /**
  * Created by IntelliJ IDEA.
  * User: e03229

@@ -8,47 +8,41 @@ package com.gni.frmk.tools.addon.model.component.state;
  * @author: e03229
  */
 public class ActivableState extends EnableState {
-    public enum ActivableStatus {
-        UNKNOWN {
-            @Override
-            public boolean isActive() {
-                return false;
-            }
+    public static enum ActivableStatus {
+        UNKNOWN(false),
+        ACTIVE(true),
+        INACTIVE(false);
 
-            @Override
-            public ActivableStatus invert() {
-                return UNKNOWN;
-            }
-        }, ACTIVE {
-            @Override
-            public boolean isActive() {
-                return true;
-            }
+        private final boolean active;
 
-            @Override
-            public ActivableStatus invert() {
-                return INACTIVE;
-            }
-        },
-        INACTIVE {
-            @Override
-            public boolean isActive() {
-                return false;
-            }
-
-            @Override
-            public ActivableStatus invert() {
-                return ACTIVE;
-            }
-        };
-
-        public abstract boolean isActive();
-
-        public boolean isNotActive() {
-            return !isActive();
+        ActivableStatus(boolean active) {
+            this.active = active;
         }
 
-        public abstract ActivableStatus invert();
+        public boolean isActive() {
+            return active;
+        }
+
+        public boolean isNotActive() {
+            return !active;
+        }
+
+        /**
+         * we could not use switch as it generate an inner "$1" class causing problems in jaxb
+         * @param status to invert
+         * @return  the negation of this status
+         */
+        public static ActivableStatus invert(ActivableStatus status) {
+            if(status==ACTIVE){
+                return INACTIVE ;
+            }else if(status==INACTIVE){
+                return ACTIVE;
+            }else if(status==UNKNOWN){
+                return UNKNOWN;
+            }else{
+                return UNKNOWN;
+            }
+        }
 
         public static ActivableStatus fromStateString(String stateValue, String activeString, String inactiveString) {
             if (activeString.equals(stateValue)) {

@@ -1,8 +1,9 @@
 package com.gni.frmk.tools.addon.model.component;
 
-import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState;
+import com.gni.frmk.tools.addon.model.BaseComponent;
 import com.gni.frmk.tools.addon.model.component.detail.NoDetail;
 import com.gni.frmk.tools.addon.model.component.id.StringId;
+import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState;
 import com.gni.frmk.tools.addon.visitor.TypedComponentVisitor;
 
 import javax.xml.bind.annotation.XmlRootElement;

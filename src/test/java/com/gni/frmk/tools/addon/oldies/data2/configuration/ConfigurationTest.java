@@ -84,7 +84,7 @@ public class ConfigurationTest {
         FileReader in = new FileReader(loadConfigurationFile);
         Configuration configuration = (Configuration) unmarshaller.unmarshal(in);
         assertNotNull(configuration);
-        assertEquals(4, configuration.getComponentConfigurationsByType(Type.NATIVE_TRIGGER).size());
+        assertEquals(4, configuration.listComponentConfigurationsByType(Type.NATIVE_TRIGGER).size());
     }
 
 //    @Test

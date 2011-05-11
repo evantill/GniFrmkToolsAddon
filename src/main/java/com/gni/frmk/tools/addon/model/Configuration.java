@@ -1,7 +1,6 @@
 package com.gni.frmk.tools.addon.model;
 
 import com.gni.frmk.tools.addon.model.Component.Type;
-import com.gni.frmk.tools.addon.model.configuration.BaseComponentConfiguration;
 import com.gni.frmk.tools.addon.visitor.ConfigurationVisitor;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
@@ -134,7 +133,7 @@ public class Configuration implements Iterable<ComponentConfiguration> {
         }
     }
 
-    public Collection<ComponentConfiguration> getComponentConfigurationsByType(Type type) {
+    public Collection<ComponentConfiguration> listComponentConfigurationsByType(Type type) {
         return Collections2.filter(componentConfigurations, ComponentTypeFilter.filterOn(type));
     }
 

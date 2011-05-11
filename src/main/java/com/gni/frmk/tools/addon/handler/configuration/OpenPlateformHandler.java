@@ -5,7 +5,6 @@ import com.gni.frmk.tools.addon.api.Producer;
 import com.gni.frmk.tools.addon.api.action.Action;
 import com.gni.frmk.tools.addon.api.action.ActionException;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
-import com.gni.frmk.tools.addon.api.action.DispatchException;
 import com.gni.frmk.tools.addon.api.action.ExecutionContext;
 import com.gni.frmk.tools.addon.api.custom.visitor.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.Configuration;

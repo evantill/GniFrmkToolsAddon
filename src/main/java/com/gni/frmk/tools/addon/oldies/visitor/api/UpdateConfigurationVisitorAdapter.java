@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.oldies.visitor.api;
 
-import com.gni.frmk.tools.addon.model.Component;
+import com.gni.frmk.tools.addon.model.*;
 import com.gni.frmk.tools.addon.model.component.*;
 import com.gni.frmk.tools.addon.visitor.api.ConfigurationVisitorRaisingException;
 

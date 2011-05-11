@@ -1,5 +1,7 @@
 package com.gni.frmk.tools.addon.model.component.state;
 
+import com.gni.frmk.tools.addon.model.component.state.EnableState;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 14/03/11

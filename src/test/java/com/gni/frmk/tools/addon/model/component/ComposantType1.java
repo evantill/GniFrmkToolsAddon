@@ -1,8 +1,9 @@
 package com.gni.frmk.tools.addon.model.component;
 
-import com.gni.frmk.tools.addon.model.configuration.BaseComponentConfiguration;
-import com.gni.frmk.tools.addon.model.component.ComposantType1.Type1Id;
+import com.gni.frmk.tools.addon.model.BaseComponent;
+import com.gni.frmk.tools.addon.model.BaseComponentConfiguration;
 import com.gni.frmk.tools.addon.model.component.ComposantType1.Type1State;
+import com.gni.frmk.tools.addon.model.component.ComposantType1.Type1Id;
 import com.gni.frmk.tools.addon.model.component.detail.SimpleDetail;
 
 /**
@@ -18,25 +19,6 @@ public class ComposantType1
     public static class ConfigurationComposantType1
             extends BaseComponentConfiguration<ComposantType1, Type1State> {
 
-    }
-
-    public static class Type1Id extends BaseComponent.AbstractId {
-        private String value;
-
-        public Type1Id() {
-        }
-
-        public Type1Id(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        public void setValue(String value) {
-            this.value = value;
-        }
     }
 
     public static class Type1State extends BaseComponent.AbstractState {
@@ -57,6 +39,25 @@ public class ComposantType1
 
         public void setEnabled(boolean enabled) {
             this.enabled = enabled;
+        }
+    }
+
+    public static class Type1Id extends BaseComponent.AbstractId {
+        private String value;
+
+        public Type1Id() {
+        }
+
+        public Type1Id(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
         }
     }
 }

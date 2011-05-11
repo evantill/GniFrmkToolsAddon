@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.model;
 
 import com.gni.frmk.tools.addon.model.Component.Type;
-import com.gni.frmk.tools.addon.model.configuration.ConfigurationUtils;
+import com.gni.frmk.tools.addon.model.jaxb.JaxbUtil;
 import com.google.common.collect.Sets;
 import org.custommonkey.xmlunit.XMLAssert;
 import org.custommonkey.xmlunit.XMLUnit;
@@ -33,15 +33,15 @@ public class ConfigurationTest {
     @Rule
     public ConfigurationUtils utils = new ConfigurationUtils("2010-05-03T20:01:59+01:00");
 
-      @Rule
-    public  FileResource expectedXml = new FileResource(ConfigurationTest.class, "ConfigurationTest.xml");
+    @Rule
+    public FileResource expectedXml = new FileResource(ConfigurationTest.class, "ConfigurationTest.xml");
 
     @Test
     public void testToXml() throws JAXBException, IOException, SAXException {
 
         Configuration cnf = utils.createConfiguration();
 
-        JAXBContext ctx = JAXBContext.newInstance("model");
+        JAXBContext ctx = JaxbUtil.newContext();
 
         Marshaller marshaller = ctx.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
@@ -49,6 +49,7 @@ public class ConfigurationTest {
         StringWriter out = new StringWriter();
         marshaller.marshal(cnf, out);
 
+        System.out.println("out = " + out);
         XMLUnit.setIgnoreAttributeOrder(true);
         XMLUnit.setIgnoreWhitespace(true);
         XMLAssert.assertXMLEqual(expectedXml.getContent(), out.toString());
@@ -57,7 +58,7 @@ public class ConfigurationTest {
     @Test
     public void testFromXml() throws JAXBException, IOException, SAXException {
         StringReader in = new StringReader(expectedXml.getContent());
-        JAXBContext ctx = JAXBContext.newInstance("model");
+        JAXBContext ctx = JaxbUtil.newContext();
 
         Unmarshaller unmarshaller = ctx.createUnmarshaller();
 
@@ -83,7 +84,7 @@ public class ConfigurationTest {
     @Test
     public void testTypeFilter() throws JAXBException, IOException, SAXException {
         StringReader in = new StringReader(expectedXml.getContent());
-        JAXBContext ctx = JAXBContext.newInstance("model");
+        JAXBContext ctx = JaxbUtil.newContext();
         Unmarshaller unmarshaller = ctx.createUnmarshaller();
 
         Configuration cnf = (Configuration) unmarshaller.unmarshal(in);
@@ -92,10 +93,10 @@ public class ConfigurationTest {
         Assert.assertEquals(expectedTypes, types);
 
         List<ComponentConfiguration> expectedList = cnf.getComponentConfigurations();
-        Collection<ComponentConfiguration> filteredList = cnf.getComponentConfigurationsByType(Type.UNKNOWN);
+        Collection<ComponentConfiguration> filteredList = cnf.listComponentConfigurationsByType(Type.UNKNOWN);
         Assert.assertTrue(filteredList.containsAll(expectedList));
 
-        Collection<ComponentConfiguration> emptyList = cnf.getComponentConfigurationsByType(Type.ADAPTER_CONNECTION);
+        Collection<ComponentConfiguration> emptyList = cnf.listComponentConfigurationsByType(Type.ADAPTER_CONNECTION);
         Assert.assertTrue(emptyList.isEmpty());
     }
 

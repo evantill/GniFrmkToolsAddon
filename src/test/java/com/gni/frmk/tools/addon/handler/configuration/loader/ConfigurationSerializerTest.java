@@ -5,8 +5,8 @@ import com.gni.frmk.tools.addon.handler.configuration.repository.ConfigurationSe
 import com.gni.frmk.tools.addon.model.Component.Type;
 import com.gni.frmk.tools.addon.model.Configuration;
 import com.gni.frmk.tools.addon.model.ConfigurationTest;
-import com.gni.frmk.tools.addon.model.configuration.ConfigurationTestRule;
-import com.gni.frmk.tools.addon.model.configuration.ConfigurationUtils;
+import com.gni.frmk.tools.addon.model.ConfigurationTestRule;
+import com.gni.frmk.tools.addon.model.ConfigurationUtils;
 import org.custommonkey.xmlunit.XMLUnit;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -66,10 +66,10 @@ public class ConfigurationSerializerTest {
     public void testLoadSimpleConfiguration() throws SerializationException {
         Configuration  fromCnf = utils.newSimpleConfiguration();
         StringReader in = new StringReader(xmlSimple);
-        Configuration  fromXml = serializer.loadConfiguration(in);
+        Configuration fromXml = serializer.loadConfiguration(in);
         util.raiseExceptionIfInvalid(fromXml);
         assertNotNull(fromXml);
-        assertEquals(fromCnf.getComponentConfigurationsByType(Type.ADAPTER_CONNECTION).size(), fromXml.getComponentConfigurationsByType(Type.ADAPTER_CONNECTION).size());
+        assertEquals(fromCnf.listComponentConfigurationsByType(Type.ADAPTER_CONNECTION).size(), fromXml.listComponentConfigurationsByType(Type.ADAPTER_CONNECTION).size());
     }
 
     @Test
@@ -87,9 +87,9 @@ public class ConfigurationSerializerTest {
         Configuration  fromXml = serializer.loadConfiguration(in);
         util.raiseExceptionIfInvalid(fromXml);
         assertNotNull(fromXml);
-        assertEquals(fromCnf.getComponentConfigurationsByType(Type.ADAPTER_CONNECTION).size(),
-                fromXml.getComponentConfigurationsByType(Type.ADAPTER_CONNECTION).size());
-        assertEquals(10, fromXml.getComponentConfigurationsByType(Type.ADAPTER_CONNECTION).size());
+        assertEquals(fromCnf.listComponentConfigurationsByType(Type.ADAPTER_CONNECTION).size(),
+                fromXml.listComponentConfigurationsByType(Type.ADAPTER_CONNECTION).size());
+        assertEquals(10, fromXml.listComponentConfigurationsByType(Type.ADAPTER_CONNECTION).size());
     }
 
 }

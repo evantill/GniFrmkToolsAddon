@@ -5,8 +5,6 @@ import com.gni.frmk.tools.addon.model.Component.Type;
 import com.gni.frmk.tools.addon.model.Configuration;
 import com.gni.frmk.tools.addon.model.component.AdapterConnection;
 import com.gni.frmk.tools.addon.model.component.Scheduler;
-import com.gni.frmk.tools.addon.model.component.state.EnableState;
-import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.oldies.services.ConfigurationService;
 import com.google.common.io.ByteStreams;
 import com.google.common.io.Closeables;
@@ -79,7 +77,7 @@ public class ConfigurationServiceTest {
         ConfigurationService srv = new ConfigurationService(utils);
         Configuration cnf = srv.loadConfiguration(LOAD_CONFIGURATION_NAME);
         assertNotNull(cnf);
-        assertEquals(4, cnf.getComponentConfigurationsByType(Type.NATIVE_TRIGGER).size());
+        assertEquals(4, cnf.listComponentConfigurationsByType(Type.NATIVE_TRIGGER).size());
     }
 
     @Test

@@ -1,15 +1,12 @@
-package com.gni.frmk.tools.addon.model.configuration;
+package com.gni.frmk.tools.addon.model;
 
-import com.gni.frmk.tools.addon.model.Component;
-import com.gni.frmk.tools.addon.model.Component.State;
-import com.gni.frmk.tools.addon.model.ComponentConfiguration;
-import com.gni.frmk.tools.addon.model.component.BaseComponent;
-import com.gni.frmk.tools.addon.model.configuration.XmlJaxbAdapters.ComponentStatesAdapter;
+import com.gni.frmk.tools.addon.model.jaxb.XmlJaxbAdapters.ComponentStatesAdapter;
 import com.gni.frmk.tools.addon.visitor.ConfigurationVisitor;
 import com.google.common.collect.Maps;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.Map;
 
@@ -20,6 +17,8 @@ import java.util.Map;
  *
  * @author: e03229
  */
+@XmlType(propOrder = {"component",
+                      "stateConfigurations"})
 public class BaseComponentConfiguration<C extends Component<?, S, ?>, S extends Component.State>
         implements ComponentConfiguration<C, S> {
     private C component;
@@ -63,19 +62,6 @@ public class BaseComponentConfiguration<C extends Component<?, S, ?>, S extends 
         visitor.visitComponentConfiguration(this);
     }
 
-    //TODO ne marche pas mais pourquoi ?
-    public static <CC extends Component<?,SS,?>,SS extends State> BaseComponentConfiguration<CC, SS> newComponentConfiguration() {
-        return new BaseComponentConfiguration<CC,SS>();
-    }
 
-    //TODO ne marche pas mais pourquoi ?
-    public static <CC extends BaseComponent<?, SS, ?>, SS extends Component.State> BaseComponentConfiguration<CC, SS>
-    newComponentConfiguration(CC component, Map<Component.StateType, SS> states, boolean presentOnIS) {
-        BaseComponentConfiguration<CC, SS> result = new BaseComponentConfiguration<CC, SS>();
-        result.setComponent(component);
-        result.setStateConfigurations(states);
-        result.setPresentOnIS(presentOnIS);
-        return result;
-    }
 }
 

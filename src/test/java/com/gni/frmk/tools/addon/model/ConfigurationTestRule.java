@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.model.configuration;
+package com.gni.frmk.tools.addon.model;
 
 import com.gni.frmk.tools.addon.handler.configuration.repository.ConfigurationSerializer;
 import com.gni.frmk.tools.addon.model.Configuration;

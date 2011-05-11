@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.model.configuration;
+package com.gni.frmk.tools.addon.model.jaxb;
 
-import com.gni.frmk.tools.addon.model.component.BaseComponent.AbstractState;
+import com.gni.frmk.tools.addon.model.BaseComponent.AbstractState;
 import com.gni.frmk.tools.addon.model.Component.State;
 import com.gni.frmk.tools.addon.model.Component.StateType;
 import com.google.common.collect.ComparisonChain;

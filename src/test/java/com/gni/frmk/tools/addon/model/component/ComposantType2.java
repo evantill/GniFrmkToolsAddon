@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.model.component;
 
-import com.gni.frmk.tools.addon.model.configuration.BaseComponentConfiguration;
+import com.gni.frmk.tools.addon.model.BaseComponent;
+import com.gni.frmk.tools.addon.model.BaseComponentConfiguration;
 import com.gni.frmk.tools.addon.model.component.ComposantType2.Type2Id;
 import com.gni.frmk.tools.addon.model.component.ComposantType2.Type2State;
 import com.gni.frmk.tools.addon.model.component.detail.SimpleDetail;

@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.model.component.id;
 
-import com.gni.frmk.tools.addon.model.component.BaseComponent.AbstractId;
+import com.gni.frmk.tools.addon.model.BaseComponent.AbstractId;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,7 +9,7 @@ import com.gni.frmk.tools.addon.model.component.BaseComponent.AbstractId;
  *
  * @author: e03229
  */
-public class AdapterId  extends AbstractId{
+public class AdapterId  extends AbstractId {
 
         private String name;
         private String adapterType;

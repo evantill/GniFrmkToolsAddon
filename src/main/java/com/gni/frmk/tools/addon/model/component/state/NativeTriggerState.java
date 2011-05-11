@@ -1,8 +1,7 @@
 package com.gni.frmk.tools.addon.model.component.state;
 
-import com.gni.frmk.tools.addon.model.component.BaseComponent.AbstractState;
+import com.gni.frmk.tools.addon.model.BaseComponent.AbstractState;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;
-import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,27 +13,20 @@ import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
 public class NativeTriggerState extends AbstractState {
 
     public static enum TemporaryStatus {
-        UNKNOWN {
-            @Override
-            public boolean isPermanent() {
-                return false;
-            }
-        }, TEMPORARY {
-            @Override
-            public boolean isPermanent() {
-                return false;
-            }
-        }, PERMANENT {
-            @Override
-            public boolean isPermanent() {
-                return true;
-            }
-        };
+        UNKNOWN(false), TEMPORARY(false), PERMANENT(true);
 
-        public abstract boolean isPermanent();
+        private final boolean permanent;
+
+        TemporaryStatus(boolean permanent) {
+            this.permanent = permanent;
+        }
+
+        public final boolean isPermanent() {
+            return permanent;
+        }
 
         public boolean isTemporary() {
-            return !isPermanent();
+            return !permanent;
         }
     }
 
@@ -102,16 +94,18 @@ public class NativeTriggerState extends AbstractState {
     }
 
     public static NativeTriggerState newNativeTriggerState(EnableState enabled, TemporaryActivableState retrievalState, TemporaryActivableState processingState) {
-        NativeTriggerState result = new NativeTriggerState();
-        result.setEnabled(enabled);
-        result.setRetrievalState(retrievalState);
-        result.setProcessingState(processingState);
-        return result;
+//        NativeTriggerState result = new NativeTriggerState();
+//        result.setEnabled(enabled);
+//        result.setRetrievalState(retrievalState);
+//        result.setProcessingState(processingState);
+//        return result;
+        return null;
     }
 
     public static NativeTriggerState newNativeTriggerState() {
-        TemporaryActivableState unknownState = new TemporaryActivableState(TemporaryStatus.UNKNOWN, ActivableStatus.UNKNOWN);
-        return newNativeTriggerState(new EnableState(EnableStatus.UNKNOWN), unknownState, unknownState);
+//        TemporaryActivableState unknownState = new TemporaryActivableState(TemporaryStatus.UNKNOWN, ActivableStatus.UNKNOWN);
+//        return newNativeTriggerState(new EnableState(EnableStatus.UNKNOWN), unknownState, unknownState);
+        return null;
     }
 
 }

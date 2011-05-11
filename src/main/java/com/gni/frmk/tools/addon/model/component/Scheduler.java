@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.model.component;
 
+import com.gni.frmk.tools.addon.model.BaseComponent;
 import com.gni.frmk.tools.addon.model.component.Scheduler.Detail;
 import com.gni.frmk.tools.addon.model.component.id.StringId;
 import com.gni.frmk.tools.addon.model.component.state.SchedulerState;

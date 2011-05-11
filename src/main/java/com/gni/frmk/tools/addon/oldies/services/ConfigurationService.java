@@ -7,7 +7,6 @@ import com.google.common.io.Closeables;
 
 import javax.xml.bind.JAXBContext;
 import java.io.*;
-import java.util.Date;
 
 /**
  * Cette impletion simple va sauvegarder la configuration dans un fichier xml dans le repertoire config du package.

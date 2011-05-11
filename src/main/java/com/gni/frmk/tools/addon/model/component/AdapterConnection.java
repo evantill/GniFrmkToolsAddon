@@ -1,5 +1,7 @@
 package com.gni.frmk.tools.addon.model.component;
 
+import com.gni.frmk.tools.addon.model.BaseComponent;
+import com.gni.frmk.tools.addon.model.component.AdapterConnection.Detail;
 import com.gni.frmk.tools.addon.model.component.id.AdapterId;
 import com.gni.frmk.tools.addon.model.component.state.EnableState;
 import com.gni.frmk.tools.addon.visitor.TypedComponentVisitor;
@@ -12,7 +14,7 @@ import com.gni.frmk.tools.addon.visitor.TypedComponentVisitor;
  * To change this template use File | Settings | File Templates.
  */
 public class AdapterConnection
-        extends BaseComponent<AdapterId, EnableState, AdapterConnection.Detail> {
+        extends BaseComponent<AdapterId, EnableState, Detail> {
 
     @Override
     public void accept(TypedComponentVisitor visitor) {

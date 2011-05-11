@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.model.component.state;
 
-import com.gni.frmk.tools.addon.model.component.BaseComponent.AbstractState;
+import com.gni.frmk.tools.addon.model.BaseComponent.AbstractState;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,24 +11,17 @@ import com.gni.frmk.tools.addon.model.component.BaseComponent.AbstractState;
  */
 public class EnableState extends AbstractState {
     public static enum EnableStatus {
-        UNKNOWN {
-            @Override
-            public boolean isEnabled() {
-                return false;
-            }
-        }, ENABLED {
-            @Override
-            public boolean isEnabled
-                    () {
-                return true;
-            }
-        }, DISABLED {
-            @Override
-            public boolean isEnabled
-                    () {
-                return false;
-            }
-        };
+        UNKNOWN(false), ENABLED(true), DISABLED(false);
+
+        private final boolean enabled;
+
+        EnableStatus(boolean enabled) {
+            this.enabled = enabled;
+        }
+
+        public boolean isEnabled() {
+            return enabled;
+        }
 
         public static EnableStatus fromBooleanString(String enabled) {
             return fromBoolean(Boolean.parseBoolean(enabled));
@@ -37,8 +30,6 @@ public class EnableState extends AbstractState {
         public static EnableStatus fromBoolean(boolean enabled) {
             return enabled ? ENABLED : DISABLED;
         }
-
-        public abstract boolean isEnabled();
     }
 
     private EnableStatus enabled = EnableStatus.UNKNOWN;

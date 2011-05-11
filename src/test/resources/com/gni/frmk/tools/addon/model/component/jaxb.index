@@ -1,13 +1,8 @@
-Configuration
-SimpleDetail
-ConfigurationComposantType1
 ComposantType1
 ComposantType1.Type1Id
 ComposantType1.Type1State
-ConfigurationComposantType2
+ComposantType1.ConfigurationComposantType1
 ComposantType2
 ComposantType2.Type2Id
 ComposantType2.Type2State
-
-
-
+ComposantType2.ConfigurationComposantType2

@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.model.component.detail;
 
-import com.gni.frmk.tools.addon.model.component.BaseComponent.AbstractDetail;
+import com.gni.frmk.tools.addon.model.BaseComponent.AbstractDetail;
 
 /**
  * Created by IntelliJ IDEA.

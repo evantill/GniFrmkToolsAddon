@@ -63,8 +63,7 @@ public class GetPortStateHandler
 
     private ActivableState defineState(IDataCursor curDoc) {
         EnableStatus enabled = EnableStatus.fromBooleanString(IDataUtil.getString(curDoc, "enabled"));
-        ActivableStatus activable = ActivableStatus.fromBooleanString(IDataUtil.getString(curDoc, "suspended"))
-                                                   .invert();
+        ActivableStatus activable =ActivableStatus.invert(ActivableStatus.fromBooleanString(IDataUtil.getString(curDoc, "suspended")));
         return new ActivableState(enabled, activable);
     }
 

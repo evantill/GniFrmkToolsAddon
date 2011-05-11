@@ -1,6 +1,5 @@
-package com.gni.frmk.tools.addon.model.component;
+package com.gni.frmk.tools.addon.model;
 
-import com.gni.frmk.tools.addon.model.Component;
 import com.gni.frmk.tools.addon.model.Component.Detail;
 import com.gni.frmk.tools.addon.model.Component.Id;
 import com.gni.frmk.tools.addon.model.Component.State;
@@ -66,10 +65,6 @@ public class BaseComponent<I extends Id, S extends State, D extends Detail>
 
     public void setDetail(D detail) {
         this.detail = detail;
-    }
-
-    public <T extends Component<I, S, D>> T as() {
-        return (T) this;
     }
 
     public abstract static class AbstractDetail implements Detail {
