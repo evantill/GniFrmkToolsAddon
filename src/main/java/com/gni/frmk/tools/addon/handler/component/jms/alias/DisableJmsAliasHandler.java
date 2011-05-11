@@ -2,7 +2,7 @@ package com.gni.frmk.tools.addon.handler.component.jms.alias;
 
 import com.gni.frmk.tools.addon.action.component.jms.alias.DisableJmsAlias;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
-import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.handler.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.result.NoResult;
 import com.wm.data.*;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;

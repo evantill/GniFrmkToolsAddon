@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.dispatch.wm.invoke.api;
 
 import com.gni.frmk.tools.addon.api.action.*;
-import com.gni.frmk.tools.addon.handler.wm.InvokeHandler;
+import com.gni.frmk.tools.addon.handler.InvokeHandler;
 import com.google.common.collect.Maps;
 
 import java.util.Collection;

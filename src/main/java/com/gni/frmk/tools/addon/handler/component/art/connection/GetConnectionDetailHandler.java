@@ -4,7 +4,7 @@ import com.gni.frmk.tools.addon.action.component.art.connection.GetConnectionDet
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
-import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.handler.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.model.component.AdapterConnection.Detail;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.wm.data.*;

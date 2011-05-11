@@ -2,7 +2,7 @@ package com.gni.frmk.tools.addon.handler.component.jms.trigger;
 
 import com.gni.frmk.tools.addon.action.component.jms.trigger.JmsTriggerIdList;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
-import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.handler.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.model.component.id.StringId;
 import com.gni.frmk.tools.addon.result.ListResult;
 import com.google.common.collect.Lists;

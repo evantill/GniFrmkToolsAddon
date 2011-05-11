@@ -4,7 +4,7 @@ import com.gni.frmk.tools.addon.action.component.root.port.GetPortState;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
-import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.handler.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;

@@ -5,7 +5,7 @@ import com.gni.frmk.tools.addon.action.component.root.service.GetAllServiceStats
 import com.gni.frmk.tools.addon.action.component.root.service.WaitServicesEnd;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInvokeException;
-import com.gni.frmk.tools.addon.handler.wm.InvokeHandler;
+import com.gni.frmk.tools.addon.handler.InvokeHandler;
 import com.gni.frmk.tools.addon.result.NoResult;
 import com.wm.lang.ns.NSName;
 

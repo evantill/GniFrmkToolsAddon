@@ -2,7 +2,7 @@ package com.gni.frmk.tools.addon.handler.component.jms.alias;
 
 import com.gni.frmk.tools.addon.action.component.jms.alias.GetJmsAliasState;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
-import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.handler.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.model.component.state.ConnectableState;
 import com.gni.frmk.tools.addon.model.component.state.ConnectableState.ConnectableStatus;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;

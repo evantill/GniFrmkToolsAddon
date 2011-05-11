@@ -1,10 +1,10 @@
 package com.gni.frmk.tools.addon.dispatch.wm.invoke.api;
 
-import com.gni.frmk.tools.addon.action.wm.art.connection.DisableConnection;
+import com.gni.frmk.tools.addon.action.component.art.connection.DisableConnection;
 import com.gni.frmk.tools.addon.api.action.Action;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
-import com.gni.frmk.tools.addon.handler.wm.InvokeHandler;
-import com.gni.frmk.tools.addon.handler.wm.art.connection.DisableConnectionHandler;
+import com.gni.frmk.tools.addon.handler.InvokeHandler;
+import com.gni.frmk.tools.addon.handler.component.art.connection.DisableConnectionHandler;
 import com.gni.frmk.tools.addon.model.component.id.AdapterId;
 import com.gni.frmk.tools.addon.result.NoResult;
 import com.wm.lang.ns.NSName;

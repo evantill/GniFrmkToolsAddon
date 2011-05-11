@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.handler.component.art.notification;
 import com.gni.frmk.tools.addon.action.component.art.notifications.GetNotificationDetail;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
-import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.handler.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.model.component.AdapterNotification.Detail;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.wm.data.*;

@@ -2,7 +2,7 @@ package com.gni.frmk.tools.addon.handler.component.jms.trigger;
 
 import com.gni.frmk.tools.addon.action.component.jms.trigger.GetJmsTriggerState;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
-import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.handler.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;
 import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;

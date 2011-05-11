@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.handler.component.art;
 import com.gni.frmk.tools.addon.action.component.art.RetrieveAdapterTypesList;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
-import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.handler.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.result.SetResult;
 import com.google.common.collect.Sets;
 import com.wm.data.*;

@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.handler.component.wm;
 
-import com.gni.frmk.tools.addon.handler.component.ComponentRepository;
+import com.gni.frmk.tools.addon.handler.ComponentRepository;
 import com.gni.frmk.tools.addon.model.Component;
 import com.gni.frmk.tools.addon.model.Component.Type;
 import com.google.common.collect.Sets;

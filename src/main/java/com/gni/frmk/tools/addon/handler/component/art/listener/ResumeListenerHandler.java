@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.handler.component.art.listener;
 import com.gni.frmk.tools.addon.action.component.art.listener.ResumeListener;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
-import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.handler.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.result.NoResult;
 import com.wm.data.*;
 
