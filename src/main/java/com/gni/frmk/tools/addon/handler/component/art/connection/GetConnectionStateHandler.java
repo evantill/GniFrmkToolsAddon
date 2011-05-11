@@ -6,8 +6,8 @@ import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
 import com.gni.frmk.tools.addon.handler.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.model.component.state.EnableState;
-import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
+import com.gni.frmk.tools.addon.model.component.EnableState;
+import com.gni.frmk.tools.addon.model.component.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.result.ComponentStateResult;
 import com.wm.data.*;
 

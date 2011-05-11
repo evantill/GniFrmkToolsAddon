@@ -33,7 +33,7 @@ import java.util.Set;
 public class ConfigurationTest {
 
     @Rule
-    public ConfigurationTestRule utils = new ConfigurationTestRule("2010-05-03T20:01:59+01:00");
+    public ConfigurationTestRule utils = new ConfigurationTestRule();
 
     @Rule
     public FileResource expectedXml = new FileResource(ConfigurationTest.class, "ConfigurationTest.xml");
@@ -51,6 +51,7 @@ public class ConfigurationTest {
         StringWriter out = new StringWriter();
         marshaller.marshal(cnf, out);
 
+        System.out.println("out = " + out);
         XMLUnit.setIgnoreAttributeOrder(true);
         XMLUnit.setIgnoreWhitespace(true);
         XMLAssert.assertXMLEqual(expectedXml.getContent(), out.toString());

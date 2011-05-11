@@ -5,7 +5,7 @@ import com.gni.frmk.tools.addon.api.action.Action;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.handler.InvokeHandler;
 import com.gni.frmk.tools.addon.handler.component.art.connection.DisableConnectionHandler;
-import com.gni.frmk.tools.addon.model.component.id.AdapterId;
+import com.gni.frmk.tools.addon.model.component.art.AdapterId;
 import com.gni.frmk.tools.addon.result.NoResult;
 import com.wm.lang.ns.NSName;
 import org.junit.Assert;

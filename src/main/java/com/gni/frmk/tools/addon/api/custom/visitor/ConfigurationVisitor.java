@@ -3,7 +3,14 @@ package com.gni.frmk.tools.addon.api.custom.visitor;
 import com.gni.frmk.tools.addon.api.visitor.Visitor;
 import com.gni.frmk.tools.addon.model.*;
 import com.gni.frmk.tools.addon.model.Configuration;
-import com.gni.frmk.tools.addon.model.component.*;
+import com.gni.frmk.tools.addon.model.component.art.AdapterConnection;
+import com.gni.frmk.tools.addon.model.component.art.AdapterListener;
+import com.gni.frmk.tools.addon.model.component.art.AdapterNotification;
+import com.gni.frmk.tools.addon.model.component.jms.JmsAlias;
+import com.gni.frmk.tools.addon.model.component.jms.JmsTrigger;
+import com.gni.frmk.tools.addon.model.component.root.NativeTrigger;
+import com.gni.frmk.tools.addon.model.component.root.Port;
+import com.gni.frmk.tools.addon.model.component.root.Scheduler;
 
 /**
  * Created by IntelliJ IDEA.

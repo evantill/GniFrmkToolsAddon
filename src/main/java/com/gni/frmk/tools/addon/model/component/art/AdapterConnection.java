@@ -1,9 +1,8 @@
-package com.gni.frmk.tools.addon.model.component;
+package com.gni.frmk.tools.addon.model.component.art;
 
 import com.gni.frmk.tools.addon.model.BaseComponent;
-import com.gni.frmk.tools.addon.model.component.AdapterConnection.Detail;
-import com.gni.frmk.tools.addon.model.component.id.AdapterId;
-import com.gni.frmk.tools.addon.model.component.state.EnableState;
+import com.gni.frmk.tools.addon.model.component.EnableState;
+import com.gni.frmk.tools.addon.model.component.art.AdapterConnection.AdapterConnectionDetail;
 import com.gni.frmk.tools.addon.visitor.TypedComponentVisitor;
 
 /**
@@ -14,21 +13,21 @@ import com.gni.frmk.tools.addon.visitor.TypedComponentVisitor;
  * To change this template use File | Settings | File Templates.
  */
 public class AdapterConnection
-        extends BaseComponent<AdapterId, EnableState, Detail> {
+        extends BaseComponent<AdapterId, EnableState, AdapterConnectionDetail> {
 
     @Override
     public void accept(TypedComponentVisitor visitor) {
         visitor.visitAdapterConnection(this);
     }
 
-    public static class Detail extends BaseComponent.AbstractDetail {
+    public static class AdapterConnectionDetail extends BaseComponent.AbstractDetail {
         private String packageName;
 
-        public Detail(String packageName) {
+        public AdapterConnectionDetail(String packageName) {
             this.packageName = packageName;
         }
 
-        public Detail() {
+        public AdapterConnectionDetail() {
         }
 
         public String getPackageName() {

@@ -1,9 +1,9 @@
 package com.gni.frmk.tools.addon.action.component.art.notifications;
 
-import com.gni.frmk.tools.addon.model.component.id.AdapterId;
-import com.gni.frmk.tools.addon.model.component.AdapterNotification.Detail;
-import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.gni.frmk.tools.addon.api.action.Action;
+import com.gni.frmk.tools.addon.model.component.art.AdapterId;
+import com.gni.frmk.tools.addon.model.component.art.AdapterNotification.AdapterNotificationDetail;
+import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 
 /**
  * Created by IntelliJ IDEA.
@@ -13,7 +13,7 @@ import com.gni.frmk.tools.addon.api.action.Action;
  * @author: e03229
  */
 public class GetNotificationDetail
-        implements Action<ComponentDetailResult<Detail>> {
+        implements Action<ComponentDetailResult<AdapterNotificationDetail>> {
     private final AdapterId id;
 
     public GetNotificationDetail(AdapterId id) {

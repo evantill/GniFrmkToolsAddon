@@ -4,7 +4,6 @@ import com.gni.frmk.tools.addon.model.BaseComponent;
 import com.gni.frmk.tools.addon.model.BaseComponentConfiguration;
 import com.gni.frmk.tools.addon.model.component.ComposantType1.Type1State;
 import com.gni.frmk.tools.addon.model.component.ComposantType1.Type1Id;
-import com.gni.frmk.tools.addon.model.component.detail.SimpleDetail;
 
 /**
  * Created by IntelliJ IDEA.

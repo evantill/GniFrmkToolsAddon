@@ -10,10 +10,10 @@ import com.gni.frmk.tools.addon.api.action.DispatchException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.component.art.AbstractComponentListHandler;
 import com.gni.frmk.tools.addon.model.Component.Type;
-import com.gni.frmk.tools.addon.model.component.JmsTrigger;
-import com.gni.frmk.tools.addon.model.component.JmsTrigger.Detail;
-import com.gni.frmk.tools.addon.model.component.id.StringId;
-import com.gni.frmk.tools.addon.model.component.state.ActivableState;
+import com.gni.frmk.tools.addon.model.component.StringId;
+import com.gni.frmk.tools.addon.model.component.jms.JmsTrigger;
+import com.gni.frmk.tools.addon.model.component.jms.JmsTrigger.JmsTriggerDetail;
+import com.gni.frmk.tools.addon.model.component.ActivableState;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.gni.frmk.tools.addon.result.ComponentStateResult;
 import com.gni.frmk.tools.addon.result.ListResult;
@@ -26,7 +26,7 @@ import com.gni.frmk.tools.addon.result.ListResult;
  * @author: e03229
  */
 public class JmsTriggerListHandler
-        extends AbstractComponentListHandler<StringId, Detail, ActivableState, JmsTrigger, JmsTriggerList, InvokeContext>
+        extends AbstractComponentListHandler<StringId, JmsTriggerDetail, ActivableState, JmsTrigger, JmsTriggerList, InvokeContext>
         implements ActionHandler<JmsTriggerList, ListResult<JmsTrigger>, InvokeContext> {
 
     @Override
@@ -40,7 +40,7 @@ public class JmsTriggerListHandler
     }
 
     @Override
-    protected Action<ComponentDetailResult<Detail>> newGetComponentDetailAction(StringId id) {
+    protected Action<ComponentDetailResult<JmsTriggerDetail>> newGetComponentDetailAction(StringId id) {
         return new GetJmsTriggerDetail(id);
     }
 
@@ -50,7 +50,7 @@ public class JmsTriggerListHandler
     }
 
     @Override
-    protected JmsTrigger newComponent(StringId id, Detail detail, ActivableState state) throws DispatchException {
+    protected JmsTrigger newComponent(StringId id, JmsTriggerDetail detail, ActivableState state) throws DispatchException {
         JmsTrigger component = new JmsTrigger();
         component.setType(Type.JMS_TRIGGER);
         component.setId(id);

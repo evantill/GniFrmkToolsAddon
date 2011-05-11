@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.action.component.art.listener;
 
-import com.gni.frmk.tools.addon.model.component.id.AdapterId;
+import com.gni.frmk.tools.addon.model.component.art.AdapterId;
 import com.gni.frmk.tools.addon.result.NoResult;
 import com.gni.frmk.tools.addon.api.action.Action;
 

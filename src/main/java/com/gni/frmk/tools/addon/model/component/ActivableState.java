@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.model.component.state;
+package com.gni.frmk.tools.addon.model.component;
 
 /**
  * Created by IntelliJ IDEA.

@@ -5,7 +5,7 @@ import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
 import com.gni.frmk.tools.addon.handler.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.model.component.AdapterConnection.Detail;
+import com.gni.frmk.tools.addon.model.component.art.AdapterConnection.AdapterConnectionDetail;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.wm.data.*;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
@@ -18,8 +18,8 @@ import com.gni.frmk.tools.addon.api.action.ActionHandler;
  * @author: e03229
  */
 public class GetConnectionDetailHandler
-        extends AbstractInvokeHandler<GetConnectionDetail, ComponentDetailResult<Detail>>
-        implements ActionHandler<GetConnectionDetail, ComponentDetailResult<Detail>, InvokeContext> {
+        extends AbstractInvokeHandler<GetConnectionDetail, ComponentDetailResult<AdapterConnectionDetail>>
+        implements ActionHandler<GetConnectionDetail, ComponentDetailResult<AdapterConnectionDetail>, InvokeContext> {
 
     public GetConnectionDetailHandler() {
         super("pub.art.connection:listAdapterConnections");
@@ -31,7 +31,7 @@ public class GetConnectionDetailHandler
     }
 
     @Override
-    protected ComponentDetailResult<Detail> parseOutput(GetConnectionDetail action, IData output)
+    protected ComponentDetailResult<AdapterConnectionDetail> parseOutput(GetConnectionDetail action, IData output)
             throws ParseOutputException {
         IDataCursor cur = output.getCursor();
         final String componentIdToFind = action.getId().getName();
@@ -46,13 +46,13 @@ public class GetConnectionDetailHandler
                             continue;
                         }
                         String packageName = IDataUtil.getString(curLoop, "packageName");
-                        return new ComponentDetailResult<Detail>(new Detail(packageName));
+                        return new ComponentDetailResult<AdapterConnectionDetail>(new AdapterConnectionDetail(packageName));
                     } finally {
                         curLoop.destroy();
                     }
                 }
             }
-            return new ComponentDetailResult<Detail>(new Detail());
+            return new ComponentDetailResult<AdapterConnectionDetail>(new AdapterConnectionDetail());
         } finally {
             cur.destroy();
         }

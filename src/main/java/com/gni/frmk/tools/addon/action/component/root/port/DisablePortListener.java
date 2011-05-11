@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.action.component.root.port;
 
-import com.gni.frmk.tools.addon.model.component.id.PackageAndStringId;
+import com.gni.frmk.tools.addon.model.component.PackageAndStringId;
 import com.gni.frmk.tools.addon.result.NoResult;
 import com.gni.frmk.tools.addon.api.action.Action;
 

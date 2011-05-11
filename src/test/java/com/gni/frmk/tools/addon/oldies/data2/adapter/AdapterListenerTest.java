@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.oldies.data2.adapter;
 
-import com.gni.frmk.tools.addon.model.component.AdapterListener;
+import com.gni.frmk.tools.addon.model.component.art.AdapterListener;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

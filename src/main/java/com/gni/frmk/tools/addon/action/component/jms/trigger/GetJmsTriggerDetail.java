@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.action.component.jms.trigger;
 
-import com.gni.frmk.tools.addon.model.component.JmsTrigger;
-import com.gni.frmk.tools.addon.model.component.id.StringId;
+import com.gni.frmk.tools.addon.model.component.StringId;
+import com.gni.frmk.tools.addon.model.component.jms.JmsTrigger.JmsTriggerDetail;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.gni.frmk.tools.addon.api.action.Action;
 
@@ -12,7 +12,7 @@ import com.gni.frmk.tools.addon.api.action.Action;
  *
  * @author: e03229
  */
-public class GetJmsTriggerDetail implements Action<ComponentDetailResult<JmsTrigger.Detail>> {
+public class GetJmsTriggerDetail implements Action<ComponentDetailResult<JmsTriggerDetail>> {
     private final StringId id;
 
     public GetJmsTriggerDetail(StringId id) {

@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.action.component.art.connection;
 
 import com.gni.frmk.tools.addon.api.action.Action;
-import com.gni.frmk.tools.addon.model.component.AdapterConnection;
+import com.gni.frmk.tools.addon.model.component.art.AdapterConnection;
 import com.gni.frmk.tools.addon.result.ListResult;
 
 /**

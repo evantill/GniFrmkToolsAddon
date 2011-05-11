@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.handler.component.root.scheduler;
 import com.gni.frmk.tools.addon.action.component.root.scheduler.SchedulerIdList;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.model.component.id.StringId;
+import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.result.ListResult;
 import com.google.common.collect.Lists;
 import com.wm.data.*;

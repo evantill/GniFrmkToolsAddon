@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.action.component.jms.alias;
 
-import com.gni.frmk.tools.addon.model.component.id.StringId;
-import com.gni.frmk.tools.addon.model.component.JmsAlias.Detail;
+import com.gni.frmk.tools.addon.model.component.StringId;
+import com.gni.frmk.tools.addon.model.component.jms.JmsAlias.JmsAliasDetail;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.gni.frmk.tools.addon.api.action.Action;
 
@@ -12,7 +12,7 @@ import com.gni.frmk.tools.addon.api.action.Action;
  *
  * @author: e03229
  */
-public class GetJmsAliasDetail implements Action<ComponentDetailResult<Detail>> {
+public class GetJmsAliasDetail implements Action<ComponentDetailResult<JmsAliasDetail>> {
     private final StringId id;
 
     public GetJmsAliasDetail(StringId id) {

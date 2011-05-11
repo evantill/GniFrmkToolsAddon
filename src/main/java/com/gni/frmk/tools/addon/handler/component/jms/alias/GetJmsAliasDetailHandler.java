@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.handler.component.jms.alias;
 import com.gni.frmk.tools.addon.action.component.jms.alias.GetJmsAliasDetail;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.model.component.JmsAlias.Detail;
+import com.gni.frmk.tools.addon.model.component.jms.JmsAlias.JmsAliasDetail;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.wm.data.*;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
@@ -16,15 +16,15 @@ import com.gni.frmk.tools.addon.api.action.ActionHandler;
  * @author: e03229
  */
 public class GetJmsAliasDetailHandler
-        extends AbstractInvokeHandler<GetJmsAliasDetail, ComponentDetailResult<Detail>>
-        implements ActionHandler<GetJmsAliasDetail, ComponentDetailResult<Detail>, InvokeContext> {
+        extends AbstractInvokeHandler<GetJmsAliasDetail, ComponentDetailResult<JmsAliasDetail>>
+        implements ActionHandler<GetJmsAliasDetail, ComponentDetailResult<JmsAliasDetail>, InvokeContext> {
 
     public GetJmsAliasDetailHandler() {
         super("wm.server.jms:getConnectionAliasReport");
     }
 
     @Override
-    protected ComponentDetailResult<Detail> parseOutput(GetJmsAliasDetail action, IData output) {
+    protected ComponentDetailResult<JmsAliasDetail> parseOutput(GetJmsAliasDetail action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
             IData[] dataList = IDataUtil.getIDataArray(cur, "aliasDataList");
@@ -38,13 +38,13 @@ public class GetJmsAliasDetailHandler
                             continue;
                         }
                         String description = IDataUtil.getString(curLoop, "description");
-                        return new ComponentDetailResult<Detail>(new Detail(description));
+                        return new ComponentDetailResult<JmsAliasDetail>(new JmsAliasDetail(description));
                     } finally {
                         curLoop.destroy();
                     }
                 }
             }
-            return new ComponentDetailResult<Detail>(new Detail());
+            return new ComponentDetailResult<JmsAliasDetail>(new JmsAliasDetail());
         } finally {
             cur.destroy();
         }

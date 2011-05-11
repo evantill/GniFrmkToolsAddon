@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.model.component.detail;
+package com.gni.frmk.tools.addon.model.component;
 
 import com.gni.frmk.tools.addon.model.BaseComponent.AbstractDetail;
 

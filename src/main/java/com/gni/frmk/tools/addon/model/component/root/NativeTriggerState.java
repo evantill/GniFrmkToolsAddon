@@ -1,7 +1,8 @@
-package com.gni.frmk.tools.addon.model.component.state;
+package com.gni.frmk.tools.addon.model.component.root;
 
 import com.gni.frmk.tools.addon.model.BaseComponent.AbstractState;
-import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;
+import com.gni.frmk.tools.addon.model.component.EnableState;
+import com.gni.frmk.tools.addon.model.component.ActivableState.ActivableStatus;
 
 /**
  * Created by IntelliJ IDEA.

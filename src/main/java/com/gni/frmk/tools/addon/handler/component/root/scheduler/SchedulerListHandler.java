@@ -10,10 +10,10 @@ import com.gni.frmk.tools.addon.api.action.DispatchException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.component.art.AbstractComponentListHandler;
 import com.gni.frmk.tools.addon.model.Component.Type;
-import com.gni.frmk.tools.addon.model.component.Scheduler;
-import com.gni.frmk.tools.addon.model.component.Scheduler.Detail;
-import com.gni.frmk.tools.addon.model.component.id.StringId;
-import com.gni.frmk.tools.addon.model.component.state.SchedulerState;
+import com.gni.frmk.tools.addon.model.component.root.Scheduler;
+import com.gni.frmk.tools.addon.model.component.root.Scheduler.SchedulerDetail;
+import com.gni.frmk.tools.addon.model.component.StringId;
+import com.gni.frmk.tools.addon.model.component.root.SchedulerState;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.gni.frmk.tools.addon.result.ComponentStateResult;
 import com.gni.frmk.tools.addon.result.ListResult;
@@ -26,7 +26,7 @@ import com.gni.frmk.tools.addon.result.ListResult;
  * @author: e03229
  */
 public class SchedulerListHandler
-        extends AbstractComponentListHandler<StringId, Detail, SchedulerState, Scheduler, SchedulerList, InvokeContext>
+        extends AbstractComponentListHandler<StringId, SchedulerDetail, SchedulerState, Scheduler, SchedulerList, InvokeContext>
         implements ActionHandler<SchedulerList, ListResult<Scheduler>, InvokeContext> {
     @Override
     public Class<SchedulerList> getActionType() {
@@ -39,7 +39,7 @@ public class SchedulerListHandler
     }
 
     @Override
-    protected Action<ComponentDetailResult<Detail>> newGetComponentDetailAction(StringId id) {
+    protected Action<ComponentDetailResult<SchedulerDetail>> newGetComponentDetailAction(StringId id) {
         return new GetSchedulerDetail(id);
     }
 
@@ -49,7 +49,7 @@ public class SchedulerListHandler
     }
 
     @Override
-    protected Scheduler newComponent(StringId id, Detail detail, SchedulerState state) throws DispatchException {
+    protected Scheduler newComponent(StringId id, SchedulerDetail detail, SchedulerState state) throws DispatchException {
         Scheduler component = new Scheduler();
         component.setType(Type.SCHEDULER);
         component.setId(id);

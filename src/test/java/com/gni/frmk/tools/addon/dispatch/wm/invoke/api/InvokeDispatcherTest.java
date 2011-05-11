@@ -7,7 +7,7 @@ import com.gni.frmk.tools.addon.api.action.ActionNotFoundException;
 import com.gni.frmk.tools.addon.api.action.DispatchException;
 import com.gni.frmk.tools.addon.api.action.Result;
 import com.gni.frmk.tools.addon.handler.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.model.component.id.AdapterId;
+import com.gni.frmk.tools.addon.model.component.art.AdapterId;
 import com.gni.frmk.tools.addon.result.NoResult;
 import com.wm.data.*;
 import com.wm.lang.ns.NSName;

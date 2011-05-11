@@ -1,10 +1,10 @@
-package com.gni.frmk.tools.addon.model.component;
+package com.gni.frmk.tools.addon.model.component.root;
 
 import com.gni.frmk.tools.addon.model.BaseComponent;
-import com.gni.frmk.tools.addon.model.component.id.PackageAndStringId;
-import com.gni.frmk.tools.addon.model.component.state.ActivableState;
+import com.gni.frmk.tools.addon.model.component.ActivableState;
+import com.gni.frmk.tools.addon.model.component.PackageAndStringId;
 import com.gni.frmk.tools.addon.visitor.TypedComponentVisitor;
-import com.gni.frmk.tools.addon.model.component.Port.Detail;
+import com.gni.frmk.tools.addon.model.component.root.Port.PortDetail;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -17,20 +17,20 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 public class Port
-        extends BaseComponent<PackageAndStringId, ActivableState, Detail> {
+        extends BaseComponent<PackageAndStringId, ActivableState, PortDetail> {
 
     @Override
     public void accept(TypedComponentVisitor visitor) {
         visitor.visitPort(this);
     }
 
-    public static class Detail extends BaseComponent.AbstractDetail {
+    public static class PortDetail extends BaseComponent.AbstractDetail {
         private boolean primary;
 
-        public Detail() {
+        public PortDetail() {
         }
 
-        public Detail(boolean primary) {
+        public PortDetail(boolean primary) {
             this.primary = primary;
         }
 

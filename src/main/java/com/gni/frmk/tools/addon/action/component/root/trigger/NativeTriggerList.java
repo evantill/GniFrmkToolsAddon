@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.action.component.root.trigger;
 
 import com.gni.frmk.tools.addon.api.action.Action;
-import com.gni.frmk.tools.addon.model.component.NativeTrigger;
+import com.gni.frmk.tools.addon.model.component.root.NativeTrigger;
 import com.gni.frmk.tools.addon.result.ListResult;
 
 /**

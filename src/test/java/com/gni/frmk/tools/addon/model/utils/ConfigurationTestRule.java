@@ -31,8 +31,7 @@ import java.util.TimeZone;
  */
 public class ConfigurationTestRule extends ExternalResource {
 
-    public static final String DHMS_PATTERN = "yyyy-MM-dd HH:mm:ss.SSS";
-    public static final String NOW_DHMS = "2011-03-03 19:00:23.828";
+    private static final String NOW_DHMS = "2010-05-03T21:01:59Z";
 
     private ConfigurationSerializer serializer;
 
@@ -44,12 +43,16 @@ public class ConfigurationTestRule extends ExternalResource {
     private Locale savedLocale = Locale.getDefault();
     private TimeZone savedTimeZone = TimeZone.getDefault();
 
-    public ConfigurationTestRule(String nowAsString) {
+    public ConfigurationTestRule() {
+        this(NOW_DHMS);
+    }
+
+    protected ConfigurationTestRule(String nowAsString) {
         this.nowAsString = nowAsString;
         now = parser.parseDateTime(nowAsString).toDate();
     }
 
-    public ConfigurationTestRule(Date now) {
+    protected ConfigurationTestRule(Date now) {
         this.now = now;
         nowAsString = parser.print(now.getTime());
     }
@@ -90,12 +93,7 @@ public class ConfigurationTestRule extends ExternalResource {
     }
 
     public Date now() {
-        try {
-            SimpleDateFormat sdf = new SimpleDateFormat(DHMS_PATTERN);
-            return sdf.parse(NOW_DHMS);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
+        return now;
     }
 
     public Set<ConstraintViolation<Configuration>> validate(Configuration cnf) {

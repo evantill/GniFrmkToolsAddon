@@ -16,9 +16,9 @@ public class JaxbUtil {
         String contextPath="com.gni.frmk.tools.addon.model.jaxb"+
                            ":com.gni.frmk.tools.addon.model"+
                            ":com.gni.frmk.tools.addon.model.component"+
-                           ":com.gni.frmk.tools.addon.model.component.id"+
-                           ":com.gni.frmk.tools.addon.model.component.detail"+
-                           ":com.gni.frmk.tools.addon.model.component.state";
+                           ":com.gni.frmk.tools.addon.model.component.art"+
+                           ":com.gni.frmk.tools.addon.model.component.jms"+
+                           ":com.gni.frmk.tools.addon.model.component.root";
         return JAXBContext.newInstance(contextPath);
     }
 }

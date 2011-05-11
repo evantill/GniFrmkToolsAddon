@@ -34,7 +34,7 @@ public class ConfigurationSerializerTest {
     private static String xmlFull = ConfigurationTestRule.loadXml("full", ConfigurationTest.class);
 
     @Rule
-    public ConfigurationTestRule utils = new ConfigurationTestRule(ConfigurationTestRule.NOW_DHMS);
+    public ConfigurationTestRule utils = new ConfigurationTestRule();
 
     private static ConfigurationSerializer serializer;
 

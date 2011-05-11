@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.action.component.art.listener;
 
-import com.gni.frmk.tools.addon.model.component.id.AdapterId;
-import com.gni.frmk.tools.addon.model.component.AdapterListener.Detail;
+import com.gni.frmk.tools.addon.model.component.art.AdapterId;
+import com.gni.frmk.tools.addon.model.component.art.AdapterListener.AdapterListenerDetail;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.gni.frmk.tools.addon.api.action.Action;
 
@@ -13,7 +13,7 @@ import com.gni.frmk.tools.addon.api.action.Action;
  * @author: e03229
  */
 public class GetListenerDetail
-        implements Action<ComponentDetailResult<Detail>> {
+        implements Action<ComponentDetailResult<AdapterListenerDetail>> {
     private final AdapterId id;
 
     public GetListenerDetail(AdapterId id) {

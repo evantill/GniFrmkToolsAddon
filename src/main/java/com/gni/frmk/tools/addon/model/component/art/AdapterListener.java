@@ -1,10 +1,10 @@
-package com.gni.frmk.tools.addon.model.component;
+package com.gni.frmk.tools.addon.model.component.art;
 
 import com.gni.frmk.tools.addon.model.BaseComponent;
-import com.gni.frmk.tools.addon.model.component.id.AdapterId;
-import com.gni.frmk.tools.addon.model.component.state.ActivableState;
+import com.gni.frmk.tools.addon.model.component.ActivableState;
+import com.gni.frmk.tools.addon.model.component.art.AdapterConnection.AdapterConnectionDetail;
+import com.gni.frmk.tools.addon.model.component.art.AdapterListener.AdapterListenerDetail;
 import com.gni.frmk.tools.addon.visitor.TypedComponentVisitor;
-import com.gni.frmk.tools.addon.model.component.AdapterConnection.Detail;
 
 /**
  * Created by IntelliJ IDEA.
@@ -13,21 +13,21 @@ import com.gni.frmk.tools.addon.model.component.AdapterConnection.Detail;
  *
  * @author: e03229
  */
-public class AdapterListener extends BaseComponent<AdapterId, ActivableState, Detail> {
+public class AdapterListener extends BaseComponent<AdapterId, ActivableState, AdapterListenerDetail> {
 
     @Override
     public void accept(TypedComponentVisitor visitor) {
         visitor.visitAdapterListener(this);
     }
 
-    public static class Detail extends AbstractDetail {
+    public static class AdapterListenerDetail extends BaseComponent.AbstractDetail {
         private String packageName;
 
-        public Detail(String packageName) {
+        public AdapterListenerDetail(String packageName) {
             this.packageName = packageName;
         }
 
-        public Detail() {
+        public AdapterListenerDetail() {
         }
 
         public String getPackageName() {

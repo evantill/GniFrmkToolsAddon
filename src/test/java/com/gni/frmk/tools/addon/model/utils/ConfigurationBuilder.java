@@ -6,25 +6,32 @@ import com.gni.frmk.tools.addon.model.Component.Type;
 import com.gni.frmk.tools.addon.model.ComponentConfiguration;
 import com.gni.frmk.tools.addon.model.Configuration;
 import com.gni.frmk.tools.addon.model.component.*;
-import com.gni.frmk.tools.addon.model.component.AdapterConnection.Detail;
+import com.gni.frmk.tools.addon.model.component.ActivableState.ActivableStatus;
 import com.gni.frmk.tools.addon.model.component.ComposantType1.ConfigurationComposantType1;
 import com.gni.frmk.tools.addon.model.component.ComposantType2.ConfigurationComposantType2;
-import com.gni.frmk.tools.addon.model.component.detail.NoDetail;
-import com.gni.frmk.tools.addon.model.component.detail.SimpleDetail;
-import com.gni.frmk.tools.addon.model.component.id.AdapterId;
-import com.gni.frmk.tools.addon.model.component.id.PackageAndStringId;
-import com.gni.frmk.tools.addon.model.component.id.StringId;
-import com.gni.frmk.tools.addon.model.component.state.ActivableState;
-import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;
-import com.gni.frmk.tools.addon.model.component.state.ConnectableState;
-import com.gni.frmk.tools.addon.model.component.state.ConnectableState.ConnectableStatus;
-import com.gni.frmk.tools.addon.model.component.state.EnableState;
-import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
-import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState;
-import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState.TemporaryActivableState;
-import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState.TemporaryStatus;
-import com.gni.frmk.tools.addon.model.component.state.SchedulerState;
-import com.gni.frmk.tools.addon.model.component.state.SchedulerState.SchedulerStatus;
+import com.gni.frmk.tools.addon.model.component.ConnectableState.ConnectableStatus;
+import com.gni.frmk.tools.addon.model.component.EnableState.EnableStatus;
+import com.gni.frmk.tools.addon.model.component.art.AdapterConnection;
+import com.gni.frmk.tools.addon.model.component.art.AdapterConnection.AdapterConnectionDetail;
+import com.gni.frmk.tools.addon.model.component.art.AdapterId;
+import com.gni.frmk.tools.addon.model.component.art.AdapterListener;
+import com.gni.frmk.tools.addon.model.component.art.AdapterListener.AdapterListenerDetail;
+import com.gni.frmk.tools.addon.model.component.art.AdapterNotification;
+import com.gni.frmk.tools.addon.model.component.art.AdapterNotification.AdapterNotificationDetail;
+import com.gni.frmk.tools.addon.model.component.jms.JmsAlias;
+import com.gni.frmk.tools.addon.model.component.jms.JmsAlias.JmsAliasDetail;
+import com.gni.frmk.tools.addon.model.component.jms.JmsTrigger;
+import com.gni.frmk.tools.addon.model.component.jms.JmsTrigger.JmsTriggerDetail;
+import com.gni.frmk.tools.addon.model.component.root.NativeTrigger;
+import com.gni.frmk.tools.addon.model.component.root.NativeTriggerState;
+import com.gni.frmk.tools.addon.model.component.root.NativeTriggerState.TemporaryActivableState;
+import com.gni.frmk.tools.addon.model.component.root.NativeTriggerState.TemporaryStatus;
+import com.gni.frmk.tools.addon.model.component.root.Port;
+import com.gni.frmk.tools.addon.model.component.root.Port.PortDetail;
+import com.gni.frmk.tools.addon.model.component.root.Scheduler;
+import com.gni.frmk.tools.addon.model.component.root.Scheduler.SchedulerDetail;
+import com.gni.frmk.tools.addon.model.component.root.SchedulerState;
+import com.gni.frmk.tools.addon.model.component.root.SchedulerState.SchedulerStatus;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
@@ -200,7 +207,7 @@ public class ConfigurationBuilder {
         Port result = new Port();
         result.setType(Type.PORT);
         result.setId(new PackageAndStringId(String.format("packageName_%d", index), String.format("port_key_%d", index)));
-        result.setDetail(new Port.Detail(true));
+        result.setDetail(new PortDetail(true));
         result.setCurrentState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.INACTIVE));
         return result;
     }
@@ -225,7 +232,7 @@ public class ConfigurationBuilder {
         JmsTrigger result = new JmsTrigger();
         result.setType(Type.JMS_TRIGGER);
         result.setId(new StringId(String.format("trigger_name%d", index)));
-        result.setDetail(new JmsTrigger.Detail(String.format("packageName_%d", index)));
+        result.setDetail(new JmsTriggerDetail(String.format("packageName_%d", index)));
         result.setCurrentState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE));
         return result;
     }
@@ -235,7 +242,7 @@ public class ConfigurationBuilder {
         JmsAlias result = new JmsAlias();
         result.setType(Type.JMS_ALIAS);
         result.setId(new StringId(String.format("jms_alias_name%d", index)));
-        result.setDetail(new JmsAlias.Detail(String.format("description %d", index)));
+        result.setDetail(new JmsAliasDetail(String.format("description %d", index)));
         result.setCurrentState(new ConnectableState(EnableStatus.ENABLED, ConnectableStatus.CONNECTED));
         return result;
     }
@@ -245,7 +252,7 @@ public class ConfigurationBuilder {
         AdapterConnection result = new AdapterConnection();
         result.setType(Type.ADAPTER_CONNECTION);
         result.setId(new AdapterId(String.format("alias_%d", index), "JDBCAdapter"));
-        result.setDetail(new Detail(String.format("packageName_%d", index)));
+        result.setDetail(new AdapterConnectionDetail(String.format("packageName_%d", index)));
         result.setCurrentState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE));
         return result;
     }
@@ -255,7 +262,7 @@ public class ConfigurationBuilder {
         AdapterListener result = new AdapterListener();
         result.setType(Type.ADAPTER_LISTENER);
         result.setId(new AdapterId(String.format("listener_name_%d", index), "JDBCAdapter"));
-        result.setDetail(new Detail(String.format("packageName_%d", index)));
+        result.setDetail(new AdapterListenerDetail(String.format("packageName_%d", index)));
         result.setCurrentState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE));
         return result;
     }
@@ -265,7 +272,7 @@ public class ConfigurationBuilder {
         AdapterNotification result = new AdapterNotification();
         result.setType(Type.ADAPTER_NOTIFICATION);
         result.setId(new AdapterId(String.format("notification_name_%d", index), "JDBCAdapter"));
-        result.setDetail(new Detail(String.format("packageName_%d", index)));
+        result.setDetail(new AdapterNotificationDetail(String.format("packageName_%d", index)));
         result.setCurrentState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE));
         return result;
     }
@@ -279,7 +286,7 @@ public class ConfigurationBuilder {
         String name = String.format("name_%d", index);
         String service = String.format("service_%d", index);
         String description = String.format("description_%d", index);
-        result.setDetail(new Scheduler.Detail(type, name, service, description));
+        result.setDetail(new SchedulerDetail(type, name, service, description));
         result.setCurrentState(new SchedulerState(EnableStatus.ENABLED, SchedulerStatus.EXPIRED));
         return result;
     }

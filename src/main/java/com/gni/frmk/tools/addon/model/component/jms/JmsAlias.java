@@ -1,10 +1,10 @@
-package com.gni.frmk.tools.addon.model.component;
+package com.gni.frmk.tools.addon.model.component.jms;
 
 import com.gni.frmk.tools.addon.model.BaseComponent;
-import com.gni.frmk.tools.addon.model.component.id.StringId;
-import com.gni.frmk.tools.addon.model.component.state.ConnectableState;
+import com.gni.frmk.tools.addon.model.component.ConnectableState;
+import com.gni.frmk.tools.addon.model.component.StringId;
+import com.gni.frmk.tools.addon.model.component.jms.JmsAlias.JmsAliasDetail;
 import com.gni.frmk.tools.addon.visitor.TypedComponentVisitor;
-import com.gni.frmk.tools.addon.model.component.JmsAlias.Detail;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,21 +14,21 @@ import com.gni.frmk.tools.addon.model.component.JmsAlias.Detail;
  * @author: e03229
  */
 public class JmsAlias
-        extends BaseComponent<StringId, ConnectableState, Detail> {
+        extends BaseComponent<StringId, ConnectableState, JmsAliasDetail> {
 
     @Override
     public void accept(TypedComponentVisitor visitor) {
         visitor.visitJmsAlias(this);
     }
 
-    public static class Detail extends BaseComponent.AbstractDetail {
+    public static class JmsAliasDetail extends BaseComponent.AbstractDetail {
         private String description;
 
-        public Detail(String description) {
+        public JmsAliasDetail(String description) {
             this.description = description;
         }
 
-        public Detail() {
+        public JmsAliasDetail() {
         }
 
         public String getDescription() {

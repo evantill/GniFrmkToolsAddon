@@ -1,13 +1,13 @@
 package com.gni.frmk.tools.addon.handler.component.art.notification;
 
 import com.gni.frmk.tools.addon.action.component.art.notifications.GetNotificationDetail;
+import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.handler.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.model.component.AdapterNotification.Detail;
+import com.gni.frmk.tools.addon.model.component.art.AdapterNotification.AdapterNotificationDetail;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.wm.data.*;
-import com.gni.frmk.tools.addon.api.action.ActionHandler;
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,8 +16,8 @@ import com.gni.frmk.tools.addon.api.action.ActionHandler;
  *
  * @author: e03229
  */
-public class GetNotificationDetailHandler extends AbstractInvokeHandler<GetNotificationDetail, ComponentDetailResult<Detail>>
-        implements ActionHandler<GetNotificationDetail, ComponentDetailResult<Detail>, InvokeContext> {
+public class GetNotificationDetailHandler extends AbstractInvokeHandler<GetNotificationDetail, ComponentDetailResult<AdapterNotificationDetail>>
+        implements ActionHandler<GetNotificationDetail, ComponentDetailResult<AdapterNotificationDetail>, InvokeContext> {
 
 
     public GetNotificationDetailHandler() {
@@ -30,7 +30,7 @@ public class GetNotificationDetailHandler extends AbstractInvokeHandler<GetNotif
     }
 
     @Override
-    protected ComponentDetailResult<Detail> parseOutput(GetNotificationDetail action, IData output) {
+    protected ComponentDetailResult<AdapterNotificationDetail> parseOutput(GetNotificationDetail action, IData output) {
         //TODO TESTER chez ALU sur les SAP Listeners
         IDataCursor cur = output.getCursor();
         try {
@@ -45,13 +45,13 @@ public class GetNotificationDetailHandler extends AbstractInvokeHandler<GetNotif
                             continue;
                         }
                         String packageName = IDataUtil.getString(curLoop, "packageName");
-                        return new ComponentDetailResult<Detail>(new Detail(packageName));
+                        return new ComponentDetailResult<AdapterNotificationDetail>(new AdapterNotificationDetail(packageName));
                     } finally {
                         curLoop.destroy();
                     }
                 }
             }
-            return new ComponentDetailResult<Detail>(new Detail());
+            return new ComponentDetailResult<AdapterNotificationDetail>(new AdapterNotificationDetail());
         } finally {
             cur.destroy();
         }

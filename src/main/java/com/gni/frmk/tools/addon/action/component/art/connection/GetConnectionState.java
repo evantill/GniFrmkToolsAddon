@@ -1,8 +1,8 @@
 package com.gni.frmk.tools.addon.action.component.art.connection;
 
 import com.gni.frmk.tools.addon.api.action.Action;
-import com.gni.frmk.tools.addon.model.component.id.AdapterId;
-import com.gni.frmk.tools.addon.model.component.state.EnableState;
+import com.gni.frmk.tools.addon.model.component.EnableState;
+import com.gni.frmk.tools.addon.model.component.art.AdapterId;
 import com.gni.frmk.tools.addon.result.ComponentStateResult;
 
 /**

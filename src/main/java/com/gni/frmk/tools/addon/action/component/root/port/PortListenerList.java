@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.action.component.root.port;
 
 import com.gni.frmk.tools.addon.api.action.Action;
-import com.gni.frmk.tools.addon.model.component.Port;
+import com.gni.frmk.tools.addon.model.component.root.Port;
 import com.gni.frmk.tools.addon.result.ListResult;
 
 /**

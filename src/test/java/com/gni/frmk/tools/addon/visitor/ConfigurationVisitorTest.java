@@ -19,7 +19,7 @@ import org.mockito.Mockito;
 public class ConfigurationVisitorTest {
 
     @Rule
-    public ConfigurationTestRule utils = new ConfigurationTestRule("2010-05-03T20:01:59+01:00");
+    public ConfigurationTestRule utils = new ConfigurationTestRule();
 
     @Rule
     public FileResource expectedXml = new FileResource(ConfigurationTest.class, "ConfigurationTest.xml");

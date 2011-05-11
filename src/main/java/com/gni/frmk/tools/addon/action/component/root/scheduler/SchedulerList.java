@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.action.component.root.scheduler;
 
 import com.gni.frmk.tools.addon.api.action.Action;
-import com.gni.frmk.tools.addon.model.component.Scheduler;
+import com.gni.frmk.tools.addon.model.component.root.Scheduler;
 import com.gni.frmk.tools.addon.result.ListResult;
 
 /**

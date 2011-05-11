@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.action.component.root.port;
 
-import com.gni.frmk.tools.addon.model.component.id.PackageAndStringId;
-import com.gni.frmk.tools.addon.model.component.Port.Detail;
+import com.gni.frmk.tools.addon.model.component.PackageAndStringId;
+import com.gni.frmk.tools.addon.model.component.root.Port.PortDetail;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.gni.frmk.tools.addon.api.action.Action;
 
@@ -12,7 +12,7 @@ import com.gni.frmk.tools.addon.api.action.Action;
  *
  * @author: e03229
  */
-public class GetPortDetail implements Action<ComponentDetailResult<Detail>> {
+public class GetPortDetail implements Action<ComponentDetailResult<PortDetail>> {
 
     private final PackageAndStringId id;
 

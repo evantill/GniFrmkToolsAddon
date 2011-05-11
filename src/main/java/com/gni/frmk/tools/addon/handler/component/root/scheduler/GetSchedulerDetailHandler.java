@@ -5,7 +5,7 @@ import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
 import com.gni.frmk.tools.addon.handler.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.model.component.Scheduler.Detail;
+import com.gni.frmk.tools.addon.model.component.root.Scheduler.SchedulerDetail;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.wm.data.*;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
@@ -18,15 +18,15 @@ import com.gni.frmk.tools.addon.api.action.ActionHandler;
  * @author: e03229
  */
 public class GetSchedulerDetailHandler
-        extends AbstractInvokeHandler<GetSchedulerDetail, ComponentDetailResult<Detail>>
-        implements ActionHandler<GetSchedulerDetail, ComponentDetailResult<Detail>, InvokeContext> {
+        extends AbstractInvokeHandler<GetSchedulerDetail, ComponentDetailResult<SchedulerDetail>>
+        implements ActionHandler<GetSchedulerDetail, ComponentDetailResult<SchedulerDetail>, InvokeContext> {
 
     public GetSchedulerDetailHandler() {
         super("wm.server.schedule:getUserTaskList");
     }
 
     @Override
-    protected ComponentDetailResult<Detail> parseOutput(GetSchedulerDetail action, IData output) throws ParseOutputException {
+    protected ComponentDetailResult<SchedulerDetail> parseOutput(GetSchedulerDetail action, IData output) throws ParseOutputException {
         IDataCursor cur = output.getCursor();
         try {
             IData[] tasksDatas = IDataUtil.getIDataArray(cur, "tasks");
@@ -43,13 +43,13 @@ public class GetSchedulerDetailHandler
                         String type = IDataUtil.getString(curDoc, "type");
                         String service1 = IDataUtil.getString(curDoc, "service");
                         String description = IDataUtil.getString(curDoc, "description");
-                        return new ComponentDetailResult<Detail>(new Detail(type, name, service1, description));
+                        return new ComponentDetailResult<SchedulerDetail>(new SchedulerDetail(type, name, service1, description));
                     } finally {
                         curDoc.destroy();
                     }
                 }
             }
-            return new ComponentDetailResult<Detail>(new Detail());
+            return new ComponentDetailResult<SchedulerDetail>(new SchedulerDetail());
         } finally {
             cur.destroy();
         }

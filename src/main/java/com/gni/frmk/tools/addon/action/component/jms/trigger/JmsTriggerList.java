@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.action.component.jms.trigger;
 
 import com.gni.frmk.tools.addon.api.action.Action;
-import com.gni.frmk.tools.addon.model.component.JmsTrigger;
+import com.gni.frmk.tools.addon.model.component.jms.JmsTrigger;
 import com.gni.frmk.tools.addon.result.ListResult;
 
 /**

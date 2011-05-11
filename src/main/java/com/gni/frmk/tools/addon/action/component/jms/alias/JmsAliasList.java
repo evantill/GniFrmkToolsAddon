@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.action.component.jms.alias;
 
 import com.gni.frmk.tools.addon.api.action.Action;
-import com.gni.frmk.tools.addon.model.component.JmsAlias;
+import com.gni.frmk.tools.addon.model.component.jms.JmsAlias;
 import com.gni.frmk.tools.addon.result.ListResult;
 
 /**

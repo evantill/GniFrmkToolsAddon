@@ -7,7 +7,7 @@ import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.Par
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
 import com.gni.frmk.tools.addon.handler.component.art.AdapterTypeAwareHandler;
 import com.gni.frmk.tools.addon.handler.component.art.RetrieveAdapterTypesListHandler;
-import com.gni.frmk.tools.addon.model.component.id.AdapterId;
+import com.gni.frmk.tools.addon.model.component.art.AdapterId;
 import com.gni.frmk.tools.addon.result.ListResult;
 import com.google.common.collect.Lists;
 import com.wm.data.*;

@@ -1,10 +1,9 @@
-package com.gni.frmk.tools.addon.model.component;
+package com.gni.frmk.tools.addon.model.component.art;
 
 import com.gni.frmk.tools.addon.model.BaseComponent;
-import com.gni.frmk.tools.addon.model.component.id.AdapterId;
-import com.gni.frmk.tools.addon.model.component.state.ActivableState;
+import com.gni.frmk.tools.addon.model.component.ActivableState;
+import com.gni.frmk.tools.addon.model.component.art.AdapterNotification.AdapterNotificationDetail;
 import com.gni.frmk.tools.addon.visitor.TypedComponentVisitor;
-import com.gni.frmk.tools.addon.model.component.AdapterConnection.Detail;
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,21 +14,21 @@ import com.gni.frmk.tools.addon.model.component.AdapterConnection.Detail;
  */
 
 public class AdapterNotification
-        extends BaseComponent<AdapterId, ActivableState, Detail> {
+        extends BaseComponent<AdapterId, ActivableState, AdapterNotificationDetail> {
 
     @Override
     public void accept(TypedComponentVisitor visitor) {
         visitor.visitAdapterNotification(this);
     }
 
-    public static class Detail extends AbstractDetail {
+    public static class AdapterNotificationDetail extends BaseComponent.AbstractDetail {
         private String packageName;
 
-        public Detail(String packageName) {
+        public AdapterNotificationDetail(String packageName) {
             this.packageName = packageName;
         }
 
-        public Detail() {
+        public AdapterNotificationDetail() {
         }
 
         public String getPackageName() {

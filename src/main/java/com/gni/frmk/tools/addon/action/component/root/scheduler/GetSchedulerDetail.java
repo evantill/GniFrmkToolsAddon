@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.action.component.root.scheduler;
 
-import com.gni.frmk.tools.addon.model.component.id.StringId;
-import com.gni.frmk.tools.addon.model.component.Scheduler.Detail;
+import com.gni.frmk.tools.addon.model.component.StringId;
+import com.gni.frmk.tools.addon.model.component.root.Scheduler.SchedulerDetail;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.gni.frmk.tools.addon.api.action.Action;
 
@@ -13,7 +13,7 @@ import com.gni.frmk.tools.addon.api.action.Action;
  * @author: e03229
  */
 public class GetSchedulerDetail
-        implements Action<ComponentDetailResult<Detail>> {
+        implements Action<ComponentDetailResult<SchedulerDetail>> {
 
     private final StringId id;
 

@@ -1,10 +1,10 @@
-package com.gni.frmk.tools.addon.model.component;
+package com.gni.frmk.tools.addon.model.component.jms;
 
 import com.gni.frmk.tools.addon.model.BaseComponent;
-import com.gni.frmk.tools.addon.model.component.id.StringId;
-import com.gni.frmk.tools.addon.model.component.state.ActivableState;
+import com.gni.frmk.tools.addon.model.component.ActivableState;
+import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.visitor.TypedComponentVisitor;
-import com.gni.frmk.tools.addon.model.component.JmsTrigger.Detail;
+import com.gni.frmk.tools.addon.model.component.jms.JmsTrigger.JmsTriggerDetail;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,21 +14,21 @@ import com.gni.frmk.tools.addon.model.component.JmsTrigger.Detail;
  * @author: e03229
  */
 //TODO passer sur un etat triple : ENABLE DISABLED SUSPENDED
-public class JmsTrigger extends BaseComponent<StringId, ActivableState, Detail> {
+public class JmsTrigger extends BaseComponent<StringId, ActivableState, JmsTriggerDetail> {
 
     @Override
     public void accept(TypedComponentVisitor visitor) {
         visitor.visitJmsTrigger(this);
     }
 
-    public static class Detail extends BaseComponent.AbstractDetail {
+    public static class JmsTriggerDetail extends BaseComponent.AbstractDetail {
         private String packageName;
 
-        public Detail(String packageName) {
+        public JmsTriggerDetail(String packageName) {
             this.packageName = packageName;
         }
 
-        public Detail() {
+        public JmsTriggerDetail() {
         }
 
         public String getPackageName() {

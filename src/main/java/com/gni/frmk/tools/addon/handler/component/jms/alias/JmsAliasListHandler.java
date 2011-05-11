@@ -10,10 +10,10 @@ import com.gni.frmk.tools.addon.api.action.DispatchException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.component.art.AbstractComponentListHandler;
 import com.gni.frmk.tools.addon.model.Component.Type;
-import com.gni.frmk.tools.addon.model.component.JmsAlias;
-import com.gni.frmk.tools.addon.model.component.JmsAlias.Detail;
-import com.gni.frmk.tools.addon.model.component.id.StringId;
-import com.gni.frmk.tools.addon.model.component.state.ConnectableState;
+import com.gni.frmk.tools.addon.model.component.ConnectableState;
+import com.gni.frmk.tools.addon.model.component.StringId;
+import com.gni.frmk.tools.addon.model.component.jms.JmsAlias;
+import com.gni.frmk.tools.addon.model.component.jms.JmsAlias.JmsAliasDetail;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.gni.frmk.tools.addon.result.ComponentStateResult;
 import com.gni.frmk.tools.addon.result.ListResult;
@@ -26,7 +26,7 @@ import com.gni.frmk.tools.addon.result.ListResult;
  * @author: e03229
  */
 public class JmsAliasListHandler
-        extends AbstractComponentListHandler<StringId, Detail, ConnectableState, JmsAlias, JmsAliasList, InvokeContext>
+        extends AbstractComponentListHandler<StringId, JmsAliasDetail, ConnectableState, JmsAlias, JmsAliasList, InvokeContext>
         implements ActionHandler<JmsAliasList, ListResult<JmsAlias>, InvokeContext> {
 
     @Override
@@ -40,7 +40,7 @@ public class JmsAliasListHandler
     }
 
     @Override
-    protected Action<ComponentDetailResult<Detail>> newGetComponentDetailAction(StringId id) {
+    protected Action<ComponentDetailResult<JmsAliasDetail>> newGetComponentDetailAction(StringId id) {
         return new GetJmsAliasDetail(id);
     }
 
@@ -50,7 +50,7 @@ public class JmsAliasListHandler
     }
 
     @Override
-    protected JmsAlias newComponent(StringId id, Detail detail, ConnectableState state) throws DispatchException {
+    protected JmsAlias newComponent(StringId id, JmsAliasDetail detail, ConnectableState state) throws DispatchException {
         JmsAlias component = new JmsAlias();
         component.setType(Type.JMS_ALIAS);
         component.setId(id);

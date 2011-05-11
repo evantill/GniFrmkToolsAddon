@@ -10,10 +10,10 @@ import com.gni.frmk.tools.addon.api.action.DispatchException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.component.art.AbstractComponentListHandler;
 import com.gni.frmk.tools.addon.model.Component.Type;
-import com.gni.frmk.tools.addon.model.component.Port;
-import com.gni.frmk.tools.addon.model.component.Port.Detail;
-import com.gni.frmk.tools.addon.model.component.id.PackageAndStringId;
-import com.gni.frmk.tools.addon.model.component.state.ActivableState;
+import com.gni.frmk.tools.addon.model.component.PackageAndStringId;
+import com.gni.frmk.tools.addon.model.component.root.Port;
+import com.gni.frmk.tools.addon.model.component.root.Port.PortDetail;
+import com.gni.frmk.tools.addon.model.component.ActivableState;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.gni.frmk.tools.addon.result.ComponentStateResult;
 import com.gni.frmk.tools.addon.result.ListResult;
@@ -26,7 +26,7 @@ import com.gni.frmk.tools.addon.result.ListResult;
  * @author: e03229
  */
 public class PortListenerListHandler
-        extends AbstractComponentListHandler<PackageAndStringId, Detail, ActivableState, Port, PortListenerList, InvokeContext>
+        extends AbstractComponentListHandler<PackageAndStringId, PortDetail, ActivableState, Port, PortListenerList, InvokeContext>
         implements ActionHandler<PortListenerList, ListResult<Port>, InvokeContext> {
 
     @Override
@@ -40,7 +40,7 @@ public class PortListenerListHandler
     }
 
     @Override
-    protected Action<ComponentDetailResult<Detail>> newGetComponentDetailAction(PackageAndStringId id) {
+    protected Action<ComponentDetailResult<PortDetail>> newGetComponentDetailAction(PackageAndStringId id) {
         return new GetPortDetail(id);
     }
 
@@ -50,7 +50,7 @@ public class PortListenerListHandler
     }
 
     @Override
-    protected Port newComponent(PackageAndStringId id, Detail detail, ActivableState state) throws DispatchException {
+    protected Port newComponent(PackageAndStringId id, PortDetail detail, ActivableState state) throws DispatchException {
         Port component = new Port();
         component.setType(Type.PORT);
         component.setId(id);

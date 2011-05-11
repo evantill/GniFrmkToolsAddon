@@ -1,9 +1,8 @@
-package com.gni.frmk.tools.addon.model.component;
+package com.gni.frmk.tools.addon.model.component.root;
 
 import com.gni.frmk.tools.addon.model.BaseComponent;
-import com.gni.frmk.tools.addon.model.component.Scheduler.Detail;
-import com.gni.frmk.tools.addon.model.component.id.StringId;
-import com.gni.frmk.tools.addon.model.component.state.SchedulerState;
+import com.gni.frmk.tools.addon.model.component.StringId;
+import com.gni.frmk.tools.addon.model.component.root.Scheduler.SchedulerDetail;
 import com.gni.frmk.tools.addon.visitor.TypedComponentVisitor;
 
 /**
@@ -14,23 +13,23 @@ import com.gni.frmk.tools.addon.visitor.TypedComponentVisitor;
  * @author: e03229
  */
 public class Scheduler
-        extends BaseComponent<StringId, SchedulerState, Detail> {
+        extends BaseComponent<StringId, SchedulerState, SchedulerDetail> {
 
     @Override
     public void accept(TypedComponentVisitor visitor) {
         visitor.visitScheduler(this);
     }
 
-    public static class Detail extends BaseComponent.AbstractDetail {
+    public static class SchedulerDetail extends BaseComponent.AbstractDetail {
         private String schedulerType;
         private String name;
         private String service;
         private String description;
 
-        public Detail() {
+        public SchedulerDetail() {
         }
 
-        public Detail(String schedulerType, String name, String service, String description) {
+        public SchedulerDetail(String schedulerType, String name, String service, String description) {
             this.schedulerType = schedulerType;
             this.name = name;
             this.service = service;

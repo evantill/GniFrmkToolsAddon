@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.action.component.root.trigger;
 
-import com.gni.frmk.tools.addon.model.component.detail.NoDetail;
-import com.gni.frmk.tools.addon.model.component.id.StringId;
+import com.gni.frmk.tools.addon.model.component.NoDetail;
+import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.gni.frmk.tools.addon.api.action.Action;
 

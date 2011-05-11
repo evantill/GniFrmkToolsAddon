@@ -5,7 +5,7 @@ import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
 import com.gni.frmk.tools.addon.handler.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.model.component.Port.Detail;
+import com.gni.frmk.tools.addon.model.component.root.Port.PortDetail;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.wm.data.*;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
@@ -18,15 +18,15 @@ import com.gni.frmk.tools.addon.api.action.ActionHandler;
  * @author: e03229
  */
 public class GetPortDetailHandler
-        extends AbstractInvokeHandler<GetPortDetail, ComponentDetailResult<Detail>>
-        implements ActionHandler<GetPortDetail, ComponentDetailResult<Detail>, InvokeContext> {
+        extends AbstractInvokeHandler<GetPortDetail, ComponentDetailResult<PortDetail>>
+        implements ActionHandler<GetPortDetail, ComponentDetailResult<PortDetail>, InvokeContext> {
 
     public GetPortDetailHandler() {
         super("wm.server.ports:listListeners");
     }
 
     @Override
-    protected ComponentDetailResult<Detail> parseOutput(GetPortDetail action, IData output) throws ParseOutputException {
+    protected ComponentDetailResult<PortDetail> parseOutput(GetPortDetail action, IData output) throws ParseOutputException {
         IDataCursor cur = output.getCursor();
         try {
             IData[] tasksDatas = IDataUtil.getIDataArray(cur, "listeners");
@@ -42,13 +42,13 @@ public class GetPortDetailHandler
                             continue;
                         }
                         boolean primary = IDataUtil.getBoolean(portCur, "primary", false);
-                        return new ComponentDetailResult<Detail>(new Detail(primary));
+                        return new ComponentDetailResult<PortDetail>(new PortDetail(primary));
                     } finally {
                         portCur.destroy();
                     }
                 }
             }
-            return new ComponentDetailResult<Detail>(new Detail());
+            return new ComponentDetailResult<PortDetail>(new PortDetail());
         } finally {
             cur.destroy();
         }

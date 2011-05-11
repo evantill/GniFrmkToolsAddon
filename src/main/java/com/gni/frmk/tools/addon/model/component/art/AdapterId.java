@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.model.component.id;
+package com.gni.frmk.tools.addon.model.component.art;
 
 import com.gni.frmk.tools.addon.model.BaseComponent.AbstractId;
 
