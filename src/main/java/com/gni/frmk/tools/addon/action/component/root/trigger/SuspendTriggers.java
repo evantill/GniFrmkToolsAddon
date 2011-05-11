@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.action.wm.root.trigger;
+package com.gni.frmk.tools.addon.action.component.root.trigger;
 
 import com.gni.frmk.tools.addon.result.NoResult;
 import com.google.common.collect.Sets;

@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.action.wm.root.trigger;
+package com.gni.frmk.tools.addon.action.component.root.trigger;
 
 import com.gni.frmk.tools.addon.model.component.id.StringId;
 import com.gni.frmk.tools.addon.model.component.state.NativeTriggerState;

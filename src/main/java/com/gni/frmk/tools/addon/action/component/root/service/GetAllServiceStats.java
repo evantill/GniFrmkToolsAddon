@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.action.wm.root.service;
+package com.gni.frmk.tools.addon.action.component.root.service;
 
-import com.gni.frmk.tools.addon.action.wm.root.service.GetAllServiceStats.Result;
+import com.gni.frmk.tools.addon.action.component.root.service.GetAllServiceStats.Result;
 import com.gni.frmk.tools.addon.api.action.Action;
 import com.gni.frmk.tools.addon.result.SetResult;
 import com.google.common.base.Predicate;

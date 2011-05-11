@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.action.wm.root.service;
+package com.gni.frmk.tools.addon.action.component.root.service;
 
 import com.gni.frmk.tools.addon.api.action.Action;
 import com.gni.frmk.tools.addon.result.NoResult;
