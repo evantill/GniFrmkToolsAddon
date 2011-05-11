@@ -1,9 +1,0 @@
-AdapterConnection
-AdapterListener
-AdapterNotification
-IntegrationServerPackage
-JmsAlias
-JmsTrigger
-NativeTrigger
-Port
-Scheduler

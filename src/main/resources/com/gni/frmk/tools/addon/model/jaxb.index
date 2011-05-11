@@ -1,0 +1,17 @@
+Configuration
+AdapterConnection
+AdapterListener
+AdapterNotification
+JmsAlias
+JmsTrigger
+NativeTrigger
+Port
+Scheduler
+AdapterId
+PackageAndStringId
+StringId
+EnableState
+ActivableState
+ConnectableState
+NativeTriggerState
+SchedulerState
