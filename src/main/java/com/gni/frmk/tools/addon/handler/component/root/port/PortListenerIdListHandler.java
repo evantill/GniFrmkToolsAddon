@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.handler.wm.root.port;
+package com.gni.frmk.tools.addon.handler.component.root.port;
 
-import com.gni.frmk.tools.addon.action.wm.root.port.ListPortListeners;
+import com.gni.frmk.tools.addon.action.component.root.port.PortListenerIdList;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
@@ -19,16 +19,16 @@ import java.util.List;
  *
  * @author: e03229
  */
-public class ListPortListenersHandler
-        extends AbstractInvokeHandler<ListPortListeners, ListResult<PackageAndStringId>>
-        implements ActionHandler<ListPortListeners, ListResult<PackageAndStringId>, InvokeContext> {
+public class PortListenerIdListHandler
+        extends AbstractInvokeHandler<PortListenerIdList, ListResult<PackageAndStringId>>
+        implements ActionHandler<PortListenerIdList, ListResult<PackageAndStringId>, InvokeContext> {
 
-    public ListPortListenersHandler() {
+    public PortListenerIdListHandler() {
         super("wm.server.ports:listListeners");
     }
 
     @Override
-    protected ListResult<PackageAndStringId> parseOutput(ListPortListeners action, IData output) throws ParseOutputException {
+    protected ListResult<PackageAndStringId> parseOutput(PortListenerIdList action, IData output) throws ParseOutputException {
         IDataCursor cur = output.getCursor();
         try {
             IData[] tasksDatas = IDataUtil.getIDataArray(cur, "listeners");
@@ -52,13 +52,13 @@ public class ListPortListenersHandler
     }
 
     @Override
-    protected IData prepareInput(ListPortListeners in) {
+    protected IData prepareInput(PortListenerIdList in) {
         return EMPTY_INPUT;
     }
 
     @Override
-    public Class<ListPortListeners> getActionType() {
-        return ListPortListeners.class;
+    public Class<PortListenerIdList> getActionType() {
+        return PortListenerIdList.class;
     }
 
 }

@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.handler.wm.root.port;
+package com.gni.frmk.tools.addon.handler.component.root.port;
 
-import com.gni.frmk.tools.addon.action.wm.root.port.DisablePortListener;
+import com.gni.frmk.tools.addon.action.component.root.port.EnablePortListener;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.result.NoResult;
@@ -14,16 +14,17 @@ import com.gni.frmk.tools.addon.api.action.ActionHandler;
  *
  * @author: e03229
  */
-public class DisablePortListenerHandler
-        extends AbstractInvokeHandler<DisablePortListener, NoResult>
-        implements ActionHandler<DisablePortListener, NoResult, InvokeContext> {
+public class EnablePortListenerHandler
+        extends AbstractInvokeHandler<EnablePortListener, NoResult>
+        implements ActionHandler<EnablePortListener, NoResult, InvokeContext> {
 
-    public DisablePortListenerHandler() {
-        super("wm.server.net.listeners:disableListener");
+    public EnablePortListenerHandler() {
+        super("wm.server.net.listeners:enableListener");
     }
 
+
     @Override
-    protected IData prepareInput(DisablePortListener in) {
+    protected IData prepareInput(EnablePortListener in) {
         return IDataFactory.create(new Object[][]{
                 {"listenerKey",
                  in.getId().getId()},
@@ -33,12 +34,12 @@ public class DisablePortListenerHandler
     }
 
     @Override
-    protected NoResult parseOutput(DisablePortListener action, IData output) {
+    protected NoResult parseOutput(EnablePortListener action, IData output) {
         return NoResult.newInstance();
     }
 
     @Override
-    public Class<DisablePortListener> getActionType() {
-        return DisablePortListener.class;
+    public Class<EnablePortListener> getActionType() {
+        return EnablePortListener.class;
     }
 }

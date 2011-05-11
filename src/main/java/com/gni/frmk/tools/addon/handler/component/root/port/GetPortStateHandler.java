@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.handler.wm.root.port;
+package com.gni.frmk.tools.addon.handler.component.root.port;
 
-import com.gni.frmk.tools.addon.action.wm.root.port.GetPortState;
+import com.gni.frmk.tools.addon.action.component.root.port.GetPortState;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
