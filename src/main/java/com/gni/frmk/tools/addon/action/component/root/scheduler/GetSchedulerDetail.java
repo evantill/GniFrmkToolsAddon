@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.action.wm.root.scheduler;
+package com.gni.frmk.tools.addon.action.component.root.scheduler;
 
 import com.gni.frmk.tools.addon.model.component.id.StringId;
 import com.gni.frmk.tools.addon.model.component.Scheduler.Detail;

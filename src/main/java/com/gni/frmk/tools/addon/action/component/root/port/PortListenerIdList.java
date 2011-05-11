@@ -1,8 +1,8 @@
-package com.gni.frmk.tools.addon.action.wm.root.port;
+package com.gni.frmk.tools.addon.action.component.root.port;
 
+import com.gni.frmk.tools.addon.api.action.Action;
 import com.gni.frmk.tools.addon.model.component.id.PackageAndStringId;
 import com.gni.frmk.tools.addon.result.ListResult;
-import com.gni.frmk.tools.addon.api.action.Action;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,6 +11,5 @@ import com.gni.frmk.tools.addon.api.action.Action;
  *
  * @author: e03229
  */
-public class ListPortListeners
-        implements Action<ListResult<PackageAndStringId>> {
+public class PortListenerIdList implements Action<ListResult<PackageAndStringId>> {
 }
