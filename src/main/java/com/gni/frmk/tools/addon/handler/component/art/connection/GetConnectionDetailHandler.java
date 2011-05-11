@@ -1,10 +1,11 @@
-package com.gni.frmk.tools.addon.handler.wm.art.notification;
+package com.gni.frmk.tools.addon.handler.component.art.connection;
 
-import com.gni.frmk.tools.addon.action.wm.art.notifications.GetNotificationDetail;
+import com.gni.frmk.tools.addon.action.component.art.connection.GetConnectionDetail;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
+import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.model.component.AdapterNotification.Detail;
+import com.gni.frmk.tools.addon.model.component.AdapterConnection.Detail;
 import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.wm.data.*;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
@@ -12,36 +13,36 @@ import com.gni.frmk.tools.addon.api.action.ActionHandler;
 /**
  * Created by IntelliJ IDEA.
  * Date: 09/05/11
- * Time: 19:06
+ * Time: 17:56
  *
  * @author: e03229
  */
-public class GetNotificationDetailHandler extends AbstractInvokeHandler<GetNotificationDetail, ComponentDetailResult<Detail>>
-        implements ActionHandler<GetNotificationDetail, ComponentDetailResult<Detail>, InvokeContext> {
+public class GetConnectionDetailHandler
+        extends AbstractInvokeHandler<GetConnectionDetail, ComponentDetailResult<Detail>>
+        implements ActionHandler<GetConnectionDetail, ComponentDetailResult<Detail>, InvokeContext> {
 
-
-    public GetNotificationDetailHandler() {
-        super("pub.art.notification:listAdapterPollingNotifications");
+    public GetConnectionDetailHandler() {
+        super("pub.art.connection:listAdapterConnections");
     }
 
     @Override
-    public Class<GetNotificationDetail> getActionType() {
-        return GetNotificationDetail.class;
+    public Class<GetConnectionDetail> getActionType() {
+        return GetConnectionDetail.class;
     }
 
     @Override
-    protected ComponentDetailResult<Detail> parseOutput(GetNotificationDetail action, IData output) {
-        //TODO TESTER chez ALU sur les SAP Listeners
+    protected ComponentDetailResult<Detail> parseOutput(GetConnectionDetail action, IData output)
+            throws ParseOutputException {
         IDataCursor cur = output.getCursor();
+        final String componentIdToFind = action.getId().getName();
         try {
-            IData[] dataList = IDataUtil.getIDataArray(cur, "notificationDataList");
-            final String componentIdToFind = action.getId().getName();
+            IData[] dataList = IDataUtil.getIDataArray(cur, "connectionDataList");
             if (dataList != null) {
                 for (IData single : dataList) {
                     IDataCursor curLoop = single.getCursor();
                     try {
-                        String listenerNodeName = IDataUtil.getString(curLoop, "notificationNodeName");
-                        if (!componentIdToFind.equals(listenerNodeName)) {
+                        String connectionAlias = IDataUtil.getString(curLoop, "connectionAlias");
+                        if (!componentIdToFind.equals(connectionAlias)) {
                             continue;
                         }
                         String packageName = IDataUtil.getString(curLoop, "packageName");
@@ -58,10 +59,13 @@ public class GetNotificationDetailHandler extends AbstractInvokeHandler<GetNotif
     }
 
     @Override
-    protected IData prepareInput(GetNotificationDetail action) throws ParseInputException {
+    protected IData prepareInput(GetConnectionDetail action) throws ParseInputException {
         return IDataFactory.create(new Object[][]{
                 {"adapterTypeName",
                  action.getId().getAdapterType()}
         });
     }
+
+
 }
+

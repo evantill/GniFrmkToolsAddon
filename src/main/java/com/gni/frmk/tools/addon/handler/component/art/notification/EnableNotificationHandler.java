@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.handler.wm.art.notification;
+package com.gni.frmk.tools.addon.handler.component.art.notification;
 
-import com.gni.frmk.tools.addon.action.wm.art.notifications.EnableNotification;
+import com.gni.frmk.tools.addon.action.component.art.notifications.EnableNotification;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.result.NoResult;

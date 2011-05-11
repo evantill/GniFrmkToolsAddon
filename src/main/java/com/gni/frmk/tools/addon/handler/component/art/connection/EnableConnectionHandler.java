@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.handler.wm.art.connection;
+package com.gni.frmk.tools.addon.handler.component.art.connection;
 
-import com.gni.frmk.tools.addon.action.wm.art.connection.DisableConnection;
+import com.gni.frmk.tools.addon.action.component.art.connection.EnableConnection;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
@@ -12,29 +12,29 @@ import com.gni.frmk.tools.addon.api.action.ActionHandler;
 /**
  * Created by IntelliJ IDEA.
  * Date: 16/03/11
- * Time: 17:19
+ * Time: 17:21
  *
  * @author: e03229
  */
-public class DisableConnectionHandler extends AbstractInvokeHandler<DisableConnection, NoResult>
-        implements ActionHandler<DisableConnection, NoResult, InvokeContext> {
+public class EnableConnectionHandler extends AbstractInvokeHandler<EnableConnection, NoResult>
+        implements ActionHandler<EnableConnection, NoResult, InvokeContext> {
 
-    public DisableConnectionHandler() {
-        super("pub.art.connection:disableConnection");
+    public EnableConnectionHandler() {
+        super("pub.art.connection:enableConnection");
     }
 
     @Override
-    public Class<DisableConnection> getActionType() {
-        return DisableConnection.class;
+    public Class<EnableConnection> getActionType() {
+        return EnableConnection.class;
     }
 
     @Override
-    protected NoResult parseOutput(DisableConnection action, IData output) throws ParseOutputException {
+    protected NoResult parseOutput(EnableConnection action, IData output) throws ParseOutputException {
         return NoResult.newInstance();
     }
 
     @Override
-    protected IData prepareInput(DisableConnection action) throws ParseInputException {
+    protected IData prepareInput(EnableConnection action) throws ParseInputException {
         return IDataFactory.create(new Object[][]{
                 {"connectionAlias",
                  action.getId().getName()}

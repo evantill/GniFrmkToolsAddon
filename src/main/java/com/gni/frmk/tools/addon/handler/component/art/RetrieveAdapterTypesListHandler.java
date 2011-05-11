@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.handler.wm.art;
+package com.gni.frmk.tools.addon.handler.component.art;
 
-import com.gni.frmk.tools.addon.action.wm.art.RetrieveAdapterTypesList;
+import com.gni.frmk.tools.addon.action.component.art.RetrieveAdapterTypesList;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;

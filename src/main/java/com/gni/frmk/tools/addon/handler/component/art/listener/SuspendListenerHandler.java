@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.handler.wm.art.listener;
+package com.gni.frmk.tools.addon.handler.component.art.listener;
 
-import com.gni.frmk.tools.addon.action.wm.art.listener.SuspendListener;
+import com.gni.frmk.tools.addon.action.component.art.listener.SuspendListener;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.result.NoResult;

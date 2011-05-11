@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.handler.wm.art;
+package com.gni.frmk.tools.addon.handler.component.art;
 
 import com.gni.frmk.tools.addon.model.component.state.ActivableState;
 import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;

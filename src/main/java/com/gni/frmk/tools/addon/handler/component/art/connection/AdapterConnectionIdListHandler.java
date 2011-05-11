@@ -1,15 +1,16 @@
-package com.gni.frmk.tools.addon.handler.wm.art.connection;
+package com.gni.frmk.tools.addon.handler.component.art.connection;
 
-import com.gni.frmk.tools.addon.action.wm.art.connection.ListAdaptersConnections;
+import com.gni.frmk.tools.addon.action.component.art.connection.AdapterConnectionIdList;
+import com.gni.frmk.tools.addon.api.action.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
-import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.handler.wm.AdapterTypeAwareHandler;
+import com.gni.frmk.tools.addon.handler.component.art.RetrieveAdapterTypesListHandler;
 import com.gni.frmk.tools.addon.model.component.id.AdapterId;
 import com.gni.frmk.tools.addon.result.ListResult;
 import com.google.common.collect.Lists;
 import com.wm.data.*;
-import com.gni.frmk.tools.addon.api.action.ActionHandler;
 
 import java.util.List;
 
@@ -20,22 +21,33 @@ import java.util.List;
  *
  * @author: e03229
  */
-public class ListAdapterConnectionsHandler
-        extends AbstractInvokeHandler<ListAdaptersConnections, ListResult<AdapterId>>
-        implements ActionHandler<ListAdaptersConnections, ListResult<AdapterId>, InvokeContext> {
+public class AdapterConnectionIdListHandler
+        extends AdapterTypeAwareHandler<AdapterConnectionIdList, ListResult<AdapterId>, AdapterId>
+        implements ActionHandler<AdapterConnectionIdList, ListResult<AdapterId>, InvokeContext> {
 
+    private final RetrieveAdapterTypesListHandler getAllAdapterType = new RetrieveAdapterTypesListHandler();
 
-    public ListAdapterConnectionsHandler() {
+    public AdapterConnectionIdListHandler() {
         super("pub.art.connection:listAdapterConnections");
     }
 
     @Override
-    public Class<ListAdaptersConnections> getActionType() {
-        return ListAdaptersConnections.class;
+    public Class<AdapterConnectionIdList> getActionType() {
+        return AdapterConnectionIdList.class;
     }
 
     @Override
-    protected ListResult<AdapterId> parseOutput(ListAdaptersConnections action, IData output)
+    protected AdapterConnectionIdList newFilteredAction(String adapterType) {
+        return new AdapterConnectionIdList(adapterType);
+    }
+
+    @Override
+    protected ListResult<AdapterId> newListResult(List<AdapterId> idList) {
+        return new ListResult<AdapterId>(idList);
+    }
+
+    @Override
+    protected ListResult<AdapterId> parseOutput(AdapterConnectionIdList action, IData output)
             throws ParseOutputException {
         IDataCursor cur = output.getCursor();
         try {
@@ -46,7 +58,7 @@ public class ListAdapterConnectionsHandler
                     IDataCursor curLoop = single.getCursor();
                     try {
                         String connectionAlias = IDataUtil.getString(curLoop, "connectionAlias");
-                        result.add(new AdapterId(connectionAlias, action.getAdapterType()));
+                        result.add(new AdapterId(connectionAlias, action.getAdapterTypeFilter()));
                     } finally {
                         curLoop.destroy();
                     }
@@ -59,10 +71,10 @@ public class ListAdapterConnectionsHandler
     }
 
     @Override
-    protected IData prepareInput(ListAdaptersConnections action) throws ParseInputException {
+    protected IData prepareInput(AdapterConnectionIdList action) throws ParseInputException {
         return IDataFactory.create(new Object[][]{
                 {"adapterTypeName",
-                 action.getAdapterType()}
+                 action.getAdapterTypeFilter()}
         });
     }
 }

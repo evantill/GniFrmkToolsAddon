@@ -1,17 +1,13 @@
-package com.gni.frmk.tools.addon.handler.wm.art.listener;
+package com.gni.frmk.tools.addon.handler.component.art.listener;
 
-import com.gni.frmk.tools.addon.action.wm.art.listener.GetListenerState;
+import com.gni.frmk.tools.addon.action.component.art.listener.GetListenerDetail;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.model.component.state.ActivableState;
-import com.gni.frmk.tools.addon.model.component.state.ActivableState.ActivableStatus;
-import com.gni.frmk.tools.addon.model.component.state.EnableState.EnableStatus;
-import com.gni.frmk.tools.addon.result.ComponentStateResult;
+import com.gni.frmk.tools.addon.model.component.AdapterListener.Detail;
+import com.gni.frmk.tools.addon.result.ComponentDetailResult;
 import com.wm.data.*;
 import com.gni.frmk.tools.addon.api.action.ActionHandler;
-
-import static com.gni.frmk.tools.addon.handler.wm.art.ListenerNotificationUtils.defineState;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,22 +16,22 @@ import static com.gni.frmk.tools.addon.handler.wm.art.ListenerNotificationUtils.
  *
  * @author: e03229
  */
-public class GetListenerStateHandler
-        extends AbstractInvokeHandler<GetListenerState, ComponentStateResult<ActivableState>>
-        implements ActionHandler<GetListenerState, ComponentStateResult<ActivableState>, InvokeContext> {
+public class GetListenerDetailHandler
+        extends AbstractInvokeHandler<GetListenerDetail, ComponentDetailResult<Detail>>
+        implements ActionHandler<GetListenerDetail, ComponentDetailResult<Detail>, InvokeContext> {
 
 
-    public GetListenerStateHandler() {
+    public GetListenerDetailHandler() {
         super("pub.art.listener:listAdapterListeners");
     }
 
     @Override
-    public Class<GetListenerState> getActionType() {
-        return GetListenerState.class;
+    public Class<GetListenerDetail> getActionType() {
+        return GetListenerDetail.class;
     }
 
     @Override
-    protected ComponentStateResult<ActivableState> parseOutput(GetListenerState action, IData output) {
+    protected ComponentDetailResult<Detail> parseOutput(GetListenerDetail action, IData output) {
         //TODO TESTER chez ALU sur les SAP Listeners
         IDataCursor cur = output.getCursor();
         try {
@@ -49,21 +45,21 @@ public class GetListenerStateHandler
                         if (!componentIdToFind.equals(listenerNodeName)) {
                             continue;
                         }
-                        ActivableState state = defineState(IDataUtil.getString(curLoop, "notificationEnabled"));
-                        return new ComponentStateResult<ActivableState>(state);
+                        String packageName = IDataUtil.getString(curLoop, "packageName");
+                        return new ComponentDetailResult<Detail>(new Detail(packageName));
                     } finally {
                         curLoop.destroy();
                     }
                 }
             }
-            return new ComponentStateResult<ActivableState>(new ActivableState(EnableStatus.UNKNOWN, ActivableStatus.UNKNOWN));
+            return new ComponentDetailResult<Detail>(new Detail());
         } finally {
             cur.destroy();
         }
     }
 
     @Override
-    protected IData prepareInput(GetListenerState action) throws ParseInputException {
+    protected IData prepareInput(GetListenerDetail action) throws ParseInputException {
         return IDataFactory.create(new Object[][]{
                 {"adapterTypeName",
                  action.getId().getAdapterType()}
