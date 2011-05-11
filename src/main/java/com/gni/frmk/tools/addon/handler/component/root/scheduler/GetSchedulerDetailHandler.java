@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.handler.wm.root.scheduler;
+package com.gni.frmk.tools.addon.handler.component.root.scheduler;
 
-import com.gni.frmk.tools.addon.action.wm.root.scheduler.GetSchedulerDetail;
+import com.gni.frmk.tools.addon.action.component.root.scheduler.GetSchedulerDetail;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;

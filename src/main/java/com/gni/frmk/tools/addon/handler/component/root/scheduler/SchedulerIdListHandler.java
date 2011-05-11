@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.handler.wm.root.scheduler;
+package com.gni.frmk.tools.addon.handler.component.root.scheduler;
 
-import com.gni.frmk.tools.addon.action.wm.root.scheduler.GetUserTaskList;
+import com.gni.frmk.tools.addon.action.component.root.scheduler.SchedulerIdList;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.handler.wm.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.model.component.id.StringId;
@@ -18,16 +18,16 @@ import java.util.List;
  *
  * @author: e03229
  */
-public class GetUserTaskListHandler
-        extends AbstractInvokeHandler<GetUserTaskList, ListResult<StringId>>
-        implements ActionHandler<GetUserTaskList, ListResult<StringId>, InvokeContext> {
+public class SchedulerIdListHandler
+        extends AbstractInvokeHandler<SchedulerIdList, ListResult<StringId>>
+        implements ActionHandler<SchedulerIdList, ListResult<StringId>, InvokeContext> {
 
-    public GetUserTaskListHandler() {
+    public SchedulerIdListHandler() {
         super("wm.server.schedule:getUserTaskList");
     }
 
     @Override
-    protected ListResult<StringId> parseOutput(GetUserTaskList action, IData output) {
+    protected ListResult<StringId> parseOutput(SchedulerIdList action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
             IData[] tasksDatas = IDataUtil.getIDataArray(cur, "tasks");
@@ -50,13 +50,13 @@ public class GetUserTaskListHandler
     }
 
     @Override
-    protected IData prepareInput(GetUserTaskList in) {
+    protected IData prepareInput(SchedulerIdList in) {
         return EMPTY_INPUT;
     }
 
     @Override
-    public Class<GetUserTaskList> getActionType() {
-        return GetUserTaskList.class;
+    public Class<SchedulerIdList> getActionType() {
+        return SchedulerIdList.class;
     }
 
 }
