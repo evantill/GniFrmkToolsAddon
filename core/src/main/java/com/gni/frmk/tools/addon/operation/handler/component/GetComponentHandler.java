@@ -4,9 +4,8 @@ import com.gni.frmk.tools.addon.model.component.Component;
 import com.gni.frmk.tools.addon.model.component.Component.Detail;
 import com.gni.frmk.tools.addon.model.component.Component.Id;
 import com.gni.frmk.tools.addon.model.component.Component.State;
+import com.gni.frmk.tools.addon.operation.action.component.ComponentFactory;
 import com.gni.frmk.tools.addon.operation.action.component.GetComponent;
-import com.gni.frmk.tools.addon.operation.action.component.GetComponentDetail;
-import com.gni.frmk.tools.addon.operation.action.component.GetComponentState;
 import com.gni.frmk.tools.addon.operation.api.*;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
 
@@ -26,6 +25,12 @@ public abstract class GetComponentHandler
                 CTX extends ExecutionContext>
         implements ActionHandler<A, SingleResult<C>, CTX> {
 
+    private final ComponentFactory<I, S, D, C> factory;
+
+    protected GetComponentHandler(ComponentFactory<I, S, D, C> factory) {
+        this.factory = factory;
+    }
+
     @Override
     public final SingleResult<C> execute(A action, CTX context) throws ActionException {
         try {
@@ -37,18 +42,12 @@ public abstract class GetComponentHandler
     }
 
     public C defineComponent(I id, CTX context) throws DispatchException {
-        D detail = this.execute(context, newGetComponentDetailAction(id)).getValue();
-        S state = this.execute(context, newGetComponentStateAction(id)).getValue();
-        return newComponent(id, detail, state);
+        D detail = this.execute(context, factory.newGetComponentDetailAction(id)).getValue();
+        S state = this.execute(context, factory.newGetComponentStateAction(id)).getValue();
+        return factory.newComponent(id, detail, state);
     }
 
     protected <R extends Result> R execute(ExecutionContext context, Action<R> action) throws DispatchException {
         return context.getDispatcher().execute(action);
     }
-
-    protected abstract GetComponentDetail<D, I> newGetComponentDetailAction(I id);
-
-    protected abstract GetComponentState<S, I> newGetComponentStateAction(I id);
-
-    protected abstract C newComponent(I id, D detail, S state) throws DispatchException;
 }

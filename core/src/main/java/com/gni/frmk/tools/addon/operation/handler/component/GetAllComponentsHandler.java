@@ -4,9 +4,8 @@ import com.gni.frmk.tools.addon.model.component.Component;
 import com.gni.frmk.tools.addon.model.component.Component.Detail;
 import com.gni.frmk.tools.addon.model.component.Component.Id;
 import com.gni.frmk.tools.addon.model.component.Component.State;
+import com.gni.frmk.tools.addon.operation.action.component.ComponentFactory;
 import com.gni.frmk.tools.addon.operation.action.component.GetAllComponents;
-import com.gni.frmk.tools.addon.operation.action.component.GetComponentDetail;
-import com.gni.frmk.tools.addon.operation.action.component.GetComponentState;
 import com.gni.frmk.tools.addon.operation.api.*;
 import com.gni.frmk.tools.addon.operation.result.ListResult;
 import com.google.common.collect.Lists;
@@ -29,15 +28,21 @@ public abstract class GetAllComponentsHandler
                 CTX extends ExecutionContext>
         implements ActionHandler<A, ListResult<C>, CTX> {
 
+    private final ComponentFactory<I, S, D, C> factory;
+
+    protected GetAllComponentsHandler(ComponentFactory<I, S, D, C> factory) {
+        this.factory = factory;
+    }
+
     @Override
     public final ListResult<C> execute(A action, CTX context) throws ActionException {
         try {
             List<C> components = Lists.newArrayList();
-            List<I> idList = this.<ListResult<I>>execute(context, newListIdAction()).getCollection();
+            List<I> idList = this.<ListResult<I>>execute(context, factory.newListComponentIdsAction()).getCollection();
             for (I id : idList) {
-                D detail = this.execute(context, newGetComponentDetailAction(id)).getValue();
-                S state = this.execute(context, newGetComponentStateAction(id)).getValue();
-                C component = newComponent(id, detail, state);
+                D detail = this.execute(context, factory.newGetComponentDetailAction(id)).getValue();
+                S state = this.execute(context, factory.newGetComponentStateAction(id)).getValue();
+                C component = factory.newComponent(id, detail, state);
                 components.add(component);
             }
             return new ListResult<C>(components);
@@ -49,14 +54,4 @@ public abstract class GetAllComponentsHandler
     protected <R extends Result> R execute(ExecutionContext context, Action<R> action) throws DispatchException {
         return context.getDispatcher().execute(action);
     }
-
-    protected abstract Action<ListResult<I>> newListIdAction();
-
-    protected abstract GetComponentDetail<D, I> newGetComponentDetailAction(I id);
-
-    protected abstract GetComponentState<S, I> newGetComponentStateAction(I id);
-
-    protected abstract C newComponent(I id, D detail, S state) throws DispatchException;
-
-
 }

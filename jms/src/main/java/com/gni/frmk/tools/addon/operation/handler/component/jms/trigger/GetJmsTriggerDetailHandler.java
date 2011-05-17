@@ -1,10 +1,11 @@
 package com.gni.frmk.tools.addon.operation.handler.component.jms.trigger;
 
-import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.operation.action.component.jms.trigger.GetJmsTriggerDetail;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
+import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.jms.JmsTrigger.JmsTriggerDetail;
-import com.gni.frmk.tools.addon.operation.api.ActionHandler;
+import com.gni.frmk.tools.addon.operation.action.component.jms.trigger.GetJmsTriggerDetail;
+import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.operation.handler.component.GetComponentDetailHandler;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
 import com.wm.data.*;
 
@@ -17,7 +18,7 @@ import com.wm.data.*;
  */
 public class GetJmsTriggerDetailHandler
         extends AbstractInvokeHandler<GetJmsTriggerDetail, SingleResult<JmsTriggerDetail>>
-        implements ActionHandler<GetJmsTriggerDetail, SingleResult<JmsTriggerDetail>, InvokeContext> {
+        implements GetComponentDetailHandler<GetJmsTriggerDetail, StringId, JmsTriggerDetail, InvokeContext> {
 
     public GetJmsTriggerDetailHandler() {
         super("wm.server.jms:getTriggerReport");

@@ -1,12 +1,13 @@
 package com.gni.frmk.tools.addon.operation.handler.component.jms.trigger;
 
-import com.gni.frmk.tools.addon.model.component.ActivableStatus;
-import com.gni.frmk.tools.addon.model.component.EnableStatus;
-import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.model.component.ActivableState;
-import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.model.component.ActivableStatus;
+import com.gni.frmk.tools.addon.model.component.EnableStatus;
+import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.operation.action.component.jms.trigger.GetJmsTriggerState;
+import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
 import com.wm.data.*;
 
@@ -24,7 +25,7 @@ import static com.gni.frmk.tools.addon.model.component.EnableStatus.ENABLED;
  */
 public class GetJmsTriggerStateHandler
         extends AbstractInvokeHandler<GetJmsTriggerState, SingleResult<ActivableState>>
-        implements ActionHandler<GetJmsTriggerState, SingleResult<ActivableState>, InvokeContext> {
+        implements GetComponentStateHandler<GetJmsTriggerState, StringId, ActivableState, InvokeContext> {
 
     public GetJmsTriggerStateHandler() {
         super("wm.server.jms:getTriggerReport");
