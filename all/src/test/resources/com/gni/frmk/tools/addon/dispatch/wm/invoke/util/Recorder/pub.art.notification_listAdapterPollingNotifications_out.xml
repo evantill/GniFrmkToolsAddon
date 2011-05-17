@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.data.ISMemDataImpl">
+    <value name="adapterTypeName">JDBCAdapter</value>
+    <array name="notificationDataList" type="record" depth="1">
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="notificationNodeName">Aa.Interface:notif</value>
+        <value name="packageName">Aa</value>
+        <value name="notificationEnabled">unsched</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="notificationNodeName">Aa:nofit</value>
+        <value name="packageName">Aa</value>
+        <value name="notificationEnabled">unsched</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="notificationNodeName">GniFrmkToolsAddOnTest.adapter.jdbc:notification</value>
+        <value name="packageName">GniFrmkToolsAddOnTest</value>
+        <value name="notificationEnabled">yes</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="notificationNodeName">pub.gni.error.actions.rejeu:rejeuNotif</value>
+        <value name="packageName">GniFrmkErrorEngine</value>
+        <value name="notificationEnabled">yes</value>
+      </record>
+    </array>
+  </record>
+</IDataXMLCoder>

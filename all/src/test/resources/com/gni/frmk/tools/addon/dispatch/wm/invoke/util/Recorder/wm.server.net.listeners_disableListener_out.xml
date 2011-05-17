@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.data.ISMemDataImpl">
+    <value name="listenerKey">HTTPListener@9999</value>
+    <value name="pkg">GniFrmkToolsAddOnTest</value>
+    <value name="message">HTTPListener@9999 disabled.</value>
+  </record>
+</IDataXMLCoder>

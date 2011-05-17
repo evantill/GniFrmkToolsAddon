@@ -1,0 +1,1504 @@
+<configuration name="testReportCurrentConfiguration" creation="2010-11-05 16:27:43.937 CET" modification="2010-11-05 16:27:47.140 CET">
+   <adapterConnectionList class="java.util.TreeSet">
+      <adapterConnection type="JDBCAdapter" packageName="GniEspaceClient_Demande_GEC_In">
+         <alias>GniEspaceClient_Demande_GEC_In.connecteur:Cnx_Jdbc_GEC_Log</alias>
+         <state>ENABLED</state>
+      </adapterConnection>
+      <adapterConnection type="JDBCAdapter" packageName="GniFrmk">
+         <alias>GniFrmk.availability.cnx:cnxAvailibility</alias>
+         <state>ENABLED</state>
+      </adapterConnection>
+      <adapterConnection type="JDBCAdapter" packageName="GniFrmk">
+         <alias>GniFrmk.transco.cnx:cnxTransco</alias>
+         <state>ENABLED</state>
+      </adapterConnection>
+      <adapterConnection type="JDBCAdapter" packageName="GniFrmkMigrationHD">
+         <alias>GniFrmkMigrationHD.traitement.cnx:cnxOldDataStore</alias>
+         <state>DISABLED</state>
+      </adapterConnection>
+      <adapterConnection type="JDBCAdapter" packageName="GniFrmkWorkflow">
+         <alias>GniFrmkWorkflow.cnx:cnxWorkflow</alias>
+         <state>ENABLED</state>
+      </adapterConnection>
+      <adapterConnection type="JDBCAdapter" packageName="GniRefIntermediaire_Intermediaire_GP_Out">
+         <alias>GniRefIntermediaire_Intermediaire_GP_Out.connecteur:sasRefip</alias>
+         <state>DISABLED</state>
+      </adapterConnection>
+      <adapterConnection type="JDBCAdapter" packageName="GniResume_Contrat_Commun">
+         <alias>GniResume_Contrat_Commun:resume_base_suivi</alias>
+         <state>ENABLED</state>
+      </adapterConnection>
+      <adapterConnection type="JDBCAdapter" packageName="GniSuiviFM_CR_Collecteur_In">
+         <alias>GniSuiviFM_CR_Collecteur_In.connecteur.schemaLog:cnxSuiviFMLog</alias>
+         <state>ENABLED</state>
+      </adapterConnection>
+      <adapterConnection type="JDBCAdapter" packageName="GniTools">
+         <alias>GniTools.Performance.adapter_jdbc:Cnx_JDBC_PERF_WME70</alias>
+         <state>ENABLED</state>
+      </adapterConnection>
+      <adapterConnection type="JDBCAdapter" packageName="GniFrmkErrorEngine">
+         <alias>gni.frmk.error.connection:cnxFrmkError</alias>
+         <state>ENABLED</state>
+      </adapterConnection>
+      <adapterConnection type="JDBCAdapter" packageName="GniFrmkErrorEngine">
+         <alias>gni.frmk.error.connection:cnxFrmkErrorConsult</alias>
+         <state>ENABLED</state>
+      </adapterConnection>
+      <adapterConnection type="JDBCAdapter" packageName="GniFrmkErrorTemplates">
+         <alias>pub.gni.templates.generate.technicalError:sampleCnx</alias>
+         <state>ENABLED</state>
+      </adapterConnection>
+   </adapterConnectionList>
+   <adapterNotificationList class="java.util.TreeSet">
+      <adapterNotification packageName="GniFrmkErrorEngine">
+         <name>pub.gni.error.actions.rejeu:rejeuNotif</name>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </adapterNotification>
+   </adapterNotificationList>
+   <adapterListenerList class="java.util.TreeSet"/>
+   <portList class="java.util.TreeSet">
+      <port pkg="GniRefIntermediaire_Intermediaire_GENERIC_Batch_Out">
+         <key>FilePollingListener:/APP/DATA/DEV/GENERIC/GB2000/SAS/IN@*.TRF_OK</key>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniSuiviFM_CR_Collecteur_In">
+         <key>FilePollingListener:/APP/DATA/DEV/SUIVIFM/FLATFILE/SAS/IN@*.DATA.ok</key>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniRefIntermediaire_Intermediaire_SCO_Out">
+         <key>FilePollingListener:/app/data/dev/sco/Intermediaire_AVT/sas/in@*.TRF_OK</key>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniRefIntermediaire_InterFindByRefExterne_Out">
+         <key>HTTPListener@5507</key>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniRefIntermediaire_InterGetPtf_Out">
+         <key>HTTPListener@5508</key>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniRefIntermediaire_InterFindByRaisonSociale_Out">
+         <key>HTTPListener@5509</key>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniRefIntermediaire_InterFindByNomPrenom_Out">
+         <key>HTTPListener@5511</key>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniRefIntermediaire_InterGetFiliationPlusHautNiveau_Out">
+         <key>HTTPListener@5512</key>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniRefIntermediaire_InterGetFiliation_Out">
+         <key>HTTPListener@5513</key>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniRefIntermediaire_InspectionGetHierarchieIntermediaire_Out">
+         <key>HTTPListener@5514</key>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniRefIntermediaire_TerritoireGetSuperieur_Out">
+         <key>HTTPListener@5515</key>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniRefIntermediaire_TerritoireGetResponsable_Out">
+         <key>HTTPListener@5516</key>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniRefIntermediaire_PersPhysiqueGet_Out">
+         <key>HTTPListener@5517</key>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniRefIntermediaire_PersMoraleGet_Out">
+         <key>HTTPListener@5518</key>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniFrmk">
+         <key>HTTPListener@5525</key>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniSinistre_Get_Out">
+         <key>HTTPListener@5539</key>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniRefIntermediaire_WS_01">
+         <key>HTTPListener@5541</key>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniConsultationMRH_Logiplus_out">
+         <key>HTTPListener@5559</key>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniGestionIdentites_Utilisateur_IAM_Out">
+         <key>HTTPListener@6502</key>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniEspaceClient_Demande_GEC_In">
+         <key>HTTPListener@6503</key>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniEspaceClient_Demande_DDV_Out">
+         <key>HTTPListener@6519</key>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniResume_Contrat_FUE_In">
+         <key>HTTPListener@6531</key>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniTestHDCore">
+         <key>HTTPListener@6536</key>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniSinistre_Get_Out">
+         <key>HTTPListener@6539</key>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="GniResume_Sinistre_Ulis_In">
+         <key>HTTPListener@6542</key>
+         <status>DISABLED</status>
+         <state>ACTIVE</state>
+      </port>
+      <port pkg="WmRoot">
+         <key>HTTPListener@9940</key>
+         <status>ENABLED</status>
+         <state>ACTIVE</state>
+      </port>
+   </portList>
+   <schedulerList class="java.util.TreeSet">
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>02565400-ba7b-11df-9698-e9922ce9926e</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>107aa040-b10c-11df-afbc-9c04cf29ef3d</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>19d301c0-b1ff-11df-9a88-8536dce9399b</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>22f341f0-2b5b-11df-b015-ecc9c3428f28</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>2971fe50-8691-11de-951e-e9c99e82d599</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>2b6876f0-2c70-11df-a7c9-d6559a41f76d</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>2bfd4e60-a430-11de-be10-de10cb4a27e5</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>339934d0-2dc5-11df-8eb1-95b8cd1070f8</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>39e6f010-634a-11df-85f8-be6284e0ef88</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>3d7cfae0-7fa0-11df-9493-d1fea20aa3c3</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>43bec980-4209-11df-8059-d5545485546a</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>43fd8550-3686-11df-9e5c-bea22678c004</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>485787b0-277f-11df-9395-e868fbe79d35</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>4bf52ad0-1adc-11df-8cae-cf4250edbf6f</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>4cbe1380-81e6-11de-8a81-c1a6ff89f774</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>50138770-beec-11de-af67-b3ae99138e37</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>5ced0220-b175-11de-b7f6-a18c59e7f146</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>616f3310-4179-11df-a390-947c0a1393fc</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>63145580-cab2-11de-83e1-d2bfe6f76f2f</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>6f1a9fb0-4609-11df-8428-b46a161c4c81</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>712b33a0-bcb6-11de-acf1-d36ac8646618</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>75682b00-8b80-11df-b293-9c6ea73456fb</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>7ccac9a0-0400-11df-890e-ef107317749a</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>83719cd0-2d0d-11df-9a3a-e39027601b1e</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>83bc6820-e003-11de-bbd6-ec96efa5da51</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>854d6950-b9ac-11de-bf2e-c72e63c4fca6</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>883ba150-4bb4-11df-9875-8c1935502f49</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>8d500250-77ae-11df-8a38-e62b87a23c78</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>8f487cb0-88c9-11de-b8ac-9ec501122b15</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>9cdac620-4c42-11df-b83a-c5d627feaf8c</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>a29f3460-834c-11df-847f-eba7b3745f5d</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>b692d2f0-b6f2-11de-86d6-ce18bef04a6c</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>b96ff5f0-991c-11de-96a7-9e631e176b77</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>c698a6a0-568b-11df-b9d0-da591cca0822</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>c9b5e3a0-b5ab-11df-850d-a115c09e94eb</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>cc3de830-f386-11de-8d2e-f5d874d62051</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>d0916d60-0bfc-11df-a73b-df2253ad506c</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>de3e0380-335f-11df-b78e-ef3debede8ba</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>e6fb9dd0-4899-11df-ac0f-a7db6df92f37</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>eaf09cb0-3b1a-11df-a0d3-94b1f76e814c</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>ec3116e0-7815-11de-b1c5-96a26bf9c089</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>eca8c9f0-bb40-11df-873c-fcd82ee31ab6</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>f0dfc670-8c90-11de-ba8f-8576cbb92f18</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>f28357e0-a3e0-11df-948b-fc18cf152f45</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>f4d908a0-42f1-11df-96bc-9bafc4eb06ae</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>f54f1900-9397-11de-ad6d-f75457d3af55</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>f8ad61c0-a9e9-11de-917d-e094d8f941a0</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>fbfe7250-31c1-11df-bf91-bd72477ddcbc</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAggregateMail</name>
+         <oid>fd95d710-8b00-11de-bc95-df9253d11165</oid>
+         <service>pub.gni.error.analyse:registerAggregateMail</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAnalyseEngine</name>
+         <oid>36737430-634a-11df-85b0-a45f778ff852</oid>
+         <service>pub.gni.error.analyse:registerAnalyseEngine</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAnalyseEngine</name>
+         <oid>36d0af60-634a-11df-85c2-fc5cea44b58e</oid>
+         <service>pub.gni.error.analyse:registerAnalyseEngine</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAnalyseEngine</name>
+         <oid>6196dd40-cab2-11de-83c2-bf88be8a1094</oid>
+         <service>pub.gni.error.analyse:registerAnalyseEngine</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAnalyseEngine</name>
+         <oid>64a83bf0-cab2-11de-842c-89f6966ff1a0</oid>
+         <service>pub.gni.error.analyse:registerAnalyseEngine</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAnalyseEngine</name>
+         <oid>6530cce0-cab2-11de-844d-e9d6f90e89e4</oid>
+         <service>pub.gni.error.analyse:registerAnalyseEngine</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>pub.gni.error.analyse:registerAnalyseEngine</name>
+         <oid>cd9940e0-568b-11df-ba1a-9d0d15ff45f8</oid>
+         <service>pub.gni.error.analyse:registerAnalyseEngine</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>once</type>
+         <name>wm.monitor.admin:brokerPush</name>
+         <oid>e93b8500-244c-11de-b122-8d4103e79545</oid>
+         <service>wm.monitor.admin:brokerPush</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>EXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>repeat</type>
+         <name>Untitled:Untitled_1</name>
+         <oid>c0603500-961e-11df-87af-8569aed7814d</oid>
+         <description>test</description>
+         <service>Untitled:Untitled_1</service>
+         <executionState>READY</executionState>
+         <schedulerState>UNEXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>repeat</type>
+         <name>evan:retrysrv</name>
+         <oid>43096c80-5ce9-11de-b648-d31ff538e155</oid>
+         <description>evan:retrysrv</description>
+         <service>evan:retrysrv</service>
+         <executionState>SUSPENDED</executionState>
+         <schedulerState>UNEXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>repeat</type>
+         <name>pub.gni.error.purge:purgeScheduled</name>
+         <oid>b798fc50-e7f3-11df-bc68-94974172f53b</oid>
+         <service>pub.gni.error.purge:purgeScheduled</service>
+         <executionState>READY</executionState>
+         <schedulerState>UNEXPIRED</schedulerState>
+      </scheduler>
+      <scheduler>
+         <type>repeat</type>
+         <name>wm.monitor.admin:imageCleanup</name>
+         <oid>d7430fc0-acd9-11dd-b330-fa2d483f3572</oid>
+         <service>wm.monitor.admin:imageCleanup</service>
+         <executionState>READY</executionState>
+         <schedulerState>UNEXPIRED</schedulerState>
+      </scheduler>
+   </schedulerList>
+   <jmsTriggerList class="java.util.TreeSet">
+      <jmsTrigger>
+         <name>GediIcon:IconeDebugTrigger</name>
+         <status>DISABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>GniContratInternet_InjectionFUE_JMS.trigger:publishPropositionTrigger</name>
+         <status>ENABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>GniEspaceClient_Demande_GFR_Out.trigger:GniEspaceClient_TrigJMS_GFR_IdQCF01_In</name>
+         <status>ENABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>GniEspaceClient_Demande_IAM_Out.connecteur:GniEspaceClient_TrigJMS_IAM_IdQCF01_In</name>
+         <status>ENABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>GniEspaceClient_Demande_Trajectoire_Out.trigger:GniEspaceClient_TrigJMS_Trajectoire_IdQCF02_In</name>
+         <status>ENABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>GniEspaceClient_RebondJMS.trigger:JMSTriggerFromJBOSSAdmin1</name>
+         <status>DISABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>GniEspaceClient_RebondJMS.trigger:JMSTriggerFromJBOSSAdmin2</name>
+         <status>DISABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>GniEspaceClient_RebondJMS.trigger:JMSTriggerFromJBOSSFront1</name>
+         <status>DISABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>GniEspaceClient_RebondJMS.trigger:JMSTriggerFromJBOSSFront2</name>
+         <status>DISABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>GniEspaceClient_RebondJMS.trigger:JMSTriggerFromJBOSSMiddle1</name>
+         <status>DISABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>GniEspaceClient_RebondJMS.trigger:JMSTriggerFromJBOSSMiddle2</name>
+         <status>DISABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>GniGBProd_Flux_GBProd_In.trigger:GniGBProd_TrigJMS_JBoss_passerelleIcone_from</name>
+         <status>DISABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>GniGBProd_Flux_Icone_In.trigger:trigJMS_icone_01_from</name>
+         <status>DISABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>GniGBProd_Flux_Icone_In.trigger:trigJMS_icone_01_from_1</name>
+         <status>DISABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>GniGestionIdentites_Dispatcher.trigger:GniGestionIdentites_TrigJMS_IAM_In</name>
+         <status>DISABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>GniPOCSinistre.Connecteur:JMSTriggerFromJBoss</name>
+         <status>ENABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>GniSuiviFM_CR_Collecteur_In.test:triggerLecture</name>
+         <status>DISABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+      <jmsTrigger>
+         <name>wm.prt.status:JMSControlTrigger</name>
+         <status>ENABLED</status>
+         <executionState>ACTIVE</executionState>
+      </jmsTrigger>
+   </jmsTriggerList>
+   <nativeTriggerList class="java.util.TreeSet">
+      <nativeTrigger>
+         <name>CCCDemosPresentationsBPM.DemoEAI.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>CCCDemosPresentationsBPM.DemoEAI.DemoEAI_1.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>CCCDemosPresentationsWFW.DemoWorkflow.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>CCCDemosPresentationsWFW.DemoWorkflow.DemoWorkflow_1.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.GniContratInternetBPM_PE003_6.LS1_Sante:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.GniContratInternetBPM_PE003_6.LS2_Sante:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.GniContratInternetBPM_PE003_6.LS3_Sante:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.GniContratInternetBPM_PE003_6.LS4_Sante:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.GniContratInternetBPM_PE003_6.LS5_Sante:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.GniContratInternetBPM_PE003_6.LS6_Sante:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.LS1_Sante:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.LS2_Sante:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.LS3_Sante:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.LS4_Sante:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.LS5_Sante:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternetBPM_PE003.GniContratInternetBPM_PE003.LS6_Sante:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniContratInternet_InjectionFUE_Commun.trigger:determinerActionErreurTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientActivationBPMPE036.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientActivationBPMPE036.GniEspaceClientActivationBPMPE036_1.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientAttestationBPM028.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientAttestationBPM028.GniEspaceClientAttestationBPM028_1.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientAttestationBPM028.GniEspaceClientAttestationBPM028_2.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientDemandeBPMPE011.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientDemandeBPMPE011.GniEspaceClientDemandeBPMPE011_10.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientDemandeBPMPE011.GniEspaceClientDemandeBPMPE011_11.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientDemandeBPMPE011.GniEspaceClientDemandeBPMPE011_12.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientDemandeBPMPE011.GniEspaceClientDemandeBPMPE011_13.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientDemandeBPMPE012.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientDemandeBPMPE012.GniEspaceClientDemandeBPMPE012_3.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientDemandeBPMPE012.GniEspaceClientDemandeBPMPE012_4.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientDemandeBPMPE015.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientDemandeBPMPE015.GniEspaceClientDemandeBPMPE015_3.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientDemandeBPMPE016.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientDemandeBPMPE016.GniEspaceClientDemandeBPMPE016_1.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientDemandeBPMPE034.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientDemandeBPMPE034.GniEspaceClientDemandeBPMPE034_2.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientPriseRdvBPMPE037.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClientPriseRdvBPMPE037.GniEspaceClientPriseRdvBPMPE037_1.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClient_DataUpdate_BPM_PE013.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClientBPM.GniEspaceClient_DataUpdate_BPM_PE013.GniEspaceClient_DataUpdate_BPM_PE013_4.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniEspaceClient_Commun.util:triggerAnalyseErreursGEC</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniFrmk.availability.component.trigger:triggPurgeComponent</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniFrmk.availability.component.trigger:triggWakeUpComponent</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniFrmk.availability.dueDate.trigger:triggWakeUpDueDate</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniFrmkErrorTemplates.GniFrmkErrorTemplateBPMSimple.GniFrmkError:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniFrmkErrorTemplates.GniFrmkErrorTemplateBPMSimple.GniFrmkErrorTemplateBPMSimple_1.GniFrmkError:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniFrmkTestUnit.ihm.trigger:LaunchTestTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniGBProdFluxPasserelleBPMPE0262.GniGBProdFluxPasserelleBPM_PE026_2.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniGBProdFluxPasserelleBPMPE0262.GniGBProdFluxPasserelleBPM_PE026_2.GniGBProdFluxPasserelleBPM_PE026_2_1.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniGBProd_Commun.util:triggerAnalyseErreursIcone</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniGestionIdentitesBPM.GniGestionIdentitesUtilisateurBPMPE010.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniGestionIdentitesBPM.GniGestionIdentitesUtilisateurBPMPE010.GniGestionIdentitesUtilisateurBPMPE010_1.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniGestionIdentites_Commun.util:triggerAnalyseErreursPE010</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniPOCSinistreBPM.GniPOCSinistreBPM.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniPOCSinistreBPM.GniPOCSinistreBPM.GniPOCSinistreBPM_1.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniRefIntermediaireApporteurBPM025.GniRefIntermediaireApporteurBPM025.GniRefIntermediaireApporteurBPM025_1.default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniRefIntermediaireApporteurBPM025.GniRefIntermediaireApporteurBPM025.default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniRefIntermediaireBPM_PE003.GniRefIntermediaireBPM_PE003.GniRefIntermediaireBPM_PE003_3.default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniRefIntermediaireBPM_PE003.GniRefIntermediaireBPM_PE003.default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniRefIntermediaire_Intermediaire_GENERIC_Commun.trigger:getErreurTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniRefIntermediaire_Intermediaire_SCO_Out.trigger:startSCOfileget</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniRefservcommunsClientsResumeBPM038.GniRefservcommunsClientsResumeBPM038.GniRefservcommunsClientsResumeBPM038_1.logicalResumeIn:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniRefservcommunsClientsResumeBPM038.GniRefservcommunsClientsResumeBPM038.GniRefservcommunsClientsResumeBPM038_1.logicalResumeOut:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniRefservcommunsClientsResumeBPM038.GniRefservcommunsClientsResumeBPM038.GniRefservcommunsClientsResumeBPM038_1.logicalResumeTech:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniRefservcommunsClientsResumeBPM038.GniRefservcommunsClientsResumeBPM038.logicalResumeIn:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniRefservcommuns_Clients_Resume_BPM035.GniRefservcommunsClientsResumeBPM035.GniRefservcommunsClientsResumeBPM035_1.logicalResumeIn:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniRefservcommuns_Clients_Resume_BPM035.GniRefservcommunsClientsResumeBPM035.GniRefservcommunsClientsResumeBPM035_1.logicalResumeOut:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniRefservcommuns_Clients_Resume_BPM035.GniRefservcommunsClientsResumeBPM035.logicalResumeIn:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniResume_Contrat_FUE_In.trigger:getErreurTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniResume_Sinistre_Ulis_In.trigger:getErreurTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniSuiviFM_Commun.util:triggerAnalyseErreursSuiviFM</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniTestHDBPM.GniTestHDBPM1.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniTestHDBPM.GniTestHDBPM1.GniTestHDBPM1_1.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniTools.pattern.synchro:receptionDocFinTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>GniTools.pattern.synchro:receptionDocLigneTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>aaa:testTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.error.actionDispatcher:actionDispatcherDelayTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.error.actionDispatcher:actionDispatcherTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.error.actions.aggregateMail:aggregateMailTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.error.actions.changestatus:changestatusTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.error.actions.corbeille:corbeilleTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.error.actions.email:emailTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.error.actions.ignore:ignoreTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.error.actions.rejeu:rejeuTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.error.changestatus:traiterChangementStatutTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.error.defaultAnalyseEngine:defaultAnalyseEngineTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.error.errorDispatcher:errorDispatcherDelayTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.error.errorDispatcher:errorDispatcherTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.error.registerAggregateMail:registerAggregateMailTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.error.registerAnalyseEngine:registerAnalyseEngineTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.error.retry:processResubmitRequestTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.error.synchroDispatcher:synchroDispatcherTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.templates.analyse:analyseAppnameTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.templates.bpm.analyse:analyseTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.templates.bpm.simulateur:traiterDemandeTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>pub.gni.templates.bpm.simulateur:traiterFinTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>test.testRejeu.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>test.testRejeu.testRejeu_1.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>tnr.tnr14.Default:subscriptionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>tnr.tnr14.tnr14_1.Default:transitionTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>wm.monitor.pmControl:EnableResponseTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>wm.prt.status:controlTrigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+      <nativeTrigger>
+         <name>wm.prt.status:trigger</name>
+         <status>ENABLED</status>
+         <retrievalState temporalState="PERMANENT">ACTIVE</retrievalState>
+         <processingState temporalState="PERMANENT">ACTIVE</processingState>
+      </nativeTrigger>
+   </nativeTriggerList>
+   <jmsAliasList class="java.util.TreeSet">
+      <jmsAlias>
+         <name>EspaceClientAdmin_JMS_JBoss_Connector</name>
+         <description>Jboss JMS Connector EspaceClient Admin</description>
+         <status>DISABLED</status>
+         <state>DISCONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>EspaceClientAdmin_JMS_JBoss_Connector2</name>
+         <description>Jboss JMS Connector EspaceClient Admin2 (=&gt; Ne Pas Connecter)</description>
+         <status>DISABLED</status>
+         <state>DISCONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>EspaceClient_JMS_JBoss_Connector</name>
+         <description>Jboss JMS Front Connector EspaceClient</description>
+         <status>DISABLED</status>
+         <state>DISCONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>EspaceClient_JMS_JBoss_Connector2</name>
+         <description>Jboss JMS Front Connector EspaceClient2 (=&gt; Ne Pas Connecter)</description>
+         <status>DISABLED</status>
+         <state>DISCONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>EspaceClient_JMS_JBoss_Middle_Connector</name>
+         <description>Jboss JMS Middle Connector EspaceClient</description>
+         <status>DISABLED</status>
+         <state>DISCONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>EspaceClient_JMS_JBoss_Middle_Connector2</name>
+         <description>Jboss JMS Middle Connector EspaceClient2 (=&gt; Ne Pas Connecter)</description>
+         <status>DISABLED</status>
+         <state>DISCONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>GniEspaceClient_GFR_Out</name>
+         <description>File JMS pour les messages en provenance de Generali.fr</description>
+         <status>ENABLED</status>
+         <state>CONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>GniEspaceClient_IAM_In</name>
+         <description>Queue en provenance de IAM</description>
+         <status>ENABLED</status>
+         <state>CONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>GniEspaceClient_Trajectoire_Out</name>
+         <description>File JMS pour les messages en provenance de Trajectoire</description>
+         <status>ENABLED</status>
+         <state>CONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>GniGBProd_Icone_From</name>
+         <description>Connnexion Icone From</description>
+         <status>DISABLED</status>
+         <state>DISCONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>GniGestionIdentites_IAM_Dispatcher</name>
+         <description>Queue de dispatch des messages IAM</description>
+         <status>DISABLED</status>
+         <state>DISCONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>GniGestionIdentites_IAM_Dispatcher_Cible1</name>
+         <description>Queue IAM pour Espace Client sur IS 5540</description>
+         <status>DISABLED</status>
+         <state>DISCONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>GniGestionIdentites_IAM_Dispatcher_Cible2</name>
+         <description>Queue IAM pour Espace Client sur IS 5550</description>
+         <status>DISABLED</status>
+         <state>DISCONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>GniSuiviFM_Collecteur_From</name>
+         <description>Alias JMS pour émission des CR par le collecteur SuiviFM</description>
+         <status>ENABLED</status>
+         <state>CONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>PE_NONTRANSACTIONAL_ALIAS</name>
+         <description>Process Engine JMS alias</description>
+         <status>DISABLED</status>
+         <state>DISCONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>PasserelleICONE_JMS_JBoss_Connector</name>
+         <description>connecteur Jboss passerelle Icone</description>
+         <status>DISABLED</status>
+         <state>DISCONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>PocSinistre_JMS_JBoss_Connector</name>
+         <description>PocSinistre_JMS_JBoss_Connector</description>
+         <status>DISABLED</status>
+         <state>DISCONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>contratInternetJMSaliasReceiver</name>
+         <description>File JMS pour les messages en provenance de Generali FR vers EAI</description>
+         <status>ENABLED</status>
+         <state>CONNECTED</state>
+      </jmsAlias>
+      <jmsAlias>
+         <name>testJMS</name>
+         <description>testJMS</description>
+         <status>DISABLED</status>
+         <state>DISCONNECTED</state>
+      </jmsAlias>
+   </jmsAliasList>
+</configuration>

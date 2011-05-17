@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration name="configuration_test_simple" creation="2011-03-03T19:00:23.828Z"
+               modification="2011-03-03T19:00:23.828Z">
+    <configurationId>
+        <id>configuration_test_simple</id>
+        <packageName>WmRoot</packageName>
+    </configurationId>
+    <adapterConnectionConfigurations>
+        <adapterConnectionConfiguration exist="false" selected="true">
+            <adapterConnection>
+                <stringId>alias_1</stringId>
+                <type>ADAPTER_CONNECTION</type>
+                <enableState>
+                    <enabled>ENABLED</enabled>
+                </enableState>
+                <details/>
+                <packageName>packageName_1</packageName>
+                <adapterType>JDBCAdapter</adapterType>
+                <alias>alias_1</alias>
+            </adapterConnection>
+            <states>
+                <state context="OPEN">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CURRENT">
+                    <enableState>
+                        <enabled>ENABLED</enabled>
+                    </enableState>
+                </state>
+                <state context="CLOSE">
+                    <enableState>
+                        <enabled>DISABLED</enabled>
+                    </enableState>
+                </state>
+            </states>
+        </adapterConnectionConfiguration>
+    </adapterConnectionConfigurations>
+    <adapterListenerConfigurations/>
+    <adapterNotificationConfigurations/>
+    <integrationServerPackageConfigurations/>
+    <jmsAliasConfigurations/>
+    <jmsTriggerConfigurations/>
+    <nativeTriggerConfigurations/>
+    <portConfigurations/>
+    <schedulerConfigurations/>
+</configuration>

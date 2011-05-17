@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.data.ISMemDataImpl">
+    <array name="ports" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <value name="port">FilePollingListener:/APP/DATA/TRE/IB/SAS/IN@*.DATA.ok</value>
+        <value name="type">include</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="port">FilePollingListener:/APP/DATA/TRE/TIG/SAS/IN@*.DATA.ok</value>
+        <value name="type">include</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="port">FilePollingListener:/tmp@coucou</value>
+        <value name="type">include</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="port">HTTPListener@6525</value>
+        <value name="type">exclude</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="port">HTTPListener@6527</value>
+        <value name="type">include</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="port">HTTPListener@7512</value>
+        <value name="type">include</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="port">HTTPListener@7516</value>
+        <value name="type">include</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="port">HTTPListener@7519</value>
+        <value name="type">exclude</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="port">HTTPSListener@6528</value>
+        <value name="type">include</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="port">HTTPSListener@7513</value>
+        <value name="type">include</value>
+      </record>
+    </array>
+    <array name="listeners" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <number name="port" type="java.lang.Integer">6525</number>
+        <value name="protocol">HTTP</value>
+        <value name="pkg">GniFrmk</value>
+        <value name="enabled">true</value>
+        <value name="key">HTTPListener@6525</value>
+        <value name="factoryKey">webMethods/HTTP</value>
+        <value name="configURL">/WmRoot/configHTTP.dsp</value>
+        <value name="provider">webMethods</value>
+        <value name="listenerType">Regular</value>
+        <null name="clientAuth"/>
+        <value name="ssl">false</value>
+        <value name="maxQueue">200</value>
+        <value name="keepAliveTimeout">20000</value>
+        <value name="internalPort">-1</value>
+        <value name="curDelay">0</value>
+        <value name="stepsize">10000</value>
+        <value name="suspended">false</value>
+        <value name="status">Active</value>
+        <value name="listening">true</value>
+        <value name="type">exclude</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <number name="port" type="java.lang.Integer">6539</number>
+        <value name="protocol">HTTP</value>
+        <value name="pkg">GniSinistre_Get_Out</value>
+        <value name="enabled">false</value>
+        <value name="key">HTTPListener@6539</value>
+        <value name="factoryKey">webMethods/HTTP</value>
+        <value name="configURL">/WmRoot/configHTTP.dsp</value>
+        <value name="provider">webMethods</value>
+        <value name="listenerType">Regular</value>
+        <null name="clientAuth"/>
+        <value name="ssl">false</value>
+        <value name="maxQueue">200</value>
+        <value name="keepAliveTimeout">20000</value>
+        <value name="internalPort">-1</value>
+        <value name="curDelay">0</value>
+        <value name="stepsize">10000</value>
+        <value name="suspended">false</value>
+        <value name="status">Inactive</value>
+        <value name="listening">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <number name="port" type="java.lang.Integer">6527</number>
+        <value name="protocol">HTTP</value>
+        <value name="pkg">GniSupervisionTresorerie_PE022</value>
+        <value name="enabled">true</value>
+        <value name="key">HTTPListener@6527</value>
+        <value name="hostAccessMode">include</value>
+        <array name="hostAllow" type="value" depth="1">
+        </array>
+        <array name="hostDeny" type="value" depth="1">
+        </array>
+        <value name="factoryKey">webMethods/HTTP</value>
+        <value name="configURL">/WmRoot/configHTTP.dsp</value>
+        <value name="provider">webMethods</value>
+        <value name="listenerType">Regular</value>
+        <null name="clientAuth"/>
+        <value name="ssl">false</value>
+        <value name="maxQueue">30000</value>
+        <value name="keepAliveTimeout">30000</value>
+        <value name="internalPort">-1</value>
+        <value name="curDelay">20000</value>
+        <value name="stepsize">10000</value>
+        <value name="suspended">false</value>
+        <value name="status">Active</value>
+        <value name="listening">true</value>
+        <value name="type">include</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="port">/APP/DATA/TRE/TIG/SAS/IN@*.DATA.ok</value>
+        <value name="protocol">FilePolling</value>
+        <value name="pkg">GniSupervisionTresorerie_PE022</value>
+        <value name="enabled">true</value>
+        <value name="key">FilePollingListener:/APP/DATA/TRE/TIG/SAS/IN@*.DATA.ok</value>
+        <value name="factoryKey">webMethods/FilePolling</value>
+        <value name="configURL">/WmFlatFile/configFilePolling.dsp</value>
+        <value name="provider">webMethods</value>
+        <value name="monitorDir">/APP/DATA/TRE/TIG/SAS/IN</value>
+        <value name="workDir">/APP/DATA/TRE/TIG/SAS/IN/WORK</value>
+        <value name="completionDir">/APP/DATA/TRE/TIG/SAS/IN/COMPLETION</value>
+        <value name="errorDir">/APP/DATA/TRE/TIG/SAS/IN/ERROR</value>
+        <value name="fileNameFilter">*.DATA.ok</value>
+        <value name="recursive">no</value>
+        <value name="clusterEnabled">no</value>
+        <value name="cleanupAtStartup">yes</value>
+        <value name="runUser">Administrator</value>
+        <value name="processingService">GniSupervisionTresorerie_PE022.interfaces.filepolling:receptionFichierCompteRenduLot</value>
+        <value name="filePollingInterval">10</value>
+        <value name="logMinMessage">no</value>
+        <value name="NFSDirectories">no</value>
+        <value name="cleanUpFileAge">7</value>
+        <value name="cleanUpInterval">24</value>
+        <value name="maxThreads">1</value>
+        <value name="lockFileExtension">.lock</value>
+        <value name="status">Inactive</value>
+        <value name="listening">false</value>
+        <value name="type">include</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="port">/tmp@coucou</value>
+        <value name="protocol">FilePolling</value>
+        <value name="pkg">GniSupervisionTresorerie_PE022</value>
+        <value name="enabled">true</value>
+        <value name="key">FilePollingListener:/tmp@coucou</value>
+        <value name="factoryKey">webMethods/FilePolling</value>
+        <value name="configURL">/WmFlatFile/configFilePolling.dsp</value>
+        <value name="provider">webMethods</value>
+        <value name="monitorDir">/tmp</value>
+        <value name="workDir">/app/webmethods/data/project/fluxtreso</value>
+        <value name="completionDir">/app/webmethods/data/project/fluxtreso/ib</value>
+        <value name="errorDir">/app/webmethods/data/project/fluxtreso/ib</value>
+        <value name="fileNameFilter">coucou</value>
+        <value name="recursive">no</value>
+        <value name="clusterEnabled">no</value>
+        <value name="cleanupAtStartup">yes</value>
+        <value name="runUser">Administrator</value>
+        <value name="processingService">GniFrmkToolsAddon.dev.admin:saveConfiguration</value>
+        <value name="filePollingInterval">10</value>
+        <value name="logMinMessage">no</value>
+        <value name="NFSDirectories">no</value>
+        <value name="cleanUpFileAge">7</value>
+        <value name="cleanUpInterval">24</value>
+        <value name="maxThreads">1</value>
+        <value name="lockFileExtension">.lock</value>
+        <value name="status">Inactive</value>
+        <value name="listening">false</value>
+        <value name="type">include</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="port">/APP/DATA/TRE/IB/SAS/IN@*.DATA.ok</value>
+        <value name="protocol">FilePolling</value>
+        <value name="pkg">GniSupervisionTresorerie_PE022</value>
+        <value name="enabled">true</value>
+        <value name="key">FilePollingListener:/APP/DATA/TRE/IB/SAS/IN@*.DATA.ok</value>
+        <value name="factoryKey">webMethods/FilePolling</value>
+        <value name="configURL">/WmFlatFile/configFilePolling.dsp</value>
+        <value name="provider">webMethods</value>
+        <value name="monitorDir">/APP/DATA/TRE/IB/SAS/IN</value>
+        <value name="workDir">/APP/DATA/TRE/IB/SAS/IN/WORK</value>
+        <value name="completionDir">/APP/DATA/TRE/IB/SAS/IN/COMPLETION</value>
+        <value name="errorDir">/APP/DATA/TRE/IB/SAS/IN/ERROR</value>
+        <value name="fileNameFilter">*.DATA.ok</value>
+        <value name="recursive">no</value>
+        <value name="clusterEnabled">no</value>
+        <value name="cleanupAtStartup">yes</value>
+        <value name="runUser">Administrator</value>
+        <value name="processingService">GniSupervisionTresorerie_PE022.interfaces.filepolling:receptionFichierCompteRenduSousLot</value>
+        <value name="filePollingInterval">10</value>
+        <value name="logMinMessage">no</value>
+        <value name="NFSDirectories">no</value>
+        <value name="cleanUpFileAge">7</value>
+        <value name="cleanUpInterval">24</value>
+        <value name="maxThreads">1</value>
+        <value name="lockFileExtension">.lock</value>
+        <value name="status">Inactive</value>
+        <value name="listening">false</value>
+        <value name="type">include</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <number name="port" type="java.lang.Integer">7516</number>
+        <value name="protocol">HTTP</value>
+        <value name="pkg">WmRoot</value>
+        <value name="enabled">true</value>
+        <value name="key">HTTPListener@7516</value>
+        <value name="factoryKey">webMethods/HTTP</value>
+        <value name="configURL">/WmRoot/configHTTP.dsp</value>
+        <value name="provider">webMethods</value>
+        <value name="listenerType">Regular</value>
+        <null name="clientAuth"/>
+        <value name="ssl">false</value>
+        <value name="maxQueue">200</value>
+        <value name="keepAliveTimeout">0</value>
+        <value name="threadPool">true</value>
+        <value name="minThread">0</value>
+        <value name="maxThread">1</value>
+        <value name="threadPriority">5</value>
+        <value name="internalPort">-1</value>
+        <value name="curDelay">0</value>
+        <value name="stepsize">10000</value>
+        <value name="suspended">false</value>
+        <value name="status">Active</value>
+        <value name="listening">true</value>
+        <value name="type">include</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <number name="port" type="java.lang.Integer">7512</number>
+        <value name="protocol">HTTP</value>
+        <value name="pkg">WmRoot</value>
+        <value name="enabled">true</value>
+        <value name="key">HTTPListener@7512</value>
+        <value name="factoryKey">webMethods/HTTP</value>
+        <value name="configURL">/WmRoot/configHTTP.dsp</value>
+        <value name="provider">webMethods</value>
+        <value name="listenerType">Regular</value>
+        <null name="clientAuth"/>
+        <value name="ssl">false</value>
+        <value name="maxQueue">65534</value>
+        <value name="keepAliveTimeout">20000</value>
+        <value name="internalPort">-1</value>
+        <value name="curDelay">0</value>
+        <value name="stepsize">10000</value>
+        <value name="suspended">false</value>
+        <value name="status">Active</value>
+        <value name="listening">true</value>
+        <value name="primary">true</value>
+        <value name="type">include</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <number name="port" type="java.lang.Integer">6528</number>
+        <value name="protocol">HTTPS</value>
+        <value name="pkg">WmRoot</value>
+        <value name="enabled">true</value>
+        <value name="key">HTTPSListener@6528</value>
+        <value name="factoryKey">webMethods/HTTP</value>
+        <value name="configURL">/WmRoot/configHTTP.dsp</value>
+        <value name="provider">webMethods</value>
+        <value name="listenerType">Regular</value>
+        <value name="clientAuth">request</value>
+        <value name="ssl">true</value>
+        <value name="maxQueue">20000</value>
+        <value name="keepAliveTimeout">20000</value>
+        <value name="internalPort">-1</value>
+        <value name="curDelay">0</value>
+        <value name="stepsize">10000</value>
+        <value name="suspended">false</value>
+        <array name="certChain" type="value" depth="1">
+          <value>/app/webmethods/is/7512/IntegrationServer/packages/GniEDICourtage_Consultation/config/9008cert.der</value>
+          <value>./packages/GniEDICourtage_Consultation/config/wsfe_csca_cert.der</value>
+        </array>
+        <value name="privKey">./packages/GniEDICourtage_Consultation/config/9008privkey.der</value>
+        <value name="caDir">/app/webmethods/is/7512/IntegrationServer/packages/GniEDICourtage_Consultation/config</value>
+        <value name="keyStoreProvider">IBMJCE</value>
+        <null name="keyStoreProviderClass"/>
+        <value name="keyStoreType">JKS</value>
+        <value name="useHSM">false</value>
+        <null name="password"/>
+        <value name="keyStoreLocation"></value>
+        <value name="alias"></value>
+        <value name="keyStoreCADir"></value>
+        <value name="status">Inactive</value>
+        <value name="listening">false</value>
+        <value name="type">include</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <number name="port" type="java.lang.Integer">7513</number>
+        <value name="protocol">HTTPS</value>
+        <value name="pkg">WmRoot</value>
+        <value name="enabled">true</value>
+        <value name="key">HTTPSListener@7513</value>
+        <value name="factoryKey">webMethods/HTTP</value>
+        <value name="configURL">/WmRoot/configHTTP.dsp</value>
+        <value name="provider">webMethods</value>
+        <value name="listenerType">Regular</value>
+        <value name="clientAuth">require</value>
+        <value name="ssl">true</value>
+        <value name="maxQueue">200</value>
+        <value name="keepAliveTimeout">20000</value>
+        <value name="internalPort">-1</value>
+        <value name="curDelay">0</value>
+        <value name="stepsize">10000</value>
+        <value name="suspended">false</value>
+        <null name="certChain"/>
+        <null name="privKey"/>
+        <null name="caDir"/>
+        <value name="keyStoreProvider">IBMJCE</value>
+        <null name="keyStoreProviderClass"/>
+        <value name="keyStoreType">JKS</value>
+        <value name="useHSM">false</value>
+        <null name="password"/>
+        <value name="keyStoreLocation"></value>
+        <value name="alias"></value>
+        <value name="keyStoreCADir"></value>
+        <value name="status">Inactive</value>
+        <value name="listening">false</value>
+        <value name="type">include</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <number name="port" type="java.lang.Integer">7519</number>
+        <value name="protocol">HTTP</value>
+        <value name="pkg">WmRoot</value>
+        <value name="enabled">true</value>
+        <value name="key">HTTPListener@7519</value>
+        <value name="factoryKey">webMethods/HTTP</value>
+        <value name="configURL">/WmRoot/configHTTP.dsp</value>
+        <value name="provider">webMethods</value>
+        <value name="listenerType">Diagnostic</value>
+        <null name="clientAuth"/>
+        <value name="ssl">false</value>
+        <value name="maxQueue">65534</value>
+        <value name="keepAliveTimeout">20000</value>
+        <value name="threadPool">true</value>
+        <value name="minThread">1</value>
+        <value name="maxThread">5</value>
+        <value name="threadPriority">10</value>
+        <value name="internalPort">-1</value>
+        <value name="curDelay">0</value>
+        <value name="stepsize">10000</value>
+        <value name="suspended">false</value>
+        <value name="status">Active</value>
+        <value name="listening">true</value>
+        <value name="type">exclude</value>
+      </record>
+    </array>
+    <record name="primary" javaclass="com.wm.util.Values">
+      <number name="port" type="java.lang.Integer">7512</number>
+      <value name="protocol">HTTP</value>
+      <value name="pkg">WmRoot</value>
+      <value name="enabled">true</value>
+      <value name="key">HTTPListener@7512</value>
+      <value name="factoryKey">webMethods/HTTP</value>
+      <value name="configURL">/WmRoot/configHTTP.dsp</value>
+      <value name="provider">webMethods</value>
+      <value name="listenerType">Regular</value>
+      <null name="clientAuth"/>
+      <value name="ssl">false</value>
+      <value name="maxQueue">65534</value>
+      <value name="keepAliveTimeout">20000</value>
+      <value name="internalPort">-1</value>
+      <value name="curDelay">0</value>
+      <value name="stepsize">10000</value>
+      <value name="suspended">false</value>
+    </record>
+  </record>
+</IDataXMLCoder>

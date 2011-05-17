@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="test" creation="2010-05-03T21:01:59.0" modification="2010-05-03T21:01:59.0">
+    <id>
+        <id>testId000</id>
+        <packageName>Default</packageName>
+    </id>
+    <componentConfigurations>
+        <componentConfiguration presentOnIS="false" xsi:type="configurationComposantType1">
+            <component type="UNKNOWN" xsi:type="composantType1">
+                <id xsi:type="type1ID">
+                    <value>component id</value>
+                </id>
+                <currentState xsi:type="type1STATE">
+                    <exist>true</exist>
+                    <enabled>true</enabled>
+                </currentState>
+                <detail xsi:type="simpleDetail">
+                    <description>description of component 1</description>
+                </detail>
+            </component>
+            <stateConfigurations>
+                <stateConfiguration type="CLOSE">
+                    <state xsi:type="type1STATE">
+                        <exist>true</exist>
+                        <enabled>false</enabled>
+                    </state>
+                </stateConfiguration>
+                <stateConfiguration type="CURRENT">
+                    <state xsi:type="type1STATE">
+                        <exist>true</exist>
+                        <enabled>true</enabled>
+                    </state>
+                </stateConfiguration>
+                <stateConfiguration type="OPEN">
+                    <state xsi:type="type1STATE">
+                        <exist>true</exist>
+                        <enabled>true</enabled>
+                    </state>
+                </stateConfiguration>
+            </stateConfigurations>
+        </componentConfiguration>
+        <componentConfiguration presentOnIS="false" xsi:type="configurationComposantType2">
+            <component type="UNKNOWN" xsi:type="composantType2">
+                <id xsi:type="type2ID">
+                    <value>666</value>
+                </id>
+                <currentState xsi:type="type2STATE">
+                    <exist>true</exist>
+                    <active>true</active>
+                    <enabled>true</enabled>
+                </currentState>
+                <detail xsi:type="simpleDetail">
+                    <description>description of component 2</description>
+                </detail>
+            </component>
+            <stateConfigurations>
+                <stateConfiguration type="CLOSE">
+                    <state xsi:type="type2STATE">
+                        <exist>true</exist>
+                        <active>false</active>
+                        <enabled>false</enabled>
+                    </state>
+                </stateConfiguration>
+                <stateConfiguration type="CURRENT">
+                    <state xsi:type="type2STATE">
+                        <exist>true</exist>
+                        <active>true</active>
+                        <enabled>true</enabled>
+                    </state>
+                </stateConfiguration>
+                <stateConfiguration type="OPEN">
+                    <state xsi:type="type2STATE">
+                        <exist>true</exist>
+                        <active>true</active>
+                        <enabled>true</enabled>
+                    </state>
+                </stateConfiguration>
+            </stateConfigurations>
+        </componentConfiguration>
+    </componentConfigurations>
+</configuration>

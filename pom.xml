@@ -1,12 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>fr.generali.cceai.frmkerror</groupId>
-    <artifactId>frmktoolsaddon</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-    <name>GniFrmkToolsAddon</name>
-    <packaging>jar</packaging>
+    <groupId>fr.generali.cceai.frmk.addon</groupId>
+    <artifactId>GniFrmkToolsAddon</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <url>http://maven.apache.org</url>
+    <modules>
+		<module>common</module>
+        <module>draft</module>
+        <module>core</module>
+        <module>jms</module>
+        <module>root</module>
+        <module>art</module>
+        <module>all</module>
+    </modules>
     <scm>
         <connection>scm:svn:http://svn.groupe.generali.fr/socles/eai/GniFrmkToolsAddon/trunk/</connection>
         <url>http://svn.groupe.generali.fr/socles/eai/GniFrmkToolsAddon/trunk/</url>
@@ -33,6 +42,23 @@
             </plugin>
         </plugins>
     </reporting>
+    <distributionManagement>
+        <repository>
+            <id>artifacts-server</id>
+            <name>Generali Release Distribution Repository</name>
+            <url>dav:http://maven-proxy.groupe.generali.fr/archiva/repository/generali-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>artifacts-server</id>
+            <name>Generali Snapshot Distribution Repository</name>
+            <url>dav:http://maven-proxy.groupe.generali.fr/archiva/repository/generali-snapshots</url>
+        </snapshotRepository>
+        <site>
+            <id>socle-eai</id>
+            <url>file:///data/maven/sites/cceai</url>
+        </site>
+    </distributionManagement>
+
     <profiles>
         <profile>
             <id>WM65</id>
@@ -132,22 +158,6 @@
             </releases>
         </pluginRepository>
     </pluginRepositories>
-    <distributionManagement>
-        <repository>
-            <id>artifacts-server</id>
-            <name>Generali Release Distribution Repository</name>
-            <url>dav:http://maven-proxy.groupe.generali.fr/archiva/repository/generali-releases</url>
-        </repository>
-        <snapshotRepository>
-            <id>artifacts-server</id>
-            <name>Generali Snapshot Distribution Repository</name>
-            <url>dav:http://maven-proxy.groupe.generali.fr/archiva/repository/generali-snapshots</url>
-        </snapshotRepository>
-        <site>
-            <id>socle-eai</id>
-            <url>file:///data/maven/sites/cceai</url>
-        </site>
-    </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -309,7 +319,6 @@
         </extensions>
         <pluginManagement>
             <plugins>
-
                 <plugin>
                     <artifactId>maven-assembly-plugin</artifactId>
                     <version>2.2-beta-4</version>
@@ -337,28 +346,28 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
+
         <plugins>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.2-beta-4</version>
-                <configuration>
-                    <descriptors>
-                        <descriptor>src/main/assembly/dist.xml</descriptor>
-                    </descriptors>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <!-- this is used for inheritance merges -->
-                        <phase>package</phase>
-                        <!-- append to the packaging phase. -->
-                        <goals>
-                            <goal>single</goal>
-                            <!-- goals == mojos -->
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            <!--<plugin>-->
+                <!--<artifactId>maven-assembly-plugin</artifactId>-->
+                <!--<version>2.2-beta-4</version>-->
+                <!--<configuration>-->
+                    <!--<descriptors>-->
+                        <!--<descriptor>src/main/assembly/dist.xml</descriptor>-->
+                    <!--</descriptors>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>make-assembly</id>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>single</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+
             <!--<plugin>-->
             <!--<groupId>org.jvnet.jaxb2.maven2</groupId>-->
             <!--<artifactId>maven-jaxb2-plugin</artifactId>-->
@@ -370,6 +379,7 @@
             <!--</execution>-->
             <!--</executions>-->
             <!--</plugin>-->
+
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
@@ -389,6 +399,7 @@
                     </execution>
                 </executions>
             </plugin>
+
             <!--<plugin>-->
             <!--<groupId>org.codehaus.mojo</groupId>-->
             <!--<artifactId>buildnumber-maven-plugin</artifactId>-->
@@ -410,6 +421,7 @@
             <!--</items>-->
             <!--</configuration>-->
             <!--</plugin>-->
+
             <plugin>
                 <groupId>org.codehaus.groovy.maven</groupId>
                 <artifactId>gmaven-plugin</artifactId>
@@ -429,6 +441,7 @@
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
     </build>
 </project>

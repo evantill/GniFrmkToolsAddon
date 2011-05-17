@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.data.ISMemDataImpl">
+    <value name="adapterTypeName">JDBCAdapter</value>
+    <array name="notificationDataList" type="record" depth="1">
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="notificationNodeName">Essai1.adapter:essaiNotif</value>
+        <value name="packageName">Essai1</value>
+        <value name="notificationEnabled">yes</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="notificationNodeName">Essai1.adapter:xxxxx</value>
+        <value name="packageName">Essai1</value>
+        <value name="notificationEnabled">suspended</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="notificationNodeName">GniFrmkBAMV2.notifications:notifyOptimizeEvent</value>
+        <value name="packageName">GniFrmkBAMV2</value>
+        <value name="notificationEnabled">no</value>
+      </record>
+    </array>
+  </record>
+</IDataXMLCoder>

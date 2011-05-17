@@ -3,6 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GniFrmkToolsAddon.iml" filepath="$PROJECT_DIR$/GniFrmkToolsAddon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/all/all.iml" filepath="$PROJECT_DIR$/all/all.iml" />
+      <module fileurl="file://$PROJECT_DIR$/art/art.iml" filepath="$PROJECT_DIR$/art/art.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/draft/draft.iml" filepath="$PROJECT_DIR$/draft/draft.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jms/jms.iml" filepath="$PROJECT_DIR$/jms/jms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/root/root.iml" filepath="$PROJECT_DIR$/root/root.iml" />
     </modules>
   </component>
 </project>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<IDataXMLCoder version="1.0">
-  <record javaclass="com.wm.data.ISMemDataImpl">
-    <value name="oid">b2f57910-5edd-11e0-8fef-b8721ad3c5a7</value>
-  </record>
-</IDataXMLCoder>
