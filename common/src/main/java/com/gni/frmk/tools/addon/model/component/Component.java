@@ -26,6 +26,7 @@ public interface Component<I extends Component.Id, S extends Component.State, D 
 
     public static interface State {
         boolean exist();
+        boolean isUnknown();
     }
 
     public static interface Detail {

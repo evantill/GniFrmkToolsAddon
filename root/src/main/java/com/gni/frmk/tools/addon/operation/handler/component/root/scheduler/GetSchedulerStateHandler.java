@@ -1,13 +1,13 @@
 package com.gni.frmk.tools.addon.operation.handler.component.root.scheduler;
 
+import com.gni.frmk.tools.addon.model.component.EnableStatus;
 import com.gni.frmk.tools.addon.model.component.root.SchedulerState;
+import com.gni.frmk.tools.addon.model.component.root.SchedulerStatus;
 import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.operation.action.component.root.scheduler.GetSchedulerState;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
-import com.gni.frmk.tools.addon.model.component.EnableState.EnableStatus;
-import com.gni.frmk.tools.addon.model.component.root.SchedulerState.SchedulerStatus;
 import com.gni.frmk.tools.addon.operation.result.ComponentStateResult;
 import com.wm.data.*;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;

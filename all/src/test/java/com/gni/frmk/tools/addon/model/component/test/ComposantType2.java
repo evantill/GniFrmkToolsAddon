@@ -4,6 +4,7 @@ import com.gni.frmk.tools.addon.model.component.BaseComponent;
 import com.gni.frmk.tools.addon.model.component.test.ComposantType2.Type2Id;
 import com.gni.frmk.tools.addon.model.component.test.ComposantType2.Type2State;
 import com.gni.frmk.tools.addon.model.configuration.BaseComponentConfiguration;
+import com.google.common.collect.ComparisonChain;
 
 /**
  * Created by IntelliJ IDEA.
@@ -39,7 +40,7 @@ public class ComposantType2
         }
     }
 
-    public static class Type2State extends BaseComponent.AbstractState {
+    public static class Type2State extends BaseComponent.AbstractState<Type2State> {
         private boolean active;
         private boolean enabled;
 
@@ -67,6 +68,20 @@ public class ComposantType2
 
         public void setEnabled(boolean enabled) {
             this.enabled = enabled;
+        }
+
+        @Override
+        public boolean isUnknown() {
+            return false;
+        }
+
+        @Override
+        public int compareTo(Type2State other) {
+            return ComparisonChain.start()
+                                  .compare(0, super.compareTo(other))
+                                  .compare(isEnabled(), other.isEnabled())
+                                  .compare(isActive(), other.isActive())
+                                  .result();
         }
     }
 }

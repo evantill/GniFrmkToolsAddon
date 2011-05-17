@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.operation.handler.component.root.trigger;
 import com.gni.frmk.tools.addon.model.component.NoDetail;
 import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.root.NativeTrigger;
-import com.gni.frmk.tools.addon.operation.handler.component.AbstractComponentListHandler;
+import com.gni.frmk.tools.addon.operation.handler.component.GetAllComponentsHandler;
 import com.gni.frmk.tools.addon.operation.action.component.root.trigger.GetNativeTriggerDetail;
 import com.gni.frmk.tools.addon.operation.action.component.root.trigger.GetNativeTriggerState;
 import com.gni.frmk.tools.addon.operation.action.component.root.trigger.NativeTriggerIdList;
@@ -26,7 +26,7 @@ import com.gni.frmk.tools.addon.operation.result.ListResult;
  * @author: e03229
  */
 public class NativeTriggerListHandler
-        extends AbstractComponentListHandler<StringId, NoDetail, NativeTriggerState, NativeTrigger, NativeTriggerList, InvokeContext>
+        extends GetAllComponentsHandler<StringId, NoDetail, NativeTriggerState, NativeTrigger, NativeTriggerList, InvokeContext>
         implements ActionHandler<NativeTriggerList, ListResult<NativeTrigger>, InvokeContext> {
 
     @Override

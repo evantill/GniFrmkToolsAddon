@@ -3,31 +3,25 @@ package com.gni.frmk.tools.addon.model.configuration;
 import com.gni.frmk.tools.addon.model.component.*;
 import com.gni.frmk.tools.addon.model.component.Component.StateType;
 import com.gni.frmk.tools.addon.model.component.Component.Type;
+import com.gni.frmk.tools.addon.model.component.art.AdapterConnection;
 import com.gni.frmk.tools.addon.model.component.art.AdapterConnection.AdapterConnectionDetail;
+import com.gni.frmk.tools.addon.model.component.art.AdapterId;
+import com.gni.frmk.tools.addon.model.component.art.AdapterListener;
 import com.gni.frmk.tools.addon.model.component.art.AdapterListener.AdapterListenerDetail;
+import com.gni.frmk.tools.addon.model.component.art.AdapterNotification;
 import com.gni.frmk.tools.addon.model.component.art.AdapterNotification.AdapterNotificationDetail;
+import com.gni.frmk.tools.addon.model.component.jms.JmsAlias;
 import com.gni.frmk.tools.addon.model.component.jms.JmsAlias.JmsAliasDetail;
+import com.gni.frmk.tools.addon.model.component.jms.JmsTrigger;
 import com.gni.frmk.tools.addon.model.component.jms.JmsTrigger.JmsTriggerDetail;
-import com.gni.frmk.tools.addon.model.component.root.NativeTriggerState.TemporaryActivableState;
-import com.gni.frmk.tools.addon.model.component.root.NativeTriggerState.TemporaryStatus;
+import com.gni.frmk.tools.addon.model.component.root.*;
 import com.gni.frmk.tools.addon.model.component.root.Port.PortDetail;
 import com.gni.frmk.tools.addon.model.component.root.Scheduler.SchedulerDetail;
-import com.gni.frmk.tools.addon.model.component.root.SchedulerState.SchedulerStatus;
-import com.gni.frmk.tools.addon.model.component.test.ComposantType1.ConfigurationComposantType1;
 import com.gni.frmk.tools.addon.model.component.test.ComposantType1;
-import com.gni.frmk.tools.addon.model.component.test.ComposantType2.ConfigurationComposantType2;
+import com.gni.frmk.tools.addon.model.component.test.ComposantType1.ConfigurationComposantType1;
 import com.gni.frmk.tools.addon.model.component.test.ComposantType2;
+import com.gni.frmk.tools.addon.model.component.test.ComposantType2.ConfigurationComposantType2;
 import com.gni.frmk.tools.addon.model.component.test.SimpleDetail;
-import com.gni.frmk.tools.addon.model.component.art.*;
-import com.gni.frmk.tools.addon.model.component.root.*;
-import com.gni.frmk.tools.addon.model.component.jms.*;
-import com.gni.frmk.tools.addon.model.configuration.Configuration;
-import com.gni.frmk.tools.addon.model.component.ActivableState.ActivableStatus;
-import com.gni.frmk.tools.addon.model.component.ConnectableState.ConnectableStatus;
-import com.gni.frmk.tools.addon.model.component.EnableState.EnableStatus;
-import com.gni.frmk.tools.addon.model.configuration.BaseComponentConfiguration;
-import com.gni.frmk.tools.addon.model.configuration.ComponentConfiguration;
-import com.gni.frmk.tools.addon.model.configuration.ConfigurationId;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
@@ -54,7 +48,7 @@ public class ConfigurationBuilder {
 
     public Configuration newFullConfiguration() {
         Configuration cnf = new Configuration();
-        cnf.setId(new ConfigurationId("configuration_test_full","Default"));
+        cnf.setId(new ConfigurationId("configuration_test_full", "Default"));
         cnf.setCreation(now);
         cnf.setModification(now);
         cnf.setName("configuration_test_full");
@@ -158,7 +152,7 @@ public class ConfigurationBuilder {
     public Configuration createConfiguration() {
         Configuration cnf = new Configuration();
         cnf.setName("test");
-        cnf.setId(new ConfigurationId("testId000","Default"));
+        cnf.setId(new ConfigurationId("testId000", "Default"));
         cnf.setCreation(now);
         cnf.setModification(now);
         cnf.getComponentConfigurations().add(createComponent1());
@@ -248,7 +242,7 @@ public class ConfigurationBuilder {
         result.setType(Type.ADAPTER_CONNECTION);
         result.setId(new AdapterId(String.format("alias_%d", index), "JDBCAdapter"));
         result.setDetail(new AdapterConnectionDetail(String.format("packageName_%d", index)));
-        result.setCurrentState(new ActivableState(EnableStatus.ENABLED, ActivableStatus.ACTIVE));
+        result.setCurrentState(new EnableState(EnableStatus.ENABLED));
         return result;
     }
 
@@ -288,7 +282,7 @@ public class ConfigurationBuilder {
 
     public Configuration newSimpleConfiguration() {
         Configuration cnf = new Configuration();
-        cnf.setId(new ConfigurationId("configuration_test_full","Default"));
+        cnf.setId(new ConfigurationId("configuration_test_full", "Default"));
         cnf.setCreation(now);
         cnf.setModification(now);
         cnf.setName("configuration_test_full");

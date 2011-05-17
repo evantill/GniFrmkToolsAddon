@@ -1,10 +1,11 @@
 package com.gni.frmk.tools.addon.operation.handler.component.jms.alias;
 
-import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
+import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.jms.JmsAlias.JmsAliasDetail;
-import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.operation.action.component.jms.alias.GetJmsAliasDetail;
+import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.operation.handler.component.GetComponentDetailHandler;
 import com.gni.frmk.tools.addon.operation.result.ComponentDetailResult;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
 import com.wm.data.*;
@@ -18,7 +19,7 @@ import com.wm.data.*;
  */
 public class GetJmsAliasDetailHandler
         extends AbstractInvokeHandler<GetJmsAliasDetail, SingleResult<JmsAliasDetail>>
-        implements ActionHandler<GetJmsAliasDetail, SingleResult<JmsAliasDetail>, InvokeContext> {
+        implements GetComponentDetailHandler<GetJmsAliasDetail, StringId, JmsAliasDetail, InvokeContext> {
 
     public GetJmsAliasDetailHandler() {
         super("wm.server.jms:getConnectionAliasReport");

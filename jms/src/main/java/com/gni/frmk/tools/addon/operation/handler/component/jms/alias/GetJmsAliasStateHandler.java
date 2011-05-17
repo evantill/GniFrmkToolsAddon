@@ -1,13 +1,13 @@
 package com.gni.frmk.tools.addon.operation.handler.component.jms.alias;
 
-import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.model.component.ConnectableState;
-import com.gni.frmk.tools.addon.model.component.ConnectableState.ConnectableStatus;
-import com.gni.frmk.tools.addon.model.component.EnableState.EnableStatus;
-import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.model.component.ConnectableStatus;
+import com.gni.frmk.tools.addon.model.component.EnableStatus;
+import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.operation.action.component.jms.alias.GetJmsAliasState;
-import com.gni.frmk.tools.addon.operation.result.ComponentStateResult;
+import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
 import com.wm.data.*;
 
@@ -20,7 +20,7 @@ import com.wm.data.*;
  */
 public class GetJmsAliasStateHandler
         extends AbstractInvokeHandler<GetJmsAliasState, SingleResult<ConnectableState>>
-        implements ActionHandler<GetJmsAliasState, SingleResult<ConnectableState>, InvokeContext> {
+        implements GetComponentStateHandler<GetJmsAliasState, StringId, ConnectableState, InvokeContext> {
 
     public GetJmsAliasStateHandler() {
         super("wm.server.jms:getConnectionAliasReport");
@@ -38,7 +38,7 @@ public class GetJmsAliasStateHandler
     }
 
     @Override
-    protected ComponentStateResult<ConnectableState> parseOutput(GetJmsAliasState action, IData output) {
+    protected SingleResult<ConnectableState> parseOutput(GetJmsAliasState action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
             IData[] dataList = IDataUtil.getIDataArray(cur, "aliasDataList");
@@ -52,13 +52,13 @@ public class GetJmsAliasStateHandler
                             continue;
                         }
                         ConnectableState state = parseConnectableState(IDataUtil.getIData(curLoop, "trigger"));
-                        return new ComponentStateResult<ConnectableState>(state);
+                        return new SingleResult<ConnectableState>(state);
                     } finally {
                         curLoop.destroy();
                     }
                 }
             }
-            return new ComponentStateResult<ConnectableState>(new ConnectableState(EnableStatus.UNKNOWN, ConnectableStatus.UNKNOWN));
+            return new SingleResult<ConnectableState>(new ConnectableState(EnableStatus.UNKNOWN, ConnectableStatus.UNKNOWN));
         } finally {
             cur.destroy();
         }

@@ -4,6 +4,7 @@ import com.gni.frmk.tools.addon.model.component.Component.Detail;
 import com.gni.frmk.tools.addon.model.component.Component.Id;
 import com.gni.frmk.tools.addon.model.component.Component.State;
 import com.gni.frmk.tools.addon.visitor.ComponentVisitor;
+import com.google.common.collect.ComparisonChain;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -72,7 +73,8 @@ public class BaseComponent<I extends Id, S extends State, D extends Detail>
     public abstract static class AbstractId implements Id {
     }
 
-    public abstract static class AbstractState implements State {
+    public abstract static class AbstractState<T extends AbstractState<T>>
+            implements State, Comparable<T> {
         private boolean exist;
 
         protected AbstractState(boolean exist) {
@@ -90,6 +92,11 @@ public class BaseComponent<I extends Id, S extends State, D extends Detail>
         @Override
         public boolean exist() {
             return isExist();
+        }
+
+        @Override
+        public int compareTo(T other) {
+            return ComparisonChain.start().compare(isExist(), other.isExist()).result();
         }
     }
 

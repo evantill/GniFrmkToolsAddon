@@ -1,5 +1,8 @@
 package com.gni.frmk.tools.addon.model.component;
 
+import com.gni.frmk.tools.addon.model.component.BaseComponent.AbstractState;
+import com.google.common.collect.ComparisonChain;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 14/03/11
@@ -7,23 +10,27 @@ package com.gni.frmk.tools.addon.model.component;
  *
  * @author: e03229
  */
-public class ConnectableState extends EnableState {
-    public static enum ConnectableStatus {
-        UNKNOWN, CONNECTED, DISCONNECTED;
+public final class ConnectableState extends AbstractState<ConnectableState> {
 
-        public static ConnectableStatus fromBoolean(boolean connected) {
-            return connected ? CONNECTED : DISCONNECTED;
-        }
-    }
-
-    private ConnectableStatus connected;
+    private ConnectableStatus connected = ConnectableStatus.UNKNOWN;
+    private EnableStatus enabled = EnableStatus.UNKNOWN;
 
     public ConnectableState() {
+        super(false);
     }
 
     public ConnectableState(EnableStatus enabled, ConnectableStatus connected) {
-        super(enabled);
+        super(enabled != EnableStatus.UNKNOWN && connected != ConnectableStatus.UNKNOWN);
+        this.enabled = enabled;
         this.connected = connected;
+    }
+
+    public EnableStatus getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(EnableStatus enabled) {
+        this.enabled = enabled;
     }
 
     public ConnectableStatus getConnected() {
@@ -32,5 +39,19 @@ public class ConnectableState extends EnableState {
 
     public void setConnected(ConnectableStatus connected) {
         this.connected = connected;
+    }
+
+    @Override
+    public int compareTo(ConnectableState other) {
+        return ComparisonChain.start()
+                              .compare(0, super.compareTo(other))
+                              .compare(getEnabled(), other.getEnabled())
+                              .compare(getConnected(), other.getConnected())
+                              .result();
+    }
+
+    @Override
+    public boolean isUnknown() {
+        return connected==ConnectableStatus.UNKNOWN || enabled==EnableStatus.ENABLED;
     }
 }

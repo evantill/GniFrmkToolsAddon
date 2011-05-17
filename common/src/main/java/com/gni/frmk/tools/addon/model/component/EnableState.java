@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.model.component;
 
 import com.gni.frmk.tools.addon.model.component.BaseComponent.AbstractState;
+import com.google.common.collect.ComparisonChain;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,28 +10,7 @@ import com.gni.frmk.tools.addon.model.component.BaseComponent.AbstractState;
  *
  * @author: e03229
  */
-public class EnableState extends AbstractState {
-    public static enum EnableStatus {
-        UNKNOWN(false), ENABLED(true), DISABLED(false);
-
-        private final boolean enabled;
-
-        EnableStatus(boolean enabled) {
-            this.enabled = enabled;
-        }
-
-        public boolean isEnabled() {
-            return enabled;
-        }
-
-        public static EnableStatus fromBooleanString(String enabled) {
-            return fromBoolean(Boolean.parseBoolean(enabled));
-        }
-
-        public static EnableStatus fromBoolean(boolean enabled) {
-            return enabled ? ENABLED : DISABLED;
-        }
-    }
+public final class EnableState extends AbstractState<EnableState> {
 
     private EnableStatus enabled = EnableStatus.UNKNOWN;
 
@@ -49,5 +29,18 @@ public class EnableState extends AbstractState {
 
     public void setEnabled(EnableStatus enabled) {
         this.enabled = enabled;
+    }
+
+    @Override
+    public int compareTo(EnableState other) {
+        return ComparisonChain.start()
+                              .compare(0, super.compareTo(other))
+                              .compare(getEnabled(), other.getEnabled())
+                              .result();
+    }
+
+    @Override
+    public boolean isUnknown() {
+        return enabled==EnableStatus.UNKNOWN;
     }
 }

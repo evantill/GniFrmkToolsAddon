@@ -1,10 +1,10 @@
 package com.gni.frmk.tools.addon.operation.handler.component.jms.alias;
 
-import com.gni.frmk.tools.addon.operation.api.ActionHandler;
-import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
-import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.operation.action.component.jms.alias.ListJmsAliasIds;
+import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler;
 import com.gni.frmk.tools.addon.operation.result.ListResult;
 import com.google.common.collect.Lists;
 import com.wm.data.*;
@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class ListJmsAliasIdsHandler
         extends AbstractInvokeHandler<ListJmsAliasIds, ListResult<StringId>>
-        implements ActionHandler<ListJmsAliasIds, ListResult<StringId>, InvokeContext> {
+        implements ListComponentIdsHandler<ListJmsAliasIds, StringId, InvokeContext> {
 
     public ListJmsAliasIdsHandler() {
         super("wm.server.jms:getConnectionAliasReport");

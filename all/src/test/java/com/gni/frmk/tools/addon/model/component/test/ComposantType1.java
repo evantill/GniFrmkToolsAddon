@@ -1,9 +1,10 @@
 package com.gni.frmk.tools.addon.model.component.test;
 
 import com.gni.frmk.tools.addon.model.component.BaseComponent;
-import com.gni.frmk.tools.addon.model.component.test.ComposantType1.Type1State;
 import com.gni.frmk.tools.addon.model.component.test.ComposantType1.Type1Id;
+import com.gni.frmk.tools.addon.model.component.test.ComposantType1.Type1State;
 import com.gni.frmk.tools.addon.model.configuration.BaseComponentConfiguration;
+import com.google.common.collect.ComparisonChain;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,7 +21,7 @@ public class ComposantType1
 
     }
 
-    public static class Type1State extends BaseComponent.AbstractState {
+    public static class Type1State extends BaseComponent.AbstractState<Type1State> {
         private boolean enabled;
 
         public Type1State() {
@@ -38,6 +39,19 @@ public class ComposantType1
 
         public void setEnabled(boolean enabled) {
             this.enabled = enabled;
+        }
+
+        @Override
+        public boolean isUnknown() {
+            return false;
+        }
+
+        @Override
+        public int compareTo(Type1State other) {
+            return ComparisonChain.start()
+                                  .compare(0, super.compareTo(other))
+                                  .compare(isEnabled(), other.isEnabled())
+                                  .result();
         }
     }
 

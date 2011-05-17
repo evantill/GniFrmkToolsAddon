@@ -14,12 +14,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="draft" />
     <orderEntry type="module" module-name="common" />
-    <orderEntry type="module" module-name="core" />
-    <orderEntry type="module" module-name="jms" />
-    <orderEntry type="module" module-name="root" />
-    <orderEntry type="module" module-name="art" />
-    <orderEntry type="module" module-name="draft" />
-    <orderEntry type="module" module-name="common" />
     <orderEntry type="library" name="Maven: org.eclipse.persistence:org.eclipse.persistence.moxy:2.2.0" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.persistence:org.eclipse.persistence.core:2.2.0" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.persistence:org.eclipse.persistence.asm:2.2.0" level="project" />

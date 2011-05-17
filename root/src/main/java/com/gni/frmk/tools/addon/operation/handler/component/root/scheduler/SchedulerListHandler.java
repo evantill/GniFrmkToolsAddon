@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.operation.handler.component.root.scheduler;
 
 import com.gni.frmk.tools.addon.model.component.StringId;
-import com.gni.frmk.tools.addon.operation.handler.component.AbstractComponentListHandler;
+import com.gni.frmk.tools.addon.operation.handler.component.GetAllComponentsHandler;
 import com.gni.frmk.tools.addon.operation.action.component.root.scheduler.GetSchedulerDetail;
 import com.gni.frmk.tools.addon.operation.action.component.root.scheduler.GetSchedulerState;
 import com.gni.frmk.tools.addon.operation.action.component.root.scheduler.SchedulerIdList;
@@ -26,7 +26,7 @@ import com.gni.frmk.tools.addon.operation.result.ListResult;
  * @author: e03229
  */
 public class SchedulerListHandler
-        extends AbstractComponentListHandler<StringId, SchedulerDetail, SchedulerState, Scheduler, SchedulerList, InvokeContext>
+        extends GetAllComponentsHandler<StringId, SchedulerDetail, SchedulerState, Scheduler, SchedulerList, InvokeContext>
         implements ActionHandler<SchedulerList, ListResult<Scheduler>, InvokeContext> {
     @Override
     public Class<SchedulerList> getActionType() {

@@ -1,5 +1,7 @@
 package com.gni.frmk.tools.addon.model.component;
 
+import com.gni.frmk.tools.addon.model.component.BaseComponent.AbstractState;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 14/03/11
@@ -7,76 +9,41 @@ package com.gni.frmk.tools.addon.model.component;
  *
  * @author: e03229
  */
-public class ActivableState extends EnableState {
-    public static enum ActivableStatus {
-        UNKNOWN(false),
-        ACTIVE(true),
-        INACTIVE(false);
+public class ActivableState extends AbstractState<ActivableState> {
 
-        private final boolean active;
-
-        ActivableStatus(boolean active) {
-            this.active = active;
-        }
-
-        public boolean isActive() {
-            return active;
-        }
-
-        public boolean isNotActive() {
-            return !active;
-        }
-
-        /**
-         * we could not use switch as it generate an inner "$1" class causing problems in jaxb
-         * @param status to invert
-         * @return  the negation of this status
-         */
-        public static ActivableStatus invert(ActivableStatus status) {
-            if(status==ACTIVE){
-                return INACTIVE ;
-            }else if(status==INACTIVE){
-                return ACTIVE;
-            }else if(status==UNKNOWN){
-                return UNKNOWN;
-            }else{
-                return UNKNOWN;
-            }
-        }
-
-        public static ActivableStatus fromStateString(String stateValue, String activeString, String inactiveString) {
-            if (activeString.equals(stateValue)) {
-                return ACTIVE;
-            }
-            if (inactiveString.equals(stateValue)) {
-                return INACTIVE;
-            } else {
-                return UNKNOWN;
-            }
-        }
-
-        public static ActivableStatus fromBooleanString(String active) {
-            return fromBoolean(Boolean.parseBoolean(active));
-        }
-
-        public static ActivableStatus fromBoolean(boolean active) {
-            return active ? ACTIVE : INACTIVE;
-        }
-    }
-
-    private final ActivableStatus activable;
+    private ActivableStatus activable;
+    private EnableStatus enabled;
 
     public ActivableState(EnableStatus enabled, ActivableStatus activable) {
-        super(enabled);
+        super(enabled != EnableStatus.UNKNOWN && activable != ActivableStatus.UNKNOWN);
+        this.enabled = enabled;
         this.activable = activable;
     }
 
     private ActivableState() {
-        super();
+        super(false);
+        enabled = EnableStatus.UNKNOWN;
         activable = ActivableStatus.UNKNOWN;
     }
 
     public ActivableStatus getActivable() {
         return activable;
+    }
+
+    public void setActivable(ActivableStatus activable) {
+        this.activable = activable;
+    }
+
+    public EnableStatus getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(EnableStatus enabled) {
+        this.enabled = enabled;
+    }
+
+    @Override
+    public boolean isUnknown() {
+        return activable == ActivableStatus.UNKNOWN || enabled == EnableStatus.UNKNOWN;
     }
 }

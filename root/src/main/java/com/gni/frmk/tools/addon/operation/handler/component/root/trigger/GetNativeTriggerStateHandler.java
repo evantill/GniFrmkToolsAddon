@@ -1,16 +1,16 @@
 package com.gni.frmk.tools.addon.operation.handler.component.root.trigger;
 
+import com.gni.frmk.tools.addon.model.component.ActivableStatus;
+import com.gni.frmk.tools.addon.model.component.EnableStatus;
 import com.gni.frmk.tools.addon.model.component.root.NativeTriggerState;
+import com.gni.frmk.tools.addon.model.component.root.TemporaryActivableState;
+import com.gni.frmk.tools.addon.model.component.root.TemporaryStatus;
 import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.model.component.EnableState;
 import com.gni.frmk.tools.addon.operation.action.component.root.trigger.GetNativeTriggerState;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
-import com.gni.frmk.tools.addon.model.component.ActivableState.ActivableStatus;
-import com.gni.frmk.tools.addon.model.component.EnableState.EnableStatus;
-import com.gni.frmk.tools.addon.model.component.root.NativeTriggerState.TemporaryActivableState;
-import com.gni.frmk.tools.addon.model.component.root.NativeTriggerState.TemporaryStatus;
 import com.gni.frmk.tools.addon.operation.result.ComponentStateResult;
 import com.wm.data.*;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
@@ -65,8 +65,8 @@ public class GetNativeTriggerStateHandler
     private NativeTriggerState emptyTriggerState() {
         NativeTriggerState result = new NativeTriggerState();
         result.setEnabled(new EnableState(EnableStatus.UNKNOWN));
-        result.setProcessingState(new TemporaryActivableState(NativeTriggerState.TemporaryStatus.UNKNOWN, ActivableStatus.UNKNOWN));
-        result.setRetrievalState(new TemporaryActivableState(NativeTriggerState.TemporaryStatus.UNKNOWN, ActivableStatus.UNKNOWN));
+        result.setProcessingState(new TemporaryActivableState(TemporaryStatus.UNKNOWN, ActivableStatus.UNKNOWN));
+        result.setRetrievalState(new TemporaryActivableState(TemporaryStatus.UNKNOWN, ActivableStatus.UNKNOWN));
         return result;
     }
 

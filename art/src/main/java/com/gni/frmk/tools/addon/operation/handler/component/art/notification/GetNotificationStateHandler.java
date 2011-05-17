@@ -1,12 +1,12 @@
 package com.gni.frmk.tools.addon.operation.handler.component.art.notification;
 
 import com.gni.frmk.tools.addon.model.component.ActivableState;
+import com.gni.frmk.tools.addon.model.component.ActivableStatus;
+import com.gni.frmk.tools.addon.model.component.EnableStatus;
 import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.operation.action.component.art.notifications.GetNotificationState;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
-import com.gni.frmk.tools.addon.model.component.ActivableState.ActivableStatus;
-import com.gni.frmk.tools.addon.model.component.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.operation.result.ComponentStateResult;
 import com.wm.data.*;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;

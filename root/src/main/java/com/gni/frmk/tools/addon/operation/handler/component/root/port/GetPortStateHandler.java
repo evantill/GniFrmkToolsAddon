@@ -1,13 +1,13 @@
 package com.gni.frmk.tools.addon.operation.handler.component.root.port;
 
 import com.gni.frmk.tools.addon.model.component.ActivableState;
+import com.gni.frmk.tools.addon.model.component.ActivableStatus;
+import com.gni.frmk.tools.addon.model.component.EnableStatus;
 import com.gni.frmk.tools.addon.operation.action.component.root.port.GetPortState;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
 import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.model.component.ActivableState.ActivableStatus;
-import com.gni.frmk.tools.addon.model.component.EnableState.EnableStatus;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.operation.result.ComponentStateResult;
 import com.wm.data.*;

@@ -11,7 +11,7 @@ import com.gni.frmk.tools.addon.operation.api.Action;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.operation.api.DispatchException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
-import com.gni.frmk.tools.addon.operation.handler.component.AbstractComponentListHandler;
+import com.gni.frmk.tools.addon.operation.handler.component.GetAllComponentsHandler;
 import com.gni.frmk.tools.addon.model.component.Component.Type;
 import com.gni.frmk.tools.addon.model.component.root.Port.PortDetail;
 import com.gni.frmk.tools.addon.operation.result.ComponentDetailResult;
@@ -26,7 +26,7 @@ import com.gni.frmk.tools.addon.operation.result.ListResult;
  * @author: e03229
  */
 public class PortListenerListHandler
-        extends AbstractComponentListHandler<PackageAndStringId, PortDetail, ActivableState, Port, PortListenerList, InvokeContext>
+        extends GetAllComponentsHandler<PackageAndStringId, PortDetail, ActivableState, Port, PortListenerList, InvokeContext>
         implements ActionHandler<PortListenerList, ListResult<Port>, InvokeContext> {
 
     @Override
