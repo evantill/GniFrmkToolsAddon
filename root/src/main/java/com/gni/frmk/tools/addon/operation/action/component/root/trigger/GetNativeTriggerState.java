@@ -2,8 +2,7 @@ package com.gni.frmk.tools.addon.operation.action.component.root.trigger;
 
 import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.root.NativeTriggerState;
-import com.gni.frmk.tools.addon.operation.action.component.ComponentAction;
-import com.gni.frmk.tools.addon.operation.result.ComponentStateResult;
+import com.gni.frmk.tools.addon.operation.action.component.GetComponentState;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,14 +11,9 @@ import com.gni.frmk.tools.addon.operation.result.ComponentStateResult;
  *
  * @author: e03229
  */
-public class GetNativeTriggerState implements ComponentAction<StringId,ComponentStateResult<NativeTriggerState>> {
-    private final StringId id;
-
+public class GetNativeTriggerState
+        extends GetComponentState<NativeTriggerState, StringId> {
     public GetNativeTriggerState(StringId id) {
-        this.id = id;
-    }
-
-    public StringId getId() {
-        return id;
+        super(id);
     }
 }

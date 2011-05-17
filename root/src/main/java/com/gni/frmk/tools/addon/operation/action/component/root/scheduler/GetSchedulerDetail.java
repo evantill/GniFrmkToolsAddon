@@ -1,9 +1,8 @@
 package com.gni.frmk.tools.addon.operation.action.component.root.scheduler;
 
 import com.gni.frmk.tools.addon.model.component.StringId;
-import com.gni.frmk.tools.addon.operation.action.component.ComponentAction;
 import com.gni.frmk.tools.addon.model.component.root.Scheduler.SchedulerDetail;
-import com.gni.frmk.tools.addon.operation.result.ComponentDetailResult;
+import com.gni.frmk.tools.addon.operation.action.component.GetComponentDetail;
 
 /**
  * Created by IntelliJ IDEA.
@@ -13,15 +12,8 @@ import com.gni.frmk.tools.addon.operation.result.ComponentDetailResult;
  * @author: e03229
  */
 public class GetSchedulerDetail
-        implements ComponentAction<StringId,ComponentDetailResult<SchedulerDetail>> {
-
-    private final StringId id;
-
+        extends GetComponentDetail<SchedulerDetail, StringId> {
     public GetSchedulerDetail(StringId id) {
-        this.id = id;
-    }
-
-    public StringId getId() {
-        return id;
+        super(id);
     }
 }

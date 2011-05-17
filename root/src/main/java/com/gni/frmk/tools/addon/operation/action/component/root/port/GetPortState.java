@@ -2,8 +2,7 @@ package com.gni.frmk.tools.addon.operation.action.component.root.port;
 
 import com.gni.frmk.tools.addon.model.component.ActivableState;
 import com.gni.frmk.tools.addon.model.component.PackageAndStringId;
-import com.gni.frmk.tools.addon.operation.action.component.ComponentAction;
-import com.gni.frmk.tools.addon.operation.result.ComponentStateResult;
+import com.gni.frmk.tools.addon.operation.action.component.GetComponentState;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,15 +11,8 @@ import com.gni.frmk.tools.addon.operation.result.ComponentStateResult;
  *
  * @author: e03229
  */
-public class GetPortState implements ComponentAction<PackageAndStringId,ComponentStateResult<ActivableState>> {
-
-    private final PackageAndStringId id;
-
+public class GetPortState extends GetComponentState<ActivableState, PackageAndStringId> {
     public GetPortState(PackageAndStringId id) {
-        this.id = id;
-    }
-
-    public PackageAndStringId getId() {
-        return id;
+        super(id);
     }
 }

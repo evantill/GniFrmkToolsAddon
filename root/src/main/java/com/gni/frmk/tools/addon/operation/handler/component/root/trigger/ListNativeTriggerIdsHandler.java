@@ -1,11 +1,11 @@
 package com.gni.frmk.tools.addon.operation.handler.component.root.trigger;
 
-import com.gni.frmk.tools.addon.model.component.StringId;
-import com.gni.frmk.tools.addon.operation.action.component.root.trigger.NativeTriggerIdList;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
+import com.gni.frmk.tools.addon.model.component.StringId;
+import com.gni.frmk.tools.addon.operation.action.component.root.trigger.ListNativeTriggerIds;
 import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.operation.api.ActionHandler;
+import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler;
 import com.gni.frmk.tools.addon.operation.result.ListResult;
 import com.google.common.collect.Lists;
 import com.wm.data.*;
@@ -19,16 +19,16 @@ import java.util.List;
  *
  * @author: e03229
  */
-public class NativeTriggerIdListHandler
-        extends AbstractInvokeHandler<NativeTriggerIdList, ListResult<StringId>>
-        implements ActionHandler<NativeTriggerIdList, ListResult<StringId>, InvokeContext> {
+public class ListNativeTriggerIdsHandler
+        extends AbstractInvokeHandler<ListNativeTriggerIds, ListResult<StringId>>
+        implements ListComponentIdsHandler<ListNativeTriggerIds, StringId, InvokeContext> {
 
-    public NativeTriggerIdListHandler() {
+    public ListNativeTriggerIdsHandler() {
         super("wm.server.triggers:getTriggerReport");
     }
 
     @Override
-    protected ListResult<StringId> parseOutput(NativeTriggerIdList action, IData output) throws ParseOutputException {
+    protected ListResult<StringId> parseOutput(ListNativeTriggerIds action, IData output) throws ParseOutputException {
         IDataCursor cur = output.getCursor();
         try {
             List<StringId> result = Lists.newArrayList();
@@ -51,12 +51,12 @@ public class NativeTriggerIdListHandler
     }
 
     @Override
-    protected IData prepareInput(NativeTriggerIdList in) {
+    protected IData prepareInput(ListNativeTriggerIds in) {
         return EMPTY_INPUT;
     }
 
     @Override
-    public Class<NativeTriggerIdList> getActionType() {
-        return NativeTriggerIdList.class;
+    public Class<ListNativeTriggerIds> getActionType() {
+        return ListNativeTriggerIds.class;
     }
 }

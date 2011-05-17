@@ -1,9 +1,8 @@
 package com.gni.frmk.tools.addon.operation.action.component.root.port;
 
 import com.gni.frmk.tools.addon.model.component.PackageAndStringId;
-import com.gni.frmk.tools.addon.operation.action.component.ComponentAction;
 import com.gni.frmk.tools.addon.model.component.root.Port.PortDetail;
-import com.gni.frmk.tools.addon.operation.result.ComponentDetailResult;
+import com.gni.frmk.tools.addon.operation.action.component.GetComponentDetail;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,15 +11,9 @@ import com.gni.frmk.tools.addon.operation.result.ComponentDetailResult;
  *
  * @author: e03229
  */
-public class GetPortDetail implements ComponentAction<PackageAndStringId,ComponentDetailResult<PortDetail>> {
-
-    private final PackageAndStringId id;
-
+public class GetPortDetail
+        extends GetComponentDetail<PortDetail, PackageAndStringId> {
     public GetPortDetail(PackageAndStringId id) {
-        this.id = id;
-    }
-
-    public PackageAndStringId getId() {
-        return id;
+        super(id);
     }
 }

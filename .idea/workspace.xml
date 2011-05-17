@@ -17,22 +17,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0351ebf0-d8f5-4a3c-a009-2885c7c92c58" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/gni/frmk/tools/addon/operation/action/component/ComponentFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/action/component/jms/alias/JmsAliasFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/action/component/jms/trigger/GetAllJmsTrigger.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/action/component/jms/trigger/GetJmsTrigger.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/action/component/jms/trigger/JmsTriggerFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/trigger/GetAllJmsTriggerHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/trigger/GetJmsTriggerHandler.java" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\core\src\main\java\com\gni\frmk\tools\addon\operation\handler\AbstractInvokeHandler2.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/port/ChangePortState.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/port/GetAllPorts.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/port/GetPort.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/port/ListPortIds.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/port/PortFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/scheduler/GetAllSchedulers.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/scheduler/GetScheduler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/scheduler/ListSchedulerIds.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/scheduler/SchedulerFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/trigger/GetAllNativeTriggers.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/trigger/GetNativeTrigger.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/trigger/ListNativeTriggerIds.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/trigger/NativeTriggerFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/ChangePortStateHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/GetAllPortsHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/GetPortHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/trigger/GetAllNativeTriggersHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/trigger/GetNativeTriggerHandler.java" />
+      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\core\src\main\java\com\gni\frmk\tools\addon\component\repository\BaseComponentActionRegistry.java" afterPath="" />
+      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\core\src\main\java\com\gni\frmk\tools\addon\component\repository\ComponentActionRegistry.java" afterPath="" />
+      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\jms\src\main\java\com\gni\frmk\tools\addon\component\repository\JmsAliasRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\root\src\main\java\com\gni\frmk\tools\addon\operation\action\component\root\port\PortListenerIdList.java" afterPath="" />
+      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\root\src\main\java\com\gni\frmk\tools\addon\operation\action\component\root\port\PortListenerList.java" afterPath="" />
+      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\root\src\main\java\com\gni\frmk\tools\addon\operation\action\component\root\trigger\NativeTriggerIdList.java" afterPath="" />
+      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\root\src\main\java\com\gni\frmk\tools\addon\operation\action\component\root\trigger\NativeTriggerList.java" afterPath="" />
+      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\root\src\main\java\com\gni\frmk\tools\addon\operation\handler\component\root\port\PortListenerListHandler.java" afterPath="" />
+      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\root\src\main\java\com\gni\frmk\tools\addon\operation\handler\component\root\trigger\NativeTriggerListHandler.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/GetAllComponentsHandler.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/GetAllComponentsHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/GetComponentHandler.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/GetComponentHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/alias/GetAllJmsAliasHandler.java" afterPath="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/alias/GetAllJmsAliasHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/alias/GetJmsAliasHandler.java" afterPath="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/alias/GetJmsAliasHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/trigger/GetJmsTriggerDetailHandler.java" afterPath="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/trigger/GetJmsTriggerDetailHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/trigger/GetJmsTriggerStateHandler.java" afterPath="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/trigger/GetJmsTriggerStateHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/trigger/ListJmsTriggerIdsHandler.java" afterPath="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/trigger/ListJmsTriggerIdsHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/ChangeComponentStateHandler.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/ChangeComponentStateHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/port/GetPortDetail.java" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/port/GetPortDetail.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/port/GetPortState.java" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/port/GetPortState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/scheduler/GetSchedulerDetail.java" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/scheduler/GetSchedulerDetail.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/scheduler/GetSchedulerState.java" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/scheduler/GetSchedulerState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/trigger/GetNativeTriggerDetail.java" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/trigger/GetNativeTriggerDetail.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/trigger/GetNativeTriggerState.java" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/trigger/GetNativeTriggerState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/trigger/GetNativeTriggerDetailHandler.java" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/trigger/GetNativeTriggerDetailHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/trigger/GetNativeTriggerStateHandler.java" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/trigger/GetNativeTriggerStateHandler.java" />
+      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\root\src\main\java\com\gni\frmk\tools\addon\operation\handler\component\root\port\PortListenerIdListHandler.java" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/ListPortIdsHandler.java" />
+      <change type="MOVED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\root\src\main\java\com\gni\frmk\tools\addon\operation\handler\component\root\trigger\NativeTriggerIdListHandler.java" afterPath="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/trigger/ListNativeTriggerIdsHandler.java" />
     </list>
     <list id="8235ac6d-d30b-4386-a229-cdc47fc4573f" name="brouillon" comment="" />
     <ignored path="$USER_HOME$/.grails/" />
@@ -247,7 +270,81 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="GetAllPortsHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/GetAllPortsHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="13" selection-start="881" selection-end="881" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#GetAllPortsHandler#0;class#GetAllPortsHandler#0" expanded="true" />
+                <element signature="method#getActionType#0;class#GetAllPortsHandler#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetPortHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/GetPortHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="8" selection-start="774" selection-end="774" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#GetPortHandler#0;class#GetPortHandler#0" expanded="true" />
+                <element signature="method#getActionType#0;class#GetPortHandler#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ListPortIdsHandler.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/ListPortIdsHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="13" selection-start="804" selection-end="804" vertical-scroll-proportion="0.2820513">
+              <folding>
+                <element signature="method#ListPortIdsHandler#0;class#ListPortIdsHandler#0" expanded="true" />
+                <element signature="method#parseOutput#0;class#ListPortIdsHandler#0" expanded="true" />
+                <element signature="method#prepareInput#0;class#ListPortIdsHandler#0" expanded="true" />
+                <element signature="method#getActionType#0;class#ListPortIdsHandler#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChangePortStateHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/ChangePortStateHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="25" selection-start="1549" selection-end="1549" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#defineActions#0;class#ChangePortStateHandler#0" expanded="true" />
+                <element signature="method#getActionType#0;class#ChangePortStateHandler#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="S_IRemoteRepoServer.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/wm/wmisserver/7.1.2.0/wmisserver-7.1.2.0.jar!/com/wm/app/repov4/server/stubs/S_IRemoteRepoServer.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="24" selection-start="1862" selection-end="1862" vertical-scroll-proportion="-12.92">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChangePortState.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/port/ChangePortState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="44" selection-start="656" selection-end="656" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -272,17 +369,17 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/alias/GetJmsAliasHandler.java" />
-        <option value="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/alias/GetAllJmsAliasHandler.java" />
-        <option value="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/action/component/jms/alias/JmsAliasFactory.java" />
-        <option value="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/action/component/jms/trigger/JmsTriggerFactory.java" />
-        <option value="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/action/component/jms/trigger/GetAllJmsTrigger.java" />
-        <option value="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/action/component/jms/trigger/GetJmsTrigger.java" />
-        <option value="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/trigger/GetJmsTriggerDetailHandler.java" />
-        <option value="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/trigger/GetJmsTriggerStateHandler.java" />
-        <option value="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/trigger/ListJmsTriggerIdsHandler.java" />
-        <option value="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/trigger/GetJmsTriggerHandler.java" />
-        <option value="$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/trigger/GetAllJmsTriggerHandler.java" />
+        <option value="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/trigger/ListNativeTriggerIds.java" />
+        <option value="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/trigger/ListNativeTriggerIdsHandler.java" />
+        <option value="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/GetAllPortListenerHandler.java" />
+        <option value="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/AllPortsHandler.java" />
+        <option value="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/GetAllPortsHandler.java" />
+        <option value="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/GetPortHandler.java" />
+        <option value="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/PortListenerIdListHandler.java" />
+        <option value="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/ListPortIdsHandler.java" />
+        <option value="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/port/ChangePortState.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/ChangeComponentStateHandler.java" />
+        <option value="$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/ChangePortStateHandler.java" />
       </list>
     </option>
   </component>
@@ -1304,6 +1401,218 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="handler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.gni.frmk.tools.addon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="handler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.gni.frmk.tools.addon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="handler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trigger" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.gni.frmk.tools.addon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="handler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.gni.frmk.tools.addon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="handler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.gni.frmk.tools.addon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="handler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="port" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.gni.frmk.tools.addon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="handler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.gni.frmk.tools.addon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="handler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alias" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.gni.frmk.tools.addon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="action.component" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
@@ -1318,6 +1627,80 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="operation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="action.component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trigger" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.gni.frmk.tools.addon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="action.component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.gni.frmk.tools.addon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="action.component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="port" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GniFrmkToolsAddon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.gni.frmk.tools.addon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
@@ -1358,7 +1741,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="jms" />
+              <option name="myItemId" value="root" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1439,11 +1822,11 @@
       <recent name="com.gni.frmk.tools.addon.configuration.ConfigurationTest" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.gni.frmk.tools.addon.operation.action.component.root.trigger" />
+      <recent name="com.gni.frmk.tools.addon.operation.action.component.root.scheduler" />
       <recent name="com.gni.frmk.tools.addon.component" />
       <recent name="ev.frmk.tools.plateform.model.xxxxx" />
       <recent name="com.gni.frmk.tools.addon.api.essai" />
-      <recent name="com.gni.frmk.tools.addon.api" />
-      <recent name="com.gni.frmk.tools.addon.configuration" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.gni.frmk.tools.addon.module" />
@@ -2446,10 +2829,10 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37511522" sideWeight="0.26400515" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299539" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36188024" sideWeight="0.38801843" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13071474" sideWeight="0.6331797" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13071474" sideWeight="0.65253454" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39987123" sideWeight="0.759447" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961932" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4597553" sideWeight="0.65253454" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26014167" sideWeight="0.65253454" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36682028" sideWeight="0.38763684" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="96" y="96" width="1408" height="980" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2532,87 +2915,110 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/alias/DisableJmsAliasHandler.java">
+    <entry file="file://$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/trigger/GetAllNativeTriggersHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="13" selection-start="550" selection-end="550" vertical-scroll-proportion="0.0">
+        <state line="28" column="5" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="method#GetAllNativeTriggersHandler#0;class#GetAllNativeTriggersHandler#0" expanded="true" />
+            <element signature="method#getActionType#0;class#GetAllNativeTriggersHandler#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/trigger/ListNativeTriggerIds.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="33" selection-start="314" selection-end="334" vertical-scroll-proportion="0.14461248">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/jms/alias/ChangeJmsAliasStateHandler.java">
+    <entry file="file://$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/port/GetPort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="13" selection-start="795" selection-end="795" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/action/component/jms/trigger/GetJmsTrigger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="18" selection-start="492" selection-end="492" vertical-scroll-proportion="0.2451923">
+        <state line="13" column="13" selection-start="378" selection-end="378" vertical-scroll-proportion="0.20888469">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/action/component/jms/trigger/GetJmsTriggerDetail.java">
+    <entry file="file://$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/GetPortHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="398" selection-end="398" vertical-scroll-proportion="0.1798077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/action/component/jms/trigger/GetJmsTriggerState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="380" selection-end="380" vertical-scroll-proportion="0.1798077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/action/component/jms/trigger/ListJmsTriggerIds.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="315" selection-end="315" vertical-scroll-proportion="0.1798077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/action/component/jms/trigger/SuspendJmsTriggers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="13" selection-start="511" selection-end="511" vertical-scroll-proportion="0.17674859">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/action/component/jms/trigger/ChangeJmsTriggerState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="447" selection-end="447" vertical-scroll-proportion="0.22495274">
+        <state line="19" column="8" selection-start="774" selection-end="774" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#ChangeJmsTriggerState#0;class#ChangeJmsTriggerState#0" expanded="true" />
+            <element signature="method#GetPortHandler#0;class#GetPortHandler#0" expanded="true" />
+            <element signature="method#getActionType#0;class#GetPortHandler#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/action/component/jms/trigger/DisableJmsTriggers.java">
+    <entry file="file://$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/action/component/root/port/ChangePortState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="13" selection-start="565" selection-end="565" vertical-scroll-proportion="0.17674859">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/operation/action/component/jms/trigger/GetAllJmsTrigger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="66" selection-start="374" selection-end="374" vertical-scroll-proportion="0.19281663">
+        <state line="16" column="44" selection-start="656" selection-end="656" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jms/src/main/java/com/gni/frmk/tools/addon/model/component/jms/JmsTrigger.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/wm/wmisserver/7.1.2.0/wmisserver-7.1.2.0.jar!/com/wm/app/repov4/server/stubs/S_IRemoteRepoServer.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="70" selection-start="531" selection-end="545" vertical-scroll-proportion="0.19281663">
+        <state line="44" column="24" selection-start="1862" selection-end="1862" vertical-scroll-proportion="-12.92">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/gni/frmk/tools/addon/model/component/EnableStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="12" selection-start="155" selection-end="155" vertical-scroll-proportion="0.14711538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/ChangeComponentStateHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="85" selection-start="894" selection-end="894" vertical-scroll-proportion="0.31634617">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#singleAction#0;class#ChangeComponentStateHandler#0" expanded="true" />
+            <element signature="method#execute#0;class#ChangeComponentStateHandler#0" expanded="true" />
+            <element signature="method#delegateTo#0;class#ChangeComponentStateHandler#0" expanded="true" />
+            <element signature="method#isSameState#0;class#ChangeComponentStateHandler#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/ChangePortStateHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="25" selection-start="1549" selection-end="1549" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#defineActions#0;class#ChangePortStateHandler#0" expanded="true" />
+            <element signature="method#getActionType#0;class#ChangePortStateHandler#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/GetAllPortsHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="13" selection-start="881" selection-end="881" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#GetAllPortsHandler#0;class#GetAllPortsHandler#0" expanded="true" />
+            <element signature="method#getActionType#0;class#GetAllPortsHandler#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/root/port/ListPortIdsHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="13" selection-start="804" selection-end="804" vertical-scroll-proportion="0.2820513">
+          <folding>
+            <element signature="method#ListPortIdsHandler#0;class#ListPortIdsHandler#0" expanded="true" />
+            <element signature="method#parseOutput#0;class#ListPortIdsHandler#0" expanded="true" />
+            <element signature="method#prepareInput#0;class#ListPortIdsHandler#0" expanded="true" />
+            <element signature="method#getActionType#0;class#ListPortIdsHandler#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

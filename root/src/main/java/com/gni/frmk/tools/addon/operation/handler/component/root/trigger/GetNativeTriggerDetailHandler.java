@@ -1,11 +1,12 @@
 package com.gni.frmk.tools.addon.operation.handler.component.root.trigger;
 
-import com.gni.frmk.tools.addon.model.component.NoDetail;
-import com.gni.frmk.tools.addon.operation.action.component.root.trigger.GetNativeTriggerDetail;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
+import com.gni.frmk.tools.addon.model.component.NoDetail;
+import com.gni.frmk.tools.addon.model.component.StringId;
+import com.gni.frmk.tools.addon.operation.action.component.root.trigger.GetNativeTriggerDetail;
 import com.gni.frmk.tools.addon.operation.api.ActionException;
-import com.gni.frmk.tools.addon.operation.api.ActionHandler;
-import com.gni.frmk.tools.addon.operation.result.ComponentDetailResult;
+import com.gni.frmk.tools.addon.operation.handler.component.GetComponentDetailHandler;
+import com.gni.frmk.tools.addon.operation.result.SingleResult;
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,11 +16,11 @@ import com.gni.frmk.tools.addon.operation.result.ComponentDetailResult;
  * @author: e03229
  */
 public class GetNativeTriggerDetailHandler
-        implements ActionHandler<GetNativeTriggerDetail, ComponentDetailResult<NoDetail>, InvokeContext> {
+        implements GetComponentDetailHandler<GetNativeTriggerDetail, StringId, NoDetail, InvokeContext> {
 
     @Override
-    public ComponentDetailResult<NoDetail> execute(GetNativeTriggerDetail action, InvokeContext context) throws ActionException {
-        return new ComponentDetailResult<NoDetail>(NoDetail.newInstance());
+    public SingleResult<NoDetail> execute(GetNativeTriggerDetail action, InvokeContext context) throws ActionException {
+        return new SingleResult<NoDetail>(NoDetail.newInstance());
     }
 
     @Override

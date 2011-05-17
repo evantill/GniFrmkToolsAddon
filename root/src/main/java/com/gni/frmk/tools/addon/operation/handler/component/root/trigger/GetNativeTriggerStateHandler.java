@@ -1,19 +1,20 @@
 package com.gni.frmk.tools.addon.operation.handler.component.root.trigger;
 
-import com.gni.frmk.tools.addon.model.component.ActivableStatus;
-import com.gni.frmk.tools.addon.model.component.EnableStatus;
-import com.gni.frmk.tools.addon.model.component.root.NativeTriggerState;
-import com.gni.frmk.tools.addon.model.component.root.TemporaryActivableState;
-import com.gni.frmk.tools.addon.model.component.root.TemporaryStatus;
-import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.model.component.EnableState;
-import com.gni.frmk.tools.addon.operation.action.component.root.trigger.GetNativeTriggerState;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
-import com.gni.frmk.tools.addon.operation.result.ComponentStateResult;
+import com.gni.frmk.tools.addon.model.component.ActivableStatus;
+import com.gni.frmk.tools.addon.model.component.EnableState;
+import com.gni.frmk.tools.addon.model.component.EnableStatus;
+import com.gni.frmk.tools.addon.model.component.StringId;
+import com.gni.frmk.tools.addon.model.component.root.NativeTriggerState;
+import com.gni.frmk.tools.addon.model.component.root.TemporaryActivableState;
+import com.gni.frmk.tools.addon.model.component.root.TemporaryStatus;
+import com.gni.frmk.tools.addon.operation.action.component.root.trigger.GetNativeTriggerState;
+import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler;
+import com.gni.frmk.tools.addon.operation.result.SingleResult;
 import com.wm.data.*;
-import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 
 /**
  * Created by IntelliJ IDEA.
@@ -23,8 +24,8 @@ import com.gni.frmk.tools.addon.operation.api.ActionHandler;
  * @author: e03229
  */
 public class GetNativeTriggerStateHandler
-        extends AbstractInvokeHandler<GetNativeTriggerState, ComponentStateResult<NativeTriggerState>>
-        implements ActionHandler<GetNativeTriggerState, ComponentStateResult<NativeTriggerState>, InvokeContext> {
+        extends AbstractInvokeHandler<GetNativeTriggerState, SingleResult<NativeTriggerState>>
+        implements GetComponentStateHandler<GetNativeTriggerState, StringId, NativeTriggerState, InvokeContext> {
 
     public GetNativeTriggerStateHandler() {
         super("wm.server.triggers:getTriggerReport");
@@ -36,7 +37,7 @@ public class GetNativeTriggerStateHandler
     }
 
     @Override
-    protected ComponentStateResult<NativeTriggerState> parseOutput(GetNativeTriggerState action, IData output) throws ParseOutputException {
+    protected SingleResult<NativeTriggerState> parseOutput(GetNativeTriggerState action, IData output) throws ParseOutputException {
         IDataCursor cur = output.getCursor();
         try {
             IData[] dataList = IDataUtil.getIDataArray(cur, "triggers");
@@ -50,13 +51,13 @@ public class GetNativeTriggerStateHandler
                             continue;
                         }
                         NativeTriggerState nativeTriggerState = parseTriggerState(curLoop);
-                        return new ComponentStateResult<NativeTriggerState>(nativeTriggerState);
+                        return new SingleResult<NativeTriggerState>(nativeTriggerState);
                     } finally {
                         curLoop.destroy();
                     }
                 }
             }
-            return new ComponentStateResult<NativeTriggerState>(emptyTriggerState());
+            return new SingleResult<NativeTriggerState>(emptyTriggerState());
         } finally {
             cur.destroy();
         }

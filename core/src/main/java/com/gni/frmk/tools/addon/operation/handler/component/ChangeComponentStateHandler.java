@@ -23,9 +23,7 @@ public abstract class ChangeComponentStateHandler
                 CTX extends ExecutionContext>
         implements ActionHandler<A, NoResult, CTX> {
 
-
-    protected final Action<?> NO_ACTION = new Action<NoResult>() {
-    };
+    protected final List<Action<?>> NO_ACTION = singleAction(new Action<NoResult>() {});
 
     protected List<Action<?>> singleAction(Action<?> action) {
         return Collections.<Action<?>>singletonList(action);

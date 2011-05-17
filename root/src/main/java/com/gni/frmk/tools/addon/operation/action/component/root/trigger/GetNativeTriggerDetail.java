@@ -2,8 +2,7 @@ package com.gni.frmk.tools.addon.operation.action.component.root.trigger;
 
 import com.gni.frmk.tools.addon.model.component.NoDetail;
 import com.gni.frmk.tools.addon.model.component.StringId;
-import com.gni.frmk.tools.addon.operation.action.component.ComponentAction;
-import com.gni.frmk.tools.addon.operation.result.ComponentDetailResult;
+import com.gni.frmk.tools.addon.operation.action.component.GetComponentDetail;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,14 +11,8 @@ import com.gni.frmk.tools.addon.operation.result.ComponentDetailResult;
  *
  * @author: e03229
  */
-public class GetNativeTriggerDetail implements ComponentAction<StringId,ComponentDetailResult<NoDetail>> {
-    private final StringId id;
-
+public class GetNativeTriggerDetail extends GetComponentDetail<NoDetail, StringId> {
     public GetNativeTriggerDetail(StringId id) {
-        this.id = id;
-    }
-
-    public StringId getId() {
-        return id;
+        super(id);
     }
 }
