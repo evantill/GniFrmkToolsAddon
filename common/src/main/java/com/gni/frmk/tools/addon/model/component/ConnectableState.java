@@ -51,7 +51,7 @@ public final class ConnectableState extends AbstractState<ConnectableState> {
     }
 
     @Override
-    public boolean isUnknown() {
+    public boolean unknown() {
         return connected==ConnectableStatus.UNKNOWN || enabled==EnableStatus.ENABLED;
     }
 }

@@ -42,7 +42,7 @@ public class TemporaryActivableState extends AbstractState<TemporaryActivableSta
     }
 
     @Override
-    public boolean isUnknown() {
+    public boolean unknown() {
         return temporary == TemporaryStatus.UNKNOWN || activable == ActivableStatus.UNKNOWN;
     }
 

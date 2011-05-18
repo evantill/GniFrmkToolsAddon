@@ -1,5 +1,9 @@
 #cd /cygdrive/e/jtb/workspaces/default/GniFrmkToolsAddon/src/main/java
 #find . -type f | grep  Handler | awk 'BEGIN{FS="/"} {tmp = ""; for(i=2; i <= NF; i++) { tmp = tmp $i "."; } tmp=substr(tmp,1,length(tmp)-6); print tmp}'
+#cd /cygdrive/e/jtb/workspaces/default/GniFrmkToolsAddon
+#find . -type f -name '*.java' | grep 'operation/handler' | grep 'Handler.java' | sed -en 's/\//./gp'
+#E:\jtb\workspaces\default\GniFrmkToolsAddon\jms\src\main\java\com\gni\frmk\tools\addon\operation\handler
+
 com.gni.frmk.tools.addon.handler.configuration.ClosePlateformHandler
 com.gni.frmk.tools.addon.handler.configuration.CurrentConfigurationHandler
 ListConfigurationHandler

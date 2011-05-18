@@ -22,6 +22,7 @@ public interface ModuleResource<C extends ExecutionContext> {
 
     /**
      * used by HandlerRegistry
+     *
      * @return the handlers provided by this module
      */
     List<ActionHandler<?, ?, C>> getActionHandlers();

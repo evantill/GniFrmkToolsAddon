@@ -34,7 +34,7 @@ public abstract class ChangeComponentStateHandler
         S oldState = action.getOldComponentState();
         S newState = action.getNewComponentState();
         if (!isSameState(oldState, newState)) {
-            if (newState.isUnknown() || oldState.isUnknown()) {
+            if (newState.unknown() || oldState.unknown()) {
                 throw new ActionException(action, "both states must be known to change component state");
             }
             List<Action<?>> delegates = defineActions(oldState, newState, action.getComponentId());

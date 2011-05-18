@@ -42,7 +42,7 @@ public class ComposantType1
         }
 
         @Override
-        public boolean isUnknown() {
+        public boolean unknown() {
             return false;
         }
 

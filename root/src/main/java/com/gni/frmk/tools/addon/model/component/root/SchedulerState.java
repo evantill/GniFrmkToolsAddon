@@ -44,7 +44,7 @@ public class SchedulerState extends AbstractState<SchedulerState> {
     }
 
     @Override
-    public boolean isUnknown() {
+    public boolean unknown() {
         return suspended == SuspendedStatus.UNKNOWN || scheduled == SchedulerStatus.UNKNONW;
     }
 

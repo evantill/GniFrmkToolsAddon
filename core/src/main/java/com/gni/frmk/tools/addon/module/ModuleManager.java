@@ -42,7 +42,7 @@ public class ModuleManager<C extends ExecutionContext> {
         }
     }
 
-    public synchronized ModuleRegistration loadModule(ModuleResource<C> module) {
+    public synchronized ModuleRegistration<C> loadModule(ModuleResource<C> module) {
         ModuleResource<C> oldModule = modules.putIfAbsent(module.getClass(), module);
         if (oldModule != null) {
             unregisterModule(oldModule);
@@ -74,6 +74,19 @@ public class ModuleManager<C extends ExecutionContext> {
         unregisterActionHandlers(module);
     }
 
+    public void unregisterAllModules() {
+        for (ModuleResource<C> resource : modules.values()) {
+            Set<HandlerRegistration> registrations = moduleRegistrations.remove(resource.getClass());
+            if(registrations!=null){
+                registrations.clear();
+            }
+        }
+        moduleRegistrations.clear();
+        modules.clear();
+        handlerRegistry.unregisterAll();
+        context = null;
+    }
+
     private void registerJaxbContext() {
         context = createJaxbContext();
     }
@@ -84,8 +97,7 @@ public class ModuleManager<C extends ExecutionContext> {
 
     private JAXBContext createJaxbContext() {
         StringBuilder contextPathBuilder = new StringBuilder();
-        contextPathBuilder.append(getClass().getPackage().getName()).append(':');
-        for (ModuleResource resource : modules.values()) {
+        for (ModuleResource<C> resource : modules.values()) {
             contextPathBuilder.append(resource.getContextPath()).append(':');
         }
         try {

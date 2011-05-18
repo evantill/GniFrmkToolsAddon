@@ -43,6 +43,10 @@ public class ActionHandlerRegistry<C extends ExecutionContext> {
         handlers.remove(handler.getActionType());
     }
 
+    public void unregisterAll() {
+        handlers.clear();
+    }
+
     @SuppressWarnings("unchecked")
     public <A extends Action<R>, R extends Result, CC extends C> ActionHandler<A, R, CC> getHandler(A action)
             throws ActionNotFoundException {

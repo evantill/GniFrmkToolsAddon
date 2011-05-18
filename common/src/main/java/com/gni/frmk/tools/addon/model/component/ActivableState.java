@@ -43,7 +43,7 @@ public class ActivableState extends AbstractState<ActivableState> {
     }
 
     @Override
-    public boolean isUnknown() {
+    public boolean unknown() {
         return activable == ActivableStatus.UNKNOWN || enabled == EnableStatus.UNKNOWN;
     }
 }

@@ -1,9 +1,12 @@
 package com.gni.frmk.tools.addon.model.configuration;
 
+import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.model.ModelResourceManager;
-import com.gni.frmk.tools.addon.model.ModelResourceManager.ResourceRegistration;
-import com.gni.frmk.tools.addon.model.component.ComponentResource;
-import com.gni.frmk.tools.addon.model.component.test.TestResource;
+import com.gni.frmk.tools.addon.module.ConfigurationModuleResource;
+import com.gni.frmk.tools.addon.module.DefaultModuleResource;
+import com.gni.frmk.tools.addon.module.ModuleManager;
+import com.gni.frmk.tools.addon.module.ModuleManager.ModuleRegistration;
+import com.gni.frmk.tools.addon.module.TestModuleResource;
 import com.gni.frmk.tools.addon.repository.ConfigurationSerializer;
 import com.gni.frmk.tools.addon.repository.ConfigurationSerializer.SerializationException;
 import com.google.common.base.Charsets;
@@ -39,8 +42,8 @@ public class ConfigurationTestRule extends ExternalResource {
 
     private static final String NOW_DHMS = "2010-05-03T21:01:59Z";
 
-    private ModelResourceManager resourceManager = new ModelResourceManager();
-    private List<ResourceRegistration> registrations = Lists.newArrayList();
+    private ModuleManager<InvokeContext> resourceManager = new ModuleManager<InvokeContext>();
+    private List<ModuleRegistration<InvokeContext>> registrations = Lists.newArrayList();
     private ConfigurationSerializer configurationSerializer;
 
     private final DateTimeFormatter parser = ISODateTimeFormat.dateTimeNoMillis();
@@ -93,9 +96,9 @@ public class ConfigurationTestRule extends ExternalResource {
 
     @Override
     protected void before() throws Throwable {
-        registrations.add(resourceManager.register(new ConfigurationResource()));
-        registrations.add(resourceManager.register(new ComponentResource()));
-        registrations.add(resourceManager.register(new TestResource()));
+        registrations.add(resourceManager.loadModule(new DefaultModuleResource()));
+        registrations.add(resourceManager.loadModule(new ConfigurationModuleResource()));
+        registrations.add(resourceManager.loadModule(new TestModuleResource()));
         configurationSerializer = new ConfigurationSerializer(resourceManager);
         configurationBuilder = new ConfigurationBuilder(0, now());
         savedLocale = Locale.getDefault();
@@ -106,9 +109,11 @@ public class ConfigurationTestRule extends ExternalResource {
 
     @Override
     protected void after() {
-        for (ResourceRegistration registration : registrations) {
-            registration.unregister();
-        }
+//        for (ModuleRegistration<InvokeContext> registration : registrations) {
+//            registration.unloadModule();
+//        }
+        resourceManager.unregisterAllModules();
+        registrations.clear();
         resourceManager = null;
         configurationBuilder = null;
         configurationSerializer = null;
@@ -133,7 +138,7 @@ public class ConfigurationTestRule extends ExternalResource {
         }
     }
 
-    public ModelResourceManager getResourceManager() {
+    public ModuleManager<InvokeContext> getResourceManager() {
         return resourceManager;
     }
 }

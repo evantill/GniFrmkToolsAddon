@@ -11,9 +11,9 @@ import com.gni.frmk.tools.addon.model.component.PackageAndStringId;
 import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.art.AdapterId;
 import com.gni.frmk.tools.addon.operation.action.component.art.ListAdapterTypes;
-import com.gni.frmk.tools.addon.operation.action.component.art.connection.ListAdapterConnectionIds;
 import com.gni.frmk.tools.addon.operation.action.component.art.connection.DisableAdapterConnection;
 import com.gni.frmk.tools.addon.operation.action.component.art.connection.EnableAdapterConnection;
+import com.gni.frmk.tools.addon.operation.action.component.art.connection.ListAdapterConnectionIds;
 import com.gni.frmk.tools.addon.operation.action.component.art.listener.ListAdapterListenerIds;
 import com.gni.frmk.tools.addon.operation.action.component.art.notifications.ListAdapterNotificationIds;
 import com.gni.frmk.tools.addon.operation.action.component.art.notifications.ResumeAdapterNotification;
@@ -27,12 +27,12 @@ import com.gni.frmk.tools.addon.operation.action.component.jms.trigger.ListJmsTr
 import com.gni.frmk.tools.addon.operation.action.component.jms.trigger.SuspendJmsTriggers;
 import com.gni.frmk.tools.addon.operation.action.component.root.port.DisablePortListener;
 import com.gni.frmk.tools.addon.operation.action.component.root.port.EnablePortListener;
-import com.gni.frmk.tools.addon.operation.action.component.root.port.PortListenerIdList;
-import com.gni.frmk.tools.addon.operation.action.component.root.scheduler.SchedulerIdList;
+import com.gni.frmk.tools.addon.operation.action.component.root.port.ListPortIds;
+import com.gni.frmk.tools.addon.operation.action.component.root.scheduler.ListSchedulerIds;
 import com.gni.frmk.tools.addon.operation.action.component.root.scheduler.SuspendUserTask;
 import com.gni.frmk.tools.addon.operation.action.component.root.scheduler.WakeUpUserTask;
 import com.gni.frmk.tools.addon.operation.action.component.root.service.GetAllServiceStats;
-import com.gni.frmk.tools.addon.operation.action.component.root.trigger.NativeTriggerIdList;
+import com.gni.frmk.tools.addon.operation.action.component.root.trigger.ListNativeTriggerIds;
 import com.gni.frmk.tools.addon.operation.action.component.root.trigger.SuspendTriggers;
 import com.gni.frmk.tools.addon.operation.api.Action;
 import com.gni.frmk.tools.addon.operation.api.DispatchException;
@@ -63,11 +63,11 @@ public class Recorder {
             //services
             addAction(new GetAllServiceStats());
             //ports
-            addAction(new PortListenerIdList());
+            addAction(new ListPortIds());
             addAction(new DisablePortListener(new PackageAndStringId("GniFrmkToolsAddOnTest", "HTTPListener@9999")));
             addAction(new EnablePortListener(new PackageAndStringId("GniFrmkToolsAddOnTest", "HTTPListener@9999")));
             //triggers
-            addAction(new NativeTriggerIdList());
+            addAction(new ListNativeTriggerIds());
             addAction(SuspendTriggers.builder()
                                      .addTriggerName("GniFrmkToolsAddOnTest.trigger:nativeTrigger")
                                      .persistChange(true)
@@ -81,7 +81,7 @@ public class Recorder {
                                      .suspendRetrieval(false)
                                      .build());
             //tasks
-            addAction(new SchedulerIdList());
+            addAction(new ListSchedulerIds());
             addAction(new SuspendUserTask(new StringId("b2f57910-5edd-11e0-8fef-b8721ad3c5a7")));
             addAction(new WakeUpUserTask(new StringId("b2f57910-5edd-11e0-8fef-b8721ad3c5a7")));
             //art

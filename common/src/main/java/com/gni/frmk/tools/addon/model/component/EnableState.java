@@ -40,7 +40,7 @@ public final class EnableState extends AbstractState<EnableState> {
     }
 
     @Override
-    public boolean isUnknown() {
+    public boolean unknown() {
         return enabled==EnableStatus.UNKNOWN;
     }
 }

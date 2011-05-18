@@ -56,8 +56,8 @@ public final class NativeTriggerState extends AbstractState<NativeTriggerState> 
     }
 
     @Override
-    public boolean isUnknown() {
-        return getEnabled().isUnknown() || getProcessingState().isUnknown() || getRetrievalState().isUnknown();
+    public boolean unknown() {
+        return getEnabled().unknown() || getProcessingState().unknown() || getRetrievalState().unknown();
     }
 
 

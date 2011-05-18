@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.repository;
 
-import com.gni.frmk.tools.addon.model.ModelResourceManager;
 import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.module.ModuleManager;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -18,10 +18,10 @@ import java.io.*;
  */
 public class ConfigurationSerializer {
 
-    private final ModelResourceManager manager;
+    private final ModuleManager<?> manager;
     private final boolean prettyPrint;
 
-    public ConfigurationSerializer(ModelResourceManager manager) {
+    public ConfigurationSerializer(ModuleManager<?> manager) {
         this.manager = manager;
         prettyPrint = true;
     }
@@ -32,7 +32,7 @@ public class ConfigurationSerializer {
 
     public Configuration loadConfiguration(Reader source) throws SerializationException {
         try {
-            Unmarshaller u = manager.createContext().createUnmarshaller();
+            Unmarshaller u = manager.getContext().createUnmarshaller();
             return (Configuration) u.unmarshal(source);
         } catch (JAXBException e) {
             throw new SerializationException(e);
@@ -41,7 +41,7 @@ public class ConfigurationSerializer {
 
     public void saveConfiguration(Configuration cnf, Writer destination) throws SerializationException {
         try {
-            Marshaller m = manager.createContext().createMarshaller();
+            Marshaller m = manager.getContext().createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, prettyPrint);
             m.marshal(cnf, destination);
         } catch (PropertyException e) {

@@ -2,6 +2,8 @@ package com.gni.frmk.tools.addon.model.component;
 
 import com.gni.frmk.tools.addon.visitor.ComponentVisitor;
 
+import javax.xml.bind.annotation.XmlTransient;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 09/05/11
@@ -26,7 +28,7 @@ public interface Component<I extends Component.Id, S extends Component.State, D 
 
     public static interface State {
         boolean exist();
-        boolean isUnknown();
+        boolean unknown();
     }
 
     public static interface Detail {
