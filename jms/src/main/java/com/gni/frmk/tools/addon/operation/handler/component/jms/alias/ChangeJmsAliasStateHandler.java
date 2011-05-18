@@ -31,7 +31,7 @@ public class ChangeJmsAliasStateHandler
         switch (newState.getEnabled()) {
             default:
             case UNKNOWN:
-                return singleAction(NO_ACTION);
+                return NO_ACTION;
             case ENABLED:
                 return singleAction(new EnableJmsAlias(id));
             case DISABLED:

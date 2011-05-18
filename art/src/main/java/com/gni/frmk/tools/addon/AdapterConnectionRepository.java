@@ -6,7 +6,6 @@ import com.gni.frmk.tools.addon.model.component.art.AdapterConnection;
 import com.gni.frmk.tools.addon.model.component.art.AdapterId;
 import com.gni.frmk.tools.addon.model.component.art.AdapterConnection.AdapterConnectionDetail;
 import com.gni.frmk.tools.addon.operation.action.component.GetComponentDetail;
-import com.gni.frmk.tools.addon.operation.action.component.art.connection.GetConnectionDetail;
 
 /**
  * Created by IntelliJ IDEA.

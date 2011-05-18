@@ -10,14 +10,14 @@ import com.gni.frmk.tools.addon.dispatch.wm.invoke.context.InvokeContextRemote;
 import com.gni.frmk.tools.addon.model.component.PackageAndStringId;
 import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.art.AdapterId;
-import com.gni.frmk.tools.addon.operation.action.component.art.RetrieveAdapterTypesList;
-import com.gni.frmk.tools.addon.operation.action.component.art.connection.AdapterConnectionIdList;
-import com.gni.frmk.tools.addon.operation.action.component.art.connection.DisableConnection;
-import com.gni.frmk.tools.addon.operation.action.component.art.connection.EnableConnection;
-import com.gni.frmk.tools.addon.operation.action.component.art.listener.ListenerIdList;
-import com.gni.frmk.tools.addon.operation.action.component.art.notifications.NotificationIdList;
-import com.gni.frmk.tools.addon.operation.action.component.art.notifications.ResumeNotification;
-import com.gni.frmk.tools.addon.operation.action.component.art.notifications.SuspendNotification;
+import com.gni.frmk.tools.addon.operation.action.component.art.ListAdapterTypes;
+import com.gni.frmk.tools.addon.operation.action.component.art.connection.ListAdapterConnectionIds;
+import com.gni.frmk.tools.addon.operation.action.component.art.connection.DisableAdapterConnection;
+import com.gni.frmk.tools.addon.operation.action.component.art.connection.EnableAdapterConnection;
+import com.gni.frmk.tools.addon.operation.action.component.art.listener.ListAdapterListenerIds;
+import com.gni.frmk.tools.addon.operation.action.component.art.notifications.ListAdapterNotificationIds;
+import com.gni.frmk.tools.addon.operation.action.component.art.notifications.ResumeAdapterNotification;
+import com.gni.frmk.tools.addon.operation.action.component.art.notifications.SuspendAdapterNotification;
 import com.gni.frmk.tools.addon.operation.action.component.jms.alias.DisableJmsAlias;
 import com.gni.frmk.tools.addon.operation.action.component.jms.alias.EnableJmsAlias;
 import com.gni.frmk.tools.addon.operation.action.component.jms.alias.ListJmsAliasIds;
@@ -85,16 +85,16 @@ public class Recorder {
             addAction(new SuspendUserTask(new StringId("b2f57910-5edd-11e0-8fef-b8721ad3c5a7")));
             addAction(new WakeUpUserTask(new StringId("b2f57910-5edd-11e0-8fef-b8721ad3c5a7")));
             //art
-            addAction(new RetrieveAdapterTypesList());
-            addAction(new AdapterConnectionIdList("JDBCAdapter"));
-            addAction(new DisableConnection(new AdapterId("GniFrmkToolsAddOnTest.adapter.jdbc:cnxEssai", "JDBCAdapter")));
-            addAction(new EnableConnection(new AdapterId("GniFrmkToolsAddOnTest.adapter.jdbc:cnxEssai", "JDBCAdapter")));
+            addAction(new ListAdapterTypes());
+            addAction(new ListAdapterConnectionIds("JDBCAdapter"));
+            addAction(new DisableAdapterConnection(new AdapterId("GniFrmkToolsAddOnTest.adapter.jdbc:cnxEssai", "JDBCAdapter")));
+            addAction(new EnableAdapterConnection(new AdapterId("GniFrmkToolsAddOnTest.adapter.jdbc:cnxEssai", "JDBCAdapter")));
             //
-            addAction(new NotificationIdList("JDBCAdapter"));
-            addAction(new SuspendNotification(new AdapterId("GniFrmkToolsAddOnTest.adapter.jdbc:notification", "JDBCAdaper")));
-            addAction(new ResumeNotification(new AdapterId("GniFrmkToolsAddOnTest.adapter.jdbc:notification", "JDBCAdaper")));
+            addAction(new ListAdapterNotificationIds("JDBCAdapter"));
+            addAction(new SuspendAdapterNotification(new AdapterId("GniFrmkToolsAddOnTest.adapter.jdbc:notification", "JDBCAdaper")));
+            addAction(new ResumeAdapterNotification(new AdapterId("GniFrmkToolsAddOnTest.adapter.jdbc:notification", "JDBCAdaper")));
             //
-            addAction(new ListenerIdList("JDBCAdapter"));
+            addAction(new ListAdapterListenerIds("JDBCAdapter"));
             //jms
             addAction(new ListJmsAliasIds());
             addAction(new DisableJmsAlias(new StringId("GniFrmkToolsAddOnTest_JMS_ALIAS")));

@@ -139,8 +139,8 @@ public class ConfigurationBuilder {
             elem.setPresentOnIS(false);
             elem.setComponent(newScheduler());
             Map<StateType, SchedulerState> states = Maps.newHashMap();
-            states.put(StateType.OPEN, new SchedulerState(EnableStatus.ENABLED, SchedulerStatus.UNEXPIRED));
-            states.put(StateType.CLOSE, new SchedulerState(EnableStatus.DISABLED, SchedulerStatus.EXPIRED));
+            states.put(StateType.OPEN, new SchedulerState(SuspendedStatus.READY, SchedulerStatus.UNEXPIRED));
+            states.put(StateType.CLOSE, new SchedulerState(SuspendedStatus.SUSPENDED, SchedulerStatus.EXPIRED));
             states.put(StateType.CURRENT, elem.getComponent().getCurrentState());
             elem.setStateConfigurations(states);
             componentConfigurations.add(elem);
@@ -276,7 +276,7 @@ public class ConfigurationBuilder {
         String service = String.format("service_%d", index);
         String description = String.format("description_%d", index);
         result.setDetail(new SchedulerDetail(type, name, service, description));
-        result.setCurrentState(new SchedulerState(EnableStatus.ENABLED, SchedulerStatus.EXPIRED));
+        result.setCurrentState(new SchedulerState(SuspendedStatus.READY, SchedulerStatus.EXPIRED));
         return result;
     }
 
