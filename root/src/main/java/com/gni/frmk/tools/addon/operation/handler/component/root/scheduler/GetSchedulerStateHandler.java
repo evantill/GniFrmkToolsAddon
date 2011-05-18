@@ -1,16 +1,17 @@
 package com.gni.frmk.tools.addon.operation.handler.component.root.scheduler;
 
-import com.gni.frmk.tools.addon.model.component.EnableStatus;
-import com.gni.frmk.tools.addon.model.component.root.SchedulerState;
-import com.gni.frmk.tools.addon.model.component.root.SchedulerStatus;
-import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.operation.action.component.root.scheduler.GetSchedulerState;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
-import com.gni.frmk.tools.addon.operation.result.ComponentStateResult;
+import com.gni.frmk.tools.addon.model.component.StringId;
+import com.gni.frmk.tools.addon.model.component.root.SchedulerState;
+import com.gni.frmk.tools.addon.model.component.root.SchedulerStatus;
+import com.gni.frmk.tools.addon.model.component.root.SuspendedStatus;
+import com.gni.frmk.tools.addon.operation.action.component.root.scheduler.GetSchedulerState;
+import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler;
+import com.gni.frmk.tools.addon.operation.result.SingleResult;
 import com.wm.data.*;
-import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,15 +21,16 @@ import com.gni.frmk.tools.addon.operation.api.ActionHandler;
  * @author: e03229
  */
 public class GetSchedulerStateHandler
-        extends AbstractInvokeHandler<GetSchedulerState, ComponentStateResult<SchedulerState>>
-        implements ActionHandler<GetSchedulerState, ComponentStateResult<SchedulerState>, InvokeContext> {
+        extends AbstractInvokeHandler<GetSchedulerState, SingleResult<SchedulerState>>
+        implements GetComponentStateHandler<GetSchedulerState,StringId, SchedulerState, InvokeContext> {
 
     public GetSchedulerStateHandler() {
         super("wm.server.schedule:getUserTaskList");
     }
 
     @Override
-    protected ComponentStateResult<SchedulerState> parseOutput(GetSchedulerState action, IData output) throws ParseOutputException {
+    protected SingleResult<SchedulerState> parseOutput(GetSchedulerState action, IData output)
+            throws ParseOutputException {
         IDataCursor cur = output.getCursor();
         try {
             IData[] tasksDatas = IDataUtil.getIDataArray(cur, "tasks");
@@ -42,39 +44,23 @@ public class GetSchedulerStateHandler
                             continue;
                         }
                         SchedulerState schedulerState = defineState(curDoc);
-                        return new ComponentStateResult<SchedulerState>(schedulerState);
+                        return new SingleResult<SchedulerState>(schedulerState);
                     } finally {
                         curDoc.destroy();
                     }
                 }
             }
-            return new ComponentStateResult<SchedulerState>(new SchedulerState(EnableStatus.UNKNOWN, SchedulerStatus.UNKNONW));
+            return new SingleResult<SchedulerState>(new SchedulerState(SuspendedStatus.UNKNOWN, SchedulerStatus.UNKNONW));
         } finally {
             cur.destroy();
         }
     }
 
-    private enum SuspendedState {
-        SUSPENDED {
-            @Override
-            public EnableStatus toEnableState() {
-                return EnableStatus.DISABLED;
-            }
-        }, READY {
-            @Override
-            public EnableStatus toEnableState() {
-                return EnableStatus.ENABLED;
-            }
-        };
-
-        public abstract EnableStatus toEnableState();
-    }
 
     private SchedulerState defineState(IDataCursor curDoc) {
-        EnableStatus enabled = SuspendedState.valueOf(IDataUtil.getString(curDoc, "execState").toUpperCase())
-                                             .toEnableState();
+        SuspendedStatus suspended = SuspendedStatus.valueOf(IDataUtil.getString(curDoc, "execState").toUpperCase());
         SchedulerStatus scheduled = SchedulerStatus.valueOf(IDataUtil.getString(curDoc, "schedState").toUpperCase());
-        return new SchedulerState(enabled, scheduled);
+        return new SchedulerState(suspended, scheduled);
     }
 
     @Override

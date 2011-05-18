@@ -11,7 +11,8 @@ import com.gni.frmk.tools.addon.operation.action.component.GetComponentDetail;
  *
  * @author: e03229
  */
-public class GetNativeTriggerDetail extends GetComponentDetail<NoDetail, StringId> {
+public class GetNativeTriggerDetail
+        extends GetComponentDetail<NoDetail, StringId> {
     public GetNativeTriggerDetail(StringId id) {
         super(id);
     }

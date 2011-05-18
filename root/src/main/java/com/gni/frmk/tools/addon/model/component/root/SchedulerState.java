@@ -1,7 +1,6 @@
 package com.gni.frmk.tools.addon.model.component.root;
 
 import com.gni.frmk.tools.addon.model.component.BaseComponent.AbstractState;
-import com.gni.frmk.tools.addon.model.component.EnableStatus;
 import com.google.common.collect.ComparisonChain;
 
 /**
@@ -13,18 +12,18 @@ import com.google.common.collect.ComparisonChain;
  */
 public class SchedulerState extends AbstractState<SchedulerState> {
 
-    private EnableStatus enabled;
+    private SuspendedStatus suspended;
     private SchedulerStatus scheduled;
 
     public SchedulerState() {
         super(false);
-        enabled = EnableStatus.UNKNOWN;
+        suspended = SuspendedStatus.UNKNOWN;
         scheduled = SchedulerStatus.UNKNONW;
     }
 
-    public SchedulerState(EnableStatus enabled, SchedulerStatus scheduled) {
-        super(enabled == EnableStatus.UNKNOWN || scheduled == SchedulerStatus.UNKNONW);
-        this.enabled = enabled;
+    public SchedulerState(SuspendedStatus suspended, SchedulerStatus scheduled) {
+        super(suspended == SuspendedStatus.UNKNOWN || scheduled == SchedulerStatus.UNKNONW);
+        this.suspended = suspended;
         this.scheduled = scheduled;
     }
 
@@ -36,24 +35,24 @@ public class SchedulerState extends AbstractState<SchedulerState> {
         this.scheduled = scheduled;
     }
 
-    public EnableStatus getEnabled() {
-        return enabled;
+    public SuspendedStatus getSuspended() {
+        return suspended;
     }
 
-    public void setEnabled(EnableStatus enabled) {
-        this.enabled = enabled;
+    public void setSuspended(SuspendedStatus suspended) {
+        this.suspended = suspended;
     }
 
     @Override
     public boolean isUnknown() {
-        return enabled == EnableStatus.UNKNOWN || scheduled == SchedulerStatus.UNKNONW;
+        return suspended == SuspendedStatus.UNKNOWN || scheduled == SchedulerStatus.UNKNONW;
     }
 
     @Override
     public int compareTo(SchedulerState other) {
         return ComparisonChain.start()
                               .compare(0, super.compareTo(other))
-                              .compare(getEnabled(), other.getEnabled())
+                              .compare(getSuspended(), other.getSuspended())
                               .compare(getScheduled(), other.getScheduled())
                               .result();
     }

@@ -1,15 +1,16 @@
 package com.gni.frmk.tools.addon.operation.handler.component.root.port;
 
-import com.gni.frmk.tools.addon.model.component.ActivableState;
-import com.gni.frmk.tools.addon.model.component.ActivableStatus;
-import com.gni.frmk.tools.addon.model.component.EnableStatus;
-import com.gni.frmk.tools.addon.operation.action.component.root.port.GetPortState;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
+import com.gni.frmk.tools.addon.model.component.ActivableState;
+import com.gni.frmk.tools.addon.model.component.ActivableStatus;
+import com.gni.frmk.tools.addon.model.component.EnableStatus;
+import com.gni.frmk.tools.addon.model.component.PackageAndStringId;
+import com.gni.frmk.tools.addon.operation.action.component.root.port.GetPortState;
 import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.operation.api.ActionHandler;
-import com.gni.frmk.tools.addon.operation.result.ComponentStateResult;
+import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler;
+import com.gni.frmk.tools.addon.operation.result.SingleResult;
 import com.wm.data.*;
 
 /**
@@ -20,8 +21,8 @@ import com.wm.data.*;
  * @author: e03229
  */
 public class GetPortStateHandler
-        extends AbstractInvokeHandler<GetPortState, ComponentStateResult<ActivableState>>
-        implements ActionHandler<GetPortState, ComponentStateResult<ActivableState>, InvokeContext> {
+        extends AbstractInvokeHandler<GetPortState, SingleResult<ActivableState>>
+        implements GetComponentStateHandler<GetPortState, PackageAndStringId, ActivableState, InvokeContext> {
 
     public GetPortStateHandler() {
         super("wm.server.ports:listListeners");
@@ -33,7 +34,7 @@ public class GetPortStateHandler
     }
 
     @Override
-    protected ComponentStateResult<ActivableState> parseOutput(GetPortState action, IData output) throws ParseOutputException {
+    protected SingleResult<ActivableState> parseOutput(GetPortState action, IData output) throws ParseOutputException {
         IDataCursor cur = output.getCursor();
         try {
             IData[] tasksDatas = IDataUtil.getIDataArray(cur, "listeners");
@@ -49,13 +50,13 @@ public class GetPortStateHandler
                             continue;
                         }
                         ActivableState activableState = defineState(portCur);
-                        return new ComponentStateResult<ActivableState>(activableState);
+                        return new SingleResult<ActivableState>(activableState);
                     } finally {
                         portCur.destroy();
                     }
                 }
             }
-            return new ComponentStateResult<ActivableState>(new ActivableState(EnableStatus.UNKNOWN, ActivableStatus.UNKNOWN));
+            return new SingleResult<ActivableState>(new ActivableState(EnableStatus.UNKNOWN, ActivableStatus.UNKNOWN));
         } finally {
             cur.destroy();
         }
@@ -63,7 +64,7 @@ public class GetPortStateHandler
 
     private ActivableState defineState(IDataCursor curDoc) {
         EnableStatus enabled = EnableStatus.fromBooleanString(IDataUtil.getString(curDoc, "enabled"));
-        ActivableStatus activable =ActivableStatus.invert(ActivableStatus.fromBooleanString(IDataUtil.getString(curDoc, "suspended")));
+        ActivableStatus activable = ActivableStatus.invert(ActivableStatus.fromBooleanString(IDataUtil.getString(curDoc, "suspended")));
         return new ActivableState(enabled, activable);
     }
 

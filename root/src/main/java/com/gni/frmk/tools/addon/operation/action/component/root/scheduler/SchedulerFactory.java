@@ -14,7 +14,8 @@ import com.gni.frmk.tools.addon.operation.action.component.*;
  *
  * @author: e03229
  */
-public class SchedulerFactory implements ComponentFactory<StringId, SchedulerState, SchedulerDetail, Scheduler> {
+public class SchedulerFactory
+        implements ComponentFactory<StringId, SchedulerState, SchedulerDetail, Scheduler> {
 
     @Override
     public Scheduler newComponent(StringId id, SchedulerDetail detail, SchedulerState state) {

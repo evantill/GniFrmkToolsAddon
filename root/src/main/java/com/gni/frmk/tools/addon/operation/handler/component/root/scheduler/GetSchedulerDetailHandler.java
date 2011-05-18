@@ -1,14 +1,15 @@
 package com.gni.frmk.tools.addon.operation.handler.component.root.scheduler;
 
-import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.operation.action.component.root.scheduler.GetSchedulerDetail;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceInputException.ParseInputException;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.ServiceOutputException.ParseOutputException;
+import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.root.Scheduler.SchedulerDetail;
-import com.gni.frmk.tools.addon.operation.result.ComponentDetailResult;
+import com.gni.frmk.tools.addon.operation.action.component.root.scheduler.GetSchedulerDetail;
+import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.operation.handler.component.GetComponentDetailHandler;
+import com.gni.frmk.tools.addon.operation.result.SingleResult;
 import com.wm.data.*;
-import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 
 /**
  * Created by IntelliJ IDEA.
@@ -18,15 +19,15 @@ import com.gni.frmk.tools.addon.operation.api.ActionHandler;
  * @author: e03229
  */
 public class GetSchedulerDetailHandler
-        extends AbstractInvokeHandler<GetSchedulerDetail, ComponentDetailResult<SchedulerDetail>>
-        implements ActionHandler<GetSchedulerDetail, ComponentDetailResult<SchedulerDetail>, InvokeContext> {
+        extends AbstractInvokeHandler<GetSchedulerDetail, SingleResult<SchedulerDetail>>
+        implements GetComponentDetailHandler<GetSchedulerDetail, StringId, SchedulerDetail, InvokeContext> {
 
     public GetSchedulerDetailHandler() {
         super("wm.server.schedule:getUserTaskList");
     }
 
     @Override
-    protected ComponentDetailResult<SchedulerDetail> parseOutput(GetSchedulerDetail action, IData output) throws ParseOutputException {
+    protected SingleResult<SchedulerDetail> parseOutput(GetSchedulerDetail action, IData output) throws ParseOutputException {
         IDataCursor cur = output.getCursor();
         try {
             IData[] tasksDatas = IDataUtil.getIDataArray(cur, "tasks");
@@ -43,13 +44,13 @@ public class GetSchedulerDetailHandler
                         String type = IDataUtil.getString(curDoc, "type");
                         String service1 = IDataUtil.getString(curDoc, "service");
                         String description = IDataUtil.getString(curDoc, "description");
-                        return new ComponentDetailResult<SchedulerDetail>(new SchedulerDetail(type, name, service1, description));
+                        return new SingleResult<SchedulerDetail>(new SchedulerDetail(type, name, service1, description));
                     } finally {
                         curDoc.destroy();
                     }
                 }
             }
-            return new ComponentDetailResult<SchedulerDetail>(new SchedulerDetail());
+            return new SingleResult<SchedulerDetail>(new SchedulerDetail());
         } finally {
             cur.destroy();
         }

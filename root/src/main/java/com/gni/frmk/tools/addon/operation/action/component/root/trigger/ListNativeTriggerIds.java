@@ -7,5 +7,6 @@ import com.gni.frmk.tools.addon.model.component.StringId;import com.gni.frmk.too
  *
  * @author: e03229
  */
-public class ListNativeTriggerIds extends ListComponentIds<StringId> {
+public class ListNativeTriggerIds
+        extends ListComponentIds<StringId> {
 }

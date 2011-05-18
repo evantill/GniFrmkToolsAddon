@@ -1,10 +1,10 @@
 package com.gni.frmk.tools.addon.operation.handler.component.root.scheduler;
 
-import com.gni.frmk.tools.addon.model.component.StringId;
-import com.gni.frmk.tools.addon.operation.action.component.root.scheduler.SchedulerIdList;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
-import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
+import com.gni.frmk.tools.addon.model.component.StringId;
+import com.gni.frmk.tools.addon.operation.action.component.root.scheduler.ListSchedulerIds;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
+import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
 import com.gni.frmk.tools.addon.operation.result.ListResult;
 import com.google.common.collect.Lists;
 import com.wm.data.*;
@@ -18,16 +18,16 @@ import java.util.List;
  *
  * @author: e03229
  */
-public class SchedulerIdListHandler
-        extends AbstractInvokeHandler<SchedulerIdList, ListResult<StringId>>
-        implements ActionHandler<SchedulerIdList, ListResult<StringId>, InvokeContext> {
+public class ListSchedulerIdsHandler
+        extends AbstractInvokeHandler<ListSchedulerIds, ListResult<StringId>>
+        implements ActionHandler<ListSchedulerIds, ListResult<StringId>, InvokeContext> {
 
-    public SchedulerIdListHandler() {
+    public ListSchedulerIdsHandler() {
         super("wm.server.schedule:getUserTaskList");
     }
 
     @Override
-    protected ListResult<StringId> parseOutput(SchedulerIdList action, IData output) {
+    protected ListResult<StringId> parseOutput(ListSchedulerIds action, IData output) {
         IDataCursor cur = output.getCursor();
         try {
             IData[] tasksDatas = IDataUtil.getIDataArray(cur, "tasks");
@@ -50,13 +50,13 @@ public class SchedulerIdListHandler
     }
 
     @Override
-    protected IData prepareInput(SchedulerIdList in) {
+    protected IData prepareInput(ListSchedulerIds in) {
         return EMPTY_INPUT;
     }
 
     @Override
-    public Class<SchedulerIdList> getActionType() {
-        return SchedulerIdList.class;
+    public Class<ListSchedulerIds> getActionType() {
+        return ListSchedulerIds.class;
     }
 
 }
