@@ -1,9 +1,5 @@
 package com.gni.frmk.tools.addon.model.component;
 
-import com.gni.frmk.tools.addon.visitor.ComponentVisitor;
-
-import javax.xml.bind.annotation.XmlTransient;
-
 /**
  * Created by IntelliJ IDEA.
  * Date: 09/05/11
@@ -28,6 +24,7 @@ public interface Component<I extends Component.Id, S extends Component.State, D 
 
     public static interface State {
         boolean exist();
+
         boolean unknown();
     }
 
@@ -35,11 +32,35 @@ public interface Component<I extends Component.Id, S extends Component.State, D 
     }
 
     public static enum Type {
-        UNKNOWN, ADAPTER_NOTIFICATION, ADAPTER_LISTENER, JMS_ALIAS, PORT, NATIVE_TRIGGER, JMS_TRIGGER, SCHEDULER, ADAPTER_CONNECTION
+        UNKNOWN(false, false),
+        ADAPTER_NOTIFICATION(true, false),
+        ADAPTER_LISTENER(true, false),
+        JMS_ALIAS(false, true),
+        PORT(true, false),
+        NATIVE_TRIGGER(true, false),
+        JMS_TRIGGER(true, false),
+        SCHEDULER(true, false),
+        ADAPTER_CONNECTION(false, true);
+
+        private final boolean input;
+        private final boolean output;
+
+        Type(boolean input, boolean output) {
+            this.input = input;
+            this.output = output;
+        }
+
+        public final boolean isInput() {
+            return input;
+        }
+
+        public final boolean isOutput() {
+            return output;
+        }
     }
 
     public static enum StateType {
-        CLOSE, CURRENT, OPEN
+        CLOSE, CURRENT, OPEN, LAST
     }
 
 }

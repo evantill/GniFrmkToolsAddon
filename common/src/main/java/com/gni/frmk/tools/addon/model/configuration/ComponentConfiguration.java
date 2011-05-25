@@ -1,7 +1,6 @@
 package com.gni.frmk.tools.addon.model.configuration;
 
 import com.gni.frmk.tools.addon.model.component.Component;
-import com.gni.frmk.tools.addon.visitor.ConfigurationVisitor;
 
 import java.util.Map;
 

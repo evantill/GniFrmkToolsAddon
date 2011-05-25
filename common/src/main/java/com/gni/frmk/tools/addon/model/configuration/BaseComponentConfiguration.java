@@ -1,9 +1,8 @@
 package com.gni.frmk.tools.addon.model.configuration;
 
-import com.gni.frmk.tools.addon.model.configuration.XmlJaxbAdapters.ComponentStatesAdapter;
 import com.gni.frmk.tools.addon.model.component.BaseComponent;
 import com.gni.frmk.tools.addon.model.component.Component;
-import com.gni.frmk.tools.addon.visitor.ConfigurationVisitor;
+import com.gni.frmk.tools.addon.model.configuration.XmlJaxbAdapters.ComponentStatesAdapter;
 import com.google.common.collect.Maps;
 
 import javax.xml.bind.annotation.XmlAttribute;

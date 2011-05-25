@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.data.ISMemDataImpl">
+    <array name="tasks" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <value name="type">repeat</value>
+        <value name="name">GniFrmkToolsStats.jdbc:schedulingStatistics</value>
+        <value name="description">GniFrmkToolsStats.jdbc:schedulingStatistics</value>
+        <value name="service">GniFrmkToolsStats.jdbc:schedulingStatistics</value>
+        <value name="target">ar1tn232.groupe.generali.fr</value>
+        <value name="lateness">0</value>
+        <value name="latenessAction">0</value>
+        <value name="nextRun">1304957946190</value>
+        <value name="msDelta">0</value>
+        <value name="interval">60000</value>
+        <value name="oid">3e75d780-ca57-11df-ac89-8ee26cc7631d</value>
+        <value name="execState">suspended</value>
+        <value name="schedState">unexpired</value>
+        <value name="doNotOverlap">true</value>
+        <value name="startDate">1285606190328</value>
+        <value name="endDate">-1</value>
+        <value name="minuteMask">0</value>
+        <value name="hourMask">0</value>
+        <value name="dayOfMonthMask">0</value>
+        <value name="monthMask">0</value>
+        <value name="dayOfWeekMask">0</value>
+        <value name="runAsUser">Administrator</value>
+        <value name="lastError">[ISS.0026.9201] Unknown service: GniFrmkToolsStats.jdbc:schedulingStatistics</value>
+        <value name="lastStackTrace">com.wm.app.b2b.server.UnknownServiceException: [ISS.0026.9201] Unknown service: GniFrmkToolsStats.jdbc:schedulingStatistics
+	at com.wm.app.b2b.server.invoke.InvokeManager.invoke(InvokeManager.java:352)
+	at com.wm.app.b2b.server.scheduler.ScheduleDB$ScheduledService.run(ScheduleDB.java:2582)
+	at com.wm.util.pool.PooledThread.run(PooledThread.java:118)
+	at java.lang.Thread.run(Thread.java:811)
+</value>
+        <value name="neverRun">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="type">repeat</value>
+        <value name="name">wm.monitor.admin:imageCleanup</value>
+        <value name="service">wm.monitor.admin:imageCleanup</value>
+        <value name="target">ar1tn232.groupe.generali.fr</value>
+        <value name="lateness">0</value>
+        <value name="latenessAction">0</value>
+        <value name="nextRun">1306340532996</value>
+        <value name="msDelta">4165</value>
+        <value name="interval">300000</value>
+        <value name="oid">9ca7a9c0-0a62-11de-8941-889d219d55f5</value>
+        <value name="execState">ready</value>
+        <value name="schedState">unexpired</value>
+        <value name="doNotOverlap">true</value>
+        <value name="startDate">1236352951000</value>
+        <value name="endDate">-1</value>
+        <value name="minuteMask">0</value>
+        <value name="hourMask">0</value>
+        <value name="dayOfMonthMask">0</value>
+        <value name="monthMask">0</value>
+        <value name="dayOfWeekMask">0</value>
+        <value name="runAsUser">Administrator</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="type">repeat</value>
+        <value name="name">cla:service</value>
+        <value name="description">test</value>
+        <value name="service">cla:service</value>
+        <value name="target">ar1tn232.groupe.generali.fr</value>
+        <value name="lateness">0</value>
+        <value name="latenessAction">0</value>
+        <value name="nextRun">1304957946085</value>
+        <value name="msDelta">0</value>
+        <value name="interval">60000</value>
+        <value name="oid">66273750-a078-11df-a6d8-9a1cc4e5a370</value>
+        <value name="execState">suspended</value>
+        <value name="schedState">unexpired</value>
+        <value name="doNotOverlap">true</value>
+        <value name="startDate">1281002481477</value>
+        <value name="endDate">-1</value>
+        <value name="minuteMask">0</value>
+        <value name="hourMask">0</value>
+        <value name="dayOfMonthMask">0</value>
+        <value name="monthMask">0</value>
+        <value name="dayOfWeekMask">0</value>
+        <value name="runAsUser">Administrator</value>
+        <value name="lastError">[ISS.0026.9201] Unknown service: cla:service</value>
+        <value name="lastStackTrace">com.wm.app.b2b.server.UnknownServiceException: [ISS.0026.9201] Unknown service: cla:service
+	at com.wm.app.b2b.server.invoke.InvokeManager.invoke(InvokeManager.java:352)
+	at com.wm.app.b2b.server.scheduler.ScheduleDB$ScheduledService.run(ScheduleDB.java:2601)
+	at com.wm.util.pool.PooledThread.run(PooledThread.java:118)
+	at java.lang.Thread.run(Thread.java:811)
+</value>
+        <value name="neverRun">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="type">once</value>
+        <value name="name">wm.monitor.admin:brokerPush</value>
+        <value name="service">wm.monitor.admin:brokerPush</value>
+        <value name="target">ar1tn232.groupe.generali.fr</value>
+        <value name="lateness">0</value>
+        <value name="latenessAction">0</value>
+        <value name="nextRun">-1</value>
+        <value name="msDelta">0</value>
+        <value name="interval">0</value>
+        <value name="oid">ffa22a80-d2cd-11de-8642-af36a8bca449</value>
+        <value name="execState">suspended</value>
+        <value name="schedState">expired</value>
+        <value name="doNotOverlap">false</value>
+        <value name="startDate">1258389351000</value>
+        <value name="endDate">-1</value>
+        <value name="minuteMask">0</value>
+        <value name="hourMask">0</value>
+        <value name="dayOfMonthMask">0</value>
+        <value name="monthMask">0</value>
+        <value name="dayOfWeekMask">0</value>
+        <value name="runAsUser">Administrator</value>
+        <value name="neverRun">true</value>
+      </record>
+    </array>
+    <array name="extTasks" type="record" depth="1">
+    </array>
+  </record>
+</IDataXMLCoder>

@@ -1,7 +1,6 @@
 package com.gni.frmk.tools.addon.model.configuration;
 
 import com.gni.frmk.tools.addon.model.component.Component.Type;
-import com.gni.frmk.tools.addon.visitor.ConfigurationVisitor;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Lists;
@@ -24,7 +23,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * @author: e03229
  */
 @XmlRootElement
-@XmlType(propOrder = {"id","name","creation","modification","componentConfigurations"})
+@XmlType(propOrder = {"id",
+                      "name",
+                      "creation",
+                      "modification",
+                      "componentConfigurations"})
 public class Configuration implements Iterable<ComponentConfiguration> {
 
     private ConfigurationId id;

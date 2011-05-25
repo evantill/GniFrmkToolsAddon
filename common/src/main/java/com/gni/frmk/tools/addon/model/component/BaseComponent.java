@@ -3,7 +3,6 @@ package com.gni.frmk.tools.addon.model.component;
 import com.gni.frmk.tools.addon.model.component.Component.Detail;
 import com.gni.frmk.tools.addon.model.component.Component.Id;
 import com.gni.frmk.tools.addon.model.component.Component.State;
-import com.gni.frmk.tools.addon.visitor.ComponentVisitor;
 import com.google.common.collect.ComparisonChain;
 
 import javax.xml.bind.annotation.XmlAttribute;
