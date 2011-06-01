@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.model.component;
 
-import com.gni.frmk.tools.addon.model.ModelResource;
+import com.gni.frmk.tools.addon.model.BaseModelResource;
+import com.gni.frmk.tools.addon.model.component.base.BaseComponent;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,10 +10,14 @@ import com.gni.frmk.tools.addon.model.ModelResource;
  *
  * @author: e03229
  */
-public class ComponentResource implements ModelResource{
+public class ComponentResource extends BaseModelResource {
+    private static final Package[] contextPathPackages = new Package[]{
+            Component.class.getPackage(),
+            BaseComponent.class.getPackage()
+    };
 
     @Override
-    public String getContextPath() {
-        return getClass().getPackage().getName();
+    protected Package[] getContextPathPackages() {
+        return contextPathPackages;
     }
 }
