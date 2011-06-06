@@ -2,6 +2,8 @@ package com.gni.frmk.tools.addon.model.component.base;
 
 import com.gni.frmk.tools.addon.model.component.ComponentDetail;
 
+import javax.xml.bind.annotation.XmlTransient;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 01/06/11
@@ -19,6 +21,7 @@ public abstract class BaseComponentDetail<T extends BaseComponentDetail<T>> impl
         builder.validate();
     }
 
+    @XmlTransient
     public static abstract class Builder<B extends Builder<B, T>, T extends BaseComponentDetail>
             implements com.gni.frmk.tools.addon.model.component.Builder<B, T> {
     }

@@ -1,4 +1,7 @@
 AdapterConnection
+AdapterConnectionType
 AdapterId
 AdapterListener
+AdapterListenerType
 AdapterNotification
+AdapterNotificationType

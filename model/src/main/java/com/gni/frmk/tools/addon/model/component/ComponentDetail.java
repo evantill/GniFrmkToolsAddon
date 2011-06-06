@@ -7,6 +7,6 @@ package com.gni.frmk.tools.addon.model.component;
  *
  * @author: e03229
  */
-public interface ComponentDetail<T extends ComponentDetail<T>>
-        extends Comparable<T> {
+public interface ComponentDetail<D extends ComponentDetail<D>>
+        extends Comparable<D> {
 }

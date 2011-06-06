@@ -1,8 +1,10 @@
 package com.gni.frmk.tools.addon.model.component.root;
 
 import com.gni.frmk.tools.addon.model.component.StringId;
-import com.gni.frmk.tools.addon.model.component.BaseComponent;
-import com.gni.frmk.tools.addon.model.component.root.Scheduler.SchedulerDetail;
+import com.gni.frmk.tools.addon.model.component.base.BaseComponent;
+
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,55 +13,37 @@ import com.gni.frmk.tools.addon.model.component.root.Scheduler.SchedulerDetail;
  *
  * @author: e03229
  */
+@XmlRootElement
 public class Scheduler
-        extends BaseComponent<StringId, SchedulerState, SchedulerDetail> {
+        extends BaseComponent<Scheduler, SchedulerType, StringId, SchedulerState, SchedulerDetail> {
 
-    public static class SchedulerDetail extends BaseComponent.AbstractDetail {
-        private String schedulerType;
-        private String name;
-        private String service;
-        private String description;
+    private Scheduler() {
+        super(SchedulerType.TYPE);
+    }
 
-        public SchedulerDetail() {
+    public Scheduler(Builder builder) {
+        super(builder);
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    @XmlTransient
+    public static final class Builder
+            extends BaseComponent.Builder<Builder, Scheduler, SchedulerType, StringId, SchedulerState, SchedulerDetail> {
+        public Builder() {
+            super(SchedulerType.newInstance());
         }
 
-        public SchedulerDetail(String schedulerType, String name, String service, String description) {
-            this.schedulerType = schedulerType;
-            this.name = name;
-            this.service = service;
-            this.description = description;
+        @Override
+        public Scheduler build() {
+            return new Scheduler(this);
         }
 
-        public String getSchedulerType() {
-            return schedulerType;
-        }
-
-        public void setSchedulerType(String schedulerType) {
-            this.schedulerType = schedulerType;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getService() {
-            return service;
-        }
-
-        public void setService(String service) {
-            this.service = service;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
+        @Override
+        public Builder self() {
+            return this;
         }
     }
 }

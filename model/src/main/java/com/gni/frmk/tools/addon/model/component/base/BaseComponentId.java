@@ -1,7 +1,8 @@
 package com.gni.frmk.tools.addon.model.component.base;
 
 import com.gni.frmk.tools.addon.model.component.ComponentId;
-import org.eclipse.persistence.oxm.annotations.XmlDiscriminatorNode;
+
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,6 +20,7 @@ public abstract class BaseComponentId<I extends BaseComponentId<I>> implements C
         builder.validate();
     }
 
+    @XmlTransient
     protected abstract static class Builder
             <B extends Builder<B, I>,
                     I extends ComponentId>

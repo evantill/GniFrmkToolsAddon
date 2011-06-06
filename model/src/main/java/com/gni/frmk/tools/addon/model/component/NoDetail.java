@@ -2,6 +2,9 @@ package com.gni.frmk.tools.addon.model.component;
 
 import com.gni.frmk.tools.addon.model.component.base.BaseComponentDetail;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 10/05/11
@@ -9,6 +12,7 @@ import com.gni.frmk.tools.addon.model.component.base.BaseComponentDetail;
  *
  * @author: e03229
  */
+@XmlRootElement
 public class NoDetail extends BaseComponentDetail<NoDetail> {
 
     private static final NoDetail singleton = new NoDetail();
@@ -19,7 +23,16 @@ public class NoDetail extends BaseComponentDetail<NoDetail> {
 
     @Override
     public int compareTo(NoDetail o) {
-        assert this == o;
+        return 0;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof NoDetail;
+    }
+
+    @Override
+    public int hashCode() {
         return 0;
     }
 
@@ -31,6 +44,7 @@ public class NoDetail extends BaseComponentDetail<NoDetail> {
         return singletonBuilder;
     }
 
+    @XmlTransient
     public static final class Builder extends BaseComponentDetail.Builder<Builder,NoDetail>{
         @Override
         public NoDetail build() {

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<component1>
+    <component1Id>
+        <value>component id</value>
+    </component1Id>
+    <component1State>
+        <exist>true</exist>
+        <enabled>true</enabled>
+    </component1State>
+    <simpleDetail>
+        <description>description of component 1</description>
+    </simpleDetail>
+</component1>

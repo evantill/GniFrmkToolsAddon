@@ -1,9 +1,12 @@
 package com.gni.frmk.tools.addon.model.component.jms;
 
-import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.ActivableState;
-import com.gni.frmk.tools.addon.model.component.BaseComponent;
-import com.gni.frmk.tools.addon.model.component.jms.JmsTrigger.JmsTriggerDetail;
+import com.gni.frmk.tools.addon.model.component.PackageDetail;
+import com.gni.frmk.tools.addon.model.component.StringId;
+import com.gni.frmk.tools.addon.model.component.base.BaseComponent;
+
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Created by IntelliJ IDEA.
@@ -13,26 +16,37 @@ import com.gni.frmk.tools.addon.model.component.jms.JmsTrigger.JmsTriggerDetail;
  * @author: e03229
  */
 //TODO passer sur un etat triple : ENABLE DISABLED SUSPENDED
-public class JmsTrigger extends BaseComponent<StringId, ActivableState, JmsTriggerDetail> {
+@XmlRootElement
+public class JmsTrigger
+        extends BaseComponent<JmsTrigger, JmsTriggerType, StringId, ActivableState, PackageDetail> {
 
-    public static class JmsTriggerDetail extends BaseComponent.AbstractDetail {
-        private String packageName;
-
-        public JmsTriggerDetail(String packageName) {
-            this.packageName = packageName;
-        }
-
-        public JmsTriggerDetail() {
-        }
-
-        public String getPackageName() {
-            return packageName;
-        }
-
-        public void setPackageName(String packageName) {
-            this.packageName = packageName;
-        }
-
+    private JmsTrigger() {
+        super(JmsTriggerType.TYPE);
     }
 
+    public JmsTrigger(Builder builder) {
+        super(builder);
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    @XmlTransient
+    public static final class Builder
+            extends BaseComponent.Builder<Builder, JmsTrigger, JmsTriggerType, StringId, ActivableState, PackageDetail> {
+        public Builder() {
+            super(JmsTriggerType.newInstance());
+        }
+
+        @Override
+        public JmsTrigger build() {
+            return new JmsTrigger(this);
+        }
+
+        @Override
+        public Builder self() {
+            return this;
+        }
+    }
 }

@@ -8,6 +8,8 @@ import com.gni.frmk.tools.addon.model.component.ComponentType;
 import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
 
+import javax.xml.bind.annotation.XmlTransient;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 01/06/11
@@ -39,21 +41,25 @@ public abstract class BaseComponentType
     }
 
     @Override
+    @XmlTransient
     public Class<C> getTypeComponent() {
         return typeComponent;
     }
 
     @Override
+    @XmlTransient
     public Class<I> getTypeId() {
         return typeId;
     }
 
     @Override
+    @XmlTransient
     public Class<S> getTypeState() {
         return typeState;
     }
 
     @Override
+    @XmlTransient
     public Class<D> getTypeDetail() {
         return typeDetail;
     }

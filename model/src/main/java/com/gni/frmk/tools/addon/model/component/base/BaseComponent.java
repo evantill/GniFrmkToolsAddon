@@ -4,9 +4,8 @@ import com.gni.frmk.tools.addon.model.component.Component;
 import com.gni.frmk.tools.addon.visitor.api.ComponentVisitor;
 import com.google.common.collect.ComparisonChain;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementRef;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -18,8 +17,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author: e03229
  */
-@XmlType(propOrder = {"type",
-                      "id",
+@XmlType(propOrder = {"id",
                       "currentState",
                       "detail"})
 public abstract class BaseComponent
@@ -38,6 +36,10 @@ public abstract class BaseComponent
     protected BaseComponent() {
     }
 
+    protected BaseComponent(T type) {
+        this.type = type;
+    }
+
     protected BaseComponent(Builder<?, C, T, I, S, D> builder) {
         builder.validate();
         type = builder.type;
@@ -46,7 +48,8 @@ public abstract class BaseComponent
         detail = builder.detail;
     }
 
-    @XmlElementRef(required = true, type = BaseComponentType.class)
+    //@XmlElementRef(type = BaseComponentType.class)
+    @XmlTransient
     public T getType() {
         return type;
     }
@@ -55,7 +58,7 @@ public abstract class BaseComponent
         this.type = type;
     }
 
-    @XmlElementRef(required = true, type = BaseComponentId.class)
+    @XmlElementRef(type = BaseComponentId.class)
     public I getId() {
         return id;
     }
@@ -64,7 +67,7 @@ public abstract class BaseComponent
         this.id = id;
     }
 
-    @XmlElementRef(required = true, type = BaseComponentState.class)
+    @XmlElementRef(type = BaseComponentState.class)
     public S getCurrentState() {
         return currentState;
     }
@@ -73,7 +76,7 @@ public abstract class BaseComponent
         this.currentState = currentState;
     }
 
-    @XmlElementRef(required = true, type = BaseComponentDetail.class)
+    @XmlElementRef(type = BaseComponentDetail.class)
     public D getDetail() {
         return detail;
     }
@@ -90,13 +93,14 @@ public abstract class BaseComponent
     @Override
     public int compareTo(C o) {
         return ComparisonChain.start()
-                .compare(type,o.type)
-                .compare(id,o.id)
-                .compare(detail,o.detail)
-                .compare(currentState,o.currentState)
-                .result();
+                              .compare(type, o.type)
+                              .compare(id, o.id)
+                              .compare(detail, o.detail)
+                              .compare(currentState, o.currentState)
+                              .result();
     }
 
+    @XmlTransient
     public abstract static class Builder
             <B extends Builder<B, C, T, I, S, D>,
                     C extends BaseComponent<C, T, I, S, D>,

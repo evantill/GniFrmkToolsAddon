@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<nativeTrigger>
+    <stringId>
+        <value>native trigger name 1</value>
+    </stringId>
+    <nativeTriggerState exist="true">
+        <enabled exist="true">
+            <enabled>ENABLED</enabled>
+        </enabled>
+        <retrievalState exist="true">
+            <activable>ACTIVE</activable>
+            <temporary>PERMANENT</temporary>
+        </retrievalState>
+        <processingState exist="true">
+            <activable>ACTIVE</activable>
+            <temporary>PERMANENT</temporary>
+        </processingState>
+    </nativeTriggerState>
+    <noDetail/>
+</nativeTrigger>

@@ -1,11 +1,11 @@
 package com.gni.frmk.tools.addon.model.component.root;
 
 import com.gni.frmk.tools.addon.model.component.ActivableState;
-import com.gni.frmk.tools.addon.model.component.BaseComponent;
+import com.gni.frmk.tools.addon.model.component.base.BaseComponent;
 import com.gni.frmk.tools.addon.model.component.PackageAndStringId;
-import com.gni.frmk.tools.addon.model.component.root.Port.PortDetail;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,26 +16,35 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 public class Port
-        extends BaseComponent<PackageAndStringId, ActivableState, PortDetail> {
+        extends BaseComponent<Port,PortType,PackageAndStringId, ActivableState, PortDetail> {
 
-    public static class PortDetail extends BaseComponent.AbstractDetail {
-        private boolean primary;
-
-        public PortDetail() {
-        }
-
-        public PortDetail(boolean primary) {
-            this.primary = primary;
-        }
-
-        public boolean isPrimary() {
-            return primary;
-        }
-
-        public void setPrimary(boolean primary) {
-            this.primary = primary;
-        }
+    private Port() {
+        super(PortType.TYPE);
     }
 
+    public Port(Builder builder) {
+        super(builder);
+    }
 
+    public static   Builder builder(){
+        return new Builder();
+    }
+
+    @XmlTransient
+    public static final class Builder
+            extends BaseComponent.Builder<Builder,Port,PortType,PackageAndStringId,ActivableState,PortDetail>{
+        public Builder() {
+            super(PortType.newInstance());
+        }
+
+        @Override
+        public Port build() {
+            return new Port(this);
+        }
+
+        @Override
+        public Builder self() {
+            return this;
+        }
+    }
 }

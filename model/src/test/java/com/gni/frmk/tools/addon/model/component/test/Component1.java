@@ -3,6 +3,7 @@ package com.gni.frmk.tools.addon.model.component.test;
 import com.gni.frmk.tools.addon.model.component.base.BaseComponent;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,6 +17,8 @@ public class Component1
         extends BaseComponent<Component1, Component1Type, Component1Id, Component1State, SimpleDetail> {
 
     private Component1() {
+        super(Component1Type.TYPE);
+
     }
 
     public Component1(Builder builder) {
@@ -26,6 +29,7 @@ public class Component1
         return new Builder();
     }
 
+    @XmlTransient
     public static final class Builder
             extends BaseComponent.Builder<Builder, Component1, Component1Type, Component1Id, Component1State, SimpleDetail> {
 

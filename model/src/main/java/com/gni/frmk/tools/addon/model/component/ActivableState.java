@@ -1,8 +1,14 @@
 package com.gni.frmk.tools.addon.model.component;
 
 import com.gni.frmk.tools.addon.model.component.base.BaseComponentState;
+import com.google.common.base.Objects;
+import com.google.common.collect.ComparisonChain;
 
-import static com.gni.frmk.tools.addon.model.component.EnableStatus.UNKNOWN;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
@@ -12,15 +18,47 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author: e03229
  */
+@XmlRootElement
+@XmlType(propOrder = {
+        "enabled",
+        "activable"
+})
 public class ActivableState extends BaseComponentState<ActivableState> {
 
-    private ActivableStatus activable;
     private EnableStatus enabled;
+    private ActivableStatus activable;
 
     private ActivableState() {
         super();
         enabled = EnableStatus.UNKNOWN;
         activable = ActivableStatus.UNKNOWN;
+    }
+
+    @Override
+    public int compareTo(ActivableState other) {
+        return ComparisonChain.start()
+                              .compare(0, super.compareTo(other))
+                              .compare(enabled, other.enabled)
+                              .compare(activable, other.activable)
+                              .result();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        ActivableState that = (ActivableState) o;
+
+        return Objects.equal(exist(), that.exist())
+               && Objects.equal(enabled, that.enabled)
+               && Objects.equal(activable, that.activable);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(exist(), enabled, activable);
     }
 
 
@@ -38,19 +76,21 @@ public class ActivableState extends BaseComponentState<ActivableState> {
         enabled = builder.enabled;
     }
 
+    @XmlElement
     public ActivableStatus getActivable() {
         return activable;
     }
 
-    public void setActivable(ActivableStatus activable) {
+    private void setActivable(ActivableStatus activable) {
         this.activable = activable;
     }
 
+    @XmlElement
     public EnableStatus getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(EnableStatus enabled) {
+    private void setEnabled(EnableStatus enabled) {
         this.enabled = enabled;
     }
 
@@ -59,24 +99,30 @@ public class ActivableState extends BaseComponentState<ActivableState> {
         return activable == ActivableStatus.UNKNOWN || enabled == EnableStatus.UNKNOWN;
     }
 
+    @XmlTransient
     public static final class Builder extends BaseComponentState.Builder<Builder, ActivableState> {
         private EnableStatus enabled;
         private ActivableStatus activable;
 
         public Builder enable(EnableStatus enabled) {
             this.enabled = checkNotNull(enabled);
+            updateExist();
             return this;
         }
 
         public Builder activable(ActivableStatus activable) {
             this.activable = checkNotNull(activable);
+            updateExist();
             return this;
+        }
+
+        private void updateExist() {
+            boolean unknown = activable == ActivableStatus.UNKNOWN || enabled == EnableStatus.UNKNOWN;
+            exist(!unknown);
         }
 
         @Override
         public ActivableState build() {
-            boolean unknown = enabled == EnableStatus.UNKNOWN || activable == ActivableStatus.UNKNOWN;
-            exist(!unknown);
             return new ActivableState(this);
         }
 

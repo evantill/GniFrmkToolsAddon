@@ -5,6 +5,7 @@ import com.google.common.base.Objects;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -61,6 +62,7 @@ public class SimpleDetail extends BaseComponentDetail<SimpleDetail> {
         return new Builder();
     }
 
+    @XmlTransient
     public static final class Builder extends BaseComponentDetail.Builder<Builder, SimpleDetail> {
         private String description;
 

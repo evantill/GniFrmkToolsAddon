@@ -38,7 +38,7 @@ public class BaseComponentConfiguration
         stateConfigurations = Maps.newHashMap();
     }
 
-    @XmlElementRef(required = true, type = BaseComponent.class)
+    @XmlElementRef(type = BaseComponent.class)
     public C getComponent() {
         return component;
     }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<scheduler>
+    <stringId>
+        <value>scheduler name 1</value>
+    </stringId>
+    <schedulerState exist="true">
+        <suspended>READY</suspended>
+        <scheduled>UNEXPIRED</scheduled>
+    </schedulerState>
+    <schedulerDetail>
+        <schedulerType>scheduler type</schedulerType>
+        <name>scheduler name</name>
+        <service>service name</service>
+        <description>description of scheduler</description>
+    </schedulerDetail>
+</scheduler>

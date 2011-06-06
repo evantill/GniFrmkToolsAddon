@@ -1,9 +1,10 @@
 package com.gni.frmk.tools.addon.model.component.jms;
 
 import com.gni.frmk.tools.addon.model.component.StringId;
-import com.gni.frmk.tools.addon.model.component.BaseComponent;
-import com.gni.frmk.tools.addon.model.component.ConnectableState;
-import com.gni.frmk.tools.addon.model.component.jms.JmsAlias.JmsAliasDetail;
+import com.gni.frmk.tools.addon.model.component.base.BaseComponent;
+
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,27 +13,38 @@ import com.gni.frmk.tools.addon.model.component.jms.JmsAlias.JmsAliasDetail;
  *
  * @author: e03229
  */
+@XmlRootElement
 public class JmsAlias
-        extends BaseComponent<StringId, ConnectableState, JmsAliasDetail> {
+        extends BaseComponent<JmsAlias,JmsAliasType,StringId, ConnectableState, JmsAliasDetail> {
 
-    public static class JmsAliasDetail extends BaseComponent.AbstractDetail {
-        private String description;
-
-        public JmsAliasDetail(String description) {
-            this.description = description;
-        }
-
-        public JmsAliasDetail() {
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
+    private JmsAlias() {
+        super(JmsAliasType.TYPE);
     }
 
+    public JmsAlias(Builder builder) {
+        super(builder);
+    }
+
+    public static Builder builder(){
+        return new Builder();
+    }
+
+    @XmlTransient
+    public static final class Builder
+            extends BaseComponent.Builder<Builder,JmsAlias,JmsAliasType,StringId,ConnectableState,JmsAliasDetail>{
+        public Builder() {
+            super(JmsAliasType.newInstance());
+        }
+
+        @Override
+        public JmsAlias build() {
+            return new JmsAlias(this);
+        }
+
+        @Override
+        public Builder self() {
+            return this;
+        }
+    }
 }
 

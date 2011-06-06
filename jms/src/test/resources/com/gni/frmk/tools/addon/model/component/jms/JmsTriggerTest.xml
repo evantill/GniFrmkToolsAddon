@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jmsTrigger>
+    <stringId>
+        <value>jms trigger name 1</value>
+    </stringId>
+    <activableState exist="true">
+        <activable>ACTIVE</activable>
+        <enabled>ENABLED</enabled>
+    </activableState>
+    <packageDetail>
+        <packageName>package name 1</packageName>
+    </packageDetail>
+</jmsTrigger>

@@ -1,8 +1,11 @@
 package com.gni.frmk.tools.addon.model.component.art;
 
 import com.gni.frmk.tools.addon.model.component.ActivableState;
-import com.gni.frmk.tools.addon.model.component.BaseComponent;
-import com.gni.frmk.tools.addon.model.component.art.AdapterNotification.AdapterNotificationDetail;
+import com.gni.frmk.tools.addon.model.component.PackageDetail;
+import com.gni.frmk.tools.addon.model.component.base.BaseComponent;
+
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,28 +14,39 @@ import com.gni.frmk.tools.addon.model.component.art.AdapterNotification.AdapterN
  *
  * @author: e03229
  */
-
+@XmlRootElement
 public class AdapterNotification
-        extends BaseComponent<AdapterId, ActivableState, AdapterNotificationDetail> {
+        extends BaseComponent<AdapterNotification, AdapterNotificationType, AdapterId, ActivableState, PackageDetail> {
 
-    public static class AdapterNotificationDetail extends BaseComponent.AbstractDetail {
-        private String packageName;
+    private AdapterNotification() {
+        super(AdapterNotificationType.TYPE);
+    }
 
-        public AdapterNotificationDetail(String packageName) {
-            this.packageName = packageName;
+    public AdapterNotification(Builder builder) {
+        super(builder);
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    @XmlTransient
+    public static final class Builder
+            extends BaseComponent.Builder<Builder, AdapterNotification, AdapterNotificationType, AdapterId, ActivableState, PackageDetail> {
+
+        public Builder() {
+            super(AdapterNotificationType.newInstance());
         }
 
-        public AdapterNotificationDetail() {
+        @Override
+        public AdapterNotification build() {
+            return new AdapterNotification(this);
         }
 
-        public String getPackageName() {
-            return packageName;
+        @Override
+        public Builder self() {
+            return this;
         }
-
-        public void setPackageName(String packageName) {
-            this.packageName = packageName;
-        }
-
     }
 }
 

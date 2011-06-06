@@ -1,8 +1,11 @@
 package com.gni.frmk.tools.addon.model.component.art;
 
 import com.gni.frmk.tools.addon.model.component.ActivableState;
-import com.gni.frmk.tools.addon.model.component.BaseComponent;
-import com.gni.frmk.tools.addon.model.component.art.AdapterListener.AdapterListenerDetail;
+import com.gni.frmk.tools.addon.model.component.PackageDetail;
+import com.gni.frmk.tools.addon.model.component.base.BaseComponent;
+
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,25 +14,38 @@ import com.gni.frmk.tools.addon.model.component.art.AdapterListener.AdapterListe
  *
  * @author: e03229
  */
-public class AdapterListener extends BaseComponent<AdapterId, ActivableState, AdapterListenerDetail> {
+@XmlRootElement
+public class AdapterListener
+        extends BaseComponent<AdapterListener, AdapterListenerType, AdapterId, ActivableState, PackageDetail> {
 
-    public static class AdapterListenerDetail extends BaseComponent.AbstractDetail {
-        private String packageName;
+    private AdapterListener() {
+        super(AdapterListenerType.TYPE);
+    }
 
-        public AdapterListenerDetail(String packageName) {
-            this.packageName = packageName;
+    public AdapterListener(Builder builder) {
+        super(builder);
+    }
+
+    public static Builder builder(){
+        return new Builder();
+    }
+
+    @XmlTransient
+    public static final class Builder
+            extends BaseComponent.Builder<Builder,AdapterListener,AdapterListenerType,AdapterId,ActivableState,PackageDetail>{
+
+        public Builder() {
+            super(AdapterListenerType.newInstance());
         }
 
-        public AdapterListenerDetail() {
+        @Override
+        public AdapterListener build() {
+            return new AdapterListener(this);
         }
 
-        public String getPackageName() {
-            return packageName;
+        @Override
+        public Builder self() {
+            return this;
         }
-
-        public void setPackageName(String packageName) {
-            this.packageName = packageName;
-        }
-
     }
 }

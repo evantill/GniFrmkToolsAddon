@@ -1,7 +1,13 @@
 package com.gni.frmk.tools.addon.model.component;
 
 import com.gni.frmk.tools.addon.model.component.base.BaseComponentState;
+import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 
 import static com.gni.frmk.tools.addon.model.component.EnableStatus.UNKNOWN;
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -13,6 +19,10 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author: e03229
  */
+@XmlRootElement
+@XmlType(propOrder = {
+        "enabled"
+})
 public final class EnableState extends BaseComponentState<EnableState> {
 
     private EnableStatus enabled = UNKNOWN;
@@ -26,11 +36,12 @@ public final class EnableState extends BaseComponentState<EnableState> {
         enabled = builder.enabled;
     }
 
+    @XmlElement
     public EnableStatus getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(EnableStatus enabled) {
+    private void setEnabled(EnableStatus enabled) {
         this.enabled = enabled;
     }
 
@@ -40,6 +51,23 @@ public final class EnableState extends BaseComponentState<EnableState> {
                               .compare(0, super.compareTo(other))
                               .compare(getEnabled(), other.getEnabled())
                               .result();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        EnableState that = (EnableState) o;
+
+        return Objects.equal(exist(), that.exist())
+               && Objects.equal(enabled, that.enabled);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(exist(), enabled);
     }
 
     @Override
@@ -55,18 +83,17 @@ public final class EnableState extends BaseComponentState<EnableState> {
         return builder().enable(enabled).validate().build();
     }
 
+    @XmlTransient
     public static final class Builder extends BaseComponentState.Builder<Builder, EnableState> {
         private EnableStatus enabled;
 
         public Builder enable(EnableStatus enabled) {
             this.enabled = checkNotNull(enabled);
-            switch (enabled) {
-                case UNKNOWN:
-                    exist(false);
-                    break;
-                default:
-                    exist(true);
-                    break;
+            //if using switch compiler generate a $1 class and this is a problem for MoxY
+            if (enabled == EnableStatus.UNKNOWN) {
+                exist(false);
+            } else {
+                exist(true);
             }
             return this;
         }

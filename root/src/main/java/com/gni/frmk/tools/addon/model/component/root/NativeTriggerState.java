@@ -1,8 +1,16 @@
 package com.gni.frmk.tools.addon.model.component.root;
 
-import com.gni.frmk.tools.addon.model.component.BaseComponent.AbstractState;
 import com.gni.frmk.tools.addon.model.component.EnableState;
+import com.gni.frmk.tools.addon.model.component.base.BaseComponentState;
+import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
+
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,37 +19,52 @@ import com.google.common.collect.ComparisonChain;
  *
  * @author: e03229
  */
-public final class NativeTriggerState extends AbstractState<NativeTriggerState> {
+@XmlRootElement
+@XmlType(propOrder = {
+        "enabled",
+        "retrievalState",
+        "processingState"
+})
+public final class NativeTriggerState extends BaseComponentState<NativeTriggerState> {
 
     private EnableState enabled;
     private TemporaryActivableState retrievalState;
     private TemporaryActivableState processingState;
 
-    public NativeTriggerState() {
-        super(false);
+    private NativeTriggerState() {
     }
 
+    public NativeTriggerState(Builder builder) {
+        super(builder);
+        enabled=builder.enabled;
+        retrievalState=builder.retrievalState;
+        processingState=builder.processingState;
+    }
+
+    @XmlElement
     public EnableState getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(EnableState enabled) {
+    private void setEnabled(EnableState enabled) {
         this.enabled = enabled;
     }
 
+    @XmlElement
     public TemporaryActivableState getRetrievalState() {
         return retrievalState;
     }
 
-    public void setRetrievalState(TemporaryActivableState retrievalState) {
+    private void setRetrievalState(TemporaryActivableState retrievalState) {
         this.retrievalState = retrievalState;
     }
 
+    @XmlElement
     public TemporaryActivableState getProcessingState() {
         return processingState;
     }
 
-    public void setProcessingState(TemporaryActivableState processingState) {
+    private void setProcessingState(TemporaryActivableState processingState) {
         this.processingState = processingState;
     }
 
@@ -56,17 +79,82 @@ public final class NativeTriggerState extends AbstractState<NativeTriggerState> 
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        NativeTriggerState that = (NativeTriggerState) o;
+        return Objects.equal(enabled, that.enabled)
+               && Objects.equal(retrievalState, that.retrievalState)
+               && Objects.equal(processingState, that.processingState);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(exist(), enabled, retrievalState, processingState);
+    }
+
+    @Override
     public boolean unknown() {
         return getEnabled().unknown() || getProcessingState().unknown() || getRetrievalState().unknown();
     }
 
-
-    public static NativeTriggerState newNativeTriggerState(EnableState enabled, TemporaryActivableState retrievalState, TemporaryActivableState processingState) {
-        NativeTriggerState result = new NativeTriggerState();
-        result.setEnabled(enabled);
-        result.setRetrievalState(retrievalState);
-        result.setProcessingState(processingState);
-        return result;
+    public static Builder builder() {
+        return new Builder();
     }
 
+    @XmlTransient
+    public static final class Builder
+            extends BaseComponentState.Builder<Builder, NativeTriggerState> {
+        private EnableState enabled;
+        private TemporaryActivableState retrievalState;
+        private TemporaryActivableState processingState;
+
+        public Builder enabled(EnableState value) {
+            enabled = checkNotNull(value);
+            updateExist();
+            return this;
+        }
+
+        public Builder retrievalState(TemporaryActivableState value) {
+            retrievalState = checkNotNull(value);
+            updateExist();
+            return this;
+        }
+
+        public Builder processingState(TemporaryActivableState value) {
+            processingState = checkNotNull(value);
+            updateExist();
+            return this;
+        }
+
+        private void updateExist() {
+            boolean wellDefined = enabled != null && retrievalState != null && processingState != null;
+            if (wellDefined) {
+                boolean unknown = enabled.unknown() || retrievalState.unknown() || processingState.unknown();
+                exist(!unknown);
+            } else {
+                exist(false);
+            }
+        }
+
+        @Override
+        public Builder validate() {
+            checkNotNull(enabled);
+            checkNotNull(retrievalState);
+            checkNotNull(processingState);
+            return super.validate();
+        }
+
+        @Override
+        public NativeTriggerState build() {
+            return new NativeTriggerState(this);
+        }
+
+        @Override
+        public Builder self() {
+            return this;
+        }
+    }
 }

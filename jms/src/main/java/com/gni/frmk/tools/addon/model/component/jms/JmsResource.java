@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.model.component.jms;
 
-import com.gni.frmk.tools.addon.model.ModelResource;
+import com.gni.frmk.tools.addon.model.BaseModelResource;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,10 +9,14 @@ import com.gni.frmk.tools.addon.model.ModelResource;
  *
  * @author: e03229
  */
-public class JmsResource implements ModelResource {
+public class JmsResource extends BaseModelResource {
+
+    private static final Package[] contextPathPackages = new Package[]{
+            JmsAlias.class.getPackage()
+    };
 
     @Override
-    public String getContextPath() {
-        return getClass().getPackage().getName();
+    protected Package[] getContextPathPackages() {
+        return contextPathPackages;
     }
 }

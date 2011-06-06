@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jmsAlias>
+    <stringId>
+        <value>jms alias name 1</value>
+    </stringId>
+    <connectableState exist="true">
+        <enabled>ENABLED</enabled>
+        <connected>CONNECTED</connected>
+    </connectableState>
+    <jmsAliasDetail>
+        <description>description of jms alias 1</description>
+    </jmsAliasDetail>
+</jmsAlias>

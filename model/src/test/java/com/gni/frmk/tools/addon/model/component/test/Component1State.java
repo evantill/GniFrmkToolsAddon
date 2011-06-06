@@ -4,7 +4,9 @@ import com.gni.frmk.tools.addon.model.component.base.BaseComponentState;
 import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -28,11 +30,12 @@ public class Component1State extends BaseComponentState<Component1State> {
         enabled = builder.enabled;
     }
 
+    @XmlElement
     public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(boolean enabled) {
+    private  void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 
@@ -69,6 +72,7 @@ public class Component1State extends BaseComponentState<Component1State> {
         return new Builder();
     }
 
+    @XmlTransient
     public static final class Builder extends BaseComponentState.Builder<Builder, Component1State> {
         private Boolean enabled;
 

@@ -4,6 +4,7 @@ import com.gni.frmk.tools.addon.model.component.base.BaseComponentId;
 import com.google.common.collect.ComparisonChain;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -46,6 +47,7 @@ public class Component2Id
         return new Builder();
     }
 
+    @XmlTransient
     public static final class Builder extends BaseComponentId.Builder<Builder, Component2Id> {
         private Integer value;
 

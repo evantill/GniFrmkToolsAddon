@@ -4,6 +4,11 @@ import com.gni.frmk.tools.addon.model.component.base.BaseComponentId;
 import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
@@ -13,6 +18,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author: e03229
  */
+@XmlRootElement
+@XmlType(propOrder = {
+        "packageName",
+        "id"
+})
 public class PackageAndStringId extends BaseComponentId<PackageAndStringId> {
     private String packageName;
     private String id;
@@ -26,19 +36,21 @@ public class PackageAndStringId extends BaseComponentId<PackageAndStringId> {
         id = builder.id;
     }
 
+    @XmlElement
     public String getPackageName() {
         return packageName;
     }
 
-    public void setPackageName(String packageName) {
+    private void setPackageName(String packageName) {
         this.packageName = packageName;
     }
 
+    @XmlElement
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
+    private void setId(String id) {
         this.id = id;
     }
 
@@ -74,6 +86,7 @@ public class PackageAndStringId extends BaseComponentId<PackageAndStringId> {
         return new Builder();
     }
 
+    @XmlTransient
     public static final class Builder extends BaseComponentId.Builder<Builder, PackageAndStringId> {
         private String id;
         private String packageName;

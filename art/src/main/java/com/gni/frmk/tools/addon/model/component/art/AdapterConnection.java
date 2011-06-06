@@ -1,8 +1,11 @@
 package com.gni.frmk.tools.addon.model.component.art;
 
-import com.gni.frmk.tools.addon.model.component.BaseComponent;
+import com.gni.frmk.tools.addon.model.component.PackageDetail;
 import com.gni.frmk.tools.addon.model.component.EnableState;
-import com.gni.frmk.tools.addon.model.component.art.AdapterConnection.AdapterConnectionDetail;
+import com.gni.frmk.tools.addon.model.component.base.BaseComponent;
+
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,26 +14,43 @@ import com.gni.frmk.tools.addon.model.component.art.AdapterConnection.AdapterCon
  * Time: 11:30
  * To change this template use File | Settings | File Templates.
  */
+@XmlRootElement
 public class AdapterConnection
-        extends BaseComponent<AdapterId, EnableState, AdapterConnectionDetail> {
+        extends BaseComponent<AdapterConnection, AdapterConnectionType, AdapterId, EnableState, PackageDetail> {
 
-    public static class AdapterConnectionDetail extends BaseComponent.AbstractDetail {
-        private String packageName;
+    private AdapterConnection() {
+        super(AdapterConnectionType.TYPE);
+    }
 
-        public AdapterConnectionDetail(String packageName) {
-            this.packageName = packageName;
+    private AdapterConnection(Builder builder) {
+        super(builder);
+    }
+
+    public static final Builder builder() {
+        return new Builder();
+    }
+
+    @XmlTransient
+    public static final class Builder
+            extends BaseComponent.Builder<Builder, AdapterConnection, AdapterConnectionType, AdapterId, EnableState, PackageDetail> {
+
+        public Builder() {
+            super(AdapterConnectionType.newInstance());
         }
 
-        public AdapterConnectionDetail() {
+        @Override
+        public AdapterConnection build() {
+            return new AdapterConnection(this);
         }
 
-        public String getPackageName() {
-            return packageName;
+        @Override
+        public Builder self() {
+            return this;
         }
 
-        public void setPackageName(String packageName) {
-            this.packageName = packageName;
+        @Override
+        public Builder validate() {
+            return super.validate();
         }
-
     }
 }

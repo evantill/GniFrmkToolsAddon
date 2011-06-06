@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<adapterConnection>
+    <adapterId>
+        <adapterType>JDBCAdapter</adapterType>
+        <name>adapter connection name 1</name>
+    </adapterId>
+    <enableState exist="true">
+        <enabled>ENABLED</enabled>
+    </enableState>
+    <packageDetail>
+        <packageName>package name 1</packageName>
+    </packageDetail>
+</adapterConnection>

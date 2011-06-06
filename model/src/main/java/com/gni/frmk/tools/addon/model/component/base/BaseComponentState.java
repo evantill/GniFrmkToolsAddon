@@ -4,6 +4,9 @@ import com.gni.frmk.tools.addon.model.component.ComponentState;
 import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlTransient;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
@@ -14,7 +17,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * @author: e03229
  */
 public abstract class BaseComponentState<T extends BaseComponentState<T>>
-        implements ComponentState, Comparable<T> {
+        implements ComponentState<T>, Comparable<T> {
     private boolean exist;
 
     protected BaseComponentState() {
@@ -26,6 +29,7 @@ public abstract class BaseComponentState<T extends BaseComponentState<T>>
         exist = builder.exist;
     }
 
+    @XmlAttribute
     public boolean isExist() {
         return exist;
     }
@@ -59,6 +63,7 @@ public abstract class BaseComponentState<T extends BaseComponentState<T>>
         return Objects.hashCode(exist());
     }
 
+    @XmlTransient
     protected abstract static class Builder
             <B extends Builder<B, T>,
                     T extends BaseComponentState<T>>

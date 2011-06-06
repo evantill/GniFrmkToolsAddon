@@ -1,7 +1,6 @@
 package com.gni.frmk.tools.addon.model.component.test;
 
 import com.gni.frmk.tools.addon.model.component.base.BaseComponentType;
-import org.eclipse.persistence.oxm.annotations.XmlDiscriminatorValue;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -15,7 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Component2Type extends BaseComponentType<Component2Type, Component2, Component2Id, Component2State, SimpleDetail> {
 
-    private static final Component2Type singleton = new Component2Type();
+    public static final Component2Type TYPE = new Component2Type();
 
     private Component2Type() {
         super(Component2.class, Component2Id.class, Component2State.class, SimpleDetail.class);
@@ -52,7 +51,7 @@ public class Component2Type extends BaseComponentType<Component2Type, Component2
     }
 
     public static Component2Type newInstance() {
-        return singleton;
+        return TYPE;
     }
 
 

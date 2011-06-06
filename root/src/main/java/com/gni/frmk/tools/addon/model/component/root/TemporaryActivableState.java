@@ -1,43 +1,58 @@
 package com.gni.frmk.tools.addon.model.component.root;
 
 import com.gni.frmk.tools.addon.model.component.ActivableStatus;
-import com.gni.frmk.tools.addon.model.component.BaseComponent.AbstractState;
+import com.gni.frmk.tools.addon.model.component.base.BaseComponentState;
+import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
+
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
-* Created by IntelliJ IDEA.
-* Date: 17/05/11
-* Time: 18:06
-*
-* @author: e03229
-*/
-public class TemporaryActivableState extends AbstractState<TemporaryActivableState> {
-    private TemporaryStatus temporary;
+ * Created by IntelliJ IDEA.
+ * Date: 17/05/11
+ * Time: 18:06
+ *
+ * @author: e03229
+ */
+@XmlRootElement
+@XmlType(propOrder = {
+        "activable",
+        "temporary"
+})
+public class TemporaryActivableState
+        extends BaseComponentState<TemporaryActivableState> {
     private ActivableStatus activable;
+    private TemporaryStatus temporary;
 
-    public TemporaryActivableState(TemporaryStatus temporary, ActivableStatus activable) {
-        super(activable != ActivableStatus.UNKNOWN);
-        this.temporary = temporary;
-        this.activable = activable;
+    public TemporaryActivableState(Builder builder) {
+        super(builder);
+        this.temporary = builder.temporary;
+        this.activable = builder.activable;
     }
 
-    public TemporaryActivableState() {
-        super(false);
+    private TemporaryActivableState() {
     }
 
+    @XmlElement
     public TemporaryStatus getTemporary() {
         return temporary;
     }
 
-    public void setTemporary(TemporaryStatus temporary) {
+    private void setTemporary(TemporaryStatus temporary) {
         this.temporary = temporary;
     }
 
+    @XmlElement
     public ActivableStatus getActivable() {
         return activable;
     }
 
-    public void setActivable(ActivableStatus activable) {
+    private void setActivable(ActivableStatus activable) {
         this.activable = activable;
     }
 
@@ -54,4 +69,62 @@ public class TemporaryActivableState extends AbstractState<TemporaryActivableSta
                               .compare(getActivable(), other.getActivable())
                               .result();
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        TemporaryActivableState that = (TemporaryActivableState) o;
+        return Objects.equal(exist(), that.exist())
+               && Objects.equal(activable, that.activable)
+               && Objects.equal(temporary, that.temporary);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(exist(), activable, temporary);
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    @XmlTransient
+    public static final class Builder
+            extends BaseComponentState.Builder<Builder, TemporaryActivableState> {
+        private TemporaryStatus temporary;
+        private ActivableStatus activable;
+
+        public Builder temporary(TemporaryStatus value) {
+            temporary = checkNotNull(value);
+            updateExist();
+            return this;
+        }
+
+        public Builder activable(ActivableStatus value) {
+            activable = checkNotNull(value);
+            updateExist();
+            return this;
+        }
+
+        @Override
+        public TemporaryActivableState build() {
+            return new TemporaryActivableState(this);
+        }
+
+        private void updateExist() {
+            boolean unknown = activable == ActivableStatus.UNKNOWN || temporary == TemporaryStatus.UNKNOWN;
+            exist(!unknown);
+        }
+
+        @Override
+        public Builder self() {
+            return this;
+        }
+    }
+
+
 }

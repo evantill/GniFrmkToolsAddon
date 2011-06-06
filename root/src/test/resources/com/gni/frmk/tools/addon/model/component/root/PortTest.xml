@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<port>
+    <packageAndStringId>
+        <packageName>package 1</packageName>
+        <id>port name 1</id>
+    </packageAndStringId>
+    <activableState exist="true">
+        <enabled>ENABLED</enabled>
+        <activable>ACTIVE</activable>
+    </activableState>
+    <portDetail>
+        <primary>true</primary>
+    </portDetail>
+</port>

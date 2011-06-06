@@ -1,5 +1,11 @@
 NativeTrigger
 NativeTriggerState
+NativeTriggerType
 Port
+PortDetail
+PortType
 Scheduler
+SchedulerDetail
 SchedulerState
+SchedulerType
+TemporaryActivableState

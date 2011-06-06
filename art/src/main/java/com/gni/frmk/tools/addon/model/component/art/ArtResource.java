@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.model.component.art;
 
-import com.gni.frmk.tools.addon.model.ModelResource;
+import com.gni.frmk.tools.addon.model.BaseModelResource;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,10 +9,15 @@ import com.gni.frmk.tools.addon.model.ModelResource;
  *
  * @author: e03229
  */
-public class ArtResource implements ModelResource {
+public class ArtResource extends BaseModelResource {
+
+    private static final Package[] contextPathPackages = new Package[]{
+            AdapterConnection.class.getPackage()
+    };
 
     @Override
-    public String getContextPath() {
-        return getClass().getPackage().getName();
+    protected Package[] getContextPathPackages() {
+        return contextPathPackages;
     }
+
 }
