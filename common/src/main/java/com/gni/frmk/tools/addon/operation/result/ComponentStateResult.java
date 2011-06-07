@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.operation.result;
 
-import com.gni.frmk.tools.addon.model.component.Component.State;
+import com.gni.frmk.tools.addon.model.component.ComponentState;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,7 +9,7 @@ import com.gni.frmk.tools.addon.model.component.Component.State;
  *
  * @author: e03229
  */
-public class ComponentStateResult<S extends State> extends SingleResult<S> {
+public class ComponentStateResult<S extends ComponentState> extends SingleResult<S> {
 
     public ComponentStateResult(S value) {
         super(value);

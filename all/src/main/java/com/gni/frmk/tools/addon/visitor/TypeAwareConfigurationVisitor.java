@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.visitor;
 
-import com.gni.frmk.tools.addon.model.configuration.ConfigurationVisitor;
+import com.gni.frmk.tools.addon.visitor.api.ConfigurationVisitor;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,5 +12,8 @@ import com.gni.frmk.tools.addon.model.configuration.ConfigurationVisitor;
 public abstract class TypeAwareConfigurationVisitor
         extends TypeAwareComponentVisitor
         implements ConfigurationVisitor {
+
+
+
 
 }

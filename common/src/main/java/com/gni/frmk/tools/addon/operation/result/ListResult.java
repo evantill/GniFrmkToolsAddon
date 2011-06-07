@@ -16,7 +16,6 @@ import static java.util.Collections.unmodifiableList;
  * @author: e03229
  */
 public class ListResult<T>
-        extends AbstractResult
         implements CollectionResult<List<T>, T> {
     private final List<T> list;
 

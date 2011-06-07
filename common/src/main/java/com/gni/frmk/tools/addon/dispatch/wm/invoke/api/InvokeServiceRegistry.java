@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public class InvokeServiceRegistry implements ActionHandlerRegistry {
 
-    private final Map<Class<? extends Action<?>>, ActionHandler<?, ?, ? extends InvokeContext>> handlers = Maps.newHashMap();
+    private final Map<Class<?>, ActionHandler<?, ?, ? extends InvokeContext>> handlers = Maps.newHashMap();
 
     public InvokeServiceRegistry() {
     }

@@ -6,6 +6,7 @@ import com.google.common.collect.Sets;
 import java.util.Collection;
 import java.util.Set;
 
+import static java.util.Arrays.asList;
 import static java.util.Collections.unmodifiableSet;
 
 /**
@@ -16,10 +17,9 @@ import static java.util.Collections.unmodifiableSet;
  * @author: e03229
  */
 public class SetResult<T>
-        extends AbstractResult
         implements CollectionResult<Set<T>, T> {
 
-    private final Set<T> set= Sets.newHashSet();
+    private final Set<T> set = Sets.newHashSet();
 
     public SetResult(Collection<T> collection) {
         set.addAll(collection);
@@ -29,4 +29,14 @@ public class SetResult<T>
     public Set<T> getCollection() {
         return unmodifiableSet(set);
     }
+
+    public static <T> SetResult<T> newInstance(T... collection) {
+        return new SetResult<T>(asList(collection));
+    }
+
+    public static <T> SetResult<T> newInstance(Collection<T> collection) {
+        return new SetResult<T>(collection);
+    }
 }
+
+

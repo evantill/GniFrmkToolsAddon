@@ -1,12 +1,12 @@
 package com.gni.frmk.tools.addon;
 
+import com.gni.frmk.tools.addon.model.component.Component;
+import com.gni.frmk.tools.addon.model.component.ComponentDetail;
+import com.gni.frmk.tools.addon.model.component.ComponentId;
+import com.gni.frmk.tools.addon.model.component.ComponentState;
+import com.gni.frmk.tools.addon.model.component.ComponentType;
 import com.gni.frmk.tools.addon.operation.action.component.GetComponentDetail;
 import com.gni.frmk.tools.addon.operation.api.Action;
-import com.gni.frmk.tools.addon.model.component.Component;
-import com.gni.frmk.tools.addon.model.component.Component.Detail;
-import com.gni.frmk.tools.addon.model.component.Component.Id;
-import com.gni.frmk.tools.addon.model.component.Component.State;
-import com.gni.frmk.tools.addon.model.component.Component.Type;
 import com.gni.frmk.tools.addon.operation.result.ListResult;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
 
@@ -17,20 +17,25 @@ import com.gni.frmk.tools.addon.operation.result.SingleResult;
  *
  * @author: e03229
  */
-public interface ComponentRepository<T extends Component<I, S, D>, I extends Component.Id, S extends Component.State, D extends Component.Detail> {
-    Type getType();
+public interface ComponentRepository
+        <C extends Component<C, T, I, S, D>,
+                T extends ComponentType<T, C, I, S, D>,
+                I extends ComponentId<I>,
+                S extends ComponentState<S>,
+                D extends ComponentDetail<D>> {
+    ComponentType getType();
 
     ListId<I> getListIdAction();
 
-    GetComponentDetail<D,I> getDetailAction(I id);
+    GetComponentDetail<T, I, D> getDetailAction(I id);
 
-    StateAction<I,S> getStateAction(I id);
+    StateAction<I, S> getStateAction(I id);
 
-    public static class ListId<I extends Id>
+    public static class ListId<I extends ComponentId>
             implements Action<ListResult<I>> {
     }
 
-    public static class DetailAction<I extends Id, D extends Detail>
+    public static class DetailAction<I extends ComponentId, D extends ComponentDetail>
             implements Action<SingleResult<D>> {
         private final I id;
 
@@ -43,7 +48,7 @@ public interface ComponentRepository<T extends Component<I, S, D>, I extends Com
         }
     }
 
-    public static class StateAction<I extends Id,S extends State>
+    public static class StateAction<I extends ComponentId, S extends ComponentState>
             implements Action<SingleResult<S>> {
         private final I id;
 

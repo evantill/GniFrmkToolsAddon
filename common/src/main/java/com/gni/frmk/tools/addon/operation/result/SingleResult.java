@@ -10,7 +10,6 @@ import com.gni.frmk.tools.addon.operation.api.Result;
  * @author: e03229
  */
 public class SingleResult<T>
-        extends AbstractResult
         implements Result {
     private final T value;
 

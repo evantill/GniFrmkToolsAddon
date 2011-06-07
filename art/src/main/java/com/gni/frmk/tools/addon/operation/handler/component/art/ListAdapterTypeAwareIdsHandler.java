@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.operation.handler.component.art;
 
+import com.gni.frmk.tools.addon.model.component.ComponentId;
 import com.gni.frmk.tools.addon.operation.handler.AbstractInvokeHandler;
-import com.gni.frmk.tools.addon.model.component.Component;
 import com.gni.frmk.tools.addon.operation.action.component.art.ListAdapterTypes;
 import com.gni.frmk.tools.addon.operation.api.Action;
 import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
@@ -20,7 +20,7 @@ import java.util.Set;
  * @author: e03229
  */
 public abstract class ListAdapterTypeAwareIdsHandler
-        <A extends Action<R> & ListAdapterTypeAwareIdsAction,R extends ListResult<I>, I extends Component.Id>
+        <A extends Action<R> & ListAdapterTypeAwareIdsAction,R extends ListResult<I>, I extends ComponentId>
         extends AbstractInvokeHandler<A, R> {
 
     private final ListAdapterTypesHandler getAllAdapterType = new ListAdapterTypesHandler();

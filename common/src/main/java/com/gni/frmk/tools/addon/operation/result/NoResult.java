@@ -9,16 +9,10 @@ import com.gni.frmk.tools.addon.operation.api.Result;
  *
  * @author: e03229
  */
-public class NoResult
-        extends AbstractResult
-        implements Result {
-
-    //private static final NoResult SINGLETON = new NoResult();
-
-    private NoResult() {
-    }
+public enum NoResult implements Result {
+    singleton;
 
     public static NoResult newInstance() {
-        return new NoResult();
+        return singleton;
     }
 }

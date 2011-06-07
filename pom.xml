@@ -8,7 +8,8 @@
     <packaging>pom</packaging>
     <url>http://maven.apache.org</url>
     <modules>
-		<module>common</module>
+        <module>model</module>
+        <module>common</module>
         <module>draft</module>
         <module>core</module>
         <module>jms</module>
@@ -160,12 +161,6 @@
     </pluginRepositories>
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.8.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>com.wm</groupId>
             <artifactId>${wm.server.artifactId}</artifactId>
             <version>${wm.server.version}</version>
@@ -203,11 +198,11 @@
             <scope>test</scope>
         </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>javax.xml.bind</groupId>-->
-        <!--<artifactId>jaxb-api</artifactId>-->
-        <!--<version>2.2.2</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.2.2</version>
+        </dependency>
         <!--<dependency>-->
         <!--<groupId>com.sun.xml.bind</groupId>-->
         <!--<artifactId>jaxb-impl</artifactId>-->
@@ -230,18 +225,13 @@
         <!--<artifactId>jaxb-xjc</artifactId>-->
         <!--<version>2.1.8</version>-->
         <!--</dependency>-->
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-            <version>1.8.1</version>
-            <scope>test</scope>
-        </dependency>
+
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
             <version>1.4</version>
-            <scope>test</scope>
         </dependency>
+
         <!--<dependency>-->
         <!--<groupId>commons-io</groupId>-->
         <!--<artifactId>commons-io</artifactId>-->
@@ -301,12 +291,38 @@
             <version>r08</version>
         </dependency>
 
+        <!--test dependencies-->
+         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.1</version>
+            <scope>test</scope>
+        </dependency>
+          <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.unitils</groupId>
+            <artifactId>unitils-core</artifactId>
+            <version>3.1</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>xmlunit</groupId>
             <artifactId>xmlunit</artifactId>
             <version>1.3</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.easytesting</groupId>
+            <artifactId>fest-assert</artifactId>
+            <version>1.4</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
     <build>
         <extensions>
@@ -329,6 +345,12 @@
                     <configuration>
                         <source>1.6</source>
                         <target>1.6</target>
+                        <excludes>
+                            <exclude>**/oldies/**</exclude>
+                        </excludes>
+                        <!--<compilerArguments>-->
+                        <!--<endorseddirs>${project.build.directory}/endorsed</endorseddirs>-->
+                        <!--</compilerArguments>-->
                     </configuration>
                 </plugin>
                 <plugin>
@@ -342,6 +364,12 @@
                         </excludes>
                         <parallel>classes</parallel>
                         <threadCount>1</threadCount>
+                        <!--<systemPropertyVariables>-->
+                        <!--<property>-->
+                        <!--<name>java.endorsed.dirs</name>-->
+                        <!--<value>${basedir}/target/endorsed</value>-->
+                        <!--</property>-->
+                        <!--</systemPropertyVariables>-->
                     </configuration>
                 </plugin>
             </plugins>
@@ -350,22 +378,48 @@
 
         <plugins>
             <!--<plugin>-->
-                <!--<artifactId>maven-assembly-plugin</artifactId>-->
-                <!--<version>2.2-beta-4</version>-->
-                <!--<configuration>-->
-                    <!--<descriptors>-->
-                        <!--<descriptor>src/main/assembly/dist.xml</descriptor>-->
-                    <!--</descriptors>-->
-                <!--</configuration>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>make-assembly</id>-->
-                        <!--<phase>package</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>single</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-dependency-plugin</artifactId>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<phase>generate-sources</phase>-->
+            <!--<goals>-->
+            <!--<goal>copy</goal>-->
+            <!--</goals>-->
+            <!--<configuration>-->
+            <!--<artifactItems>-->
+            <!--<artifactItem>-->
+            <!--<groupId>javax.xml.bind</groupId>-->
+            <!--<artifactId>jaxb-api</artifactId>-->
+            <!--<version>2.2.2</version>-->
+            <!--<type>jar</type>-->
+            <!--<overWrite>false</overWrite>-->
+            <!--<outputDirectory>${project.build.directory}/endorsed</outputDirectory>-->
+            <!--</artifactItem>-->
+            <!--</artifactItems>-->
+            <!--</configuration>-->
+            <!--</execution>-->
+            <!--</executions>-->
+            <!--</plugin>-->
+
+
+            <!--<plugin>-->
+            <!--<artifactId>maven-assembly-plugin</artifactId>-->
+            <!--<version>2.2-beta-4</version>-->
+            <!--<configuration>-->
+            <!--<descriptors>-->
+            <!--<descriptor>src/main/assembly/dist.xml</descriptor>-->
+            <!--</descriptors>-->
+            <!--</configuration>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<id>make-assembly</id>-->
+            <!--<phase>package</phase>-->
+            <!--<goals>-->
+            <!--<goal>single</goal>-->
+            <!--</goals>-->
+            <!--</execution>-->
+            <!--</executions>-->
             <!--</plugin>-->
 
             <!--<plugin>-->

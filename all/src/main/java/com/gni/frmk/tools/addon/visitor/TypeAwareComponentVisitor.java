@@ -1,15 +1,14 @@
 package com.gni.frmk.tools.addon.visitor;
 
 import com.gni.frmk.tools.addon.model.component.Component;
-import com.gni.frmk.tools.addon.model.component.ComponentVisitor;
-import com.gni.frmk.tools.addon.model.component.art.AdapterConnection;
-import com.gni.frmk.tools.addon.model.component.art.AdapterListener;
-import com.gni.frmk.tools.addon.model.component.art.AdapterNotification;
-import com.gni.frmk.tools.addon.model.component.jms.JmsAlias;
-import com.gni.frmk.tools.addon.model.component.jms.JmsTrigger;
-import com.gni.frmk.tools.addon.model.component.root.NativeTrigger;
-import com.gni.frmk.tools.addon.model.component.root.Port;
-import com.gni.frmk.tools.addon.model.component.root.Scheduler;
+import com.gni.frmk.tools.addon.visitor.MethodBuilder.MethodInvocationBuilder;
+import com.gni.frmk.tools.addon.visitor.api.ComponentVisitor;
+import com.gni.frmk.tools.addon.visitor.api.art.ArtComponentVisitor;
+import com.gni.frmk.tools.addon.visitor.api.jms.JmsComponentVisitor;
+import com.gni.frmk.tools.addon.visitor.api.root.RootComponentVisitor;
+import com.google.common.collect.Maps;
+
+import java.util.Map;
 
 /**
  * Created by IntelliJ IDEA.
@@ -18,29 +17,22 @@ import com.gni.frmk.tools.addon.model.component.root.Scheduler;
  *
  * @author: e03229
  */
-public abstract class TypeAwareComponentVisitor extends ReflectionBaseVisitor
-        implements ComponentVisitor {
+public abstract class TypeAwareComponentVisitor
+        implements ComponentVisitor, ArtComponentVisitor, RootComponentVisitor, JmsComponentVisitor {
 
-    private static final String COMPONENT_VISITOR_PREFIX = "Component";
+    private static final Map<Class<? extends Component>, MethodInvocationBuilder<Void>> invokers = Maps.newHashMap();
 
     @Override
-    public void visitComponent(Component<?, ?, ?> visited) {
-        super.visit(visited, COMPONENT_VISITOR_PREFIX);
+    public void visitComponent(Component<?,?,?, ?, ?> visited) {
+        Class<? extends Component> visitedClass = visited.getClass();
+        if (!invokers.containsKey(visitedClass)) {
+            String simpleName = visitedClass.getSimpleName();
+            MethodInvocationBuilder<Void> invoker = MethodInvocationBuilder.builder()
+                                                                           .where(getClass())
+                                                                           .methodName("visitComponent", simpleName)
+                                                                           .compile(Void.TYPE);
+            invokers.put(visitedClass, invoker);
+        }
+        invokers.get(visitedClass).invokeNoCheckedExceptionException(this, visited);
     }
-
-    protected abstract void visitComponentAdapterConnection(AdapterConnection visited);
-
-    protected abstract void visitComponentAdapterListener(AdapterListener visited);
-
-    protected abstract void visitComponentAdapterNotification(AdapterNotification visited);
-
-    protected abstract void visitComponentJmsAlias(JmsAlias visited);
-
-    protected abstract void visitComponentJmsTrigger(JmsTrigger visited);
-
-    protected abstract void visitComponentNativeTrigger(NativeTrigger visited);
-
-    protected abstract void visitComponentPort(Port visited);
-
-    protected abstract void visitComponentScheduler(Scheduler visited);
 }

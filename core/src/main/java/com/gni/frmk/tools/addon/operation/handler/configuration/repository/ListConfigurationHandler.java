@@ -30,6 +30,6 @@ public class ListConfigurationHandler
 
     @Override
     public SetResult<ConfigurationId> execute(ListConfiguration action, InvokeContext context) {
-        return new SetResult<ConfigurationId>(repository.getConfigurationList());
+        return SetResult.newInstance(repository.getConfigurationList());
     }
 }

@@ -1,8 +1,9 @@
 package com.gni.frmk.tools.addon.operation.action.component;
 
+import com.gni.frmk.tools.addon.model.component.ComponentId;
+import com.gni.frmk.tools.addon.model.component.ComponentState;
+import com.gni.frmk.tools.addon.model.component.ComponentType;
 import com.gni.frmk.tools.addon.operation.api.Action;
-import com.gni.frmk.tools.addon.model.component.Component.Id;
-import com.gni.frmk.tools.addon.model.component.Component.State;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
 
 /**
@@ -12,15 +13,14 @@ import com.gni.frmk.tools.addon.operation.result.SingleResult;
  *
  * @author: e03229
  */
-public abstract class GetComponentState<S extends State, I extends Id>
+public class GetComponentState
+        <T extends ComponentType<T, ?, I, S, ?>,
+                I extends ComponentId<I>,
+                S extends ComponentState<S>>
+        extends IdTypeAwareAction<T,I>
         implements Action<SingleResult<S>> {
-    private final I id;
 
-    protected GetComponentState(I id) {
-        this.id = id;
-    }
-
-    public I getId() {
-        return id;
+    public GetComponentState(T type, I id) {
+        super(type, id);
     }
 }

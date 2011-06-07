@@ -2,7 +2,7 @@ package com.gni.frmk.tools.addon.operation.action.component;
 
 import com.gni.frmk.tools.addon.operation.api.Action;
 import com.gni.frmk.tools.addon.operation.api.Result;
-import com.gni.frmk.tools.addon.model.component.Component.Id;
+import com.gni.frmk.tools.addon.model.component.ComponentId;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,6 +11,6 @@ import com.gni.frmk.tools.addon.model.component.Component.Id;
  *
  * @author: e03229
  */
-public interface ComponentAction<I extends Id,R extends Result> extends Action<R> {
+public interface ComponentAction<I extends ComponentId,R extends Result> extends Action<R> {
     public I getId();
 }

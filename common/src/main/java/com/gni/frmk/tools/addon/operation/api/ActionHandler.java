@@ -8,7 +8,7 @@ package com.gni.frmk.tools.addon.operation.api;
 * @author: e03229
 */
 public interface ActionHandler<A extends Action<? extends Result>, R extends Result, E extends ExecutionContext> {
-    Class<? extends A> getActionType();
+    Class<?> getActionType();
 
     R execute(A action, E context) throws ActionException;
 

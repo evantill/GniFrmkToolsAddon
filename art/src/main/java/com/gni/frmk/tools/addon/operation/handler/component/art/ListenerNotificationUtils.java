@@ -36,7 +36,7 @@ public class ListenerNotificationUtils {
         } else {
             throw new IllegalStateException(String.format("unknown notification state %s", notificationEnabled));
         }
-        return new ActivableState(checkNotNull(enableStatus), checkNotNull(activableStatus));
+        return ActivableState.build(checkNotNull(enableStatus), checkNotNull(activableStatus));
     }
 
 }

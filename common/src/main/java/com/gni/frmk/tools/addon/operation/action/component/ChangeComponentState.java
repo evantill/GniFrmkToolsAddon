@@ -1,8 +1,9 @@
 package com.gni.frmk.tools.addon.operation.action.component;
 
 import com.gni.frmk.tools.addon.model.component.Component;
-import com.gni.frmk.tools.addon.model.component.Component.Id;
-import com.gni.frmk.tools.addon.model.component.Component.State;
+import com.gni.frmk.tools.addon.model.component.ComponentId;
+import com.gni.frmk.tools.addon.model.component.ComponentState;
+import com.gni.frmk.tools.addon.model.component.ComponentType;
 import com.gni.frmk.tools.addon.operation.api.Action;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
 
@@ -13,17 +14,26 @@ import com.gni.frmk.tools.addon.operation.result.SingleResult;
  *
  * @author: e03229
  */
-public abstract class ChangeComponentState<I extends Id, S extends State>
+public abstract class ChangeComponentState
+        <T extends ComponentType<T, ?, I, S, ?>,
+                I extends ComponentId<I>,
+                S extends ComponentState<S>>
+        extends IdTypeAwareAction<T, I>
         implements Action<SingleResult<Boolean>> {
 
     private final S newComponentState;
     private final S oldComponentState;
-    private final I componentId;
 
-    protected <C extends Component<I, S, ?>> ChangeComponentState(S newComponentState, C component) {
+    protected ChangeComponentState(T type, I id, S newComponentState, S oldComponentState) {
+        super(type, id);
+        this.newComponentState = newComponentState;
+        this.oldComponentState = oldComponentState;
+    }
+
+    protected <C extends Component<?, ? extends T, I, S, ?>> ChangeComponentState(C component, S newComponentState) {
+        super(component.getType(), component.getId());
         this.newComponentState = newComponentState;
         this.oldComponentState = component.getCurrentState();
-        this.componentId = component.getId();
     }
 
     public S getNewComponentState() {
@@ -32,9 +42,5 @@ public abstract class ChangeComponentState<I extends Id, S extends State>
 
     public S getOldComponentState() {
         return oldComponentState;
-    }
-
-    public I getComponentId() {
-        return componentId;
     }
 }

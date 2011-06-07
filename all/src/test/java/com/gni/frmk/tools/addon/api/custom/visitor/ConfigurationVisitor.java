@@ -15,7 +15,7 @@ import com.gni.frmk.tools.addon.model.configuration.Configuration;
 public interface ConfigurationVisitor
         extends Visitor<ConfigurationVisitor, ConfigurationVisited> {
 
-    void visitComponent(Component<?,?,?> visited);
+    void visitComponent(Component<?,?,?,?,?> visited);
 
     void visitConfiguration(Configuration configuration);
 

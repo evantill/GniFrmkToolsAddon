@@ -1,7 +1,8 @@
 package com.gni.frmk.tools.addon.operation.action.component;
 
 import com.gni.frmk.tools.addon.model.component.Component;
-import com.gni.frmk.tools.addon.model.component.Component.Id;
+import com.gni.frmk.tools.addon.model.component.ComponentId;
+import com.gni.frmk.tools.addon.model.component.ComponentType;
 import com.gni.frmk.tools.addon.operation.api.Action;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
 
@@ -12,15 +13,14 @@ import com.gni.frmk.tools.addon.operation.result.SingleResult;
  *
  * @author: e03229
  */
-public abstract class GetComponent<C extends Component<I, ?, ?>, I extends Id>
+public abstract class GetComponent
+        <T extends ComponentType<T, C, I, ?, ?>,
+                C extends Component<C, T, I, ?, ?>,
+                I extends ComponentId<I>>
+        extends IdTypeAwareAction<T, I>
         implements Action<SingleResult<C>> {
-    private final I id;
 
-    protected GetComponent(I id) {
-        this.id = id;
-    }
-
-    public I getId() {
-        return id;
+    protected GetComponent(T type, I id) {
+        super(type, id);
     }
 }
