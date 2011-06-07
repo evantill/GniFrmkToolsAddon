@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.util;
 
+import com.gni.frmk.tools.addon.model.component.test.Component1;
 import com.google.common.base.Charsets;
 import com.google.common.collect.Sets;
 import com.google.common.io.Resources;
@@ -27,24 +28,39 @@ public class XmlTestRule extends ExternalResource {
 
     private JAXBContext context;
     private Set<String> contextPathList = Sets.newHashSet();
+    private Class<?>[] objectTypes;
 
     public XmlTestRule(Package... packages) {
-        for(Package p : packages){
+        for (Package p : packages) {
             addContext(p.getName());
         }
     }
 
-    public void addContext(String path) {
+    public XmlTestRule(Class<?>... componentType) {
+        setObjectTypes(componentType);
+    }
+
+    private void addContext(String path) {
         contextPathList.add(path);
+    }
+
+    private void setObjectTypes(Class<?>... objectTypes) {
+        this.objectTypes = objectTypes;
     }
 
     @Override
     protected void before() throws Throwable {
-        StringBuilder pathBuilder = new StringBuilder();
-        for (String path : contextPathList) {
-            pathBuilder.append(path).append(":");
+        if (objectTypes != null) {
+            context = JAXBContext.newInstance(objectTypes);
         }
-        context = JAXBContext.newInstance(pathBuilder.toString());
+        if(contextPathList.size()>0){
+            StringBuilder pathBuilder = new StringBuilder();
+            for (String path : contextPathList) {
+                pathBuilder.append(path).append(":");
+            }
+            context = JAXBContext.newInstance(pathBuilder.toString());
+        }
+
     }
 
     @Override

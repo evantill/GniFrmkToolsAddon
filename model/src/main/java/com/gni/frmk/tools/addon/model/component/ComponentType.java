@@ -1,5 +1,7 @@
 package com.gni.frmk.tools.addon.model.component;
 
+import com.gni.frmk.tools.addon.model.BuilderWithValidation;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 01/06/11
@@ -23,13 +25,13 @@ public interface ComponentType
 
     Class<D> getTypeDetail();
 
-    Builder<?, C> componentBuilder();
+    BuilderWithValidation<?, C> componentBuilder();
 
-    Builder<?, I> idBuilder();
+    BuilderWithValidation<?, I> idBuilder();
 
-    Builder<?, S> stateBuilder();
+    BuilderWithValidation<?, S> stateBuilder();
 
-    Builder<?, D> detailBuilder();
+    BuilderWithValidation<?, D> detailBuilder();
 
     boolean isInput();
 

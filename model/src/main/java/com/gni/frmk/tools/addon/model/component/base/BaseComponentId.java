@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.model.component.base;
 
+import com.gni.frmk.tools.addon.model.BuilderWithValidation;
 import com.gni.frmk.tools.addon.model.component.ComponentId;
 
 import javax.xml.bind.annotation.XmlTransient;
@@ -24,6 +25,6 @@ public abstract class BaseComponentId<I extends BaseComponentId<I>> implements C
     protected abstract static class Builder
             <B extends Builder<B, I>,
                     I extends ComponentId>
-            implements com.gni.frmk.tools.addon.model.component.Builder<B,I> {
+            implements BuilderWithValidation<B,I> {
     }
 }

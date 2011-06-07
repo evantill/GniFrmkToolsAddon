@@ -3,8 +3,8 @@ package com.gni.frmk.tools.addon.model.configuration;
 import com.gni.frmk.tools.addon.model.component.Component;
 import com.gni.frmk.tools.addon.model.component.ComponentState;
 import com.gni.frmk.tools.addon.model.component.ComponentStateType;
+import com.gni.frmk.tools.addon.model.component.ComponentType;
 import com.gni.frmk.tools.addon.visitor.api.ConfigurationVisitor;
-import org.eclipse.persistence.oxm.annotations.XmlDiscriminatorNode;
 
 import java.util.Map;
 
@@ -15,7 +15,15 @@ import java.util.Map;
  *
  * @author: e03229
  */
-public interface ComponentConfiguration<C extends Component<C,?,?, S, ?>, S extends ComponentState> {
+public interface ComponentConfiguration
+        <CC extends ComponentConfiguration<CC, T, C, S>,
+                T extends ComponentType<T, C, ?, S, ?>,
+                C extends Component<C, T, ?, S, ?>,
+                S extends ComponentState<S>>
+        extends Comparable<CC> {
+
+    T getComponentType();
+
     C getComponent();
 
     Map<ComponentStateType, S> getStateConfigurations();

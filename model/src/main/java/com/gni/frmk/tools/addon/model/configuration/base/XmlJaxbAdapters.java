@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.model.configuration;
+package com.gni.frmk.tools.addon.model.configuration.base;
 
 import com.gni.frmk.tools.addon.model.component.base.BaseComponentState;
 import com.gni.frmk.tools.addon.model.component.ComponentState;
@@ -9,6 +9,7 @@ import com.google.common.collect.Maps;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import java.util.List;
@@ -65,7 +66,7 @@ public final class XmlJaxbAdapters {
             this.type = type;
         }
 
-        @XmlElement(type = BaseComponentState.class, required = true)
+        @XmlElementRef(type = BaseComponentState.class)
         public ComponentState getState() {
             return state;
         }

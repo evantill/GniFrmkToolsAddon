@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.model.component.base;
 
+import com.gni.frmk.tools.addon.model.BuilderWithValidation;
 import com.gni.frmk.tools.addon.model.component.Component;
 import com.gni.frmk.tools.addon.visitor.api.ComponentVisitor;
 import com.google.common.collect.ComparisonChain;
@@ -108,7 +109,7 @@ public abstract class BaseComponent
                     I extends BaseComponentId,
                     S extends BaseComponentState,
                     D extends BaseComponentDetail>
-            implements com.gni.frmk.tools.addon.model.component.Builder<B, C> {
+            implements BuilderWithValidation<B, C> {
 
         protected final T type;
         protected I id;

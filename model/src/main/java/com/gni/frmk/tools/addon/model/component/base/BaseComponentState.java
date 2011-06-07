@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.model.component.base;
 
+import com.gni.frmk.tools.addon.model.BuilderWithValidation;
 import com.gni.frmk.tools.addon.model.component.ComponentState;
 import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
@@ -67,7 +68,7 @@ public abstract class BaseComponentState<T extends BaseComponentState<T>>
     protected abstract static class Builder
             <B extends Builder<B, T>,
                     T extends BaseComponentState<T>>
-            implements com.gni.frmk.tools.addon.model.component.Builder<B, T> {
+            implements BuilderWithValidation<B, T> {
         private Boolean exist;
 
         public B exist(boolean exist) {

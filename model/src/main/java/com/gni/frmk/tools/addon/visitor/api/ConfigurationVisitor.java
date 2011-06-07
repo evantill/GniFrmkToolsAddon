@@ -13,6 +13,6 @@ import com.gni.frmk.tools.addon.visitor.api.ComponentVisitor;
  */
 public interface ConfigurationVisitor extends ComponentVisitor {
     void visitConfiguration(Configuration visited);
-    void visitComponentConfiguration(ComponentConfiguration<?, ?> visited);
+    void visitComponentConfiguration(ComponentConfiguration<?, ?,?,?> visited);
 
 }
