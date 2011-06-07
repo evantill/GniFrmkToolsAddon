@@ -8,6 +8,10 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/gni/frmk/tools/addon/oldies" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/oldies" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/gni/frmk/tools/addon/operation/handler/configuration/oldies" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/gni/frmk/tools/addon/repository/oldies" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

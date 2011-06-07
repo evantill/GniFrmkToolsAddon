@@ -36,9 +36,9 @@ public final class NativeTriggerState extends BaseComponentState<NativeTriggerSt
 
     public NativeTriggerState(Builder builder) {
         super(builder);
-        enabled=builder.enabled;
-        retrievalState=builder.retrievalState;
-        processingState=builder.processingState;
+        enabled = builder.enabled;
+        retrievalState = builder.retrievalState;
+        processingState = builder.processingState;
     }
 
     @XmlElement
@@ -69,30 +69,23 @@ public final class NativeTriggerState extends BaseComponentState<NativeTriggerSt
     }
 
     @Override
-    public int compareTo(NativeTriggerState other) {
-        return ComparisonChain.start()
-                              .compare(0, super.compareTo(other))
-                              .compare(getEnabled(), other.getEnabled())
-                              .compare(getProcessingState(), other.getProcessingState())
-                              .compare(getRetrievalState(), other.getRetrievalState())
-                              .result();
+    protected ComparisonChain extendedCompareTo(ComparisonChain chain, NativeTriggerState other) {
+        return chain.compare(getEnabled(), other.getEnabled())
+                    .compare(getProcessingState(), other.getProcessingState())
+                    .compare(getRetrievalState(), other.getRetrievalState());
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        NativeTriggerState that = (NativeTriggerState) o;
-        return Objects.equal(enabled, that.enabled)
-               && Objects.equal(retrievalState, that.retrievalState)
-               && Objects.equal(processingState, that.processingState);
+    protected boolean extendedEquals(NativeTriggerState other) {
+        return Objects.equal(retrievalState, other.retrievalState)
+               && Objects.equal(processingState, other.processingState);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(exist(), enabled, retrievalState, processingState);
+    protected Object[] extendedHashCode() {
+        return new Object[]{enabled,
+                            retrievalState,
+                            processingState};
     }
 
     @Override

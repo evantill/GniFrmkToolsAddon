@@ -21,6 +21,16 @@ public abstract class BaseComponentId<I extends BaseComponentId<I>> implements C
         builder.validate();
     }
 
+      @Override
+    public int hashCode() {
+        throw new IllegalStateException(String.format("hashCode() must be implemented in class %s", getClass().getName()));
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        throw new IllegalStateException(String.format("equals() must be implemented in class %s", getClass().getName()));
+    }
+
     @XmlTransient
     protected abstract static class Builder
             <B extends Builder<B, I>,

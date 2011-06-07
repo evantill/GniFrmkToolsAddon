@@ -22,6 +22,16 @@ public abstract class BaseComponentDetail<T extends BaseComponentDetail<T>> impl
         builder.validate();
     }
 
+    @Override
+    public int hashCode() {
+        throw new IllegalStateException(String.format("hashCode() must be implemented in class %s", getClass().getName()));
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        throw new IllegalStateException(String.format("equals() must be implemented in class %s", getClass().getName()));
+    }
+
     @XmlTransient
     public static abstract class Builder<B extends Builder<B, T>, T extends BaseComponentDetail>
             implements BuilderWithValidation<B, T> {

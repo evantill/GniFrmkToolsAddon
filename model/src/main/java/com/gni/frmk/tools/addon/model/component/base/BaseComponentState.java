@@ -45,24 +45,34 @@ public abstract class BaseComponentState<T extends BaseComponentState<T>>
     }
 
     @Override
-    public int compareTo(T other) {
-        return ComparisonChain.start().compare(isExist(), other.isExist()).result();
+    public final int compareTo(T other) {
+        ComparisonChain chain = ComparisonChain.start().compare(isExist(), other.isExist());
+        return extendedCompareTo(chain, other).result();
     }
 
+    protected abstract ComparisonChain extendedCompareTo(ComparisonChain chain, T other);
+
     @Override
-    public boolean equals(Object o) {
+    @SuppressWarnings("unchecked")
+    public final boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof BaseComponentState)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         BaseComponentState that = (BaseComponentState) o;
 
-        return Objects.equal(exist,that.exist);
+        return Objects.equal(exist, that.exist) && extendedEquals((T) that);
     }
 
+    protected abstract boolean extendedEquals(T other);
+
     @Override
-    public int hashCode() {
-        return Objects.hashCode(exist());
+    public final int hashCode() {
+        int extendedHashCode = Objects.hashCode(extendedHashCode());
+        int baseHashCode = Objects.hashCode(exist);
+        return Objects.hashCode(extendedHashCode, baseHashCode);
     }
+
+    protected abstract Object[] extendedHashCode();
 
     @XmlTransient
     protected abstract static class Builder

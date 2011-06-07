@@ -65,7 +65,6 @@ public abstract class AbstractConfigurationTest<T extends Configuration<?>> {
         StringWriter out = new StringWriter();
         xmlRule.save(configuration, out, true);
 
-        System.out.println("out = " + out);
         XMLUnit.setIgnoreAttributeOrder(true);
         XMLUnit.setIgnoreWhitespace(true);
         XMLAssert.assertXMLEqual(expectedXml.getContent(), out.toString());

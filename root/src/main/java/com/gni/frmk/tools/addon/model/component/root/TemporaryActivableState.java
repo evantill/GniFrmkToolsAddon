@@ -62,30 +62,20 @@ public class TemporaryActivableState
     }
 
     @Override
-    public int compareTo(TemporaryActivableState other) {
-        return ComparisonChain.start()
-                              .compare(0, super.compareTo(other))
-                              .compare(getTemporary(), other.getTemporary())
-                              .compare(getActivable(), other.getActivable())
-                              .result();
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        TemporaryActivableState that = (TemporaryActivableState) o;
-        return Objects.equal(exist(), that.exist())
-               && Objects.equal(activable, that.activable)
-               && Objects.equal(temporary, that.temporary);
+    protected ComparisonChain extendedCompareTo(ComparisonChain chain, TemporaryActivableState other) {
+        return chain.compare(getTemporary(), other.getTemporary())
+                              .compare(getActivable(), other.getActivable());
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(exist(), activable, temporary);
+    protected boolean extendedEquals(TemporaryActivableState other) {
+        return Objects.equal(activable, other.activable)
+               && Objects.equal(temporary, other.temporary);
+    }
+
+    @Override
+    protected Object[] extendedHashCode() {
+        return new Object[] {activable, temporary};
     }
 
     public static Builder builder() {

@@ -60,8 +60,6 @@ public abstract class AbstractComponentTest<T extends Component<?, ?, ?, ?, ?>> 
         T component = buildComponent();
         StringWriter out = new StringWriter();
         xmlRule.save(component, out, true);
-
-        System.out.println("out = " + out);
         XMLUnit.setIgnoreAttributeOrder(true);
         XMLUnit.setIgnoreWhitespace(true);
         XMLAssert.assertXMLEqual(expectedXml.getContent(), out.toString());

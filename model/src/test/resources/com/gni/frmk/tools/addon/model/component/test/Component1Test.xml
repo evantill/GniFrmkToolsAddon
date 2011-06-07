@@ -3,8 +3,7 @@
     <component1Id>
         <value>component id</value>
     </component1Id>
-    <component1State>
-        <exist>true</exist>
+    <component1State  exist="true">
         <enabled>true</enabled>
     </component1State>
     <simpleDetail>

@@ -3,6 +3,7 @@ package com.gni.frmk.tools.addon.model.component.base;
 import com.gni.frmk.tools.addon.model.BuilderWithValidation;
 import com.gni.frmk.tools.addon.model.component.Component;
 import com.gni.frmk.tools.addon.visitor.api.ComponentVisitor;
+import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
 
 import javax.xml.bind.annotation.XmlElementRef;
@@ -99,6 +100,26 @@ public abstract class BaseComponent
                               .compare(detail, o.detail)
                               .compare(currentState, o.currentState)
                               .result();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BaseComponent that = (BaseComponent) o;
+
+        boolean result =  Objects.equal(type, that.type)
+               && Objects.equal(id, that.id)
+               && Objects.equal(detail, that.detail)
+               && Objects.equal(currentState, that.currentState);
+
+        return result;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(type, id, detail, currentState);
     }
 
     @XmlTransient

@@ -1,6 +1,5 @@
 package com.gni.frmk.tools.addon.model.component.jms;
 
-import com.gni.frmk.tools.addon.model.component.ActivableStatus;
 import com.gni.frmk.tools.addon.model.component.EnableStatus;
 import com.gni.frmk.tools.addon.model.component.base.BaseComponentState;
 import com.google.common.base.Objects;
@@ -35,8 +34,8 @@ public final class ConnectableState extends BaseComponentState<ConnectableState>
 
     public ConnectableState(Builder builder) {
         super(builder);
-        this.enabled=builder.enabled;
-        this.connected=builder.connected;
+        this.enabled = builder.enabled;
+        this.connected = builder.connected;
     }
 
     public EnableStatus getEnabled() {
@@ -64,29 +63,19 @@ public final class ConnectableState extends BaseComponentState<ConnectableState>
     }
 
     @Override
-    public int compareTo(ConnectableState other) {
-        return ComparisonChain.start()
-                              .compare(0, super.compareTo(other))
-                              .compare(getEnabled(), other.getEnabled())
-                              .compare(getConnected(), other.getConnected())
-                              .result();
+    protected ComparisonChain extendedCompareTo(ComparisonChain chain, ConnectableState other) {
+        return chain.compare(getEnabled(), other.getEnabled()).compare(getConnected(), other.getConnected());
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        ConnectableState that = (ConnectableState) o;
-        return Objects.equal(exist(), that.exist())
-               && Objects.equal(enabled, that.enabled)
-               && Objects.equal(connected, that.connected);
+    protected boolean extendedEquals(ConnectableState other) {
+        return Objects.equal(enabled, other.enabled)
+               && Objects.equal(connected, other.connected);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(exist(), enabled, connected);
+    protected Object[] extendedHashCode() {
+        return new Object[]{enabled,connected};
     }
 
     @Override
@@ -111,7 +100,7 @@ public final class ConnectableState extends BaseComponentState<ConnectableState>
             return this;
         }
 
-          private void updateExist() {
+        private void updateExist() {
             boolean unknown = connected == ConnectableStatus.UNKNOWN || enabled == EnableStatus.UNKNOWN;
             exist(!unknown);
         }

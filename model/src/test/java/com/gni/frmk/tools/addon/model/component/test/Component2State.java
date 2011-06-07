@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.model.component.test;
 
 import com.gni.frmk.tools.addon.model.component.base.BaseComponentState;
+import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -52,11 +53,20 @@ public class Component2State extends BaseComponentState<Component2State> {
     }
 
     @Override
-    public int compareTo(Component2State other) {
-        return ComparisonChain.start()
-                              .compare(0, super.compareTo(other))
-                              .compare(isEnabled(), other.isEnabled())
-                              .result();
+    protected ComparisonChain extendedCompareTo(ComparisonChain chain, Component2State other) {
+        return chain.compare(isEnabled(), other.isEnabled());
+    }
+
+    @Override
+    protected boolean extendedEquals(Component2State other) {
+        return Objects.equal(enabled, other.enabled)
+               && Objects.equal(active, other.active);
+    }
+
+
+    @Override
+    protected Object[] extendedHashCode() {
+        return new Object[]{enabled,active};
     }
 
     public static Builder builder() {

@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.model.component.root;
 
 import com.gni.frmk.tools.addon.model.component.base.BaseComponentState;
+import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -61,12 +62,20 @@ public class SchedulerState
     }
 
     @Override
-    public int compareTo(SchedulerState other) {
-        return ComparisonChain.start()
-                              .compare(0, super.compareTo(other))
-                              .compare(getSuspended(), other.getSuspended())
-                              .compare(getScheduled(), other.getScheduled())
-                              .result();
+    protected ComparisonChain extendedCompareTo(ComparisonChain chain, SchedulerState other) {
+        return chain.compare(getSuspended(), other.getSuspended())
+                    .compare(getScheduled(), other.getScheduled());
+    }
+
+    @Override
+    protected boolean extendedEquals(SchedulerState other) {
+        return Objects.equal(suspended, other.suspended)
+               && Objects.equal(scheduled, other.scheduled);
+    }
+
+    @Override
+    protected Object[] extendedHashCode() {
+        return new Object[]{scheduled,suspended};
     }
 
     public static Builder builder() {

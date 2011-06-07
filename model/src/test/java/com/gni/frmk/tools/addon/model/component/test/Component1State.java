@@ -3,6 +3,7 @@ package com.gni.frmk.tools.addon.model.component.test;
 import com.gni.frmk.tools.addon.model.component.base.BaseComponentState;
 import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
+import org.eclipse.persistence.internal.jpa.parsing.FromNode;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -45,27 +46,18 @@ public class Component1State extends BaseComponentState<Component1State> {
     }
 
     @Override
-    public int compareTo(Component1State other) {
-        return ComparisonChain.start()
-                              .compare(0, super.compareTo(other))
-                              .compare(isEnabled(), other.isEnabled())
-                              .result();
+    protected ComparisonChain extendedCompareTo(ComparisonChain chain, Component1State other) {
+        return chain.compare(isEnabled(), other.isEnabled());
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Component1State that = (Component1State) o;
-
-        return super.equals(that)
-               && Objects.equal(enabled, that.enabled);
+    protected boolean extendedEquals(Component1State other) {
+        return Objects.equal(enabled, other.enabled);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(super.hashCode(),enabled);
+    protected Object[] extendedHashCode() {
+        return new Object[]{enabled};
     }
 
     public static Builder builder() {

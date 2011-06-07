@@ -70,8 +70,6 @@ public class ConfigurationFullTest {
 
         StringWriter out = new StringWriter();
         xmlRule.save(cnf, out, true);
-
-        System.out.println("out = " + out);
         XMLUnit.setIgnoreAttributeOrder(true);
         XMLUnit.setIgnoreWhitespace(true);
         XMLAssert.assertXMLEqual(expectedXml.getContent(), out.toString());

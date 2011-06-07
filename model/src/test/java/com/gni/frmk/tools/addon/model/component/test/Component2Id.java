@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.model.component.test;
 
 import com.gni.frmk.tools.addon.model.component.base.BaseComponentId;
+import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -42,6 +43,21 @@ public class Component2Id
                 .compare(value,o.value)
                 .result();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Component2Id that = (Component2Id) o;
+        return Objects.equal(value, that.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(value);
+    }
+
 
     public static Builder builder() {
         return new Builder();

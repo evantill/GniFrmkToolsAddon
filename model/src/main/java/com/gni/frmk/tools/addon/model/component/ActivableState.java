@@ -35,32 +35,21 @@ public class ActivableState extends BaseComponentState<ActivableState> {
     }
 
     @Override
-    public int compareTo(ActivableState other) {
-        return ComparisonChain.start()
-                              .compare(0, super.compareTo(other))
-                              .compare(enabled, other.enabled)
-                              .compare(activable, other.activable)
-                              .result();
+    protected ComparisonChain extendedCompareTo(ComparisonChain chain, ActivableState other) {
+        return chain.compare(enabled, other.enabled)
+                              .compare(activable, other.activable);
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        ActivableState that = (ActivableState) o;
-
-        return Objects.equal(exist(), that.exist())
-               && Objects.equal(enabled, that.enabled)
-               && Objects.equal(activable, that.activable);
+    protected boolean extendedEquals(ActivableState other) {
+                       return Objects.equal(enabled, other.enabled)
+               && Objects.equal(activable, other.activable);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(exist(), enabled, activable);
+    protected Object[] extendedHashCode() {
+        return new Object[]{enabled,activable};
     }
-
 
     public static Builder builder() {
         return new Builder();

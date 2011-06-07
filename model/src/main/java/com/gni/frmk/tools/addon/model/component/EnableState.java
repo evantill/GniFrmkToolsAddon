@@ -46,28 +46,18 @@ public final class EnableState extends BaseComponentState<EnableState> {
     }
 
     @Override
-    public int compareTo(EnableState other) {
-        return ComparisonChain.start()
-                              .compare(0, super.compareTo(other))
-                              .compare(getEnabled(), other.getEnabled())
-                              .result();
+    protected ComparisonChain extendedCompareTo(ComparisonChain chain, EnableState other) {
+        return chain.compare(getEnabled(), other.getEnabled());
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        EnableState that = (EnableState) o;
-
-        return Objects.equal(exist(), that.exist())
-               && Objects.equal(enabled, that.enabled);
+    protected boolean extendedEquals(EnableState other) {
+        return Objects.equal(enabled, other.enabled);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(exist(), enabled);
+    protected Object[] extendedHashCode() {
+        return new Object[]{enabled};
     }
 
     @Override

@@ -5,6 +5,7 @@ import com.google.common.collect.Sets;
 import org.fest.assertions.Assertions;
 import org.junit.Test;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -38,11 +39,14 @@ public class ComponentSetTest {
 
     @Test
     public void testComponentSet() {
-        Set<Component<?, ?, ?, ?, ?>> collection = Sets.newHashSet();
+        HashSet<Component<?, ?, ?, ?, ?>> collection = Sets.newHashSet();
         Component1 c1 = createC1();
         Component1 c1Bis = createC1();
         Component2 c2 = createC2();
         Component2 c2Bis = createC2();
+
+        Assertions.assertThat(c1.hashCode()).isEqualTo(c1Bis.hashCode());
+        Assertions.assertThat(c2.hashCode()).isEqualTo(c2Bis.hashCode());
 
         collection.add(c1);
         collection.add(c2);
