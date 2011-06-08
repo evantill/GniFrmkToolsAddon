@@ -2,6 +2,7 @@ package com.gni.frmk.tools.addon.operation.action.component;
 
 import com.gni.frmk.tools.addon.model.component.ComponentId;
 import com.gni.frmk.tools.addon.model.component.ComponentType;
+import com.gni.frmk.tools.addon.model.component.base.BaseComponentType;
 import com.gni.frmk.tools.addon.operation.api.Action;
 import com.gni.frmk.tools.addon.operation.result.SetResult;
 
@@ -12,11 +13,21 @@ import com.gni.frmk.tools.addon.operation.result.SetResult;
  *
  * @author: e03229
  */
-public class ListComponentIds<I extends ComponentId<I>, T extends ComponentType<T,?,I,?,?>>
-        extends TypeAwareAction<T>
+public class ListComponentIds<I extends ComponentId<?>>
         implements Action<SetResult<I>> {
 
-    public ListComponentIds(T type) {
-        super(type);
+    private final ComponentType<?, ?, I, ?, ?> type;
+
+    public ListComponentIds(ComponentType<?, ?, I, ?, ?> type) {
+        this.type = type;
     }
+
+    public ComponentType<?, ?, I, ?, ?> getType() {
+        return type;
+    }
+
+    public static <T extends ComponentType<?, ?, I, ?, ?>, I extends ComponentId<?>> ListComponentIds<I> build(T type) {
+        return new ListComponentIds<I>(type);
+    }
+
 }

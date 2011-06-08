@@ -1,13 +1,15 @@
 package com.gni.frmk.tools.addon.operation.handler.component;
 
-import com.gni.frmk.tools.addon.invoker.api.ServiceException;
+import com.gni.frmk.tools.addon.api.strategy.Strategy;
 import com.gni.frmk.tools.addon.model.component.ComponentId;
 import com.gni.frmk.tools.addon.model.component.ComponentType;
+import com.gni.frmk.tools.addon.operation.action.component.ListComponentIds;
+import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
+import com.gni.frmk.tools.addon.operation.result.SetResult;
 import com.google.common.collect.Maps;
 
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by IntelliJ IDEA.
@@ -18,28 +20,16 @@ import java.util.Set;
  */
 public class ListComponentIdsContext {
 
-    private final Map<ComponentType<?, ?, ?, ?, ?>,ListComponentIdsStrategy<?>> strategies = Maps.newHashMap();
+    private final Map<ComponentType<?, ?, ?, ?, ?>, ListComponentIdsStrategy<?, ?>> strategies = Maps.newHashMap();
 
-    public <I extends ComponentId<I>> void registerStrategy(ComponentType<?, ?, I, ?, ?> type, ListComponentIdsStrategy<I> strategy){
-        strategies.put(type,strategy);
+    public <T extends ComponentType<?, ?, I, ?, ?>, I extends ComponentId<?>>
+    void registerStrategy(ListComponentIdsStrategy<T, I> strategy) {
+        strategies.put(strategy.getType(), strategy);
     }
 
-    /**
-     *
-     * @param type
-     * @param <I>
-     * @return
-     *
-     * casting is safe due to registerStrategy method signature.
-     */
-    @SuppressWarnings("unchecked")
-    protected <I extends ComponentId<I>> ListComponentIdsStrategy<I> selectStrategy(ComponentType<?, ?, I, ?, ?> type) {
-        ListComponentIdsStrategy<?> strategy = strategies.get(type);
-        return (ListComponentIdsStrategy<I>) strategy;
+    public <I extends ComponentId<?>>
+    SetResult<I> execute(ListComponentIds<I> action, InvokeContext executionContext) throws ActionException {
+        ListComponentIdsStrategy<?, I> strategy = (ListComponentIdsStrategy<?, I>) strategies.get(action.getType());
+        return strategy.execute(action, executionContext);
     }
-
-    public <I extends ComponentId<I>> Set<I> listIds(ComponentType<?, ?, I, ?, ?> type, InvokeContext context) throws ServiceException {
-        return selectStrategy(type).listIds(context);
-    }
-
 }

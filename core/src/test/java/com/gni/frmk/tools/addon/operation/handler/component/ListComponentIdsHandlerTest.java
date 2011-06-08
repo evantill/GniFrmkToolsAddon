@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.operation.handler.component;
 
 import com.gni.frmk.tools.addon.invoker.api.ServiceException;
+import com.gni.frmk.tools.addon.model.component.ComponentId;
 import com.gni.frmk.tools.addon.model.component.test.Component1Id;
 import com.gni.frmk.tools.addon.model.component.test.Component1Type;
 import com.gni.frmk.tools.addon.operation.action.component.ListComponentIds;
@@ -12,6 +13,7 @@ import org.junit.Test;
 
 import java.util.Set;
 
+import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
 /**
@@ -24,10 +26,15 @@ import static org.mockito.Mockito.mock;
 public class ListComponentIdsHandlerTest {
 
     public static final class TestStrategy
-            implements ListComponentIdsStrategy<Component1Id> {
+            extends ListComponentIdsStrategy<Component1Type, Component1Id> {
 
         @Override
-        public Set<Component1Id> listIds(InvokeContext context) throws ServiceException {
+        public Component1Type getType() {
+            return Component1Type.TYPE;
+        }
+
+        @Override
+        protected Set<Component1Id> listIds(InvokeContext context) throws ServiceException {
             Set<Component1Id> result = Sets.newHashSet();
             result.add(Component1Id.builder().value("component 1").build());
             result.add(Component1Id.builder().value("component 2").build());
@@ -35,21 +42,22 @@ public class ListComponentIdsHandlerTest {
             result.add(Component1Id.builder().value("component 4").build());
             return result;
         }
+
     }
 
     @Test
     public void testExecute() throws Exception {
         ListComponentIdsContext context = new ListComponentIdsContext();
-        context.registerStrategy(Component1Type.TYPE, new TestStrategy());
+        context.registerStrategy(new TestStrategy());
         ListComponentIdsHandler handler = new ListComponentIdsHandler(context);
         InvokeContext ctx = mock(InvokeContext.class);
         {
-            ListComponentIds<Component1Id,Component1Type> action = new ListComponentIds<Component1Id,Component1Type>(Component1Type.TYPE);
-            SetResult<Component1Id> result = handler.executeTypeSafe(action, ctx);
-            Assert.assertNotNull(result);
-            Assert.assertNotNull(result.getCollection());
-            Assert.assertEquals(4, result.getCollection().size());
+            ListComponentIds<? extends ComponentId<?>> action = ListComponentIds.build(Component1Type.TYPE);
+            SetResult<? extends ComponentId<?>> result = handler.execute(action, ctx);
+            assertThat(result).isNotNull();
+            assertThat(result.getCollection()).isNotNull().hasSize(4);
         }
     }
+
 }
 
