@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.invoker.service.root;
 import com.gni.frmk.tools.addon.invoker.io.ListValueOutput;
 import com.gni.frmk.tools.addon.invoker.io.NoInput;
 import com.gni.frmk.tools.addon.invoker.io.root.NativeTriggerInfo;
-import com.gni.frmk.tools.addon.invoker.io.root.NativeTriggerInfo.NativeTriggerState;
+import com.gni.frmk.tools.addon.invoker.io.root.NativeTriggerInfo.NativeTriggerInfoState;
 import com.gni.frmk.tools.addon.invoker.service.AbstractServiceTest;
 import junit.framework.Assert;
 import org.junit.Test;
@@ -33,8 +33,8 @@ public class GetTriggerReportTest extends AbstractServiceTest {
         NativeTriggerInfo expected = NativeTriggerInfo.builder()
                                                       .name("BenchProcess.trigger:asyncTrigger")
                                                       .executeEnabled(true)
-                                                      .processing(NativeTriggerState.PERMANENT_ACTIVE)
-                                                      .retrieval(NativeTriggerState.PERMANENT_ACTIVE)
+                                                      .processing(NativeTriggerInfoState.PERMANENT_ACTIVE)
+                                                      .retrieval(NativeTriggerInfoState.PERMANENT_ACTIVE)
                                                       .build();
         NativeTriggerInfo value = output.getValues().get(0);
         assertEquals(expected, value);

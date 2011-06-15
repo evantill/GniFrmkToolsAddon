@@ -13,7 +13,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * @author: e03229
  */
 public class NativeTriggerInfo implements Comparable<NativeTriggerInfo> {
-    public static enum NativeTriggerState {
+    public static enum NativeTriggerInfoState {
         PERMANENT_ACTIVE(true, true),
         PERMANENT_INACTIVE(true, false),
         TEMPORARY_ACTIVE(false, true),
@@ -22,7 +22,7 @@ public class NativeTriggerInfo implements Comparable<NativeTriggerInfo> {
         private final boolean permanent;
         private final boolean active;
 
-        NativeTriggerState(boolean permanent, boolean active) {
+        NativeTriggerInfoState(boolean permanent, boolean active) {
             this.permanent = permanent;
             this.active = active;
         }
@@ -35,7 +35,7 @@ public class NativeTriggerInfo implements Comparable<NativeTriggerInfo> {
             return active;
         }
 
-        public static NativeTriggerState decode(boolean permanent, boolean active) {
+        public static NativeTriggerInfoState decode(boolean permanent, boolean active) {
             if (permanent) {
                 if (active) {
                     return PERMANENT_ACTIVE;
@@ -55,8 +55,8 @@ public class NativeTriggerInfo implements Comparable<NativeTriggerInfo> {
 
     private final String name;
     private final boolean executeEnabled;
-    private final NativeTriggerState retrieval;
-    private final NativeTriggerState processing;
+    private final NativeTriggerInfoState retrieval;
+    private final NativeTriggerInfoState processing;
 
     @Override
     public int compareTo(NativeTriggerInfo o) {
@@ -94,11 +94,11 @@ public class NativeTriggerInfo implements Comparable<NativeTriggerInfo> {
         return executeEnabled;
     }
 
-    public NativeTriggerState getRetrieval() {
+    public NativeTriggerInfoState getRetrieval() {
         return retrieval;
     }
 
-    public NativeTriggerState getProcessing() {
+    public NativeTriggerInfoState getProcessing() {
         return processing;
     }
 
@@ -116,8 +116,8 @@ public class NativeTriggerInfo implements Comparable<NativeTriggerInfo> {
     public static final class Builder {
         private String name;
         private boolean executeEnabled;
-        private NativeTriggerState retrieval;
-        private NativeTriggerState processing;
+        private NativeTriggerInfoState retrieval;
+        private NativeTriggerInfoState processing;
 
         public Builder name(String value) {
             name = checkNotNull(value);
@@ -129,12 +129,12 @@ public class NativeTriggerInfo implements Comparable<NativeTriggerInfo> {
             return this;
         }
 
-        public Builder retrieval(NativeTriggerState value) {
+        public Builder retrieval(NativeTriggerInfoState value) {
             retrieval = checkNotNull(value);
             return this;
         }
 
-        public Builder processing(NativeTriggerState value) {
+        public Builder processing(NativeTriggerInfoState value) {
             processing = checkNotNull(value);
             return this;
         }

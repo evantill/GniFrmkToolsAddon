@@ -23,4 +23,8 @@ public enum TemporaryStatus {
     public boolean isTemporary() {
         return !permanent;
     }
+
+    public static TemporaryStatus fromBoolean(boolean permanent) {
+        return permanent?PERMANENT : TEMPORARY;
+    }
 }

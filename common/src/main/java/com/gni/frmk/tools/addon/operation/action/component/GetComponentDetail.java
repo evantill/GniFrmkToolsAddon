@@ -13,14 +13,29 @@ import com.gni.frmk.tools.addon.operation.result.SingleResult;
  *
  * @author: e03229
  */
-public abstract class GetComponentDetail
-        <T extends ComponentType<T, ?, I, ?, D>,
-                I extends ComponentId<I>,
-                D extends ComponentDetail<D>>
-        extends IdTypeAwareAction<T,I>
+public class GetComponentDetail
+        <I extends ComponentId<I>, D extends ComponentDetail<D>>
         implements Action<SingleResult<D>> {
 
-    protected GetComponentDetail(T type, I id) {
-        super(type, id);
+    private final ComponentType<?, ?, I, ?, D> componentType;
+    private final I componentId;
+
+    private GetComponentDetail(ComponentType<?, ?, I, ?, D> componentType, I componentId) {
+        this.componentType = componentType;
+        this.componentId = componentId;
+    }
+
+    public ComponentType<?, ?, I, ?, D> getComponentType() {
+        return componentType;
+    }
+
+    public I getComponentId() {
+        return componentId;
+    }
+
+    public static <T extends ComponentType<T, ?, I, ?, D>,
+            I extends ComponentId<I>,
+            D extends ComponentDetail<D>> GetComponentDetail<I, D> newInstance(T type, I id) {
+        return new GetComponentDetail<I, D>(type, id);
     }
 }

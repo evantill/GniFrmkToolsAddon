@@ -9,18 +9,34 @@ import com.gni.frmk.tools.addon.operation.result.SingleResult;
 /**
  * Created by IntelliJ IDEA.
  * Date: 16/05/11
- * Time: 14:34
+ * Time: 14:31
  *
  * @author: e03229
  */
 public class GetComponentState
-        <T extends ComponentType<T, ?, I, S, ?>,
-                I extends ComponentId<I>,
-                S extends ComponentState<S>>
-        extends IdTypeAwareAction<T,I>
+        <I extends ComponentId<I>, S extends ComponentState<S>>
         implements Action<SingleResult<S>> {
 
-    public GetComponentState(T type, I id) {
-        super(type, id);
+    private final ComponentType<?, ?, I, S, ?> componentType;
+    private final I componentId;
+
+    private GetComponentState(ComponentType<?, ?, I, S, ?> componentType, I componentId) {
+        this.componentType = componentType;
+        this.componentId = componentId;
+    }
+
+    public ComponentType<?, ?, I, S, ?> getComponentType() {
+        return componentType;
+    }
+
+    public I getComponentId() {
+        return componentId;
+    }
+
+    public static <T extends ComponentType<T, ?, I, S, ?>,
+            I extends ComponentId<I>,
+            S extends ComponentState<S>>
+    GetComponentState<I, S> newInstance(T type, I id) {
+        return new GetComponentState<I, S>(type, id);
     }
 }

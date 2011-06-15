@@ -66,6 +66,10 @@ public class PortDetail extends BaseComponentDetail<PortDetail> {
         return new Builder();
     }
 
+    public static PortDetail newInstance(boolean primary) {
+        return builder().primary(primary).validate().build();
+    }
+
     @XmlTransient
     public static final class Builder
             extends BaseComponentDetail.Builder<Builder, PortDetail> {

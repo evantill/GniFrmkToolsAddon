@@ -17,4 +17,8 @@ public enum SuspendedStatus {
     public static boolean isDesactivation(SuspendedStatus from, SuspendedStatus to) {
         return from == READY && to == SUSPENDED;
     }
+
+    public static SuspendedStatus fromBoolean(boolean suspended) {
+        return suspended?SUSPENDED:READY;
+    }
 }

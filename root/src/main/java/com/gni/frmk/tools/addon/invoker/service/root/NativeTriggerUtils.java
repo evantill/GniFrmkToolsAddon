@@ -1,7 +1,6 @@
 package com.gni.frmk.tools.addon.invoker.service.root;
 
-import com.gni.frmk.tools.addon.invoker.io.root.NativeTriggerInfo;
-import com.gni.frmk.tools.addon.invoker.io.root.NativeTriggerInfo.NativeTriggerState;
+import com.gni.frmk.tools.addon.invoker.io.root.NativeTriggerInfo.NativeTriggerInfoState;
 import com.wm.data.*;
 
 /**
@@ -13,10 +12,10 @@ import com.wm.data.*;
  */
 class NativeTriggerUtils {
 
-    public static NativeTriggerState parseState(IData doc) {
+    public static NativeTriggerInfoState parseState(IData doc) {
         if (doc == null) {
             //TODO add log
-            return NativeTriggerState.PERMANENT_INACTIVE;
+            return NativeTriggerInfoState.PERMANENT_INACTIVE;
         }
         IDataCursor curDoc = doc.getCursor();
         try {
@@ -30,7 +29,7 @@ class NativeTriggerUtils {
                 }
             }
             boolean active = decodeBoolean(stateValue.toUpperCase(), "ACTIVE", "SUSPENDED");
-            return NativeTriggerInfo.NativeTriggerState.decode(permanent, active);
+            return NativeTriggerInfoState.decode(permanent, active);
         } finally {
             curDoc.destroy();
         }
