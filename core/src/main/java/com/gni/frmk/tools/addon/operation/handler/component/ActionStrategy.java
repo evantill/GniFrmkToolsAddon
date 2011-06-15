@@ -9,6 +9,6 @@ import com.gni.frmk.tools.addon.model.component.ComponentType;
  *
  * @author: e03229
  */
-public interface ActionStrategy<T extends ComponentType<?, ?, ?, ?, ?>> {
+interface ActionStrategy<T extends ComponentType<?, ?, ?, ?, ?>> {
     T getComponentType();
 }

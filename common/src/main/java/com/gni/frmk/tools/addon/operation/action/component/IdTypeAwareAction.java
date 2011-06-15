@@ -2,6 +2,8 @@ package com.gni.frmk.tools.addon.operation.action.component;
 
 import com.gni.frmk.tools.addon.model.component.ComponentId;
 import com.gni.frmk.tools.addon.model.component.ComponentType;
+import com.gni.frmk.tools.addon.operation.action.TypeAwareAction;
+import com.gni.frmk.tools.addon.operation.api.Result;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,8 +14,9 @@ import com.gni.frmk.tools.addon.model.component.ComponentType;
  */
 public abstract class IdTypeAwareAction
         <T extends ComponentType<T, ?, I, ?, ?>,
-                I extends ComponentId<I>>
-        extends TypeAwareAction<T> {
+                I extends ComponentId<I>
+                , R extends Result>
+        extends TypeAwareAction<T, R> {
 
     private final I id;
 

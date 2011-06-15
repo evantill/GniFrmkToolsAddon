@@ -9,38 +9,48 @@ import com.gni.frmk.tools.addon.operation.result.SingleResult;
 
 /**
  * Created by IntelliJ IDEA.
- * Date: 17/05/11
- * Time: 13:20
+ * Date: 16/05/11
+ * Time: 14:31
  *
  * @author: e03229
  */
-public abstract class ChangeComponentState
-        <T extends ComponentType<T, ?, I, S, ?>,
-                I extends ComponentId<I>,
-                S extends ComponentState<S>>
-        extends IdTypeAwareAction<T, I>
-        implements Action<SingleResult<Boolean>> {
+public class ChangeComponentState
+        <I extends ComponentId<I>, S extends ComponentState<S>>
+        implements Action<SingleResult<S>> {
 
-    private final S newComponentState;
-    private final S oldComponentState;
+    private final ComponentType<?, ?, I, S, ?> componentType;
+    private final I componentId;
+    private final S oldState;
+    private final S newState;
 
-    protected ChangeComponentState(T type, I id, S newComponentState, S oldComponentState) {
-        super(type, id);
-        this.newComponentState = newComponentState;
-        this.oldComponentState = oldComponentState;
+    public <C extends Component<?, ?, I, S, ?>> ChangeComponentState(C component, S newState) {
+        this.componentType = component.getType();
+        this.componentId = component.getId();
+        this.oldState = component.getCurrentState();
+        this.newState = newState;
     }
 
-    protected <C extends Component<?, ? extends T, I, S, ?>> ChangeComponentState(C component, S newComponentState) {
-        super(component.getType(), component.getId());
-        this.newComponentState = newComponentState;
-        this.oldComponentState = component.getCurrentState();
+    public ComponentType<?, ?, I, S, ?> getComponentType() {
+        return componentType;
     }
 
-    public S getNewComponentState() {
-        return newComponentState;
+    public I getComponentId() {
+        return componentId;
     }
 
-    public S getOldComponentState() {
-        return oldComponentState;
+    public S getOldState() {
+        return oldState;
+    }
+
+    public S getNewState() {
+        return newState;
+    }
+
+    public static <T extends ComponentType<T, ?, I, S, ?>,
+            C extends Component<?, T, I, S, ?>,
+            I extends ComponentId<I>,
+            S extends ComponentState<S>>
+    ChangeComponentState<I, S> newInstance(C component, S newState) {
+        return new ChangeComponentState<I, S>(component, newState);
     }
 }

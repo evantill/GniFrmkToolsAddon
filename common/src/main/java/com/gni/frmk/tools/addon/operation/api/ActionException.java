@@ -16,8 +16,13 @@ public class ActionException extends DispatchException {
         this.action = action;
     }
 
-    public ActionException(Action<?> action, Throwable caught) {
-        super(caught);
+    public ActionException(Action<?> action, Throwable cause) {
+        super(cause);
+        this.action = action;
+    }
+
+    public ActionException(Action<?> action, String message, Throwable cause) {
+        super(message, cause);
         this.action = action;
     }
 

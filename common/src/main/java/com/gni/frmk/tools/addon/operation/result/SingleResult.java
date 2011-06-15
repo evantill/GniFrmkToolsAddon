@@ -20,4 +20,8 @@ public class SingleResult<T>
     public T getValue() {
         return value;
     }
+
+    public static <T> SingleResult<T> newInstance(T value) {
+        return new SingleResult<T>(value);
+    }
 }

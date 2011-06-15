@@ -30,4 +30,8 @@ public class ListResult<T>
     public List<T> getCollection() {
         return unmodifiableList(list);
     }
+
+    public static <T> ListResult<T> newInstance(List<T> values) {
+        return new ListResult<T>(values);
+    }
 }
