@@ -17,56 +17,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0351ebf0-d8f5-4a3c-a009-2885c7c92c58" name="Default" comment="">
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\ant.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\copyright\profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\inspectionProfiles\Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\inspectionProfiles\profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__aopalliance_aopalliance_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__ch_qos_logback_logback_classic_0_9_27.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__ch_qos_logback_logback_core_0_9_27.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__com_google_guava_guava_r08.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__com_google_inject_guice_no_aop_3_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__com_sun_xml_bind_jaxb_impl_2_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__com_wm_wmisclient_7_1_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__com_wm_wmismonitor_7_1_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__com_wm_wmisprt_7_1_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__com_wm_wmisserver_7_1_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__commons_collections_commons_collections_3_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__commons_lang_commons_lang_2_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__commons_logging_commons_logging_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__javax_activation_activation_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__javax_inject_javax_inject_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__javax_mail_mail_1_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__javax_validation_validation_api_1_0_0_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__javax_xml_bind_jaxb_api_2_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__javax_xml_stream_stax_api_1_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__joda_time_joda_time_1_6_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__junit_junit_4_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__ognl_ognl_2_6_9.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__org_easytesting_fest_assert_1_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__org_easytesting_fest_util_1_1_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__org_eclipse_persistence_org_eclipse_persistence_antlr_2_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__org_eclipse_persistence_org_eclipse_persistence_asm_2_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__org_eclipse_persistence_org_eclipse_persistence_core_2_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__org_eclipse_persistence_org_eclipse_persistence_moxy_2_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__org_hibernate_hibernate_validator_4_0_2_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__org_mockito_mockito_all_1_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__org_simpleframework_simple_xml_2_4_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__org_slf4j_jul_to_slf4j_1_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__org_slf4j_log4j_over_slf4j_1_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__org_slf4j_slf4j_api_1_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__org_unitils_unitils_core_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__stax_stax_1_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__stax_stax_api_1_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\libraries\Maven__xmlunit_xmlunit_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\projectCodeStyle.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\uiDesigner.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\validation.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\vcs.xml" afterPath="" />
       <change type="DELETED" beforePath="E:\jtb\workspaces\default\GniFrmkToolsAddon\.idea\workspace.xml" afterPath="" />
     </list>
     <ignored path="$USER_HOME$/.grails/" />
