@@ -1,12 +1,12 @@
 package com.gni.frmk.tools.addon.model.component.base;
 
+import com.gni.frmk.tools.addon.api.visitor.ComponentVisitor;
 import com.gni.frmk.tools.addon.model.BuilderWithValidation;
 import com.gni.frmk.tools.addon.model.component.Component;
 import com.gni.frmk.tools.addon.model.component.ComponentDetail;
 import com.gni.frmk.tools.addon.model.component.ComponentId;
 import com.gni.frmk.tools.addon.model.component.ComponentState;
 import com.gni.frmk.tools.addon.model.component.ComponentType;
-import com.gni.frmk.tools.addon.visitor.api.ComponentVisitor;
 import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
 

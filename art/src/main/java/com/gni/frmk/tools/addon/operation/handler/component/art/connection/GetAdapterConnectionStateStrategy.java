@@ -10,7 +10,7 @@ import com.gni.frmk.tools.addon.model.component.EnableState;
 import com.gni.frmk.tools.addon.model.component.EnableStatus;
 import com.gni.frmk.tools.addon.model.component.art.AdapterConnectionType;
 import com.gni.frmk.tools.addon.model.component.art.AdapterId;
-import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler.GetComponentStateStrategy;
 import com.google.common.base.Predicate;
 

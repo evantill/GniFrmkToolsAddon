@@ -9,7 +9,7 @@ import com.gni.frmk.tools.addon.operation.action.component.GetComponentDetail;
 import com.gni.frmk.tools.addon.operation.action.component.ListComponentIds;
 import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
-import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
 
 /**

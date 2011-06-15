@@ -9,7 +9,7 @@ import com.gni.frmk.tools.addon.invoker.service.art.ListAdapterConnections;
 import com.gni.frmk.tools.addon.model.component.PackageDetail;
 import com.gni.frmk.tools.addon.model.component.art.AdapterConnectionType;
 import com.gni.frmk.tools.addon.model.component.art.AdapterId;
-import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentDetailHandler.GetComponentDetailStrategy;
 import com.google.common.base.Predicate;
 

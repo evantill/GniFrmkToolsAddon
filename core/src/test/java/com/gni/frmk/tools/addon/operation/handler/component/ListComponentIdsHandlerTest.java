@@ -7,7 +7,7 @@ import com.gni.frmk.tools.addon.model.component.test.Component2Id;
 import com.gni.frmk.tools.addon.model.component.test.Component2Type;
 import com.gni.frmk.tools.addon.operation.action.component.ListComponentIds;
 import com.gni.frmk.tools.addon.operation.api.ActionException;
-import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler.ListComponentIdsStrategy;
 import com.gni.frmk.tools.addon.operation.result.SetResult;
 import com.google.common.collect.Sets;

@@ -4,7 +4,7 @@ import com.gni.frmk.tools.addon.model.configuration.ConfigurationId;
 import com.gni.frmk.tools.addon.operation.action.configuration.repository.DeleteConfiguration;
 import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
-import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.repository.ConfigurationRepository;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
 

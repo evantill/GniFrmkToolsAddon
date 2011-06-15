@@ -9,7 +9,7 @@ import com.gni.frmk.tools.addon.invoker.service.jms.GetJmsTriggerReport;
 import com.gni.frmk.tools.addon.model.component.PackageDetail;
 import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.jms.JmsTriggerType;
-import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentDetailHandler.GetComponentDetailStrategy;
 import com.google.common.base.Predicate;
 

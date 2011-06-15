@@ -4,7 +4,7 @@ import com.gni.frmk.tools.addon.invoker.api.ServiceException;
 import com.gni.frmk.tools.addon.model.component.test.*;
 import com.gni.frmk.tools.addon.operation.action.component.GetComponentState;
 import com.gni.frmk.tools.addon.operation.api.ActionException;
-import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler.GetComponentStateStrategy;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
 import org.junit.Test;

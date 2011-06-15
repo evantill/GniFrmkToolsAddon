@@ -11,7 +11,7 @@ import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.jms.ConnectableState;
 import com.gni.frmk.tools.addon.model.component.jms.ConnectableStatus;
 import com.gni.frmk.tools.addon.model.component.jms.JmsAliasType;
-import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler.GetComponentStateStrategy;
 import com.google.common.base.Predicate;
 

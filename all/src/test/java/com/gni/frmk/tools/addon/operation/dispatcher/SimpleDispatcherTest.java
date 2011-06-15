@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.operation.dispatcher;
 
-import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
 import com.gni.frmk.tools.addon.operation.api.DispatchException;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import org.junit.Test;
 import org.mockito.Mockito;
 

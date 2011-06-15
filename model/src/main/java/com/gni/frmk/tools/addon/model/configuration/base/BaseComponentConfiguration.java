@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.model.configuration.base;
 
+import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.BuilderWithValidation;
 import com.gni.frmk.tools.addon.model.component.Component;
 import com.gni.frmk.tools.addon.model.component.ComponentState;
@@ -8,7 +9,6 @@ import com.gni.frmk.tools.addon.model.component.ComponentType;
 import com.gni.frmk.tools.addon.model.component.base.BaseComponent;
 import com.gni.frmk.tools.addon.model.configuration.ComponentConfiguration;
 import com.gni.frmk.tools.addon.model.configuration.base.XmlJaxbAdapters.ComponentStatesAdapter;
-import com.gni.frmk.tools.addon.visitor.api.ConfigurationVisitor;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.Maps;
 

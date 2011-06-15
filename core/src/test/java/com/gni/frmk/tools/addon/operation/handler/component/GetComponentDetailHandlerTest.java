@@ -8,7 +8,7 @@ import com.gni.frmk.tools.addon.model.component.test.Component2Type;
 import com.gni.frmk.tools.addon.model.component.test.SimpleDetail;
 import com.gni.frmk.tools.addon.operation.action.component.GetComponentDetail;
 import com.gni.frmk.tools.addon.operation.api.ActionException;
-import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentDetailHandler.GetComponentDetailStrategy;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
 import org.junit.Test;

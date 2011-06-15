@@ -12,7 +12,7 @@ import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.operation.api.DispatchException;
 import com.gni.frmk.tools.addon.operation.api.Dispatcher;
-import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.result.ListResult;
 import com.google.common.collect.Lists;
 

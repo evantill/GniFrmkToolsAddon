@@ -11,7 +11,7 @@ import com.gni.frmk.tools.addon.model.component.ActivableStatus;
 import com.gni.frmk.tools.addon.model.component.EnableStatus;
 import com.gni.frmk.tools.addon.model.component.PackageAndStringId;
 import com.gni.frmk.tools.addon.model.component.root.PortType;
-import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler.GetComponentStateStrategy;
 import com.google.common.base.Objects;
 import com.google.common.base.Predicate;

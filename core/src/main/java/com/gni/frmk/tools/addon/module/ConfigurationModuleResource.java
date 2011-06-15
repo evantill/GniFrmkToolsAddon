@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.module;
 
-import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 
 /**
  * Created by IntelliJ IDEA.

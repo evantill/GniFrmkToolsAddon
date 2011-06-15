@@ -7,7 +7,7 @@ import com.gni.frmk.tools.addon.invoker.io.jms.JmsAliasInfo;
 import com.gni.frmk.tools.addon.invoker.service.jms.GetConnectionAliasReport;
 import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.jms.JmsAliasType;
-import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler.ListComponentIdsStrategy;
 import com.google.common.collect.Sets;
 

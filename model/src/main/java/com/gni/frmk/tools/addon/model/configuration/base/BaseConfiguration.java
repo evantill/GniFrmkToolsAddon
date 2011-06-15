@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.model.configuration.base;
 
+import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.BuilderWithValidation;
 import com.gni.frmk.tools.addon.model.component.Component;
 import com.gni.frmk.tools.addon.model.component.ComponentState;
@@ -8,7 +9,6 @@ import com.gni.frmk.tools.addon.model.configuration.ComponentConfiguration;
 import com.gni.frmk.tools.addon.model.configuration.Configuration;
 import com.gni.frmk.tools.addon.model.configuration.ConfigurationId;
 import com.gni.frmk.tools.addon.model.configuration.ConfigurationInfo;
-import com.gni.frmk.tools.addon.visitor.api.ConfigurationVisitor;
 import com.google.common.base.Objects;
 import com.google.common.base.Predicate;
 import com.google.common.collect.ComparisonChain;

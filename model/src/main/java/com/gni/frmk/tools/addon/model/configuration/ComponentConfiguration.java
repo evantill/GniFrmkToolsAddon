@@ -1,10 +1,10 @@
 package com.gni.frmk.tools.addon.model.configuration;
 
+import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.component.Component;
 import com.gni.frmk.tools.addon.model.component.ComponentState;
 import com.gni.frmk.tools.addon.model.component.ComponentStateType;
 import com.gni.frmk.tools.addon.model.component.ComponentType;
-import com.gni.frmk.tools.addon.visitor.api.ConfigurationVisitor;
 
 import java.util.Map;
 

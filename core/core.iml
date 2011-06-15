@@ -8,10 +8,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" isTestSource="true" />
-      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/gni/frmk/tools/addon/oldies" />
-      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/gni/frmk/tools/addon/operation/handler/component/oldies" />
-      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/gni/frmk/tools/addon/operation/handler/configuration/oldies" />
-      <excludeFolder url="file://$MODULE_DIR$/src/main/java/com/gni/frmk/tools/addon/repository/oldies" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -19,6 +15,9 @@
     <orderEntry type="module" module-name="draft" />
     <orderEntry type="module" module-name="common" />
     <orderEntry type="module" module-name="model" />
+    <orderEntry type="library" name="Maven: com.google.inject:guice:no_aop:3.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.2.2" level="project" />
     <orderEntry type="library" name="Maven: javax.xml.stream:stax-api:1.0-2" level="project" />
     <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />

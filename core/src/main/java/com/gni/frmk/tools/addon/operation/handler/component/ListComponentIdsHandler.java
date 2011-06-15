@@ -7,7 +7,7 @@ import com.gni.frmk.tools.addon.model.component.ComponentType;
 import com.gni.frmk.tools.addon.operation.action.component.ListComponentIds;
 import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
-import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.result.SetResult;
 
 import java.util.Set;

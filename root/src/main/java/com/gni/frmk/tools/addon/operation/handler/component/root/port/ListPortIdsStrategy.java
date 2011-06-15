@@ -7,7 +7,7 @@ import com.gni.frmk.tools.addon.invoker.io.root.PortInfo;
 import com.gni.frmk.tools.addon.invoker.service.root.ListListeners;
 import com.gni.frmk.tools.addon.model.component.PackageAndStringId;
 import com.gni.frmk.tools.addon.model.component.root.PortType;
-import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler.ListComponentIdsStrategy;
 import com.google.common.collect.Sets;
 

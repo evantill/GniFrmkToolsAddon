@@ -9,7 +9,7 @@ import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.root.NativeTriggerState;
 import com.gni.frmk.tools.addon.model.component.root.NativeTriggerType;
 import com.gni.frmk.tools.addon.model.component.root.TemporaryStatus;
-import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentStateHandler.ChangeComponentStateStrategy;
 
 /**

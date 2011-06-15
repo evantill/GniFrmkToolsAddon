@@ -7,7 +7,7 @@ import com.gni.frmk.tools.addon.invoker.io.root.SchedulerInfo;
 import com.gni.frmk.tools.addon.invoker.service.root.GetUserTaskList;
 import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.root.SchedulerType;
-import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler.ListComponentIdsStrategy;
 import com.google.common.collect.Sets;
 

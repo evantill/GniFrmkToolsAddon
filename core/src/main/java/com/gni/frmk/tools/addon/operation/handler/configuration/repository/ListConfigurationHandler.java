@@ -3,7 +3,7 @@ package com.gni.frmk.tools.addon.operation.handler.configuration.repository;
 import com.gni.frmk.tools.addon.model.configuration.ConfigurationId;
 import com.gni.frmk.tools.addon.operation.action.configuration.repository.ListConfiguration;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
-import com.gni.frmk.tools.addon.dispatch.wm.invoke.api.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.result.SetResult;
 import com.gni.frmk.tools.addon.repository.ConfigurationRepository;
 

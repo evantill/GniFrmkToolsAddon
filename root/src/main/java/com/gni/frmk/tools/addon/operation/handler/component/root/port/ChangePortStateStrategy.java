@@ -9,7 +9,7 @@ import com.gni.frmk.tools.addon.model.component.ActivableState;
 import com.gni.frmk.tools.addon.model.component.EnableStatus;
 import com.gni.frmk.tools.addon.model.component.PackageAndStringId;
 import com.gni.frmk.tools.addon.model.component.root.PortType;
-import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
+import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentStateHandler.ChangeComponentStateStrategy;
 
 /**
