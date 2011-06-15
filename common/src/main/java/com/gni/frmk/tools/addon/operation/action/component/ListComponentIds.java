@@ -2,7 +2,6 @@ package com.gni.frmk.tools.addon.operation.action.component;
 
 import com.gni.frmk.tools.addon.model.component.ComponentId;
 import com.gni.frmk.tools.addon.model.component.ComponentType;
-import com.gni.frmk.tools.addon.model.component.base.BaseComponentType;
 import com.gni.frmk.tools.addon.operation.api.Action;
 import com.gni.frmk.tools.addon.operation.result.SetResult;
 
@@ -13,21 +12,20 @@ import com.gni.frmk.tools.addon.operation.result.SetResult;
  *
  * @author: e03229
  */
-public class ListComponentIds<I extends ComponentId<?>>
+public class ListComponentIds<I extends ComponentId<I>>
         implements Action<SetResult<I>> {
 
-    private final ComponentType<?, ?, I, ?, ?> type;
+    private final ComponentType<?, ?, I, ?, ?> componentType;
 
-    public ListComponentIds(ComponentType<?, ?, I, ?, ?> type) {
-        this.type = type;
+    public ListComponentIds(ComponentType<?, ?, I, ?, ?> componentType) {
+        this.componentType = componentType;
     }
 
-    public ComponentType<?, ?, I, ?, ?> getType() {
-        return type;
+    public ComponentType<?, ?, I, ?, ?> getComponentType() {
+        return componentType;
     }
 
-    public static <T extends ComponentType<?, ?, I, ?, ?>, I extends ComponentId<?>> ListComponentIds<I> build(T type) {
+    public static <I extends ComponentId<I>, T extends ComponentType<T, ?, I, ?, ?>> ListComponentIds<I> build(T type) {
         return new ListComponentIds<I>(type);
     }
-
 }

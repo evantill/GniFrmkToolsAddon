@@ -8,7 +8,7 @@ import com.gni.frmk.tools.addon.invoker.service.root.GetUserTaskList;
 import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.root.SchedulerType;
 import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
-import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsStrategy;
+import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler.ListComponentIdsStrategy;
 import com.google.common.collect.Sets;
 
 import java.util.Set;
@@ -21,7 +21,7 @@ import java.util.Set;
  * @author: e03229
  */
 public class ListSchedulerIdsStrategy
-        implements ListComponentIdsStrategy<StringId> {
+        implements ListComponentIdsStrategy<SchedulerType, StringId> {
 
     private final GetUserTaskList schedulers = new GetUserTaskList();
 
@@ -36,5 +36,10 @@ public class ListSchedulerIdsStrategy
             ids.add(id);
         }
         return ids;
+    }
+
+    @Override
+    public SchedulerType getComponentType() {
+        return SchedulerType.TYPE;
     }
 }

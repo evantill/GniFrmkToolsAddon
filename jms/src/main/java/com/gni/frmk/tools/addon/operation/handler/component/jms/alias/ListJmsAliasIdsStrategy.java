@@ -8,7 +8,7 @@ import com.gni.frmk.tools.addon.invoker.service.jms.GetConnectionAliasReport;
 import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.jms.JmsAliasType;
 import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
-import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsStrategy;
+import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler.ListComponentIdsStrategy;
 import com.google.common.collect.Sets;
 
 import java.util.Set;
@@ -21,7 +21,7 @@ import java.util.Set;
  * @author: e03229
  */
 public class ListJmsAliasIdsStrategy
-        implements ListComponentIdsStrategy<StringId> {
+        implements ListComponentIdsStrategy<JmsAliasType, StringId> {
 
     private final GetConnectionAliasReport aliases = new GetConnectionAliasReport();
 
@@ -36,5 +36,10 @@ public class ListJmsAliasIdsStrategy
             ids.add(id);
         }
         return ids;
+    }
+
+    @Override
+    public JmsAliasType getComponentType() {
+        return JmsAliasType.TYPE;
     }
 }

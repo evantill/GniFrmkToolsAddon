@@ -8,7 +8,7 @@ import com.gni.frmk.tools.addon.invoker.service.root.GetTriggerReport;
 import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.root.NativeTriggerType;
 import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
-import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsStrategy;
+import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler.ListComponentIdsStrategy;
 import com.google.common.collect.Sets;
 
 import java.util.Set;
@@ -21,7 +21,7 @@ import java.util.Set;
  * @author: e03229
  */
 public class ListNativeTriggerIdsStrategy
-        implements ListComponentIdsStrategy<StringId> {
+        implements ListComponentIdsStrategy<NativeTriggerType, StringId> {
 
     private final GetTriggerReport triggers = new GetTriggerReport();
 
@@ -36,5 +36,10 @@ public class ListNativeTriggerIdsStrategy
             ids.add(id);
         }
         return ids;
+    }
+
+    @Override
+    public NativeTriggerType getComponentType() {
+        return NativeTriggerType.TYPE;
     }
 }

@@ -8,7 +8,7 @@ import com.gni.frmk.tools.addon.invoker.service.root.ListListeners;
 import com.gni.frmk.tools.addon.model.component.PackageAndStringId;
 import com.gni.frmk.tools.addon.model.component.root.PortType;
 import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
-import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsStrategy;
+import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler.ListComponentIdsStrategy;
 import com.google.common.collect.Sets;
 
 import java.util.Set;
@@ -21,7 +21,7 @@ import java.util.Set;
  * @author: e03229
  */
 public class ListPortIdsStrategy
-        implements ListComponentIdsStrategy<PackageAndStringId> {
+        implements ListComponentIdsStrategy<PortType, PackageAndStringId> {
 
     private final ListListeners ports = new ListListeners();
 
@@ -37,5 +37,10 @@ public class ListPortIdsStrategy
             ids.add(id);
         }
         return ids;
+    }
+
+    @Override
+    public PortType getComponentType() {
+        return PortType.TYPE;
     }
 }

@@ -10,7 +10,7 @@ import com.gni.frmk.tools.addon.invoker.service.art.RetrieveAdapterTypes;
 import com.gni.frmk.tools.addon.model.component.art.AdapterId;
 import com.gni.frmk.tools.addon.model.component.art.AdapterListenerType;
 import com.gni.frmk.tools.addon.operation.handler.InvokeContext;
-import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsStrategy;
+import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler.ListComponentIdsStrategy;
 import com.google.common.collect.Sets;
 
 import java.util.List;
@@ -24,7 +24,7 @@ import java.util.Set;
  * @author: e03229
  */
 public class ListAdapterListenerIdsStrategy
-        implements ListComponentIdsStrategy<AdapterId> {
+        implements ListComponentIdsStrategy<AdapterListenerType, AdapterId> {
 
     private final ListAdapterListeners listeners = new ListAdapterListeners();
     private final RetrieveAdapterTypes retrieveAdapterTypes = new RetrieveAdapterTypes();
@@ -47,5 +47,10 @@ public class ListAdapterListenerIdsStrategy
             }
         }
         return ids;
+    }
+
+    @Override
+    public AdapterListenerType getComponentType() {
+        return AdapterListenerType.TYPE;
     }
 }
