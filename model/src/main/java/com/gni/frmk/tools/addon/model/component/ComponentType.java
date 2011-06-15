@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.model.component;
 
 import com.gni.frmk.tools.addon.model.BuilderWithValidation;
+import com.gni.frmk.tools.addon.model.component.base.BaseComponent;
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,7 +26,7 @@ public interface ComponentType
 
     Class<D> getTypeDetail();
 
-    BuilderWithValidation<?, C> componentBuilder();
+    BaseComponent.Builder<?, C,T,I,S,D> componentBuilder();
 
     BuilderWithValidation<?, I> idBuilder();
 

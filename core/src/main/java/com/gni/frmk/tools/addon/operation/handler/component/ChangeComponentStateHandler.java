@@ -55,7 +55,7 @@ public class ChangeComponentStateHandler
             }
             try {
                 S changedState = strategy.changeState(componentId, oldState, newState, context);
-                S refreshedState = refreshState(componentType, componentId, changedState, newState, context);
+                S refreshedState = refreshState(componentType, componentId, context);
                 if (changedState.equals(refreshedState)) {
                     String message = String.format("component %s state is %s but should be %s", componentId, refreshedState, changedState);
                     throw new ActionException(action, message);
@@ -69,8 +69,8 @@ public class ChangeComponentStateHandler
         }
     }
 
-    private <T extends ComponentType<T, ?, I, S, ?>, I extends ComponentId, S extends ComponentState<S>>
-    S refreshState(T componentType, I componentId, S changedState, S newState, InvokeContext context) throws DispatchException {
+    private <T extends ComponentType<?, ?, I, S, ?>, I extends ComponentId<I>, S extends ComponentState<S>>
+    S refreshState(T componentType, I componentId, InvokeContext context) throws DispatchException {
         GetComponentState<I, S> action = GetComponentState.newInstance(componentType, componentId);
         return context.getDispatcher().execute(action).getValue();
     }

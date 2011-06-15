@@ -27,7 +27,7 @@ public interface ComponentRepository
 
     ListId<I> getListIdAction();
 
-    GetComponentDetail<T, I, D> getDetailAction(I id);
+    GetComponentDetail<I, D> getDetailAction(I id);
 
     StateAction<I, S> getStateAction(I id);
 

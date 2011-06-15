@@ -33,7 +33,7 @@ public class GetComponentState
         return componentId;
     }
 
-    public static <T extends ComponentType<T, ?, I, S, ?>,
+    public static <T extends ComponentType<?, ?, I, S, ?>,
             I extends ComponentId<I>,
             S extends ComponentState<S>>
     GetComponentState<I, S> newInstance(T type, I id) {

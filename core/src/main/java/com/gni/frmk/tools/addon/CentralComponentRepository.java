@@ -39,7 +39,7 @@ public class CentralComponentRepository {
 
     @SuppressWarnings("unchecked")
     <I extends ComponentId<I>, D extends ComponentDetail<D>> SingleResult<D> detailAction(ComponentType type, I id, ExecutionContext context) throws DispatchException {
-        GetComponentDetail<?,I,D> action = ((ComponentRepository<?,?, I, ?, D>) repositories.get(type)).getDetailAction(id);
+        GetComponentDetail<I,D> action = ((ComponentRepository<?,?, I, ?, D>) repositories.get(type)).getDetailAction(id);
         return context.getDispatcher().execute(action);
     }
 

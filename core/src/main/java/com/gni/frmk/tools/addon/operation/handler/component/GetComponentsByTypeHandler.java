@@ -5,8 +5,8 @@ import com.gni.frmk.tools.addon.model.component.ComponentDetail;
 import com.gni.frmk.tools.addon.model.component.ComponentId;
 import com.gni.frmk.tools.addon.model.component.ComponentState;
 import com.gni.frmk.tools.addon.model.component.ComponentType;
-import com.gni.frmk.tools.addon.operation.action.component.GetAllComponents;
 import com.gni.frmk.tools.addon.operation.action.component.GetComponent;
+import com.gni.frmk.tools.addon.operation.action.component.GetComponentsByType;
 import com.gni.frmk.tools.addon.operation.action.component.ListComponentIds;
 import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
@@ -27,16 +27,16 @@ import java.util.Set;
  * @author: e03229
  */
 public class GetComponentsByTypeHandler
-        implements ActionHandler<GetAllComponents<?, ?, ?, ?, ?>, ListResult<? extends Component<?, ?, ?, ?, ?>>, InvokeContext> {
+        implements ActionHandler<GetComponentsByType<?, ?, ?, ?, ?>, ListResult<? extends Component<?, ?, ?, ?, ?>>, InvokeContext> {
 
     @Override
     public Class<?> getActionType() {
-        return GetAllComponents.class;
+        return GetComponentsByType.class;
     }
 
     @SuppressWarnings({"unchecked"})
     @Override
-    public ListResult<Component> execute(GetAllComponents action, InvokeContext context) throws ActionException {
+    public ListResult<Component> execute(GetComponentsByType action, InvokeContext context) throws ActionException {
         return executeTypeSafe(action, context);
     }
 
@@ -45,7 +45,7 @@ public class GetComponentsByTypeHandler
             I extends ComponentId<I>,
             D extends ComponentDetail<D>,
             S extends ComponentState<S>>
-    ListResult<C> executeTypeSafe(GetAllComponents<T, C, I, S, D> action, InvokeContext context) throws ActionException {
+    ListResult<C> executeTypeSafe(GetComponentsByType<T, C, I, S, D> action, InvokeContext context) throws ActionException {
         Dispatcher dispatcher = context.getDispatcher();
         T requestType = action.getComponentType();
         try {

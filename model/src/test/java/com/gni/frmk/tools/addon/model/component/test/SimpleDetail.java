@@ -26,7 +26,7 @@ public class SimpleDetail extends BaseComponentDetail<SimpleDetail> {
 
     public SimpleDetail(Builder builder) {
         super(builder);
-        description=builder.description;
+        description = builder.description;
     }
 
     @XmlElement(required = true)
@@ -50,7 +50,7 @@ public class SimpleDetail extends BaseComponentDetail<SimpleDetail> {
 
         SimpleDetail that = (SimpleDetail) o;
 
-        return Objects.equal(description,that.description);
+        return Objects.equal(description, that.description);
     }
 
     @Override
@@ -60,6 +60,10 @@ public class SimpleDetail extends BaseComponentDetail<SimpleDetail> {
 
     public static Builder builder() {
         return new Builder();
+    }
+
+    public static SimpleDetail newInstance(String description) {
+        return builder().description(description).validate().build();
     }
 
     @XmlTransient

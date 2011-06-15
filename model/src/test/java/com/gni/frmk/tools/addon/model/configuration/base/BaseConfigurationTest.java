@@ -11,6 +11,9 @@ import org.xml.sax.SAXException;
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Set;
+
+import static org.fest.assertions.Assertions.assertThat;
 
 /**
  * Created by IntelliJ IDEA.
@@ -86,15 +89,24 @@ public class BaseConfigurationTest
                                   .validate().build();
     }
 
-    @Override
-    @Test
-    public void testToXml() throws JAXBException, IOException, SAXException {
-        super.testToXml();
-    }
 
-    @Override
     @Test
-    public void testFromXml() throws JAXBException, IOException, SAXException {
-        super.testFromXml();
+    public void testGetComponentConfigurationsByType() throws JAXBException, IOException, SAXException {
+        BaseConfiguration conf = buildConfiguration();
+        ComponentConfiguration<?, ?, ?, ?> expectedComponentConfiguration=null;
+        Component1 expectedComponent=null;
+        for (ComponentConfiguration<?, ?, ?, ?> componentConfiguration : conf.getComponentConfigurations()) {
+            if(componentConfiguration.getComponentType() instanceof Component1Type){
+                expectedComponentConfiguration = componentConfiguration;
+                //noinspection UnusedAssignment
+                expectedComponent = (Component1) componentConfiguration.getComponent();
+            }
+        }
+        assertThat(expectedComponentConfiguration).isNotNull();
+        assertThat(expectedComponent).isNotNull();
+
+        Set<ComponentConfiguration<?, Component1Type, Component1, Component1State>> components = conf.getComponentConfigurationsByType(Component1Type.TYPE);
+        assertThat(components).containsOnly(expectedComponentConfiguration);
+        assertThat(expectedComponent).isEqualTo(components.iterator().next().getComponent());
     }
 }

@@ -51,7 +51,7 @@ public class Component1Id extends BaseComponentId<Component1Id> {
         if (o == null || getClass() != o.getClass()) return false;
 
         Component1Id that = (Component1Id) o;
-        return Objects.equal(value,that.value);
+        return Objects.equal(value, that.value);
     }
 
     @Override
@@ -59,8 +59,17 @@ public class Component1Id extends BaseComponentId<Component1Id> {
         return Objects.hashCode(value);
     }
 
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this).add("value", value).toString();
+    }
+
     public static Builder builder() {
         return new Builder();
+    }
+
+    public static Component1Id build(String value) {
+        return builder().value(value).build();
     }
 
     @XmlTransient

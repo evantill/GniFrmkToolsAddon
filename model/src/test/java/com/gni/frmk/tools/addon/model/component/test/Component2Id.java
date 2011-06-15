@@ -40,8 +40,8 @@ public class Component2Id
     @Override
     public int compareTo(Component2Id o) {
         return ComparisonChain.start()
-                .compare(value,o.value)
-                .result();
+                              .compare(value, o.value)
+                              .result();
     }
 
     @Override
@@ -58,9 +58,17 @@ public class Component2Id
         return Objects.hashCode(value);
     }
 
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this).add("value", value).toString();
+    }
 
     public static Builder builder() {
         return new Builder();
+    }
+
+    public static Component2Id build(int value) {
+        return builder().value(value).build();
     }
 
     @XmlTransient

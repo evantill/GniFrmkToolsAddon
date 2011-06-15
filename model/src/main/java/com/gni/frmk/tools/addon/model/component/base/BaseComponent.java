@@ -2,6 +2,10 @@ package com.gni.frmk.tools.addon.model.component.base;
 
 import com.gni.frmk.tools.addon.model.BuilderWithValidation;
 import com.gni.frmk.tools.addon.model.component.Component;
+import com.gni.frmk.tools.addon.model.component.ComponentDetail;
+import com.gni.frmk.tools.addon.model.component.ComponentId;
+import com.gni.frmk.tools.addon.model.component.ComponentState;
+import com.gni.frmk.tools.addon.model.component.ComponentType;
 import com.gni.frmk.tools.addon.visitor.api.ComponentVisitor;
 import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
@@ -125,11 +129,11 @@ public abstract class BaseComponent
     @XmlTransient
     public abstract static class Builder
             <B extends Builder<B, C, T, I, S, D>,
-                    C extends BaseComponent<C, T, I, S, D>,
-                    T extends BaseComponentType<T, C, I, S, D>,
-                    I extends BaseComponentId,
-                    S extends BaseComponentState,
-                    D extends BaseComponentDetail>
+                    C extends Component<C, T, I, S, D>,
+                    T extends ComponentType<T, C, I, S, D>,
+                    I extends ComponentId,
+                    S extends ComponentState,
+                    D extends ComponentDetail>
             implements BuilderWithValidation<B, C> {
 
         protected final T type;
