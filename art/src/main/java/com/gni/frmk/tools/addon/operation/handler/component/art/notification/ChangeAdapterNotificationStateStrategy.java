@@ -14,6 +14,7 @@ import com.gni.frmk.tools.addon.model.component.art.AdapterId;
 import com.gni.frmk.tools.addon.model.component.art.AdapterNotificationType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentStateHandler.ChangeComponentStateStrategy;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,10 +26,18 @@ import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentState
 public class ChangeAdapterNotificationStateStrategy
         implements ChangeComponentStateStrategy<AdapterNotificationType, AdapterId, ActivableState> {
 
-    private final EnablePollingNotification enableService = new EnablePollingNotification();
-    private final DisablePollingNotification disableService = new DisablePollingNotification();
-    private final ResumePollingNotification resumeService = new ResumePollingNotification();
-    private final SuspendPollingNotification suspendService = new SuspendPollingNotification();
+    private final EnablePollingNotification enableService;
+    private final DisablePollingNotification disableService;
+    private final ResumePollingNotification resumeService;
+    private final SuspendPollingNotification suspendService;
+
+    @Inject
+    public ChangeAdapterNotificationStateStrategy(EnablePollingNotification enableService, DisablePollingNotification disableService, ResumePollingNotification resumeService, SuspendPollingNotification suspendService) {
+        this.enableService = enableService;
+        this.disableService = disableService;
+        this.resumeService = resumeService;
+        this.suspendService = suspendService;
+    }
 
     @Override
     public ActivableState changeState(AdapterId componentId, ActivableState oldState, ActivableState newState, InvokeContext context) throws ServiceException {

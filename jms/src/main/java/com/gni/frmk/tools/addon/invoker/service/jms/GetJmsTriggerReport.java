@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class GetJmsTriggerReport extends WmService<NoInput, ListValueOutput<JmsTriggerInfo>> {
 
-    public GetJmsTriggerReport() {
+     GetJmsTriggerReport() {
         super("wm.server.jms:getTriggerReport");
     }
 

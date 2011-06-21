@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class GetConnectionAliasReport extends WmService<NoInput, ListValueOutput<JmsAliasInfo>> {
 
-    public GetConnectionAliasReport() {
+     GetConnectionAliasReport() {
         super("wm.server.jms:getConnectionAliasReport");
     }
 

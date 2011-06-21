@@ -16,7 +16,7 @@ import com.wm.data.*;
  */
 public class EnablePollingNotification extends WmService<AdapterComponentId, NoOutput> {
 
-    public EnablePollingNotification() {
+     EnablePollingNotification() {
         super("pub.art.notification:enablePollingNotification");
     }
 

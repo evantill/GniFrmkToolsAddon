@@ -16,7 +16,7 @@ import com.wm.data.*;
  */
 public class DisableListener extends WmService<AdapterComponentId, NoOutput> {
 
-    public DisableListener() {
+     DisableListener() {
         super("pub.art.listener:disableListener");
     }
 

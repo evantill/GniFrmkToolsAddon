@@ -11,6 +11,7 @@ import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -31,6 +32,7 @@ public class GetComponentDetailHandler
 
     private final ActionContext<GetComponentDetailStrategy<?, ?, ?>> strategyContext;
 
+    @Inject
     public GetComponentDetailHandler(ActionContext<GetComponentDetailStrategy<?, ?, ?>> strategyContext) {
         this.strategyContext = strategyContext;
     }

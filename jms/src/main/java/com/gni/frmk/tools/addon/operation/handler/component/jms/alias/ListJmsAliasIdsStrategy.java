@@ -10,6 +10,7 @@ import com.gni.frmk.tools.addon.model.component.jms.JmsAliasType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler.ListComponentIdsStrategy;
 import com.google.common.collect.Sets;
+import com.google.inject.Inject;
 
 import java.util.Set;
 
@@ -23,7 +24,12 @@ import java.util.Set;
 public class ListJmsAliasIdsStrategy
         implements ListComponentIdsStrategy<JmsAliasType, StringId> {
 
-    private final GetConnectionAliasReport aliases = new GetConnectionAliasReport();
+    private final GetConnectionAliasReport aliases;
+
+    @Inject
+    public ListJmsAliasIdsStrategy(GetConnectionAliasReport aliases) {
+        this.aliases = aliases;
+    }
 
     @Override
     public Set<StringId> listIds(InvokeContext context) throws ServiceException {

@@ -14,6 +14,7 @@ import com.gni.frmk.tools.addon.model.component.art.AdapterId;
 import com.gni.frmk.tools.addon.model.component.art.AdapterListenerType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentStateHandler.ChangeComponentStateStrategy;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,10 +26,18 @@ import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentState
 public class ChangeAdapterListenerStateStrategy
         implements ChangeComponentStateStrategy<AdapterListenerType, AdapterId, ActivableState> {
 
-    private final EnableListener enableService = new EnableListener();
-    private final DisableListener disableService = new DisableListener();
-    private final ResumeListener resumeService = new ResumeListener();
-    private final SuspendListener suspendService = new SuspendListener();
+    private final EnableListener enableService;
+    private final DisableListener disableService;
+    private final ResumeListener resumeService;
+    private final SuspendListener suspendService;
+
+    @Inject
+    public ChangeAdapterListenerStateStrategy(EnableListener enableService, DisableListener disableService, ResumeListener resumeService, SuspendListener suspendService) {
+        this.enableService = enableService;
+        this.disableService = disableService;
+        this.resumeService = resumeService;
+        this.suspendService = suspendService;
+    }
 
     @Override
     public ActivableState changeState(AdapterId componentId, ActivableState oldState, ActivableState newState, InvokeContext context) throws ServiceException {

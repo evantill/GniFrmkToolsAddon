@@ -12,6 +12,7 @@ import com.gni.frmk.tools.addon.model.component.art.AdapterListenerType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentDetailHandler.GetComponentDetailStrategy;
 import com.google.common.base.Predicate;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -23,7 +24,12 @@ import com.google.common.base.Predicate;
 public class GetAdapterListenerDetailStrategy
         implements GetComponentDetailStrategy<AdapterListenerType, AdapterId, PackageDetail> {
 
-    private final ListAdapterListeners listeners = new ListAdapterListeners();
+    private final ListAdapterListeners listeners;
+
+    @Inject
+    public GetAdapterListenerDetailStrategy(ListAdapterListeners listeners) {
+        this.listeners = listeners;
+    }
 
     @Override
     public AdapterListenerType getComponentType() {

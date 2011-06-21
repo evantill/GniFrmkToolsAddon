@@ -14,6 +14,7 @@ import com.gni.frmk.tools.addon.model.component.art.AdapterNotificationType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler.GetComponentStateStrategy;
 import com.google.common.base.Predicate;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,7 +26,12 @@ import com.google.common.base.Predicate;
 public class GetAdapterNotificationStateStrategy
         implements GetComponentStateStrategy<AdapterNotificationType, AdapterId, ActivableState> {
 
-    private final ListAdapterPollingNotifications pollingNotifications = new ListAdapterPollingNotifications();
+    private final ListAdapterPollingNotifications pollingNotifications;
+
+    @Inject
+    public GetAdapterNotificationStateStrategy(ListAdapterPollingNotifications pollingNotifications) {
+        this.pollingNotifications = pollingNotifications;
+    }
 
     @Override
     public AdapterNotificationType getComponentType() {

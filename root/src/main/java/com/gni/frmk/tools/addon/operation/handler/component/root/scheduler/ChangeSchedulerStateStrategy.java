@@ -11,6 +11,7 @@ import com.gni.frmk.tools.addon.model.component.root.SchedulerType;
 import com.gni.frmk.tools.addon.model.component.root.SuspendedStatus;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentStateHandler.ChangeComponentStateStrategy;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -22,8 +23,14 @@ import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentState
 public class ChangeSchedulerStateStrategy
         implements ChangeComponentStateStrategy<SchedulerType, StringId, SchedulerState> {
 
-    private final WakeupUserTask wakeupService = new WakeupUserTask();
-    private final SuspendUserTask suspendService = new SuspendUserTask();
+    private final WakeupUserTask wakeupService;
+    private final SuspendUserTask suspendService;
+
+    @Inject
+    public ChangeSchedulerStateStrategy(WakeupUserTask wakeupService, SuspendUserTask suspendService) {
+        this.wakeupService = wakeupService;
+        this.suspendService = suspendService;
+    }
 
     @Override
     public SchedulerState changeState(StringId componentId, SchedulerState oldState, SchedulerState newState, InvokeContext context) throws ServiceException {

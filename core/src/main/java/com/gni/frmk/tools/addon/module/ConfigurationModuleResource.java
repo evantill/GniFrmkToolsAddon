@@ -1,6 +1,9 @@
 package com.gni.frmk.tools.addon.module;
 
+import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.module.ModelModule;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
+import com.google.inject.AbstractModule;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,10 +12,15 @@ import com.gni.frmk.tools.addon.operation.context.InvokeContext;
  *
  * @author: e03229
  */
-public class ConfigurationModuleResource extends BaseModuleResource<InvokeContext>{
+public class ConfigurationModuleResource extends AbstractModule{
 
     @Override
-    public String getContextPath() {
-        return "com.gni.frmk.tools.addon.model.configuration";
+    protected void configure() {
+        install(new ModelModule() {
+            @Override
+            protected void registerModelContextPackages() {
+                registerModelContextPackage(Configuration.class.getPackage());
+            }
+        });
     }
 }

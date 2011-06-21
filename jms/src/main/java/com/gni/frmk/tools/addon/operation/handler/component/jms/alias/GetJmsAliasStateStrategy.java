@@ -14,6 +14,7 @@ import com.gni.frmk.tools.addon.model.component.jms.JmsAliasType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler.GetComponentStateStrategy;
 import com.google.common.base.Predicate;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,7 +26,12 @@ import com.google.common.base.Predicate;
 public class GetJmsAliasStateStrategy
         implements GetComponentStateStrategy<JmsAliasType, StringId, ConnectableState> {
 
-    private final GetConnectionAliasReport aliases = new GetConnectionAliasReport();
+    private final GetConnectionAliasReport aliases;
+
+    @Inject
+    public GetJmsAliasStateStrategy(GetConnectionAliasReport aliases) {
+        this.aliases = aliases;
+    }
 
     @Override
     public JmsAliasType getComponentType() {

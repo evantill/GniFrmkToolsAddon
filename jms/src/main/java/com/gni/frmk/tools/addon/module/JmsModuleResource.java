@@ -1,6 +1,8 @@
 package com.gni.frmk.tools.addon.module;
 
-import com.gni.frmk.tools.addon.operation.context.InvokeContext;
+import com.gni.frmk.tools.addon.model.component.jms.JmsAlias;
+import com.gni.frmk.tools.addon.model.module.ModelModule;
+import com.google.inject.AbstractModule;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,11 +11,15 @@ import com.gni.frmk.tools.addon.operation.context.InvokeContext;
  *
  * @author: e03229
  */
-public class JmsModuleResource extends BaseModuleResource<InvokeContext> {
+public class JmsModuleResource extends AbstractModule {
 
     @Override
-    public String getContextPath() {
-        return "com.gni.frmk.tools.addon.model.component.jms";
+    protected void configure() {
+        install(new ModelModule() {
+            @Override
+            protected void registerModelContextPackages() {
+                registerModelContextPackage(JmsAlias.class.getPackage());
+            }
+        });
     }
-
 }

@@ -10,6 +10,7 @@ import com.gni.frmk.tools.addon.model.component.root.PortType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler.ListComponentIdsStrategy;
 import com.google.common.collect.Sets;
+import com.google.inject.Inject;
 
 import java.util.Set;
 
@@ -23,7 +24,12 @@ import java.util.Set;
 public class ListPortIdsStrategy
         implements ListComponentIdsStrategy<PortType, PackageAndStringId> {
 
-    private final ListListeners ports = new ListListeners();
+    private final ListListeners ports;
+
+    @Inject
+    public ListPortIdsStrategy(ListListeners ports) {
+        this.ports = ports;
+    }
 
     @Override
     public Set<PackageAndStringId> listIds(InvokeContext context) throws ServiceException {

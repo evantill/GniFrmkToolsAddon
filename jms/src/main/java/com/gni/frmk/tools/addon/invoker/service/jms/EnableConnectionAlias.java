@@ -16,7 +16,7 @@ import com.wm.data.*;
  */
 public class EnableConnectionAlias extends WmService<SingleValueInput<String>, NoOutput> {
 
-    public EnableConnectionAlias() {
+     EnableConnectionAlias() {
         super("wm.server.jms:enableConnectionAlias");
     }
 

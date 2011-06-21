@@ -4,6 +4,7 @@ import com.gni.frmk.tools.addon.invoker.api.*;
 import com.gni.frmk.tools.addon.invoker.converter.BooleanConverter;
 import com.gni.frmk.tools.addon.invoker.converter.IntegerConverter;
 import com.gni.frmk.tools.addon.invoker.converter.StringConverter;
+import com.google.inject.Singleton;
 import com.wm.data.*;
 import com.wm.lang.ns.NSName;
 
@@ -17,6 +18,7 @@ import static com.wm.lang.ns.NSName.create;
  *
  * @author: e03229
  */
+@Singleton
 public abstract class WmService<I extends ServiceInput, O extends ServiceOutput> implements Service<I, O> {
 
     protected static final IData EMPTY_IDATA = IDataFactory.create();

@@ -15,6 +15,7 @@ import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler.GetComponentStateStrategy;
 import com.google.common.base.Objects;
 import com.google.common.base.Predicate;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -26,7 +27,12 @@ import com.google.common.base.Predicate;
 public class GetPortStateStrategy
         implements GetComponentStateStrategy<PortType, PackageAndStringId, ActivableState> {
 
-    private final ListListeners ports = new ListListeners();
+    private final ListListeners ports;
+
+    @Inject
+    public GetPortStateStrategy(ListListeners ports) {
+        this.ports = ports;
+    }
 
     @Override
     public PortType getComponentType() {

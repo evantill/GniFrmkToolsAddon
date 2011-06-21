@@ -12,6 +12,7 @@ import com.gni.frmk.tools.addon.model.component.root.SchedulerType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentDetailHandler.GetComponentDetailStrategy;
 import com.google.common.base.Predicate;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -23,7 +24,12 @@ import com.google.common.base.Predicate;
 public class GetSchedulerDetailStrategy
         implements GetComponentDetailStrategy<SchedulerType, StringId, SchedulerDetail> {
 
-    private final GetUserTaskList schedulers = new GetUserTaskList();
+    private final GetUserTaskList schedulers;
+
+    @Inject
+    public GetSchedulerDetailStrategy(GetUserTaskList schedulers) {
+        this.schedulers = schedulers;
+    }
 
     @Override
     public SchedulerType getComponentType() {

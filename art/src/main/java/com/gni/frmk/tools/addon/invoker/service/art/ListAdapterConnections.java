@@ -23,7 +23,7 @@ import static com.gni.frmk.tools.addon.invoker.io.art.AdapterConnectionInfo.buil
 public class ListAdapterConnections
         extends WmService<AdapterTypeInput, ListValueOutput<AdapterConnectionInfo>> {
 
-    public ListAdapterConnections() {
+     ListAdapterConnections() {
         super("pub.art.connection:listAdapterConnections");
     }
 

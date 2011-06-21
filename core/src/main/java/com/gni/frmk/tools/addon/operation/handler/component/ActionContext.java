@@ -13,7 +13,7 @@ import java.util.Map;
  *
  * @author: e03229
  */
-class ActionContext<S extends ActionStrategy<?>> {
+public class ActionContext<S extends ActionStrategy<?>> {
 
     private final Map<ComponentType<?, ?, ?, ?, ?>, ActionStrategy<?>> strategies = Maps.newHashMap();
 

@@ -18,6 +18,7 @@ import com.gni.frmk.tools.addon.model.component.root.TemporaryStatus;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler.GetComponentStateStrategy;
 import com.google.common.base.Predicate;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -29,7 +30,12 @@ import com.google.common.base.Predicate;
 public class GetNativeTriggerStateStrategy
         implements GetComponentStateStrategy<NativeTriggerType, StringId, NativeTriggerState> {
 
-    private final GetTriggerReport triggers = new GetTriggerReport();
+    private final GetTriggerReport triggers;
+
+    @Inject
+    public GetNativeTriggerStateStrategy(GetTriggerReport triggers) {
+        this.triggers = triggers;
+    }
 
     @Override
     public NativeTriggerType getComponentType() {

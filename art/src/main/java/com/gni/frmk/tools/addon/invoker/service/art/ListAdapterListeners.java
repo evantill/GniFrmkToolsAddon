@@ -23,7 +23,7 @@ import static com.gni.frmk.tools.addon.invoker.io.art.AdapterListenerInfo.builde
 public class ListAdapterListeners extends WmService<AdapterTypeInput, ListValueOutput<AdapterListenerInfo>> {
 
 
-    public ListAdapterListeners() {
+     ListAdapterListeners() {
         super("pub.art.listener:listAdapterListeners");
     }
 

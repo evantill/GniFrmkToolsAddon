@@ -20,7 +20,7 @@ import static com.google.common.collect.Lists.newArrayList;
  */
 public class RetrieveAdapterTypes extends WmService<NoInput, ListValueOutput<String>> {
 
-    public RetrieveAdapterTypes() {
+     RetrieveAdapterTypes() {
         super("wm.art.admin:retrieveAdapterTypesList");
     }
 

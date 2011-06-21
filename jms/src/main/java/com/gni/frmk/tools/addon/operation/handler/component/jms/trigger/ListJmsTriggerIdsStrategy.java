@@ -10,6 +10,7 @@ import com.gni.frmk.tools.addon.model.component.jms.JmsTriggerType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler.ListComponentIdsStrategy;
 import com.google.common.collect.Sets;
+import com.google.inject.Inject;
 
 import java.util.Set;
 
@@ -23,7 +24,12 @@ import java.util.Set;
 public class ListJmsTriggerIdsStrategy
         implements ListComponentIdsStrategy<JmsTriggerType, StringId> {
 
-    private final GetJmsTriggerReport triggers = new GetJmsTriggerReport();
+    private final GetJmsTriggerReport triggers;
+
+    @Inject
+    public ListJmsTriggerIdsStrategy(GetJmsTriggerReport triggers) {
+        this.triggers = triggers;
+    }
 
     @Override
     public Set<StringId> listIds(InvokeContext context) throws ServiceException {

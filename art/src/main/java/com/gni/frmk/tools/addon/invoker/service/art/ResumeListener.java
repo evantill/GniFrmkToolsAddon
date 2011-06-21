@@ -16,7 +16,7 @@ import com.wm.data.*;
  */
 public class ResumeListener extends WmService<AdapterComponentId, NoOutput> {
 
-    public ResumeListener() {
+     ResumeListener() {
         super("pub.art.listener:resumeListener");
     }
 

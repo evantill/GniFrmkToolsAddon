@@ -8,6 +8,7 @@ import com.gni.frmk.tools.addon.operation.action.component.root.service.GetRunni
 import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
+import com.google.inject.Inject;
 
 import java.util.Set;
 
@@ -23,7 +24,12 @@ import static com.google.common.collect.Sets.filter;
 public class GetRunningServicesHandler
         implements ActionHandler<GetRunningServices, Result, InvokeContext> {
 
-    private final GetAllServiceStats service = new GetAllServiceStats();
+    private final GetAllServiceStats service;
+
+    @Inject
+    public GetRunningServicesHandler(GetAllServiceStats service) {
+        this.service = service;
+    }
 
     @Override
     public Class<GetRunningServices> getActionType() {

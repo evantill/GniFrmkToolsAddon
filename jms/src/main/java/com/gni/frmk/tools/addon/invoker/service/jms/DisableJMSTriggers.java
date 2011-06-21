@@ -16,7 +16,7 @@ import com.wm.data.*;
  */
 public class DisableJMSTriggers extends WmService<JmsTriggerInput,NoOutput>{
 
-    public DisableJMSTriggers() {
+     DisableJMSTriggers() {
         super("wm.server.jms:disableJMSTriggers");
     }
 

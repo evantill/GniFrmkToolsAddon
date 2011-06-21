@@ -16,7 +16,7 @@ import com.wm.data.*;
  */
 public class DisableConnectionAlias extends WmService<SingleValueInput<String>, NoOutput> {
 
-    public DisableConnectionAlias() {
+     DisableConnectionAlias() {
         super("wm.server.jms:disableConnectionAlias");
     }
 

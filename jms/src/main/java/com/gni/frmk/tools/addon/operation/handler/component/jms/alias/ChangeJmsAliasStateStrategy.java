@@ -10,6 +10,7 @@ import com.gni.frmk.tools.addon.model.component.jms.ConnectableState;
 import com.gni.frmk.tools.addon.model.component.jms.JmsAliasType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentStateHandler.ChangeComponentStateStrategy;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,8 +22,14 @@ import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentState
 public class ChangeJmsAliasStateStrategy
         implements ChangeComponentStateStrategy<JmsAliasType, StringId, ConnectableState> {
 
-    private final DisableConnectionAlias disableService = new DisableConnectionAlias();
-    private final EnableConnectionAlias enableService = new EnableConnectionAlias();
+    private final DisableConnectionAlias disableService;
+    private final EnableConnectionAlias enableService;
+
+    @Inject
+    public ChangeJmsAliasStateStrategy(DisableConnectionAlias disableService, EnableConnectionAlias enableService) {
+        this.disableService = disableService;
+        this.enableService = enableService;
+    }
 
     @Override
     public ConnectableState changeState(StringId componentId, ConnectableState oldState, ConnectableState newState, InvokeContext context) throws ServiceException {

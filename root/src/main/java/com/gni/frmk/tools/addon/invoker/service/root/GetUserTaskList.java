@@ -46,7 +46,7 @@ public class GetUserTaskList extends WmService<NoInput, ListValueOutput<Schedule
         }
     }
 
-    public GetUserTaskList() {
+     GetUserTaskList() {
         super("wm.server.schedule:getUserTaskList");
     }
 

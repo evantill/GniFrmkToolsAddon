@@ -15,7 +15,7 @@ import com.wm.data.*;
  * @author: e03229
  */
 public class SuspendTrigger extends WmService<NativeTriggerInput, NoOutput> {
-    public SuspendTrigger() {
+     SuspendTrigger() {
         super("wm.server.triggers:suspendTrigger");
     }
 

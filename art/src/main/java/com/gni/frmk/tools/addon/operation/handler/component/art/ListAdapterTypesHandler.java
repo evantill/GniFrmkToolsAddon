@@ -8,6 +8,7 @@ import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.result.SetResult;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,7 +20,12 @@ import com.gni.frmk.tools.addon.operation.result.SetResult;
 public class ListAdapterTypesHandler
         implements ActionHandler<ListAdapterTypes, SetResult<String>, InvokeContext> {
 
-    private final RetrieveAdapterTypes service = new RetrieveAdapterTypes();
+    private final RetrieveAdapterTypes service;
+
+    @Inject
+    public ListAdapterTypesHandler(RetrieveAdapterTypes service) {
+        this.service = service;
+    }
 
     @Override
     public SetResult<String> execute(ListAdapterTypes action, InvokeContext context) throws ActionException {

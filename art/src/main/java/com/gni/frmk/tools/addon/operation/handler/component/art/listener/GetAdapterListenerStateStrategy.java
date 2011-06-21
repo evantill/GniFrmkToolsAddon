@@ -14,6 +14,7 @@ import com.gni.frmk.tools.addon.model.component.art.AdapterListenerType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler.GetComponentStateStrategy;
 import com.google.common.base.Predicate;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,7 +26,12 @@ import com.google.common.base.Predicate;
 public class GetAdapterListenerStateStrategy
         implements GetComponentStateStrategy<AdapterListenerType, AdapterId, ActivableState> {
 
-    private final ListAdapterListeners listeners = new ListAdapterListeners();
+    private final ListAdapterListeners listeners;
+
+    @Inject
+    public GetAdapterListenerStateStrategy(ListAdapterListeners listeners) {
+        this.listeners = listeners;
+    }
 
     @Override
     public AdapterListenerType getComponentType() {

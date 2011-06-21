@@ -1,7 +1,6 @@
 package com.gni.frmk.tools.addon.operation.handler.component.root.trigger;
 
 import com.gni.frmk.tools.addon.invoker.api.ServiceException;
-import com.gni.frmk.tools.addon.invoker.service.root.GetTriggerReport;
 import com.gni.frmk.tools.addon.model.component.NoDetail;
 import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.root.NativeTriggerType;
@@ -17,8 +16,6 @@ import com.gni.frmk.tools.addon.operation.handler.component.GetComponentDetailHa
  */
 public class GetNativeTriggerDetailStrategy
         implements GetComponentDetailStrategy<NativeTriggerType, StringId, NoDetail> {
-
-    private final GetTriggerReport triggers = new GetTriggerReport();
 
     @Override
     public NativeTriggerType getComponentType() {

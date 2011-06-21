@@ -10,6 +10,7 @@ import com.gni.frmk.tools.addon.model.component.root.SchedulerType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler.ListComponentIdsStrategy;
 import com.google.common.collect.Sets;
+import com.google.inject.Inject;
 
 import java.util.Set;
 
@@ -23,7 +24,12 @@ import java.util.Set;
 public class ListSchedulerIdsStrategy
         implements ListComponentIdsStrategy<SchedulerType, StringId> {
 
-    private final GetUserTaskList schedulers = new GetUserTaskList();
+    private final GetUserTaskList schedulers;
+
+    @Inject
+    public ListSchedulerIdsStrategy(GetUserTaskList schedulers) {
+        this.schedulers = schedulers;
+    }
 
     @Override
     public Set<StringId> listIds(InvokeContext context) throws ServiceException {

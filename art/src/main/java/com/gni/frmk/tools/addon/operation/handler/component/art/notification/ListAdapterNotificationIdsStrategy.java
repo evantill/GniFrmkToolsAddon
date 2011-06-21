@@ -12,6 +12,7 @@ import com.gni.frmk.tools.addon.model.component.art.AdapterNotificationType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler.ListComponentIdsStrategy;
 import com.google.common.collect.Sets;
+import com.google.inject.Inject;
 
 import java.util.List;
 import java.util.Set;
@@ -26,8 +27,14 @@ import java.util.Set;
 public class ListAdapterNotificationIdsStrategy
         implements ListComponentIdsStrategy<AdapterNotificationType, AdapterId> {
 
-    private final ListAdapterPollingNotifications pollingNotifications = new ListAdapterPollingNotifications();
-    private final RetrieveAdapterTypes retrieveAdapterTypes = new RetrieveAdapterTypes();
+    private final ListAdapterPollingNotifications pollingNotifications;
+    private final RetrieveAdapterTypes retrieveAdapterTypes;
+
+    @Inject
+    public ListAdapterNotificationIdsStrategy(ListAdapterPollingNotifications pollingNotifications, RetrieveAdapterTypes retrieveAdapterTypes) {
+        this.pollingNotifications = pollingNotifications;
+        this.retrieveAdapterTypes = retrieveAdapterTypes;
+    }
 
     @Override
     public Set<AdapterId> listIds(InvokeContext context) throws ServiceException {

@@ -9,6 +9,7 @@ import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.result.SetResult;
+import com.google.inject.Inject;
 
 import java.util.Set;
 
@@ -31,6 +32,7 @@ public class ListComponentIdsHandler
 
     private final ActionContext<ListComponentIdsStrategy<?, ?>> strategyContext;
 
+    @Inject
     public ListComponentIdsHandler(ActionContext<ListComponentIdsStrategy<?, ?>> strategyContext) {
         this.strategyContext = strategyContext;
     }

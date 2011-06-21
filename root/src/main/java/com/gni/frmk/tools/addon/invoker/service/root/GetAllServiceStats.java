@@ -43,7 +43,7 @@ public class GetAllServiceStats extends WmService<NoInput, SetValueOutput<String
 
     private final Predicate<? super String> filter;
 
-    public GetAllServiceStats() {
+     GetAllServiceStats() {
         this(null);
     }
 

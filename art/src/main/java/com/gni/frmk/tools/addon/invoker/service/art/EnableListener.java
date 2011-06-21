@@ -16,7 +16,7 @@ import com.wm.data.*;
  */
 public class EnableListener extends WmService<AdapterComponentId, NoOutput> {
 
-    public EnableListener() {
+     EnableListener() {
         super("pub.art.listener:enableListener");
     }
 

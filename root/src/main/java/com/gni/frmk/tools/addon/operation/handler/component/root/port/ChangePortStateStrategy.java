@@ -11,6 +11,7 @@ import com.gni.frmk.tools.addon.model.component.PackageAndStringId;
 import com.gni.frmk.tools.addon.model.component.root.PortType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentStateHandler.ChangeComponentStateStrategy;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -22,8 +23,14 @@ import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentState
 public class ChangePortStateStrategy
         implements ChangeComponentStateStrategy<PortType, PackageAndStringId, ActivableState> {
 
-    private final DisableListener disableService = new DisableListener();
-    private final EnableListener enableService = new EnableListener();
+    private final DisableListener disableService;
+    private final EnableListener enableService;
+
+    @Inject
+    public ChangePortStateStrategy(DisableListener disableService, EnableListener enableService) {
+        this.disableService = disableService;
+        this.enableService = enableService;
+    }
 
     @Override
     public ActivableState changeState(PackageAndStringId componentId, ActivableState oldState, ActivableState newState, InvokeContext context) throws ServiceException {

@@ -12,6 +12,7 @@ import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.operation.api.DispatchException;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -32,6 +33,7 @@ public class ChangeComponentStateHandler
 
     private final ActionContext<ChangeComponentStateStrategy<?, ?, ?>> strategyContext;
 
+    @Inject
     public ChangeComponentStateHandler(ActionContext<ChangeComponentStateStrategy<?, ?, ?>> strategyContext) {
         this.strategyContext = strategyContext;
     }

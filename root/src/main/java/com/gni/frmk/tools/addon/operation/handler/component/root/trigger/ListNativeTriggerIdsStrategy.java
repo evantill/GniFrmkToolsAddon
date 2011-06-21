@@ -10,6 +10,7 @@ import com.gni.frmk.tools.addon.model.component.root.NativeTriggerType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler.ListComponentIdsStrategy;
 import com.google.common.collect.Sets;
+import com.google.inject.Inject;
 
 import java.util.Set;
 
@@ -23,7 +24,12 @@ import java.util.Set;
 public class ListNativeTriggerIdsStrategy
         implements ListComponentIdsStrategy<NativeTriggerType, StringId> {
 
-    private final GetTriggerReport triggers = new GetTriggerReport();
+    private final GetTriggerReport triggers;
+
+    @Inject
+    public ListNativeTriggerIdsStrategy(GetTriggerReport triggers) {
+        this.triggers = triggers;
+    }
 
     @Override
     public Set<StringId> listIds(InvokeContext context) throws ServiceException {

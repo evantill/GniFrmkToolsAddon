@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class GetTriggerReport extends WmService<NoInput, ListValueOutput<NativeTriggerInfo>> {
 
-    public GetTriggerReport() {
+     GetTriggerReport() {
         super("wm.server.triggers:getTriggerReport");
     }
 

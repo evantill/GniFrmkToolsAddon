@@ -16,7 +16,7 @@ import com.wm.data.*;
  */
 public class EnableListener extends WmService<PortInput, NoOutput> {
 
-    public EnableListener() {
+     EnableListener() {
         super("wm.server.net.listeners:enableListener");
     }
 

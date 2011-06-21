@@ -16,7 +16,7 @@ import com.wm.data.*;
  */
 public class WakeupUserTask extends WmService<SingleValueInput<String>, NoOutput> {
 
-    public WakeupUserTask() {
+     WakeupUserTask() {
         super("wm.server.schedule:wakeupUserTask");
     }
 

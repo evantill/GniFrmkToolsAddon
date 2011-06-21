@@ -13,6 +13,7 @@ import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.jms.JmsTriggerType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentStateHandler.ChangeComponentStateStrategy;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -24,9 +25,16 @@ import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentState
 public class ChangeJmsTriggerStateStrategy
         implements ChangeComponentStateStrategy<JmsTriggerType, StringId, ActivableState> {
 
-    private final DisableJMSTriggers disableTriggers = new DisableJMSTriggers();
-    private final EnableJMSTriggers enableTriggers = new EnableJMSTriggers();
-    private final SuspendJMSTriggers suspendTriggers = new SuspendJMSTriggers();
+    private final DisableJMSTriggers disableTriggers;
+    private final EnableJMSTriggers enableTriggers;
+    private final SuspendJMSTriggers suspendTriggers;
+
+    @Inject
+    public ChangeJmsTriggerStateStrategy(DisableJMSTriggers disableTriggers, EnableJMSTriggers enableTriggers, SuspendJMSTriggers suspendTriggers) {
+        this.disableTriggers = disableTriggers;
+        this.enableTriggers = enableTriggers;
+        this.suspendTriggers = suspendTriggers;
+    }
 
     @Override
     public ActivableState changeState(StringId componentId, ActivableState oldState, ActivableState newState, InvokeContext context) throws ServiceException {

@@ -12,6 +12,7 @@ import com.gni.frmk.tools.addon.model.component.jms.JmsAliasType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentDetailHandler.GetComponentDetailStrategy;
 import com.google.common.base.Predicate;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -23,7 +24,12 @@ import com.google.common.base.Predicate;
 public class GetJmsAliasDetailStrategy
         implements GetComponentDetailStrategy<JmsAliasType, StringId, JmsAliasDetail> {
 
-    private final GetConnectionAliasReport aliases = new GetConnectionAliasReport();
+    private final GetConnectionAliasReport aliases;
+
+    @Inject
+    public GetJmsAliasDetailStrategy(GetConnectionAliasReport aliases) {
+        this.aliases = aliases;
+    }
 
     @Override
     public JmsAliasType getComponentType() {

@@ -12,6 +12,7 @@ import com.gni.frmk.tools.addon.model.component.art.AdapterId;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler.ListComponentIdsStrategy;
 import com.google.common.collect.Sets;
+import com.google.inject.Inject;
 
 import java.util.List;
 import java.util.Set;
@@ -26,9 +27,14 @@ import java.util.Set;
 public class ListAdapterConnectionIdsStrategy
         implements ListComponentIdsStrategy<AdapterConnectionType, AdapterId> {
 
-    private final ListAdapterConnections connections = new ListAdapterConnections();
-    private final RetrieveAdapterTypes retrieveAdapterTypes = new RetrieveAdapterTypes();
+    private final ListAdapterConnections connections;
+    private final RetrieveAdapterTypes retrieveAdapterTypes;
 
+    @Inject
+    public ListAdapterConnectionIdsStrategy(ListAdapterConnections connections, RetrieveAdapterTypes retrieveAdapterTypes) {
+        this.connections = connections;
+        this.retrieveAdapterTypes = retrieveAdapterTypes;
+    }
 
     @Override
     public AdapterConnectionType getComponentType() {

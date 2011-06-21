@@ -16,7 +16,7 @@ import com.wm.data.*;
  */
 public class DisableConnection extends WmService<AdapterComponentId, NoOutput> {
 
-    public DisableConnection() {
+     DisableConnection() {
         super("pub.art.connection:disableConnection");
     }
 

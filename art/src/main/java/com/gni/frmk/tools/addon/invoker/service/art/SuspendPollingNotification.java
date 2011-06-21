@@ -16,7 +16,7 @@ import com.wm.data.*;
  */
 public class SuspendPollingNotification extends WmService<AdapterComponentId, NoOutput> {
 
-    public SuspendPollingNotification() {
+     SuspendPollingNotification() {
         super("pub.art.notification:suspendPollingNotification");
     }
 

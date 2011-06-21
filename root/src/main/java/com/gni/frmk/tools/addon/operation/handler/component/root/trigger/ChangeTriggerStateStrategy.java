@@ -11,6 +11,7 @@ import com.gni.frmk.tools.addon.model.component.root.NativeTriggerType;
 import com.gni.frmk.tools.addon.model.component.root.TemporaryStatus;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentStateHandler.ChangeComponentStateStrategy;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -22,7 +23,12 @@ import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentState
 public class ChangeTriggerStateStrategy
         implements ChangeComponentStateStrategy<NativeTriggerType, StringId, NativeTriggerState> {
 
-    private final SuspendTrigger triggerService = new SuspendTrigger();
+    private final SuspendTrigger triggerService;
+
+    @Inject
+    public ChangeTriggerStateStrategy(SuspendTrigger triggerService) {
+        this.triggerService = triggerService;
+    }
 
     /**
      * Le changement de statut est le suivant :

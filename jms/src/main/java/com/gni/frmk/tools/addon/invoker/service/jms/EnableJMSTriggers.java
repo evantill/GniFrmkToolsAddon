@@ -16,7 +16,7 @@ import com.wm.data.*;
  */
 public class EnableJMSTriggers extends WmService<JmsTriggerInput,NoOutput>{
 
-    public EnableJMSTriggers() {
+     EnableJMSTriggers() {
         super("wm.server.jms:enableJMSTriggers");
     }
 

@@ -16,7 +16,7 @@ import com.wm.data.*;
  */
 public class SuspendJMSTriggers extends WmService<JmsTriggerInput, NoOutput> {
 
-    public SuspendJMSTriggers() {
+     SuspendJMSTriggers() {
         super("wm.server.jms:suspendJMSTriggers");
     }
 

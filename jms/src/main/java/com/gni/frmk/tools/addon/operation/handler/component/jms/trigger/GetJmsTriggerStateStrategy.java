@@ -14,6 +14,7 @@ import com.gni.frmk.tools.addon.model.component.jms.JmsTriggerType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler.GetComponentStateStrategy;
 import com.google.common.base.Predicate;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,7 +26,12 @@ import com.google.common.base.Predicate;
 public class GetJmsTriggerStateStrategy
         implements GetComponentStateStrategy<JmsTriggerType, StringId, ActivableState> {
 
-    private final GetJmsTriggerReport triggers = new GetJmsTriggerReport();
+    private final GetJmsTriggerReport triggers;
+
+    @Inject
+    public GetJmsTriggerStateStrategy(GetJmsTriggerReport triggers) {
+        this.triggers = triggers;
+    }
 
     @Override
     public JmsTriggerType getComponentType() {

@@ -16,7 +16,7 @@ import com.wm.data.*;
  */
 public class ResumePollingNotification extends WmService<AdapterComponentId, NoOutput> {
 
-    public ResumePollingNotification() {
+     ResumePollingNotification() {
         super("pub.art.notification:resumePollingNotification");
     }
 

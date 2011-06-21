@@ -12,6 +12,7 @@ import com.gni.frmk.tools.addon.model.component.art.AdapterNotificationType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentDetailHandler.GetComponentDetailStrategy;
 import com.google.common.base.Predicate;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -23,7 +24,12 @@ import com.google.common.base.Predicate;
 public class GetAdapterNotificationDetailStrategy
         implements GetComponentDetailStrategy<AdapterNotificationType, AdapterId, PackageDetail> {
 
-    private final ListAdapterPollingNotifications pollingNotifications = new ListAdapterPollingNotifications();
+    private final ListAdapterPollingNotifications pollingNotifications;
+
+    @Inject
+    public GetAdapterNotificationDetailStrategy(ListAdapterPollingNotifications pollingNotifications) {
+        this.pollingNotifications = pollingNotifications;
+    }
 
     @Override
     public AdapterNotificationType getComponentType() {

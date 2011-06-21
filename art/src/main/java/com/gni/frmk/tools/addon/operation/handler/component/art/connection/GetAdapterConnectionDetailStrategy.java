@@ -12,6 +12,7 @@ import com.gni.frmk.tools.addon.model.component.art.AdapterId;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentDetailHandler.GetComponentDetailStrategy;
 import com.google.common.base.Predicate;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -23,7 +24,12 @@ import com.google.common.base.Predicate;
 public class GetAdapterConnectionDetailStrategy
         implements GetComponentDetailStrategy<AdapterConnectionType, AdapterId, PackageDetail> {
 
-    private final ListAdapterConnections connections = new ListAdapterConnections();
+    private final ListAdapterConnections connections;
+
+    @Inject
+    public GetAdapterConnectionDetailStrategy(ListAdapterConnections connections) {
+        this.connections = connections;
+    }
 
     @Override
     public AdapterConnectionType getComponentType() {

@@ -10,6 +10,7 @@ import com.gni.frmk.tools.addon.model.component.art.AdapterConnectionType;
 import com.gni.frmk.tools.addon.model.component.art.AdapterId;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentStateHandler.ChangeComponentStateStrategy;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,8 +22,14 @@ import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentState
 public class ChangeAdapterConnectionStateStrategy
         implements ChangeComponentStateStrategy<AdapterConnectionType, AdapterId, EnableState> {
 
-    private final EnableConnection enableService = new EnableConnection();
-    private final DisableConnection disableService = new DisableConnection();
+    private final EnableConnection enableService;
+    private final DisableConnection disableService;
+
+    @Inject
+    public ChangeAdapterConnectionStateStrategy(EnableConnection enableService, DisableConnection disableService) {
+        this.enableService = enableService;
+        this.disableService = disableService;
+    }
 
     @Override
     public EnableState changeState(AdapterId componentId, EnableState oldState, EnableState newState, InvokeContext context) throws ServiceException {

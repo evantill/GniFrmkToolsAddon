@@ -16,7 +16,7 @@ import com.wm.data.*;
  */
 public class SuspendListener extends WmService<AdapterComponentId, NoOutput> {
 
-    public SuspendListener() {
+     SuspendListener() {
         super("pub.art.listener:suspendListener");
     }
 

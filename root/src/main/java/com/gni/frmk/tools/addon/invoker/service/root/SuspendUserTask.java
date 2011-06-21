@@ -16,7 +16,7 @@ import com.wm.data.*;
  */
 public class SuspendUserTask extends WmService<SingleValueInput<String>, NoOutput> {
 
-    public SuspendUserTask() {
+     SuspendUserTask() {
         super("wm.server.schedule:suspendUserTask");
     }
 

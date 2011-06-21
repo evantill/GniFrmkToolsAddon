@@ -22,7 +22,7 @@ import static java.lang.Boolean.FALSE;
  */
 public class ListListeners extends WmService<NoInput, ListValueOutput<PortInfo>> {
 
-    public ListListeners() {
+     ListListeners() {
         super("wm.server.ports:listListeners");
     }
 

@@ -22,7 +22,7 @@ import static com.gni.frmk.tools.addon.invoker.io.art.AdapterPollingNotification
  */
 public class ListAdapterPollingNotifications extends WmService<AdapterTypeInput, ListValueOutput<AdapterPollingNotificationInfo>> {
 
-    public ListAdapterPollingNotifications() {
+     ListAdapterPollingNotifications() {
         super("pub.art.notification:listAdapterPollingNotifications");
     }
 

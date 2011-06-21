@@ -12,6 +12,7 @@ import com.gni.frmk.tools.addon.model.component.art.AdapterListenerType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler.ListComponentIdsStrategy;
 import com.google.common.collect.Sets;
+import com.google.inject.Inject;
 
 import java.util.List;
 import java.util.Set;
@@ -26,8 +27,14 @@ import java.util.Set;
 public class ListAdapterListenerIdsStrategy
         implements ListComponentIdsStrategy<AdapterListenerType, AdapterId> {
 
-    private final ListAdapterListeners listeners = new ListAdapterListeners();
-    private final RetrieveAdapterTypes retrieveAdapterTypes = new RetrieveAdapterTypes();
+    private final ListAdapterListeners listeners;
+    private final RetrieveAdapterTypes retrieveAdapterTypes;
+
+    @Inject
+    public ListAdapterListenerIdsStrategy(ListAdapterListeners listeners, RetrieveAdapterTypes retrieveAdapterTypes) {
+        this.listeners = listeners;
+        this.retrieveAdapterTypes = retrieveAdapterTypes;
+    }
 
     @Override
     public Set<AdapterId> listIds(InvokeContext context) throws ServiceException {

@@ -13,6 +13,7 @@ import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentDetailHandler.GetComponentDetailStrategy;
 import com.google.common.base.Objects;
 import com.google.common.base.Predicate;
+import com.google.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -24,7 +25,12 @@ import com.google.common.base.Predicate;
 public class GetPortDetailStrategy
         implements GetComponentDetailStrategy<PortType, PackageAndStringId, PortDetail> {
 
-    private final ListListeners ports = new ListListeners();
+    private final ListListeners ports;
+
+    @Inject
+    public GetPortDetailStrategy(ListListeners ports) {
+        this.ports = ports;
+    }
 
     @Override
     public PortType getComponentType() {

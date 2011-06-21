@@ -16,7 +16,7 @@ import com.wm.data.*;
  */
 public class EnableConnection extends WmService<AdapterComponentId, NoOutput> {
 
-    public EnableConnection() {
+    EnableConnection() {
         super("pub.art.connection:enableConnection");
     }
 
