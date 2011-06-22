@@ -7,6 +7,10 @@ import com.gni.frmk.tools.addon.operation.api.ExecutionContext;
 import com.gni.frmk.tools.addon.operation.api.Result;
 import com.google.common.collect.Maps;
 
+import javax.enterprise.inject.Any;
+import javax.enterprise.inject.Instance;
+import javax.enterprise.util.TypeLiteral;
+import javax.inject.Inject;
 import java.util.Map;
 
 /**
@@ -34,8 +38,18 @@ public class ActionHandlerRegistry<C extends ExecutionContext> {
 
     private final Map<Class, ActionHandler<?, ?, ? extends C>> handlers = Maps.newHashMap();
 
+    public ActionHandlerRegistry() {
+    }
+
+    @Inject
+    public ActionHandlerRegistry(@Any Instance<ActionHandler<?, ?, ? extends C>> handlers) {
+        for(ActionHandler<?, ?, ? extends C> h : handlers){
+            this.handlers.put(h.getActionType().getRawType(),h);
+        }
+    }
+
     public HandlerRegistration register(ActionHandler<?, ?, ? extends C> handler) {
-        handlers.put(handler.getActionType(), handler);
+        handlers.put(handler.getActionType().getRawType(), handler);
         return new HandlerRegistration<C>(this, handler);
     }
 

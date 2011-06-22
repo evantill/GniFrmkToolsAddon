@@ -13,7 +13,7 @@ import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentDetailHandler.GetComponentDetailStrategy;
 import com.google.common.base.Objects;
 import com.google.common.base.Predicate;
-import com.google.inject.Inject;
+import javax.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.

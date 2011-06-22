@@ -8,6 +8,7 @@
     <packaging>pom</packaging>
     <url>http://maven.apache.org</url>
     <modules>
+        <module>util</module>
         <module>model</module>
         <module>common</module>
         <module>draft</module>
@@ -25,6 +26,12 @@
     </scm>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--do not change log version. see:http://www.sfwk.org/Community/UnshadedWeldSEDistribution-->
+        <dependency.sl4j.version>1.5.11</dependency.sl4j.version>
+        <dependency.logback.version>0.9.18</dependency.logback.version>
+        <dependency.weld.version>1.1.1.Final</dependency.weld.version>
+        <dependency.jaxb.api.version>2.2.2</dependency.jaxb.api.version>
+        <dependency.moxy.version>2.2.0</dependency.moxy.version>
     </properties>
     <reporting>
         <plugins>
@@ -160,25 +167,23 @@
         </pluginRepository>
     </pluginRepositories>
     <dependencies>
-
+        <!--Weld-->
         <dependency>
-            <groupId>com.google.inject</groupId>
-            <artifactId>guice</artifactId>
-            <version>3.0</version>
-            <classifier>no_aop</classifier>
+            <groupId>org.jboss.weld.se</groupId>
+            <artifactId>weld-se-core</artifactId>
+            <version>${dependency.weld.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.google.inject.extensions</groupId>
-            <artifactId>guice-multibindings</artifactId>
-            <version>3.0</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>guice</artifactId>
-                    <groupId>com.google.inject</groupId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.jboss.weld</groupId>
+            <artifactId>weld-core</artifactId>
+            <version>${dependency.weld.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.14.0-GA</version>
+        </dependency>
+        <!--WebMethods-->
         <dependency>
             <groupId>com.wm</groupId>
             <artifactId>${wm.server.artifactId}</artifactId>
@@ -203,70 +208,7 @@
             <version>${wm.prt.version}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>org.simpleframework</groupId>
-            <artifactId>simple-xml</artifactId>
-            <version>2.4.1</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>1.6.2</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.2.2</version>
-        </dependency>
-        <!--<dependency>-->
-        <!--<groupId>com.sun.xml.bind</groupId>-->
-        <!--<artifactId>jaxb-impl</artifactId>-->
-        <!--<version>2.2.2</version>-->
-        <!--</dependency>-->
-
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.moxy</artifactId>
-            <version>2.2.0</version>
-        </dependency>
-
-        <!--<dependency>-->
-        <!--<groupId>javax.xml.bind</groupId>-->
-        <!--<artifactId>jaxb-api</artifactId>-->
-        <!--<version>2.1</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>com.sun.xml.bind</groupId>-->
-        <!--<artifactId>jaxb-xjc</artifactId>-->
-        <!--<version>2.1.8</version>-->
-        <!--</dependency>-->
-
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mail</artifactId>
-            <version>1.4</version>
-        </dependency>
-
-        <!--<dependency>-->
-        <!--<groupId>commons-io</groupId>-->
-        <!--<artifactId>commons-io</artifactId>-->
-        <!--<version>1.4</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>commons-lang</groupId>-->
-        <!--<artifactId>commons-lang</artifactId>-->
-        <!--<version>2.5</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>commons-collections</groupId>-->
-        <!--<artifactId>commons-collections</artifactId>-->
-        <!--<version>3.2.1</version>-->
-        <!--</dependency>-->
-
+        <!--bean validation-->
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
@@ -287,39 +229,62 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.6.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>log4j-over-slf4j</artifactId>
-            <version>1.6.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jul-to-slf4j</artifactId>
-            <version>1.6.1</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-            <version>0.9.27</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>0.9.27</version>
-        </dependency>
-
-
+        <!--guava-->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>r08</version>
         </dependency>
-
+        <!--logging-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${dependency.sl4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>${dependency.sl4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+            <version>${dependency.sl4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${dependency.sl4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${dependency.logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${dependency.logback.version}</version>
+        </dependency>
+        <!--JAXB-->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${dependency.jaxb.api.version}</version>
+        </dependency>
+        <!--JAXB Sun Impl
+        <dependency>
+        <groupId>com.sun.xml.bind</groupId>
+        <artifactId>jaxb-impl</artifactId>
+        <version>${dependency.jaxb.api.version}</version>
+        </dependency>
+        -->
+        <!--JAXB Moxy Impl-->
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.moxy</artifactId>
+            <version>${dependency.moxy.version}</version>
+        </dependency>
         <!--test dependencies-->
         <dependency>
             <groupId>junit</groupId>
@@ -357,8 +322,20 @@
             <version>1.4</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.simpleframework</groupId>
+            <artifactId>simple-xml</artifactId>
+            <version>2.4.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>1.6.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
+
     <build>
         <extensions>
             <!-- necessaire pour uploader en webdav sur archiva -->

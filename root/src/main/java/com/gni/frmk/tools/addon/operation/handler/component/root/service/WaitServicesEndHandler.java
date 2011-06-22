@@ -9,6 +9,8 @@ import com.gni.frmk.tools.addon.operation.api.Dispatcher;
 import com.gni.frmk.tools.addon.operation.api.ExecutionContext;
 import com.gni.frmk.tools.addon.operation.result.NoResult;
 
+import javax.enterprise.util.TypeLiteral;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 17/03/11
@@ -19,9 +21,11 @@ import com.gni.frmk.tools.addon.operation.result.NoResult;
 public class WaitServicesEndHandler
         implements ActionHandler<WaitServicesEnd, NoResult, ExecutionContext> {
 
+    private static final TypeLiteral<WaitServicesEnd> TYPE_LITERAL = new TypeLiteral<WaitServicesEnd>() {};
+
     @Override
-    public Class<WaitServicesEnd> getActionType() {
-        return WaitServicesEnd.class;
+    public TypeLiteral<WaitServicesEnd> getActionType() {
+        return TYPE_LITERAL;
     }
 
     @Override

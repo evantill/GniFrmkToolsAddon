@@ -8,7 +8,9 @@ import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.result.SetResult;
-import com.google.inject.Inject;
+
+import javax.enterprise.util.TypeLiteral;
+import javax.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,6 +22,7 @@ import com.google.inject.Inject;
 public class ListAdapterTypesHandler
         implements ActionHandler<ListAdapterTypes, SetResult<String>, InvokeContext> {
 
+    private static final TypeLiteral<ListAdapterTypes> TYPE_LITERAL = new TypeLiteral<ListAdapterTypes>() {};
     private final RetrieveAdapterTypes service;
 
     @Inject
@@ -37,7 +40,7 @@ public class ListAdapterTypesHandler
     }
 
     @Override
-    public Class<ListAdapterTypes> getActionType() {
-        return ListAdapterTypes.class;
+    public TypeLiteral<ListAdapterTypes> getActionType() {
+        return TYPE_LITERAL;
     }
 }

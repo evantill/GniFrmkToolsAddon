@@ -1,5 +1,8 @@
 package com.gni.frmk.tools.addon.model;
 
+import javax.inject.Singleton;
+import java.util.List;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 17/05/11
@@ -7,10 +10,12 @@ package com.gni.frmk.tools.addon.model;
  *
  * @author: e03229
  */
+@Singleton
 public interface ModelResource {
     /**
      * used for creation Jaxb context path
-     * @return the FQDN of this resource (could use ':' to separate multiple path).
+     *
+     * @return the list of packages containing model elements;
      */
-    String getContextPath();
+    List<Package> getModelPackages();
 }

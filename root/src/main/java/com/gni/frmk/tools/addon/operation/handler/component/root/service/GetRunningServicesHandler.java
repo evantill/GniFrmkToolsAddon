@@ -8,7 +8,9 @@ import com.gni.frmk.tools.addon.operation.action.component.root.service.GetRunni
 import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
-import com.google.inject.Inject;
+
+import javax.enterprise.util.TypeLiteral;
+import javax.inject.Inject;
 
 import java.util.Set;
 
@@ -24,6 +26,7 @@ import static com.google.common.collect.Sets.filter;
 public class GetRunningServicesHandler
         implements ActionHandler<GetRunningServices, Result, InvokeContext> {
 
+    private static final TypeLiteral<GetRunningServices> TYPE_LITERAL = new TypeLiteral<GetRunningServices>() {};
     private final GetAllServiceStats service;
 
     @Inject
@@ -32,8 +35,8 @@ public class GetRunningServicesHandler
     }
 
     @Override
-    public Class<GetRunningServices> getActionType() {
-        return GetRunningServices.class;
+    public TypeLiteral<GetRunningServices> getActionType() {
+        return TYPE_LITERAL;
     }
 
     @Override

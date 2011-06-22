@@ -11,7 +11,7 @@ import com.gni.frmk.tools.addon.model.component.PackageAndStringId;
 import com.gni.frmk.tools.addon.model.component.root.PortType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ChangeComponentStateHandler.ChangeComponentStateStrategy;
-import com.google.inject.Inject;
+import javax.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.

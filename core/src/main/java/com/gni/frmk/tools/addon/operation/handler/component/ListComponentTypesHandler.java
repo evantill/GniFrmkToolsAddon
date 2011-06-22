@@ -6,7 +6,11 @@ import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.operation.api.ExecutionContext;
 import com.gni.frmk.tools.addon.operation.result.SetResult;
-import com.google.inject.Inject;
+import com.google.common.collect.Sets;
+
+import javax.enterprise.inject.Instance;
+import javax.enterprise.util.TypeLiteral;
+import javax.inject.Inject;
 
 import java.util.Set;
 
@@ -20,16 +24,17 @@ import java.util.Set;
 public class ListComponentTypesHandler
         implements ActionHandler<ListComponentTypes, SetResult<ComponentType>, ExecutionContext> {
 
+    private static final TypeLiteral<ListComponentTypes> TYPE_LITERAL = new TypeLiteral<ListComponentTypes>() {};
     private final Set<ComponentType> types;
 
     @Inject
-    public ListComponentTypesHandler(Set<ComponentType> types) {
-        this.types = types;
+    public ListComponentTypesHandler(Instance<ComponentType> types) {
+        this.types = Sets.newHashSet(types);
     }
 
     @Override
-    public Class<?> getActionType() {
-        return ListComponentTypes.class;
+    public TypeLiteral<ListComponentTypes> getActionType() {
+        return TYPE_LITERAL;
     }
 
     @Override

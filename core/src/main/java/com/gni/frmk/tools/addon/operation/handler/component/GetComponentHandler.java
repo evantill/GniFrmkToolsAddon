@@ -16,6 +16,8 @@ import com.gni.frmk.tools.addon.operation.api.Dispatcher;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
 
+import javax.enterprise.util.TypeLiteral;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 15/06/11
@@ -26,9 +28,11 @@ import com.gni.frmk.tools.addon.operation.result.SingleResult;
 public class GetComponentHandler
         implements ActionHandler<GetComponent<?, ?, ?, ?, ?>, SingleResult<? extends Component<?, ?, ?, ?, ?>>, InvokeContext> {
 
+    private static final TypeLiteral<GetComponent<?,?,?,?,?>> TYPE_LITERAL = new TypeLiteral<GetComponent<?, ?, ?, ?, ?>>() {};
+
     @Override
-    public Class<?> getActionType() {
-        return GetComponent.class;
+    public TypeLiteral<GetComponent<?, ?, ?, ?, ?>> getActionType() {
+        return TYPE_LITERAL;
     }
 
     @SuppressWarnings({"unchecked"})

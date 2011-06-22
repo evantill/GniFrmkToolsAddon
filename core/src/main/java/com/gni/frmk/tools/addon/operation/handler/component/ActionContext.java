@@ -17,6 +17,15 @@ public class ActionContext<S extends ActionStrategy<?>> {
 
     private final Map<ComponentType<?, ?, ?, ?, ?>, ActionStrategy<?>> strategies = Maps.newHashMap();
 
+    private ActionContext() {
+    }
+
+    private ActionContext(Iterable<? extends S> strategies) {
+        for (S s : strategies) {
+            registerStrategy(s);
+        }
+    }
+
     public <T extends S> void registerStrategy(T strategy) {
         strategies.put(strategy.getComponentType(), strategy);
     }
@@ -29,4 +38,9 @@ public class ActionContext<S extends ActionStrategy<?>> {
     public static <S extends ActionStrategy<?>> ActionContext<S> newContext() {
         return new ActionContext<S>();
     }
+
+    public static <S extends ActionStrategy<?>> ActionContext<S> newContext(Iterable<? extends S> strategies) {
+        return new ActionContext<S>(strategies);
+    }
+
 }

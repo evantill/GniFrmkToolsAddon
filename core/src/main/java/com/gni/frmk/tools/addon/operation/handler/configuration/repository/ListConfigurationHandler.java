@@ -7,6 +7,8 @@ import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.result.SetResult;
 import com.gni.frmk.tools.addon.repository.ConfigurationRepository;
 
+import javax.enterprise.util.TypeLiteral;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 11/04/11
@@ -17,6 +19,7 @@ import com.gni.frmk.tools.addon.repository.ConfigurationRepository;
 public class ListConfigurationHandler
         implements ActionHandler<ListConfiguration, SetResult<ConfigurationId>, InvokeContext> {
 
+    private static final TypeLiteral<ListConfiguration> TYPE_LITERAL = new TypeLiteral<ListConfiguration>() {};
     private final ConfigurationRepository repository;
 
     public ListConfigurationHandler(ConfigurationRepository repository) {
@@ -24,8 +27,8 @@ public class ListConfigurationHandler
     }
 
     @Override
-    public Class<ListConfiguration> getActionType() {
-        return ListConfiguration.class;
+    public TypeLiteral<ListConfiguration> getActionType() {
+        return TYPE_LITERAL;
     }
 
     @Override

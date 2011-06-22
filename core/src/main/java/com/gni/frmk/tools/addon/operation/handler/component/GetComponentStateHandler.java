@@ -11,7 +11,11 @@ import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
-import com.google.inject.Inject;
+
+import javax.enterprise.inject.Instance;
+import javax.enterprise.inject.Produces;
+import javax.enterprise.util.TypeLiteral;
+import javax.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -23,6 +27,8 @@ import com.google.inject.Inject;
 public class GetComponentStateHandler
         implements ActionHandler<GetComponentState<?, ?>, SingleResult<? extends ComponentState<?>>, InvokeContext> {
 
+    private static final TypeLiteral<GetComponentState<?,?>> TYPE_LITERAL = new TypeLiteral<GetComponentState<?, ?>>() {};
+
     public static interface GetComponentStateStrategy
             <T extends ComponentType<T, ?, I, S, ?>, I extends ComponentId<I>, S extends ComponentState<S>>
             extends ActionStrategy<T> {
@@ -31,6 +37,11 @@ public class GetComponentStateHandler
     }
 
     private final ActionContext<GetComponentStateStrategy<?, ?, ?>> strategyContext;
+
+     @Produces
+    public static ActionContext<GetComponentStateStrategy<?, ?, ?>> newActionContext(Instance<GetComponentStateStrategy<?, ?, ?>> strategies){
+        return ActionContext.newContext(strategies);
+    }
 
     @Inject
     public GetComponentStateHandler(ActionContext<GetComponentStateStrategy<?, ?, ?>> strategyContext) {
@@ -56,8 +67,7 @@ public class GetComponentStateHandler
     }
 
     @Override
-    public Class<?> getActionType() {
-        return ListComponentIds.class;
+    public TypeLiteral<GetComponentState<?, ?>> getActionType() {
+        return TYPE_LITERAL;
     }
-
 }

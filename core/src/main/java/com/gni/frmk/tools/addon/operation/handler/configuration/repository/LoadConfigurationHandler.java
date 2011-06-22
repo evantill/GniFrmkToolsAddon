@@ -6,6 +6,8 @@ import com.gni.frmk.tools.addon.operation.api.ExecutionContext;
 import com.gni.frmk.tools.addon.operation.result.ConfigurationResult;
 import com.gni.frmk.tools.addon.repository.ConfigurationRepository;
 
+import javax.enterprise.util.TypeLiteral;
+
 /**
  * First implementation : only default live configuration file is managed
  * Created by IntelliJ IDEA.
@@ -17,6 +19,7 @@ import com.gni.frmk.tools.addon.repository.ConfigurationRepository;
 public class LoadConfigurationHandler
         implements ActionHandler<LoadConfiguration, ConfigurationResult, ExecutionContext> {
 
+    private static final TypeLiteral<LoadConfiguration> TYPE_LITERAL = new TypeLiteral<LoadConfiguration>() {};
     private final ConfigurationRepository repository;
 
     public LoadConfigurationHandler(ConfigurationRepository repository) {
@@ -24,8 +27,8 @@ public class LoadConfigurationHandler
     }
 
     @Override
-    public Class<LoadConfiguration> getActionType() {
-        return LoadConfiguration.class;
+    public TypeLiteral<LoadConfiguration> getActionType() {
+        return TYPE_LITERAL;
     }
 
     /**

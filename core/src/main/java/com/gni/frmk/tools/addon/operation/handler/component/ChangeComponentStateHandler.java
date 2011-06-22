@@ -12,7 +12,11 @@ import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.operation.api.DispatchException;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
-import com.google.inject.Inject;
+
+import javax.enterprise.inject.Instance;
+import javax.enterprise.inject.Produces;
+import javax.enterprise.util.TypeLiteral;
+import javax.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -24,6 +28,8 @@ import com.google.inject.Inject;
 public class ChangeComponentStateHandler
         implements ActionHandler<ChangeComponentState<?, ?>, SingleResult<? extends ComponentState<?>>, InvokeContext> {
 
+    private static final TypeLiteral<ChangeComponentState<?,?>> TYPE_LITERAL = new TypeLiteral<ChangeComponentState<?, ?>>() {};
+
     public static interface ChangeComponentStateStrategy
             <T extends ComponentType<T, ?, I, S, ?>, I extends ComponentId<I>, S extends ComponentState<S>>
             extends ActionStrategy<T> {
@@ -32,6 +38,11 @@ public class ChangeComponentStateHandler
     }
 
     private final ActionContext<ChangeComponentStateStrategy<?, ?, ?>> strategyContext;
+
+    @Produces
+    public static ActionContext<ChangeComponentStateStrategy<?, ?, ?>> newActionContext(Instance<ChangeComponentStateStrategy<?, ?, ?>> strategies) {
+        return ActionContext.newContext(strategies);
+    }
 
     @Inject
     public ChangeComponentStateHandler(ActionContext<ChangeComponentStateStrategy<?, ?, ?>> strategyContext) {
@@ -77,9 +88,9 @@ public class ChangeComponentStateHandler
         return context.getDispatcher().execute(action).getValue();
     }
 
-    @Override
-    public Class<?> getActionType() {
-        return ChangeComponentState.class;
-    }
 
+    @Override
+    public TypeLiteral<ChangeComponentState<?, ?>> getActionType() {
+        return TYPE_LITERAL;
+    }
 }

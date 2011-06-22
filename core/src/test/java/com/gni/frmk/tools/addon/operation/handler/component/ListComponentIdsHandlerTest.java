@@ -13,6 +13,7 @@ import com.gni.frmk.tools.addon.operation.result.SetResult;
 import com.google.common.collect.Sets;
 import org.junit.Test;
 
+import javax.enterprise.inject.Alternative;
 import java.util.Set;
 
 import static java.util.Arrays.asList;
@@ -29,6 +30,7 @@ import static org.mockito.Mockito.mock;
  */
 public class ListComponentIdsHandlerTest {
 
+    @Alternative
     public static final class TestStrategy1
             implements ListComponentIdsStrategy<Component1Type, Component1Id> {
 
@@ -46,6 +48,7 @@ public class ListComponentIdsHandlerTest {
 
     }
 
+    @Alternative
     public static final class TestStrategy2
             implements ListComponentIdsStrategy<Component2Type, Component2Id> {
 

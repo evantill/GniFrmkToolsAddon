@@ -8,6 +8,8 @@ import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.repository.ConfigurationRepository;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
 
+import javax.enterprise.util.TypeLiteral;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 16/05/11
@@ -17,6 +19,7 @@ import com.gni.frmk.tools.addon.operation.result.SingleResult;
  */
 public class DeleteConfigurationHandler implements ActionHandler<DeleteConfiguration, SingleResult<Boolean>, InvokeContext> {
 
+    private static final TypeLiteral<DeleteConfiguration> TYPE_LITERAL = new TypeLiteral<DeleteConfiguration>() {};
     private final ConfigurationRepository repository;
 
     public DeleteConfigurationHandler(ConfigurationRepository repository) {
@@ -24,8 +27,8 @@ public class DeleteConfigurationHandler implements ActionHandler<DeleteConfigura
     }
 
     @Override
-    public Class<DeleteConfiguration> getActionType() {
-        return DeleteConfiguration.class;
+    public TypeLiteral<DeleteConfiguration> getActionType() {
+        return TYPE_LITERAL;
     }
 
     @Override

@@ -2,6 +2,8 @@ package com.gni.frmk.tools.addon.operation.dispatcher;
 
 import com.gni.frmk.tools.addon.operation.api.*;
 
+import javax.inject.Inject;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 17/05/11
@@ -14,6 +16,7 @@ public class SimpleDispatcher<C extends ExecutionContext> implements Dispatcher 
     private final ActionHandlerRegistry<C> registry;
     private final C context;
 
+    @Inject
     public SimpleDispatcher(ActionHandlerRegistry<C> registry, C context) {
         this.registry = registry;
         this.context = context;
@@ -21,7 +24,7 @@ public class SimpleDispatcher<C extends ExecutionContext> implements Dispatcher 
 
     @Override
     public <A extends Action<R>, R extends Result> R execute(A action) throws DispatchException {
-        ActionHandler<A, R, C> handler = registry.<A, R, C>getHandler(action);
+        ActionHandler<A, R, C> handler = registry.getHandler(action);
         return handler.execute(action, context);
     }
 }

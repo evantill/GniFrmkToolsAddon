@@ -9,6 +9,7 @@ import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.operation.api.ExecutionContext;
 import com.gni.frmk.tools.addon.operation.result.ConfigurationResult;
 
+import javax.enterprise.util.TypeLiteral;
 import java.util.List;
 
 /**
@@ -20,9 +21,12 @@ import java.util.List;
  */
 public class OpenPlateformHandler implements ActionHandler<OpenPlateform, ConfigurationResult, ExecutionContext> {
 
+
+    private static final TypeLiteral<OpenPlateform> TYPE_LITERAL = new TypeLiteral<OpenPlateform>() {};
+
     @Override
-    public Class<OpenPlateform> getActionType() {
-        return OpenPlateform.class;
+    public TypeLiteral<OpenPlateform> getActionType() {
+        return TYPE_LITERAL;
     }
 
     @Override

@@ -5,6 +5,8 @@ import com.gni.frmk.tools.addon.invoker.api.ServiceContextException;
 import com.wm.data.*;
 import com.wm.lang.ns.NSName;
 
+import javax.inject.Singleton;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 25/05/11
@@ -12,6 +14,7 @@ import com.wm.lang.ns.NSName;
  *
  * @author: e03229
  */
+@Singleton
 public enum LocalContext implements ServiceContext {
     singleton;
 

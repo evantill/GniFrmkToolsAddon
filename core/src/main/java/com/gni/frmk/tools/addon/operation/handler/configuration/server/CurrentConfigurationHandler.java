@@ -7,6 +7,8 @@ import com.gni.frmk.tools.addon.model.configuration.Configuration;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
 
+import javax.enterprise.util.TypeLiteral;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 16/05/11
@@ -16,9 +18,11 @@ import com.gni.frmk.tools.addon.operation.result.SingleResult;
  */
 public class CurrentConfigurationHandler implements ActionHandler<CurrentConfiguration,SingleResult<Configuration>, InvokeContext> {
 
+    private static final TypeLiteral<CurrentConfiguration> TYPE_LITERAL = new TypeLiteral<CurrentConfiguration>() {};
+
     @Override
-    public Class<CurrentConfiguration> getActionType() {
-        return CurrentConfiguration.class;
+    public TypeLiteral<CurrentConfiguration> getActionType() {
+        return TYPE_LITERAL;
     }
 
     @Override

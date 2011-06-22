@@ -1,8 +1,12 @@
 package com.gni.frmk.tools.addon.repository;
 
+import com.gni.frmk.tools.addon.model.ModelResource;
 import com.gni.frmk.tools.addon.model.configuration.Configuration;
-import com.gni.frmk.tools.addon.model.module.ModuleResource.ModelContext;
+import com.google.common.collect.Sets;
 
+import javax.enterprise.inject.Instance;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -18,22 +22,22 @@ import java.util.Set;
  *
  * @author: e03229
  */
+@Singleton
 public class ConfigurationSerializer {
 
     private final boolean prettyPrint;
-    private final Set<ModelContext> contexts;
     private final JAXBContext jaxbContext;
 
-    public ConfigurationSerializer(Set<ModelContext> contexts) {
-        this.contexts = contexts;
+    @Inject
+    public ConfigurationSerializer(Instance<ModelResource> contexts) {
         prettyPrint = true;
-        jaxbContext = createJAXBContext(contexts);
+        jaxbContext = createJAXBContext(Sets.<ModelResource>newHashSet(contexts));
     }
 
-    private JAXBContext createJAXBContext(Set<ModelContext> contexts) {
+    private JAXBContext createJAXBContext(Set<ModelResource> contexts) {
         StringBuilder contextPathBuilder = new StringBuilder();
-        for (ModelContext ctx : contexts) {
-            for (Package p : ctx.getModelPackages()) {
+        for (ModelResource res : contexts) {
+            for (Package p : res.getModelPackages()) {
                 contextPathBuilder.append(p.getName()).append(':');
             }
         }

@@ -7,6 +7,8 @@ import com.gni.frmk.tools.addon.operation.api.ExecutionContext;
 import com.gni.frmk.tools.addon.operation.result.ConfigurationResult;
 import com.gni.frmk.tools.addon.repository.ConfigurationRepository;
 
+import javax.enterprise.util.TypeLiteral;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 11/04/11
@@ -17,6 +19,7 @@ import com.gni.frmk.tools.addon.repository.ConfigurationRepository;
 public class SaveConfigurationHandler
         implements ActionHandler<SaveConfiguration, ConfigurationResult, ExecutionContext> {
 
+    private static final TypeLiteral<SaveConfiguration> TYPE_LITERAL = new TypeLiteral<SaveConfiguration>() {};
     private final ConfigurationRepository repository;
 
     public SaveConfigurationHandler(ConfigurationRepository repository) {
@@ -24,8 +27,8 @@ public class SaveConfigurationHandler
     }
 
     @Override
-    public Class<SaveConfiguration> getActionType() {
-        return SaveConfiguration.class;
+    public TypeLiteral<SaveConfiguration> getActionType() {
+        return TYPE_LITERAL;
     }
 
     @Override

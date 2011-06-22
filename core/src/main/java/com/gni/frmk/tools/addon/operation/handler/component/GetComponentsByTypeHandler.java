@@ -16,6 +16,7 @@ import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.result.ListResult;
 import com.google.common.collect.Lists;
 
+import javax.enterprise.util.TypeLiteral;
 import java.util.List;
 import java.util.Set;
 
@@ -29,9 +30,13 @@ import java.util.Set;
 public class GetComponentsByTypeHandler
         implements ActionHandler<GetComponentsByType<?, ?, ?, ?, ?>, ListResult<? extends Component<?, ?, ?, ?, ?>>, InvokeContext> {
 
+
+    private static final TypeLiteral<GetComponentsByType<?,?,?,?,?>> TYPE_LITERAL = new TypeLiteral<GetComponentsByType<?, ?, ?, ?, ?>>() {
+    };
+
     @Override
-    public Class<?> getActionType() {
-        return GetComponentsByType.class;
+    public TypeLiteral<GetComponentsByType<?, ?, ?, ?, ?>> getActionType() {
+        return TYPE_LITERAL;
     }
 
     @SuppressWarnings({"unchecked"})

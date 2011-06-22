@@ -12,7 +12,7 @@ import com.gni.frmk.tools.addon.model.component.art.AdapterNotificationType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.ListComponentIdsHandler.ListComponentIdsStrategy;
 import com.google.common.collect.Sets;
-import com.google.inject.Inject;
+import javax.inject.Inject;
 
 import java.util.List;
 import java.util.Set;

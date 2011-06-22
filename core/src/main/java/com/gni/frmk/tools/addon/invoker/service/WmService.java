@@ -4,9 +4,10 @@ import com.gni.frmk.tools.addon.invoker.api.*;
 import com.gni.frmk.tools.addon.invoker.converter.BooleanConverter;
 import com.gni.frmk.tools.addon.invoker.converter.IntegerConverter;
 import com.gni.frmk.tools.addon.invoker.converter.StringConverter;
-import com.google.inject.Singleton;
 import com.wm.data.*;
 import com.wm.lang.ns.NSName;
+
+import javax.inject.Singleton;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.wm.lang.ns.NSName.create;

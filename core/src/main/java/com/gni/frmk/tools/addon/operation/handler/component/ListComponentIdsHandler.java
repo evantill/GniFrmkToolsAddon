@@ -9,7 +9,11 @@ import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.result.SetResult;
-import com.google.inject.Inject;
+
+import javax.enterprise.inject.Instance;
+import javax.enterprise.inject.Produces;
+import javax.enterprise.util.TypeLiteral;
+import javax.inject.Inject;
 
 import java.util.Set;
 
@@ -23,6 +27,8 @@ import java.util.Set;
 public class ListComponentIdsHandler
         implements ActionHandler<ListComponentIds<?>, SetResult<? extends ComponentId<?>>, InvokeContext> {
 
+    private static final TypeLiteral<ListComponentIds<?>> TYPE_LITERAL = new TypeLiteral<ListComponentIds<?>>() {};
+
     public static interface ListComponentIdsStrategy
             <T extends ComponentType<T, ?, I, ?, ?>, I extends ComponentId<I>>
             extends ActionStrategy<T> {
@@ -31,6 +37,11 @@ public class ListComponentIdsHandler
     }
 
     private final ActionContext<ListComponentIdsStrategy<?, ?>> strategyContext;
+
+     @Produces
+    public static ActionContext<ListComponentIdsStrategy<?, ?>> newActionContext(Instance<ListComponentIdsStrategy<?, ?>> strategies){
+        return ActionContext.newContext(strategies);
+    }
 
     @Inject
     public ListComponentIdsHandler(ActionContext<ListComponentIdsStrategy<?, ?>> strategyContext) {
@@ -55,8 +66,7 @@ public class ListComponentIdsHandler
     }
 
     @Override
-    public Class<?> getActionType() {
-        return ListComponentIds.class;
+    public TypeLiteral<ListComponentIds<?>> getActionType() {
+        return TYPE_LITERAL;
     }
-
 }
