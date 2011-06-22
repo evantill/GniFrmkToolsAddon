@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.oldies;
+package com.gni.frmk.tools.addon.oldies.services;
 
 import com.gni.frmk.tools.addon.operation.api.DispatchException;
 import com.gni.frmk.tools.addon.oldies.services.ConfigurationService;

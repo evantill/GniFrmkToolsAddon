@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.repository.oldies;
+package com.gni.frmk.tools.addon.oldies.repository;
 
 import com.gni.frmk.tools.addon.model.configuration.Configuration;
 import com.gni.frmk.tools.addon.model.configuration.ConfigurationId;
