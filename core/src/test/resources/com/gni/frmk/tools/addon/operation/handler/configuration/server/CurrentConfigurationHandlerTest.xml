@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<baseConfiguration>
+    <baseConfigurationId>
+        <id>default</id>
+        <packageName>Default</packageName>
+    </baseConfigurationId>
+    <baseConfigurationInformation>
+        <name>default</name>
+        <creation>2010-05-03T23:01:59+02:00</creation>
+        <modification>2010-05-03T23:01:59+02:00</modification>
+    </baseConfigurationInformation>
+    <componentConfigurations>
+        <baseComponentConfiguration presentOnIS="true">
+            <component1>
+                <component1Id>
+                    <value>id 1</value>
+                </component1Id>
+                <component1State exist="true">
+                    <enabled>true</enabled>
+                </component1State>
+                <simpleDetail>
+                    <description>description component tpye1 id : id 1</description>
+                </simpleDetail>
+            </component1>
+            <stateConfigurations>
+                <stateConfiguration type="CURRENT">
+                    <component1State exist="true">
+                        <enabled>true</enabled>
+                    </component1State>
+                </stateConfiguration>
+            </stateConfigurations>
+        </baseComponentConfiguration>
+        <baseComponentConfiguration presentOnIS="true">
+            <component1>
+                <component1Id>
+                    <value>id 2</value>
+                </component1Id>
+                <component1State exist="true">
+                    <enabled>true</enabled>
+                </component1State>
+                <simpleDetail>
+                    <description>description component tpye1 id : id 2</description>
+                </simpleDetail>
+            </component1>
+            <stateConfigurations>
+                <stateConfiguration type="CURRENT">
+                    <component1State exist="true">
+                        <enabled>true</enabled>
+                    </component1State>
+                </stateConfiguration>
+            </stateConfigurations>
+        </baseComponentConfiguration>
+        <baseComponentConfiguration presentOnIS="true">
+            <component1>
+                <component1Id>
+                    <value>id 3</value>
+                </component1Id>
+                <component1State exist="true">
+                    <enabled>true</enabled>
+                </component1State>
+                <simpleDetail>
+                    <description>description component tpye1 id : id 3</description>
+                </simpleDetail>
+            </component1>
+            <stateConfigurations>
+                <stateConfiguration type="CURRENT">
+                    <component1State exist="true">
+                        <enabled>true</enabled>
+                    </component1State>
+                </stateConfiguration>
+            </stateConfigurations>
+        </baseComponentConfiguration>
+        <baseComponentConfiguration presentOnIS="true">
+            <component2>
+                <component2Id>
+                    <value>1</value>
+                </component2Id>
+                <component2State exist="true">
+                    <active>true</active>
+                    <enabled>true</enabled>
+                </component2State>
+                <simpleDetail>
+                    <description>description component 2</description>
+                </simpleDetail>
+            </component2>
+            <stateConfigurations>
+                <stateConfiguration type="CURRENT">
+                    <component2State exist="true">
+                        <active>true</active>
+                        <enabled>true</enabled>
+                    </component2State>
+                </stateConfiguration>
+            </stateConfigurations>
+        </baseComponentConfiguration>
+        <baseComponentConfiguration presentOnIS="true">
+            <component2>
+                <component2Id>
+                    <value>2</value>
+                </component2Id>
+                <component2State exist="true">
+                    <active>true</active>
+                    <enabled>true</enabled>
+                </component2State>
+                <simpleDetail>
+                    <description>description component 2</description>
+                </simpleDetail>
+            </component2>
+            <stateConfigurations>
+                <stateConfiguration type="CURRENT">
+                    <component2State exist="true">
+                        <active>true</active>
+                        <enabled>true</enabled>
+                    </component2State>
+                </stateConfiguration>
+            </stateConfigurations>
+        </baseComponentConfiguration>
+    </componentConfigurations>
+</baseConfiguration>

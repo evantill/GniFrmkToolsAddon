@@ -38,7 +38,7 @@ public class ActionHandlerRegistryTest {
     @Test
     public void testGetSimpleHandler() throws Exception {
         ListComponentTypes action = new ListComponentTypes();
-        ActionHandler<ListComponentTypes, SetResult<ComponentType>, InvokeContext> handler = registry.getHandler(action);
+        ActionHandler<ListComponentTypes, SetResult<ComponentType<?,?,?,?,?>>, InvokeContext> handler = registry.getHandler(action);
         assertThat(handler).isNotNull().isInstanceOf(ListComponentTypesHandler.class);
     }
 

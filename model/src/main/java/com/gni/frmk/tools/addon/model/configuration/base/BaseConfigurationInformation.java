@@ -119,6 +119,10 @@ public class BaseConfigurationInformation implements ConfigurationInfo<BaseConfi
                     .modification(src.modification);
         }
 
+        public Builder creationAndModification(Date value) {
+            return creation(value).modification(value);
+        }
+
         public Builder creation(Date value) {
             creation = new Date(checkNotNull(value).getTime());
             return this;

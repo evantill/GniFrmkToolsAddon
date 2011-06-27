@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.operation.action.component;
 
+import com.gni.frmk.tools.addon.model.component.Component;
 import com.gni.frmk.tools.addon.model.component.ComponentType;
 import com.gni.frmk.tools.addon.operation.api.Action;
 import com.gni.frmk.tools.addon.operation.result.SetResult;
@@ -11,5 +12,5 @@ import com.gni.frmk.tools.addon.operation.result.SetResult;
  *
  * @author: e03229
  */
-public class ListComponentTypes implements Action<SetResult<ComponentType>> {
+public class ListComponentTypes implements Action<SetResult<ComponentType<?,?,?,?,?>>> {
 }

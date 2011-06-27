@@ -16,8 +16,8 @@ public class ReplayTestContext implements ServiceContext {
 
     private final RecordPipelineUtils utils;
 
-    private ReplayTestContext(Class<?> clazz) {
-        utils = new RecordPipelineUtils(clazz);
+    private ReplayTestContext(Class<?> clazz,RecordPipelineUtilsStrategy strategy) {
+        utils = new RecordPipelineUtils(clazz,strategy);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class ReplayTestContext implements ServiceContext {
         //noop
     }
 
-    public static ReplayTestContext newInstance(Class<?> testClass) {
-        return new ReplayTestContext(testClass);
+    public static ReplayTestContext newInstance(Class<?> testClass,RecordPipelineUtilsStrategy strategy) {
+        return new ReplayTestContext(testClass,strategy);
     }
 }

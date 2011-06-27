@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.invoker.context;
 
+import com.google.common.collect.Maps;
 import com.wm.data.*;
 import com.wm.lang.ns.NSName;
 import com.wm.util.coder.IDataXMLCoder;
@@ -8,6 +9,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -20,10 +22,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class RecordPipelineUtils {
 
     private final Class<?> clazz;
-    private AtomicInteger index = new AtomicInteger(0);
 
-    public RecordPipelineUtils(Class<?> clazz) {
+    private RecordPipelineUtilsStrategy strategy;
+
+    public RecordPipelineUtils(Class<?> clazz,RecordPipelineUtilsStrategy strategy) {
         this.clazz = clazz;
+        this.strategy=strategy;
     }
 
     public IData recordOutput(String id, IData output) {
@@ -71,8 +75,6 @@ public class RecordPipelineUtils {
     }
 
     public String generateId(NSName serviceName) {
-        return String.format("%s_%d", serviceName.getFullName()
-                                                 .replace(':', '.')
-                                                 .replace('.', '_'), index.incrementAndGet());
+        return strategy.generateId(serviceName);
     }
 }

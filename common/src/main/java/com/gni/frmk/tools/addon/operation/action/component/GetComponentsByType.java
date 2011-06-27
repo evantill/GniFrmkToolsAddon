@@ -32,4 +32,13 @@ public class GetComponentsByType
     public T getComponentType() {
         return componentType;
     }
+
+    public static <T extends ComponentType<T, C, I, S, D>,
+            C extends Component<C, T, I, S, D>,
+            I extends ComponentId<I>,
+            S extends ComponentState<S>,
+            D extends ComponentDetail<D>>
+    GetComponentsByType<T, C, I, S, D> createAction(T componentType) {
+        return new GetComponentsByType<T, C, I, S, D>(componentType);
+    }
 }

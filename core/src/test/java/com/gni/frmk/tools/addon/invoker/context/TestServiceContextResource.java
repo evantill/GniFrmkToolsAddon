@@ -59,10 +59,10 @@ public class TestServiceContextResource extends ExternalResource {
         }
         switch (phase) {
             case RECORD:
-                context = RecordTestContext.newInstance(testClass, context);
+                context = RecordTestContext.newInstance(testClass, context,new RecordPipelineUtilsSimpleStrategy());
                 break;
             case REPLAY:
-                context = ReplayTestContext.newInstance(testClass);
+                context = ReplayTestContext.newInstance(testClass,new RecordPipelineUtilsSimpleStrategy());
                 break;
         }
     }

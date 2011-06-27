@@ -147,6 +147,12 @@
               <enabled>true</enabled>
            </snapshots> -->
         </repository>
+         <repository>
+          <id>maven2-repository.dev.java.net</id>
+          <name>Java.net Repository for Maven</name>
+          <url>http://download.java.net/maven/2/</url>
+          <layout>default</layout>
+        </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
@@ -165,8 +171,19 @@
                 <enabled>false</enabled>
             </releases>
         </pluginRepository>
+        <pluginRepository>
+            <id>maven-repository.dev.java.net</id>
+            <name>Java.net Maven 2 Repository</name>
+            <url>http://download.java.net/maven/2</url>
+        </pluginRepository>
     </pluginRepositories>
     <dependencies>
+        <!--for webmethods-->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.3</version>
+        </dependency>
         <!--Weld-->
         <dependency>
             <groupId>org.jboss.weld.se</groupId>
@@ -390,8 +407,17 @@
             </plugins>
         </pluginManagement>
 
-
         <plugins>
+              <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.2-beta-4</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/src.xml</descriptor>
+                    </descriptors>
+                </configuration>
+            </plugin>
+
             <!--<plugin>-->
             <!--<groupId>org.apache.maven.plugins</groupId>-->
             <!--<artifactId>maven-dependency-plugin</artifactId>-->
@@ -436,6 +462,7 @@
             <!--</execution>-->
             <!--</executions>-->
             <!--</plugin>-->
+
 
             <!--<plugin>-->
             <!--<groupId>org.jvnet.jaxb2.maven2</groupId>-->

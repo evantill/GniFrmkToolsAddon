@@ -4,6 +4,7 @@ import com.gni.frmk.tools.addon.model.component.Component;
 import com.gni.frmk.tools.addon.model.component.base.BaseComponent;
 import com.gni.frmk.tools.addon.model.component.test.Component1;
 import com.gni.frmk.tools.addon.model.configuration.Configuration;
+import com.gni.frmk.tools.addon.model.configuration.base.BaseConfiguration;
 import com.gni.frmk.tools.addon.util.WeldRunner;
 import com.google.common.collect.Sets;
 import org.junit.Test;
@@ -43,7 +44,7 @@ public class ModelResourceTest {
         assertThat(injected.getContexts()).isNotNull()
                 .hasSize(4)
                 .containsOnly(
-                        Configuration.class.getPackage(),
+                        BaseConfiguration.class.getPackage(),
                         Component.class.getPackage(),
                         BaseComponent.class.getPackage(),
                         Component1.class.getPackage()

@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.model.configuration;
 
 import com.gni.frmk.tools.addon.model.BaseModelResource;
+import com.gni.frmk.tools.addon.model.configuration.base.BaseConfiguration;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,7 +13,7 @@ import com.gni.frmk.tools.addon.model.BaseModelResource;
 public class ConfigurationResource extends BaseModelResource {
 
     private static final Package[] contextPathPackages = new Package[]{
-            Configuration.class.getPackage()
+            BaseConfiguration.class.getPackage()
     };
 
     @Override
