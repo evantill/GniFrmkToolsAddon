@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.data.ISMemDataImpl">
+    <array name="aliasDataList" type="record" depth="1">
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">GniEspaceClient_GFR_Out</value>
+        <value name="description">GniEspaceClient_GFR_Out</value>
+        <value name="clientID">GniEspaceClient_GFR_Out</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">false</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">0</value>
+        <value name="producerSessionPoolSize">0</value>
+        <value name="connected">false</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">false</jboolean>
+        <value name="associationType">1</value>
+        <value name="nwm_brokerHost">ar1tn232.groupe.generali.fr:7809</value>
+        <value name="nwm_brokerName">B_IS7502_01</value>
+        <value name="nwm_brokerList"></value>
+        <value name="nwm_clientGroup">EspaceClient_QCF01_Group</value>
+        <value name="nwm_keystore"></value>
+        <value name="nwm_keystoreType"></value>
+        <value name="nwm_truststore"></value>
+        <value name="nwm_truststoreType"></value>
+        <jboolean name="nwm_encrypted">false</jboolean>
+        <value name="providerName">webMethods JMS Provider</value>
+        <value name="providerVersion">(Not Connected)</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">GniFrmkToolsAddOnTestJmsAliasJndi</value>
+        <value name="description">GniFrmkToolsAddOnTestJmsAliasJndi</value>
+        <value name="clientID">GniFrmkToolsAddOnTestJmsAliasJndi</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">true</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">0</value>
+        <value name="producerSessionPoolSize">0</value>
+        <value name="connected">true</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">true</jboolean>
+        <value name="associationType">0</value>
+        <value name="jndi_jndiAliasName">GniFrmkToolsAddonJndi</value>
+        <value name="jndi_connectionFactoryLookupName">TestQueueFactory</value>
+        <value name="jndi_connectionFactoryUpdateType">NONE</value>
+        <number name="jndi_connectionFactoryPollingInterval" type="java.lang.Integer">0</number>
+        <value name="providerName">webMethods JMS Provider</value>
+        <value name="providerVersion">7.1.2.0.79</value>
+        <number name="providerMajorVersion" type="java.lang.Integer">7</number>
+        <number name="providerMinorVersion" type="java.lang.Integer">1</number>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">GniFrmkToolsAddOnTest_JMS_ALIAS</value>
+        <value name="description">GniFrmkToolsAddOnTest_JMS_ALIAS</value>
+        <value name="clientID">GniFrmkToolsAddOnTest_JMS_ALIAS</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">true</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">0</value>
+        <value name="producerSessionPoolSize">0</value>
+        <value name="connected">true</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">false</jboolean>
+        <value name="associationType">1</value>
+        <value name="nwm_brokerHost">ar1tn232.groupe.generali.fr:7809</value>
+        <value name="nwm_brokerName">B_IS7502_01</value>
+        <value name="nwm_brokerList"></value>
+        <value name="nwm_clientGroup">IS-JMS</value>
+        <value name="nwm_keystore"></value>
+        <value name="nwm_keystoreType"></value>
+        <value name="nwm_truststore"></value>
+        <value name="nwm_truststoreType"></value>
+        <jboolean name="nwm_encrypted">false</jboolean>
+        <value name="providerName">webMethods JMS Provider</value>
+        <value name="providerVersion">7.1.2.0.79</value>
+        <number name="providerMajorVersion" type="java.lang.Integer">7</number>
+        <number name="providerMinorVersion" type="java.lang.Integer">1</number>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">GniFrmk_HDTN</value>
+        <value name="description">Connexion utilisée pour les échanges entre HD et TN</value>
+        <value name="clientID">GniFrmk_HDTN</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">true</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">0</value>
+        <value name="producerSessionPoolSize">0</value>
+        <value name="connected">true</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">true</jboolean>
+        <value name="associationType">1</value>
+        <value name="nwm_brokerHost">ar1tn232.groupe.generali.fr:7809</value>
+        <value name="nwm_brokerName">TEST_JMS</value>
+        <value name="nwm_brokerList"></value>
+        <value name="nwm_clientGroup">IS-JMS</value>
+        <value name="nwm_keystore"></value>
+        <value name="nwm_keystoreType"></value>
+        <value name="nwm_truststore"></value>
+        <value name="nwm_truststoreType"></value>
+        <jboolean name="nwm_encrypted">false</jboolean>
+        <value name="providerName">webMethods JMS Provider</value>
+        <value name="providerVersion">7.1.2.0.79</value>
+        <number name="providerMajorVersion" type="java.lang.Integer">7</number>
+        <number name="providerMinorVersion" type="java.lang.Integer">1</number>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">Gni_ConstDom_FILIP_TO</value>
+        <value name="description">Gni_ConstDom_FILIP_TO</value>
+        <value name="clientID">Gni_ConstDom_FILIP_TO_CLIENT</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">false</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">0</value>
+        <value name="producerSessionPoolSize">0</value>
+        <value name="connected">false</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">false</jboolean>
+        <value name="associationType">1</value>
+        <value name="nwm_brokerHost">localhost:6849</value>
+        <value name="nwm_brokerName">Broker #1</value>
+        <value name="nwm_brokerList"></value>
+        <value name="nwm_clientGroup">IS-JMS</value>
+        <value name="nwm_keystore"></value>
+        <value name="nwm_keystoreType"></value>
+        <value name="nwm_truststore"></value>
+        <value name="nwm_truststoreType"></value>
+        <jboolean name="nwm_encrypted">false</jboolean>
+        <value name="providerName">webMethods JMS Provider</value>
+        <value name="providerVersion">(Not Connected)</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">JMS7809</value>
+        <value name="description">JMS7809</value>
+        <value name="clientID">JMS7809</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">true</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">0</value>
+        <value name="producerSessionPoolSize">0</value>
+        <value name="connected">true</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">false</jboolean>
+        <value name="associationType">0</value>
+        <value name="jndi_jndiAliasName">JMS7809</value>
+        <value name="jndi_connectionFactoryLookupName">TestQueueFactory</value>
+        <value name="jndi_connectionFactoryUpdateType">NONE</value>
+        <number name="jndi_connectionFactoryPollingInterval" type="java.lang.Integer">0</number>
+        <value name="providerName">webMethods JMS Provider</value>
+        <value name="providerVersion">7.1.2.0.79</value>
+        <number name="providerMajorVersion" type="java.lang.Integer">7</number>
+        <number name="providerMinorVersion" type="java.lang.Integer">1</number>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">PE_NONTRANSACTIONAL_ALIAS</value>
+        <value name="description">PE_NONTRANSACTIONAL_ALIAS</value>
+        <value name="clientID">PE_NONTRANSACTIONAL_ALIAS_CLIENT</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">true</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">0</value>
+        <value name="producerSessionPoolSize">0</value>
+        <value name="connected">true</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">true</jboolean>
+        <value name="associationType">1</value>
+        <value name="nwm_brokerHost">ar1tn232.groupe.generali.fr:7809</value>
+        <value name="nwm_brokerName">B_IS7502_01</value>
+        <value name="nwm_brokerList"></value>
+        <value name="nwm_clientGroup">IS-JMS</value>
+        <value name="nwm_keystore"></value>
+        <value name="nwm_keystoreType"></value>
+        <value name="nwm_truststore"></value>
+        <value name="nwm_truststoreType"></value>
+        <jboolean name="nwm_encrypted">false</jboolean>
+        <value name="providerName">webMethods JMS Provider</value>
+        <value name="providerVersion">7.1.2.0.79</value>
+        <number name="providerMajorVersion" type="java.lang.Integer">7</number>
+        <number name="providerMinorVersion" type="java.lang.Integer">1</number>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">ReproCase120030801</value>
+        <value name="description">ReproCase120030801</value>
+        <value name="clientID">ReproCase120030801</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">false</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">0</value>
+        <value name="producerSessionPoolSize">0</value>
+        <value name="connected">false</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">false</jboolean>
+        <value name="associationType">1</value>
+        <value name="nwm_brokerHost">ar1tn232.groupe.generali.fr:7809</value>
+        <value name="nwm_brokerName">B_IS7502_01</value>
+        <value name="nwm_brokerList"></value>
+        <value name="nwm_clientGroup">ReproCase120030801_Group</value>
+        <value name="nwm_keystore"></value>
+        <value name="nwm_keystoreType"></value>
+        <value name="nwm_truststore"></value>
+        <value name="nwm_truststoreType"></value>
+        <jboolean name="nwm_encrypted">false</jboolean>
+        <value name="providerName">webMethods JMS Provider</value>
+        <value name="providerVersion">(Not Connected)</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">aliasJMSCLA</value>
+        <value name="description">aliasJMSCLA</value>
+        <value name="clientID">aliasJMSCLA</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">false</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">0</value>
+        <value name="producerSessionPoolSize">0</value>
+        <value name="connected">false</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">false</jboolean>
+        <value name="associationType">1</value>
+        <value name="nwm_brokerHost">ar1tn232.groupe.generali.fr:7809</value>
+        <value name="nwm_brokerName">B_IS7502_01</value>
+        <value name="nwm_brokerList"></value>
+        <value name="nwm_clientGroup">EspaceClient_QCF01_Group</value>
+        <value name="nwm_keystore"></value>
+        <value name="nwm_keystoreType"></value>
+        <value name="nwm_truststore"></value>
+        <value name="nwm_truststoreType"></value>
+        <jboolean name="nwm_encrypted">false</jboolean>
+        <value name="providerName">webMethods JMS Provider</value>
+        <value name="providerVersion">(Not Connected)</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">contratInternetJMSaliasReceiver</value>
+        <value name="description">injection fue Alias</value>
+        <value name="clientID">contratInternetJMSReceiver_clientID</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">false</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">0</value>
+        <value name="producerSessionPoolSize">0</value>
+        <value name="connected">false</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">false</jboolean>
+        <value name="associationType">0</value>
+        <value name="jndi_jndiAliasName">contratInternetJNDIconf</value>
+        <value name="jndi_connectionFactoryLookupName">ContratInternet_QCF_Receiver</value>
+        <value name="jndi_connectionFactoryUpdateType">NONE</value>
+        <number name="jndi_connectionFactoryPollingInterval" type="java.lang.Integer">0</number>
+        <value name="providerName">(Not Connected)</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">essai</value>
+        <value name="description">essai</value>
+        <value name="clientID">essai_client</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">false</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">1</value>
+        <value name="producerSessionPoolSize">0</value>
+        <value name="connected">false</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">true</jboolean>
+        <value name="associationType">1</value>
+        <value name="nwm_brokerHost">ar1tn232.groupe.generali.fr:7809</value>
+        <value name="nwm_brokerName">B_IS7502_01</value>
+        <value name="nwm_brokerList"></value>
+        <value name="nwm_clientGroup">IS-JMS</value>
+        <value name="nwm_keystore"></value>
+        <value name="nwm_keystoreType"></value>
+        <value name="nwm_truststore"></value>
+        <value name="nwm_truststoreType"></value>
+        <jboolean name="nwm_encrypted">false</jboolean>
+        <value name="providerName">webMethods JMS Provider</value>
+        <value name="providerVersion">(Not Connected)</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="aliasName">essai_evan</value>
+        <value name="description">essai_evan</value>
+        <value name="clientID">essai_evan_bas_7502</value>
+        <value name="user"></value>
+        <value name="classLoader">INTEGRATION_SERVER</value>
+        <value name="enabled">false</value>
+        <value name="csqSize">-1</value>
+        <value name="csqDrainInOrder">true</value>
+        <value name="optTempQueueCreate">true</value>
+        <value name="transactionType">1</value>
+        <value name="producerSessionPoolSize">0</value>
+        <value name="connected">false</value>
+        <number name="messageCount" type="java.lang.Long">0</number>
+        <jboolean name="hasTriggers">true</jboolean>
+        <value name="associationType">0</value>
+        <value name="jndi_jndiAliasName">jboss_evan</value>
+        <value name="jndi_connectionFactoryLookupName">/ConnectionFactory</value>
+        <value name="jndi_connectionFactoryUpdateType">NONE</value>
+        <number name="jndi_connectionFactoryPollingInterval" type="java.lang.Integer">0</number>
+        <value name="providerName">(Not Connected)</value>
+      </record>
+    </array>
+  </record>
+</IDataXMLCoder>

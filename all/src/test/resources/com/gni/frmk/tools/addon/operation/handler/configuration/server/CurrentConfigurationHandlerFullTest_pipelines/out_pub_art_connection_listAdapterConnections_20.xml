@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.data.ISMemDataImpl">
+    <value name="adapterTypeName">JDBCAdapter</value>
+    <array name="connectionDataList" type="record" depth="1">
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="connectionAlias">GniFrmk.availability.cnx:cnxAvailibility</value>
+        <value name="packageName">GniFrmk</value>
+        <value name="connectionState">disabled</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="connectionAlias">GniFrmk.transco.cnx:cnxTransco</value>
+        <value name="packageName">GniFrmk</value>
+        <value name="connectionState">enabled</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="connectionAlias">GniFrmkToolsAddOnTest.adapter.jdbc:cnxEssai</value>
+        <value name="packageName">GniFrmkToolsAddOnTest</value>
+        <value name="connectionState">enabled</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="connectionAlias">GniReferentiel_Client_BCC_In:connection_RCE_BCC</value>
+        <value name="packageName">GniReferentiel_Client_BCC_In</value>
+        <value name="connectionState">disabled</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="connectionAlias">GniReferentiel_Client_Commun:connection_RCE_Commun</value>
+        <value name="packageName">GniReferentiel_Client_Commun</value>
+        <value name="connectionState">disabled</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="connectionAlias">GniReferentiel_Client_Commun:connexion_Visibilite</value>
+        <value name="packageName">GniReferentiel_Client_Commun</value>
+        <value name="connectionState">disabled</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="connectionAlias">GniReferentiel_Client_FDP_In:connection_RCE_FDP</value>
+        <value name="packageName">GniReferentiel_Client_FDP_In</value>
+        <value name="connectionState">disabled</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="connectionAlias">GniResume_Contrat_Commun:resume_base_suivi</value>
+        <value name="packageName">GniResume_Contrat_Commun</value>
+        <value name="connectionState">disabled</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="connectionAlias">GniTools.Performance.adapter_jdbc:Cnx_JDBC_PERF_WME70</value>
+        <value name="packageName">GniTools</value>
+        <value name="connectionState">disabled</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="connectionAlias">gni.frmk.error.connection:cnxFrmkError</value>
+        <value name="packageName">GniFrmkErrorEngine</value>
+        <value name="connectionState">enabled</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="connectionAlias">gni.frmk.error.connection:cnxFrmkErrorConsult</value>
+        <value name="packageName">GniFrmkErrorEngine</value>
+        <value name="connectionState">enabled</value>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="connectionAlias">pub.gni.templates.generate.technicalError:sampleCnx</value>
+        <value name="packageName">GniFrmkErrorTemplates</value>
+        <value name="connectionState">enabled</value>
+      </record>
+    </array>
+  </record>
+</IDataXMLCoder>
