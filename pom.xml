@@ -10,7 +10,6 @@
     <modules>
         <module>util</module>
         <module>model</module>
-        <module>common</module>
         <module>draft</module>
         <module>core</module>
         <module>jms</module>
