@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.model.component.test;
 
+import com.gni.frmk.tools.addon.model.component.ComponentTypeOrder;
 import com.gni.frmk.tools.addon.model.component.base.BaseComponentType;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -48,6 +49,16 @@ public class Component2Type extends BaseComponentType<Component2Type, Component2
     @Override
     public boolean isOutput() {
         return false;
+    }
+
+    @Override
+    public ComponentTypeOrder getOpenSequenceOrder() {
+        return ComponentTypeOrder.LAST;
+    }
+
+    @Override
+    public ComponentTypeOrder getCloseSequenceOrder() {
+        return ComponentTypeOrder.FIRST;
     }
 
     public static Component2Type newInstance() {

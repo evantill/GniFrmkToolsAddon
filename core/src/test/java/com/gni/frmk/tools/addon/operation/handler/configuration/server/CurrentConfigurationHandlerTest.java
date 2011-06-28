@@ -45,7 +45,6 @@ public class CurrentConfigurationHandlerTest {
 
     @Test
     public void testExecute() throws Exception {
-
         final ServiceContext serviceContext = Mockito.mock(ServiceContext.class);
         Dispatcher dispatcher = new SimpleDispatcher<InvokeContext>(registry) {
             @Override
@@ -57,7 +56,6 @@ public class CurrentConfigurationHandlerTest {
         Configuration result = dispatcher.execute(action).getValue();
         StringWriter out = new StringWriter();
         serializer.saveConfiguration(result, out);
-
         XMLUnit.setIgnoreAttributeOrder(true);
         XMLUnit.setIgnoreWhitespace(true);
         XMLAssert.assertXMLEqual(expectedXml.getContent(), out.toString());

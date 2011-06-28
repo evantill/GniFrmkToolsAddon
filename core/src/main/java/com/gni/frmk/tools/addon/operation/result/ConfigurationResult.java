@@ -9,9 +9,13 @@ import com.gni.frmk.tools.addon.model.configuration.Configuration;
  *
  * @author: e03229
  */
-public class ConfigurationResult extends SingleResult<Configuration> {
+public class ConfigurationResult extends SingleResult<Configuration<?>> {
 
-    public ConfigurationResult(Configuration value) {
+    public ConfigurationResult(Configuration<?> value) {
         super(value);
+    }
+
+    public static ConfigurationResult newInstance(Configuration<?> value) {
+        return new ConfigurationResult(value);
     }
 }

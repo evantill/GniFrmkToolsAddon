@@ -26,17 +26,13 @@ public interface ComponentType
 
     Class<D> getTypeDetail();
 
-    BaseComponent.Builder<?, C,T,I,S,D> componentBuilder();
+    BaseComponent.Builder<?, C, T, I, S, D> componentBuilder();
 
     BuilderWithValidation<?, I> idBuilder();
 
     BuilderWithValidation<?, S> stateBuilder();
 
     BuilderWithValidation<?, D> detailBuilder();
-
-    boolean isInput();
-
-    boolean isOutput();
 
     C checkComponent(Component<?, ?, ?, ?, ?> component);
 
@@ -46,31 +42,11 @@ public interface ComponentType
 
     D checkDetail(ComponentDetail detail);
 
-/*
-    UNKNOWN(false, false),
-    ADAPTER_NOTIFICATION(true, false),
-    ADAPTER_LISTENER(true, false),
-    JMS_ALIAS(false, true),
-    PORT(true, false),
-    NATIVE_TRIGGER(true, false),
-    JMS_TRIGGER(true, false),
-    SCHEDULER(true, false),
-    ADAPTER_CONNECTION(false, true);
+    boolean isInput();
 
-    private final boolean input;
-    private final boolean output;
+    boolean isOutput();
 
-    ComponentType(boolean input, boolean output) {
-        this.input = input;
-        this.output = output;
-    }
+    ComponentTypeOrder getOpenSequenceOrder();
 
-    public final boolean isInput() {
-        return input;
-    }
-
-    public final boolean isOutput() {
-        return output;
-    }
-*/
+    ComponentTypeOrder getCloseSequenceOrder();
 }

@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.model.component.jms;
 
 import com.gni.frmk.tools.addon.model.component.ActivableState;
+import com.gni.frmk.tools.addon.model.component.ComponentTypeOrder;
 import com.gni.frmk.tools.addon.model.component.PackageDetail;
 import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.base.BaseComponentType;
@@ -30,6 +31,16 @@ public class JmsTriggerType
     @Override
     public boolean isOutput() {
         return false;
+    }
+
+    @Override
+    public ComponentTypeOrder getOpenSequenceOrder() {
+        return ComponentTypeOrder.LAST;
+    }
+
+    @Override
+    public ComponentTypeOrder getCloseSequenceOrder() {
+        return ComponentTypeOrder.SECOND;
     }
 
     @Override

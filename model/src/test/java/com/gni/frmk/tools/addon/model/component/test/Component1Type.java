@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.model.component.test;
 
+import com.gni.frmk.tools.addon.model.component.ComponentTypeOrder;
 import com.gni.frmk.tools.addon.model.component.base.BaseComponentType;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -45,12 +46,22 @@ public class Component1Type
 
     @Override
     public boolean isInput() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isOutput() {
-        return false;
+        return true;
+    }
+
+    @Override
+    public ComponentTypeOrder getOpenSequenceOrder() {
+        return ComponentTypeOrder.FIRST;
+    }
+
+    @Override
+    public ComponentTypeOrder getCloseSequenceOrder() {
+        return ComponentTypeOrder.LAST;
     }
 
     public static Component1Type newInstance() {

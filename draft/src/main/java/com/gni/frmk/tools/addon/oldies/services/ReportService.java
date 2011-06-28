@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.oldies.services;
 
 import com.gni.frmk.tools.addon.model.configuration.Configuration;
-import com.gni.frmk.tools.addon.operation.api.ActionException;
+//import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.wm.app.b2b.server.InvokeException;
 
 /**
@@ -14,7 +14,7 @@ import com.wm.app.b2b.server.InvokeException;
 public class ReportService {
 
 
-    public Configuration reportCurrentConfiguration(final String name) throws InvokeException, ActionException {
+    public Configuration reportCurrentConfiguration(final String name) throws InvokeException/*, ActionException*/ {
 //        return Configuration.builder()
 //                            .create(name, new Date())
 //                            .addPackages(reportPackages())

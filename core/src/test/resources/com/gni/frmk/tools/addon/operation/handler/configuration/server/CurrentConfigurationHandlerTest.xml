@@ -23,7 +23,17 @@
                 </simpleDetail>
             </component1>
             <stateConfigurations>
+                <stateConfiguration type="CLOSE">
+                    <component1State exist="true">
+                        <enabled>false</enabled>
+                    </component1State>
+                </stateConfiguration>
                 <stateConfiguration type="CURRENT">
+                    <component1State exist="true">
+                        <enabled>true</enabled>
+                    </component1State>
+                </stateConfiguration>
+                <stateConfiguration type="OPEN">
                     <component1State exist="true">
                         <enabled>true</enabled>
                     </component1State>
@@ -43,7 +53,17 @@
                 </simpleDetail>
             </component1>
             <stateConfigurations>
+                <stateConfiguration type="CLOSE">
+                    <component1State exist="true">
+                        <enabled>false</enabled>
+                    </component1State>
+                </stateConfiguration>
                 <stateConfiguration type="CURRENT">
+                    <component1State exist="true">
+                        <enabled>true</enabled>
+                    </component1State>
+                </stateConfiguration>
+                <stateConfiguration type="OPEN">
                     <component1State exist="true">
                         <enabled>true</enabled>
                     </component1State>
@@ -63,7 +83,17 @@
                 </simpleDetail>
             </component1>
             <stateConfigurations>
+                <stateConfiguration type="CLOSE">
+                    <component1State exist="true">
+                        <enabled>false</enabled>
+                    </component1State>
+                </stateConfiguration>
                 <stateConfiguration type="CURRENT">
+                    <component1State exist="true">
+                        <enabled>true</enabled>
+                    </component1State>
+                </stateConfiguration>
+                <stateConfiguration type="OPEN">
                     <component1State exist="true">
                         <enabled>true</enabled>
                     </component1State>
@@ -84,7 +114,19 @@
                 </simpleDetail>
             </component2>
             <stateConfigurations>
+                <stateConfiguration type="CLOSE">
+                    <component2State exist="true">
+                        <active>false</active>
+                        <enabled>false</enabled>
+                    </component2State>
+                </stateConfiguration>
                 <stateConfiguration type="CURRENT">
+                    <component2State exist="true">
+                        <active>true</active>
+                        <enabled>true</enabled>
+                    </component2State>
+                </stateConfiguration>
+                <stateConfiguration type="OPEN">
                     <component2State exist="true">
                         <active>true</active>
                         <enabled>true</enabled>
@@ -106,7 +148,19 @@
                 </simpleDetail>
             </component2>
             <stateConfigurations>
+                <stateConfiguration type="CLOSE">
+                    <component2State exist="true">
+                        <active>false</active>
+                        <enabled>false</enabled>
+                    </component2State>
+                </stateConfiguration>
                 <stateConfiguration type="CURRENT">
+                    <component2State exist="true">
+                        <active>true</active>
+                        <enabled>true</enabled>
+                    </component2State>
+                </stateConfiguration>
+                <stateConfiguration type="OPEN">
                     <component2State exist="true">
                         <active>true</active>
                         <enabled>true</enabled>

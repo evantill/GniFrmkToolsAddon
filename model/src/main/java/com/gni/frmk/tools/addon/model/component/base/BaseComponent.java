@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.model.component.base;
 
-import com.gni.frmk.tools.addon.api.visitor.ComponentVisitor;
+import com.gni.frmk.tools.addon.api.visitor.component.ComponentVisitor;
 import com.gni.frmk.tools.addon.model.BuilderWithValidation;
 import com.gni.frmk.tools.addon.model.component.Component;
 import com.gni.frmk.tools.addon.model.component.ComponentDetail;
@@ -113,10 +113,10 @@ public abstract class BaseComponent
 
         BaseComponent that = (BaseComponent) o;
 
-        boolean result =  Objects.equal(type, that.type)
-               && Objects.equal(id, that.id)
-               && Objects.equal(detail, that.detail)
-               && Objects.equal(currentState, that.currentState);
+        boolean result = Objects.equal(type, that.type)
+                         && Objects.equal(id, that.id)
+                         && Objects.equal(detail, that.detail)
+                         && Objects.equal(currentState, that.currentState);
 
         return result;
     }
@@ -151,6 +151,10 @@ public abstract class BaseComponent
 
         protected Builder(T type) {
             this.type = type;
+        }
+
+        public B from(C component) {
+            return id(component.getId()).state(component.getCurrentState()).detail(component.getDetail());
         }
 
         public B id(I id) {

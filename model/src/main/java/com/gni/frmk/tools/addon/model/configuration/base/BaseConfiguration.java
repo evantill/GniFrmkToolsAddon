@@ -1,9 +1,7 @@
 package com.gni.frmk.tools.addon.model.configuration.base;
 
-import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
+import com.gni.frmk.tools.addon.api.visitor.configuration.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.BuilderWithValidation;
-import com.gni.frmk.tools.addon.model.component.Component;
-import com.gni.frmk.tools.addon.model.component.ComponentState;
 import com.gni.frmk.tools.addon.model.component.ComponentType;
 import com.gni.frmk.tools.addon.model.configuration.ComponentConfiguration;
 import com.gni.frmk.tools.addon.model.configuration.Configuration;
@@ -126,16 +124,12 @@ public class BaseConfiguration
 
     }
 
-    @SuppressWarnings("unchecked")
     @Override
-    public <T extends ComponentType<T, C, ?, S, ?>,
-            C extends Component<C, T, ?, S, ?>,
-            S extends ComponentState<S>>
-    Set<ComponentConfiguration<?, T, C, S>> getComponentConfigurationsByType(T type) {
-        Set<ComponentConfiguration<?, T, C, S>> selected = Sets.newHashSet();
+    public Set<ComponentConfiguration<?, ?, ?, ?>> getComponentConfigurationsByType(ComponentType<?, ?, ?, ?, ?> type) {
+        Set<ComponentConfiguration<?, ?, ?, ?>> selected = Sets.newHashSet();
         Collection<ComponentConfiguration<?, ?, ?, ?>> filtered = filter(componentConfigurations, ComponentTypeFilter.filterOn(type));
         for (ComponentConfiguration<?, ?, ?, ?> element : filtered) {
-            selected.add((ComponentConfiguration<?, T, C, S>) element);
+            selected.add(element);
         }
         return selected;
     }

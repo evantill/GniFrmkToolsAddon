@@ -26,6 +26,10 @@ import static com.google.common.base.Preconditions.checkNotNull;
 })
 public class TemporaryActivableState
         extends BaseComponentState<TemporaryActivableState> {
+
+    public static final TemporaryActivableState OPENED = build(TemporaryStatus.PERMANENT, ActivableStatus.ACTIVE);
+    public static final TemporaryActivableState CLOSED = build(TemporaryStatus.PERMANENT, ActivableStatus.INACTIVE);
+
     private ActivableStatus activable;
     private TemporaryStatus temporary;
 
@@ -62,9 +66,19 @@ public class TemporaryActivableState
     }
 
     @Override
+    public TemporaryActivableState getOpenState() {
+        return OPENED;
+    }
+
+    @Override
+    public TemporaryActivableState getCloseState() {
+        return CLOSED;
+    }
+
+    @Override
     protected ComparisonChain extendedCompareTo(ComparisonChain chain, TemporaryActivableState other) {
         return chain.compare(getTemporary(), other.getTemporary())
-                              .compare(getActivable(), other.getActivable());
+                    .compare(getActivable(), other.getActivable());
     }
 
     @Override
@@ -75,7 +89,8 @@ public class TemporaryActivableState
 
     @Override
     protected Object[] extendedHashCode() {
-        return new Object[] {activable, temporary};
+        return new Object[]{activable,
+                            temporary};
     }
 
     public static Builder builder() {
@@ -117,4 +132,7 @@ public class TemporaryActivableState
     }
 
 
+    public static final TemporaryActivableState build(TemporaryStatus temporary, ActivableStatus activable) {
+        return builder().temporary(temporary).activable(activable).validate().build();
+    }
 }

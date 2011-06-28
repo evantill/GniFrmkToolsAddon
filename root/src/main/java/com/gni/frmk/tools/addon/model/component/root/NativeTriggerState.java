@@ -27,6 +27,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 })
 public final class NativeTriggerState extends BaseComponentState<NativeTriggerState> {
 
+    private static final NativeTriggerState OPENED = build(EnableState.OPENED, TemporaryActivableState.OPENED, TemporaryActivableState.OPENED);
+    private static final NativeTriggerState CLOSED = build(EnableState.CLOSED, TemporaryActivableState.CLOSED, TemporaryActivableState.CLOSED);
+
     private EnableState enabled;
     private TemporaryActivableState retrievalState;
     private TemporaryActivableState processingState;
@@ -93,8 +96,26 @@ public final class NativeTriggerState extends BaseComponentState<NativeTriggerSt
         return getEnabled().unknown() || getProcessingState().unknown() || getRetrievalState().unknown();
     }
 
+    @Override
+    public NativeTriggerState getOpenState() {
+        return OPENED;
+    }
+
+    @Override
+    public NativeTriggerState getCloseState() {
+        return CLOSED;
+    }
+
     public static Builder builder() {
         return new Builder();
+    }
+
+    public static NativeTriggerState build(EnableState enabled, TemporaryActivableState retreivalState, TemporaryActivableState processingState) {
+        return builder().enabled(enabled)
+                .retrievalState(retreivalState)
+                .processingState(processingState)
+                .validate()
+                .build();
     }
 
     @XmlTransient

@@ -11,4 +11,8 @@ public interface ComponentState<S extends ComponentState<S>> extends Comparable<
     boolean exist();
 
     boolean unknown();
+
+    S getOpenState();
+
+    S getCloseState();
 }

@@ -25,6 +25,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 })
 public final class ConnectableState extends BaseComponentState<ConnectableState> {
 
+    private  static final ConnectableState OPENED = build(EnableStatus.ENABLED, ConnectableStatus.CONNECTED);
+    private  static final ConnectableState CLOSED = build(EnableStatus.DISABLED, ConnectableStatus.DISCONNECTED);
+
     private ConnectableStatus connected = ConnectableStatus.UNKNOWN;
     private EnableStatus enabled = EnableStatus.UNKNOWN;
 
@@ -81,6 +84,16 @@ public final class ConnectableState extends BaseComponentState<ConnectableState>
     @Override
     public boolean unknown() {
         return connected == ConnectableStatus.UNKNOWN || enabled == EnableStatus.ENABLED;
+    }
+
+    @Override
+    public ConnectableState getOpenState() {
+        return OPENED;
+    }
+
+    @Override
+    public ConnectableState getCloseState() {
+        return CLOSED;
     }
 
     @XmlTransient

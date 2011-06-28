@@ -25,6 +25,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 })
 public class ActivableState extends BaseComponentState<ActivableState> {
 
+    private static final ActivableState OPENED=build(EnableStatus.ENABLED, ActivableStatus.ACTIVE);
+    private static final ActivableState CLOSED=build(EnableStatus.DISABLED, ActivableStatus.INACTIVE);
     private EnableStatus enabled;
     private ActivableStatus activable;
 
@@ -37,18 +39,19 @@ public class ActivableState extends BaseComponentState<ActivableState> {
     @Override
     protected ComparisonChain extendedCompareTo(ComparisonChain chain, ActivableState other) {
         return chain.compare(enabled, other.enabled)
-                              .compare(activable, other.activable);
+                    .compare(activable, other.activable);
     }
 
     @Override
     protected boolean extendedEquals(ActivableState other) {
-                       return Objects.equal(enabled, other.enabled)
+        return Objects.equal(enabled, other.enabled)
                && Objects.equal(activable, other.activable);
     }
 
     @Override
     protected Object[] extendedHashCode() {
-        return new Object[]{enabled,activable};
+        return new Object[]{enabled,
+                            activable};
     }
 
     public static Builder builder() {
@@ -86,6 +89,16 @@ public class ActivableState extends BaseComponentState<ActivableState> {
     @Override
     public boolean unknown() {
         return activable == ActivableStatus.UNKNOWN || enabled == EnableStatus.UNKNOWN;
+    }
+
+    @Override
+    public ActivableState getOpenState() {
+        return OPENED;
+    }
+
+    @Override
+    public ActivableState getCloseState() {
+        return CLOSED;
     }
 
     @XmlTransient

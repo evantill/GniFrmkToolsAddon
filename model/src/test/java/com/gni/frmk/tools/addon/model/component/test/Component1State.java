@@ -3,7 +3,6 @@ package com.gni.frmk.tools.addon.model.component.test;
 import com.gni.frmk.tools.addon.model.component.base.BaseComponentState;
 import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
-import org.eclipse.persistence.internal.jpa.parsing.FromNode;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -20,6 +19,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 @XmlRootElement
 public class Component1State extends BaseComponentState<Component1State> {
+    private static final Component1State OPENED = newInstance(true);
+    private static final Component1State CLOSED = newInstance(false);
+
     private boolean enabled;
 
     public Component1State() {
@@ -36,13 +38,23 @@ public class Component1State extends BaseComponentState<Component1State> {
         return enabled;
     }
 
-    private  void setEnabled(boolean enabled) {
+    private void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 
     @Override
     public boolean unknown() {
         return false;
+    }
+
+    @Override
+    public Component1State getOpenState() {
+        return OPENED;
+    }
+
+    @Override
+    public Component1State getCloseState() {
+        return CLOSED;
     }
 
     @Override
@@ -62,6 +74,10 @@ public class Component1State extends BaseComponentState<Component1State> {
 
     public static Builder builder() {
         return new Builder();
+    }
+
+    public static Component1State newInstance(boolean enabled) {
+        return builder().enable(enabled).validate().build();
     }
 
     @XmlTransient

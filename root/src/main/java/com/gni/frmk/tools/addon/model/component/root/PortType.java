@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.model.component.root;
 
 import com.gni.frmk.tools.addon.model.component.ActivableState;
+import com.gni.frmk.tools.addon.model.component.ComponentTypeOrder;
 import com.gni.frmk.tools.addon.model.component.PackageAndStringId;
 import com.gni.frmk.tools.addon.model.component.base.BaseComponentType;
 
@@ -31,6 +32,16 @@ public class PortType
     @Override
     public boolean isOutput() {
         return false;
+    }
+
+    @Override
+    public ComponentTypeOrder getOpenSequenceOrder() {
+        return ComponentTypeOrder.SECOND;
+    }
+
+    @Override
+    public ComponentTypeOrder getCloseSequenceOrder() {
+        return ComponentTypeOrder.FIRST;
     }
 
     @Override

@@ -18,6 +18,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 @XmlRootElement
 public class Component2State extends BaseComponentState<Component2State> {
+    private  static final Component2State OPENED = newInstance(true,true);
+    private  static final Component2State CLOSED = newInstance(false,false);
+
     private boolean active;
     private boolean enabled;
 
@@ -53,6 +56,16 @@ public class Component2State extends BaseComponentState<Component2State> {
     }
 
     @Override
+    public Component2State getOpenState() {
+        return OPENED;
+    }
+
+    @Override
+    public Component2State getCloseState() {
+        return CLOSED;
+    }
+
+    @Override
     protected ComparisonChain extendedCompareTo(ComparisonChain chain, Component2State other) {
         return chain.compare(isEnabled(), other.isEnabled());
     }
@@ -71,6 +84,10 @@ public class Component2State extends BaseComponentState<Component2State> {
 
     public static Builder builder() {
         return new Builder();
+    }
+
+    public static Component2State newInstance(boolean enabled, boolean active) {
+        return builder().active(active).enable(enabled).validate().build();
     }
 
     @XmlTransient

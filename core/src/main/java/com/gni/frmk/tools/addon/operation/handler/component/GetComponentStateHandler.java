@@ -30,7 +30,7 @@ public class GetComponentStateHandler
     private static final TypeLiteral<GetComponentState<?,?>> TYPE_LITERAL = new TypeLiteral<GetComponentState<?, ?>>() {};
 
     public static interface GetComponentStateStrategy
-            <T extends ComponentType<T, ?, I, S, ?>, I extends ComponentId<I>, S extends ComponentState<S>>
+            <T extends ComponentType<T, ?, I, S, ?>, I extends ComponentId<?>, S extends ComponentState<?>>
             extends ActionStrategy<T> {
 
         S getState(I componentId, InvokeContext context) throws ServiceException;
@@ -53,7 +53,7 @@ public class GetComponentStateHandler
         return executeTypeSafe(action, context);
     }
 
-    public <I extends ComponentId<I>, S extends ComponentState<S>>
+    public <I extends ComponentId<?>, S extends ComponentState<?>>
     SingleResult<S> executeTypeSafe(GetComponentState<I, S> action, InvokeContext context) throws ActionException {
         try {
             GetComponentStateStrategy<?, I, S> strategy = strategyContext.selectStrategy(action.getComponentType());

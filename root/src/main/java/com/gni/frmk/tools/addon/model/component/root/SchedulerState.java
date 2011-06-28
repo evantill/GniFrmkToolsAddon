@@ -26,6 +26,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class SchedulerState
         extends BaseComponentState<SchedulerState> {
 
+    public static final SchedulerState OPENED = build(SuspendedStatus.READY, SchedulerStatus.UNEXPIRED);
+    public static final SchedulerState CLOSED = build(SuspendedStatus.SUSPENDED, SchedulerStatus.EXPIRED);
+
     private SuspendedStatus suspended;
     private SchedulerStatus scheduled;
 
@@ -62,6 +65,16 @@ public class SchedulerState
     }
 
     @Override
+    public SchedulerState getOpenState() {
+        return OPENED;
+    }
+
+    @Override
+    public SchedulerState getCloseState() {
+        return CLOSED;
+    }
+
+    @Override
     protected ComparisonChain extendedCompareTo(ComparisonChain chain, SchedulerState other) {
         return chain.compare(getSuspended(), other.getSuspended())
                     .compare(getScheduled(), other.getScheduled());
@@ -75,7 +88,8 @@ public class SchedulerState
 
     @Override
     protected Object[] extendedHashCode() {
-        return new Object[]{scheduled,suspended};
+        return new Object[]{scheduled,
+                            suspended};
     }
 
     public static Builder builder() {

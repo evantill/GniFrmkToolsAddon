@@ -1,6 +1,6 @@
 package com.gni.frmk.tools.addon.model.configuration.base;
 
-import com.gni.frmk.tools.addon.api.visitor.ConfigurationVisitor;
+import com.gni.frmk.tools.addon.api.visitor.configuration.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.BuilderWithValidation;
 import com.gni.frmk.tools.addon.model.component.Component;
 import com.gni.frmk.tools.addon.model.component.ComponentState;
@@ -56,8 +56,21 @@ public class BaseComponentConfiguration
         return component;
     }
 
-    private void setComponent(C component) {
+    public void setComponent(C component) {
         this.component = component;
+        setPresentOnIS(component.getCurrentState().exist());
+        getStateConfigurations().put(ComponentStateType.CURRENT, component.getCurrentState());
+    }
+
+    @Override
+    public void updateLastState() {
+        Map<ComponentStateType, S> states = getStateConfigurations();
+        states.put(ComponentStateType.LAST, states.get(ComponentStateType.CURRENT));
+    }
+
+    @Override
+    public S getState(ComponentStateType type) {
+        return getStateConfigurations().get(type);
     }
 
     @XmlJavaTypeAdapter(ComponentStatesAdapter.class)
@@ -65,7 +78,7 @@ public class BaseComponentConfiguration
         return stateConfigurations;
     }
 
-    private void setStateConfigurations(Map<ComponentStateType, S> stateConfigurations) {
+    public void setStateConfigurations(Map<ComponentStateType, S> stateConfigurations) {
         this.stateConfigurations = stateConfigurations;
     }
 
@@ -74,7 +87,7 @@ public class BaseComponentConfiguration
         return presentOnIS;
     }
 
-    private void setPresentOnIS(boolean presentOnIS) {
+    public void setPresentOnIS(boolean presentOnIS) {
         this.presentOnIS = presentOnIS;
     }
 
@@ -117,7 +130,10 @@ public class BaseComponentConfiguration
 
         public Builder<T, C, S> component(C value) {
             component = checkNotNull(value);
-            stateConfigurations.put(ComponentStateType.CURRENT, value.getCurrentState());
+            S currentState = value.getCurrentState();
+            stateConfigurations.put(ComponentStateType.CURRENT, currentState);
+            stateConfigurations.put(ComponentStateType.OPEN, currentState.getOpenState());
+            stateConfigurations.put(ComponentStateType.CLOSE, currentState.getCloseState());
             return this;
         }
 

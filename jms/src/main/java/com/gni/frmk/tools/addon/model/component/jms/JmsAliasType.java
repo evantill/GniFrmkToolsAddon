@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.model.component.jms;
 
+import com.gni.frmk.tools.addon.model.component.ComponentTypeOrder;
 import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.base.BaseComponentType;
 
@@ -31,6 +32,16 @@ public class JmsAliasType
     @Override
     public boolean isOutput() {
         return true;
+    }
+
+    @Override
+    public ComponentTypeOrder getOpenSequenceOrder() {
+        return ComponentTypeOrder.FIRST;
+    }
+
+    @Override
+    public ComponentTypeOrder getCloseSequenceOrder() {
+        return ComponentTypeOrder.LAST;
     }
 
     @Override

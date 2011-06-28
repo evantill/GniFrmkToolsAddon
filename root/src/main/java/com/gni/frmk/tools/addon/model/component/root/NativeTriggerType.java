@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.model.component.root;
 
+import com.gni.frmk.tools.addon.model.component.ComponentTypeOrder;
 import com.gni.frmk.tools.addon.model.component.NoDetail;
 import com.gni.frmk.tools.addon.model.component.StringId;
 import com.gni.frmk.tools.addon.model.component.base.BaseComponentType;
@@ -32,6 +33,16 @@ public class NativeTriggerType
     @Override
     public boolean isOutput() {
         return false;
+    }
+
+    @Override
+    public ComponentTypeOrder getOpenSequenceOrder() {
+        return ComponentTypeOrder.LAST;
+    }
+
+    @Override
+    public ComponentTypeOrder getCloseSequenceOrder() {
+        return ComponentTypeOrder.FIRST;
     }
 
     @Override

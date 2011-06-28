@@ -1,7 +1,6 @@
 package com.gni.frmk.tools.addon.model.configuration;
 
-import com.gni.frmk.tools.addon.model.component.Component;
-import com.gni.frmk.tools.addon.model.component.ComponentState;
+import com.gni.frmk.tools.addon.api.visitor.configuration.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.component.ComponentType;
 
 import java.util.Set;
@@ -16,15 +15,14 @@ import java.util.Set;
 public interface Configuration<C extends Configuration<C>> extends Comparable<C> {
     ConfigurationId getId();
 
-    ConfigurationInfo getInfo();
+    ConfigurationInfo<?> getInfo();
 
     Set<ComponentConfiguration<?, ?, ?, ?>> getComponentConfigurations();
 
     Set<ComponentType<?, ?, ?, ?, ?>> getComponentConfigurationTypes();
 
-    <T extends ComponentType<T, C, ?, S, ?>,
-            C extends Component<C, T, ?, S, ?>,
-            S extends ComponentState<S>>
-    Set<ComponentConfiguration<?, T, C, S>> getComponentConfigurationsByType(T type);
+    Set<ComponentConfiguration<?, ?, ?, ?>> getComponentConfigurationsByType(ComponentType<?, ?, ?, ?, ?> type);
+
+    void accept(ConfigurationVisitor visitor);
 
 }

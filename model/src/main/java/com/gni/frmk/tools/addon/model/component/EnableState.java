@@ -9,6 +9,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
+import static com.gni.frmk.tools.addon.model.component.EnableStatus.DISABLED;
+import static com.gni.frmk.tools.addon.model.component.EnableStatus.ENABLED;
 import static com.gni.frmk.tools.addon.model.component.EnableStatus.UNKNOWN;
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -24,6 +26,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
         "enabled"
 })
 public final class EnableState extends BaseComponentState<EnableState> {
+
+    public  static final EnableState OPENED =  build(ENABLED);
+    public  static final EnableState CLOSED = build(DISABLED);
 
     private EnableStatus enabled = UNKNOWN;
 
@@ -63,6 +68,16 @@ public final class EnableState extends BaseComponentState<EnableState> {
     @Override
     public boolean unknown() {
         return enabled == UNKNOWN;
+    }
+
+    @Override
+    public EnableState getOpenState() {
+        return  OPENED;
+    }
+
+    @Override
+    public EnableState getCloseState() {
+        return CLOSED;
     }
 
     public static Builder builder() {

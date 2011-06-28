@@ -1,7 +1,8 @@
 package com.gni.frmk.tools.addon.model.component.art;
 
-import com.gni.frmk.tools.addon.model.component.PackageDetail;
+import com.gni.frmk.tools.addon.model.component.ComponentTypeOrder;
 import com.gni.frmk.tools.addon.model.component.EnableState;
+import com.gni.frmk.tools.addon.model.component.PackageDetail;
 import com.gni.frmk.tools.addon.model.component.base.BaseComponentType;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -32,6 +33,16 @@ public class AdapterConnectionType
     @Override
     public boolean isOutput() {
         return true;
+    }
+
+    @Override
+    public ComponentTypeOrder getOpenSequenceOrder() {
+        return ComponentTypeOrder.FIRST;
+    }
+
+    @Override
+    public ComponentTypeOrder getCloseSequenceOrder() {
+        return ComponentTypeOrder.LAST;
     }
 
     @Override

@@ -35,7 +35,7 @@ public class GetComponentHandler
         return TYPE_LITERAL;
     }
 
-    @SuppressWarnings({"unchecked"})
+    @SuppressWarnings("unchecked")
     @Override
     public SingleResult<Component> execute(GetComponent action, InvokeContext context) throws ActionException {
         return executeTypeSafe(action, context);
