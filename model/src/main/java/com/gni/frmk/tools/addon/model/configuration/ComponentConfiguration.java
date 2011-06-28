@@ -19,7 +19,7 @@ public interface ComponentConfiguration
         <CC extends ComponentConfiguration<CC, T, C, S>,
                 T extends ComponentType<T, C, ?, S, ?>,
                 C extends Component<C, T, ?, S, ?>,
-                S extends ComponentState<S>>
+                S extends ComponentState<?>>
         extends Comparable<CC> {
 
     T getComponentType();

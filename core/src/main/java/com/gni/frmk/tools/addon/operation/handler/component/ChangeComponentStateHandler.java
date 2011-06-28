@@ -31,7 +31,7 @@ public class ChangeComponentStateHandler
     private static final TypeLiteral<ChangeComponentState<?,?>> TYPE_LITERAL = new TypeLiteral<ChangeComponentState<?, ?>>() {};
 
     public static interface ChangeComponentStateStrategy
-            <T extends ComponentType<T, ?, I, S, ?>, I extends ComponentId<I>, S extends ComponentState<S>>
+            <T extends ComponentType<T, ?, I, S, ?>, I extends ComponentId<?>, S extends ComponentState<?>>
             extends ActionStrategy<T> {
 
         S changeState(I componentId, S oldState, S newState, InvokeContext context) throws ServiceException;
@@ -54,7 +54,7 @@ public class ChangeComponentStateHandler
         return executeTypeSafe(action, context);
     }
 
-    public <I extends ComponentId<I>, S extends ComponentState<S>>
+    public <I extends ComponentId<?>, S extends ComponentState<?>>
     SingleResult<S> executeTypeSafe(ChangeComponentState<I, S> action, InvokeContext context) throws ActionException {
         try {
             ComponentType<?, ?, I, S, ?> componentType = action.getComponentType();
@@ -82,7 +82,7 @@ public class ChangeComponentStateHandler
         }
     }
 
-    private <T extends ComponentType<?, ?, I, S, ?>, I extends ComponentId<I>, S extends ComponentState<S>>
+    private <T extends ComponentType<?, ?, I, S, ?>, I extends ComponentId<?>, S extends ComponentState<?>>
     S refreshState(T componentType, I componentId, InvokeContext context) throws DispatchException {
         GetComponentState<I, S> action = GetComponentState.newInstance(componentType, componentId);
         return context.getDispatcher().execute(action).getValue();

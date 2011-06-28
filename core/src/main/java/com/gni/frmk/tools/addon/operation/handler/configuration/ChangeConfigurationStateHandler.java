@@ -53,11 +53,12 @@ public class ChangeConfigurationStateHandler
 
     }
 
-    private <T extends ComponentType<T, C, I, S, ?>, C extends Component<C, T, I, S, ?>, I extends ComponentId, S extends ComponentState<S>>
+    private <T extends ComponentType<T, C, I, S, ?>, C extends Component<C, T, I, S, ?>, I extends ComponentId<?>, S extends ComponentState<?>>
     void changeComponentState(Dispatcher dispatcher, ComponentConfiguration<?, T, C, S> visited, ComponentStateType fromState) throws DispatchException {
         C component = visited.getComponent();
         S oldState = component.getCurrentState();
-        S changedState = dispatcher.execute(ChangeComponentState.newInstance(component, visited.getState(fromState))).getValue();
+        ChangeComponentState<I, S> action = ChangeComponentState.newInstance(component, visited.getState(fromState));
+        S changedState = dispatcher.execute(action).getValue();
         if (!changedState.equals(oldState)) {
             C changedComponent = component.getType()
                                         .componentBuilder()

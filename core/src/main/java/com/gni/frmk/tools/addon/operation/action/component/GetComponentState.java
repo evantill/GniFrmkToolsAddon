@@ -35,8 +35,8 @@ public class GetComponentState
     }
 
     public static <T extends ComponentType<?, ?, I, S, ?>,
-            I extends ComponentId<I>,
-            S extends ComponentState<S>>
+            I extends ComponentId<?>,
+            S extends ComponentState<?>>
     GetComponentState<I, S> newInstance(T type, I id) {
         return new GetComponentState<I, S>(type, id);
     }
