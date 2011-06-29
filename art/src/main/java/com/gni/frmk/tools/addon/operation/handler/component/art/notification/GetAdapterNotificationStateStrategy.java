@@ -2,6 +2,7 @@ package com.gni.frmk.tools.addon.operation.handler.component.art.notification;
 
 import com.gni.frmk.tools.addon.invoker.api.ServiceContext;
 import com.gni.frmk.tools.addon.invoker.api.ServiceException;
+import com.gni.frmk.tools.addon.invoker.api.ServiceNotFoundException;
 import com.gni.frmk.tools.addon.invoker.io.ListValueOutput;
 import com.gni.frmk.tools.addon.invoker.io.art.AdapterPollingNotificationInfo;
 import com.gni.frmk.tools.addon.invoker.io.art.AdapterTypeInput;
@@ -14,7 +15,11 @@ import com.gni.frmk.tools.addon.model.component.art.AdapterNotificationType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler.GetComponentStateStrategy;
 import com.google.common.base.Predicate;
+
 import javax.inject.Inject;
+import java.util.NoSuchElementException;
+
+import static com.gni.frmk.tools.addon.model.component.EnableState.UNKNOWN;
 
 /**
  * Created by IntelliJ IDEA.
@@ -36,6 +41,17 @@ public class GetAdapterNotificationStateStrategy
     @Override
     public AdapterNotificationType getComponentType() {
         return AdapterNotificationType.TYPE;
+    }
+
+    @Override
+    public ActivableState getStateOrUnknown(AdapterId componentId, InvokeContext context) throws ServiceException {
+        try {
+            return getState(componentId, context);
+        } catch (NoSuchElementException unknown) {
+            return ActivableState.UNKNOWN;
+        } catch (ServiceNotFoundException unknown){
+            return ActivableState.UNKNOWN;
+        }
     }
 
     @Override

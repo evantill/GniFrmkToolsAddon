@@ -27,8 +27,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 })
 public final class NativeTriggerState extends BaseComponentState<NativeTriggerState> {
 
-    private static final NativeTriggerState OPENED = build(EnableState.OPENED, TemporaryActivableState.OPENED, TemporaryActivableState.OPENED);
-    private static final NativeTriggerState CLOSED = build(EnableState.CLOSED, TemporaryActivableState.CLOSED, TemporaryActivableState.CLOSED);
+    public static final NativeTriggerState OPENED = build(EnableState.OPENED, TemporaryActivableState.OPENED, TemporaryActivableState.OPENED);
+    public static final NativeTriggerState CLOSED = build(EnableState.CLOSED, TemporaryActivableState.CLOSED, TemporaryActivableState.CLOSED);
+    public static final NativeTriggerState UNKNOWN = build(EnableState.UNKNOWN, TemporaryActivableState.UNKNOWN, TemporaryActivableState.UNKNOWN);
 
     private EnableState enabled;
     private TemporaryActivableState retrievalState;

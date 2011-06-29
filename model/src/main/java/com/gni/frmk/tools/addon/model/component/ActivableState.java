@@ -25,8 +25,10 @@ import static com.google.common.base.Preconditions.checkNotNull;
 })
 public class ActivableState extends BaseComponentState<ActivableState> {
 
-    private static final ActivableState OPENED=build(EnableStatus.ENABLED, ActivableStatus.ACTIVE);
-    private static final ActivableState CLOSED=build(EnableStatus.DISABLED, ActivableStatus.INACTIVE);
+    public static final ActivableState OPENED = build(EnableStatus.ENABLED, ActivableStatus.ACTIVE);
+    public static final ActivableState CLOSED = build(EnableStatus.DISABLED, ActivableStatus.INACTIVE);
+    public static final ActivableState UNKNOWN = build(EnableStatus.UNKNOWN, ActivableStatus.UNKNOWN);
+
     private EnableStatus enabled;
     private ActivableStatus activable;
 

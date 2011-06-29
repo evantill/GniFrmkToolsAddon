@@ -29,6 +29,7 @@ public class TemporaryActivableState
 
     public static final TemporaryActivableState OPENED = build(TemporaryStatus.PERMANENT, ActivableStatus.ACTIVE);
     public static final TemporaryActivableState CLOSED = build(TemporaryStatus.PERMANENT, ActivableStatus.INACTIVE);
+    public static final TemporaryActivableState UNKNOWN = build(TemporaryStatus.UNKNOWN, ActivableStatus.UNKNOWN);
 
     private ActivableStatus activable;
     private TemporaryStatus temporary;

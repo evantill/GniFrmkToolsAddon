@@ -2,6 +2,7 @@ package com.gni.frmk.tools.addon.operation.handler.component.jms.alias;
 
 import com.gni.frmk.tools.addon.invoker.api.ServiceContext;
 import com.gni.frmk.tools.addon.invoker.api.ServiceException;
+import com.gni.frmk.tools.addon.invoker.api.ServiceNotFoundException;
 import com.gni.frmk.tools.addon.invoker.io.ListValueOutput;
 import com.gni.frmk.tools.addon.invoker.io.NoInput;
 import com.gni.frmk.tools.addon.invoker.io.jms.JmsAliasInfo;
@@ -14,7 +15,9 @@ import com.gni.frmk.tools.addon.model.component.jms.JmsAliasType;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler.GetComponentStateStrategy;
 import com.google.common.base.Predicate;
+
 import javax.inject.Inject;
+import java.util.NoSuchElementException;
 
 /**
  * Created by IntelliJ IDEA.
@@ -36,6 +39,17 @@ public class GetJmsAliasStateStrategy
     @Override
     public JmsAliasType getComponentType() {
         return JmsAliasType.TYPE;
+    }
+
+    @Override
+    public ConnectableState getStateOrUnknown(StringId componentId, InvokeContext context) throws ServiceException {
+        try {
+            return getState(componentId, context);
+        } catch (NoSuchElementException unknown) {
+            return ConnectableState.UNKNOWN;
+        } catch (ServiceNotFoundException unknown){
+            return ConnectableState.UNKNOWN;
+        }
     }
 
     @Override

@@ -28,6 +28,7 @@ public class SchedulerState
 
     public static final SchedulerState OPENED = build(SuspendedStatus.READY, SchedulerStatus.UNEXPIRED);
     public static final SchedulerState CLOSED = build(SuspendedStatus.SUSPENDED, SchedulerStatus.EXPIRED);
+    public static final SchedulerState UNKNOWN = build(SuspendedStatus.UNKNOWN, SchedulerStatus.UNKNOWN);
 
     private SuspendedStatus suspended;
     private SchedulerStatus scheduled;
@@ -61,7 +62,7 @@ public class SchedulerState
 
     @Override
     public boolean unknown() {
-        return suspended == SuspendedStatus.UNKNOWN || scheduled == SchedulerStatus.UNKNONW;
+        return suspended == SuspendedStatus.UNKNOWN || scheduled == SchedulerStatus.UNKNOWN;
     }
 
     @Override
@@ -121,7 +122,7 @@ public class SchedulerState
         private void updateExist() {
             boolean wellDefined = suspended != null && scheduled != null;
             if (wellDefined) {
-                exist(suspended != SuspendedStatus.UNKNOWN && scheduled != SchedulerStatus.UNKNONW);
+                exist(suspended != SuspendedStatus.UNKNOWN && scheduled != SchedulerStatus.UNKNOWN);
             } else {
                 exist(false);
             }

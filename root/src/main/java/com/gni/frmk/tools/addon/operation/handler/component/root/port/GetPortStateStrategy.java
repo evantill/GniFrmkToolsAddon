@@ -2,6 +2,7 @@ package com.gni.frmk.tools.addon.operation.handler.component.root.port;
 
 import com.gni.frmk.tools.addon.invoker.api.ServiceContext;
 import com.gni.frmk.tools.addon.invoker.api.ServiceException;
+import com.gni.frmk.tools.addon.invoker.api.ServiceNotFoundException;
 import com.gni.frmk.tools.addon.invoker.io.ListValueOutput;
 import com.gni.frmk.tools.addon.invoker.io.NoInput;
 import com.gni.frmk.tools.addon.invoker.io.root.PortInfo;
@@ -15,7 +16,9 @@ import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler.GetComponentStateStrategy;
 import com.google.common.base.Objects;
 import com.google.common.base.Predicate;
+
 import javax.inject.Inject;
+import java.util.NoSuchElementException;
 
 /**
  * Created by IntelliJ IDEA.
@@ -37,6 +40,17 @@ public class GetPortStateStrategy
     @Override
     public PortType getComponentType() {
         return PortType.TYPE;
+    }
+
+    @Override
+    public ActivableState getStateOrUnknown(PackageAndStringId componentId, InvokeContext context) throws ServiceException {
+        try {
+            return getState(componentId, context);
+        } catch (NoSuchElementException unknown) {
+            return ActivableState.UNKNOWN;
+        } catch (ServiceNotFoundException unknown) {
+            return ActivableState.UNKNOWN;
+        }
     }
 
     @Override

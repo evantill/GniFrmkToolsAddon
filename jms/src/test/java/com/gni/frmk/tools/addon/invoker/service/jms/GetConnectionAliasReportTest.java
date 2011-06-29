@@ -17,7 +17,7 @@ import org.junit.Test;
 public class GetConnectionAliasReportTest extends AbstractServiceTest {
 
     @Test
-    public void testInvoke() throws Exception {
+    public void testBadJMSAliasInvoke() throws Exception {
         GetConnectionAliasReport service = new GetConnectionAliasReport();
         ListValueOutput<JmsAliasInfo> output = service.invoke(NoInput.singleton, getContext());
         Assert.assertEquals(27, output.getValues().size());

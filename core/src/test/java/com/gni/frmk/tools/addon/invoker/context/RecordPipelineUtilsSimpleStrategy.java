@@ -14,10 +14,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class RecordPipelineUtilsSimpleStrategy implements RecordPipelineUtilsStrategy {
     private AtomicInteger index = new AtomicInteger(0);
 
+    @Override
     public synchronized String generateId(NSName serviceName) {
-        String key = serviceName.getFullName();
+        return newId(serviceName, index.incrementAndGet());
+    }
+
+    @Override
+    public String checkNextId(NSName serviceName) {
+        return newId(serviceName, index.get()+1);
+    }
+
+    private String newId(NSName serviceName, int indx) {
         return String.format("%s_%d", serviceName.getFullName()
                                                  .replace(':', '.')
-                                                 .replace('.', '_'), index.incrementAndGet());
+                                                 .replace('.', '_'), indx);
     }
 }

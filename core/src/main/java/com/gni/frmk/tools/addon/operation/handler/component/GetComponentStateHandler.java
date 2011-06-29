@@ -32,8 +32,9 @@ public class GetComponentStateHandler
     public static interface GetComponentStateStrategy
             <T extends ComponentType<T, ?, I, S, ?>, I extends ComponentId<I>, S extends ComponentState<S>>
             extends ActionStrategy<T> {
-
         S getState(I componentId, InvokeContext context) throws ServiceException;
+
+        S getStateOrUnknown(I componentId, InvokeContext context) throws ServiceException;
     }
 
     private final ActionContext<GetComponentStateStrategy<?, ?, ?>> strategyContext;
@@ -60,7 +61,7 @@ public class GetComponentStateHandler
             if (strategy == null) {
                 throw new ActionException(action, String.format("strategy not found for %s", action.getComponentType()));
             }
-            return SingleResult.newInstance(strategy.getState(action.getComponentId(), context));
+            return SingleResult.newInstance(strategy.getStateOrUnknown(action.getComponentId(), context));
         } catch (ServiceException e) {
             throw new ActionException(action, e);
         }

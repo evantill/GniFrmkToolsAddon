@@ -16,8 +16,8 @@ public class ReplayTestContext implements ServiceContext {
 
     private final RecordPipelineUtils utils;
 
-    private ReplayTestContext(Class<?> clazz,RecordPipelineUtilsStrategy strategy) {
-        utils = new RecordPipelineUtils(clazz,strategy);
+    private ReplayTestContext(Class<?> clazz, RecordPipelineUtilsStrategy strategy) {
+        utils = new RecordPipelineUtils(clazz, strategy);
     }
 
     @Override
@@ -27,11 +27,16 @@ public class ReplayTestContext implements ServiceContext {
     }
 
     @Override
+    public boolean exist(NSName serviceName) {
+        return utils.exist("out", serviceName);
+    }
+
+    @Override
     public void dispose() {
         //noop
     }
 
-    public static ReplayTestContext newInstance(Class<?> testClass,RecordPipelineUtilsStrategy strategy) {
-        return new ReplayTestContext(testClass,strategy);
+    public static ReplayTestContext newInstance(Class<?> testClass, RecordPipelineUtilsStrategy strategy) {
+        return new ReplayTestContext(testClass, strategy);
     }
 }

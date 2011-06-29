@@ -16,15 +16,30 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class RecordPipelineUtilsByServiceNameStrategy implements RecordPipelineUtilsStrategy {
     private Map<String, AtomicInteger> indexes = Maps.newHashMap();
 
-      public synchronized String generateId(NSName serviceName) {
+    @Override
+    public synchronized String generateId(NSName serviceName) {
+        return newId(serviceName, getIndex(serviceName).incrementAndGet());
+    }
+
+    @Override
+    public String checkNextId(NSName serviceName) {
+        return newId(serviceName, getIndex(serviceName).get()+1);
+    }
+
+    private AtomicInteger getIndex(NSName serviceName) {
         String key = serviceName.getFullName();
         AtomicInteger index = indexes.get(key);
         if (index == null) {
             index = new AtomicInteger(0);
             indexes.put(key, index);
         }
+        return index;
+    }
+
+    private String newId(NSName serviceName, int indx) {
         return String.format("%s_%d", serviceName.getFullName()
                                                  .replace(':', '.')
-                                                 .replace('.', '_'), index.incrementAndGet());
+                                                 .replace('.', '_'), indx);
     }
+
 }

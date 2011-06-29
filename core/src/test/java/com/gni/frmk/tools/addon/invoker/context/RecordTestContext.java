@@ -17,8 +17,8 @@ public class RecordTestContext implements ServiceContext {
     private final ServiceContext decorated;
     private final RecordPipelineUtils utils;
 
-    private RecordTestContext(Class<?> clazz, ServiceContext decorated,RecordPipelineUtilsStrategy strategy) {
-        utils = new RecordPipelineUtils(clazz,strategy);
+    private RecordTestContext(Class<?> clazz, ServiceContext decorated, RecordPipelineUtilsStrategy strategy) {
+        utils = new RecordPipelineUtils(clazz, strategy);
         this.decorated = decorated;
     }
 
@@ -30,11 +30,16 @@ public class RecordTestContext implements ServiceContext {
     }
 
     @Override
+    public boolean exist(NSName serviceName) {
+        return decorated.exist(serviceName);
+    }
+
+    @Override
     public void dispose() {
         decorated.dispose();
     }
 
-    public static RecordTestContext newInstance(Class<?> testClass, ServiceContext decorated,RecordPipelineUtilsStrategy strategy) {
-        return new RecordTestContext(testClass, decorated,strategy);
+    public static RecordTestContext newInstance(Class<?> testClass, ServiceContext decorated, RecordPipelineUtilsStrategy strategy) {
+        return new RecordTestContext(testClass, decorated, strategy);
     }
 }

@@ -7,7 +7,8 @@ package com.gni.frmk.tools.addon.invoker.api;
  *
  * @author: e03229
  */
-public class ServiceException extends Exception {
+public class
+        ServiceException extends Exception {
     private final Service<?, ?> service;
 
     public ServiceException(Service<?, ?> service, String message) {

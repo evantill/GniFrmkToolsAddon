@@ -36,7 +36,15 @@ public abstract class WmService<I extends ServiceInput, O extends ServiceOutput>
     }
 
     @Override
+    public String getName() {
+        return getServiceName().getFullName();
+    }
+
+    @Override
     public final O invoke(I input, ServiceContext context) throws ServiceException {
+        if (!context.exist(getServiceName())) {
+            throw new ServiceNotFoundException(this);
+        }
         IData in = prepareInput(input);
         IData out = context.invoke(getServiceName(), in);
         return prepareOutput(out);

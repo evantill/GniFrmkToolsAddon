@@ -1,7 +1,7 @@
 package com.gni.frmk.tools.addon.invoker.context;
 
-import com.gni.frmk.tools.addon.invoker.api.ServiceContextException;
 import com.gni.frmk.tools.addon.invoker.api.ServiceContext;
+import com.gni.frmk.tools.addon.invoker.api.ServiceContextException;
 import com.wm.app.b2b.client.Context;
 import com.wm.data.*;
 import com.wm.lang.ns.NSName;
@@ -41,6 +41,11 @@ public class RemoteContext implements ServiceContext {
         } catch (com.wm.app.b2b.client.ServiceException cause) {
             throw new ServiceContextException(this, cause);
         }
+    }
+
+    @Override
+    public boolean exist(NSName serviceName) {
+        return ctx.getNamespace().nodeExists(serviceName);
     }
 
     public static Builder builder() {

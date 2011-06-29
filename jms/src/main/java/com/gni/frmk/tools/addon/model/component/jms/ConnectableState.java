@@ -25,8 +25,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 })
 public final class ConnectableState extends BaseComponentState<ConnectableState> {
 
-    private  static final ConnectableState OPENED = build(EnableStatus.ENABLED, ConnectableStatus.CONNECTED);
-    private  static final ConnectableState CLOSED = build(EnableStatus.DISABLED, ConnectableStatus.DISCONNECTED);
+    public static final ConnectableState OPENED = build(EnableStatus.ENABLED, ConnectableStatus.CONNECTED);
+    public static final ConnectableState CLOSED = build(EnableStatus.DISABLED, ConnectableStatus.DISCONNECTED);
+    public static final ConnectableState UNKNOWN = build(EnableStatus.UNKNOWN, ConnectableStatus.UNKNOWN);
 
     private ConnectableStatus connected = ConnectableStatus.UNKNOWN;
     private EnableStatus enabled = EnableStatus.UNKNOWN;
@@ -78,7 +79,8 @@ public final class ConnectableState extends BaseComponentState<ConnectableState>
 
     @Override
     protected Object[] extendedHashCode() {
-        return new Object[]{enabled,connected};
+        return new Object[]{enabled,
+                            connected};
     }
 
     @Override

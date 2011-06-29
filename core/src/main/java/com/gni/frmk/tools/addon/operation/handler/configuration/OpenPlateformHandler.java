@@ -2,15 +2,12 @@ package com.gni.frmk.tools.addon.operation.handler.configuration;
 
 import com.gni.frmk.tools.addon.model.configuration.Configuration;
 import com.gni.frmk.tools.addon.operation.action.configuration.OpenPlateform;
-import com.gni.frmk.tools.addon.api.Producer;
-import com.gni.frmk.tools.addon.operation.api.Action;
 import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
 import com.gni.frmk.tools.addon.operation.api.ExecutionContext;
 import com.gni.frmk.tools.addon.operation.result.ConfigurationResult;
 
 import javax.enterprise.util.TypeLiteral;
-import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,10 +27,11 @@ public class OpenPlateformHandler implements ActionHandler<OpenPlateform, Config
     }
 
     @Override
+    //TODO implementer
     public ConfigurationResult execute(OpenPlateform action, ExecutionContext context) throws ActionException {
         final Configuration cnf = action.getConfiguration();
 //        ConfigurationVisitor visitor;
-        Producer<List<Action<?>>> producer;
+//        Producer<List<Action<?>>> producer;
         if(action.isFull()){
 //            OpenPlateformFullVisitor visitorImpl = new OpenPlateformFullVisitor();
 //            visitor=visitorImpl;

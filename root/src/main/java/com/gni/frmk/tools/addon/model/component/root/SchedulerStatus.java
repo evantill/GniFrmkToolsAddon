@@ -8,7 +8,7 @@ package com.gni.frmk.tools.addon.model.component.root;
  * @author: e03229
  */
 public enum SchedulerStatus {
-    UNKNONW, UNEXPIRED, EXPIRED;
+    UNKNOWN, UNEXPIRED, EXPIRED;
 
     public static SchedulerStatus fromBoolean(boolean expired) {
         return expired ? EXPIRED : UNEXPIRED;

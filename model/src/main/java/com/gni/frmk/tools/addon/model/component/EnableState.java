@@ -28,9 +28,10 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public final class EnableState extends BaseComponentState<EnableState> {
 
     public  static final EnableState OPENED =  build(ENABLED);
+    public  static final EnableState UNKNOWN =  build(EnableStatus.UNKNOWN);
     public  static final EnableState CLOSED = build(DISABLED);
 
-    private EnableStatus enabled = UNKNOWN;
+    private EnableStatus enabled = EnableStatus.UNKNOWN;
 
     protected EnableState() {
         super();
@@ -67,7 +68,7 @@ public final class EnableState extends BaseComponentState<EnableState> {
 
     @Override
     public boolean unknown() {
-        return enabled == UNKNOWN;
+        return enabled == EnableStatus.UNKNOWN;
     }
 
     @Override

@@ -11,4 +11,5 @@ import com.wm.lang.ns.NSName;
  */
 public interface RecordPipelineUtilsStrategy {
     String generateId(NSName serviceName);
+    String checkNextId(NSName serviceName);
 }

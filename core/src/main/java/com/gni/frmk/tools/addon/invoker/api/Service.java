@@ -10,4 +10,6 @@ package com.gni.frmk.tools.addon.invoker.api;
 public interface Service<I extends ServiceInput, O extends ServiceOutput> {
 
     O invoke(I input, ServiceContext context) throws ServiceException;
+
+    String getName();
 }

@@ -51,4 +51,9 @@ public class Module1TestService implements Service<Input, Output> {
     public Output invoke(Input input, ServiceContext context) throws ServiceException {
         return new Output(String.format("%s+%s", input.getParam1(), input.getParam2()));
     }
+
+    @Override
+    public String getName() {
+        return "Module1TestService";
+    }
 }

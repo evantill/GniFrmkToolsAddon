@@ -2,6 +2,7 @@ package com.gni.frmk.tools.addon.operation.handler.component.art.connection;
 
 import com.gni.frmk.tools.addon.invoker.api.ServiceContext;
 import com.gni.frmk.tools.addon.invoker.api.ServiceException;
+import com.gni.frmk.tools.addon.invoker.api.ServiceNotFoundException;
 import com.gni.frmk.tools.addon.invoker.io.ListValueOutput;
 import com.gni.frmk.tools.addon.invoker.io.art.AdapterConnectionInfo;
 import com.gni.frmk.tools.addon.invoker.io.art.AdapterTypeInput;
@@ -13,7 +14,11 @@ import com.gni.frmk.tools.addon.model.component.art.AdapterId;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler.GetComponentStateStrategy;
 import com.google.common.base.Predicate;
+
 import javax.inject.Inject;
+import java.util.NoSuchElementException;
+
+import static com.gni.frmk.tools.addon.model.component.EnableState.UNKNOWN;
 
 /**
  * Created by IntelliJ IDEA.
@@ -35,6 +40,17 @@ public class GetAdapterConnectionStateStrategy
     @Override
     public AdapterConnectionType getComponentType() {
         return AdapterConnectionType.TYPE;
+    }
+
+    @Override
+    public EnableState getStateOrUnknown(AdapterId componentId, InvokeContext context) throws ServiceException {
+        try {
+            return getState(componentId, context);
+        } catch (NoSuchElementException unknown) {
+            return UNKNOWN;
+        } catch (ServiceNotFoundException unknown){
+            return UNKNOWN;
+        }
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.operation.handler.component;
 
 import com.gni.frmk.tools.addon.invoker.api.ServiceException;
+import com.gni.frmk.tools.addon.invoker.api.ServiceNotFoundException;
 import com.gni.frmk.tools.addon.model.component.test.*;
 import com.gni.frmk.tools.addon.operation.action.component.GetComponentState;
 import com.gni.frmk.tools.addon.operation.api.ActionException;
@@ -8,6 +9,8 @@ import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.handler.component.GetComponentStateHandler.GetComponentStateStrategy;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
 import org.junit.Test;
+
+import java.util.NoSuchElementException;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static org.junit.Assert.fail;
@@ -31,6 +34,17 @@ public class GetComponentStateHandlerTest {
         }
 
         @Override
+        public Component1State getStateOrUnknown(Component1Id componentId, InvokeContext context) throws ServiceException {
+            try {
+                return getState(componentId, context);
+            } catch (NoSuchElementException unknown) {
+                return Component1State.UNKNOWN;
+            } catch (ServiceNotFoundException unknown) {
+                return Component1State.UNKNOWN;
+            }
+        }
+
+        @Override
         public Component1State getState(Component1Id componentId, InvokeContext context) throws ServiceException {
             return stateType1;
         }
@@ -43,6 +57,17 @@ public class GetComponentStateHandlerTest {
         @Override
         public Component2Type getComponentType() {
             return Component2Type.TYPE;
+        }
+
+        @Override
+        public Component2State getStateOrUnknown(Component2Id componentId, InvokeContext context) throws ServiceException {
+            try {
+                return getState(componentId, context);
+            } catch (NoSuchElementException unknown) {
+                return Component2State.UNKNOWN;
+            } catch (ServiceNotFoundException unknown) {
+                return Component2State.UNKNOWN;
+            }
         }
 
         @Override

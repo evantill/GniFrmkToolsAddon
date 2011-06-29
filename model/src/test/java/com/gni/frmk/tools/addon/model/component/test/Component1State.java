@@ -19,8 +19,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 @XmlRootElement
 public class Component1State extends BaseComponentState<Component1State> {
-    private static final Component1State OPENED = newInstance(true);
-    private static final Component1State CLOSED = newInstance(false);
+    public static final Component1State OPENED = newInstance(true);
+    public static final Component1State CLOSED = newInstance(false);
+    public static final Component1State UNKNOWN = newInstance(false);
 
     private boolean enabled;
 

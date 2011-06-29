@@ -28,6 +28,11 @@ public enum LocalContext implements ServiceContext {
     }
 
     @Override
+    public boolean exist(NSName serviceName) {
+        return com.wm.app.b2b.server.ns.Namespace.current().nodeExists(serviceName);
+    }
+
+    @Override
     public void dispose() {
         //noop
     }

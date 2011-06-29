@@ -14,4 +14,6 @@ public interface ServiceContext {
     IData invoke(NSName serviceName, IData in) throws ServiceContextException;
 
     void dispose();
+
+    boolean exist(NSName serviceName);
 }
