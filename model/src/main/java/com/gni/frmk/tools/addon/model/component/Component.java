@@ -12,9 +12,9 @@ import com.gni.frmk.tools.addon.api.visitor.component.ComponentVisitor;
 public interface Component
         <C extends Component<C, T, I, S, D>,
                 T extends ComponentType<T, C, I, S, D>,
-                I extends ComponentId,
-                S extends ComponentState,
-                D extends ComponentDetail>
+                I extends ComponentId<I>,
+                S extends ComponentState<S>,
+                D extends ComponentDetail<D>>
         extends Comparable<C> {
 
     T getType();

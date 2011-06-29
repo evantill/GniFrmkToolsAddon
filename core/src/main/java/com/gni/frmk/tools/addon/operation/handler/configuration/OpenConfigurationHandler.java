@@ -38,7 +38,7 @@ public class OpenConfigurationHandler implements ActionHandler<OpenConfiguration
             //refresh CURRENT state
             configuration = context.getDispatcher().execute(new RefreshConfigurationState(configuration)).getValue();
             //define LAST state to CURRENT state
-            for (ComponentConfiguration<?, ?, ?, ?> cc : configuration.getComponentConfigurations()) {
+            for (ComponentConfiguration<?, ?, ?, ?, ?> cc : configuration.getComponentConfigurations()) {
                 cc.updateLastState();
             }
             //open components

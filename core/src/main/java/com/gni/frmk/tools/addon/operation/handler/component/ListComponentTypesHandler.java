@@ -11,7 +11,6 @@ import com.google.common.collect.Sets;
 import javax.enterprise.inject.Instance;
 import javax.enterprise.util.TypeLiteral;
 import javax.inject.Inject;
-
 import java.util.Set;
 
 /**
@@ -22,13 +21,14 @@ import java.util.Set;
  * @author: e03229
  */
 public class ListComponentTypesHandler
-        implements ActionHandler<ListComponentTypes, SetResult<ComponentType>, ExecutionContext> {
+        implements ActionHandler<ListComponentTypes, SetResult<? extends ComponentType<?, ?, ?, ?, ?>>, ExecutionContext> {
 
-    private static final TypeLiteral<ListComponentTypes> TYPE_LITERAL = new TypeLiteral<ListComponentTypes>() {};
-    private final Set<ComponentType> types;
+    private static final TypeLiteral<ListComponentTypes> TYPE_LITERAL = new TypeLiteral<ListComponentTypes>() {
+    };
+    private final Set<? extends ComponentType<?, ?, ?, ?, ?>> types;
 
     @Inject
-    public ListComponentTypesHandler(Instance<ComponentType> types) {
+    public ListComponentTypesHandler(Instance<ComponentType<?, ?, ?, ?, ?>> types) {
         this.types = Sets.newHashSet(types);
     }
 
@@ -38,7 +38,7 @@ public class ListComponentTypesHandler
     }
 
     @Override
-    public SetResult<ComponentType> execute(ListComponentTypes action, ExecutionContext context)
+    public SetResult<? extends ComponentType<?, ?, ?, ?, ?>> execute(ListComponentTypes action, ExecutionContext context)
             throws ActionException {
         return SetResult.newInstance(types);
     }

@@ -13,9 +13,9 @@ import com.gni.frmk.tools.addon.model.component.base.BaseComponent;
 public interface ComponentType
         <T extends ComponentType<T, C, I, S, D>,
                 C extends Component<C, T, I, S, D>,
-                I extends ComponentId,
-                S extends ComponentState,
-                D extends ComponentDetail>
+                I extends ComponentId<I>,
+                S extends ComponentState<S>,
+                D extends ComponentDetail<D>>
         extends Comparable<T> {
 
     Class<C> getTypeComponent();

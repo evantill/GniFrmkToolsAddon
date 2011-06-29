@@ -5,6 +5,7 @@ import com.gni.frmk.tools.addon.model.component.ComponentDetail;
 import com.gni.frmk.tools.addon.model.component.ComponentId;
 import com.gni.frmk.tools.addon.model.component.ComponentState;
 import com.gni.frmk.tools.addon.model.component.ComponentType;
+import com.gni.frmk.tools.addon.model.configuration.ComponentConfiguration;
 import com.gni.frmk.tools.addon.model.configuration.Configuration;
 import com.gni.frmk.tools.addon.model.configuration.base.BaseComponentConfiguration;
 import com.gni.frmk.tools.addon.model.configuration.base.BaseConfiguration;
@@ -16,15 +17,15 @@ import com.gni.frmk.tools.addon.operation.action.component.ListComponentTypes;
 import com.gni.frmk.tools.addon.operation.action.configuration.server.CurrentConfiguration;
 import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
-import com.gni.frmk.tools.addon.operation.api.DispatchException;
 import com.gni.frmk.tools.addon.operation.api.Dispatcher;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
-import com.gni.frmk.tools.addon.operation.result.ListResult;
 import com.gni.frmk.tools.addon.operation.result.SetResult;
 import com.gni.frmk.tools.addon.operation.result.SingleResult;
+import com.google.common.collect.Lists;
 
 import javax.enterprise.util.TypeLiteral;
-import java.util.Date;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -33,7 +34,7 @@ import java.util.Date;
  *
  * @author: e03229
  */
-public class CurrentConfigurationHandler implements ActionHandler<CurrentConfiguration, SingleResult<Configuration>, InvokeContext> {
+public class CurrentConfigurationHandler implements ActionHandler<CurrentConfiguration, SingleResult<Configuration<?>>, InvokeContext> {
 
     private static final TypeLiteral<CurrentConfiguration> TYPE_LITERAL = new TypeLiteral<CurrentConfiguration>() {
     };
@@ -45,9 +46,8 @@ public class CurrentConfigurationHandler implements ActionHandler<CurrentConfigu
         return TYPE_LITERAL;
     }
 
-    @SuppressWarnings({"unchecked"})
     @Override
-    public SingleResult<Configuration> execute(CurrentConfiguration action, InvokeContext context) throws ActionException {
+    public SingleResult<Configuration<?>> execute(CurrentConfiguration action, InvokeContext context) throws ActionException {
         Dispatcher dispatcher = context.getDispatcher();
         BaseConfigurationId configurationId = BaseConfigurationId.builder()
                                                                  .id(CONFIGURATION_DEFAULT_NAME)
@@ -58,15 +58,12 @@ public class CurrentConfigurationHandler implements ActionHandler<CurrentConfigu
                                                                                      .creationAndModification(action.getNow())
                                                                                      .build();
         Builder builder = BaseConfiguration.builder().id(configurationId).info(configurationInfo);
-        try {
-            SetResult<ComponentType<?, ?, ?, ?, ?>> types = dispatcher.execute(new ListComponentTypes());
-            for (ComponentType type : types.getCollection()) {
-                addComponents(dispatcher, builder, type);
-            }
-            return SingleResult.<Configuration>newInstance(builder.validate().build());
-        } catch (DispatchException cause) {
-            throw new ActionException(action, cause);
+        SetResult<? extends ComponentType<?, ?, ?, ?, ?>> types = dispatcher.executeFromAction(action, ListComponentTypes
+                .newInstance());
+        for (ComponentType type : types.getCollection()) {
+            builder.addAllComponentConfiguration(buildComponentConfigurations(action, dispatcher, type));
         }
+        return SingleResult.<Configuration<?>>newInstance(builder.validate().build());
     }
 
     private <T extends ComponentType<T, C, I, S, D>,
@@ -74,14 +71,14 @@ public class CurrentConfigurationHandler implements ActionHandler<CurrentConfigu
             I extends ComponentId<I>,
             S extends ComponentState<S>,
             D extends ComponentDetail<D>>
-    Builder addComponents(Dispatcher dispatcher, Builder builder, T type) throws DispatchException {
-        ListResult<C> components = dispatcher.execute(new GetComponentsByType<T, C, I, S, D>(type));
-        for (C component : components.getCollection()) {
-            builder.addComponentConfiguration(BaseComponentConfiguration.builder(type)
-                                                                        .presentOnIS(true)
-                                                                        .component(component)
-                                                                        .build());
+    Collection<BaseComponentConfiguration<T, C, I, S>> buildComponentConfigurations(CurrentConfiguration action, Dispatcher dispatcher, T type) throws ActionException {
+        GetComponentsByType<T, C, I, S, D> action1 = GetComponentsByType.newInstance(type);
+        List<C> components = dispatcher.executeFromAction(action, action1)
+                                       .getCollection();
+        List<BaseComponentConfiguration<T, C, I, S>> configurations = Lists.newArrayList();
+        for (C component : components) {
+            configurations.add(BaseComponentConfiguration.builder(type).fromComponent(component).validate().build());
         }
-        return builder;
+        return configurations;
     }
 }

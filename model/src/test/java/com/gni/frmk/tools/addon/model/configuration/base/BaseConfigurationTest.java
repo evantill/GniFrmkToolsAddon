@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.Set;
 
+import static com.gni.frmk.tools.addon.model.component.ComponentStateType.CLOSE;
+import static com.gni.frmk.tools.addon.model.component.ComponentStateType.OPEN;
 import static org.fest.assertions.Assertions.assertThat;
 
 /**
@@ -39,39 +41,29 @@ public class BaseConfigurationTest
                                 .build();
     }
 
-    private Collection<ComponentConfiguration<?, ?, ?, ?>> buildComponentConfigurations() {
-        Collection<ComponentConfiguration<?, ?, ?, ?>> configurations = Lists.newArrayList();
+    private Collection<ComponentConfiguration<?, ?, ?, ?, ?>> buildComponentConfigurations() {
+        Collection<ComponentConfiguration<?, ?, ?, ?, ?>> configurations = Lists.newArrayList();
         configurations.add(buildComponent1Configuration());
         configurations.add(buildComponent2Configuration());
         return configurations;
     }
 
-    private BaseComponentConfiguration<Component1Type, Component1, Component1State> buildComponent1Configuration() {
+    private BaseComponentConfiguration<Component1Type, Component1, Component1Id, Component1State> buildComponent1Configuration() {
         Component1 component = Component1.builder()
                                          .id(Component1Id.builder().value("component id 1").build())
                                          .state(Component1State.builder().enable(true).build())
                                          .detail(SimpleDetail.builder().description("decription composant 1").build())
                                          .build();
-        return BaseComponentConfiguration.builder(Component1Type.TYPE)
-                                         .component(component)
-                                         .openState(Component1State.builder().enable(true).build())
-                                         .closeState(Component1State.builder().enable(false).build())
-                                         .presentOnIS(true)
-                                         .build();
+        return BaseComponentConfiguration.builder(Component1Type.TYPE).fromComponent(component).build();
     }
 
-    private BaseComponentConfiguration<Component2Type, Component2, Component2State> buildComponent2Configuration() {
+    private BaseComponentConfiguration<Component2Type, Component2, Component2Id, Component2State> buildComponent2Configuration() {
         Component2 component = Component2.builder()
                                          .id(Component2Id.builder().value(2).build())
                                          .state(Component2State.builder().enable(true).active(true).build())
                                          .detail(SimpleDetail.builder().description("decription composant 2").build())
                                          .build();
-        return BaseComponentConfiguration.builder(Component2Type.TYPE)
-                                         .component(component)
-                                         .openState(Component2State.builder().enable(true).active(true).build())
-                                         .closeState(Component2State.builder().enable(false).active(false).build())
-                                         .presentOnIS(true)
-                                         .build();
+        return BaseComponentConfiguration.builder(Component2Type.TYPE).fromComponent(component).build();
     }
 
     private ConfigurationInfo<?> buildConfigurationInfo() {
@@ -93,9 +85,9 @@ public class BaseConfigurationTest
     @Test
     public void testGetComponentConfigurationsByType() throws JAXBException, IOException, SAXException {
         BaseConfiguration conf = buildConfiguration();
-        ComponentConfiguration<?, ?, ?, ?> expectedComponentConfiguration = null;
+        ComponentConfiguration<?, ?, ?, ?, ?> expectedComponentConfiguration = null;
         Component1 expectedComponent = null;
-        for (ComponentConfiguration<?, ?, ?, ?> componentConfiguration : conf.getComponentConfigurations()) {
+        for (ComponentConfiguration<?, ?, ?, ?, ?> componentConfiguration : conf.getComponentConfigurations()) {
             if (componentConfiguration.getComponentType() instanceof Component1Type) {
                 expectedComponentConfiguration = componentConfiguration;
                 //noinspection UnusedAssignment
@@ -105,7 +97,7 @@ public class BaseConfigurationTest
         assertThat(expectedComponentConfiguration).isNotNull();
         assertThat(expectedComponent).isNotNull();
 
-        Set<ComponentConfiguration<?, ?, ?, ?>> components = conf.getComponentConfigurationsByType(Component1Type.TYPE);
+        Set<ComponentConfiguration<?, ?, ?, ?, ?>> components = conf.getComponentConfigurationsByType(Component1Type.TYPE);
         assertThat(components).containsOnly(expectedComponentConfiguration);
         assertThat(expectedComponent).isEqualTo(components.iterator().next().getComponent());
     }

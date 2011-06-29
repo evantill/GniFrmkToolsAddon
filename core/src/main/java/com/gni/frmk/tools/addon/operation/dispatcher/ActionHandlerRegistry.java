@@ -61,7 +61,7 @@ public class ActionHandlerRegistry<C extends ExecutionContext> {
         handlers.clear();
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")//TODO @SuppressWarnings("unchecked")
     public <A extends Action<R>, R extends Result, CC extends C> ActionHandler<A, R, CC> getHandler(A action)
             throws ActionNotFoundException {
         ActionHandler<A, R, CC> handler = (ActionHandler<A, R, CC>) handlers.get(action.getClass());

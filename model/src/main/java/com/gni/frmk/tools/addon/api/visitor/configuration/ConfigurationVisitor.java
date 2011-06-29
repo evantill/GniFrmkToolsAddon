@@ -13,5 +13,5 @@ import com.gni.frmk.tools.addon.model.configuration.Configuration;
 public interface ConfigurationVisitor {
     void visitConfiguration(Configuration<?> visited);
 
-    void visitComponentConfiguration(ComponentConfiguration<?, ?, ?, ?> visited);
+    void visitComponentConfiguration(ComponentConfiguration<?, ?, ?, ?, ?> visited);
 }

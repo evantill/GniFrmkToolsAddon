@@ -13,7 +13,7 @@ import java.util.Date;
  *
  * @author: e03229
  */
-public class CurrentConfiguration implements Action<SingleResult<Configuration>> {
+public class CurrentConfiguration implements Action<SingleResult<Configuration<?>>> {
     private final Date now;
 
     public CurrentConfiguration() {

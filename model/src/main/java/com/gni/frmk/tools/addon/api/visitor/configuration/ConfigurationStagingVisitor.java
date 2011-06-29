@@ -1,7 +1,5 @@
 package com.gni.frmk.tools.addon.api.visitor.configuration;
 
-import com.gni.frmk.tools.addon.api.visitor.configuration.ConfigurationVisitor;
-
 /**
  * Created by IntelliJ IDEA.
  * Date: 23/05/11

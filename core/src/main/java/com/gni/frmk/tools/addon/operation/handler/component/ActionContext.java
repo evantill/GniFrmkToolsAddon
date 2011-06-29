@@ -30,7 +30,7 @@ public class ActionContext<S extends ActionStrategy<?>> {
         strategies.put(strategy.getComponentType(), strategy);
     }
 
-    @SuppressWarnings({"unchecked"})
+    @SuppressWarnings({"unchecked"})//TODO @SuppressWarnings("unchecked")
     public <T extends S> T selectStrategy(ComponentType<?, ?, ?, ?, ?> type) throws ActionException {
         return (T) strategies.get(type);
     }

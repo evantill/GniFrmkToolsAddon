@@ -15,7 +15,7 @@ import com.gni.frmk.tools.addon.operation.result.SingleResult;
  * @author: e03229
  */
 public class ChangeComponentState
-        <I extends ComponentId<?>, S extends ComponentState<?>>
+        <I extends ComponentId<I>, S extends ComponentState<S>>
         implements Action<SingleResult<S>> {
 
     private final ComponentType<?, ?, I, S, ?> componentType;
@@ -48,8 +48,8 @@ public class ChangeComponentState
 
     public static <T extends ComponentType<T, ?, I, S, ?>,
             C extends Component<?, T, I, S, ?>,
-            I extends ComponentId<?>,
-            S extends ComponentState<?>>
+            I extends ComponentId<I>,
+            S extends ComponentState<S>>
     ChangeComponentState<I, S> newInstance(C component, S newState) {
         return new ChangeComponentState<I, S>(component, newState);
     }

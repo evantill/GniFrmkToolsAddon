@@ -13,9 +13,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 public class ConfigurationComposantType2
-        extends BaseComponentConfiguration<Component2Type, Component2, Component2State> {
+        extends BaseComponentConfiguration<Component2Type, Component2, Component2Id, Component2State> {
 
-    public ConfigurationComposantType2(Builder<Component2Type, Component2, Component2State> builder) {
+    public ConfigurationComposantType2(Builder<Component2Type, Component2, Component2Id, Component2State> builder) {
         super(builder);
     }
 

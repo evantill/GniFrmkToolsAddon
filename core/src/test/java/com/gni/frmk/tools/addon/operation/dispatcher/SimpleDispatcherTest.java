@@ -39,8 +39,8 @@ public class SimpleDispatcherTest {
                 return new InvokeContext(this, ctx);
             }
         };
-        ListComponentTypes action = new ListComponentTypes();
-        Set<ComponentType<?,?,?,?,?>> types = dispatcher.execute(action).getCollection();
+        ListComponentTypes action = ListComponentTypes.newInstance();
+        Set<? extends ComponentType<?, ?, ?, ?, ?>> types = dispatcher.execute(action).getCollection();
         assertThat(types).isNotNull().containsOnly(Component1Type.TYPE, Component2Type.TYPE);
     }
 }

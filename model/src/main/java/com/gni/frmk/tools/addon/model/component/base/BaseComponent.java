@@ -29,9 +29,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public abstract class BaseComponent
         <C extends BaseComponent<C, T, I, S, D>,
                 T extends BaseComponentType<T, C, I, S, D>,
-                I extends BaseComponentId,
-                S extends BaseComponentState,
-                D extends BaseComponentDetail>
+                I extends BaseComponentId<I>,
+                S extends BaseComponentState<S>,
+                D extends BaseComponentDetail<D>>
         implements Component<C, T, I, S, D> {
 
     private T type;
@@ -129,11 +129,11 @@ public abstract class BaseComponent
     @XmlTransient
     public abstract static class Builder
             <B extends Builder<B, C, T, I, S, D>,
-                    C extends Component<C, T, I, S, D>,
-                    T extends ComponentType<T, C, I, S, D>,
-                    I extends ComponentId,
-                    S extends ComponentState,
-                    D extends ComponentDetail>
+                    C extends Component<?, ? extends T, ? extends I, ? extends S, ? extends D>,
+                    T extends ComponentType<?, ?, ?, ?, ?>,
+                    I extends ComponentId<?>,
+                    S extends ComponentState<?>,
+                    D extends ComponentDetail<?>>
             implements BuilderWithValidation<B, C> {
 
         protected final T type;

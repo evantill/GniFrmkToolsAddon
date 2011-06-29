@@ -3,6 +3,7 @@ package com.gni.frmk.tools.addon.model.configuration.base;
 import com.gni.frmk.tools.addon.api.visitor.configuration.ConfigurationVisitor;
 import com.gni.frmk.tools.addon.model.BuilderWithValidation;
 import com.gni.frmk.tools.addon.model.component.Component;
+import com.gni.frmk.tools.addon.model.component.ComponentId;
 import com.gni.frmk.tools.addon.model.component.ComponentState;
 import com.gni.frmk.tools.addon.model.component.ComponentStateType;
 import com.gni.frmk.tools.addon.model.component.ComponentType;
@@ -32,10 +33,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
                       "stateConfigurations"})
 @XmlRootElement
 public class BaseComponentConfiguration
-        <T extends ComponentType<T, C, ?, S, ?>,
-                C extends Component<C, T, ?, S, ?>,
+        <T extends ComponentType<T, C, I, S, ?>,
+                C extends Component<C, T, I, S, ?>,
+                I extends ComponentId<I>,
                 S extends ComponentState<S>>
-        implements ComponentConfiguration<BaseComponentConfiguration<T, C, S>, T, C, S> {
+        implements ComponentConfiguration<BaseComponentConfiguration<T, C, I, S>, T, C, I, S> {
 
     private C component;
     private Map<ComponentStateType, S> stateConfigurations;
@@ -45,7 +47,7 @@ public class BaseComponentConfiguration
         stateConfigurations = Maps.newHashMap();
     }
 
-    public BaseComponentConfiguration(Builder<T, C, S> builder) {
+    public BaseComponentConfiguration(Builder<T, C, I, S> builder) {
         component = builder.component;
         stateConfigurations = builder.stateConfigurations;
         presentOnIS = builder.presentOnIS;
@@ -97,7 +99,7 @@ public class BaseComponentConfiguration
     }
 
     @Override
-    public int compareTo(BaseComponentConfiguration<T, C, S> o) {
+    public int compareTo(BaseComponentConfiguration<T, C, I, S> o) {
         ComparisonChain comparator = ComparisonChain.start()
                                                     .compare(component, o.component)
                                                     .compare(presentOnIS, o.presentOnIS);
@@ -114,56 +116,56 @@ public class BaseComponentConfiguration
 //        visitor.visitComponentConfiguration(this);
     }
 
-    public static <T extends ComponentType<T, C, ?, S, ?>, C extends Component<C, T, ?, S, ?>, S extends ComponentState<S>> Builder<T, C, S> builder(T type) {
-        return new Builder<T, C, S>();
+    public static <T extends ComponentType<T, C, I, S, ?>,
+            C extends Component<C, T, I, S, ?>,
+            I extends ComponentId<I>,
+            S extends ComponentState<S>>
+    Builder<T, C, I, S> builder(T type) {
+        return new Builder<T, C, I, S>();
     }
 
     public static class Builder
-            <T extends ComponentType<T, C, ?, S, ?>,
-                    C extends Component<C, T, ?, S, ?>,
+            <T extends ComponentType<T, C, I, S, ?>,
+                    C extends Component<C, T, I, S, ?>,
+                    I extends ComponentId<I>,
                     S extends ComponentState<S>>
-            implements BuilderWithValidation<Builder<T, C, S>, BaseComponentConfiguration<T, C, S>> {
+            implements BuilderWithValidation<Builder<T, C, I, S>, BaseComponentConfiguration<T, C, I, S>> {
 
         private C component;
         private Map<ComponentStateType, S> stateConfigurations = Maps.newHashMap();
         private boolean presentOnIS;
 
-        public Builder<T, C, S> component(C value) {
-            component = checkNotNull(value);
+        public Builder<T, C, I, S> fromComponent(C value) {
             S currentState = value.getCurrentState();
-            stateConfigurations.put(ComponentStateType.CURRENT, currentState);
-            stateConfigurations.put(ComponentStateType.OPEN, currentState.getOpenState());
-            stateConfigurations.put(ComponentStateType.CLOSE, currentState.getCloseState());
+            return component(value)
+                    .state(ComponentStateType.CURRENT, currentState)
+                    .state(ComponentStateType.OPEN, currentState.getOpenState())
+                    .state(ComponentStateType.CLOSE, currentState.getCloseState())
+                    .presentOnIS(currentState.exist());
+        }
+
+        public Builder<T, C, I, S> component(C value) {
+            component = checkNotNull(value);
             return this;
         }
 
-        public Builder<T, C, S> presentOnIS(boolean value) {
+        public Builder<T, C, I, S> presentOnIS(boolean value) {
             presentOnIS = value;
             return this;
         }
 
-        public Builder<T, C, S> openState(S value) {
-            stateConfigurations.put(ComponentStateType.OPEN, checkNotNull(value));
-            return this;
-        }
-
-        public Builder<T, C, S> closeState(S value) {
-            stateConfigurations.put(ComponentStateType.CLOSE, checkNotNull(value));
-            return this;
-        }
-
-        public Builder<T, C, S> state(ComponentStateType type, S value) {
+        public Builder<T, C, I, S> state(ComponentStateType type, S value) {
             stateConfigurations.put(checkNotNull(type), checkNotNull(value));
             return this;
         }
 
         @Override
-        public BaseComponentConfiguration<T, C, S> build() {
-            return new BaseComponentConfiguration<T, C, S>(this);
+        public BaseComponentConfiguration<T, C, I, S> build() {
+            return new BaseComponentConfiguration<T, C, I, S>(this);
         }
 
         @Override
-        public Builder<T, C, S> validate() {
+        public Builder<T, C, I, S> validate() {
             checkNotNull(component);
             checkNotNull(stateConfigurations);
             checkNotNull(presentOnIS);
@@ -171,7 +173,7 @@ public class BaseComponentConfiguration
         }
 
         @Override
-        public Builder<T, C, S> self() {
+        public Builder<T, C, I, S> self() {
             return this;
         }
     }

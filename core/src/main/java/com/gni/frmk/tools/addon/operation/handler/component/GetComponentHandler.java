@@ -28,17 +28,17 @@ import javax.enterprise.util.TypeLiteral;
 public class GetComponentHandler
         implements ActionHandler<GetComponent<?, ?, ?, ?, ?>, SingleResult<? extends Component<?, ?, ?, ?, ?>>, InvokeContext> {
 
-    private static final TypeLiteral<GetComponent<?,?,?,?,?>> TYPE_LITERAL = new TypeLiteral<GetComponent<?, ?, ?, ?, ?>>() {};
+    private static final TypeLiteral<GetComponent<?, ?, ?, ?, ?>> TYPE_LITERAL = new TypeLiteral<GetComponent<?, ?, ?, ?, ?>>() {
+    };
 
     @Override
     public TypeLiteral<GetComponent<?, ?, ?, ?, ?>> getActionType() {
         return TYPE_LITERAL;
     }
 
-    @SuppressWarnings("unchecked")
     @Override
-    public SingleResult<Component> execute(GetComponent action, InvokeContext context) throws ActionException {
-        return executeTypeSafe(action, context);
+    public SingleResult<? extends Component<?, ?, ?, ?, ?>> execute(GetComponent<?, ?, ?, ?, ?> action, InvokeContext context) throws ActionException {
+        return this.executeTypeSafe(action, context);
     }
 
     public <T extends ComponentType<T, C, I, S, D>,
@@ -50,7 +50,9 @@ public class GetComponentHandler
         Dispatcher dispatcher = context.getDispatcher();
         I requestId = action.getComponentId();
         T requestType = action.getComponentType();
-        Builder<?, C, T, I, S, D> builder = action.getComponentType().componentBuilder().id(requestId);
+        Builder<?, C, T, I, S, D> builder = action.getComponentType()
+                                                  .componentBuilder()
+                                                  .id(requestId);
         try {
             GetComponentDetail<I, D> detailAction = GetComponentDetail.newInstance(requestType, requestId);
             D componentDetail = dispatcher.execute(detailAction).getValue();
@@ -66,7 +68,5 @@ public class GetComponentHandler
             throw new ActionException(action, cause);
         }
         return SingleResult.newInstance(builder.validate().build());
-
-
     }
 }

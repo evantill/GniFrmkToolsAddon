@@ -36,7 +36,7 @@ public class ChangeConfigurationStateHandler
         return TYPE_LITERAL;
     }
 
-    @SuppressWarnings({"unchecked"})
+    @SuppressWarnings({"unchecked"})//TODO @SuppressWarnings("unchecked")
     @Override
     public ConfigurationResult execute(ChangeConfigurationState action, InvokeContext context) throws ActionException {
         Configuration<?> configuration = action.getConfiguration();
@@ -53,19 +53,19 @@ public class ChangeConfigurationStateHandler
 
     }
 
-    private <T extends ComponentType<T, C, I, S, ?>, C extends Component<C, T, I, S, ?>, I extends ComponentId<?>, S extends ComponentState<?>>
-    void changeComponentState(Dispatcher dispatcher, ComponentConfiguration<?, T, C, S> visited, ComponentStateType fromState) throws DispatchException {
+    private <T extends ComponentType<T, C, I, S, ?>, C extends Component<C, T, I, S, ?>, I extends ComponentId<I>, S extends ComponentState<S>>
+    void changeComponentState(Dispatcher dispatcher, ComponentConfiguration<?, T, C, I, S> visited, ComponentStateType fromState) throws DispatchException {
         C component = visited.getComponent();
         S oldState = component.getCurrentState();
         ChangeComponentState<I, S> action = ChangeComponentState.newInstance(component, visited.getState(fromState));
         S changedState = dispatcher.execute(action).getValue();
         if (!changedState.equals(oldState)) {
             C changedComponent = component.getType()
-                                        .componentBuilder()
-                                        .from(component)
-                                        .state(changedState)
-                                        .validate()
-                                        .build();
+                                          .componentBuilder()
+                                          .from(component)
+                                          .state(changedState)
+                                          .validate()
+                                          .build();
             visited.setComponent(changedComponent);
         }
     }

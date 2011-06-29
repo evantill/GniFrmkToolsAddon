@@ -38,7 +38,7 @@ public class GetComponentsByType
             I extends ComponentId<I>,
             S extends ComponentState<S>,
             D extends ComponentDetail<D>>
-    GetComponentsByType<T, C, I, S, D> createAction(T componentType) {
+    GetComponentsByType<T, C, I, S, D> newInstance(T componentType) {
         return new GetComponentsByType<T, C, I, S, D>(componentType);
     }
 }

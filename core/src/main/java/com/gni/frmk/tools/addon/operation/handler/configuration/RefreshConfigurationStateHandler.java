@@ -6,11 +6,10 @@ import com.gni.frmk.tools.addon.model.component.ComponentState;
 import com.gni.frmk.tools.addon.model.component.ComponentType;
 import com.gni.frmk.tools.addon.model.configuration.ComponentConfiguration;
 import com.gni.frmk.tools.addon.model.configuration.Configuration;
-import com.gni.frmk.tools.addon.operation.action.component.GetComponentState;
+import com.gni.frmk.tools.addon.operation.action.component.RefreshComponentState;
 import com.gni.frmk.tools.addon.operation.action.configuration.RefreshConfigurationState;
 import com.gni.frmk.tools.addon.operation.api.ActionException;
 import com.gni.frmk.tools.addon.operation.api.ActionHandler;
-import com.gni.frmk.tools.addon.operation.api.DispatchException;
 import com.gni.frmk.tools.addon.operation.api.Dispatcher;
 import com.gni.frmk.tools.addon.operation.context.InvokeContext;
 import com.gni.frmk.tools.addon.operation.result.ConfigurationResult;
@@ -35,35 +34,24 @@ public class RefreshConfigurationStateHandler
         return TYPE_LITERAL;
     }
 
-    @SuppressWarnings({"unchecked"})
     @Override
     public ConfigurationResult execute(RefreshConfigurationState action, InvokeContext context) throws ActionException {
         Configuration<?> configuration = action.getConfiguration();
         for (ComponentConfiguration cc : configuration.getComponentConfigurations()) {
-            try {
-                changeComponentState(context.getDispatcher(), cc);
-            } catch (DispatchException e) {
-                throw new ActionException(action, e);
-            }
+            refreshComponentState(action, context.getDispatcher(), cc);
         }
         return ConfigurationResult.newInstance(configuration);
-
     }
 
-    private <T extends ComponentType<T, C, I, S, ?>, C extends Component<C, T, I, S, ?>, I extends ComponentId, S extends ComponentState<S>>
-    void changeComponentState(Dispatcher dispatcher, ComponentConfiguration<?, T, C, S> visited) throws DispatchException {
-        C component = visited.getComponent();
-        S oldState = component.getCurrentState();
-        S newState = dispatcher.execute(GetComponentState.newInstance(component)).getValue();
-        C changedComponent = component;
-        if (!newState.equals(oldState)) {
-            changedComponent = component.getType()
-                                        .componentBuilder()
-                                        .from(component)
-                                        .state(newState)
-                                        .validate()
-                                        .build();
-            visited.setComponent(changedComponent);
-        }
+    private <CC extends ComponentConfiguration<CC, T, C, I, S>,
+            T extends ComponentType<T, C, I, S, ?>,
+            C extends Component<C, T, I, S, ?>,
+            I extends ComponentId<I>,
+            S extends ComponentState<S>>
+    CC refreshComponentState(RefreshConfigurationState action, Dispatcher dispatcher, CC configuration) throws ActionException {
+        C component = configuration.getComponent();
+        C updatedComponent = dispatcher.executeFromAction(action, RefreshComponentState.build(component)).getValue();
+        configuration.setComponent(updatedComponent);
+        return configuration;
     }
 }

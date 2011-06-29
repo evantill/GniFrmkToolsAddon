@@ -23,6 +23,15 @@ public abstract class SimpleDispatcher<C extends ExecutionContext> implements Di
         return handler.execute(action, createContext());
     }
 
+    @Override
+    public <A extends Action<R>, R extends Result, F extends Action<?>> R executeFromAction(F from, A action) throws ActionException {
+        try {
+            return execute(action);
+        } catch (DispatchException cause) {
+            throw new ActionException(from, cause);
+        }
+    }
+
     public abstract C createContext();
 
 }

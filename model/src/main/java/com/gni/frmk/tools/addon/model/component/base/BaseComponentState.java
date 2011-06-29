@@ -53,7 +53,7 @@ public abstract class BaseComponentState<T extends BaseComponentState<T>>
     protected abstract ComparisonChain extendedCompareTo(ComparisonChain chain, T other);
 
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")//TODO @SuppressWarnings("unchecked")
     public final boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

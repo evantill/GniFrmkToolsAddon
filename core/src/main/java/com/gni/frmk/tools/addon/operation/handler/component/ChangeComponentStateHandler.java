@@ -28,10 +28,11 @@ import javax.inject.Inject;
 public class ChangeComponentStateHandler
         implements ActionHandler<ChangeComponentState<?, ?>, SingleResult<? extends ComponentState<?>>, InvokeContext> {
 
-    private static final TypeLiteral<ChangeComponentState<?,?>> TYPE_LITERAL = new TypeLiteral<ChangeComponentState<?, ?>>() {};
+    private static final TypeLiteral<ChangeComponentState<?, ?>> TYPE_LITERAL = new TypeLiteral<ChangeComponentState<?, ?>>() {
+    };
 
     public static interface ChangeComponentStateStrategy
-            <T extends ComponentType<T, ?, I, S, ?>, I extends ComponentId<?>, S extends ComponentState<?>>
+            <T extends ComponentType<T, ?, I, S, ?>, I extends ComponentId<I>, S extends ComponentState<S>>
             extends ActionStrategy<T> {
 
         S changeState(I componentId, S oldState, S newState, InvokeContext context) throws ServiceException;
@@ -54,7 +55,7 @@ public class ChangeComponentStateHandler
         return executeTypeSafe(action, context);
     }
 
-    public <I extends ComponentId<?>, S extends ComponentState<?>>
+    public <I extends ComponentId<I>, S extends ComponentState<S>>
     SingleResult<S> executeTypeSafe(ChangeComponentState<I, S> action, InvokeContext context) throws ActionException {
         try {
             ComponentType<?, ?, I, S, ?> componentType = action.getComponentType();
@@ -82,12 +83,11 @@ public class ChangeComponentStateHandler
         }
     }
 
-    private <T extends ComponentType<?, ?, I, S, ?>, I extends ComponentId<?>, S extends ComponentState<?>>
+    private <T extends ComponentType<?, ?, I, S, ?>, I extends ComponentId<I>, S extends ComponentState<S>>
     S refreshState(T componentType, I componentId, InvokeContext context) throws DispatchException {
         GetComponentState<I, S> action = GetComponentState.newInstance(componentType, componentId);
         return context.getDispatcher().execute(action).getValue();
     }
-
 
     @Override
     public TypeLiteral<ChangeComponentState<?, ?>> getActionType() {

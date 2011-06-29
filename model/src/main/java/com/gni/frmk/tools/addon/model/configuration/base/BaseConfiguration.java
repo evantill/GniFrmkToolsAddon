@@ -38,11 +38,11 @@ import static com.google.common.collect.Collections2.filter;
                       "info",
                       "internalComponentConfigurations"})
 public class BaseConfiguration
-        implements Configuration<BaseConfiguration>, Iterable<ComponentConfiguration<?, ?, ?, ?>> {
+        implements Configuration<BaseConfiguration>, Iterable<ComponentConfiguration<?, ?, ?, ?, ?>> {
 
     private ConfigurationId<?> id;
     private ConfigurationInfo<?> info;
-    private SortedSet<ComponentConfiguration<?, ?, ?, ?>> componentConfigurations;
+    private SortedSet<ComponentConfiguration<?, ?, ?, ?, ?>> componentConfigurations;
 
     private BaseConfiguration() {
         componentConfigurations = Sets.newTreeSet();
@@ -76,30 +76,30 @@ public class BaseConfiguration
 
     @XmlElementWrapper(name = "componentConfigurations", required = true)
     @XmlElementRef(name = "componentConfiguration", type = BaseComponentConfiguration.class)
-    private Set<ComponentConfiguration<?, ?, ?, ?>> getInternalComponentConfigurations() {
+    private Set<ComponentConfiguration<?, ?, ?, ?, ?>> getInternalComponentConfigurations() {
         return componentConfigurations;
     }
 
     @Override
-    public Set<ComponentConfiguration<?, ?, ?, ?>> getComponentConfigurations() {
+    public Set<ComponentConfiguration<?, ?, ?, ?, ?>> getComponentConfigurations() {
         return Collections.unmodifiableSet(componentConfigurations);
     }
 
-    private void setComponentConfigurations(SortedSet<ComponentConfiguration<?, ?, ?, ?>> componentConfigurations) {
+    private void setComponentConfigurations(SortedSet<ComponentConfiguration<?, ?, ?, ?, ?>> componentConfigurations) {
         this.componentConfigurations = componentConfigurations;
     }
 
     @Override
     public Set<ComponentType<?, ?, ?, ?, ?>> getComponentConfigurationTypes() {
         Set<ComponentType<?, ?, ?, ?, ?>> types = Sets.newHashSet();
-        for (ComponentConfiguration<?, ?, ?, ?> componentConfiguration : componentConfigurations) {
+        for (ComponentConfiguration<?, ?, ?, ?, ?> componentConfiguration : componentConfigurations) {
             types.add(componentConfiguration.getComponentType());
         }
         return types;
     }
 
     @XmlTransient
-    private static final class ComponentTypeFilter implements Predicate<ComponentConfiguration<?, ?, ?, ?>> {
+    private static final class ComponentTypeFilter implements Predicate<ComponentConfiguration<?, ?, ?, ?, ?>> {
 
         private final ComponentType<?, ?, ?, ?, ?> selectedType;
 
@@ -108,7 +108,7 @@ public class BaseConfiguration
         }
 
         @Override
-        public boolean apply(ComponentConfiguration<?, ?, ?, ?> input) {
+        public boolean apply(ComponentConfiguration<?, ?, ?, ?, ?> input) {
             if (input == null || input.getComponent() == null) {
                 return false;
             } else {
@@ -125,17 +125,18 @@ public class BaseConfiguration
     }
 
     @Override
-    public Set<ComponentConfiguration<?, ?, ?, ?>> getComponentConfigurationsByType(ComponentType<?, ?, ?, ?, ?> type) {
-        Set<ComponentConfiguration<?, ?, ?, ?>> selected = Sets.newHashSet();
-        Collection<ComponentConfiguration<?, ?, ?, ?>> filtered = filter(componentConfigurations, ComponentTypeFilter.filterOn(type));
-        for (ComponentConfiguration<?, ?, ?, ?> element : filtered) {
+    public Set<ComponentConfiguration<?, ?, ?, ?, ?>> getComponentConfigurationsByType(ComponentType<?, ?, ?, ?, ?> type) {
+        Set<ComponentConfiguration<?, ?, ?, ?, ?>> selected = Sets.newHashSet();
+        Collection<ComponentConfiguration<?, ?, ?, ?, ?>> filtered = filter(componentConfigurations, ComponentTypeFilter
+                .filterOn(type));
+        for (ComponentConfiguration<?, ?, ?, ?, ?> element : filtered) {
             selected.add(element);
         }
         return selected;
     }
 
     @Override
-    public Iterator<ComponentConfiguration<?, ?, ?, ?>> iterator() {
+    public Iterator<ComponentConfiguration<?, ?, ?, ?, ?>> iterator() {
         return componentConfigurations.iterator();
     }
 
@@ -180,7 +181,7 @@ public class BaseConfiguration
 
         private ConfigurationId<?> id;
         private ConfigurationInfo<?> info;
-        private final SortedSet<ComponentConfiguration<?, ?, ?, ?>> componentConfigurations = Sets.newTreeSet();
+        private final SortedSet<ComponentConfiguration<?, ?, ?, ?, ?>> componentConfigurations = Sets.newTreeSet();
 
         public Builder id(ConfigurationId<?> value) {
             id = checkNotNull(value);
@@ -192,13 +193,13 @@ public class BaseConfiguration
             return this;
         }
 
-        public Builder addComponentConfiguration(ComponentConfiguration<?, ?, ?, ?> value) {
+        public Builder addComponentConfiguration(ComponentConfiguration<?, ?, ?, ?, ?> value) {
             componentConfigurations.add(checkNotNull(value));
             return this;
         }
 
-        public Builder addAllComponentConfiguration(Collection<ComponentConfiguration<?, ?, ?, ?>> values) {
-            for (ComponentConfiguration<?, ?, ?, ?> value : values) {
+        public Builder addAllComponentConfiguration(Collection<? extends ComponentConfiguration<?, ?, ?, ?, ?>> values) {
+            for (ComponentConfiguration<?, ?, ?, ?, ?> value : values) {
                 addComponentConfiguration(value);
             }
             return this;

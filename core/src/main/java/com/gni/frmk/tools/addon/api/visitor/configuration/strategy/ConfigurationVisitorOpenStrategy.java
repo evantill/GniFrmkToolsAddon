@@ -65,14 +65,14 @@ public class ConfigurationVisitorOpenStrategy<V extends ConfigurationStagingVisi
     public <T extends V> void visitConfiguration(T visitor, Configuration<?> visited) {
         visitor.startStage(Stage.PHASE1);
         for (ComponentType<?, ?, ?, ?, ?> type : openOutputSequence) {
-            for (ComponentConfiguration<?, ?, ?, ?> configuration : visited.getComponentConfigurationsByType(type)) {
+            for (ComponentConfiguration<?, ?, ?, ?, ?> configuration : visited.getComponentConfigurationsByType(type)) {
                 visitor.visitComponentConfiguration(configuration);
             }
         }
         visitor.endStage(Stage.PHASE1);
         visitor.startStage(Stage.PHASE2);
         for (ComponentType<?, ?, ?, ?, ?> type : openInputSequence) {
-            for (ComponentConfiguration<?, ?, ?, ?> configuration : visited.getComponentConfigurationsByType(type)) {
+            for (ComponentConfiguration<?, ?, ?, ?, ?> configuration : visited.getComponentConfigurationsByType(type)) {
                 visitor.visitComponentConfiguration(configuration);
             }
         }

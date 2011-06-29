@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlTransient;
 public abstract class BaseComponentType
         <T extends BaseComponentType<T, C, I, S, D>,
                 C extends BaseComponent<C, T, I, S, D>,
-                I extends BaseComponentId,
-                S extends BaseComponentState,
-                D extends BaseComponentDetail>
+                I extends BaseComponentId<I>,
+                S extends BaseComponentState<S>,
+                D extends BaseComponentDetail<D>>
         implements ComponentType<T, C, I, S, D> {
 
     private Class<C> typeComponent;

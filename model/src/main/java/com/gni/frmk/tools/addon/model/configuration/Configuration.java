@@ -17,11 +17,11 @@ public interface Configuration<C extends Configuration<C>> extends Comparable<C>
 
     ConfigurationInfo<?> getInfo();
 
-    Set<ComponentConfiguration<?, ?, ?, ?>> getComponentConfigurations();
+    Set<ComponentConfiguration<?, ?, ?,?, ?>> getComponentConfigurations();
 
     Set<ComponentType<?, ?, ?, ?, ?>> getComponentConfigurationTypes();
 
-    Set<ComponentConfiguration<?, ?, ?, ?>> getComponentConfigurationsByType(ComponentType<?, ?, ?, ?, ?> type);
+    Set<ComponentConfiguration<?, ?, ?,?, ?>> getComponentConfigurationsByType(ComponentType<?, ?, ?, ?, ?> type);
 
     void accept(ConfigurationVisitor visitor);
 

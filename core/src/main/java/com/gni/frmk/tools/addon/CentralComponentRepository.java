@@ -31,19 +31,20 @@ public class CentralComponentRepository {
 
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")//TODO @SuppressWarnings("unchecked")
     <I extends ComponentId> ListResult<I> listIds(ComponentType type, ExecutionContext context) throws DispatchException {
         ListId<I> action = ((ComponentRepository<?,?, I, ?, ?>) repositories.get(type)).getListIdAction();
         return context.getDispatcher().execute(action);
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")//TODO @SuppressWarnings("unchecked")
+
     <I extends ComponentId<I>, D extends ComponentDetail<D>> SingleResult<D> detailAction(ComponentType type, I id, ExecutionContext context) throws DispatchException {
         GetComponentDetail<I,D> action = ((ComponentRepository<?,?, I, ?, D>) repositories.get(type)).getDetailAction(id);
         return context.getDispatcher().execute(action);
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")//TODO @SuppressWarnings("unchecked")
     <I extends ComponentId<I>, S extends ComponentState<S>> SingleResult<S> stateAction(ComponentType type, I id, ExecutionContext context) throws DispatchException {
         StateAction<I, S> action = ((ComponentRepository<?, ?,I, S, ?>) repositories.get(type)).getStateAction(id);
         return context.getDispatcher().execute(action);

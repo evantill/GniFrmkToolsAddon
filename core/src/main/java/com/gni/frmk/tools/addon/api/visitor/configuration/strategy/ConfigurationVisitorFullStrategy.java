@@ -16,7 +16,7 @@ public class ConfigurationVisitorFullStrategy<V extends ConfigurationVisitor>
 
     @Override
     public <T extends V> void visitConfiguration(T visitor, Configuration<?> visited) {
-        for (ComponentConfiguration<?, ?, ?, ?> componentConfiguration : visited.getComponentConfigurations()) {
+        for (ComponentConfiguration<?, ?, ?, ?,?> componentConfiguration : visited.getComponentConfigurations()) {
             visitor.visitComponentConfiguration(componentConfiguration);
         }
     }

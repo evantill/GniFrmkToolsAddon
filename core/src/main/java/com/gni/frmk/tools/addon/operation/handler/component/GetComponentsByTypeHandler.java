@@ -39,7 +39,7 @@ public class GetComponentsByTypeHandler
         return TYPE_LITERAL;
     }
 
-    @SuppressWarnings({"unchecked"})
+    @SuppressWarnings({"unchecked"})//TODO @SuppressWarnings("unchecked")
     @Override
     public ListResult<Component> execute(GetComponentsByType action, InvokeContext context) throws ActionException {
         return executeTypeSafe(action, context);
