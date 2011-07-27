@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import javax.enterprise.inject.Alternative;
+import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -29,7 +30,6 @@ import static org.fest.assertions.Assertions.assertThat;
 @RunWith(WeldRunner.class)
 public class TypeAwareComponentVisitorTest {
 
-    @Alternative
     private static final class Visitor extends TypeAwareComponentVisitor {
         private Visitor(Iterable<TypedComponentVisitor> delegated) {
             super("visitComponent", delegated);

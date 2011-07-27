@@ -1,5 +1,6 @@
 package thirdparty.simplexml;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
@@ -82,7 +83,7 @@ public class ConstructorInjectionTest {
     }
 
     @Test
-    //@Ignore("en attente fix")
+    @Ignore("en attente fix")
     /**
      * The stack trace is :
      *  org.simpleframework.xml.core.ConstructorException: No match found for field 'two' private final ConstructorInjectionTest$SimpleElementTwo ConstructorInjectionTest$SimpleElementOne.two in class ConstructorInjectionTest$SimpleElementOne
