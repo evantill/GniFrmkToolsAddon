@@ -1,6 +1,7 @@
-package com.gni.frmk.tools.addon.tdd.impl.integrationserver;
+package com.gni.frmk.tools.addon.tdd.impl.component.integrationserver;
 
 import com.gni.frmk.tools.addon.tdd.api.Component;
+import com.gni.frmk.tools.addon.tdd.api.ComponentVisitor;
 import com.gni.frmk.tools.addon.tdd.util.UnimplementedMethodException;
 
 /**
@@ -12,32 +13,55 @@ import com.gni.frmk.tools.addon.tdd.util.UnimplementedMethodException;
  */
 public class IntegrationServer implements Component<IntegrationServer, IntegrationServerState> {
 
-    @Override
-    public void open() {
-        open(getState());
-    }
+    private Iterable<Component<?, ?>> components;
 
     @Override
     public void open(IntegrationServerState state) {
+        restoreState(state);
+        open();
+    }
+
+    @Override
+    public void restoreState(IntegrationServerState state) {
+        //TODO implement method
+        throw new UnimplementedMethodException();
+    }
+
+    @Override
+    public void open() {
+        //TODO implement method
+        throw new UnimplementedMethodException();
+    }
+
+    @Override
+    public void close(IntegrationServerState state) {
+        restoreState(state);
+        close();
+    }
+
+    @Override
+    public void close() {
         //TODO implement method
         throw new UnimplementedMethodException();
     }
 
     @Override
     public IntegrationServerState getState() {
+        return saveState();
+    }
+
+    @Override
+    public IntegrationServerState saveState() {
         //TODO implement method
         throw new UnimplementedMethodException();
     }
 
     @Override
-    public void close() {
-        close(getState());
-    }
-
-    @Override
-    public void close(IntegrationServerState state) {
-        //TODO implement method
-        throw new UnimplementedMethodException();
+    public void accept(ComponentVisitor visitor) {
+        for (Component<?, ?> component : components) {
+            component.accept(visitor);
+        }
+        visitor.visitComponent(this);
     }
 
     @Override
@@ -46,15 +70,4 @@ public class IntegrationServer implements Component<IntegrationServer, Integrati
         throw new UnimplementedMethodException();
     }
 
-    @Override
-    public IntegrationServerType getType() {
-        //TODO implement method
-        throw new UnimplementedMethodException();
-    }
-
-    @Override
-    public IntegrationServerId getId() {
-        //TODO implement method
-        throw new UnimplementedMethodException();
-    }
 }

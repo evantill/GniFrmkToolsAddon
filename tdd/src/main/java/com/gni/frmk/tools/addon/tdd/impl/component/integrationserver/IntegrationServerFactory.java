@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.tdd.impl.integrationserver;
+package com.gni.frmk.tools.addon.tdd.impl.component.integrationserver;
 
 import com.gni.frmk.tools.addon.tdd.api.ComponentFactory.ComponentFactoryDelegate;
 import com.gni.frmk.tools.addon.tdd.util.UnimplementedMethodException;

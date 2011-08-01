@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.tdd.impl.integrationserver;
+package com.gni.frmk.tools.addon.tdd.impl.component.integrationserver;
 
 import com.gni.frmk.tools.addon.tdd.api.ComponentState;
 import com.google.common.collect.ComparisonChain;

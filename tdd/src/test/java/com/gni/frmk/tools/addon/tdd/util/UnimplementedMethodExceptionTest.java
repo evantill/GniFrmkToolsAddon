@@ -1,6 +1,7 @@
 package com.gni.frmk.tools.addon.tdd.util;
 
-import org.junit.Test;
+
+import org.testng.annotations.Test;
 
 import static java.lang.String.format;
 import static org.fest.assertions.Assertions.assertThat;
@@ -18,7 +19,7 @@ public class UnimplementedMethodExceptionTest {
     private final String EXPECTED_METHOD = "unimplementedMethod";
     private final String EXPECTED_CLASS_NAME = getClass().getName();
 
-    @Test(expected = UnimplementedMethodException.class)
+    @Test(expectedExceptions = UnimplementedMethodException.class)
     public void testUnimplementedMethod() throws Exception {
         unimplementedMethod();
     }

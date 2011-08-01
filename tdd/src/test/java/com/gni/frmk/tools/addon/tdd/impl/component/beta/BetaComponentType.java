@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.tdd.impl.beta;
+package com.gni.frmk.tools.addon.tdd.impl.component.beta;
 
 import com.gni.frmk.tools.addon.tdd.api.Component;
 import com.gni.frmk.tools.addon.tdd.api.ComponentId;
