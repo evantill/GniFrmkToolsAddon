@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.2//EN" "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+  <!-- Documentation des règles : http://checkstyle.sourceforge.net/availablechecks.html -->
+<module name="Checker">
+  <!-- $Id$ -->
+  <property name="severity" value="warning" />
+  <property name="charset" value="ISO-8859-1" />
+  <module name="SuppressionFilter">
+    <property name="file" value="${checkstyle.suppressions.file}" />
+    <!--
+      Pour l'intégration CheckStyle et Eclipse: http://eclipse-cs.sourceforge.net/advanced_properties.html
+    -->
+    <!-- 
+    <property name="file" value="${config_loc}/checkstyle-suppressions.xml" />
+     -->
+  </module>
+
+  <module name="TreeWalker">
+    <module name="ConstantName" />
+    <module name="LocalFinalVariableName" />
+    <module name="LocalVariableName" />
+    <module name="MemberName" />
+    <module name="MethodName" />
+    <module name="PackageName">
+      <property name="severity" value="error" />
+      <property name="format" value="^fr.generali(\.[a-z0-9]+)*$" />
+    </module>
+    <module name="ParameterName" />
+    <module name="StaticVariableName" />
+    <module name="TypeName">
+      <property name="severity" value="error" />
+    </module>
+    <module name="AvoidStarImport">
+      <property name="severity" value="info" />
+    </module>
+    <module name="RedundantImport">
+      <property name="severity" value="info" />
+    </module>
+    <module name="IllegalImport">
+      <property name="severity" value="error" />
+    </module>
+    <module name="UnusedImports">
+      <property name="severity" value="info" />
+    </module>
+
+    <module name="LineLength">
+      <property name="severity" value="info" />
+      <property name="ignorePattern" value="(@version|@see|^import|@todo|TODO  )" />
+      <property name="max" value="120" />
+      <property name="tabWidth" value="1" />
+    </module>
+    <module name="MethodLength">
+      <property name="severity" value="info" />
+    </module>
+    <module name="ParameterNumber">
+      <property name="severity" value="error" />
+      <property name="max" value="10" />
+    </module>
+    <module name="NoWhitespaceAfter">
+      <property name="severity" value="info" />
+      <property name="tokens" value="ARRAY_INIT,BNOT,DEC,DOT,INC,LNOT" />
+    </module>
+    <module name="NoWhitespaceBefore">
+      <property name="severity" value="info" />
+    </module>
+    <module name="OperatorWrap">
+      <property name="severity" value="info" />
+    </module>
+    <module name="ParenPad">
+      <property name="severity" value="info" />
+    </module>
+    <module name="WhitespaceAfter">
+      <property name="severity" value="info" />
+    </module>
+    <module name="WhitespaceAround">
+      <property name="severity" value="info" />
+      <property name="tokens"
+        value="ASSIGN,BAND,BAND_ASSIGN,BOR,BOR_ASSIGN,BSR,BSR_ASSIGN,BXOR,BXOR_ASSIGN,COLON,DIV,DIV_ASSIGN,EQUAL,GE,GT,LAND,LCURLY,LE,LITERAL_ASSERT,LITERAL_CATCH,LITERAL_DO,LITERAL_ELSE,LITERAL_FINALLY,LITERAL_FOR,LITERAL_IF,LITERAL_RETURN,LITERAL_SYNCHRONIZED,LITERAL_TRY,LITERAL_WHILE,LOR,LT,MINUS,MINUS_ASSIGN,MOD,MOD_ASSIGN,NOT_EQUAL,PLUS,PLUS_ASSIGN,QUESTION,RCURLY,SL,SLIST,SL_ASSIGN,SR,SR_ASSIGN,STAR,STAR_ASSIGN,LITERAL_ASSERT,TYPE_EXTENSION_AND,WILDCARD_TYPE" />
+    </module>
+    <module name="ModifierOrder" />
+    <module name="RedundantModifier">
+      <property name="severity" value="info" />
+    </module>
+    <module name="AvoidNestedBlocks">
+      <property name="severity" value="info" />
+    </module>
+    <module name="EmptyBlock">
+      <property name="option" value="text" />
+    </module>
+    <module name="LeftCurly">
+      <property name="severity" value="info" />
+      <property name="maxLineLength" value="121" />
+    </module>
+    <module name="NeedBraces">
+      <property name="severity" value="info" />
+    </module>
+    <module name="RightCurly">
+      <property name="severity" value="info" />
+    </module>
+    <module name="DoubleCheckedLocking">
+      <property name="severity" value="error" />
+    </module>
+    <module name="EmptyStatement" />
+    <module name="EqualsHashCode">
+      <property name="severity" value="error" />
+    </module>
+    <module name="HiddenField">
+      <property name="severity" value="info" />
+      <property name="ignoreConstructorParameter" value="true" />
+      <property name="ignoreSetter" value="true" />
+    </module>
+    <module name="IllegalInstantiation">
+      <property name="severity" value="info" />
+    </module>
+    <module name="InnerAssignment">
+      <property name="severity" value="info" />
+    </module>
+    <module name="SimplifyBooleanExpression" />
+    <module name="InterfaceIsType" />
+    <module name="ArrayTypeStyle">
+      <property name="severity" value="info" />
+    </module>
+    <module name="RegexpSinglelineJava">
+      <property name="id" value="dontLogToSysOut" />
+      <property name="severity" value="error" />
+      <property name="format" value="System\.out\.print" />
+      <property name="message" value="Don't log directly to Sytem.out." />
+    </module>
+    <module name="RegexpSinglelineJava">
+      <property name="id" value="dontLogToSysErr" />
+      <property name="severity" value="error" />
+      <property name="format" value="System\.err\.print" />
+      <property name="message" value="Don't log directly to Sytem.err." />
+    </module>
+    <module name="RegexpSinglelineJava">
+      <property name="id" value="dontUsePrintStackTrace" />
+      <property name="severity" value="error" />
+      <property name="format" value="printStackTrace" />
+      <property name="message" value="Don't use printStackTrace, use a logger instead." />
+    </module>
+    <module name="UpperEll">
+      <property name="severity" value="error" />
+    </module>
+    <module name="JavadocType">
+      <property name="severity" value="info" />
+      <property name="scope" value="public" />
+      <property name="allowMissingParamTags" value="false" />
+      <!--
+        Cette property arrive a partir de Checkstyle 5.1 <property name="allowUnknownTags" value="false"/>
+      -->
+    </module>
+    <module name="JavadocMethod">
+      <property name="severity" value="info" />
+      <property name="scope" value="public" />
+      <property name="allowUndeclaredRTE" value="true" />
+      <property name="allowThrowsTagsForSubclasses" value="false" />
+      <property name="allowMissingParamTags" value="false" />
+      <property name="allowMissingThrowsTags" value="false" />
+      <property name="allowMissingReturnTag" value="false" />
+      <property name="allowMissingJavadoc" value="false" />
+      <property name="allowMissingPropertyJavadoc" value="true" />
+      <property name="logLoadErrors" value="true" />
+      <property name="suppressLoadErrors" value="true" />
+    </module>
+    <module name="JavadocVariable">
+      <property name="severity" value="info" />
+      <property name="scope" value="public" />
+    </module>
+    <module name="JavadocStyle">
+      <property name="severity" value="info" />
+      <property name="scope" value="public" />
+      <property name="excludeScope" value="private" />
+      <property name="checkFirstSentence" value="true" />
+      <property name="checkEmptyJavadoc" value="true" />
+      <property name="checkHtml" value="true" />
+    </module>
+    <module name="ImportControl">
+      <metadata name="com.atlassw.tools.eclipse.checkstyle.lastEnabledSeverity" value="info" />
+      <property name="severity" value="ignore" />
+    </module>
+    <module name="MagicNumber">
+      <property name="severity" value="info" />
+      <!--
+        Cette property arrive a partir de Checkstyle 5.3 <property name="ignoreHashCodeMethod" value="true" />
+      -->
+    </module>
+    <module name="MissingSwitchDefault" />
+    <module name="RedundantThrows">
+      <property name="allowUnchecked" value="true" />
+      <property name="logLoadErrors" value="true" />
+      <property name="suppressLoadErrors" value="true" />
+    </module>
+    <module name="BooleanExpressionComplexity" />
+    <module name="FinalClass">
+      <property name="severity" value="info" />
+    </module>
+    <module name="HideUtilityClassConstructor" />
+    <module name="VisibilityModifier">
+      <property name="protectedAllowed" value="true" />
+    </module>
+    <module name="DefaultComesLast" />
+    <module name="IllegalCatch" />
+    <module name="IllegalThrows" />
+    <module name="PackageDeclaration" />
+    <module name="ReturnCount">
+      <property name="max" value="3" />
+    </module>
+    <module name="AbstractClassName">
+      <property name="severity" value="error" />
+    </module>
+    <module name="AnonInnerLength">
+      <property name="severity" value="info" />
+    </module>
+    <module name="CovariantEquals" />
+    <module name="DeclarationOrder">
+      <property name="severity" value="info" />
+    </module>
+    <module name="FallThrough" />
+    <module name="IllegalType">
+      <property name="severity" value="info" />
+      <property name="tokens" value="METHOD_DEF,PARAMETER_DEF,VARIABLE_DEF" />
+    </module>
+    <module name="Indentation">
+      <property name="severity" value="info" />
+    </module>
+    <module name="JUnitTestCase" />
+    <module name="MethodParamPad">
+      <property name="severity" value="info" />
+    </module>
+    <module name="ModifiedControlVariable">
+    </module>
+    <module name="MultipleStringLiterals">
+      <property name="severity" value="info" />
+    </module>
+    <module name="MultipleVariableDeclarations">
+      <property name="severity" value="info" />
+    </module>
+    <module name="MutableException" />
+    <module name="ParameterAssignment" />
+    <module name="SimplifyBooleanReturn" />
+    <module name="SuperFinalize">
+      <property name="severity" value="error" />
+    </module>
+    <module name="ThrowsCount">
+      <property name="max" value="6" />
+    </module>
+    <module name="TodoComment" />
+    <module name="TrailingComment">
+      <property name="severity" value="info" />
+    </module>
+    <module name="UncommentedMain">
+      <property name="severity" value="info" />
+    </module>
+    <module name="UnnecessaryParentheses">
+      <property name="severity" value="info" />
+    </module>
+    <module name="ExecutableStatementCount">
+      <property name="severity" value="info" />
+      <property name="tokens" value="INSTANCE_INIT,STATIC_INIT,METHOD_DEF,CTOR_DEF" />
+    </module>
+  </module>
+  <module name="NewlineAtEndOfFile">
+    <property name="severity" value="info" />
+  </module>
+  <module name="StrictDuplicateCode">
+    <property name="severity" value="info" />
+  </module>
+  <module name="Translation">
+    <property name="severity" value="info" />
+  </module>
+  <module name="FileLength">
+    <property name="severity" value="info" />
+  </module>
+  <module name="FileTabCharacter">
+    <property name="severity" value="info" />
+    <property name="eachLine" value="true" />
+    <property name="fileExtensions" value="java" />
+  </module>
+  <module name="Header">
+    <property name="headerFile" value="${checkstyle.header.file}" />
+    <property name="fileExtensions" value="java" />
+  </module>
+</module>
+

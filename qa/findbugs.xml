@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+  <!-- $Id$ -->
+
+  <Match>
+    <Bug pattern="BIT_SIGNED_CHECK" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="CN_IDIOM" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="CO_ABSTRACT_SELF" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="CO_SELF_NO_OBJECT" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DE_MIGHT_IGNORE" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="DP_CREATE_CLASSLOADER_INSIDE_DO_PRIVILEGED" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="DM_RUN_FINALIZERS_ON_EXIT" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="EQ_COMPARETO_USE_OBJECT_EQUALS" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="FI_FINALIZER_NULLS_FIELDS" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="FI_FINALIZER_ONLY_NULLS_FIELDS" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="IC_SUPERCLASS_USES_SUBCLASS_DURING_INITIALIZATION" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="IMSE_DONT_CATCH_IMSE" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="IT_NO_SUCH_ELEMENT" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="J2EE_STORE_OF_NON_SERIALIZABLE_OBJECT_INTO_SESSION" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_BOOLEAN_RETURN_NULL" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_CLONE_COULD_RETURN_NULL" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_EQUALS_SHOULD_HANDLE_NULL_ARGUMENT" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_TOSTRING_COULD_RETURN_NULL" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NM_CLASS_NOT_EXCEPTION" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NM_CONFUSING" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NM_SAME_SIMPLE_NAME_AS_INTERFACE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NM_VERY_CONFUSING_INTENTIONAL" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NM_WRONG_PACKAGE_INTENTIONAL" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="ODR_OPEN_DATABASE_RESOURCE" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="ODR_OPEN_DATABASE_RESOURCE_EXCEPTION_PATH" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="OS_OPEN_STREAM" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="OS_OPEN_STREAM_EXCEPTION_PATH" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="RR_NOT_CHECKED" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="SR_NOT_CHECKED" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="SI_INSTANCE_BEFORE_FINALS_ASSIGNED" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="SE_BAD_FIELD_INNER_CLASS" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="SE_BAD_FIELD_STORE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="SE_COMPARATOR_SHOULD_BE_SERIALIZABLE" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="SE_INNER_CLASS" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="SE_METHOD_MUST_BE_PRIVATE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="SE_NONFINAL_SERIALVERSIONID" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="SE_NONLONG_SERIALVERSIONID" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="SE_NONSTATIC_SERIALVERSIONID" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="SE_NO_SUITABLE_CONSTRUCTOR" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="SE_NO_SUITABLE_CONSTRUCTOR_FOR_EXTERNALIZATION" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="SE_READ_RESOLVE_MUST_RETURN_OBJECT" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="SE_TRANSIENT_FIELD_NOT_RESTORED" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="UI_INHERITANCE_UNSAFE_GETRESOURCE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="BC_IMPOSSIBLE_CAST" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="BC_IMPOSSIBLE_INSTANCEOF" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="BIT_AND" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="BIT_AND_ZZ" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="BIT_IOR" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="BIT_IOR_OF_SIGNED_BYTE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="BIT_SIGNED_CHECK_HIGH_BIT" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="BX_UNBOXED_AND_COERCED_FOR_TERNARY_OPERATOR" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DLS_DEAD_STORE_OF_CLASS_LITERAL" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DLS_OVERWRITTEN_INCREMENT" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DMI_BAD_MONTH" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DMI_CALLING_NEXT_FROM_HASNEXT" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DMI_INVOKING_TOSTRING_ON_ANONYMOUS_ARRAY" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DMI_INVOKING_TOSTRING_ON_ARRAY" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DMI_ANNOTATION_IS_NOT_VISIBLE_TO_REFLECTION" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="EC_ARRAY_AND_NONARRAY" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="EC_BAD_ARRAY_COMPARE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="EC_NULL_ARG" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="EC_UNRELATED_CLASS_AND_INTERFACE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="EC_UNRELATED_INTERFACES" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="EC_UNRELATED_TYPES" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="EQ_DONT_DEFINE_EQUALS_FOR_ENUM" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="EQ_OVERRIDING_EQUALS_NOT_SYMMETRIC" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="GC_UNRELATED_TYPES" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="HE_USE_OF_UNHASHABLE_CLASS" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="ICAST_BAD_SHIFT_AMOUNT" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="ICAST_INT_CAST_TO_DOUBLE_PASSED_TO_CEIL" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="ICAST_INT_CAST_TO_FLOAT_PASSED_TO_ROUND" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="IJU_ASSERT_METHOD_INVOKED_FROM_RUN_METHOD" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="IJU_NO_TESTS" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="IJU_SETUP_NO_SUPER" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="IJU_SUITE_NOT_STATIC" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="IJU_TEARDOWN_NO_SUPER" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="IL_CONTAINER_ADDED_TO_ITSELF" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="IL_INFINITE_LOOP" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="IL_INFINITE_RECURSIVE_LOOP" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="IM_MULTIPLYING_RESULT_OF_IREM" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="INT_BAD_COMPARISON_WITH_NONNEGATIVE_VALUE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="INT_BAD_COMPARISON_WITH_SIGNED_BYTE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="INT_BAD_REM_BY_1" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="IO_APPENDING_TO_OBJECT_OUTPUT_STREAM" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="IP_PARAMETER_IS_DEAD_BUT_OVERWRITTEN" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="JCIP_FIELD_ISNT_FINAL_IN_IMMUTABLE_CLASS" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_ALWAYS_NULL" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_ALWAYS_NULL_EXCEPTION" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_ARGUMENT_MIGHT_BE_NULL" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_GUARANTEED_DEREF" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_GUARANTEED_DEREF_ON_EXCEPTION_PATH" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_NONNULL_PARAM_VIOLATION" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_NONNULL_RETURN_VIOLATION" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_NULL_INSTANCEOF" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_STORE_INTO_NONNULL_FIELD" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NM_BAD_EQUAL" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NM_LCASE_HASHCODE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NM_LCASE_TOSTRING" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="RE_BAD_SYNTAX_FOR_REGULAR_EXPRESSION" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="RE_CANT_USE_FILE_SEPARATOR_AS_REGULAR_EXPRESSION" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="RE_POSSIBLE_UNINTENDED_PATTERN" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="RV_01_TO_INT" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="RV_ABSOLUTE_VALUE_OF_HASHCODE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="RV_ABSOLUTE_VALUE_OF_RANDOM_INT" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="SA_FIELD_DOUBLE_ASSIGNMENT" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="SA_FIELD_SELF_ASSIGNMENT" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="SA_FIELD_SELF_COMPARISON" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="SA_FIELD_SELF_COMPUTATION" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="SA_LOCAL_DOUBLE_ASSIGNMENT" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="SA_LOCAL_SELF_COMPARISON" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="SA_LOCAL_SELF_COMPUTATION" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="SF_DEAD_STORE_DUE_TO_SWITCH_FALLTHROUGH" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="SIO_SUPERFLUOUS_INSTANCEOF" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="SQL_BAD_PREPARED_STATEMENT_ACCESS" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="SQL_BAD_RESULTSET_ACCESS" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="TQ_ALWAYS_VALUE_USED_WHERE_NEVER_REQUIRED" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="TQ_MAYBE_SOURCE_VALUE_REACHES_ALWAYS_SINK" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="TQ_MAYBE_SOURCE_VALUE_REACHES_NEVER_SINK" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="TQ_NEVER_VALUE_USED_WHERE_ALWAYS_REQUIRED" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="UCF_USELESS_CONTROL_FLOW_NEXT_LINE" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="UMAC_UNCALLABLE_METHOD_OF_ANONYMOUS_CLASS" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="UR_UNINIT_READ" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="UWF_NULL_FIELD" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="UWF_UNWRITTEN_FIELD" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="VA_FORMAT_STRING_ARG_MISMATCH" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="VA_PRIMITIVE_ARRAY_PASSED_TO_OBJECT_VARARG" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="FI_PUBLIC_SHOULD_BE_PROTECTED" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="EI_EXPOSE_STATIC_REP2" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="MS_CANNOT_BE_FINAL" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="MS_EXPOSE_REP" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="MS_FINAL_PKGPROTECT" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="MS_MUTABLE_ARRAY" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="MS_MUTABLE_HASHTABLE" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="MS_OOI_PKGPROTECT" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="MS_PKGPROTECT" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="MS_SHOULD_BE_FINAL" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="DL_SYNCHRONIZATION_ON_SHARED_CONSTANT" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="DM_MONITOR_WAIT_ON_CONDITION" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="DM_USELESS_THREAD" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="ESync_EMPTY_SYNC" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="IS2_INCONSISTENT_SYNC" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="JLM_JSR166_LOCK_MONITORENTER" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="LI_LAZY_INIT_STATIC" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="LI_LAZY_INIT_UPDATE_STATIC" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="ML_SYNC_ON_UPDATED_FIELD" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="MWN_MISMATCHED_NOTIFY" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="MWN_MISMATCHED_WAIT" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_SYNC_AND_NULL_CHECK_FIELD" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="RS_READOBJECT_SYNC" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="RU_INVOKE_RUN" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="SC_START_IN_CTOR" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="STCAL_INVOKE_ON_STATIC_CALENDAR_INSTANCE" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="SWL_SLEEP_WITH_LOCK_HELD" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="TLW_TWO_LOCK_WAIT" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="UG_SYNC_SET_UNSYNC_GET" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="UL_UNRELEASED_LOCK" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="UL_UNRELEASED_LOCK_EXCEPTION_PATH" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="UW_UNCOND_WAIT" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="WS_WRITEOBJECT_SYNC" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="WA_AWAIT_NOT_IN_LOOP" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="WA_NOT_IN_LOOP" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="BX_BOXING_IMMEDIATELY_UNBOXED" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DM_FP_NUMBER_CTOR" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DM_NUMBER_CTOR" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DMI_BLOCKING_METHODS_ON_URL" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="DMI_COLLECTION_OF_URLS" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="DM_GC" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="DM_NEW_FOR_GETCLASS" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DM_NEXTINT_VIA_NEXTDOUBLE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DM_STRING_EMPTY_EQUALS" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DM_STRING_VOID_CTOR" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="HSC_HUGE_SHARED_STRING_CONSTANT" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="SBSC_USE_STRINGBUFFER_CONCATENATION" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="SS_SHOULD_BE_STATIC" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="UM_UNNECESSARY_MATH" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="URF_UNREAD_FIELD" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="WMI_WRONG_MAP_ITERATOR" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="BC_VACUOUS_INSTANCEOF" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="CI_CONFUSED_INHERITANCE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DB_DUPLICATE_BRANCHES" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DB_DUPLICATE_SWITCH_CLAUSES" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DLS_DEAD_LOCAL_STORE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DMI_HARDCODED_ABSOLUTE_FILENAME" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="DMI_NONSERIALIZABLE_OBJECT_WRITTEN" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="DMI_USELESS_SUBSTRING" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="DMI_THREAD_PASSED_WHERE_RUNNABLE_EXPECTED" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="IA_AMBIGUOUS_INVOCATION_OF_INHERITED_OR_OUTER_METHOD" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="IC_INIT_CIRCULARITY" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="ICAST_IDIV_CAST_TO_DOUBLE" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="ICAST_INTEGER_MULTIPLY_CAST_TO_LONG" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="ICAST_QUESTIONABLE_UNSIGNED_RIGHT_SHIFT" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="IM_BAD_CHECK_FOR_ODD" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="INT_VACUOUS_COMPARISON" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="MTIA_SUSPECT_SERVLET_INSTANCE_FIELD" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="MTIA_SUSPECT_STRUTS_INSTANCE_FIELD" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_IMMEDIATE_DEREFERENCE_OF_READLINE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NS_DANGEROUS_NON_SHORT_CIRCUIT" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="NS_NON_SHORT_CIRCUIT" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="QF_QUESTIONABLE_FOR_LOOP" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="RCN_REDUNDANT_COMPARISON_OF_NULL_AND_NONNULL_VALUE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="RCN_REDUNDANT_COMPARISON_TWO_NULL_VALUES" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="RCN_REDUNDANT_NULLCHECK_OF_NULL_VALUE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="REC_CATCH_EXCEPTION" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="RI_REDUNDANT_INTERFACES" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="RV_CHECK_FOR_POSITIVE_INDEXOF" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="RV_DONT_JUST_NULL_CHECK_READLINE" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="RV_REM_OF_HASHCODE" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="RV_REM_OF_RANDOM_INT" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="SA_LOCAL_SELF_ASSIGNMENT" />
+    <Priority value="3" />
+  </Match>
+  <Match>
+    <Bug pattern="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" />
+    <Priority value="1" />
+  </Match>
+  <Match>
+    <Bug pattern="SE_TRANSIENT_FIELD_OF_NONSERIALIZABLE_CLASS" />
+    <Priority value="2" />
+  </Match>
+  <Match>
+    <Bug pattern="XFB_XML_FACTORY_BYPASS" />
+    <Priority value="2" />
+  </Match>
+
+</FindBugsFilter>
