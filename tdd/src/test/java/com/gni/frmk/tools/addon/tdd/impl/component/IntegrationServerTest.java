@@ -37,7 +37,7 @@ public class IntegrationServerTest {
     @Test(enabled = false)
     public void testCloseBeforeShutdown() throws Exception {
         IntegrationServerState currentState = server.getState();
-        server.close(currentState);
+        server.close();
     }
 
     /**
@@ -57,6 +57,7 @@ public class IntegrationServerTest {
     @Test(enabled = false)
     public void testOpenAfterStartup() throws Exception {
         IntegrationServerState currentState = server.getState();
-        server.open(currentState);
+        server.restoreState(currentState);
+        server.open();
     }
 }

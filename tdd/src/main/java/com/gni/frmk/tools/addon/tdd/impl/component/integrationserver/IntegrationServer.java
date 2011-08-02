@@ -1,8 +1,8 @@
 package com.gni.frmk.tools.addon.tdd.impl.component.integrationserver;
 
 import com.gni.frmk.tools.addon.tdd.api.Component;
-import com.gni.frmk.tools.addon.tdd.api.ComponentVisitor;
 import com.gni.frmk.tools.addon.tdd.util.UnimplementedMethodException;
+import com.gni.frmk.tools.addon.tdd.visitor.ComponentVisitor;
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,12 +16,6 @@ public class IntegrationServer implements Component<IntegrationServer, Integrati
     private Iterable<Component<?, ?>> components;
 
     @Override
-    public void open(IntegrationServerState state) {
-        restoreState(state);
-        open();
-    }
-
-    @Override
     public void restoreState(IntegrationServerState state) {
         //TODO implement method
         throw new UnimplementedMethodException();
@@ -31,12 +25,6 @@ public class IntegrationServer implements Component<IntegrationServer, Integrati
     public void open() {
         //TODO implement method
         throw new UnimplementedMethodException();
-    }
-
-    @Override
-    public void close(IntegrationServerState state) {
-        restoreState(state);
-        close();
     }
 
     @Override
@@ -70,4 +58,8 @@ public class IntegrationServer implements Component<IntegrationServer, Integrati
         throw new UnimplementedMethodException();
     }
 
+    @Override
+    public int getOpenOrder() {
+        return 0;
+    }
 }

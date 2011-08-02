@@ -1,7 +1,6 @@
 package com.gni.frmk.tools.addon.tdd.impl.component.alpha;
 
-import com.gni.frmk.tools.addon.tdd.api.ComponentState;
-import com.google.common.collect.ComparisonChain;
+import com.gni.frmk.tools.addon.tdd.impl.component.BaseTestComponentState;
 
 /**
  * Created by IntelliJ IDEA.
@@ -10,30 +9,14 @@ import com.google.common.collect.ComparisonChain;
  *
  * @author: e03229
  */
-public class AlphaComponentState implements ComponentState<AlphaComponentState> {
+public class AlphaComponentState
+        extends BaseTestComponentState<AlphaComponentType, AlphaComponentId, AlphaComponentState> {
 
-    private AlphaComponentType componentType;
-    private AlphaComponentId componentId;
-
-    public AlphaComponentState(AlphaComponentType componentType, AlphaComponentId componentId) {
-        this.componentType = componentType;
-        this.componentId = componentId;
+    private AlphaComponentState(AlphaComponentType componentType, AlphaComponentId componentId) {
+        super(componentType, componentId);
     }
 
-    @Override
-    public AlphaComponentType getComponentType() {
-        return componentType;
-    }
-
-    @Override
-    public AlphaComponentId getComponentId() {
-        return componentId;
-    }
-
-    @Override
-    public int compareTo(AlphaComponentState o) {
-        return ComparisonChain.start()
-                              .compare(this.hashCode(), o.hashCode())
-                              .result();
+    public static final AlphaComponentState newInstance(AlphaComponentType type, AlphaComponentId id) {
+        return new AlphaComponentState(type, id);
     }
 }

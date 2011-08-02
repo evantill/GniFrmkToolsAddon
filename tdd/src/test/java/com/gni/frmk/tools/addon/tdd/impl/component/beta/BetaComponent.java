@@ -18,10 +18,15 @@ public class BetaComponent
         super(type, id, state, opened);
     }
 
+    @Override
+    public int getOpenOrder() {
+        return 20 + getId().getId();
+    }
+
     public static final BetaComponent newInstance(int id, boolean opened) {
         BetaComponentId componentId = BetaComponentId.newInstance(id);
         BetaComponentType type = new BetaComponentType();
-        BetaComponentState state = new BetaComponentState(type, componentId);
+         BetaComponentState state = BetaComponentState.newInstance(type,componentId);
         return new BetaComponent(type, componentId, state, opened);
     }
 }

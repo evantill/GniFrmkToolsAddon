@@ -4,8 +4,9 @@ import com.gni.frmk.tools.addon.tdd.api.Component;
 import com.gni.frmk.tools.addon.tdd.api.ComponentId;
 import com.gni.frmk.tools.addon.tdd.api.ComponentState;
 import com.gni.frmk.tools.addon.tdd.api.ComponentType;
-import com.gni.frmk.tools.addon.tdd.api.ComponentVisitor;
 import com.gni.frmk.tools.addon.tdd.util.UnimplementedMethodException;
+import com.gni.frmk.tools.addon.tdd.visitor.ComponentVisitor;
+import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
 
 import static com.google.common.base.Objects.toStringHelper;
@@ -36,32 +37,16 @@ public abstract class BaseTestComponent<C extends Component<C, S>,
     }
 
     @Override
-    public final void open(S state) {
-        open();
-        //TODO implement method
-        throw new UnimplementedMethodException();
-    }
-
-    @Override
     public final void open() {
         if (isOpened()) {
             throw new IllegalStateException("already opened");
 
         }
         opened = true;
-        //TODO implement method
-        throw new UnimplementedMethodException();
     }
 
     public boolean isOpened() {
         return opened;
-    }
-
-    @Override
-    public final void close(S state) {
-        close();
-        //TODO implement method
-        throw new UnimplementedMethodException();
     }
 
     @Override
@@ -70,9 +55,7 @@ public abstract class BaseTestComponent<C extends Component<C, S>,
             throw new IllegalStateException("already closed");
 
         }
-        opened = true;
-        //TODO implement method
-        throw new UnimplementedMethodException();
+        opened = false;
     }
 
     @Override
@@ -119,5 +102,21 @@ public abstract class BaseTestComponent<C extends Component<C, S>,
                 .add("id", getId().toString())
                 .add("opened", opened)
                 .toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BaseTestComponent that = (BaseTestComponent) o;
+        return Objects.equal(type, that.type)
+               && Objects.equal(id, that.id)
+               && Objects.equal(opened, that.opened);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(type, id);
     }
 }

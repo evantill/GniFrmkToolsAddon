@@ -1,10 +1,6 @@
 package com.gni.frmk.tools.addon.tdd.impl.component.beta;
 
-import com.gni.frmk.tools.addon.tdd.api.Component;
-import com.gni.frmk.tools.addon.tdd.api.ComponentId;
-import com.gni.frmk.tools.addon.tdd.api.ComponentState;
-import com.gni.frmk.tools.addon.tdd.api.ComponentType;
-import com.google.common.collect.ComparisonChain;
+import com.gni.frmk.tools.addon.tdd.impl.component.BaseTestComponentType;
 
 /**
  * Created by IntelliJ IDEA.
@@ -13,42 +9,10 @@ import com.google.common.collect.ComparisonChain;
  *
  * @author: e03229
  */
-public class BetaComponentType implements ComponentType<BetaComponent, BetaComponentId, BetaComponentState> {
+public class BetaComponentType
+        extends BaseTestComponentType<BetaComponent, BetaComponentId, BetaComponentState> {
 
-    @Override
-    public BetaComponent check(Component component) {
-        return (BetaComponent) component;
-    }
-
-    @Override
-    public boolean accept(Component component) {
-        return component instanceof BetaComponent;
-    }
-
-    @Override
-    public BetaComponentId check(ComponentId id) {
-        return (BetaComponentId) id;
-    }
-
-    @Override
-    public boolean accept(ComponentId id) {
-        return id instanceof BetaComponentId;
-    }
-
-    @Override
-    public BetaComponentState check(ComponentState state) {
-        return (BetaComponentState) state;
-    }
-
-    @Override
-    public boolean accept(ComponentState state) {
-        return state instanceof BetaComponentState;
-    }
-
-    @Override
-    public int compareTo(ComponentType o) {
-        return ComparisonChain.start()
-                              .compare(this.hashCode(), o.hashCode())
-                              .result();
+    public BetaComponentType() {
+        super(BetaComponent.class, BetaComponentId.class, BetaComponentState.class);
     }
 }

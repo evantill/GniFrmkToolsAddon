@@ -1,5 +1,7 @@
 package com.gni.frmk.tools.addon.tdd.api;
 
+import com.gni.frmk.tools.addon.tdd.visitor.ComponentVisitor;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 27/07/11
@@ -9,11 +11,7 @@ package com.gni.frmk.tools.addon.tdd.api;
  */
 public interface Component<C extends Component<C, S>, S extends ComponentState<S>> extends Comparable<C> {
 
-    void open(S state);
-
     void open();
-
-    void close(S state);
 
     void close();
 
@@ -25,6 +23,7 @@ public interface Component<C extends Component<C, S>, S extends ComponentState<S
 
     void accept(ComponentVisitor visitor);
 
+    int getOpenOrder();
 //    ComponentType<?, ?, ?> getType();
 //    ComponentId<?> getId();
 

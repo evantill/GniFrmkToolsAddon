@@ -20,10 +20,15 @@ public class AlphaComponent
         super(type, id, state, opened);
     }
 
+    @Override
+    public int getOpenOrder() {
+        return 10+getId().getId();
+    }
+
     public static final AlphaComponent newInstance(int id, boolean opened) {
         AlphaComponentId componentId = AlphaComponentId.newInstance(id);
         AlphaComponentType type = new AlphaComponentType();
-        AlphaComponentState state = new AlphaComponentState(type, componentId);
+        AlphaComponentState state = AlphaComponentState.newInstance(type,componentId);
         return new AlphaComponent(type, componentId, state, opened);
     }
 }
