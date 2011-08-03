@@ -1,7 +1,7 @@
-package com.gni.frmk.tools.addon.tdd.impl.component;
+package com.gni.frmk.tools.addon.tdd.impl.component.test.base;
 
-import com.gni.frmk.tools.addon.tdd.impl.component.alpha.AlphaComponent;
-import com.gni.frmk.tools.addon.tdd.impl.component.alpha.AlphaComponentType;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.alpha.AlphaComponent;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.alpha.AlphaComponentType;
 import org.testng.annotations.Test;
 
 import static org.fest.assertions.Assertions.assertThat;

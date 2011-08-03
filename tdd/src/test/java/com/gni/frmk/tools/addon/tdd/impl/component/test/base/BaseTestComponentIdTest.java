@@ -1,7 +1,7 @@
-package com.gni.frmk.tools.addon.tdd.impl.component;
+package com.gni.frmk.tools.addon.tdd.impl.component.test.base;
 
-import com.gni.frmk.tools.addon.tdd.impl.component.alpha.AlphaComponentId;
-import com.gni.frmk.tools.addon.tdd.impl.component.beta.BetaComponentId;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.alpha.AlphaComponentId;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.beta.BetaComponentId;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 

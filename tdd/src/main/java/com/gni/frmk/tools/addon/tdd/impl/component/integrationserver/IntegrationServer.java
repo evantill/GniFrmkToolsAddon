@@ -1,8 +1,8 @@
 package com.gni.frmk.tools.addon.tdd.impl.component.integrationserver;
 
 import com.gni.frmk.tools.addon.tdd.api.Component;
+import com.gni.frmk.tools.addon.tdd.api.ComponentVisitor;
 import com.gni.frmk.tools.addon.tdd.util.UnimplementedMethodException;
-import com.gni.frmk.tools.addon.tdd.visitor.ComponentVisitor;
 
 /**
  * Created by IntelliJ IDEA.

@@ -1,11 +1,11 @@
-package com.gni.frmk.tools.addon.tdd.impl.component;
+package com.gni.frmk.tools.addon.tdd.impl.component.test.base;
 
-import com.gni.frmk.tools.addon.tdd.impl.component.alpha.AlphaComponentId;
-import com.gni.frmk.tools.addon.tdd.impl.component.alpha.AlphaComponentState;
-import com.gni.frmk.tools.addon.tdd.impl.component.alpha.AlphaComponentType;
-import com.gni.frmk.tools.addon.tdd.impl.component.beta.BetaComponentId;
-import com.gni.frmk.tools.addon.tdd.impl.component.beta.BetaComponentState;
-import com.gni.frmk.tools.addon.tdd.impl.component.beta.BetaComponentType;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.alpha.AlphaComponentId;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.alpha.AlphaComponentState;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.alpha.AlphaComponentType;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.beta.BetaComponentId;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.beta.BetaComponentState;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.beta.BetaComponentType;
 import org.mockito.Mockito;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

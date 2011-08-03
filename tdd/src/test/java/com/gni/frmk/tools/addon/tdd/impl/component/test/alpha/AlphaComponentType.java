@@ -1,6 +1,6 @@
-package com.gni.frmk.tools.addon.tdd.impl.component.alpha;
+package com.gni.frmk.tools.addon.tdd.impl.component.test.alpha;
 
-import com.gni.frmk.tools.addon.tdd.impl.component.BaseTestComponentType;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.base.BaseTestComponentType;
 
 /**
  * Created by IntelliJ IDEA.

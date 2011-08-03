@@ -1,10 +1,10 @@
 package com.gni.frmk.tools.addon.tdd.impl.component;
 
-import com.gni.frmk.tools.addon.tdd.api.Component;
-import com.gni.frmk.tools.addon.tdd.impl.component.alpha.AlphaComponent;
-import com.gni.frmk.tools.addon.tdd.impl.component.alpha.AlphaComponentId;
-import com.gni.frmk.tools.addon.tdd.impl.component.alpha.AlphaComponentState;
-import com.gni.frmk.tools.addon.tdd.impl.component.beta.BetaComponent;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.alpha.AlphaComponent;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.alpha.AlphaComponentId;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.alpha.AlphaComponentState;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.base.BaseTestComponent;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.beta.BetaComponent;
 import org.fest.assertions.Assertions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

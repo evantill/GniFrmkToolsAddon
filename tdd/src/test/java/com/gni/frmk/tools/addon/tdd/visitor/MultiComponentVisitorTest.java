@@ -1,8 +1,9 @@
 package com.gni.frmk.tools.addon.tdd.visitor;
 
 import com.gni.frmk.tools.addon.tdd.api.Component;
-import com.gni.frmk.tools.addon.tdd.impl.component.alpha.AlphaComponent;
-import com.gni.frmk.tools.addon.tdd.impl.component.beta.BetaComponent;
+import com.gni.frmk.tools.addon.tdd.api.ComponentVisitor;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.alpha.AlphaComponent;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.beta.BetaComponent;
 import com.gni.frmk.tools.addon.tdd.visitor.MultiComponentVisitor.Registration;
 import com.google.common.collect.Ordering;
 import org.testng.annotations.BeforeMethod;

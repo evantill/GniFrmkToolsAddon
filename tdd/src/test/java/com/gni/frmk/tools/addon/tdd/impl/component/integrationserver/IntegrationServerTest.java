@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.tdd.impl.component;
+package com.gni.frmk.tools.addon.tdd.impl.component.integrationserver;
 
 import com.gni.frmk.tools.addon.tdd.impl.component.integrationserver.IntegrationServer;
 import com.gni.frmk.tools.addon.tdd.impl.component.integrationserver.IntegrationServerState;

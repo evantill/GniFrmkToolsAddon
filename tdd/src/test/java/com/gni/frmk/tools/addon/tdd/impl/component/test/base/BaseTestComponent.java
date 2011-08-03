@@ -1,11 +1,11 @@
-package com.gni.frmk.tools.addon.tdd.impl.component;
+package com.gni.frmk.tools.addon.tdd.impl.component.test.base;
 
 import com.gni.frmk.tools.addon.tdd.api.Component;
 import com.gni.frmk.tools.addon.tdd.api.ComponentId;
 import com.gni.frmk.tools.addon.tdd.api.ComponentState;
 import com.gni.frmk.tools.addon.tdd.api.ComponentType;
+import com.gni.frmk.tools.addon.tdd.api.ComponentVisitor;
 import com.gni.frmk.tools.addon.tdd.util.UnimplementedMethodException;
-import com.gni.frmk.tools.addon.tdd.visitor.ComponentVisitor;
 import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
 

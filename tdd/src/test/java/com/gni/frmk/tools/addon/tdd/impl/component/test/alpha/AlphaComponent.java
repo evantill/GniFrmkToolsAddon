@@ -1,8 +1,7 @@
-package com.gni.frmk.tools.addon.tdd.impl.component.alpha;
+package com.gni.frmk.tools.addon.tdd.impl.component.test.alpha;
 
 import com.gni.frmk.tools.addon.tdd.api.Component;
-import com.gni.frmk.tools.addon.tdd.impl.component.BaseTestComponent;
-import com.google.common.base.Objects;
+import com.gni.frmk.tools.addon.tdd.impl.component.test.base.BaseTestComponent;
 
 /**
  * Created by IntelliJ IDEA.

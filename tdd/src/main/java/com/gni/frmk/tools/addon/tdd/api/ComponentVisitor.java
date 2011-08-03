@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.tdd.visitor;
+package com.gni.frmk.tools.addon.tdd.api;
 
 import com.gni.frmk.tools.addon.tdd.api.Component;
 
