@@ -6,6 +6,16 @@
     <artifactId>GniFrmkToolsAddon</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <parent>
+        <groupId>fr.generali.cceai.frmk.addon</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <artifactId>evaxion-pom</artifactId>
+        <relativePath>./evaxion-pom.xml</relativePath>
+        <!--
+            <artifactId>generali-pom</artifactId>
+            <relativePath>./generali-pom.xml</relativePath>
+        -->
+    </parent>
     <url>http://maven.apache.org</url>
     <modules>
         <module>util</module>
@@ -18,12 +28,6 @@
         <module>all</module>
         <module>tdd</module>
     </modules>
-    <scm>
-        <connection>scm:svn:http://svn.groupe.generali.fr/socles/eai/GniFrmkToolsAddon/trunk/</connection>
-        <url>http://svn.groupe.generali.fr/socles/eai/GniFrmkToolsAddon/trunk/</url>
-        <developerConnection>scm:svn:http://svn.groupe.generali.fr/socles/eai/GniFrmkToolsAddon/trunk/
-        </developerConnection>
-    </scm>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--do not change log version. see:http://www.sfwk.org/Community/UnshadedWeldSEDistribution-->
@@ -50,23 +54,6 @@
             </plugin>
         </plugins>
     </reporting>
-    <distributionManagement>
-        <repository>
-            <id>artifacts-server</id>
-            <name>Generali Release Distribution Repository</name>
-            <url>dav:http://maven-proxy.groupe.generali.fr/archiva/repository/generali-releases</url>
-        </repository>
-        <snapshotRepository>
-            <id>artifacts-server</id>
-            <name>Generali Snapshot Distribution Repository</name>
-            <url>dav:http://maven-proxy.groupe.generali.fr/archiva/repository/generali-snapshots</url>
-        </snapshotRepository>
-        <site>
-            <id>socle-eai</id>
-            <url>file:///data/maven/sites/cceai</url>
-        </site>
-    </distributionManagement>
-
     <profiles>
         <profile>
             <id>WM65</id>
@@ -121,62 +108,6 @@
             </properties>
         </profile>
     </profiles>
-    <!-- Declaration des repositories -->
-    <repositories>
-        <repository>
-            <id>central</id>
-            <name>Repository for releases</name>
-            <url>http://maven-proxy.groupe.generali.fr/archiva/repository/releases</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>snapshots</id>
-            <name>Repository for snapshots</name>
-            <url>http://maven-proxy.groupe.generali.fr/archiva/repository/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <id>EclipseLink Repo</id>
-            <url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
-            <!-- use this for javax.persistence
-           <snapshots>
-              <enabled>true</enabled>
-           </snapshots> -->
-        </repository>
-        <repository>
-            <id>maven2-repository.dev.java.net</id>
-            <name>Java.net Repository for Maven</name>
-            <url>http://download.java.net/maven/2/</url>
-            <layout>default</layout>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>central</id>
-            <name>Repository for releases</name>
-            <url>http://maven-proxy.groupe.generali.fr/archiva/repository/releases</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <id>snapshots</id>
-            <name>Repository for snapshots</name>
-            <url>http://maven-proxy.groupe.generali.fr/archiva/repository/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </pluginRepository>
-        <pluginRepository>
-            <id>maven-repository.dev.java.net</id>
-            <name>Java.net Maven 2 Repository</name>
-            <url>http://download.java.net/maven/2</url>
-        </pluginRepository>
-    </pluginRepositories>
     <dependencies>
         <!--for webmethods-->
         <dependency>
@@ -388,7 +319,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <build>
         <extensions>
             <!-- necessaire pour uploader en webdav sur archiva -->

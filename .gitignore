@@ -3,3 +3,4 @@
 target
 /testFile.log
 *.iml
+test-output
