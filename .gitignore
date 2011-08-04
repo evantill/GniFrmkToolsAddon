@@ -1,6 +1,23 @@
+#
+#svn
+#
 .svn
-.idea
+#
+#maven
+#
 target
-/testFile.log
+#
+#idea
+#
+.idea
 *.iml
+*.ipr
+#
+#vpuml
+#
+.vpprefdata
+#
+#test tools
+#
+testFile.log
 test-output
