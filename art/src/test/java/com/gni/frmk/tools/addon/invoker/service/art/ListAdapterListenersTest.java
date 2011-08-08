@@ -17,7 +17,7 @@ import static junit.framework.Assert.assertNotNull;
  *
  * @author: e03229
  */
-//TODO ajouter un test avec des données
+//TODO ajouter un test avec des donnees
 public class ListAdapterListenersTest extends AbstractServiceTest {
 
     @Test
