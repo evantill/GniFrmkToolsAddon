@@ -1,7 +1,5 @@
 package com.gni.frmk.tools.addon.tdd.api;
 
-import com.gni.frmk.tools.addon.tdd.api.Component;
-
 /**
  * Created by IntelliJ IDEA.
  * Date: 01/08/11
@@ -10,5 +8,5 @@ import com.gni.frmk.tools.addon.tdd.api.Component;
  * @author: e03229
  */
 public interface ComponentVisitor {
-    void visitComponent(Component<?, ?> visited);
+    void visitComponent(Component visited);
 }

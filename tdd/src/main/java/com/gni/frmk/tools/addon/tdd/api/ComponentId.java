@@ -7,5 +7,5 @@ package com.gni.frmk.tools.addon.tdd.api;
  *
  * @author: e03229
  */
-public interface ComponentId<T extends ComponentId<T>> extends Comparable<T> {
+public interface ComponentId<T extends ComponentId> extends Comparable<T> {
 }

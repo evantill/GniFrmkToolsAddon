@@ -9,13 +9,17 @@ package com.gni.frmk.tools.addon.tdd.api;
  */
 public interface ComponentFactory {
 
-    public static interface ComponentFactoryDelegate<T extends ComponentType<C, I, ?>, C extends Component<C, ?>, I extends ComponentId<I>> {
-        C createComponent(I id);
+    public static interface ComponentFactoryDelegate
+            <T extends ComponentType<T>, C extends Component<C>, I extends ComponentId<I>> {
 
-        Class<T> getCreatedComponentType();
+        C newComponent(T type, I id) throws ComponentFactoryException;
+
+        Class<T> getComponentTypeClass();
+
+        Class<I> getComponentIdClass();
     }
 
-    <T extends ComponentType<C, I, ?>, C extends Component<C, ?>, I extends ComponentId<I>> C createComponent(T type, I id);
+    Component newComponent(ComponentType type, ComponentId id) throws ComponentFactoryException;
 
     public static class ComponentFactoryException extends RuntimeException {
         public ComponentFactoryException(String message) {
