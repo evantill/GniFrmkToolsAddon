@@ -1,11 +1,16 @@
 package com.gni.frmk.tools.addon.tdd.impl.component.test.alpha2;
 
+import com.gni.frmk.tools.addon.tdd.api.Component;
 import com.gni.frmk.tools.addon.tdd.api.ComponentState;
 import com.gni.frmk.tools.addon.tdd.api.ComponentStatus;
-import com.gni.frmk.tools.addon.tdd.api.RecoverableComponent;
+import com.gni.frmk.tools.addon.tdd.api.ComponentVisitor;
 import com.gni.frmk.tools.addon.tdd.impl.component.test.alpha2.Alpha2Component.Alpha2ComponentState;
 import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
+
+import static com.gni.frmk.tools.addon.tdd.api.ComponentStatus.CLOSED;
+import static com.gni.frmk.tools.addon.tdd.api.ComponentStatus.OPENED;
+import static com.gni.frmk.tools.addon.tdd.api.ComponentStatus.UNKNOWN;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,7 +19,7 @@ import com.google.common.collect.ComparisonChain;
  *
  * @author: e03229
  */
-public class Alpha2Component implements RecoverableComponent<Alpha2Component, Alpha2ComponentState> {
+public class Alpha2Component implements Component<Alpha2Component, Alpha2ComponentState> {
 
     public static final class Alpha2ComponentState implements ComponentState<Alpha2ComponentState> {
 
@@ -64,7 +69,7 @@ public class Alpha2Component implements RecoverableComponent<Alpha2Component, Al
     private final Alpha2ComponentType type = Alpha2ComponentType.newInstance();
     private final Alpha2ComponentId id;
 
-    private ComponentStatus status = ComponentStatus.UNKNOWN;
+    private ComponentStatus status = UNKNOWN;
     private final ComponentStatus firstDefinedStatus;
 
     private Alpha2Component(Alpha2ComponentId id, ComponentStatus status) {
@@ -105,7 +110,7 @@ public class Alpha2Component implements RecoverableComponent<Alpha2Component, Al
     @Override
     public void open() {
         if (status.isClosed()) {
-            status = ComponentStatus.OPENED;
+            status = OPENED;
         } else {
             throw new IllegalStateException("component is not closed : can not open it");
         }
@@ -114,10 +119,15 @@ public class Alpha2Component implements RecoverableComponent<Alpha2Component, Al
     @Override
     public void close() {
         if (status.isOpened()) {
-            status = ComponentStatus.CLOSED;
+            status = CLOSED;
         } else {
             throw new IllegalStateException("component is not opened : can not close it");
         }
+    }
+
+    @Override
+    public void accept(ComponentVisitor visitor) {
+        visitor.visitComponent(this);
     }
 
     @Override

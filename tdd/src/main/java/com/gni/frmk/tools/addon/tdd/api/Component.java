@@ -7,7 +7,8 @@ package com.gni.frmk.tools.addon.tdd.api;
  *
  * @author: e03229
  */
-public interface Component<T extends Component> extends Comparable<T> {
+public interface Component<T extends Component, S extends ComponentState>
+        extends Comparable<T> {
 
     ComponentType getType();
 
@@ -20,4 +21,10 @@ public interface Component<T extends Component> extends Comparable<T> {
     void close();
 
     void refreshStatus();
+
+    void accept(ComponentVisitor visitor);
+
+    S saveState();
+
+    void restoreState(S previousState);
 }
