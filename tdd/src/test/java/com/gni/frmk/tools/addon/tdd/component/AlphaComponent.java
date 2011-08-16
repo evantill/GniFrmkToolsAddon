@@ -15,10 +15,16 @@ import com.gni.frmk.tools.addon.tdd.api.ComponentVisitor;
 public class AlphaComponent implements Component<SimpleBooleanState> {
     private final ClassComponentType<AlphaComponent> type = ClassComponentType.createForComponent(this, IOType.INPUT);
     private final IntegerId id;
+    private Boolean refreshOpened;
     private Boolean opened;
 
     public AlphaComponent(IntegerId id) {
         this.id = id;
+        refreshOpened = null;
+    }
+
+    public void setRefreshOpenState(Boolean opened) {
+        refreshOpened = opened;
     }
 
     @Override
@@ -34,7 +40,7 @@ public class AlphaComponent implements Component<SimpleBooleanState> {
     @Override
     public void refreshStatus() {
         if (opened == null) {
-            opened = true;
+            opened = refreshOpened;
         }
     }
 

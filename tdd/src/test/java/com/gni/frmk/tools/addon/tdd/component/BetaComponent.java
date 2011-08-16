@@ -21,11 +21,16 @@ public class BetaComponent implements CompositeComponent<SimpleBooleanState> {
     private final ClassComponentType<BetaComponent> type = ClassComponentType.createForComponent(this, IOType.CORE);
     private final IntegerId id;
     private final Set<Component<?>> children;
+    private Boolean refreshOpened;
     private Boolean opened;
 
     public BetaComponent(IntegerId id, Component<?>... children) {
         this.id = id;
         this.children = CompositeComponents.createChildrenSet(children);
+    }
+
+    public void setRefreshOpenState(Boolean opened) {
+        refreshOpened = opened;
     }
 
     @Override
@@ -51,7 +56,7 @@ public class BetaComponent implements CompositeComponent<SimpleBooleanState> {
     @Override
     public void refreshStatus() {
         if (opened == null) {
-            opened = true;
+            opened = refreshOpened;
         }
     }
 

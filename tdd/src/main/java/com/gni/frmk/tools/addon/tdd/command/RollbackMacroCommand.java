@@ -35,6 +35,7 @@ public class RollbackMacroCommand extends MacroCommand {
             }
         } catch (CommandException cause) {
             doRollbackOnError(context);
+            throw cause;
         }
     }
 
