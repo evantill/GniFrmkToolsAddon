@@ -16,14 +16,14 @@ import java.util.Set;
  *
  * @author: e03229
  */
-public class BetaComponent implements CompositeComponent {
+public class BetaComponent implements CompositeComponent<SimpleBooleanState> {
 
     private final ClassComponentType<BetaComponent> type = ClassComponentType.createForComponent(this, IOType.CORE);
     private final IntegerId id;
-    private final Set<Component> children;
+    private final Set<Component<?>> children;
     private Boolean opened;
 
-    public BetaComponent(IntegerId id, Component... children) {
+    public BetaComponent(IntegerId id, Component<?>... children) {
         this.id = id;
         this.children = CompositeComponents.createChildrenSet(children);
     }
@@ -34,7 +34,7 @@ public class BetaComponent implements CompositeComponent {
     }
 
     @Override
-    public Iterator<Component> iterator() {
+    public Iterator<Component<?>> iterator() {
         return CompositeComponents.iterateOnComposite(children.iterator());
     }
 
@@ -70,6 +70,17 @@ public class BetaComponent implements CompositeComponent {
 
     public IntegerId getId() {
         return id;
+    }
+
+
+    @Override
+    public SimpleBooleanState saveState() {
+        return new SimpleBooleanState(opened);
+    }
+
+    @Override
+    public void restoreState(SimpleBooleanState state) {
+        opened = state.getOpened();
     }
 
     @Override

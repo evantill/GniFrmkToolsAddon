@@ -1,10 +1,10 @@
 package com.gni.frmk.tools.addon.tdd.command;
 
-import com.gni.frmk.tools.addon.tdd.api.Command;
-import com.gni.frmk.tools.addon.tdd.api.CommandContext;
-import com.gni.frmk.tools.addon.tdd.api.CommandException;
 import com.gni.frmk.tools.addon.tdd.api.Component;
 import com.gni.frmk.tools.addon.tdd.api.ComponentVisitor;
+import com.gni.frmk.tools.addon.tdd.api.command.Command;
+import com.gni.frmk.tools.addon.tdd.api.command.CommandContext;
+import com.gni.frmk.tools.addon.tdd.api.command.CommandException;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
 
@@ -22,16 +22,16 @@ import static com.google.common.collect.Iterables.filter;
  */
 public class ClosePlateformCommand implements Command {
 
-    private final Component target;
+    private final Component<?> target;
 
-    private final Predicate<Component> componentFilter = new Predicate<Component>() {
+    private final Predicate<Component<?>> componentFilter = new Predicate<Component<?>>() {
         @Override
-        public boolean apply(@Nullable Component input) {
+        public boolean apply(@Nullable Component<?> input) {
             return input != null;
         }
     };
 
-    public ClosePlateformCommand(Component target) {
+    public ClosePlateformCommand(Component<?> target) {
         this.target = target;
     }
 
@@ -48,25 +48,25 @@ public class ClosePlateformCommand implements Command {
     }
 
     private void addCommandsToMacro(RollbackMacroCommand macro) {
-        for (Component component : parseComponent()) {
+        for (Component<?> component : parseComponent()) {
             addComponentToMacro(macro, component);
         }
     }
 
-    private Iterable<Component> parseComponent() {
-        final List<Component> components = Lists.newArrayList();
+    private Iterable<Component<?>> parseComponent() {
+        final List<Component<?>> components = Lists.newArrayList();
         target.accept(new ComponentVisitor() {
             @Override
-            public void visitComponent(Component visited) {
+            public void visitComponent(Component<?> visited) {
                 components.add(visited);
             }
         });
         return filter(components, componentFilter);
     }
 
-    private void addComponentToMacro(RollbackMacroCommand macro, Component component) {
+    private void addComponentToMacro(RollbackMacroCommand macro, Component<?> component) {
         macro.add(new RefreshStatusCommand(component));
-        macro.add(new CloseCommandIfNeeded(component));
+        macro.add(CloseCommandIfNeeded.createCommand(component));
         macro.add(new CheckIsClosedCommand(component));
     }
 

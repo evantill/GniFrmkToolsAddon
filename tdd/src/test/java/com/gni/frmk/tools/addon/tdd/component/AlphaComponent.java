@@ -12,7 +12,7 @@ import com.gni.frmk.tools.addon.tdd.api.ComponentVisitor;
  *
  * @author: e03229
  */
-public class AlphaComponent implements Component {
+public class AlphaComponent implements Component<SimpleBooleanState> {
     private final ClassComponentType<AlphaComponent> type = ClassComponentType.createForComponent(this, IOType.INPUT);
     private final IntegerId id;
     private Boolean opened;
@@ -58,6 +58,16 @@ public class AlphaComponent implements Component {
     @Override
     public void accept(ComponentVisitor visitor) {
         visitor.visitComponent(this);
+    }
+
+    @Override
+    public SimpleBooleanState saveState() {
+        return new SimpleBooleanState(opened);
+    }
+
+    @Override
+    public void restoreState(SimpleBooleanState state) {
+        opened = state.getOpened();
     }
 
     @Override

@@ -1,6 +1,8 @@
 package com.gni.frmk.tools.addon.tdd.component;
 
 import com.gni.frmk.tools.addon.tdd.api.*;
+import com.gni.frmk.tools.addon.tdd.api.command.CommandContext;
+import com.gni.frmk.tools.addon.tdd.api.command.CommandException;
 import com.gni.frmk.tools.addon.tdd.command.ClosePlateformCommand;
 import com.gni.frmk.tools.addon.tdd.command.OpenPlateformCommand;
 import org.mockito.Matchers;

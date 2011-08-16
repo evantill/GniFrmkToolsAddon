@@ -8,5 +8,5 @@ package com.gni.frmk.tools.addon.tdd.api;
  * @author: e03229
  */
 public interface ComponentFactory {
-    Component createComponent(ComponentType type, ComponentId id);
+    Component<?> createComponent(ComponentType type, ComponentId id);
 }

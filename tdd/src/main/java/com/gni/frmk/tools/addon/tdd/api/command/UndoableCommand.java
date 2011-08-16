@@ -1,4 +1,4 @@
-package com.gni.frmk.tools.addon.tdd.api;
+package com.gni.frmk.tools.addon.tdd.api.command;
 
 /**
  * Created by IntelliJ IDEA.

@@ -1,9 +1,9 @@
 package com.gni.frmk.tools.addon.tdd.command;
 
-import com.gni.frmk.tools.addon.tdd.api.Command;
-import com.gni.frmk.tools.addon.tdd.api.CommandContext;
-import com.gni.frmk.tools.addon.tdd.api.CommandException;
-import com.gni.frmk.tools.addon.tdd.api.CommandListener;
+import com.gni.frmk.tools.addon.tdd.api.command.Command;
+import com.gni.frmk.tools.addon.tdd.api.command.CommandContext;
+import com.gni.frmk.tools.addon.tdd.api.command.CommandException;
+import com.gni.frmk.tools.addon.tdd.api.command.CommandListener;
 
 /**
  * Created by IntelliJ IDEA.

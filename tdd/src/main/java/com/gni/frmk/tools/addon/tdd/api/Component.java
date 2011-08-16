@@ -7,7 +7,7 @@ package com.gni.frmk.tools.addon.tdd.api;
  *
  * @author: e03229
  */
-public interface Component {
+public interface Component<S extends ComponentState> {
     void open();
 
     void close();
@@ -21,4 +21,8 @@ public interface Component {
     ComponentType getType();
 
     ComponentId getId();
+
+    S saveState();
+
+    void restoreState(S state);
 }

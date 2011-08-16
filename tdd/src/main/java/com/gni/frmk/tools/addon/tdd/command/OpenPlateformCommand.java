@@ -1,6 +1,10 @@
 package com.gni.frmk.tools.addon.tdd.command;
 
-import com.gni.frmk.tools.addon.tdd.api.*;
+import com.gni.frmk.tools.addon.tdd.api.Component;
+import com.gni.frmk.tools.addon.tdd.api.ComponentVisitor;
+import com.gni.frmk.tools.addon.tdd.api.command.Command;
+import com.gni.frmk.tools.addon.tdd.api.command.CommandContext;
+import com.gni.frmk.tools.addon.tdd.api.command.CommandException;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
 
@@ -18,16 +22,16 @@ import static com.google.common.collect.Iterables.filter;
  */
 public class OpenPlateformCommand implements Command {
 
-    private final Component target;
+    private final Component<?> target;
 
-    private final Predicate<Component> componentFilter = new Predicate<Component>() {
+    private final Predicate<Component<?>> componentFilter = new Predicate<Component<?>>() {
         @Override
-        public boolean apply(@Nullable Component input) {
+        public boolean apply(@Nullable Component<?> input) {
             return input != null;
         }
     };
 
-    public OpenPlateformCommand(Component target) {
+    public OpenPlateformCommand(Component<?> target) {
         this.target = target;
     }
 
@@ -49,20 +53,20 @@ public class OpenPlateformCommand implements Command {
         }
     }
 
-    private Iterable<Component> parseComponent() {
-        final List<Component> components = Lists.newArrayList();
+    private Iterable<Component<?>> parseComponent() {
+        final List<Component<?>> components = Lists.newArrayList();
         target.accept(new ComponentVisitor() {
             @Override
-            public void visitComponent(Component visited) {
+            public void visitComponent(Component<?> visited) {
                 components.add(visited);
             }
         });
         return filter(components, componentFilter);
     }
 
-    private void addComponentToMacro(RollbackMacroCommand macro, Component component) {
+    private void addComponentToMacro(RollbackMacroCommand macro, Component<?> component) {
         macro.add(new RefreshStatusCommand(component));
-        macro.add(new OpenCommandIfNeeded(component));
+        macro.add(OpenCommandIfNeeded.createCommand(component));
         macro.add(new CheckIsOpenedCommand(component));
     }
 

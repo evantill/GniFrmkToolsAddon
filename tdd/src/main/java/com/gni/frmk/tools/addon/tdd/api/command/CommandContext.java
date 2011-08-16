@@ -1,7 +1,8 @@
-package com.gni.frmk.tools.addon.tdd.api;
+package com.gni.frmk.tools.addon.tdd.api.command;
 
 import com.gni.frmk.tools.addon.tdd.api.Component;
 import com.gni.frmk.tools.addon.tdd.api.ComponentId;
+import com.gni.frmk.tools.addon.tdd.api.ComponentState;
 import com.gni.frmk.tools.addon.tdd.api.ComponentType;
 
 /**
@@ -12,5 +13,5 @@ import com.gni.frmk.tools.addon.tdd.api.ComponentType;
  * @author: e03229
  */
 public interface CommandContext {
-    Component findComponent(ComponentType type, ComponentId id);
+    <S extends ComponentState> Component<S> findComponent(ComponentType type, ComponentId id);
 }

@@ -8,5 +8,5 @@ package com.gni.frmk.tools.addon.tdd.api;
  * @author: e03229
  */
 public interface ComponentVisitor {
-    void visitComponent(Component visited);
+    void visitComponent(Component<?> visited);
 }
