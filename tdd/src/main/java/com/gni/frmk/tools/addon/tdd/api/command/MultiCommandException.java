@@ -16,6 +16,7 @@ import java.util.List;
 public class MultiCommandException extends CommandException implements Iterable<CommandException> {
     private final List<CommandException> exceptions = Lists.newArrayList();
 
+    @SuppressWarnings({"ThrowableResultOfMethodCallIgnored"})
     private MultiCommandException(Iterator<CommandException> causes) {
         super(causes.next());
         while (causes.hasNext()) {

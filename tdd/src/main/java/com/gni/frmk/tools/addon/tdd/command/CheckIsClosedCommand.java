@@ -4,6 +4,7 @@ import com.gni.frmk.tools.addon.tdd.api.*;
 import com.gni.frmk.tools.addon.tdd.api.command.Command;
 import com.gni.frmk.tools.addon.tdd.api.command.CommandContext;
 import com.gni.frmk.tools.addon.tdd.api.command.CommandException;
+import com.gni.frmk.tools.addon.tdd.api.command.ComponentCommandException;
 
 /**
  * Created by IntelliJ IDEA.
@@ -29,7 +30,7 @@ public class CheckIsClosedCommand implements Command {
     public void execute(CommandContext context) throws CommandException {
         Component component = context.findComponent(type, id);
         if (!component.getStatus().isClosed()) {
-            throw new CommandException("failed to close component", this, component);
+            throw new ComponentCommandException("failed to close component", this, component);
         }
     }
 }

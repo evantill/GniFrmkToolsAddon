@@ -1,7 +1,5 @@
 package com.gni.frmk.tools.addon.tdd.api.command;
 
-import com.gni.frmk.tools.addon.tdd.api.Component;
-
 /**
  * Created by IntelliJ IDEA.
  * Date: 16/08/11
@@ -11,30 +9,30 @@ import com.gni.frmk.tools.addon.tdd.api.Component;
  */
 public class CommandException extends Exception {
     private final Command command;
-    private final Component component;
 
-    public CommandException(String message, Command command, Component component) {
+
+    public CommandException(String message, Command command) {
         super(message);
         this.command = command;
-        this.component = component;
     }
 
     public CommandException(CommandException exception) {
         super(exception);
         this.command = exception.getCommand();
-        this.component = exception.getComponent();
+    }
+
+    public CommandException(Exception cause, Command command) {
+        super(cause);
+        this.command = command;
     }
 
     @Override
     public String getMessage() {
-        return String.format("command %s failed : %s on %s", command, super.getMessage(), component);
+        return String.format("command %s failed : %s", command, super.getMessage());
     }
 
     public Command getCommand() {
         return command;
     }
 
-    public Component getComponent() {
-        return component;
-    }
 }

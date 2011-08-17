@@ -10,9 +10,9 @@ package com.gni.frmk.tools.addon.tdd.api.command;
 public interface CommandListener {
     void commandDone(Command command);
 
-    void commandFailed(Command command, CommandException e);
+    void commandFailed(Command command, Exception e);
 
     void rollbackDone(Command command);
 
-    void rollbackFailed(Command command, CommandException e);
+    void rollbackFailed(Command command, Exception e);
 }

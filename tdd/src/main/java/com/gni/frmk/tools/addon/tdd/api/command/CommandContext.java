@@ -14,4 +14,5 @@ import com.gni.frmk.tools.addon.tdd.api.ComponentType;
  */
 public interface CommandContext {
     <S extends ComponentState> Component<S> findComponent(ComponentType type, ComponentId id);
+
 }

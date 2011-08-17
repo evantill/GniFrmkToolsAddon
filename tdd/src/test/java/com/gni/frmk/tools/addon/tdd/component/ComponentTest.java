@@ -50,7 +50,7 @@ public class ComponentTest {
                               alpha3,
                               beta};
         alpha3bug = spy(alpha3);
-        Mockito.doThrow(new CommandException("alpha3bug bug on open",null,alpha3bug)).when(alpha3bug).open();
+        Mockito.doThrow(new IllegalStateException("alpha3bug bug on open")).when(alpha3bug).open();
         betaBug = new BetaComponent(new IntegerId(4), alpha1, alpha2, alpha3bug);
         allBug = new Component[]{alpha1,
                                  alpha2,

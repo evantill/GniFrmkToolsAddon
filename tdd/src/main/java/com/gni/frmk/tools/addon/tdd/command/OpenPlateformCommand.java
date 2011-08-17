@@ -5,12 +5,14 @@ import com.gni.frmk.tools.addon.tdd.api.ComponentVisitor;
 import com.gni.frmk.tools.addon.tdd.api.command.Command;
 import com.gni.frmk.tools.addon.tdd.api.command.CommandContext;
 import com.gni.frmk.tools.addon.tdd.api.command.CommandException;
+import com.gni.frmk.tools.addon.tdd.command.MacroCommand.Priority;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
+import static com.gni.frmk.tools.addon.tdd.command.MacroCommand.Priority.HIGHEST;
 import static com.google.common.collect.Iterables.filter;
 
 /**
@@ -65,7 +67,7 @@ public class OpenPlateformCommand implements Command {
     }
 
     private void addComponentToMacro(RollbackMacroCommand macro, Component<?> component) {
-        macro.add(new RefreshStatusCommand(component));
+        macro.add(HIGHEST,new RefreshStatusCommand(component));
         macro.add(OpenCommandIfNeeded.createCommand(component));
         macro.add(new CheckIsOpenedCommand(component));
     }

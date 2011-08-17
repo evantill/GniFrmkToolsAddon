@@ -9,6 +9,8 @@ import com.google.common.collect.Lists;
 
 import java.util.List;
 
+import static com.google.common.collect.Lists.reverse;
+
 /**
  * Created by IntelliJ IDEA.
  * Date: 16/08/11
@@ -36,6 +38,9 @@ public class RollbackMacroCommand extends MacroCommand {
         } catch (CommandException cause) {
             doRollbackOnError(context);
             throw cause;
+        } catch (RuntimeException cause) {
+            doRollbackOnError(context);
+            throw new CommandException(cause, command);
         }
     }
 
@@ -50,9 +55,9 @@ public class RollbackMacroCommand extends MacroCommand {
 
     private void doRollbackOnError(CommandContext context) throws CommandException {
         List<CommandException> exceptions = Lists.newArrayList();
-        for (UndoableCommand command : done) {
+        for (UndoableCommand cmd : reverse(done)) {
             try {
-                command.rollback(context);
+                cmd.rollback(context);
             } catch (CommandException cause) {
                 exceptions.add(cause);
             }
