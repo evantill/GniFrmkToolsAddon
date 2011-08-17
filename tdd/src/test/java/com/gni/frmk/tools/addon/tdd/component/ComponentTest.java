@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 
 import static com.gni.frmk.tools.addon.tdd.api.ComponentStatus.*;
 import static org.fest.assertions.Assertions.assertThat;
+import static org.fest.assertions.Fail.fail;
 import static org.mockito.Mockito.*;
 
 /**
@@ -103,12 +104,13 @@ public class ComponentTest {
             }
         }
         assertComponentStatusIs(UNKNOWN, allBug);
-        cmd.execute(contextBug);
-        assertComponentStatusIs(CLOSED, alpha1);
-        assertComponentStatusIs(CLOSED, alpha2);
-        assertComponentStatusIs(UNKNOWN, alpha3bug);
-        assertComponentStatusIs(UNKNOWN, betaBug);
+        try {
+            cmd.execute(contextBug);
+            fail("exception must be fired");
+        } catch (CommandException ignore) {
 
+        }
+        assertComponentStatusIs(CLOSED, alpha1, alpha2, alpha3bug, betaBug);
     }
 
     @Test
