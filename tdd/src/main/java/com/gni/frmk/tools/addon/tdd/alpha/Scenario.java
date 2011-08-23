@@ -1,8 +1,6 @@
 package com.gni.frmk.tools.addon.tdd.alpha;
 
-
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,112 +10,126 @@ import java.util.Map;
  * @author: e03229
  */
 public class Scenario {
-    class Data {
 
-        private Type type;
-        private Id id;
-        //ensemble des donnees
-        //definir des sections supplementaires comme le statut
-
-        public Type getType() {return type;}
+    interface ComponentType {
     }
 
-    class Type {
-        public Factory getFactory() {
-            throw new IllegalStateException("retourne le factory specifique a ce type de composant");
+    interface ComponentId {
+    }
+
+    /**
+     * different pour chaque plugins
+     */
+    interface ComponentData {
+        ComponentType getType();
+
+        ComponentId getId();
+
+        ComponentData save();
+
+        void restore(ComponentData saved);
+    }
+
+    /**
+     * different pour chaque plugins
+     */
+    interface ComponentDataFactory {
+        List<ComponentType> getComponentTypes();
+
+        List<ComponentId> getComponentIdsByType(ComponentType type);
+
+        ComponentData getComponentData(ComponentType type, ComponentId id);
+    }
+
+    /**
+     * persist data (xml files,db....)
+     */
+    interface ComponentDataRepository {
+        ComponentData load(ComponentType type, ComponentId id);
+
+        void save(ComponentData saved);
+    }
+
+    /**
+     * different pour chaque plugins
+     */
+    interface ComponentStrategy {
+        void open();
+
+        void close();
+
+        void refreshData();
+    }
+
+    interface ComponentStrategyFactory {
+        List<ComponentType> getComponentTypes();
+
+        ComponentStrategy getStrategy(ComponentType type, ComponentId id);
+    }
+
+    /**
+     * permettra de definir un referentiel des strategies definies par les plugins
+     */
+    interface ComponentStrategyRegistry {
+        void register(ComponentStrategyFactory factory);
+
+        ComponentStrategy findStrategy(ComponentType type);
+    }
+
+    interface Component extends ComponentData, ComponentStrategy {
+
+    }
+
+    interface ComponentFactory extends ComponentDataFactory, ComponentStrategyFactory {
+        Component getComponent(ComponentType type, ComponentId id);
+
+        List<Component> getComponentsByType(ComponentType type);
+    }
+
+    interface ComponentRegistry extends ComponentDataRepository, ComponentStrategyRegistry {
+        void register(ComponentFactory factory);
+
+        Component findComponent(ComponentType type, ComponentId id);
+    }
+
+    interface Context {
+        ComponentStrategyRegistry getComponentStrategyRegistry();
+
+        ComponentDataRepository getComponentDataRepository();
+
+        ComponentRegistry getComponentRegistry();
+    }
+
+    public static void doLoadComponentFromConfig(ComponentType type, ComponentId id, Context context) {
+        //dans ce ca le component factory utilise par le registry ne charge pas les donnees : un ComponentDataFactory qui retourne toujours UNKNOWN_DATA
+        Component component = context.getComponentRegistry().findComponent(type, id);
+        ComponentData data = context.getComponentDataRepository().load(type, id);
+        component.restore(data);
+    }
+
+    public static void doLoadComponentFromIS(ComponentType type, ComponentId id, Context context) {
+        //dans ce ca l'IS est un registry de component qui utilisera un component factory qui chargera les donnees a la volee
+        Component component = context.getComponentRegistry().findComponent(type, id);
+    }
+
+
+    public static void doOpenComponent(ComponentType type, ComponentId id, Context context) {
+        Component component = context.getComponentRegistry().findComponent(type, id);
+        component.refreshData();
+        ComponentData saved = component.save();
+        try {
+            component.open();
+        } catch (RuntimeException ex) {
+            component.restore(saved);
+            component.close();
         }
     }
 
-    class Id {
-    }
-
-
-    class Command {
-        public void execute(Context ctx, Component component) {
-            throw new IllegalStateException("le traitement specificque est ici");
-        }
-    }
-
-    class Context {
-        private Map<Type, Command> openRegistry;
-
-        public Command selectOpenStrategy(Type type) {
-            return openRegistry.get(type);
-        }
-    }
-
-    class Factory {
-        public List<Component> createComponents(Type type, Context ctx) {
-            throw new IllegalStateException("extraction des donnees des composants de l'is");
-        }
-
-        public Data createData(Type type, Id id) {
-            throw new IllegalStateException("extraction des donnees d'un composant de l'is");
-        }
-
-        public Component createComponent(Data data, Context ctx) {
-            throw new IllegalStateException("creation du composant specifique");
-        }
-
-        public Component createComponentFromId(Id id, Context ctx) {
-            throw new IllegalStateException("recherche du composant ");
-        }
-
-        public Component createComponentFromData() {
-
-        }
-    }
-
-
-    class Component {
-
-        private Type type;
-
-        public void open(Context ctx) {
-            ctx.selectOpenStrategy(getType()).execute(ctx, this);
-        }
-
-        private Type getType() {
-            return type;
-        }
-    }
-
-
-    private Component buildComponent(Type type, Id id, Context ctx) {
-        Data data = loadData(type, id, ctx);
-        return type.getFactory().createComponentFromConfig(type, data, ctx);
-    }
-
-    private Component buildComponent(Data data, Context ctx) {
-        Type type = data.getType();
-        Factory factory = type.getFactory();
-        return factory.createComponentFromConfig(type, data, ctx);
-    }
-
-    private Context selectContext() {
-        throw new IllegalStateException("selection du context de connection (local,remote,invoke,jms...)");
-    }
-
-    private Data readConfig() {
-        throw new IllegalStateException("parsing fichier xml de config");
-    }
-
-    private Data loadData(Type type, Id id, Context ctx) {
-        throw new IllegalStateException("construction des donnees relatives au composant");
-    }
-
-
-    void openScenario(Type type, Id id) {
-        Context ctx = selectContext();
-        Component c = buildComponent(type, id, ctx);
-        c.open(ctx);
-    }
-
-    void loadComponentScenario() {
-        Data data = readConfig();
-        Context ctx = selectContext();
-        Component c = buildComponent(data, ctx);
-        c.open(ctx);
+    public static void doSaveComponent(ComponentType type, ComponentId id, Context context) {
+        Component component = context.getComponentRegistry().findComponent(type, id);
+        component.refreshData();
+        ComponentData saved = component.save();
+        context.getComponentDataRepository().save(saved);
     }
 
 }
