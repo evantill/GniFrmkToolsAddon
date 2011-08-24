@@ -1,5 +1,6 @@
 package com.gni.frmk.tools.addon.tdd.tdd3.impl;
 
+import com.gni.frmk.tools.addon.tdd.tdd3.api.ComponentContext;
 import com.gni.frmk.tools.addon.tdd.tdd3.api.ComponentState;
 import com.gni.frmk.tools.addon.tdd.tdd3.api.ComponentStrategy;
 import com.gni.frmk.tools.addon.tdd.tdd3.impl.AlphaComponent.Data;
@@ -48,18 +49,18 @@ public class AlphaComponent extends BaseComponent<AlphaComponentType, IntegerCom
 
 
     @Override
-    public void open() {
-        getData().enabled = true;
+    public void open(ComponentContext ctx) {
+            getData().enabled = true;
     }
 
     @Override
-    public void close() {
+    public void close(ComponentContext ctx) {
         getData().enabled = false;
     }
 
     @Override
-    public void refreshData() {
-        getData().description = "refresh";
+    public void refreshData(ComponentContext ctx) {
+
     }
 
     @Override

@@ -10,9 +10,9 @@ package com.gni.frmk.tools.addon.tdd.tdd3.api;
  * different pour chaque plugins
  */
 public interface ComponentStrategy {
-    void open();
+    void open(ComponentContext ctx);
 
-    void close();
+    void close(ComponentContext ctx);
 
-    void refreshData();
+    void refreshData(ComponentContext ctx);
 }

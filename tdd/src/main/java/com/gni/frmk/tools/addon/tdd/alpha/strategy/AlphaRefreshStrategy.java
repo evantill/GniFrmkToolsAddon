@@ -1,6 +1,5 @@
 package com.gni.frmk.tools.addon.tdd.alpha.strategy;
 
-import com.gni.frmk.tools.addon.tdd.alpha.AlphaComponent;
 import com.gni.frmk.tools.addon.tdd.api.Component;
 
 /**

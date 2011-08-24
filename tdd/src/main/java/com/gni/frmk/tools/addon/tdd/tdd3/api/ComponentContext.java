@@ -7,7 +7,7 @@ package com.gni.frmk.tools.addon.tdd.tdd3.api;
  *
  * @author: e03229
  */
-public interface Context {
+public interface ComponentContext {
     ComponentStrategyRegistry getComponentStrategyRegistry();
 
     ComponentConfigurationRepository getComponentDataRepository();
