@@ -17,8 +17,6 @@ public class XXX {
         void open(X ctx, C command);
 
         Class<C> getRequiredCommandType();
-
-        Class<X> getRequiredContextType();
     }
 
     interface Context<X extends Context<X>> {
@@ -55,26 +53,9 @@ public class XXX {
             return strategy.getRequiredCommandType().isInstance(command);
         }
 
-        @SuppressWarnings({"unchecked"})//guarded by strategySupportCommand
+        @SuppressWarnings("unchecked")//guarded by strategySupportCommand
         private <C extends Command> Strategy<? super C, ? super X> asStrategyForCommand(Strategy<?, ? super X> strategy, C command) {
             return (Strategy<? super C, ? super X>) strategy;
-        }
-    }
-
-    static class Strategies {
-        @SuppressWarnings({"unchecked"})//guarded by using strategy.getRequiredCommandType()
-        public static <C extends Command, X extends Context<X>> Strategy<? super C, ? extends X>
-        forCommand(Strategy<?, ? extends X> strategy, C command) {
-            Class<? extends Command> requiredCommandType = strategy.getRequiredCommandType();
-            if (requiredCommandType.isInstance(command)) {
-                return (Strategy<? super C, ? extends X>) strategy;
-            }
-            String errorMessage = String.format("strategy can not handle command %s", command);
-            throw new IllegalStateException(errorMessage);
-        }
-
-        public static boolean isForCommand(Strategy<?, ?> strategy, Command command) {
-            return strategy.getRequiredCommandType().isInstance(command);
         }
     }
 
@@ -94,10 +75,6 @@ public class XXX {
 
         public String getParam1() {
             return param1;
-        }
-
-        public String getComponentType() {
-            return getClass().getName();
         }
     }
 
@@ -172,11 +149,6 @@ public class XXX {
         public Class<AlphaOpenCommand> getRequiredCommandType() {
             return AlphaOpenCommand.class;
         }
-
-        @Override
-        public Class<LocalContext> getRequiredContextType() {
-            return LocalContext.class;
-        }
     }
 
     static class RemoteGenericStrategy implements Strategy<Command, RemoteContext> {
@@ -192,11 +164,6 @@ public class XXX {
         @Override
         public Class<Command> getRequiredCommandType() {
             return Command.class;
-        }
-
-        @Override
-        public Class<RemoteContext> getRequiredContextType() {
-            return RemoteContext.class;
         }
     }
 
